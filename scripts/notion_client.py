@@ -288,6 +288,25 @@ def download_file(url, dest_path):
     return dest_path
 
 
+def create_page(database_id, properties):
+    """
+    Create a new page in a Notion database.
+    `properties` should be a dict in Notion API property format.
+    Returns the created page object.
+    """
+    url = 'https://api.notion.com/v1/pages'
+    body = {
+        'parent': {'database_id': database_id},
+        'properties': properties,
+    }
+    resp = requests.post(url, headers=HEADERS, json=body)
+    if not resp.ok:
+        print(f"Error creating page: {resp.status_code}")
+        print(resp.text)
+        resp.raise_for_status()
+    return resp.json()
+
+
 def append_blocks_to_page(page_id, blocks):
     """Append blocks to a page or block."""
     url = f'https://api.notion.com/v1/blocks/{page_id}/children'
