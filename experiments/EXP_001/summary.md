@@ -290,9 +290,94 @@ For each internal BsaI site, two mutagenic primers are designed that overlap at 
 
 ---
 
-## 7. Conclusion
+## 7. V2 Redesign — Standardized Overhangs & 100 kb Groups
 
-**BsaI** is the optimal enzyme for Golden Gate genome tiling of *E. coli* MG1655. The complete pipeline — enzyme selection → genome tiling → primer design → PCR simulation → domestication — shows that the **entire 4.64 Mb genome** can be captured into MoClo Lvl0/Lvl1 constructs:
+The V1 design uses genome-derived 4-nt overhangs at each tile junction, producing seamless assemblies but with unique, non-interchangeable parts. V2 addresses two limitations:
+
+1. **Interchangeability** — All tiles at the same position share identical overhangs, enabling free swapping between Lvl1 groups
+2. **Larger groups** — 15 tiles per group (~100 kb) instead of 11, reducing the number of Lvl1 assemblies from 63 → **46** (−27%)
+
+### 7.1 Standardized Fusion Sites
+
+16 unique 4-nt overhangs were designed with these constraints:
+- No palindromes · No homopolymer runs ≥3 · Hamming distance ≥2 between all pairs · No BsaI site overlap · No reverse-complement pair duplicates
+
+### 7.2 V1 vs V2 Comparison
+
+| Parameter | V1 | V2 | Change |
+|-----------|----|----|--------|
+| Tiles per Lvl1 group | 11 | **15** | +36% |
+| Total Lvl1 groups | 63 | **46** | −27% |
+| Average Lvl1 size | 73.6 kb | **100.9 kb** | +37% |
+| Total tiles | 686 | 686 | — |
+| GG-ready tiles | 487 (71.0%) | **480 (70.0%)** | −1% |
+| Overhang type | Genome-derived | **Standardized** | — |
+| Parts interchangeable? | No | **Yes** | — |
+| Junction scarless? | Yes | **No (4-nt scar)** | — |
+| CDS-safe boundaries | 92.4% | **99.7%** | +7.3 pp |
+
+### 7.3 CDS-Safe Boundary Placement
+
+V2 enforces intergenic boundary placement: only **2 of 687 boundaries** (0.3%) fall within a CDS, versus 52 (7.6%) in V1. The 2 remaining CDS boundaries occur in gene-dense regions with no intergenic gaps within ±3 kb.
+
+### 7.4 Interchangeability
+
+Each position (P0–P14) has 45–46 interchangeable tiles across all 46 groups. For example, any of the 33 GG-ready P0 tiles can be used in **any** Lvl1 group without redesigning primers.
+
+![V2 interchangeability](data/v2_interchangeability.png)
+
+### 7.5 V2 Domestication
+
+| Metric | Value |
+|--------|-------|
+| Tiles requiring domestication | 206 |
+| Total BsaI sites to remove | 261 |
+| Total oligos (tile + mutagenic) | **1,894** |
+
+After domestication, all **46 Lvl1 groups** are complete.
+
+![V2 domestication before/after](data/v2_domestication_before_after.png)
+
+---
+
+## 8. V2 Lvl1 Group Analysis
+
+![V2 Lvl1 group analysis](data/v2_lvl1_analysis.png)
+
+### 8.1 Group Length Distribution
+
+- **Mean: 100.9 kb** (Median: 101.2 kb, Std: 4.7 kb)
+- All groups are 97–106 kb except Group 45 (73.1 kb — tail end of genome, 11 tiles)
+
+### 8.2 GC Content
+
+- **Mean GC: 50.7%** — consistent with *E. coli* MG1655
+- Group means range 48.0% – 52.6% — uniform across the genome
+- Individual tile range: 35.9% – 62.7% — some AT/GC-rich outliers
+
+### 8.3 Assembly Readiness
+
+- **Mean: 70% GG-ready** per group
+- Best: Group 8 (93%, 14/15 ready) · Worst: Groups 39, 44 (40%, 6/15 ready)
+
+### 8.4 Domestication Burden
+
+- **261 total BsaI sites** (mean 5.7/group)
+- Heaviest: Group 39 (14 sites) · Lightest: Groups 8, 25, 30 (1 blocked tile each)
+
+### 8.5 Tile Size Variability
+
+- Mean: **6,766 bp**, mostly 5.5–8 kb
+- Intra-group std: 831 bp (low variability)
+- Extremes: 2,122 bp (Group 45, T10) — 10,984 bp (Group 21, T5)
+
+---
+
+## 9. Conclusion
+
+**BsaI** is the optimal enzyme for Golden Gate genome tiling of *E. coli* MG1655. The complete pipeline — enzyme selection → genome tiling → primer design → PCR simulation → domestication — shows that the **entire 4.64 Mb genome** can be captured into MoClo Lvl0/Lvl1 constructs.
+
+**V1 summary:**
 
 | Stage | Result |
 |-------|--------|
@@ -301,14 +386,56 @@ For each internal BsaI site, two mutagenic primers are designed that overlap at 
 | PCR simulation (without domestication) | 487/686 tiles ready (71%), but only **2/63 Lvl1 groups complete** |
 | After OE-PCR domestication | **686/686 tiles ready (100%)**, **63/63 Lvl1 groups complete** |
 
-The domestication effort requires **478 new mutagenic primers** and **1,118 total PCR reactions** (including 185 overlap extension assemblies). All mutations are synonymous — preserving the encoded proteome.
+**V2 summary:**
+
+| Stage | Result |
+|-------|--------|
+| Standardized overhangs | **16 fusion sites**, Hamming ≥2, no BsaI risk |
+| Lvl1 groups | **46 groups** (15 tiles each, ~100 kb) — 27% fewer than V1 |
+| Interchangeability | All tiles at same position are **swappable** across groups |
+| After domestication | **686/686 tiles ready**, **46/46 Lvl1 groups complete** |
+| Total oligos | **1,894** (+2% vs V1) |
 
 ### Next steps
 
-1. **Order primers** — 686 tile primer pairs + 478 mutagenic primers = **1,850 oligos total**
-2. **Phase 1: PCR amplification** — Start with the 487 site-free tiles (single PCR each)
-3. **Phase 2: OE-PCR domestication** — Process the 185 blocked tiles via overlap extension
-4. **Phase 3: Golden Gate assembly** — Assemble all 63 Lvl1 constructs
+1. **Order primers** — 686 tile primer pairs + 522 mutagenic primers = **1,894 oligos total** (V2 design)
+2. **Phase 1: PCR amplification** — Start with the 480 site-free tiles (single PCR each)
+3. **Phase 2: OE-PCR domestication** — Process the 206 blocked tiles via overlap extension
+4. **Phase 3: Golden Gate assembly** — Assemble all 46 Lvl1 constructs
+5. **Phase 4: Combinatorial assembly** — Exploit interchangeable tiles for chimeric constructs and mutant libraries
+
+---
+
+## 10. Output Files
+
+### V1 Data
+
+| File | Description |
+|------|-------------|
+| [tiles.csv](data/tiles.csv) | Complete primer table — V1 overhangs |
+| [pcr_simulation.csv](data/pcr_simulation.csv) | Per-tile PCR results |
+| [lvl1_assembly_summary.csv](data/lvl1_assembly_summary.csv) | V1 Lvl1 group summary |
+| [domestication_primers.csv](data/domestication_primers.csv) | 239 mutagenic primer pairs |
+
+### V2 Data
+
+| File | Description |
+|------|-------------|
+| [v2_tiles.csv](data/v2_tiles.csv) | 686 tiles with V2 standardized overhangs |
+| [v2_lvl1_groups.csv](data/v2_lvl1_groups.csv) | 46 Lvl1 groups with completion status |
+| [v2_lvl1_analysis.png](data/v2_lvl1_analysis.png) | 9-panel Lvl1 group analysis figure |
+
+### Scripts
+
+| Script | Purpose |
+|--------|---------|
+| [restriction_utils.py](restriction_utils.py) | Genome download, site mapping, statistics |
+| [restriction_site_analysis.ipynb](restriction_site_analysis.ipynb) | Enzyme comparison notebook (Plotly) |
+| [primer_design.py](primer_design.py) | V1 tiling + primer design + domestication |
+| [pcr_simulation.py](pcr_simulation.py) | PCR simulation + Lvl1 assembly analysis |
+| [domestication_primers.py](domestication_primers.py) | OE-PCR mutagenic primer design |
+| [pipeline_v2.py](pipeline_v2.py) | V2 pipeline (standardized overhangs) |
+| [analyze_v2_lvl1.py](analyze_v2_lvl1.py) | V2 Lvl1 group analysis |
 
 ### References
 

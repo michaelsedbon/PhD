@@ -172,13 +172,73 @@ This means, for example, that any of the 33 GG-ready P0 tiles can be used in **a
 
 ---
 
-## 8. Practical Implications
+## 8. Lvl1 Group Analysis
 
-### 8.1 Fewer Assemblies, Same Coverage
+![V2 Lvl1 group analysis](data/v2_lvl1_analysis.png)
+
+### 8.1 Group Length Distribution
+
+| Metric | Value |
+|--------|-------|
+| Mean | **100,905 bp** |
+| Median | 101,242 bp |
+| Std | 4,662 bp |
+| Min | 73,133 bp (Group 45 — tail end, 11 tiles) |
+| Max | 105,859 bp (Group 44) |
+
+All groups land within 97–106 kb, tightly clustered around the 100 kb target. The only outlier is Group 45, which covers the remainder of the genome with only 11 tiles.
+
+### 8.2 GC Content Diversity
+
+| Metric | Value |
+|--------|-------|
+| Mean GC across all tiles | **50.7%** |
+| Group mean GC range | 48.0% – 52.6% |
+| Individual tile GC range | 35.9% – 62.7% |
+
+GC composition is uniform across groups, consistent with the *E. coli* MG1655 genome. Individual tile outliers exist (AT-rich and GC-rich regions) but do not cluster in any single group.
+
+### 8.3 Assembly Readiness Variation
+
+| Metric | Value |
+|--------|-------|
+| Mean readiness | **70.0%** |
+| Most ready group | Group 8 — 93% (14/15 tiles GG-ready) |
+| Least ready groups | Groups 39, 44 — 40% (6/15 tiles GG-ready) |
+
+Readiness varies significantly (40–93%). Groups in the 1.0–1.1 Mb and 3.9–4.6 Mb regions tend to carry more BsaI sites.
+
+### 8.4 Domestication Burden Distribution
+
+| Metric | Value |
+|--------|-------|
+| Total BsaI sites to remove | **261** |
+| Mean sites per group | 5.7 |
+| Max sites in one group | 14 (Group 39) |
+| Lightest groups (1 blocked tile) | Groups 8, 25, 30 |
+
+Group 39 requires the most domestication effort (14 BsaI sites across 9 blocked tiles), while Groups 8, 25, and 30 need only a single tile fixed.
+
+### 8.5 Tile Size Variability
+
+| Metric | Value |
+|--------|-------|
+| Mean tile size | **6,766 bp** |
+| Intra-group tile size std | 831 bp (mean) |
+| Smallest tile | 2,122 bp (Group 45, T10) |
+| Largest tile | 10,984 bp (Group 21, T5) |
+
+Tile sizes are well-distributed (mostly 5.5–8 kb), with low intra-group variability. The few outlier tiles arise from gene-dense regions where boundary placement options were constrained.
+
+---
+
+## 9. Practical Implications
+
+### 9.1 Fewer Assemblies, Same Coverage
 
 V2 reduces the number of Lvl1 assembly reactions from **63 → 46** (−27%), while maintaining 100% genome coverage with the same 686 tiles.
 
-### 8.2 Combinatorial Library Construction
+### 9.2 Combinatorial Library Construction
 
 With standardized overhangs, tiles at the same position can be mixed-and-matched across Lvl1 groups. This enables:
 
@@ -186,7 +246,7 @@ With standardized overhangs, tiles at the same position can be mixed-and-matched
 - **Mutant libraries** — combine wild-type and domesticated variants at each position
 - **Modular genome segments** — any Lvl1 can be reconstituted from tiles of different groups
 
-### 8.3 Cost Comparison
+### 9.3 Cost Comparison
 
 | Reagent | V1 | V2 |
 |---------|----|----|
@@ -200,7 +260,7 @@ The oligo count is nearly identical (+2%), but 17 fewer Lvl1 assemblies are requ
 
 ---
 
-## 9. Data Files
+## 10. Data Files
 
 | File | Description |
 |------|-------------|
@@ -208,10 +268,12 @@ The oligo count is nearly identical (+2%), but 17 fewer Lvl1 assemblies are requ
 | `data/v2_tiles.csv` | All 686 tiles with V2 overhangs, primers, BsaI status |
 | `data/v2_lvl1_groups.csv` | 46 Lvl1 groups with completion status |
 | `moclo-viewer/public/data_bundle_v2.json` | Full data bundle for viewer integration |
+| `data/v2_lvl1_analysis.png` | 9-panel Lvl1 group analysis figure |
+| `analyze_v2_lvl1.py` | Lvl1 group analysis script |
 
 ---
 
-## 10. Conclusion
+## 11. Conclusion
 
 The V2 design achieves the two goals:
 
