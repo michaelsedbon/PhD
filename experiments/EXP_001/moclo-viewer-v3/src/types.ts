@@ -79,6 +79,15 @@ export interface CDSRegion {
     gene: string;
 }
 
+export interface GeneProduct {
+    gene: string;
+    start: number;
+    end: number;
+    complement: boolean;
+    product: string;
+    category: string;
+}
+
 export interface DesignInfo {
     tiles_per_group: number;
     standard_overhangs: string[];
@@ -117,6 +126,7 @@ export interface AppData {
     genomeSeq: string;
     cdsRegions: CDSRegion[];
     tilesByGroup: Map<number, Tile[]>;
+    geneProducts: GeneProduct[];
 }
 
 // Navigation

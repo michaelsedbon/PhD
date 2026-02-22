@@ -2224,3 +2224,225 @@ body {
     color: var(--text-muted);
     text-align: right;
 }
+
+/* ══════════════════════════════════════════════════════════════════════
+   QC DASHBOARD
+   ══════════════════════════════════════════════════════════════════════ */
+
+.qc-dashboard {
+    margin-top: 12px;
+}
+
+.qc-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+}
+
+.qc-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.qc-chart-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px;
+    backdrop-filter: blur(10px);
+    margin-bottom: 12px;
+}
+
+.qc-chart-card.full {
+    margin-bottom: 12px;
+}
+
+.qc-chart-card h3 {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+}
+
+.qc-subtitle {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin: -6px 0 10px;
+}
+
+.qc-canvas-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.qc-canvas-wrap canvas {
+    display: block;
+}
+
+.qc-stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+    margin-top: 8px;
+    font-size: 10px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+}
+
+/* ── Gene Explorer ──────────────────────────────────────────────────── */
+
+.qc-gene-explorer {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    backdrop-filter: blur(10px);
+}
+
+.qc-gene-explorer h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.qc-category-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+.cat-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    font-size: 10px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition);
+    font-family: var(--font-sans);
+}
+
+.cat-pill:hover {
+    background: var(--bg-card);
+    color: var(--text-primary);
+}
+
+.cat-pill.active {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.cat-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+}
+
+.qc-gene-list {
+    max-height: 480px;
+    overflow-y: auto;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+}
+
+.qc-gene-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.qc-gene-list::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 3px;
+}
+
+.gene-list-header {
+    display: grid;
+    grid-template-columns: 80px 1fr 130px 160px 60px;
+    gap: 8px;
+    padding: 8px 12px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    background: var(--bg-tertiary);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.gene-list-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 130px 160px 60px;
+    gap: 8px;
+    padding: 6px 12px;
+    font-size: 11px;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: background var(--transition);
+    align-items: center;
+}
+
+.gene-list-row:hover {
+    background: var(--bg-tertiary);
+}
+
+.gene-list-row:last-child {
+    border-bottom: none;
+}
+
+.gl-gene {
+    font-weight: 600;
+    color: var(--purple);
+    font-style: italic;
+}
+
+.gl-product {
+    color: var(--text-muted);
+    font-size: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.gl-pos {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-muted);
+}
+
+.gl-group {
+    font-weight: 600;
+    color: var(--blue);
+    text-align: center;
+}
+
+.cat-tag {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 8px;
+    font-size: 9px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.gene-list-more {
+    padding: 12px;
+    text-align: center;
+    font-size: 11px;
+    color: var(--text-muted);
+    background: var(--bg-tertiary);
+}

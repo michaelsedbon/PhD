@@ -1,5 +1,6 @@
 import { useRef, useEffect, useMemo } from 'react';
 import { AppData, ViewState } from '../types';
+import QCDashboard from './QCDashboard';
 
 interface Props {
     data: AppData;
@@ -197,6 +198,9 @@ export default function GenomeOverview({ data, onNavigate }: Props) {
                     ))}
                 </div>
             </div>
+
+            {/* QC Dashboard */}
+            <QCDashboard data={data} onNavigate={onNavigate} />
         </div>
     );
 }
