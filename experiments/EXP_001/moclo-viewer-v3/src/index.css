@@ -2849,3 +2849,141 @@ body {
     margin: 0 0 12px;
     color: var(--text-secondary);
 }
+
+/* ── Mode Toggle ──────────────────────────────────────────────────── */
+.recomb-mode-toggle {
+    display: flex;
+    gap: 4px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 4px;
+    margin-bottom: 20px;
+    width: fit-content;
+}
+
+.recomb-mode-toggle button {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.recomb-mode-toggle button.active {
+    background: linear-gradient(135deg, #1a3a5c, #1a2744);
+    color: #58a6ff;
+    box-shadow: 0 2px 8px rgba(88, 166, 255, .15);
+}
+
+.recomb-mode-toggle button:hover:not(.active) {
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, .04);
+}
+
+/* ── Genome empty state ───────────────────────────────────────────── */
+.genome-empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-muted);
+    background: var(--bg-secondary);
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+    margin: 20px 0;
+}
+
+.genome-empty p {
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.genome-empty-hint {
+    font-size: 12px;
+    opacity: .6;
+}
+
+/* ── Score delta label ────────────────────────────────────────────── */
+.score-delta {
+    display: block;
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+/* ── Active preset button ─────────────────────────────────────────── */
+.preset-btn.active {
+    outline: 2px solid #58a6ff;
+    outline-offset: 1px;
+}
+
+/* ── Tall plot for heatmap ────────────────────────────────────────── */
+.recomb-plot.tall {
+    height: 600px;
+}
+
+/* ── Genome summary table ─────────────────────────────────────────── */
+.genome-table-wrap {
+    max-height: 600px;
+    overflow-y: auto;
+    border-radius: 8px;
+}
+
+.genome-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.genome-table th {
+    position: sticky;
+    top: 0;
+    background: var(--bg-tertiary);
+    padding: 8px 12px;
+    text-align: left;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    border-bottom: 1px solid var(--border);
+    z-index: 1;
+}
+
+.genome-table td {
+    padding: 6px 12px;
+    border-bottom: 1px solid rgba(48, 54, 61, .5);
+    color: var(--text-secondary);
+}
+
+.genome-table tr:hover td {
+    background: rgba(88, 166, 255, .04);
+}
+
+.gt-group {
+    font-weight: 600;
+    color: var(--text-primary) !important;
+}
+
+.accent-blue {
+    color: #58a6ff;
+}
+
+.accent-green {
+    color: #3fb950;
+}
+
+.accent-red {
+    color: #f85149;
+}
+
+.accent-purple {
+    color: #bc8cff;
+}
+
+.accent-cyan {
+    color: #39d2c0;
+}
