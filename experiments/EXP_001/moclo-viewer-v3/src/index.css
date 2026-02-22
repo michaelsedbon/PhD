@@ -1928,3 +1928,299 @@ body {
     color: var(--text-muted);
     white-space: nowrap;
 }
+
+/* ── Genome Context Strip ────────────────────────────────────────────── */
+
+.genome-context-section {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    backdrop-filter: blur(10px);
+}
+
+.genome-context-section h3 {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+}
+
+.genome-context-bar {
+    position: relative;
+    height: 28px;
+    background: var(--bg-tertiary);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.context-track {
+    position: absolute;
+    inset: 0;
+}
+
+.ctx-group {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background: rgba(88, 166, 255, 0.1);
+    border-right: 1px solid rgba(88, 166, 255, 0.08);
+    cursor: pointer;
+    transition: background var(--transition);
+}
+
+.ctx-group:hover {
+    background: rgba(88, 166, 255, 0.25);
+}
+
+.ctx-group.current {
+    background: rgba(88, 166, 255, 0.5);
+    box-shadow: 0 0 8px rgba(88, 166, 255, 0.4);
+    z-index: 2;
+    cursor: default;
+}
+
+.context-marker {
+    position: absolute;
+    top: -2px;
+    height: calc(100% + 4px);
+    border: 2px solid var(--blue);
+    border-radius: 4px;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.context-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    margin-top: 6px;
+    padding: 0 2px;
+}
+
+/* ── Genes Section ──────────────────────────────────────────────────── */
+
+.genes-section {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    backdrop-filter: blur(10px);
+}
+
+.genes-section h3 {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+}
+
+.gene-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.gene-card {
+    padding: 12px 14px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    transition: border-color var(--transition);
+}
+
+.gene-card:hover {
+    border-color: var(--purple);
+}
+
+.gene-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.gene-name-big {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--purple);
+    font-style: italic;
+}
+
+.gene-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+}
+
+/* ── Domestication Toggle ───────────────────────────────────────────── */
+
+.dom-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.dom-header-row h3 {
+    margin-bottom: 0;
+}
+
+.dom-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.dom-toggle input {
+    display: none;
+}
+
+.toggle-slider {
+    position: relative;
+    width: 36px;
+    height: 20px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: all 0.25s ease;
+}
+
+.toggle-slider::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 14px;
+    height: 14px;
+    background: var(--text-muted);
+    border-radius: 50%;
+    transition: all 0.25s ease;
+}
+
+.dom-toggle input:checked+.toggle-slider {
+    background: var(--green-dim);
+    border-color: var(--green);
+}
+
+.dom-toggle input:checked+.toggle-slider::after {
+    left: 18px;
+    background: var(--green);
+}
+
+.toggle-label {
+    font-size: 11px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.dom-toggle.compact {
+    margin-right: 8px;
+}
+
+.dom-toggle.compact .toggle-slider {
+    width: 30px;
+    height: 16px;
+}
+
+.dom-toggle.compact .toggle-slider::after {
+    width: 10px;
+    height: 10px;
+    top: 2px;
+    left: 2px;
+}
+
+.dom-toggle.compact input:checked+.toggle-slider::after {
+    left: 16px;
+}
+
+/* ── Alignment Legend ───────────────────────────────────────────────── */
+
+.alignment-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 8px 16px;
+    border-bottom: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+.alignment-legend span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.al-swatch {
+    display: inline-block;
+    width: 12px;
+    height: 8px;
+    border-radius: 2px;
+}
+
+.al-swatch.gc {
+    background: linear-gradient(90deg, rgb(210, 153, 34), rgb(88, 166, 255));
+}
+
+.al-swatch.cds-plus {
+    background: rgba(57, 210, 192, 0.5);
+}
+
+.al-swatch.cds-minus {
+    background: rgba(188, 140, 255, 0.5);
+}
+
+.al-swatch.bsai {
+    background: rgba(248, 81, 73, 0.9);
+}
+
+.al-swatch.mut {
+    background: rgba(210, 153, 34, 0.9);
+}
+
+/* ── Enriched Mutation Items ────────────────────────────────────────── */
+
+.mutation-item.rich {
+    display: grid;
+    grid-template-columns: 80px 80px auto 100px 120px;
+    gap: 8px;
+    align-items: center;
+}
+
+.mutation-item .nt-old {
+    color: var(--red);
+    font-family: var(--font-mono);
+    font-weight: 700;
+}
+
+.mutation-item .arrow {
+    color: var(--text-muted);
+    margin: 0 3px;
+}
+
+.mutation-item .nt-new {
+    color: var(--green);
+    font-family: var(--font-mono);
+    font-weight: 700;
+}
+
+.mutation-item .codon {
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 11px;
+}
+
+.mutation-item .amino {
+    font-size: 10px;
+    color: var(--text-muted);
+    text-align: right;
+}
