@@ -55,6 +55,16 @@ function computeGroupStats(
     return { catCounts, totalGenes, ggReady, totalBsai, totalLength, nCats: Object.keys(catCounts).length };
 }
 
+/* ── Helper: filter cat vector by exclusion set ─────────────────── */
+function filteredCatVector(cv: Record<string, number>, excluded: Set<string>): Record<string, number> {
+    if (excluded.size === 0) return cv;
+    const r: Record<string, number> = {};
+    for (const [c, n] of Object.entries(cv)) {
+        if (!excluded.has(c)) r[c] = n;
+    }
+    return r;
+}
+
 export default function Recombinator({ data, onNavigate }: Props) {
     const { bundle, geneProducts } = data;
     const nPos = bundle.design.tiles_per_group; // 15
@@ -62,6 +72,13 @@ export default function Recombinator({ data, onNavigate }: Props) {
 
     // ── Mode toggle ──
     const [mode, setMode] = useState<'single' | 'genome'>('single');
+
+    // ── Category exclusion ──
+    const [excludedCats, setExcludedCats] = useState<Set<string>>(new Set(['Other', 'Uncharacterized', 'Unknown']));
+    const [showCatFilter, setShowCatFilter] = useState(false);
+
+    // ── Expanded group in genome table ──
+    const [expandedGroup, setExpandedGroup] = useState<number | null>(null);
 
     // ── Index tiles by position ──
     const tilesByPosition = useMemo(() => {
@@ -95,6 +112,27 @@ export default function Recombinator({ data, onNavigate }: Props) {
         }
         return m;
     }, [tileGenes]);
+
+    // ── All categories sorted by frequency ──
+    const allCategories = useMemo(() => {
+        const s = new Set<string>();
+        for (const gp of geneProducts) s.add(gp.category);
+        const arr = Array.from(s);
+        arr.sort((a, b) => {
+            const countA = geneProducts.filter(g => g.category === a).length;
+            const countB = geneProducts.filter(g => g.category === b).length;
+            return countB - countA;
+        });
+        return arr;
+    }, [geneProducts]);
+
+    const toggleCatExclusion = useCallback((cat: string) => {
+        setExcludedCats(prev => {
+            const next = new Set(prev);
+            if (next.has(cat)) next.delete(cat); else next.add(cat);
+            return next;
+        });
+    }, []);
 
     const getGroupTiles = useCallback((gid: number) => {
         const result: (number | null)[] = [];
@@ -153,7 +191,7 @@ export default function Recombinator({ data, onNavigate }: Props) {
         return Object.entries(catCounts).sort((a, b) => b[1] - a[1]);
     }, [compareGroup, getGroupTiles, tileGenes, nPos]);
 
-    // ── Single-group presets ──
+    // ── Single-group presets (with category exclusion) ──
     const applyPreset = useCallback((strategy: string) => {
         if (strategy === 'original') { setSelected(getGroupTiles(compareGroup)); return; }
         if (strategy === 'random') {
@@ -197,11 +235,14 @@ export default function Recombinator({ data, onNavigate }: Props) {
                 let bestNewCats = -1;
                 for (const t of candidates) {
                     const genes = tileGenes.get(t.id) || [];
-                    const newCats = new Set(genes.map(g => g.category).filter(c => !coveredCats.has(c)));
+                    // Only count non-excluded categories for scoring
+                    const newCats = new Set(genes.map(g => g.category).filter(c => !excludedCats.has(c) && !coveredCats.has(c)));
                     if (newCats.size > bestNewCats) { bestNewCats = newCats.size; bestTile = t; }
                 }
                 const bestGenes = tileGenes.get(bestTile.id) || [];
-                for (const g of bestGenes) coveredCats.add(g.category);
+                for (const g of bestGenes) {
+                    if (!excludedCats.has(g.category)) coveredCats.add(g.category);
+                }
                 result.push(bestTile.id);
             }
             setSelected(result);
@@ -216,31 +257,40 @@ export default function Recombinator({ data, onNavigate }: Props) {
                     let bestTile = candidates[0], fewest = Infinity;
                     for (const t of candidates) {
                         const genes = tileGenes.get(t.id) || [];
-                        const cats = new Set(genes.map(g => g.category));
+                        // Count only non-excluded categories
+                        const cats = new Set(genes.map(g => g.category).filter(c => !excludedCats.has(c)));
                         if (cats.size < fewest && cats.size > 0) { fewest = cats.size; bestTile = t; }
                     }
                     const bestGenes = tileGenes.get(bestTile.id) || [];
-                    for (const g of bestGenes) coveredCats.set(g.category, (coveredCats.get(g.category) || 0) + 1);
+                    for (const g of bestGenes) {
+                        if (!excludedCats.has(g.category))
+                            coveredCats.set(g.category, (coveredCats.get(g.category) || 0) + 1);
+                    }
                     result.push(bestTile.id);
                 } else {
                     let bestTile = candidates[0], bestScore = -Infinity;
                     for (const t of candidates) {
                         const genes = tileGenes.get(t.id) || [];
                         if (genes.length === 0) continue;
-                        const cats = genes.map(g => g.category);
+                        // Only score non-excluded categories for overlap
+                        const cats = genes.map(g => g.category).filter(c => !excludedCats.has(c));
+                        if (cats.length === 0) continue;
                         const overlapCount = cats.filter(c => coveredCats.has(c)).length;
                         const score = overlapCount / cats.length;
                         if (score > bestScore) { bestScore = score; bestTile = t; }
                     }
                     const bestGenes = tileGenes.get(bestTile.id) || [];
-                    for (const g of bestGenes) coveredCats.set(g.category, (coveredCats.get(g.category) || 0) + 1);
+                    for (const g of bestGenes) {
+                        if (!excludedCats.has(g.category))
+                            coveredCats.set(g.category, (coveredCats.get(g.category) || 0) + 1);
+                    }
                     result.push(bestTile.id);
                 }
             }
             setSelected(result);
             return;
         }
-    }, [nPos, tilesByPosition, tileGenes, getGroupTiles, compareGroup]);
+    }, [nPos, tilesByPosition, tileGenes, getGroupTiles, compareGroup, excludedCats]);
 
     const allCatLabels = useMemo(() => {
         const all = new Set<string>();
@@ -259,10 +309,9 @@ export default function Recombinator({ data, onNavigate }: Props) {
     const [genomeArrangement, setGenomeArrangement] = useState<(number | null)[][] | null>(null);
     const [activeGenomeStrategy, setActiveGenomeStrategy] = useState<string | null>(null);
 
-    // ── Genome-wide optimization algorithms ──
+    // ── Genome-wide optimization algorithms (with category exclusion) ──
     const applyGenomePreset = useCallback((strategy: string) => {
         const nG = nGroups;
-        // Build result: nG groups × nPos positions
         const result: (number | null)[][] = Array.from({ length: nG }, () => new Array(nPos).fill(null));
 
         if (strategy === 'original') {
@@ -272,10 +321,8 @@ export default function Recombinator({ data, onNavigate }: Props) {
         }
 
         if (strategy === 'random') {
-            // At each position, randomly permute tiles across groups
             for (let p = 0; p < nPos; p++) {
                 const candidates = [...(tilesByPosition.get(p) || [])];
-                // Shuffle
                 for (let i = candidates.length - 1; i > 0; i--) {
                     const j = Math.floor(Math.random() * (i + 1));
                     [candidates[i], candidates[j]] = [candidates[j], candidates[i]];
@@ -290,28 +337,24 @@ export default function Recombinator({ data, onNavigate }: Props) {
         }
 
         if (strategy === 'maxDiversity') {
-            // Goal: each group should have maximum category diversity
-            // Greedy: for each position, assign tiles to groups to maximize category coverage
             const groupCats: Set<string>[] = Array.from({ length: nG }, () => new Set());
             for (let p = 0; p < nPos; p++) {
                 const candidates = [...(tilesByPosition.get(p) || [])];
-                // Score each (group, tile) pair: how many NEW categories does tile add to group?
                 const pairs: { g: number; tile: Tile; score: number }[] = [];
                 for (let g = 0; g < Math.min(candidates.length, nG); g++) {
                     for (const t of candidates) {
-                        const cv = tileCatVector.get(t.id) || {};
+                        const cv = filteredCatVector(tileCatVector.get(t.id) || {}, excludedCats);
                         const newCats = Object.keys(cv).filter(c => !groupCats[g].has(c)).length;
                         pairs.push({ g, tile: t, score: newCats });
                     }
                 }
-                // Sort by score descending (most new categories first)
                 pairs.sort((a, b) => b.score - a.score);
                 const usedTiles = new Set<number>();
                 const usedGroups = new Set<number>();
                 for (const { g, tile } of pairs) {
                     if (usedTiles.has(tile.id) || usedGroups.has(g)) continue;
                     result[g][p] = tile.id;
-                    const cv = tileCatVector.get(tile.id) || {};
+                    const cv = filteredCatVector(tileCatVector.get(tile.id) || {}, excludedCats);
                     for (const c of Object.keys(cv)) groupCats[g].add(c);
                     usedTiles.add(tile.id);
                     usedGroups.add(g);
@@ -324,37 +367,30 @@ export default function Recombinator({ data, onNavigate }: Props) {
         }
 
         if (strategy === 'minDiversity') {
-            // Goal: each group specializes in as few categories as possible
-            // At each position, assign tiles to groups to maximize overlap with existing categories
             const groupCats: Map<string, number>[] = Array.from({ length: nG }, () => new Map());
 
-            // First pass: seed each group with a dominant category
-            // Assign tiles at position 0 to create initial specialization seeds
             const pos0 = [...(tilesByPosition.get(0) || [])];
-            // Sort by dominant category to cluster similar tiles
             pos0.sort((a, b) => {
-                const av = tileCatVector.get(a.id) || {};
-                const bv = tileCatVector.get(b.id) || {};
+                const av = filteredCatVector(tileCatVector.get(a.id) || {}, excludedCats);
+                const bv = filteredCatVector(tileCatVector.get(b.id) || {}, excludedCats);
                 const aTop = Object.entries(av).sort((x, y) => y[1] - x[1])[0]?.[0] || '';
                 const bTop = Object.entries(bv).sort((x, y) => y[1] - x[1])[0]?.[0] || '';
                 return aTop.localeCompare(bTop);
             });
             for (let g = 0; g < Math.min(pos0.length, nG); g++) {
                 result[g][0] = pos0[g].id;
-                const cv = tileCatVector.get(pos0[g].id) || {};
+                const cv = filteredCatVector(tileCatVector.get(pos0[g].id) || {}, excludedCats);
                 for (const [c, n] of Object.entries(cv)) groupCats[g].set(c, n);
             }
 
-            // Subsequent positions: assign tile that best matches group's existing category profile
             for (let p = 1; p < nPos; p++) {
                 const candidates = [...(tilesByPosition.get(p) || [])];
                 const pairs: { g: number; tile: Tile; score: number }[] = [];
                 for (let g = 0; g < Math.min(candidates.length, nG); g++) {
                     for (const t of candidates) {
-                        const cv = tileCatVector.get(t.id) || {};
+                        const cv = filteredCatVector(tileCatVector.get(t.id) || {}, excludedCats);
                         const cats = Object.keys(cv);
                         if (cats.length === 0) { pairs.push({ g, tile: t, score: 0 }); continue; }
-                        // Score = fraction of tile's genes that overlap with group's existing categories
                         const totalGenes = Object.values(cv).reduce((s, v) => s + v, 0);
                         const overlapGenes = cats.reduce((s, c) => s + (groupCats[g].has(c) ? (cv[c] || 0) : 0), 0);
                         pairs.push({ g, tile: t, score: overlapGenes / totalGenes });
@@ -366,7 +402,7 @@ export default function Recombinator({ data, onNavigate }: Props) {
                 for (const { g, tile } of pairs) {
                     if (usedTiles.has(tile.id) || usedGroups.has(g)) continue;
                     result[g][p] = tile.id;
-                    const cv = tileCatVector.get(tile.id) || {};
+                    const cv = filteredCatVector(tileCatVector.get(tile.id) || {}, excludedCats);
                     for (const [c, n] of Object.entries(cv)) groupCats[g].set(c, (groupCats[g].get(c) || 0) + n);
                     usedTiles.add(tile.id);
                     usedGroups.add(g);
@@ -379,16 +415,13 @@ export default function Recombinator({ data, onNavigate }: Props) {
         }
 
         if (strategy === 'maxGG') {
-            // Goal: maximize GG-readiness per group
-            // Sort tiles at each position by gg_ready + fewest bsai, assign best to groups with worst scores
-            const groupScores = new Array(nG).fill(0); // Track cumulative gg_ready count
+            const groupScores = new Array(nG).fill(0);
             for (let p = 0; p < nPos; p++) {
                 const candidates = [...(tilesByPosition.get(p) || [])];
                 candidates.sort((a, b) => {
                     if (a.gg_ready !== b.gg_ready) return a.gg_ready ? -1 : 1;
                     return a.internal_bsai - b.internal_bsai;
                 });
-                // Assign best tiles to groups with lowest cumulative scores
                 const groupOrder = Array.from({ length: Math.min(candidates.length, nG) }, (_, i) => i)
                     .sort((a, b) => groupScores[a] - groupScores[b]);
                 for (let i = 0; i < groupOrder.length; i++) {
@@ -403,12 +436,10 @@ export default function Recombinator({ data, onNavigate }: Props) {
         }
 
         if (strategy === 'minBsaI') {
-            // Goal: minimize BsaI sites per group
             const groupBsai = new Array(nG).fill(0);
             for (let p = 0; p < nPos; p++) {
                 const candidates = [...(tilesByPosition.get(p) || [])];
                 candidates.sort((a, b) => a.internal_bsai - b.internal_bsai);
-                // Assign fewest-BsaI tiles to groups with highest cumulative BsaI
                 const groupOrder = Array.from({ length: Math.min(candidates.length, nG) }, (_, i) => i)
                     .sort((a, b) => groupBsai[b] - groupBsai[a]);
                 for (let i = 0; i < groupOrder.length; i++) {
@@ -421,7 +452,7 @@ export default function Recombinator({ data, onNavigate }: Props) {
             setActiveGenomeStrategy('minBsaI');
             return;
         }
-    }, [nGroups, nPos, tilesByPosition, tileCatVector, originalArrangement]);
+    }, [nGroups, nPos, tilesByPosition, tileCatVector, originalArrangement, excludedCats]);
 
     // ── Genome-wide stats ──
     const genomeStats = useMemo(() => {
@@ -429,7 +460,6 @@ export default function Recombinator({ data, onNavigate }: Props) {
         const stats = genomeArrangement.map(groupTiles =>
             computeGroupStats(groupTiles, bundle.tiles, tileGenes)
         );
-        // Compute averages
         const avgCats = stats.reduce((s, st) => s + st.nCats, 0) / stats.length;
         const avgGG = stats.reduce((s, st) => s + st.ggReady, 0) / stats.length;
         const avgBsai = stats.reduce((s, st) => s + st.totalBsai, 0) / stats.length;
@@ -450,20 +480,6 @@ export default function Recombinator({ data, onNavigate }: Props) {
         const totalGG = stats.reduce((s, st) => s + st.ggReady, 0);
         return { perGroup: stats, avgCats, avgGG, avgBsai, totalBsai, totalGG };
     }, [originalArrangement, bundle.tiles, tileGenes]);
-
-    // ── All category labels for heatmap ──
-    const allCategories = useMemo(() => {
-        const s = new Set<string>();
-        for (const gp of geneProducts) s.add(gp.category);
-        const arr = Array.from(s);
-        // Sort by total frequency
-        arr.sort((a, b) => {
-            const countA = geneProducts.filter(g => g.category === a).length;
-            const countB = geneProducts.filter(g => g.category === b).length;
-            return countB - countA;
-        });
-        return arr;
-    }, [geneProducts]);
 
     // ═══════════════════════════════════════════════════════════════════
     //  RENDER
@@ -486,9 +502,50 @@ export default function Recombinator({ data, onNavigate }: Props) {
                 </button>
             </div>
 
+            {/* ── Category Exclusion Filter ────────────────────────── */}
+            <div className="cat-filter-section">
+                <button className="cat-filter-toggle" onClick={() => setShowCatFilter(!showCatFilter)}>
+                    <span>⚙️ Category Filter</span>
+                    <span className="cat-filter-badge">{excludedCats.size} excluded</span>
+                    <span className="cat-filter-arrow">{showCatFilter ? '▲' : '▼'}</span>
+                </button>
+                {showCatFilter && (
+                    <div className="cat-filter-panel">
+                        <p className="cat-filter-hint">
+                            Excluded categories are <strong>ignored during optimization scoring</strong> — their genes still appear in results,
+                            but the algorithm won't bias toward tiles dominated by these annotations.
+                        </p>
+                        <div className="cat-filter-actions">
+                            <button onClick={() => setExcludedCats(new Set())}>Include All</button>
+                            <button onClick={() => setExcludedCats(new Set(['Other', 'Uncharacterized', 'Unknown']))}>
+                                Exclude Vague
+                            </button>
+                        </div>
+                        <div className="cat-filter-grid">
+                            {allCategories.map(cat => {
+                                const isExcluded = excludedCats.has(cat);
+                                const count = geneProducts.filter(g => g.category === cat).length;
+                                return (
+                                    <label key={cat} className={`cat-filter-item ${isExcluded ? 'excluded' : ''}`}>
+                                        <input
+                                            type="checkbox"
+                                            checked={!isExcluded}
+                                            onChange={() => toggleCatExclusion(cat)}
+                                        />
+                                        <span className="cat-filter-dot" style={{ background: getCatColor(cat) }} />
+                                        <span className="cat-filter-name">{cat}</span>
+                                        <span className="cat-filter-count">{count}</span>
+                                    </label>
+                                );
+                            })}
+                        </div>
+                    </div>
+                )}
+            </div>
+
             {mode === 'single' ? (
                 // ═══════════════════════════════════════════════════════
-                //  SINGLE GROUP MODE (existing UI)
+                //  SINGLE GROUP MODE
                 // ═══════════════════════════════════════════════════════
                 <>
                     <div className="recomb-presets">
@@ -636,7 +693,7 @@ export default function Recombinator({ data, onNavigate }: Props) {
                                 </div>
                             </div>
 
-                            {/* Diversity heatmap: Groups × Categories */}
+                            {/* Diversity heatmap */}
                             <div className="recomb-chart-card">
                                 <h3>Category Distribution Across Groups {activeGenomeStrategy !== 'original' ? `(${activeGenomeStrategy})` : '(Original)'}</h3>
                                 <div className="recomb-plot tall">
@@ -660,85 +717,43 @@ export default function Recombinator({ data, onNavigate }: Props) {
                                 </div>
                             </div>
 
-                            {/* Comparison: Optimized vs Original per-group bar chart */}
+                            {/* Comparison charts */}
                             <div className="recomb-chart-card">
                                 <h3>Category Diversity per Group: Optimized vs Original</h3>
                                 <div className="recomb-plot">
                                     <Plot
                                         data={[
-                                            {
-                                                name: activeGenomeStrategy || 'Optimized',
-                                                x: genomeStats.perGroup.map((_, i) => `G${i}`),
-                                                y: genomeStats.perGroup.map(s => s.nCats),
-                                                type: 'bar',
-                                                marker: { color: '#58a6ff' },
-                                                hovertemplate: 'G%{x}: %{y} categories<extra>Optimized</extra>',
-                                            },
-                                            {
-                                                name: 'Original',
-                                                x: origStats.perGroup.map((_, i) => `G${i}`),
-                                                y: origStats.perGroup.map(s => s.nCats),
-                                                type: 'bar',
-                                                marker: { color: '#6e768166' },
-                                                hovertemplate: 'G%{x}: %{y} categories<extra>Original</extra>',
-                                            },
+                                            { name: activeGenomeStrategy || 'Optimized', x: genomeStats.perGroup.map((_, i) => `G${i}`), y: genomeStats.perGroup.map(s => s.nCats), type: 'bar', marker: { color: '#58a6ff' }, hovertemplate: 'G%{x}: %{y} categories<extra>Optimized</extra>' },
+                                            { name: 'Original', x: origStats.perGroup.map((_, i) => `G${i}`), y: origStats.perGroup.map(s => s.nCats), type: 'bar', marker: { color: '#6e768166' }, hovertemplate: 'G%{x}: %{y} categories<extra>Original</extra>' },
                                         ]}
-                                        layout={{
-                                            ...DARK,
-                                            barmode: 'group',
-                                            showlegend: true,
-                                            legend: { orientation: 'h' as const, y: -0.2, x: 0.5, xanchor: 'center' as const, font: { size: 11, color: '#8b949e' } },
-                                            xaxis: { ...DARK.xaxis, tickfont: { size: 9, color: '#8b949e' } },
-                                            yaxis: { ...DARK.yaxis, title: { text: 'Distinct categories', font: { size: 11, color: '#8b949e' } } },
-                                        }}
+                                        layout={{ ...DARK, barmode: 'group', showlegend: true, legend: { orientation: 'h' as const, y: -0.2, x: 0.5, xanchor: 'center' as const, font: { size: 11, color: '#8b949e' } }, xaxis: { ...DARK.xaxis, tickfont: { size: 9, color: '#8b949e' } }, yaxis: { ...DARK.yaxis, title: { text: 'Distinct categories', font: { size: 11, color: '#8b949e' } } } }}
                                         config={PCFG} useResizeHandler style={{ width: '100%', height: '100%' }}
                                     />
                                 </div>
                             </div>
 
-                            {/* BsaI per group comparison */}
                             <div className="recomb-chart-card">
                                 <h3>BsaI Sites per Group: Optimized vs Original</h3>
                                 <div className="recomb-plot">
                                     <Plot
                                         data={[
-                                            {
-                                                name: activeGenomeStrategy || 'Optimized',
-                                                x: genomeStats.perGroup.map((_, i) => `G${i}`),
-                                                y: genomeStats.perGroup.map(s => s.totalBsai),
-                                                type: 'bar',
-                                                marker: { color: '#f85149' },
-                                                hovertemplate: 'G%{x}: %{y} BsaI sites<extra>Optimized</extra>',
-                                            },
-                                            {
-                                                name: 'Original',
-                                                x: origStats.perGroup.map((_, i) => `G${i}`),
-                                                y: origStats.perGroup.map(s => s.totalBsai),
-                                                type: 'bar',
-                                                marker: { color: '#6e768166' },
-                                                hovertemplate: 'G%{x}: %{y} BsaI sites<extra>Original</extra>',
-                                            },
+                                            { name: activeGenomeStrategy || 'Optimized', x: genomeStats.perGroup.map((_, i) => `G${i}`), y: genomeStats.perGroup.map(s => s.totalBsai), type: 'bar', marker: { color: '#f85149' }, hovertemplate: 'G%{x}: %{y} BsaI sites<extra>Optimized</extra>' },
+                                            { name: 'Original', x: origStats.perGroup.map((_, i) => `G${i}`), y: origStats.perGroup.map(s => s.totalBsai), type: 'bar', marker: { color: '#6e768166' }, hovertemplate: 'G%{x}: %{y} BsaI sites<extra>Original</extra>' },
                                         ]}
-                                        layout={{
-                                            ...DARK,
-                                            barmode: 'group',
-                                            showlegend: true,
-                                            legend: { orientation: 'h' as const, y: -0.2, x: 0.5, xanchor: 'center' as const, font: { size: 11, color: '#8b949e' } },
-                                            xaxis: { ...DARK.xaxis, tickfont: { size: 9, color: '#8b949e' } },
-                                            yaxis: { ...DARK.yaxis, title: { text: 'Internal BsaI sites', font: { size: 11, color: '#8b949e' } } },
-                                        }}
+                                        layout={{ ...DARK, barmode: 'group', showlegend: true, legend: { orientation: 'h' as const, y: -0.2, x: 0.5, xanchor: 'center' as const, font: { size: 11, color: '#8b949e' } }, xaxis: { ...DARK.xaxis, tickfont: { size: 9, color: '#8b949e' } }, yaxis: { ...DARK.yaxis, title: { text: 'Internal BsaI sites', font: { size: 11, color: '#8b949e' } } } }}
                                         config={PCFG} useResizeHandler style={{ width: '100%', height: '100%' }}
                                     />
                                 </div>
                             </div>
 
-                            {/* Per-group summary table */}
+                            {/* Per-group summary table with expandable rows */}
                             <div className="recomb-chart-card">
-                                <h3>Per-Group Summary</h3>
+                                <h3>Per-Group Summary <span className="table-hint">(click a row to inspect tiles)</span></h3>
                                 <div className="genome-table-wrap">
                                     <table className="genome-table">
                                         <thead>
                                             <tr>
+                                                <th></th>
                                                 <th>Group</th>
                                                 <th>Categories</th>
                                                 <th>Genes</th>
@@ -752,18 +767,75 @@ export default function Recombinator({ data, onNavigate }: Props) {
                                             {genomeStats.perGroup.map((s, g) => {
                                                 const orig = origStats.perGroup[g];
                                                 const deltaCats = s.nCats - orig.nCats;
+                                                const isExpanded = expandedGroup === g;
+                                                const groupTileIds = genomeArrangement![g];
                                                 return (
-                                                    <tr key={g}>
-                                                        <td className="gt-group">G{g}</td>
-                                                        <td><span className="accent-blue">{s.nCats}</span></td>
-                                                        <td>{s.totalGenes}</td>
-                                                        <td><span className="accent-green">{s.ggReady}/{nPos}</span></td>
-                                                        <td><span className={s.totalBsai > 0 ? 'accent-red' : 'accent-green'}>{s.totalBsai}</span></td>
-                                                        <td>{(s.totalLength / 1000).toFixed(1)} kb</td>
-                                                        <td className={deltaCats > 0 ? 'accent-green' : deltaCats < 0 ? 'accent-red' : ''}>
-                                                            {deltaCats > 0 ? `+${deltaCats}` : deltaCats}
-                                                        </td>
-                                                    </tr>
+                                                    <>
+                                                        <tr key={g} className={`gt-row ${isExpanded ? 'expanded' : ''}`} onClick={() => setExpandedGroup(isExpanded ? null : g)}>
+                                                            <td className="gt-expand">{isExpanded ? '▼' : '▶'}</td>
+                                                            <td className="gt-group">G{g}</td>
+                                                            <td><span className="accent-blue">{s.nCats}</span></td>
+                                                            <td>{s.totalGenes}</td>
+                                                            <td><span className="accent-green">{s.ggReady}/{nPos}</span></td>
+                                                            <td><span className={s.totalBsai > 0 ? 'accent-red' : 'accent-green'}>{s.totalBsai}</span></td>
+                                                            <td>{(s.totalLength / 1000).toFixed(1)} kb</td>
+                                                            <td className={deltaCats > 0 ? 'accent-green' : deltaCats < 0 ? 'accent-red' : ''}>
+                                                                {deltaCats > 0 ? `+${deltaCats}` : deltaCats}
+                                                            </td>
+                                                        </tr>
+                                                        {isExpanded && (
+                                                            <tr key={`${g}-detail`} className="gt-detail-row">
+                                                                <td colSpan={8}>
+                                                                    <div className="gt-detail-content">
+                                                                        <div className="gt-detail-tiles">
+                                                                            {groupTileIds.map((tid, p) => {
+                                                                                if (tid === null) return (
+                                                                                    <div key={p} className="gt-tile empty">
+                                                                                        <span className="gt-tile-pos">P{p}</span>
+                                                                                        <span className="gt-tile-empty">—</span>
+                                                                                    </div>
+                                                                                );
+                                                                                const tile = bundle.tiles[tid];
+                                                                                const genes = tileGenes.get(tid) || [];
+                                                                                const catCounts: Record<string, number> = {};
+                                                                                for (const gn of genes) catCounts[gn.category] = (catCounts[gn.category] || 0) + 1;
+                                                                                const topCat = Object.entries(catCounts).sort((a, b) => b[1] - a[1])[0];
+                                                                                const origTile = originalArrangement[g][p];
+                                                                                const isSwapped = origTile !== tid;
+                                                                                return (
+                                                                                    <div key={p} className={`gt-tile ${isSwapped ? 'swapped' : ''}`} style={{ borderTopColor: topCat ? getCatColor(topCat[0]) : '#30363d' }}>
+                                                                                        <div className="gt-tile-header">
+                                                                                            <span className="gt-tile-pos">P{p}</span>
+                                                                                            {isSwapped && <span className="gt-tile-swap">↻</span>}
+                                                                                        </div>
+                                                                                        <span className="gt-tile-id">T{tid}</span>
+                                                                                        <span className="gt-tile-src">from G{tile.lvl1_group}</span>
+                                                                                        <span className="gt-tile-genes">{genes.length} genes</span>
+                                                                                        <span className={`gt-tile-status ${tile.gg_ready ? 'ready' : 'blocked'}`}>
+                                                                                            {tile.gg_ready ? '✓' : `⚠${tile.internal_bsai}`}
+                                                                                        </span>
+                                                                                        {topCat && <span className="gt-tile-cat" style={{ color: getCatColor(topCat[0]) }}>{topCat[0]}</span>}
+                                                                                    </div>
+                                                                                );
+                                                                            })}
+                                                                        </div>
+                                                                        {/* Top categories for this group */}
+                                                                        <div className="gt-detail-cats">
+                                                                            {Object.entries(s.catCounts)
+                                                                                .sort((a, b) => b[1] - a[1])
+                                                                                .slice(0, 10)
+                                                                                .map(([cat, count]) => (
+                                                                                    <span key={cat} className="cat-tag" style={{ background: getCatColor(cat) + '33', color: getCatColor(cat) }}>
+                                                                                        {cat}: {count}
+                                                                                    </span>
+                                                                                ))
+                                                                            }
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        )}
+                                                    </>
                                                 );
                                             })}
                                         </tbody>

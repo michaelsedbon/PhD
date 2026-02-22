@@ -2987,3 +2987,285 @@ body {
 .accent-cyan {
     color: #39d2c0;
 }
+
+/* ── Category Filter ──────────────────────────────────────────────── */
+.cat-filter-section {
+    margin-bottom: 16px;
+}
+
+.cat-filter-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 14px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.cat-filter-toggle:hover {
+    border-color: #58a6ff44;
+    background: rgba(88, 166, 255, .04);
+}
+
+.cat-filter-badge {
+    background: rgba(88, 166, 255, .15);
+    color: #58a6ff;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.cat-filter-arrow {
+    margin-left: auto;
+    font-size: 10px;
+    color: var(--text-muted);
+}
+
+.cat-filter-panel {
+    margin-top: 8px;
+    padding: 16px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    animation: fadeSlideDown .15s ease;
+}
+
+@keyframes fadeSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cat-filter-hint {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin: 0 0 12px;
+    line-height: 1.5;
+}
+
+.cat-filter-hint strong {
+    color: var(--text-secondary);
+}
+
+.cat-filter-actions {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.cat-filter-actions button {
+    padding: 5px 12px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-secondary);
+    font-size: 11px;
+    cursor: pointer;
+    transition: all .15s;
+}
+
+.cat-filter-actions button:hover {
+    background: rgba(88, 166, 255, .12);
+    color: #58a6ff;
+    border-color: #58a6ff44;
+}
+
+.cat-filter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 4px;
+}
+
+.cat-filter-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all .15s;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.cat-filter-item:hover {
+    background: rgba(255, 255, 255, .04);
+}
+
+.cat-filter-item.excluded {
+    opacity: .45;
+}
+
+.cat-filter-item input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    accent-color: #58a6ff;
+    cursor: pointer;
+}
+
+.cat-filter-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.cat-filter-name {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cat-filter-count {
+    color: var(--text-muted);
+    font-size: 10px;
+    flex-shrink: 0;
+}
+
+/* ── Expandable genome table rows ─────────────────────────────────── */
+.gt-row {
+    cursor: pointer;
+    transition: background .15s;
+}
+
+.gt-row:hover td {
+    background: rgba(88, 166, 255, .06) !important;
+}
+
+.gt-row.expanded td {
+    background: rgba(88, 166, 255, .04);
+    border-bottom-color: transparent;
+}
+
+.gt-expand {
+    width: 28px;
+    text-align: center;
+    font-size: 10px;
+    color: var(--text-muted);
+}
+
+.table-hint {
+    font-weight: 400;
+    font-size: 11px;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* ── Group detail row ─────────────────────────────────────────────── */
+.gt-detail-row td {
+    padding: 0 !important;
+    background: rgba(88, 166, 255, .02) !important;
+    border-bottom: 2px solid rgba(88, 166, 255, .15) !important;
+}
+
+.gt-detail-content {
+    padding: 12px 16px 16px;
+}
+
+.gt-detail-tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.gt-tile {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-top: 3px solid #30363d;
+    border-radius: 6px;
+    padding: 6px 8px;
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.gt-tile.swapped {
+    border-color: rgba(88, 166, 255, .3);
+    background: rgba(88, 166, 255, .04);
+}
+
+.gt-tile.empty {
+    opacity: .4;
+    text-align: center;
+    padding: 10px;
+}
+
+.gt-tile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gt-tile-pos {
+    font-weight: 700;
+    color: var(--text-primary);
+    font-size: 11px;
+}
+
+.gt-tile-swap {
+    color: #58a6ff;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.gt-tile-id {
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.gt-tile-src {
+    color: var(--text-muted);
+}
+
+.gt-tile-genes {
+    color: var(--text-secondary);
+}
+
+.gt-tile-status.ready {
+    color: #3fb950;
+}
+
+.gt-tile-status.blocked {
+    color: #f85149;
+}
+
+.gt-tile-cat {
+    font-weight: 500;
+    font-size: 9px;
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.gt-tile-empty {
+    color: var(--text-muted);
+}
+
+.gt-detail-cats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.gt-detail-cats .cat-tag {
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
