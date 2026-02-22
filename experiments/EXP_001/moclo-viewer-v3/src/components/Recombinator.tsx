@@ -32,6 +32,30 @@ interface Props {
     onNavigate: (v: ViewState) => void;
 }
 
+/* ── Helper: compute clonability score for a group ────────────────── */
+function computeClonability(tileIds: (number | null)[], tiles: Tile[]): number {
+    const filled = tileIds.filter(id => id !== null) as number[];
+    if (filled.length === 0) return 0;
+    const lengths = filled.map(id => tiles[id].length);
+    const gcValues = filled.map(id => tiles[id].gc_content);
+
+    // Fragment size balance: 1 - CV(lengths), clamped [0,1]
+    const meanLen = lengths.reduce((s, l) => s + l, 0) / lengths.length;
+    const stdLen = Math.sqrt(lengths.reduce((s, l) => s + (l - meanLen) ** 2, 0) / lengths.length);
+    const cv = meanLen > 0 ? stdLen / meanLen : 0;
+    const sizeBalance = Math.max(0, Math.min(1, 1 - cv));
+
+    // GC uniformity: 1 - mean(|gc - 0.5| / 0.2), clamped [0,1]
+    const gcDeviation = gcValues.reduce((s, gc) => s + Math.abs(gc - 0.5) / 0.2, 0) / gcValues.length;
+    const gcUniformity = Math.max(0, Math.min(1, 1 - gcDeviation));
+
+    // Fragment count: fewer = easier
+    const maxSlots = 15;
+    const fragCount = Math.max(0, Math.min(1, 1 - (filled.length - 1) / maxSlots));
+
+    return Math.round(100 * (0.4 * sizeBalance + 0.3 * gcUniformity + 0.3 * fragCount));
+}
+
 /* ── Helper: compute stats for an assembly (list of tile IDs) ───── */
 function computeGroupStats(
     tileIds: (number | null)[],
@@ -52,7 +76,8 @@ function computeGroupStats(
             totalGenes++;
         }
     }
-    return { catCounts, totalGenes, ggReady, totalBsai, totalLength, nCats: Object.keys(catCounts).length };
+    const clonability = computeClonability(tileIds, tiles);
+    return { catCounts, totalGenes, ggReady, totalBsai, totalLength, nCats: Object.keys(catCounts).length, clonability };
 }
 
 /* ── Helper: filter cat vector by exclusion set ─────────────────── */
@@ -108,6 +133,21 @@ export default function Recombinator({ data, onNavigate }: Props) {
         for (const [tid, genes] of tileGenes) {
             const counts: Record<string, number> = {};
             for (const g of genes) counts[g.category] = (counts[g.category] || 0) + 1;
+            m.set(tid, counts);
+        }
+        return m;
+    }, [tileGenes]);
+
+    // ── Pathway vector per tile (for pathway focus) ──
+    const tilePathwayVector = useMemo(() => {
+        const m = new Map<number, Record<string, number>>();
+        for (const [tid, genes] of tileGenes) {
+            const counts: Record<string, number> = {};
+            for (const g of genes) {
+                for (const pw of (g.pathways || [])) {
+                    counts[pw] = (counts[pw] || 0) + 1;
+                }
+            }
             m.set(tid, counts);
         }
         return m;
@@ -452,7 +492,56 @@ export default function Recombinator({ data, onNavigate }: Props) {
             setActiveGenomeStrategy('minBsaI');
             return;
         }
-    }, [nGroups, nPos, tilesByPosition, tileCatVector, originalArrangement, excludedCats]);
+
+        if (strategy === 'pathwayFocus') {
+            // Collect all pathways and sort by gene count
+            const pwCounts = new Map<string, number>();
+            for (const [, pv] of tilePathwayVector) {
+                for (const [pw, n] of Object.entries(pv)) pwCounts.set(pw, (pwCounts.get(pw) || 0) + n);
+            }
+            const sortedPathways = Array.from(pwCounts.entries()).sort((a, b) => b[1] - a[1]);
+
+            // Assign target pathways to groups proportionally
+            const groupTargets: string[] = [];
+            const totalGenes = Array.from(pwCounts.values()).reduce((s, v) => s + v, 0);
+            for (const [pw, count] of sortedPathways) {
+                const slots = Math.max(1, Math.round((count / totalGenes) * nG));
+                for (let i = 0; i < slots && groupTargets.length < nG; i++) groupTargets.push(pw);
+            }
+            // Fill remaining with top pathways
+            while (groupTargets.length < nG) groupTargets.push(sortedPathways[0]?.[0] || '');
+
+            // Greedy assignment: for each position, assign tiles to groups
+            // prioritizing tiles whose pathway vector matches the group target
+            for (let p = 0; p < nPos; p++) {
+                const candidates = [...(tilesByPosition.get(p) || [])];
+                const pairs: { g: number; tile: Tile; score: number }[] = [];
+                for (let g = 0; g < Math.min(candidates.length, nG); g++) {
+                    const target = groupTargets[g];
+                    for (const t of candidates) {
+                        const pv = tilePathwayVector.get(t.id) || {};
+                        const total = Object.values(pv).reduce((s, v) => s + v, 0);
+                        const matchCount = pv[target] || 0;
+                        const score = total > 0 ? matchCount / total : 0;
+                        pairs.push({ g, tile: t, score });
+                    }
+                }
+                pairs.sort((a, b) => b.score - a.score);
+                const usedTiles = new Set<number>();
+                const usedGroups = new Set<number>();
+                for (const { g, tile } of pairs) {
+                    if (usedTiles.has(tile.id) || usedGroups.has(g)) continue;
+                    result[g][p] = tile.id;
+                    usedTiles.add(tile.id);
+                    usedGroups.add(g);
+                    if (usedGroups.size >= Math.min(candidates.length, nG)) break;
+                }
+            }
+            setGenomeArrangement(result);
+            setActiveGenomeStrategy('pathwayFocus');
+            return;
+        }
+    }, [nGroups, nPos, tilesByPosition, tileCatVector, tilePathwayVector, originalArrangement, excludedCats]);
 
     // ── Genome-wide stats ──
     const genomeStats = useMemo(() => {
@@ -465,7 +554,8 @@ export default function Recombinator({ data, onNavigate }: Props) {
         const avgBsai = stats.reduce((s, st) => s + st.totalBsai, 0) / stats.length;
         const totalBsai = stats.reduce((s, st) => s + st.totalBsai, 0);
         const totalGG = stats.reduce((s, st) => s + st.ggReady, 0);
-        return { perGroup: stats, avgCats, avgGG, avgBsai, totalBsai, totalGG };
+        const avgClonability = stats.reduce((s, st) => s + st.clonability, 0) / stats.length;
+        return { perGroup: stats, avgCats, avgGG, avgBsai, totalBsai, totalGG, avgClonability };
     }, [genomeArrangement, bundle.tiles, tileGenes]);
 
     // ── Original genome stats (for comparison) ──
@@ -478,7 +568,8 @@ export default function Recombinator({ data, onNavigate }: Props) {
         const avgBsai = stats.reduce((s, st) => s + st.totalBsai, 0) / stats.length;
         const totalBsai = stats.reduce((s, st) => s + st.totalBsai, 0);
         const totalGG = stats.reduce((s, st) => s + st.ggReady, 0);
-        return { perGroup: stats, avgCats, avgGG, avgBsai, totalBsai, totalGG };
+        const avgClonability = stats.reduce((s, st) => s + st.clonability, 0) / stats.length;
+        return { perGroup: stats, avgCats, avgGG, avgBsai, totalBsai, totalGG, avgClonability };
     }, [originalArrangement, bundle.tiles, tileGenes]);
 
     // ═══════════════════════════════════════════════════════════════════
@@ -658,6 +749,7 @@ export default function Recombinator({ data, onNavigate }: Props) {
                         <button className={`preset-btn focus ${activeGenomeStrategy === 'minDiversity' ? 'active' : ''}`} onClick={() => applyGenomePreset('minDiversity')}>🎯 Min Diversity</button>
                         <button className={`preset-btn gg ${activeGenomeStrategy === 'maxGG' ? 'active' : ''}`} onClick={() => applyGenomePreset('maxGG')}>✅ Max GG-Ready</button>
                         <button className={`preset-btn bsai ${activeGenomeStrategy === 'minBsaI' ? 'active' : ''}`} onClick={() => applyGenomePreset('minBsaI')}>✂️ Min BsaI</button>
+                        <button className={`preset-btn pathway ${activeGenomeStrategy === 'pathwayFocus' ? 'active' : ''}`} onClick={() => applyGenomePreset('pathwayFocus')}>🧬 Pathway Focus</button>
                         <button className={`preset-btn random ${activeGenomeStrategy === 'random' ? 'active' : ''}`} onClick={() => applyGenomePreset('random')}>🎲 Random</button>
                         <button className={`preset-btn original ${activeGenomeStrategy === 'original' ? 'active' : ''}`} onClick={() => applyGenomePreset('original')}>📋 Original</button>
                     </div>
@@ -690,6 +782,11 @@ export default function Recombinator({ data, onNavigate }: Props) {
                                     <span className="score-value accent-purple">{genomeStats.avgGG.toFixed(1)}/{nPos}</span>
                                     <span className="score-label">Avg GG-Ready/Group</span>
                                     <span className="score-delta">{origStats.avgGG.toFixed(1)}/{nPos} original</span>
+                                </div>
+                                <div className="score-card">
+                                    <span className={`score-value ${genomeStats.avgClonability >= 80 ? 'accent-green' : genomeStats.avgClonability >= 60 ? 'accent-yellow' : 'accent-red'}`}>{genomeStats.avgClonability.toFixed(0)}</span>
+                                    <span className="score-label">Avg Clonability</span>
+                                    <span className="score-delta">{origStats.avgClonability.toFixed(0)} original</span>
                                 </div>
                             </div>
 
@@ -760,6 +857,7 @@ export default function Recombinator({ data, onNavigate }: Props) {
                                                 <th>GG-Ready</th>
                                                 <th>BsaI</th>
                                                 <th>Length</th>
+                                                <th>Clonability</th>
                                                 <th>Δ Cats</th>
                                             </tr>
                                         </thead>
@@ -779,13 +877,14 @@ export default function Recombinator({ data, onNavigate }: Props) {
                                                             <td><span className="accent-green">{s.ggReady}/{nPos}</span></td>
                                                             <td><span className={s.totalBsai > 0 ? 'accent-red' : 'accent-green'}>{s.totalBsai}</span></td>
                                                             <td>{(s.totalLength / 1000).toFixed(1)} kb</td>
+                                                            <td><span className={`clonability-badge ${s.clonability >= 80 ? 'excellent' : s.clonability >= 60 ? 'good' : 'fair'}`}>{s.clonability}</span></td>
                                                             <td className={deltaCats > 0 ? 'accent-green' : deltaCats < 0 ? 'accent-red' : ''}>
                                                                 {deltaCats > 0 ? `+${deltaCats}` : deltaCats}
                                                             </td>
                                                         </tr>
                                                         {isExpanded && (
                                                             <tr key={`${g}-detail`} className="gt-detail-row">
-                                                                <td colSpan={8}>
+                                                                <td colSpan={9}>
                                                                     <div className="gt-detail-content">
                                                                         <div className="gt-detail-tiles">
                                                                             {groupTileIds.map((tid, p) => {

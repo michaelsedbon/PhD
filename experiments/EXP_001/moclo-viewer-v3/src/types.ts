@@ -86,6 +86,7 @@ export interface GeneProduct {
     complement: boolean;
     product: string;
     category: string;
+    pathways: string[];
 }
 
 export interface DesignInfo {
@@ -130,7 +131,7 @@ export interface AppData {
 }
 
 // Navigation
-export type ViewType = 'presentation' | 'genome' | 'group' | 'tile' | 'recombine';
+export type ViewType = 'presentation' | 'genome' | 'group' | 'tile' | 'recombine' | 'about';
 
 export interface ViewState {
     view: ViewType;
