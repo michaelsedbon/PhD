@@ -1,4 +1,5 @@
-import { useRef, useEffect, useMemo, useState, useCallback } from 'react';
+import { useMemo, useState } from 'react';
+import Plot from 'react-plotly.js';
 import { AppData, ViewState, GeneProduct } from '../types';
 
 interface Props {
@@ -34,406 +35,21 @@ function getCatColor(cat: string): string {
     return CATEGORY_COLORS[cat] || '#6e7681';
 }
 
-/* ── Helper: draw histogram on canvas ──────────────────────────────── */
-function drawHistogram(
-    canvas: HTMLCanvasElement,
-    values: number[],
-    binCount: number,
-    label: string,
-    color: string,
-    unit: string = '',
-) {
-    const dpr = window.devicePixelRatio || 1;
-    const w = canvas.parentElement!.clientWidth;
-    const h = 180;
-    canvas.width = w * dpr;
-    canvas.height = h * dpr;
-    canvas.style.width = `${w}px`;
-    canvas.style.height = `${h}px`;
+/* ── Shared Plotly theme ───────────────────────────────────────────── */
+const DARK_LAYOUT: Record<string, any> = {
+    paper_bgcolor: 'transparent',
+    plot_bgcolor: '#161b22',
+    font: { family: 'Inter, system-ui, sans-serif', size: 12, color: '#c9d1d9' },
+    margin: { l: 50, r: 20, t: 10, b: 40 },
+    autosize: true,
+    xaxis: { gridcolor: '#21262d', zerolinecolor: '#21262d' },
+    yaxis: { gridcolor: '#21262d', zerolinecolor: '#21262d' },
+};
 
-    const ctx = canvas.getContext('2d')!;
-    ctx.scale(dpr, dpr);
-    ctx.clearRect(0, 0, w, h);
-
-    if (values.length === 0) return;
-
-    const min = Math.min(...values);
-    const max = Math.max(...values);
-    const range = max - min || 1;
-    const binW = range / binCount;
-
-    const bins = new Array(binCount).fill(0);
-    for (const v of values) {
-        const idx = Math.min(Math.floor((v - min) / binW), binCount - 1);
-        bins[idx]++;
-    }
-    const maxBin = Math.max(...bins);
-
-    const padLeft = 40;
-    const padBottom = 28;
-    const padTop = 8;
-    const plotW = w - padLeft - 10;
-    const plotH = h - padBottom - padTop;
-    const barW = plotW / binCount;
-
-    // Axes
-    ctx.strokeStyle = '#30363d';
-    ctx.lineWidth = 1;
-    ctx.beginPath();
-    ctx.moveTo(padLeft, padTop);
-    ctx.lineTo(padLeft, h - padBottom);
-    ctx.lineTo(w - 10, h - padBottom);
-    ctx.stroke();
-
-    // Y-axis labels
-    ctx.font = '9px Inter, sans-serif';
-    ctx.fillStyle = '#6e7681';
-    ctx.textAlign = 'right';
-    ctx.textBaseline = 'middle';
-    for (let i = 0; i <= 4; i++) {
-        const val = Math.round((maxBin / 4) * i);
-        const yPos = h - padBottom - (plotH * i) / 4;
-        ctx.fillText(`${val}`, padLeft - 6, yPos);
-        ctx.strokeStyle = '#21262d';
-        ctx.beginPath();
-        ctx.moveTo(padLeft, yPos);
-        ctx.lineTo(w - 10, yPos);
-        ctx.stroke();
-    }
-
-    // Bars
-    for (let i = 0; i < binCount; i++) {
-        const barH = maxBin > 0 ? (bins[i] / maxBin) * plotH : 0;
-        const bx = padLeft + i * barW + 1;
-        const by = h - padBottom - barH;
-        ctx.fillStyle = color;
-        ctx.globalAlpha = 0.8;
-        ctx.fillRect(bx, by, barW - 2, barH);
-        ctx.globalAlpha = 1;
-    }
-
-    // X-axis labels
-    ctx.fillStyle = '#6e7681';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'top';
-    const step = Math.max(1, Math.floor(binCount / 6));
-    for (let i = 0; i <= binCount; i += step) {
-        const val = min + i * binW;
-        const xPos = padLeft + i * barW;
-        let lbl: string;
-        if (unit === 'kb') lbl = `${(val / 1000).toFixed(1)}`;
-        else if (unit === '%') lbl = `${val.toFixed(0)}%`;
-        else lbl = `${val.toFixed(0)}`;
-        ctx.fillText(lbl, xPos, h - padBottom + 4);
-    }
-
-    // Title
-    ctx.fillStyle = '#8b949e';
-    ctx.font = '10px Inter, sans-serif';
-    ctx.textAlign = 'center';
-    ctx.fillText(`${label}${unit ? ` (${unit})` : ''}`, w / 2, h - 6);
-}
-
-/* ── Helper: draw bar chart on canvas ──────────────────────────────── */
-function drawBarChart(
-    canvas: HTMLCanvasElement,
-    labels: string[],
-    values: number[],
-    color: string | string[],
-    ylabel: string = '',
-) {
-    const dpr = window.devicePixelRatio || 1;
-    const w = canvas.parentElement!.clientWidth;
-    const h = 180;
-    canvas.width = w * dpr;
-    canvas.height = h * dpr;
-    canvas.style.width = `${w}px`;
-    canvas.style.height = `${h}px`;
-
-    const ctx = canvas.getContext('2d')!;
-    ctx.scale(dpr, dpr);
-    ctx.clearRect(0, 0, w, h);
-
-    if (values.length === 0) return;
-
-    const maxVal = Math.max(...values);
-    const padLeft = 40;
-    const padBottom = 28;
-    const padTop = 8;
-    const plotW = w - padLeft - 10;
-    const plotH = h - padBottom - padTop;
-    const barW = plotW / values.length;
-
-    // Axes
-    ctx.strokeStyle = '#30363d';
-    ctx.lineWidth = 1;
-    ctx.beginPath();
-    ctx.moveTo(padLeft, padTop);
-    ctx.lineTo(padLeft, h - padBottom);
-    ctx.lineTo(w - 10, h - padBottom);
-    ctx.stroke();
-
-    // Grid + Y labels
-    ctx.font = '9px Inter, sans-serif';
-    ctx.fillStyle = '#6e7681';
-    ctx.textAlign = 'right';
-    ctx.textBaseline = 'middle';
-    for (let i = 0; i <= 4; i++) {
-        const val = Math.round((maxVal / 4) * i);
-        const yPos = h - padBottom - (plotH * i) / 4;
-        ctx.fillText(`${val}`, padLeft - 6, yPos);
-        ctx.strokeStyle = '#21262d';
-        ctx.beginPath();
-        ctx.moveTo(padLeft, yPos);
-        ctx.lineTo(w - 10, yPos);
-        ctx.stroke();
-    }
-
-    // Bars
-    for (let i = 0; i < values.length; i++) {
-        const barH = maxVal > 0 ? (values[i] / maxVal) * plotH : 0;
-        const bx = padLeft + i * barW + 1;
-        const by = h - padBottom - barH;
-        ctx.fillStyle = typeof color === 'string' ? color : (color[i] || '#6e7681');
-        ctx.globalAlpha = 0.8;
-        ctx.fillRect(bx, by, barW - 2, barH);
-        ctx.globalAlpha = 1;
-    }
-
-    // X labels (sparse)
-    ctx.fillStyle = '#6e7681';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'top';
-    const step = Math.max(1, Math.floor(values.length / 12));
-    for (let i = 0; i < labels.length; i += step) {
-        ctx.fillText(labels[i], padLeft + i * barW + barW / 2, h - padBottom + 4);
-    }
-
-    // Y label
-    if (ylabel) {
-        ctx.fillStyle = '#8b949e';
-        ctx.font = '10px Inter, sans-serif';
-        ctx.textAlign = 'center';
-        ctx.fillText(ylabel, w / 2, h - 6);
-    }
-}
-
-/* ── Helper: horizontal bar chart ──────────────────────────────────── */
-function drawHorizontalBars(
-    canvas: HTMLCanvasElement,
-    data: { label: string; value: number; color: string }[],
-) {
-    const dpr = window.devicePixelRatio || 1;
-    const w = canvas.parentElement!.clientWidth;
-    const barH = 22;
-    const gap = 3;
-    const padLeft = 130;
-    const padRight = 50;
-    const h = data.length * (barH + gap) + 10;
-
-    canvas.width = w * dpr;
-    canvas.height = h * dpr;
-    canvas.style.width = `${w}px`;
-    canvas.style.height = `${h}px`;
-
-    const ctx = canvas.getContext('2d')!;
-    ctx.scale(dpr, dpr);
-    ctx.clearRect(0, 0, w, h);
-
-    const maxVal = Math.max(...data.map(d => d.value));
-    const plotW = w - padLeft - padRight;
-
-    for (let i = 0; i < data.length; i++) {
-        const y = i * (barH + gap) + 4;
-        const barW = maxVal > 0 ? (data[i].value / maxVal) * plotW : 0;
-
-        // Label
-        ctx.font = '10px Inter, sans-serif';
-        ctx.fillStyle = '#e6edf3';
-        ctx.textAlign = 'right';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(data[i].label, padLeft - 8, y + barH / 2);
-
-        // Bar
-        ctx.fillStyle = data[i].color;
-        ctx.globalAlpha = 0.75;
-        ctx.fillRect(padLeft, y, barW, barH);
-        ctx.globalAlpha = 1;
-
-        // Value
-        ctx.fillStyle = '#8b949e';
-        ctx.textAlign = 'left';
-        ctx.fillText(`${data[i].value}`, padLeft + barW + 6, y + barH / 2);
-    }
-}
-
-/* ── Normalized 100% stacked bar chart ─────────────────────────────── */
-function drawStackedBar100(
-    canvas: HTMLCanvasElement,
-    categories: string[],
-    groupIds: number[],
-    matrix: number[][],  // [catIdx][groupIdx]
-) {
-    const dpr = window.devicePixelRatio || 1;
-    const w = canvas.parentElement!.clientWidth;
-    const h = 220;
-    const padLeft = 40;
-    const padBottom = 28;
-    const padTop = 8;
-    const padRight = 10;
-    const plotW = w - padLeft - padRight;
-    const plotH = h - padBottom - padTop;
-    const barW = plotW / groupIds.length;
-
-    canvas.width = w * dpr;
-    canvas.height = h * dpr;
-    canvas.style.width = `${w}px`;
-    canvas.style.height = `${h}px`;
-
-    const ctx = canvas.getContext('2d')!;
-    ctx.scale(dpr, dpr);
-    ctx.clearRect(0, 0, w, h);
-
-    // Compute totals per group
-    const totals = groupIds.map((_, gi) => {
-        let sum = 0;
-        for (let ci = 0; ci < categories.length; ci++) sum += matrix[ci][gi];
-        return sum;
-    });
-
-    // Axes
-    ctx.strokeStyle = '#30363d';
-    ctx.lineWidth = 1;
-    ctx.beginPath();
-    ctx.moveTo(padLeft, padTop);
-    ctx.lineTo(padLeft, h - padBottom);
-    ctx.lineTo(w - padRight, h - padBottom);
-    ctx.stroke();
-
-    // Y-axis labels (0% to 100%)
-    ctx.font = '9px Inter, sans-serif';
-    ctx.fillStyle = '#6e7681';
-    ctx.textAlign = 'right';
-    ctx.textBaseline = 'middle';
-    for (let i = 0; i <= 4; i++) {
-        const pct = i * 25;
-        const yPos = h - padBottom - (plotH * i) / 4;
-        ctx.fillText(`${pct}%`, padLeft - 6, yPos);
-        ctx.strokeStyle = '#21262d';
-        ctx.beginPath();
-        ctx.moveTo(padLeft, yPos);
-        ctx.lineTo(w - padRight, yPos);
-        ctx.stroke();
-    }
-
-    // Draw stacked bars
-    for (let gi = 0; gi < groupIds.length; gi++) {
-        const total = totals[gi];
-        if (total === 0) continue;
-        let yOffset = 0;
-        for (let ci = 0; ci < categories.length; ci++) {
-            const frac = matrix[ci][gi] / total;
-            const segH = frac * plotH;
-            const bx = padLeft + gi * barW + 0.5;
-            const by = h - padBottom - yOffset - segH;
-            ctx.fillStyle = getCatColor(categories[ci]);
-            ctx.globalAlpha = 0.8;
-            ctx.fillRect(bx, by, barW - 1, segH);
-            ctx.globalAlpha = 1;
-            yOffset += segH;
-        }
-    }
-
-    // X labels
-    ctx.fillStyle = '#6e7681';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'top';
-    const step = Math.max(1, Math.floor(groupIds.length / 12));
-    for (let i = 0; i < groupIds.length; i += step) {
-        ctx.fillText(`G${groupIds[i]}`, padLeft + i * barW + barW / 2, h - padBottom + 4);
-    }
-}
-
-/* ── Heatmap: categories × groups ──────────────────────────────────── */
-function drawCategoryHeatmap(
-    canvas: HTMLCanvasElement,
-    categories: string[],
-    groups: number[],
-    matrix: number[][],  // [catIdx][groupIdx]
-) {
-    const dpr = window.devicePixelRatio || 1;
-    const w = canvas.parentElement!.clientWidth;
-    const cellW = Math.max(8, Math.floor((w - 140) / groups.length));
-    const cellH = 16;
-    const padLeft = 130;
-    const padTop = 20;
-    const h = padTop + categories.length * cellH + 30;
-
-    canvas.width = w * dpr;
-    canvas.height = h * dpr;
-    canvas.style.width = `${w}px`;
-    canvas.style.height = `${h}px`;
-
-    const ctx = canvas.getContext('2d')!;
-    ctx.scale(dpr, dpr);
-    ctx.clearRect(0, 0, w, h);
-
-    const maxVal = Math.max(...matrix.flat().filter(v => v > 0), 1);
-
-    // Group labels on top
-    ctx.font = '8px Inter, sans-serif';
-    ctx.fillStyle = '#6e7681';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'bottom';
-    const groupStep = Math.max(1, Math.floor(groups.length / 15));
-    for (let g = 0; g < groups.length; g += groupStep) {
-        ctx.fillText(`G${groups[g]}`, padLeft + g * cellW + cellW / 2, padTop - 2);
-    }
-
-    for (let c = 0; c < categories.length; c++) {
-        const y = padTop + c * cellH;
-
-        // Category label
-        ctx.font = '9px Inter, sans-serif';
-        ctx.fillStyle = '#e6edf3';
-        ctx.textAlign = 'right';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(categories[c], padLeft - 6, y + cellH / 2);
-
-        for (let g = 0; g < groups.length; g++) {
-            const val = matrix[c][g];
-            const intensity = val > 0 ? Math.min(val / maxVal, 1) : 0;
-            const x = padLeft + g * cellW;
-
-            if (intensity > 0) {
-                const catColor = getCatColor(categories[c]);
-                // Parse hex/named color to get RGB
-                ctx.fillStyle = catColor;
-                ctx.globalAlpha = 0.15 + intensity * 0.75;
-                ctx.fillRect(x, y, cellW - 1, cellH - 1);
-                ctx.globalAlpha = 1;
-            } else {
-                ctx.fillStyle = '#0d1117';
-                ctx.fillRect(x, y, cellW - 1, cellH - 1);
-            }
-        }
-    }
-
-    // Legend
-    const ly = padTop + categories.length * cellH + 8;
-    ctx.font = '9px Inter, sans-serif';
-    ctx.fillStyle = '#6e7681';
-    ctx.textAlign = 'left';
-    ctx.fillText('Low', padLeft, ly + 6);
-    for (let i = 0; i < 5; i++) {
-        ctx.fillStyle = '#58a6ff';
-        ctx.globalAlpha = 0.15 + (i / 4) * 0.75;
-        ctx.fillRect(padLeft + 25 + i * 12, ly, 10, 10);
-        ctx.globalAlpha = 1;
-    }
-    ctx.fillStyle = '#6e7681';
-    ctx.fillText('High', padLeft + 25 + 5 * 12 + 4, ly + 6);
-}
+const PLOTLY_CONFIG: Record<string, any> = {
+    responsive: true,
+    displayModeBar: false,
+};
 
 export default function QCDashboard({ data, onNavigate }: Props) {
     const { bundle, geneProducts } = data;
@@ -497,7 +113,6 @@ export default function QCDashboard({ data, onNavigate }: Props) {
         const nGroups = bundle.lvl1_groups.length;
         const nCats = cats.length;
 
-        // Compute proportion vectors per group
         const proportions: number[][] = [];
         for (let gi = 0; gi < nGroups; gi++) {
             const total = heatmapMatrix.reduce((s, row) => s + row[gi], 0);
@@ -507,7 +122,6 @@ export default function QCDashboard({ data, onNavigate }: Props) {
             );
         }
 
-        // Average proportion across all groups
         const avg = new Array(nCats).fill(0);
         for (let ci = 0; ci < nCats; ci++) {
             for (let gi = 0; gi < nGroups; gi++) {
@@ -516,7 +130,6 @@ export default function QCDashboard({ data, onNavigate }: Props) {
             avg[ci] /= nGroups;
         }
 
-        // Jensen-Shannon divergence from average
         function kl(p: number[], q: number[]): number {
             let sum = 0;
             for (let i = 0; i < p.length; i++) {
@@ -535,7 +148,6 @@ export default function QCDashboard({ data, onNavigate }: Props) {
             proportions: p,
         }));
 
-        // Find top deviating categories for each group
         const enriched = divergences.map(d => {
             const diffs = cats.map((cat, ci) => ({
                 cat,
@@ -547,7 +159,6 @@ export default function QCDashboard({ data, onNavigate }: Props) {
             return { ...d, topDeviations: diffs.slice(0, 3) };
         });
 
-        // Sort by JSD descending, take top 6 outliers
         enriched.sort((a, b) => b.jsd - a.jsd);
         return enriched.slice(0, 6);
     }, [heatmapCategories, heatmapMatrix, bundle.lvl1_groups.length]);
@@ -576,56 +187,26 @@ export default function QCDashboard({ data, onNavigate }: Props) {
         return map;
     }, [geneProducts, bundle.lvl1_groups]);
 
-    // ── Canvas refs ──
-    const tileLenRef = useRef<HTMLCanvasElement>(null);
-    const gcRef = useRef<HTMLCanvasElement>(null);
-    const genesPerGrpRef = useRef<HTMLCanvasElement>(null);
-    const bsaiPerGrpRef = useRef<HTMLCanvasElement>(null);
-    const catBarRef = useRef<HTMLCanvasElement>(null);
-    const heatmapRef = useRef<HTMLCanvasElement>(null);
-    const stackedRef = useRef<HTMLCanvasElement>(null);
+    // ── Plotly data ──
+    const groupLabels = bundle.lvl1_groups.map(g => `G${g.id}`);
 
-    const drawAll = useCallback(() => {
-        if (tileLenRef.current) drawHistogram(tileLenRef.current, tileLengths, 25, 'Tile Length', '#58a6ff', 'kb');
-        if (gcRef.current) drawHistogram(gcRef.current, tileGCs, 25, 'GC Content', '#39d2c0', '%');
-
-        const groupLabels = bundle.lvl1_groups.map(g => `G${g.id}`);
-        if (genesPerGrpRef.current) drawBarChart(genesPerGrpRef.current, groupLabels, genesPerGroup, '#bc8cff', 'Genes per group');
-        if (bsaiPerGrpRef.current) {
-            const bsaiColors = bsaiPerGroup.map(v => v > 0 ? '#f85149' : '#21262d');
-            drawBarChart(bsaiPerGrpRef.current, groupLabels, bsaiPerGroup, bsaiColors, 'Internal BsaI sites');
+    // Stacked 100% bar traces
+    const stackedTraces = useMemo(() => {
+        // Normalize matrix to percentages per group
+        const nGroups = bundle.lvl1_groups.length;
+        const totals = new Array(nGroups).fill(0);
+        for (const row of heatmapMatrix) {
+            for (let gi = 0; gi < nGroups; gi++) totals[gi] += row[gi];
         }
-        if (catBarRef.current) {
-            drawHorizontalBars(catBarRef.current, categoryCounts.map(([cat, count]) => ({
-                label: cat,
-                value: count,
-                color: getCatColor(cat),
-            })));
-        }
-        if (heatmapRef.current) {
-            drawCategoryHeatmap(
-                heatmapRef.current,
-                heatmapCategories,
-                bundle.lvl1_groups.map(g => g.id),
-                heatmapMatrix,
-            );
-        }
-        if (stackedRef.current) {
-            drawStackedBar100(
-                stackedRef.current,
-                heatmapCategories,
-                bundle.lvl1_groups.map(g => g.id),
-                heatmapMatrix,
-            );
-        }
-    }, [tileLengths, tileGCs, genesPerGroup, bsaiPerGroup, categoryCounts, heatmapCategories, heatmapMatrix, bundle.lvl1_groups]);
-
-    useEffect(() => { drawAll(); }, [drawAll]);
-    useEffect(() => {
-        const handler = () => drawAll();
-        window.addEventListener('resize', handler);
-        return () => window.removeEventListener('resize', handler);
-    }, [drawAll]);
+        return heatmapCategories.map((cat, ci) => ({
+            x: groupLabels,
+            y: groupLabels.map((_, gi) => totals[gi] > 0 ? (heatmapMatrix[ci][gi] / totals[gi]) * 100 : 0),
+            name: cat,
+            type: 'bar' as const,
+            marker: { color: getCatColor(cat) },
+            hovertemplate: `%{x}<br>${cat}: %{y:.1f}%<extra></extra>`,
+        }));
+    }, [heatmapCategories, heatmapMatrix, groupLabels, bundle.lvl1_groups.length]);
 
     return (
         <div className="qc-dashboard">
@@ -635,7 +216,26 @@ export default function QCDashboard({ data, onNavigate }: Props) {
             <div className="qc-row">
                 <div className="qc-chart-card">
                     <h3>Tile Length Distribution</h3>
-                    <div className="qc-canvas-wrap"><canvas ref={tileLenRef} /></div>
+                    <div className="qc-plot-wrap">
+                        <Plot
+                            data={[{
+                                x: tileLengths.map(v => v / 1000),
+                                type: 'histogram',
+                                nbinsx: 25,
+                                marker: { color: '#58a6ff' },
+                                hovertemplate: '%{x:.1f} kb<br>Count: %{y}<extra></extra>',
+                            }]}
+                            layout={{
+                                ...DARK_LAYOUT,
+                                xaxis: { ...DARK_LAYOUT.xaxis, title: { text: 'Length (kb)', font: { size: 11, color: '#8b949e' } } },
+                                yaxis: { ...DARK_LAYOUT.yaxis, title: { text: 'Count', font: { size: 11, color: '#8b949e' } } },
+                                bargap: 0.05,
+                            } as any}
+                            config={PLOTLY_CONFIG}
+                            useResizeHandler
+                            style={{ width: '100%', height: '100%' }}
+                        />
+                    </div>
                     <div className="qc-stat-row">
                         <span>Min: {(Math.min(...tileLengths) / 1000).toFixed(1)} kb</span>
                         <span>Avg: {(tileLengths.reduce((a, b) => a + b, 0) / tileLengths.length / 1000).toFixed(1)} kb</span>
@@ -644,7 +244,26 @@ export default function QCDashboard({ data, onNavigate }: Props) {
                 </div>
                 <div className="qc-chart-card">
                     <h3>GC Content Distribution</h3>
-                    <div className="qc-canvas-wrap"><canvas ref={gcRef} /></div>
+                    <div className="qc-plot-wrap">
+                        <Plot
+                            data={[{
+                                x: tileGCs,
+                                type: 'histogram',
+                                nbinsx: 25,
+                                marker: { color: '#39d2c0' },
+                                hovertemplate: '%{x:.1f}%<br>Count: %{y}<extra></extra>',
+                            }]}
+                            layout={{
+                                ...DARK_LAYOUT,
+                                xaxis: { ...DARK_LAYOUT.xaxis, title: { text: 'GC %', font: { size: 11, color: '#8b949e' } } },
+                                yaxis: { ...DARK_LAYOUT.yaxis, title: { text: 'Count', font: { size: 11, color: '#8b949e' } } },
+                                bargap: 0.05,
+                            } as any}
+                            config={PLOTLY_CONFIG}
+                            useResizeHandler
+                            style={{ width: '100%', height: '100%' }}
+                        />
+                    </div>
                     <div className="qc-stat-row">
                         <span>Min: {Math.min(...tileGCs).toFixed(1)}%</span>
                         <span>Avg: {(tileGCs.reduce((a, b) => a + b, 0) / tileGCs.length).toFixed(1)}%</span>
@@ -657,32 +276,140 @@ export default function QCDashboard({ data, onNavigate }: Props) {
             <div className="qc-row">
                 <div className="qc-chart-card">
                     <h3>Genes per Lvl1 Group</h3>
-                    <div className="qc-canvas-wrap"><canvas ref={genesPerGrpRef} /></div>
+                    <div className="qc-plot-wrap">
+                        <Plot
+                            data={[{
+                                x: groupLabels,
+                                y: genesPerGroup,
+                                type: 'bar',
+                                marker: { color: '#bc8cff' },
+                                hovertemplate: '%{x}<br>Genes: %{y}<extra></extra>',
+                            }]}
+                            layout={{
+                                ...DARK_LAYOUT,
+                                yaxis: { ...DARK_LAYOUT.yaxis, title: { text: 'Genes', font: { size: 11, color: '#8b949e' } } },
+                            } as any}
+                            config={PLOTLY_CONFIG}
+                            useResizeHandler
+                            style={{ width: '100%', height: '100%' }}
+                        />
+                    </div>
                 </div>
                 <div className="qc-chart-card">
                     <h3>Internal BsaI Sites per Group</h3>
-                    <div className="qc-canvas-wrap"><canvas ref={bsaiPerGrpRef} /></div>
+                    <div className="qc-plot-wrap">
+                        <Plot
+                            data={[{
+                                x: groupLabels,
+                                y: bsaiPerGroup,
+                                type: 'bar',
+                                marker: { color: bsaiPerGroup.map(v => v > 0 ? '#f85149' : '#21262d') },
+                                hovertemplate: '%{x}<br>BsaI sites: %{y}<extra></extra>',
+                            }]}
+                            layout={{
+                                ...DARK_LAYOUT,
+                                yaxis: { ...DARK_LAYOUT.yaxis, title: { text: 'Sites', font: { size: 11, color: '#8b949e' } } },
+                            } as any}
+                            config={PLOTLY_CONFIG}
+                            useResizeHandler
+                            style={{ width: '100%', height: '100%' }}
+                        />
+                    </div>
                 </div>
             </div>
 
             {/* Row 3: Functional categories */}
             <div className="qc-chart-card full">
                 <h3>Functional Category Distribution ({geneProducts.length} genes)</h3>
-                <div className="qc-canvas-wrap"><canvas ref={catBarRef} /></div>
+                <div className="qc-plot-wrap tall">
+                    <Plot
+                        data={[{
+                            y: categoryCounts.map(([c]) => c).reverse(),
+                            x: categoryCounts.map(([, v]) => v).reverse(),
+                            type: 'bar',
+                            orientation: 'h',
+                            marker: { color: categoryCounts.map(([c]) => getCatColor(c)).reverse() },
+                            hovertemplate: '%{y}<br>Count: %{x}<extra></extra>',
+                        }]}
+                        layout={{
+                            ...DARK_LAYOUT,
+                            margin: { l: 140, r: 20, t: 10, b: 40 },
+                            xaxis: { ...DARK_LAYOUT.xaxis, title: { text: 'Gene count', font: { size: 11, color: '#8b949e' } } },
+                        } as any}
+                        config={PLOTLY_CONFIG}
+                        useResizeHandler
+                        style={{ width: '100%', height: '100%' }}
+                    />
+                </div>
             </div>
 
             {/* Row 4: Heatmap */}
             <div className="qc-chart-card full">
                 <h3>Functional Diversity per Group</h3>
                 <p className="qc-subtitle">Gene count by functional category across all {bundle.lvl1_groups.length} Lvl1 groups</p>
-                <div className="qc-canvas-wrap"><canvas ref={heatmapRef} /></div>
+                <div className="qc-plot-wrap tall">
+                    <Plot
+                        data={[{
+                            z: heatmapMatrix,
+                            x: groupLabels,
+                            y: heatmapCategories,
+                            type: 'heatmap',
+                            colorscale: [
+                                [0, '#0d1117'],
+                                [0.25, '#1a3a5c'],
+                                [0.5, '#2d6a9f'],
+                                [0.75, '#58a6ff'],
+                                [1, '#79c0ff'],
+                            ],
+                            hovertemplate: '%{y}<br>Group %{x}<br>Count: %{z}<extra></extra>',
+                            showscale: true,
+                            colorbar: {
+                                tickfont: { color: '#8b949e', size: 10 },
+                                len: 0.8,
+                                thickness: 12,
+                            },
+                        }]}
+                        layout={{
+                            ...DARK_LAYOUT,
+                            margin: { l: 140, r: 60, t: 10, b: 40 },
+                        } as any}
+                        config={PLOTLY_CONFIG}
+                        useResizeHandler
+                        style={{ width: '100%', height: '100%' }}
+                    />
+                </div>
             </div>
 
             {/* Row 5: Normalized stacked bar chart */}
             <div className="qc-chart-card full">
                 <h3>Functional Distribution Uniformity</h3>
                 <p className="qc-subtitle">100% stacked bars — similar colors across all groups means uniform functional distribution</p>
-                <div className="qc-canvas-wrap"><canvas ref={stackedRef} /></div>
+                <div className="qc-plot-wrap tall">
+                    <Plot
+                        data={stackedTraces as any}
+                        layout={{
+                            ...DARK_LAYOUT,
+                            barmode: 'stack',
+                            showlegend: true,
+                            legend: {
+                                orientation: 'h' as const,
+                                y: -0.25,
+                                x: 0.5,
+                                xanchor: 'center' as const,
+                                font: { size: 9, color: '#8b949e' },
+                            },
+                            margin: { l: 50, r: 20, t: 10, b: 40 },
+                            yaxis: {
+                                ...DARK_LAYOUT.yaxis,
+                                title: { text: '%', font: { size: 11, color: '#8b949e' } },
+                                range: [0, 100],
+                            },
+                        } as any}
+                        config={PLOTLY_CONFIG}
+                        useResizeHandler
+                        style={{ width: '100%', height: '100%' }}
+                    />
+                </div>
             </div>
 
             {/* Row 6: Outlier groups */}

@@ -2282,13 +2282,20 @@ body {
     margin: -6px 0 10px;
 }
 
-.qc-canvas-wrap {
+.qc-plot-wrap {
     width: 100%;
-    overflow-x: auto;
+    height: 280px;
+    overflow: hidden;
 }
 
-.qc-canvas-wrap canvas {
-    display: block;
+.qc-plot-wrap.tall {
+    height: 400px;
+}
+
+.qc-plot-wrap .js-plotly-plot,
+.qc-plot-wrap .plot-container {
+    width: 100% !important;
+    height: 100% !important;
 }
 
 .qc-stat-row {
