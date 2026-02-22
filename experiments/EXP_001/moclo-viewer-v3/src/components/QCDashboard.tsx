@@ -267,6 +267,93 @@ function drawHorizontalBars(
     }
 }
 
+/* ── Normalized 100% stacked bar chart ─────────────────────────────── */
+function drawStackedBar100(
+    canvas: HTMLCanvasElement,
+    categories: string[],
+    groupIds: number[],
+    matrix: number[][],  // [catIdx][groupIdx]
+) {
+    const dpr = window.devicePixelRatio || 1;
+    const w = canvas.parentElement!.clientWidth;
+    const h = 220;
+    const padLeft = 40;
+    const padBottom = 28;
+    const padTop = 8;
+    const padRight = 10;
+    const plotW = w - padLeft - padRight;
+    const plotH = h - padBottom - padTop;
+    const barW = plotW / groupIds.length;
+
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    canvas.style.width = `${w}px`;
+    canvas.style.height = `${h}px`;
+
+    const ctx = canvas.getContext('2d')!;
+    ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, w, h);
+
+    // Compute totals per group
+    const totals = groupIds.map((_, gi) => {
+        let sum = 0;
+        for (let ci = 0; ci < categories.length; ci++) sum += matrix[ci][gi];
+        return sum;
+    });
+
+    // Axes
+    ctx.strokeStyle = '#30363d';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(padLeft, padTop);
+    ctx.lineTo(padLeft, h - padBottom);
+    ctx.lineTo(w - padRight, h - padBottom);
+    ctx.stroke();
+
+    // Y-axis labels (0% to 100%)
+    ctx.font = '9px Inter, sans-serif';
+    ctx.fillStyle = '#6e7681';
+    ctx.textAlign = 'right';
+    ctx.textBaseline = 'middle';
+    for (let i = 0; i <= 4; i++) {
+        const pct = i * 25;
+        const yPos = h - padBottom - (plotH * i) / 4;
+        ctx.fillText(`${pct}%`, padLeft - 6, yPos);
+        ctx.strokeStyle = '#21262d';
+        ctx.beginPath();
+        ctx.moveTo(padLeft, yPos);
+        ctx.lineTo(w - padRight, yPos);
+        ctx.stroke();
+    }
+
+    // Draw stacked bars
+    for (let gi = 0; gi < groupIds.length; gi++) {
+        const total = totals[gi];
+        if (total === 0) continue;
+        let yOffset = 0;
+        for (let ci = 0; ci < categories.length; ci++) {
+            const frac = matrix[ci][gi] / total;
+            const segH = frac * plotH;
+            const bx = padLeft + gi * barW + 0.5;
+            const by = h - padBottom - yOffset - segH;
+            ctx.fillStyle = getCatColor(categories[ci]);
+            ctx.globalAlpha = 0.8;
+            ctx.fillRect(bx, by, barW - 1, segH);
+            ctx.globalAlpha = 1;
+            yOffset += segH;
+        }
+    }
+
+    // X labels
+    ctx.fillStyle = '#6e7681';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'top';
+    const step = Math.max(1, Math.floor(groupIds.length / 12));
+    for (let i = 0; i < groupIds.length; i += step) {
+        ctx.fillText(`G${groupIds[i]}`, padLeft + i * barW + barW / 2, h - padBottom + 4);
+    }
+}
+
 /* ── Heatmap: categories × groups ──────────────────────────────────── */
 function drawCategoryHeatmap(
     canvas: HTMLCanvasElement,
@@ -404,6 +491,67 @@ export default function QCDashboard({ data, onNavigate }: Props) {
         return { heatmapCategories: cats, heatmapMatrix: matrix };
     }, [geneProducts, categoryCounts, bundle.lvl1_groups]);
 
+    // Compute outlier groups using Jensen-Shannon divergence
+    const outlierGroups = useMemo(() => {
+        const cats = heatmapCategories;
+        const nGroups = bundle.lvl1_groups.length;
+        const nCats = cats.length;
+
+        // Compute proportion vectors per group
+        const proportions: number[][] = [];
+        for (let gi = 0; gi < nGroups; gi++) {
+            const total = heatmapMatrix.reduce((s, row) => s + row[gi], 0);
+            proportions.push(total > 0
+                ? heatmapMatrix.map(row => row[gi] / total)
+                : new Array(nCats).fill(0)
+            );
+        }
+
+        // Average proportion across all groups
+        const avg = new Array(nCats).fill(0);
+        for (let ci = 0; ci < nCats; ci++) {
+            for (let gi = 0; gi < nGroups; gi++) {
+                avg[ci] += proportions[gi][ci];
+            }
+            avg[ci] /= nGroups;
+        }
+
+        // Jensen-Shannon divergence from average
+        function kl(p: number[], q: number[]): number {
+            let sum = 0;
+            for (let i = 0; i < p.length; i++) {
+                if (p[i] > 0 && q[i] > 0) sum += p[i] * Math.log2(p[i] / q[i]);
+            }
+            return sum;
+        }
+        function jsd(p: number[], q: number[]): number {
+            const m = p.map((v, i) => (v + q[i]) / 2);
+            return (kl(p, m) + kl(q, m)) / 2;
+        }
+
+        const divergences = proportions.map((p, gi) => ({
+            groupId: gi,
+            jsd: jsd(p, avg),
+            proportions: p,
+        }));
+
+        // Find top deviating categories for each group
+        const enriched = divergences.map(d => {
+            const diffs = cats.map((cat, ci) => ({
+                cat,
+                diff: d.proportions[ci] - avg[ci],
+                groupPct: d.proportions[ci] * 100,
+                avgPct: avg[ci] * 100,
+            }));
+            diffs.sort((a, b) => Math.abs(b.diff) - Math.abs(a.diff));
+            return { ...d, topDeviations: diffs.slice(0, 3) };
+        });
+
+        // Sort by JSD descending, take top 6 outliers
+        enriched.sort((a, b) => b.jsd - a.jsd);
+        return enriched.slice(0, 6);
+    }, [heatmapCategories, heatmapMatrix, bundle.lvl1_groups.length]);
+
     // Filtered genes for explorer
     const filteredGenes = useMemo(() => {
         let genes = geneProducts;
@@ -435,6 +583,7 @@ export default function QCDashboard({ data, onNavigate }: Props) {
     const bsaiPerGrpRef = useRef<HTMLCanvasElement>(null);
     const catBarRef = useRef<HTMLCanvasElement>(null);
     const heatmapRef = useRef<HTMLCanvasElement>(null);
+    const stackedRef = useRef<HTMLCanvasElement>(null);
 
     const drawAll = useCallback(() => {
         if (tileLenRef.current) drawHistogram(tileLenRef.current, tileLengths, 25, 'Tile Length', '#58a6ff', 'kb');
@@ -456,6 +605,14 @@ export default function QCDashboard({ data, onNavigate }: Props) {
         if (heatmapRef.current) {
             drawCategoryHeatmap(
                 heatmapRef.current,
+                heatmapCategories,
+                bundle.lvl1_groups.map(g => g.id),
+                heatmapMatrix,
+            );
+        }
+        if (stackedRef.current) {
+            drawStackedBar100(
+                stackedRef.current,
                 heatmapCategories,
                 bundle.lvl1_groups.map(g => g.id),
                 heatmapMatrix,
@@ -520,6 +677,53 @@ export default function QCDashboard({ data, onNavigate }: Props) {
                 <p className="qc-subtitle">Gene count by functional category across all {bundle.lvl1_groups.length} Lvl1 groups</p>
                 <div className="qc-canvas-wrap"><canvas ref={heatmapRef} /></div>
             </div>
+
+            {/* Row 5: Normalized stacked bar chart */}
+            <div className="qc-chart-card full">
+                <h3>Functional Distribution Uniformity</h3>
+                <p className="qc-subtitle">100% stacked bars — similar colors across all groups means uniform functional distribution</p>
+                <div className="qc-canvas-wrap"><canvas ref={stackedRef} /></div>
+            </div>
+
+            {/* Row 6: Outlier groups */}
+            {outlierGroups.length > 0 && (
+                <div className="qc-chart-card full">
+                    <h3>Outlier Groups — Unusual Functional Profiles</h3>
+                    <p className="qc-subtitle">Groups with highest Jensen-Shannon divergence from the average distribution</p>
+                    <div className="outlier-grid">
+                        {outlierGroups.map(o => (
+                            <div
+                                key={o.groupId}
+                                className="outlier-card"
+                                onClick={() => onNavigate({ view: 'group', groupId: o.groupId })}
+                            >
+                                <div className="outlier-header">
+                                    <span className="outlier-group">G{o.groupId}</span>
+                                    <span className="outlier-score">JSD: {o.jsd.toFixed(4)}</span>
+                                </div>
+                                <div className="outlier-deviations">
+                                    {o.topDeviations.map((d, i) => (
+                                        <div key={i} className="outlier-dev">
+                                            <span
+                                                className="cat-dot"
+                                                style={{ background: getCatColor(d.cat) }}
+                                            />
+                                            <span className="dev-cat">{d.cat}</span>
+                                            <span className={`dev-diff ${d.diff > 0 ? 'up' : 'down'}`}>
+                                                {d.diff > 0 ? '▲' : '▼'}
+                                                {Math.abs(d.diff * 100).toFixed(1)}%
+                                            </span>
+                                            <span className="dev-detail">
+                                                ({d.groupPct.toFixed(0)}% vs {d.avgPct.toFixed(0)}% avg)
+                                            </span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
 
             {/* Gene Explorer */}
             <div className="qc-gene-explorer">

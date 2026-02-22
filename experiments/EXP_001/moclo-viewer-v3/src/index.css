@@ -2302,6 +2302,90 @@ body {
     font-family: var(--font-mono);
 }
 
+/* ── Outlier Cards ──────────────────────────────────────────────────── */
+
+.outlier-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.outlier-card {
+    background: rgba(22, 27, 34, 0.6);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.outlier-card:hover {
+    border-color: var(--purple);
+    background: rgba(22, 27, 34, 0.9);
+}
+
+.outlier-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.outlier-group {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--purple);
+}
+
+.outlier-score {
+    font-size: 10px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+}
+
+.outlier-deviations {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.outlier-dev {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+.dev-cat {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.dev-diff {
+    font-weight: 600;
+    font-family: var(--font-mono);
+    font-size: 10px;
+}
+
+.dev-diff.up {
+    color: var(--green);
+}
+
+.dev-diff.down {
+    color: var(--red);
+}
+
+.dev-detail {
+    font-size: 9px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+}
+
 /* ── Gene Explorer ──────────────────────────────────────────────────── */
 
 .qc-gene-explorer {
