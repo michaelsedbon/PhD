@@ -1,5 +1,15 @@
 import { useMemo, useState, useRef, useEffect, useCallback } from 'react';
-import { AppData, ViewState, CDSRegion, Mutation } from '../types';
+import { AppData, ViewState, CDSRegion, Mutation, GeneProduct } from '../types';
+
+const CATEGORY_COLORS: Record<string, string> = {
+    'Transport': '#58a6ff', 'Kinase / Phosphatase': '#3fb950', 'Redox Enzymes': '#f85149',
+    'Biosynthesis': '#d29922', 'Transferase': '#bc8cff', 'Regulation': '#39d2c0',
+    'Transcription': '#ff7b72', 'Translation': '#79c0ff', 'DNA Maintenance': '#d2a8ff',
+    'Mobile Elements': '#ffa657', 'Motility': '#56d364', 'Membrane': '#7ee787',
+    'Fimbriae / Pili': '#f778ba', 'Proteolysis': '#ff9bce', 'Chaperones / Stress': '#ffdf5d',
+    'Uncharacterized': '#484f58', 'Lyase / Isomerase': '#a5d6ff', 'Hydrolase': '#ffc680',
+    'Other': '#6e7681', 'Unknown': '#30363d',
+};
 
 interface Props {
     data: AppData;
@@ -45,6 +55,33 @@ export default function GroupDetail({ data, groupId, onNavigate }: Props) {
         }
         return Array.from(seen.values());
     }, [groupCDS]);
+
+    // Gene products for this group
+    const groupGeneProducts = useMemo(() => {
+        return data.geneProducts.filter(gp =>
+            gp.end > group.start && gp.start < group.end
+        );
+    }, [data.geneProducts, group]);
+
+    // Category counts for this group
+    const categoryCounts = useMemo(() => {
+        const counts: Record<string, number> = {};
+        for (const gp of groupGeneProducts) {
+            counts[gp.category] = (counts[gp.category] || 0) + 1;
+        }
+        return Object.entries(counts)
+            .sort((a, b) => b[1] - a[1])
+            .filter(([, v]) => v > 0);
+    }, [groupGeneProducts]);
+
+    // Map gene name → product info
+    const geneProductMap = useMemo(() => {
+        const m = new Map<string, GeneProduct>();
+        for (const gp of groupGeneProducts) {
+            if (!m.has(gp.gene)) m.set(gp.gene, gp);
+        }
+        return m;
+    }, [groupGeneProducts]);
 
     // Genome-wide context info
     const genomeLen = data.bundle.genome.length;
@@ -124,6 +161,11 @@ export default function GroupDetail({ data, groupId, onNavigate }: Props) {
                 </div>
             </div>
 
+            {/* Functional Category Distribution */}
+            {categoryCounts.length > 0 && (
+                <GroupCategoryChart categoryCounts={categoryCounts} totalGenes={groupGeneProducts.length} />
+            )}
+
             {/* Genes in this group */}
             {genes.length > 0 && (
                 <div className="genes-section">
@@ -133,6 +175,7 @@ export default function GroupDetail({ data, groupId, onNavigate }: Props) {
                             const geneStart = Math.max(cds.start, group.start);
                             const geneEnd = Math.min(cds.end, group.end);
                             const geneMuts = groupMutations.filter(m => m.position >= cds.start && m.position < cds.end);
+                            const gpInfo = geneProductMap.get(cds.gene);
                             return (
                                 <div key={i} className="gene-card">
                                     <div className="gene-header">
@@ -140,7 +183,21 @@ export default function GroupDetail({ data, groupId, onNavigate }: Props) {
                                         <span className={`badge ${cds.complement ? 'info' : 'ready'}`}>
                                             {cds.complement ? '(−) strand' : '(+) strand'}
                                         </span>
+                                        {gpInfo && (
+                                            <span
+                                                className="cat-tag"
+                                                style={{
+                                                    background: (CATEGORY_COLORS[gpInfo.category] || '#6e7681') + '33',
+                                                    color: CATEGORY_COLORS[gpInfo.category] || '#6e7681',
+                                                }}
+                                            >
+                                                {gpInfo.category}
+                                            </span>
+                                        )}
                                     </div>
+                                    {gpInfo && gpInfo.product && (
+                                        <div className="gene-product-desc">{gpInfo.product}</div>
+                                    )}
                                     <div className="gene-meta">
                                         <span>{geneStart.toLocaleString()} – {geneEnd.toLocaleString()}</span>
                                         <span>{((geneEnd - geneStart) / 1000).toFixed(1)} kb</span>
@@ -266,6 +323,80 @@ export default function GroupDetail({ data, groupId, onNavigate }: Props) {
                     </div>
                 </div>
             )}
+        </div>
+    );
+}
+
+/* ── Group-level category chart ────────────────────────────────────── */
+
+function GroupCategoryChart({ categoryCounts, totalGenes }: { categoryCounts: [string, number][]; totalGenes: number }) {
+    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const wrapRef = useRef<HTMLDivElement>(null);
+
+    const draw = useCallback(() => {
+        const canvas = canvasRef.current;
+        const wrap = wrapRef.current;
+        if (!canvas || !wrap) return;
+
+        const dpr = window.devicePixelRatio || 1;
+        const w = wrap.clientWidth;
+        const barH = 20;
+        const gap = 3;
+        const padLeft = 130;
+        const padRight = 50;
+        const h = categoryCounts.length * (barH + gap) + 10;
+
+        canvas.width = w * dpr;
+        canvas.height = h * dpr;
+        canvas.style.width = `${w}px`;
+        canvas.style.height = `${h}px`;
+
+        const ctx = canvas.getContext('2d')!;
+        ctx.scale(dpr, dpr);
+        ctx.clearRect(0, 0, w, h);
+
+        const maxVal = Math.max(...categoryCounts.map(([, v]) => v));
+        const plotW = w - padLeft - padRight;
+
+        for (let i = 0; i < categoryCounts.length; i++) {
+            const [cat, count] = categoryCounts[i];
+            const y = i * (barH + gap) + 4;
+            const barW = maxVal > 0 ? (count / maxVal) * plotW : 0;
+            const color = CATEGORY_COLORS[cat] || '#6e7681';
+
+            // Label
+            ctx.font = '10px Inter, sans-serif';
+            ctx.fillStyle = '#e6edf3';
+            ctx.textAlign = 'right';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(cat, padLeft - 8, y + barH / 2);
+
+            // Bar
+            ctx.fillStyle = color;
+            ctx.globalAlpha = 0.75;
+            ctx.fillRect(padLeft, y, barW, barH);
+            ctx.globalAlpha = 1;
+
+            // Value + percentage
+            ctx.fillStyle = '#8b949e';
+            ctx.textAlign = 'left';
+            ctx.fillText(`${count} (${((count / totalGenes) * 100).toFixed(0)}%)`, padLeft + barW + 6, y + barH / 2);
+        }
+    }, [categoryCounts, totalGenes]);
+
+    useEffect(() => { draw(); }, [draw]);
+    useEffect(() => {
+        const handler = () => draw();
+        window.addEventListener('resize', handler);
+        return () => window.removeEventListener('resize', handler);
+    }, [draw]);
+
+    return (
+        <div className="genome-context-section">
+            <h3>Functional Categories ({totalGenes} genes)</h3>
+            <div ref={wrapRef} className="qc-canvas-wrap">
+                <canvas ref={canvasRef} />
+            </div>
         </div>
     );
 }
