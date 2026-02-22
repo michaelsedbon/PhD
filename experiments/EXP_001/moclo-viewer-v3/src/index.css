@@ -2544,3 +2544,308 @@ body {
     color: var(--text-muted);
     background: var(--bg-tertiary);
 }
+
+/* ── Sidebar Recombine button ─────────────────────────────────────── */
+.sidebar-recombine {
+    display: block;
+    width: calc(100% - 24px);
+    margin: 8px 12px;
+    padding: 10px 14px;
+    background: linear-gradient(135deg, #1a3a5c, #1a2744);
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    color: #58a6ff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s;
+}
+
+.sidebar-recombine:hover {
+    background: linear-gradient(135deg, #1f4670, #1f3052);
+    border-color: #58a6ff55;
+}
+
+.sidebar-recombine.active {
+    background: linear-gradient(135deg, #264f7a, #243560);
+    border-color: #58a6ff;
+    color: #79c0ff;
+}
+
+/* ── Recombinator ─────────────────────────────────────────────────── */
+.recombinator {
+    padding: 20px 28px 40px;
+}
+
+.recomb-title {
+    font-size: 22px;
+    margin: 0 0 4px;
+    color: var(--text-primary);
+}
+
+.recomb-subtitle {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin: 0 0 20px;
+    line-height: 1.5;
+}
+
+/* Presets */
+.recomb-presets {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding: 14px 16px;
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+}
+
+.presets-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-right: 4px;
+}
+
+.preset-btn {
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.preset-btn:hover {
+    border-color: var(--blue);
+    color: var(--text-primary);
+}
+
+.preset-btn.diversity:hover {
+    border-color: #bc8cff;
+    color: #bc8cff;
+}
+
+.preset-btn.focus:hover {
+    border-color: #d29922;
+    color: #d29922;
+}
+
+.preset-btn.gg:hover {
+    border-color: var(--green);
+    color: var(--green);
+}
+
+.preset-btn.bsai:hover {
+    border-color: var(--red);
+    color: var(--red);
+}
+
+.preset-btn.random:hover {
+    border-color: #ffa657;
+    color: #ffa657;
+}
+
+.preset-original {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.group-select {
+    padding: 6px 8px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* Score cards */
+.recomb-scores {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.score-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 14px 8px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+.score-value {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.score-label {
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+}
+
+.accent-blue {
+    color: #58a6ff;
+}
+
+.accent-purple {
+    color: #bc8cff;
+}
+
+.accent-green {
+    color: #3fb950;
+}
+
+.accent-red {
+    color: #f85149;
+}
+
+.accent-cyan {
+    color: #39d2c0;
+}
+
+/* Assembly slots */
+.recomb-slots-wrap {
+    margin-bottom: 24px;
+}
+
+.recomb-slots-wrap h3 {
+    font-size: 14px;
+    margin: 0 0 12px;
+    color: var(--text-secondary);
+}
+
+.recomb-slots {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 8px;
+}
+
+.recomb-slot {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-top: 3px solid #30363d;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.slot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.slot-pos {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.slot-oh {
+    font-size: 9px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    color: var(--text-muted);
+}
+
+.slot-select {
+    width: 100%;
+    padding: 4px 6px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.slot-info {
+    display: flex;
+    gap: 6px;
+    font-size: 10px;
+    color: var(--text-muted);
+}
+
+.slot-source {
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.slot-status.ready {
+    color: var(--green);
+}
+
+.slot-status.blocked {
+    color: var(--red);
+}
+
+.slot-cat {
+    font-size: 9px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Chart cards */
+.recomb-chart-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+}
+
+.recomb-chart-card h3 {
+    font-size: 14px;
+    margin: 0 0 12px;
+    color: var(--text-secondary);
+}
+
+.recomb-plot {
+    width: 100%;
+    height: 380px;
+    overflow: hidden;
+}
+
+.recomb-plot .js-plotly-plot,
+.recomb-plot .plot-container {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Gene list */
+.recomb-gene-list {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+}
+
+.recomb-gene-list h3 {
+    font-size: 14px;
+    margin: 0 0 12px;
+    color: var(--text-secondary);
+}

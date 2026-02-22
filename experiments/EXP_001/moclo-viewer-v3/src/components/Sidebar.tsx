@@ -70,6 +70,14 @@ export default function Sidebar({ data, view, onNavigate }: Props) {
                 </div>
             </div>
 
+            {/* Recombine button */}
+            <button
+                className={`sidebar-recombine ${view.view === 'recombine' ? 'active' : ''}`}
+                onClick={() => onNavigate({ view: 'recombine' })}
+            >
+                🧬 Recombination Lab
+            </button>
+
             {/* Search */}
             <div className="sidebar-search">
                 <input

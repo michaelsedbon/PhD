@@ -130,7 +130,7 @@ export interface AppData {
 }
 
 // Navigation
-export type ViewType = 'presentation' | 'genome' | 'group' | 'tile';
+export type ViewType = 'presentation' | 'genome' | 'group' | 'tile' | 'recombine';
 
 export interface ViewState {
     view: ViewType;

@@ -6,6 +6,7 @@ import GenomeOverview from './components/GenomeOverview';
 import GroupDetail from './components/GroupDetail';
 import TileDetail from './components/TileDetail';
 import PresentationView from './components/PresentationView';
+import Recombinator from './components/Recombinator';
 
 export default function App() {
     const [data, setData] = useState<AppData | null>(null);
@@ -81,6 +82,9 @@ export default function App() {
                     {view.view === 'tile' && view.tileId !== undefined && (
                         <TileDetail data={data} tileId={view.tileId} onNavigate={navigate} />
                     )}
+                    {view.view === 'recombine' && (
+                        <Recombinator data={data} onNavigate={navigate} />
+                    )}
                 </div>
             </div>
         </div>
@@ -110,6 +114,8 @@ function ExplorerHeader({ view, data, onNavigate }: {
                 </button>
                 <span className="sep">·</span>
                 <button onClick={() => onNavigate({ view: 'genome' })}>Genome</button>
+                <span className="sep">·</span>
+                <button onClick={() => onNavigate({ view: 'recombine' })}>Recombine</button>
                 {(view.view === 'group' || view.view === 'tile') && group && (
                     <>
                         <span className="sep">›</span>
