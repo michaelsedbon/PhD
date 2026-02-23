@@ -1,0 +1,760 @@
+--- Page 1 ---
+ARTICLES
+Adaptive prediction of environmental
+changes by microorganisms
+Amir Mitchell1, Gal H. Romano2, Bella Groisman1, Avihu Yona1, Erez Dekel3, Martin Kupiec2, Orna Dahan1*
+& Yitzhak Pilpel1,4*
+Natural habitats of some microorganisms may fluctuate erratically, whereas others, which are more predictable, offer the
+opportunity to prepare in advance for the next environmental change. In analogy to classical Pavlovian conditioning,
+microorganisms may have evolved to anticipate environmental stimuli by adapting to their temporal order of appearance.
+Here we present evidence for environmental change anticipation in two model microorganisms, Escherichia coli and
+Saccharomyces cerevisiae. We show that anticipation is an adaptive trait, because pre-exposure to the stimulus that typically
+appears early in the ecology improves the organism’s fitness when encountered with a second stimulus. Additionally, we
+observe loss of the conditioned response in E. coli strains that were repeatedly exposed in a laboratory evolution experiment
+only to the first stimulus. Focusing on the molecular level reveals that the natural temporal order of stimuli is embedded in the
+wiring of the regulatory network—early stimuli pre-induce genes that would be needed for later ones, yet later stimuli only
+induce genes needed to cope with them. Our work indicates that environmental anticipation is an adaptive trait that was
+repeatedly selected for during evolution and thus may be ubiquitous in biology.
+Microorganisms are constantly faced with environmental stimuli and
+stresses. The cellular response to such challenges has been intensively
+studied in several model organisms1–4. The simplest response strategy
+to a stimulus is to monitor the environment and to respond directly
+to it using designated mechanisms (Fig. 1). The environmental stress
+response in yeast represents a more complicated strategy in which the
+responses to many stresses are partially overlapping1,2. Theoretical
+work has shown that when a population of microorganisms evolves
+under erratic environmental fluctuations, cells may not effectively
+monitor the environment, but rather use stochasticity to randomly
+alternate between potential states5 (Fig. 1). Stochastic switching
+might thus ensure that a portion of the population is prepared in
+advance for the unpredicted challenge6,7. However, other, more pre-
+dictable, environments offer organisms the opportunity to adopt an
+alternative regulation strategy of anticipating an environmental
+change based on a preceding signal. The capacity of some complex
+multicellular eukaryotes to capture the statistics that govern the tem-
+poral connection between events in their environment, known as
+classical Pavlovian conditioning, serves as a central paradigm in the
+study of learning8. Here we ask whether genetic regulatory networks
+of microorganisms adaptively evolved to capture the temporal con-
+nections between subsequent stimuli in their environment. Most
+recently, ‘anticipatory regulation’ was discovered9 (Fig. 1)—an asso-
+ciation between environmental changes in bacteria. Specifically, this
+study investigated the response of E. coli to temperature increase that
+is followed by a drop in oxygen availability upon its entry to the
+digestive tract. Interestingly, these two signals show a symmetrical
+associative regulation pattern—each signal affects the expression of
+genes needed to cope with both (Fig. 1). Remarkably, the authors
+successfully decoupled the two responses during a laboratory evolu-
+tion experiment in which the two signals were presented out-of-
+phase from one another. The ability to decouple the two responses
+is an indication that the coupling seen in the wild type is not a trivial
+combined response to the two stresses.
+Here we show that biological systems that react to a unidirectional
+temporal order of environmental changes may manifest a more elabo-
+rate predictive capacity. This capacity is reflected in a corresponding
+asymmetric response strategy between subsequent stimuli, denoted S1
+and S2 hereafter, and their designated responses R1 and R2, respect-
+ively. The first stimulus, S1, activates both responses, R1 and R2, yet
+because the second stimulus, S2, does not predict the appearance of S1,
+it only activates its own response (Fig. 1). We propose three criteria to
+determine whether the observed cross-regulation pattern forms an
+adaptive anticipatory response strategy that could be selected for by
+evolution. First, asymmetric fitness advantage: pre-exposure to S1
+increases the fitness under S2, yet pre-exposure to S2 should not
+enhance fitness upon subsequent growth on S1. This ensures that
+the natural order of stimuli was captured during evolution. Second,
+1Department of Molecular Genetics, Weizmann Institute of Science Rehovot 76100, Israel. 2Department of Molecular Microbiology and Biotechnology, Tel Aviv University, Tel Aviv
+69978, Israel. 3Department of Molecular Cell Biology, Weizmann Institute of Science Rehovot 76100, Israel. 4Department of Systems Biology, Harvard Medical School, Boston,
+Massachusetts 02115, USA.
+*These authors contributed equally to this work.
+S1
+S2
+R1
+R2
+Direct
+regulation
+S1
+S2
+R1
+R2
+Stochastic
+switching
+R1
+R2
+S1
+S2
+R1
+R2
+Symmetrical
+anticipatory
+regulation
+S1
+S2
+R1
+R2
+Asymmetrical
+anticipatory
+regulation
+Figure 1 | Four possible regulation strategies in response to environmental
+stimuli. Under direct regulation, each of the stimuli, S1 and S2, activates
+exclusively the responses R1 and R2, respectively. Under stochastic
+switching, cells randomly sample either R1 or R2 in response to either S1 or
+S2. Under symmetrical anticipatory regulation, each of the stimuli activates
+both responses. Under asymmetrical anticipatory regulation, the stimulus
+that usually appears first in the ecology activates both responses, whereas the
+stimulus that appears later induces only the second response.
+Vol 460 |9 July 2009 |doi:10.1038/nature08112
+220
+ 
+Macmillan Publishers Limited. All rights reserved
+©2009
+
+
+--- Page 2 ---
+cost of preparation: pre-induction of genes needed to cope with S2 is
+costly and not beneficial during S1. This indicates that early induction
+is preserved due to a future benefit that is expected to exceed the cost,
+uponencounterwithS2.Third,specificity:theconditionedresponseis
+specific to S1 and not to other unrelated stimuli, suggesting that anti-
+cipation evolved in response to the specific conditions of the eco-
+logical niche.
+E. coli carbon source switch
+During its life cycle E. coli alternates between two principal habitats,
+intestines of mammals and water, sediment and soil10 (Supplemen-
+tary Information). Focusing on the intestinal ecology reveals a pre-
+dictablemetabolicenvironment.Specifically,duringpassagealongthe
+digestivetract,exposuretolactoseprecedesexposuretoanothersugar,
+maltose11. We thus expect that this environment can select for asym-
+metric anticipation, so that bacteria that link the presence of lactose
+with future exposure to maltose are expected to activate the maltose
+genes already upon encounter with lactose. Such pre-induction is
+expected to allow cells to better use maltose upon its encounter.
+We start by examination of anticipatory behaviour at the molecu-
+lar level. To test systematically the promoter activity of all relevant
+operons in the presence of maltose and lactose we used an E. coli
+promoter-fused green fluorescent protein (GFP) library previously
+described12. Our experiments revealed the unidirectional regulation
+pattern expected under a conditioned response strategy (Fig. 2a and
+Supplementary Figs 1–4). Maltose operons, which are induced by
+maltose, are also induced, but to a lower level, by lactose. We note
+that the basic responsiveness of some of the maltose operons to
+lactose is not restricted only to the E. coli strain used in our study13.
+In contrast, and as expected by our hypothesis, the lactose operon
+shows no response to maltose (Fig. 2a and Supplementary Figs 1–4).
+The crucial question is whether the observed asymmetric response
+strategy that implies anticipation is indeed adaptive—that is, whether
+it could be selected for during evolution. Following the criteria out-
+lined previously, we first validated that the conditioned response
+indeed provides an asymmetric fitness advantage in an alternating
+sugar environment. We monitored cell growth on maltose after an
+initial growth phase on lactose. Reassuringly, we observed that the
+wild-type strain displays a fitness advantage if growth on maltose was
+preceded by growth on lactose (Fig. 3). We ensured that this advan-
+tage does not originate from the metabolic contribution of lactose as
+a carbon source (Supplementary Information). In addition, and as
+required by our first principle, we found that pre-exposure to maltose
+before growth on lactose does not improve fitness (Fig. 3).
+Our second criterion for adaptiveness requires that pre-induction
+of the maltose genes is maladaptive or neutral during growth on
+lactose. This criterion is crucial to rule out the possibility that the
+maltose genes are induced during exposure to lactose simply because
+they are needed during that phase. Built into the classical condition-
+ing paradigm from the cognitive context is the possible extinction of
+the association. To put in present case terms, it is expected that
+repeated exposure to lactose without consequent arrival of maltose
+would select for weakening of the conditioned response due to the
+futile cost of preparation. Accordingly, we have examined labo-
+ratory-evolved strains of E. coli, which grew for 500 generations on
+high levels of lactose yet without exposure to maltose14. We measured
+the promoter activity of relevant operons in three lineages that
+evolved
+independently
+under
+various
+lactose
+concentrations.
+Notably, we found that, in all three lines, the maltose operons show
+almost no activity in response to lactose (Fig. 2b and Supplementary
+Fig. 5). Reassuringly, the strains seem to have preserved the ability to
+activate the maltose genes in response to maltose itself (Supplemen-
+tary Fig. 6), indicating that only the asymmetrical cross talk between
+the two pathways was removed during this laboratory evolution
+period. These results imply that the conditioning observed in the
+wild-type strain is costly and that without a subsequent benefit that
+should exceed this cost, purifying selection acts to eliminate this cross
+talk. Consistent with the second criterion, the growth advantage
+LacZ
+MalE
+MalK
+MalP
+MalS
+MalZ
+LacZ
+MalE
+MalK
+MalP
+MalS
+MalZ
+0
+0.25
+0.50
+0.75
+1.00
+Normalized promoter activity
+Wild-type strain
+Added sugar:
+Lactose
+Maltose
+None
+a
+0
+0.25
+0.50
+0.75
+1.00
+GFP-fused promoter 
+Evolved strain
+b
+Figure 2 | Conditioned response in E. coli sugar metabolism. Promoter
+activity in wild type (a) and the evolved strain (b). Colours mark the added
+sugar. Error bars denote standard deviation of four repeats. Promoter
+activities of four out of five maltose operons in wild type are significantly
+higher under lactose relative to the untreated culture (t-test, P , 0.01
+according to a Bonferroni adjustment). In contrast, none of the promoters
+show increased activity in the evolved strain. The experiment was done in
+M9-Glu medium and was repeated using glycerol as a background carbon
+source (Supplementary Fig. 3) and further verified using quantitative
+polymerase chain reaction with reverse transcription (RT–PCR)
+(Supplementary Figs 2 and 4).
+Evolved
+0.98
+0.99
+1.00
+1.01
+1.02
+1.03
+1.04
+Fitness advantage
+Observed effect:
+Directionality
+Specificity
+Extinction
+Lac
+Mal
+Mal
+Lac
+Gal
+Mal
+Suc
+Mal
+Lac
+Mal
+Wild type
+Figure 3 | Fitness in an alternating sugar environment. Two isogenic
+populations were grown on M9-Gly either supplemented with a sugar as S1
+(treated) or not (untreated). An equal amount of cells was diluted into media
+containing the second sugar (S2) as a sole carbon source. The ratio treated/
+untreated (after 2 h) represents the fitness advantage originating from pre-
+exposure to S1. The error bars denote standard deviation of three repeats. All
+ratios are normalized to the ratio measured in a control experiment in which
+S2 was glycerol (Methods). A significant fitness advantage was observed only
+in the transfer of wild-type cells from lactose to maltose (P 5 0.02, t-test).
+NATURE |Vol 460 |9 July 2009
+ARTICLES
+221
+ 
+Macmillan Publishers Limited. All rights reserved
+©2009
+
+
+--- Page 3 ---
+observed in the wild type due to exposure to lactose before maltose is
+lost in the evolved strain that features extinction (Fig. 3).
+Finally, as required by the specificity criterion, we ensured that
+pre-exposure to other sugars does not improve growth of cells upon
+transfer to maltose. As can be seen in Fig. 3, two alternative related
+carbon sources, galactose and sucrose, cannot substitute lactose as a
+preceding signal before maltose. This indicates that the observed
+anticipation evolved in response to the specific stimuli pair that is
+presented to the organism in its ecological niche. In summary, we
+conclude that anticipation of subsequent carbon source changes is an
+adaptive trait that has been selected by the natural ecology of E. coli.
+The shift from fermentation to respiration in yeast
+We next proceeded to a more complicated case that may also mani-
+fest environmental change anticipation. We examined how envi-
+ronmental anticipation is encoded in the regulatory network of
+S. cerevisiae, and whether this response strategy has been selected
+for because of a net fitness advantage it entails. We examined condi-
+tions that emulate some of the stresses that occur during the process
+of alcoholic brew production, such as wine, by yeast15: Fig. 4a
+describes this process, which starts at a highly osmotic and low pH
+environment, followed by potentially lethal temperature raise due to
+vigorous fermentation and accumulation of ethanol, culminating in
+the diauxic shift—the exhaustion of fermentable sugars (for example,
+glucose) and the switch to oxidative respiration16–19. Respiration is
+challenging to the cell because it eventually generates oxygen radi-
+cals20. We checked whether yeast cells can cope better with these
+stresses provided that they appear in their natural temporal order,
+that is, whether yeasts use early stresses as predictive signals for the
+likely arrival of later stresses. Such behaviour would indicate that
+yeast cells are preparing for later challenges even before they arise.
+To address these questions we systematically studied the survival
+of S. cerevisiae under stresses that comprise the switch from its
+preferred catabolic state, fermentation, to the alternative one, res-
+piration (Fig. 4). As a potential manifestation of anticipation, we
+focused on the cross-protection phenotype between different stress
+pairs21,22. A cross-protection phenotype between two stresses exists if
+pre-exposure to one stress improves the survival of cells under a
+subsequent stress. Under our hypothesis we expect an asymmetrical
+cross-protection phenotype between stress pairs. Particularly, we
+predict that directionality of cross-protection will be in accordance
+with the order of events during the transition from fermentation to
+respiration. For example, because heat shock and ethanol accumula-
+tion precede oxidative stress in the ecology, we expect improved
+survival under oxidative stress if it is preceded by either heat shock
+or ethanol stress, yet we do not expect cross-protection if the stresses
+are applied in the reverse order. Figure 4a shows the measured pro-
+tection phenotype systematically tested for stresses that occur before
+and after the diauxic shift. In accordance with our hypothesis, we
+observe that the cross-protection phenotype is indeed extremely
+asymmetric and, most importantly, that the directionality of protec-
+tion fits the natural temporal context. Specifically, for each stress pair
+protection is always stronger in the direction found in the natural
+environment, thus fulfilling the asymmetric fitness advantage cri-
+terion. In a more faithful emulation of the natural habitat we have
+also applied the three stresses, heat shock, ethanol and oxidative
+stress, sequentially and observed an equally high cross-protection
+activity (Supplementary Information). Note that activation of the
+Nitrogen depletion
+High osmolarity
+Glucose depletion
+46
+1.5
+3
+29
+0.001
+Fermentation
+Respiration
+Grape must
+19
+5
+4
+Wine production process (time)
+31
+Diauxic
+shift
+Low pH
+Oxidative stress
+Ethanol
+Heat
+a
+0
+Fold cross-protection
+Copper
+Low
+pH
+High
+osmolarity
+Heat
+Ethanol
+Acetic
+acid
+High
+pH
+50
+40
+30
+20
+10
+b
+Figure 4 | Cross-protection in the context of the diauxic shift. a, Stress
+sequence in the process of wine production and measured cross-protection
+phenotype. ‘Must’ is the medium in the beginning of the wine production
+process. The values denote the fold protection gained by pre-exposure to a
+mild stress followed by a severe stress. Red and blue arrows mark cross-
+protection when stress order is in accordance with the ecology or in reverse
+order, respectively. Green arrows denote auto-protection. b, Specificity of
+cross-protection against oxidative stress. The columns mark the observed
+fold cross-protection provided by exposure to mild stress before severe
+oxidative stress. Error bars donate standard deviations of three repeats.
+Normalized survival ratio
+b
+0.70 0.75 0.80 0.85 0.90 0.95 1.00
+0
+5
+10
+15
+Number of strains
+Acquired cluster
+Required dynamics
+15
+30
+45
+60
+75
+90
+0
+0.5
+1.0
+15
+30
+45
+60
+75
+90
+0
+0
+0
+Induction
+Time (min)
+Stimuli setup:
+OX
+YPD
+OX
+HS
+YPD
+HS
+OX
+OS
+YPD
+OS
+S1
+S2
+S1
+S2
+S1
+S2
+a
+Figure 5 | Candidate genes underlying the asymmetrical protection
+between heat and oxidative stresses. a, Genome-wide expression was
+measured in response to sequential stress pairs (untreated, YPD; osmotic
+stress, OS; heat shock, HS; oxidative stress, OX). The top panel marks the
+expression dynamics of an ideal gene that may facilitate cross-protection
+against oxidative stress. The bottom panel marks the mean profile of 300
+genes matching the desired pattern (Methods). b, A histogram of sensitivity
+values of 29 deletion strains to heat (orange) and oxidative (purple) stresses.
+The survival of each strain was normalized to the survival of the wild type to
+test for increased sensitivity (individual strain sensitivity is shown in
+Supplementary Fig. 7 and Supplementary Table 5).
+ARTICLES
+NATURE |Vol 460 |9 July 2009
+222
+ 
+Macmillan Publishers Limited. All rights reserved
+©2009
+
+
+--- Page 4 ---
+environmental stress response1,2, namely a set of genes that are tran-
+scribed in response to a wide spectrum of stresses, is less likely to
+explain the observed cross-protection activity. Whereas the envi-
+ronmental stress response is more likely to result in a symmetrical
+protection, we observe a very asymmetric effect. Furthermore, and as
+required by the third criterion, we observe that protection against
+oxidative stress is specific to stresses that precede respiration in the
+natural environment, whereas stresses unrelated to the process do not
+provide cross-protection (Fig. 4b).
+We next investigated a potential molecular mechanism that might
+account for the observed cross-protection capacity. We focused on
+the pair of stresses that exhibits the strongest cross-protection pheno-
+type, heat shock and oxidative stress, and measured genome-wide
+gene expression in response to these stresses when they were intro-
+duced in isolation or one after the other. In particular, we applied a
+heat shock as the first stress (S1), followed by an oxidative stress (S2).
+As a control we also examined the response to oxidative stress that is
+preceded by an osmotic stress, a condition we found not to cross-
+protect significantly against oxidative stress (Fig. 4b). We used these
+series of events to define an ideal expression profile of genes that can
+underlie the cross-protection phenotype and ultimately the anticipa-
+tion capacity (Fig. 5a, see Methods for profile details). We also
+defined a control profile, using the control osmotic stress (instead
+of heat shock) as an early stimulus. Our search revealed a cluster of
+300 genes with the desired profile (Fig. 5a). Consistent with asym-
+metric anticipation, this cluster shows a significant overlap with a set
+of genes that are annotated in the literature (Proteome database) as
+essential in oxidative stress but not in heat shock (P 5 0.013).
+However, this cluster does not overlap significantly with a set of genes
+that are annotated as essential in heat shock and not in oxidative
+stress (P 5 0.2). Analysis of functional enrichment using Gene
+Ontology annotations23 revealed a similar trend—a significant
+enrichment of oxidative stress categories (Supplementary Table 3),
+such as oxidoreductase activity, and many mitochondria-related cat-
+egories, consistent with a known role of mitochondria for coping
+with oxidative stress in yeasts24. However, no heat-shock-related cate-
+gories were found to be enriched in this cluster. Reassuringly, the
+genes that corresponded to the control profile (in which we still used
+oxidative stress as an S2, yet with osmotic stress as an unprotective S1)
+did not yield similar enrichment for oxidative-related activities
+(Supplementary Table 4). This indicates that whereas an S1 stimulus
+that provides cross-protection increases in advance the expression
+level of genes relevant for the R2 response, a control S1 signal does
+not affect these R2 genes.
+We then tested whether induction of the conditioned gene set is
+neutral in heat shock, as required by the second criterion. Towards
+this aim we collected 29 strains, each of which is deleted for one of the
+genes from the cluster described above, and tested their sensitivity to
+heat shock and oxidative stress (Methods). Analysis of survival ratios
+reveals that whereas 65% of the strains show increased sensitivity to
+oxidative stress, none shows a significantly increased sensitivity to
+heat shock relative to the wild-type strain (Fig. 5b and Supplementary
+Fig. 7). This is a direct indication that the expression of many of the
+heat-induced genes is at least neutral, if not maladaptive, under heat
+shock. Taken together with the fact that these genes are essential
+under oxidative stress, this experiment corroborates the claim that
+an early preparation to oxidative stress during heat shock is adaptive
+in this system.
+Future outlook
+An open question is how prevalent anticipatory regulation is in the
+world of microorganisms. One way to address this issue is to develop
+a mathematical framework that estimates the potential advantage of a
+conditioned response in a given ecology. Intuitively, the added value
+from anticipation depends both on environmental and on biological
+parameters. Two cellular parameters, gain and cost, should be con-
+sidered. A conditioned response is beneficial provided that benefit
+gained from anticipation exceeds the cost of early preparation. These
+parameters are in turn dependent on the typical time constants of the
+environment, for example, the time gap between the appearances of
+the two stimuli. Additionally, predictable environments in which
+the stimuli are often sequentially coupled promote anticipation. A
+simple equation captures the relationship between these variables
+and their effect on the net fitness:
+DF 5 p(B(Dt) 2 C(Dt)) 2 (1 2 p)(C(tS1)),
+where DF is the difference in fitness between an anticipating cell and a
+cell that adheres to direct regulation (Fig. 1), p is the probability that
+S2 will occur given that S1 occurred, and B and C are functions
+describing the benefit and cost of early preparation, respectively. Dt
+is the length of the time interval between the appearance of S1 and S2,
+and tS1 is the duration of the first stimulus. The dependence of fitness
+on the interplay between the key factors is shown in Supplementary
+Fig. 8. We note that quantitative predictions from the above phe-
+nomenological equation can be drawn by incorporating into the
+model biologically meaningful and realistic parameters, such as mea-
+surable gain, cost and timescales (A.M. et al. in preparation).
+To conclude, as we observed that anticipation at the cellular level
+appears to be adaptive both in prokaryotes (E. coli) and eukaryotes
+(S. cerevisiae), and under remote systems such as sugar metabolism
+and stress response, we propose that it may be prevalent in a diverse
+range of species. Asymmetric anticipation, along with associative
+learning9, memory25 and physiological adaptation26, represent a
+powerful set of tools used by microorganisms to achieve a sophist-
+icated environmental response.
+METHODS SUMMARY
+Strains. E. coli MG1655 was used for most experiments. An E. coli GFP reporter
+library12 was used to monitor operon expression. The evolved E. coli strains were
+described previously14
+S. cerevisiae BY4741 (MATa; his3D1; leu2D0; met15D0; ura3D0) was used in all
+yeast experiments. All deletion strains were obtained from the Saccharomyces
+Genome Deletion Project27.
+S. cerevisiae cross-protection. An overnight culture was diluted into fresh YPD
+medium and grown to a concentration of 2 3 106 cells per ml. Cells were diluted
+1:2 into the first stress (S1). Transfer into the second stress (S2) was done by
+adding treated medium after centrifugation. Stresses were calibrated to achieve a
+mild effect (,50% survival) for S1 and a severe effect (,0.5% survival) for S2
+(Supplementary Table 1). Samples were taken from cultures at the end of each
+treatment and plated. Each experiment was carried out in three repeats. The fold
+protection was calculated as described in Supplementary Equation (1).
+E. coli fitness advantage. Overnight cultures were diluted into M9-Gly plus S1
+(for example, lactose; treated) or M9-Gly (untreated). After 3 h, population size
+was determined and used to dilute (,1:100) an equal amount of cells into a new
+growth medium containing low levels of S2 (for example, maltose) as a sole
+carbon source. To account for a potential metabolic effect of residual S1, an
+identical trace amount of S1 was added to the untreated growth medium. The
+ratio treated/untreated after 2 h of growth was used as an indication of fitness
+advantage originating from pre-exposure to S1. To rule out the possibility that
+the growth advantage observed due to early exposure to lactose originates from
+its metabolic value rather than its rule as a conditioning signal, we preformed a
+control experiment (Supplementary Information).
+Full Methods and any associated references are available in the online version of
+the paper at www.nature.com/nature.
+Received 25 March; accepted 7 May 2009.
+Published online 17 June 2009.
+1.
+Causton, H. C. et al. Remodeling of yeast genome expression in response to
+environmental changes. Mol. Biol. Cell 12, 323–337 (2001).
+2.
+Gasch, A. P. et al. Genomic expression programs in the response of yeast cells to
+environmental changes. Mol. Biol. Cell 11, 4241–4257 (2000).
+3.
+Cheung, K. J. et al. A microarray-based antibiotic screen identifies a regulatory
+role for supercoiling in the osmotic stress response of Escherichia coli. Genome Res.
+13, 206–215 (2003).
+4.
+Tirosh, I., Weinberger, A., Carmi, M. & Barkai, N. A genetic signature of
+interspecies variations in gene expression. Nature Genet. 38, 830–834 (2006).
+NATURE |Vol 460 |9 July 2009
+ARTICLES
+223
+ 
+Macmillan Publishers Limited. All rights reserved
+©2009
+
+
+--- Page 5 ---
+5.
+Kussell, E. & Leibler, S. Phenotypic diversity, population growth, and information in
+fluctuating environments. Science 309, 2075–2078 (2005).
+6.
+Acar, M., Mettetal, J. T. & van Oudenaarden, A. Stochastic switching as a survival
+strategy in fluctuating environments. Nature Genet. 40, 471–475 (2008).
+7.
+Balaban, N. Q. et al. Bacterial persistence as a phenotypic switch. Science 305,
+1622–1625 (2004).
+8.
+Pavlov, I. P. Conditioned Reflexes (Oxford Univ. Press, 1927).
+9.
+Tagkopoulos, I., Liu, Y. C. & Tavazoie, S. Predictive behavior within microbial
+genetic networks. Science 320, 1313–1317 (2008).
+10. Savageau, M. A. Escherichia coli habitats, cell-types, and molecular mechanisms of
+gene control. Am. Nat. 122, 732–744 (1983).
+11.
+Savageau, M. A. Demand theory of gene regulation. II. Quantitative application to
+thelactoseandmaltoseoperonsofEscherichiacoli.Genetics149,1677–1691(1998).
+12.
+Zaslaver, A. et al. A comprehensive library of fluorescent transcriptional reporters
+for Escherichia coli. Nature Methods 3, 623–628 (2006).
+13.
+Soupene, E. et al. Physiological studies of Escherichia coli strain MG1655: Growth
+defects and apparent cross-regulation of gene expression. J. Bacteriol. 185,
+5611–5626 (2003).
+14. Oxman, E., Alon, U. & Dekel, E. Defined order of evolutionary adaptations:
+experimental evidence. Evolution 62, 1547–1554 (2008).
+15.
+Mortimer, R. K. Evolution and variation of the yeast (Saccharomyces) genome.
+Genome Res. 10, 403–409 (2000).
+16. Sablayrolles, J. M. & Barre, P. Kinetics of alcoholic fermentation under
+anisothermal enological conditions. Am. J. Enol. Vitic. 44, 127–133 (1993).
+17.
+Johnston, M. & Carlson, M. in The Molecular Biology of the Yeast Saccharomyces:
+Gene Expression (eds Jones, E. W., Pringle, J. R. & Broach, J. R.) 193–282 (Cold
+Spring Harbor Laboratory, 1992).
+18. Bauer, F. F. & Pretorius, I. S. Yeast stress response and fermentation efficiency:
+How to survive the making of wine - a review. SAJEV 21, 27–51 (2000).
+19. Pretorius, I. S. Tailoring wine yeast for the new millennium: novel approaches to
+the ancient art of winemaking. Yeast 16, 675–729 (2000).
+20. Maris, A. F. et al. Diauxic shift-induced stress resistance against hydroperoxides in
+Saccharomyces cerevisiae is not an adaptive stress response and does not depend
+on functional mitochondria. Curr. Genet. 39, 137–149 (2001).
+21.
+Sanchez, Y., Taulien, J., Borkovich, K. A. & Lindquist, S. Hsp104 is required for
+tolerance to many forms of stress. EMBO J. 11, 2357–2364 (1992).
+22. Berry, D. B. & Gasch, A. P. Stress-activated genomic expression changes serve a
+preparative role for impending stress in yeast. Mol. Biol. Cell 19, 4580–4587
+(2008).
+23. Harris, M. A. et al. The Gene Ontology (GO) database and informatics resource.
+Nucleic Acids Res. 32 (Database issue), D258–D261 (2004).
+24. Grant, C. M., MacIver, F. H. & Dawes, I. W. Mitochondrial function is required for
+resistance to oxidative stress in the yeast Saccharomyces cerevisiae. FEBS Lett. 410,
+219–222 (1997).
+25. Zacharioudakis, I., Gligoris, T. & Tzamarias, D. A yeast catabolic enzyme controls
+transcriptional memory. Curr. Biol. 17, 2041–2046 (2007).
+26. Braun, E. & Brenner, N. Transient responses and adaptation to steady state in a
+eukaryotic gene regulation system. Phys. Biol. 1, 67–76 (2004).
+27. Winzeler, E. A. et al. Functional characterization of the S. cerevisiae genome by
+gene deletion and parallel analysis. Science 285, 901–906 (1999).
+Supplementary Information is linked to the online version of the paper at
+www.nature.com/nature.
+Acknowledgements We thank S. Trattner–Frenkel and Z. Bloom for their help and
+support in the yeast microarray experiments. We thank members of the Pilpel
+laboratory for many discussions. We thank E. Schneidman, E. Ben-Jacob,
+M. Springer, A. Tanay, U. Alon and D. Cavalieri for discussions and advice. We
+thank U. Alon for providing the promoter–GFP fused plasmids. We thank the
+Tauber Foundation, the Minerva Foundation, the Israel Science Foundation ‘Bikura
+program’, the European Research Council ‘Ideas Program’ and the Ben May
+Foundation for grant support. M.K. was supported from grants from the Israel
+Science Foundation and the Israeli Ministry of Science and Technology.
+Author Contributions A.M. raised the original idea and performed all the
+experiments; G.R., B.G. and A.Y. participated in experiments; E.D. evolved the E. coli
+strain; A.M., O.D. and Y.P. designed the experiments; A.M., M.K., O.D. and Y.P.
+analysed the data; O.D. and Y.P. supervised the project; A.M., O.D. and Y.P.
+interpreted the results and wrote the manuscript.
+Author Information Reprints and permissions information is available at
+www.nature.com/reprints. Correspondence and requests for materials should be
+addressed to Y.P. (pilpel@weizmann.ac.il).
+ARTICLES
+NATURE |Vol 460 |9 July 2009
+224
+ 
+Macmillan Publishers Limited. All rights reserved
+©2009
+
+
+--- Page 6 ---
+METHODS
+S. cerevisiae media. All experiments were carried out in YPD medium (2% yeast
+extract, 1% peptone, 1% dextrose) at 30 uC.
+Sensitivity of deleted S. cerevisiae strains to heat and oxidative stress. To
+examine the importance of the conditioned gene cluster under heat and oxida-
+tive stresses, 29 genes were chosen for additional experiments. This subset of
+genes exhibited a two-phase induction profile: initial induction under heat shock
+that further increased under oxidative stress. We then used strains in which each
+of the 29 genes was deleted to check for increased stress sensitivity as follows.
+Cultures were grown to stationary phase in a 96-well plate, diluted (1:20) into
+fresh YPD medium and grown for additional 3 h. Cells were then diluted into
+either mild heat shock (37 uC for 30 min) or mild oxidative stress (H2O2 1 mM
+for 30 min). The stresses were calibrated to achieve 90% survival in the wild-type
+strain. As a control, untreated cultures were diluted into YPD. All cultures were
+then diluted (1:20) into fresh YPD and grown for 6 h. Population size was
+monitored using a multi-well spectrophotometer at 595 nm. Survival ratio was
+calculated by dividing the optical density of stress-treated cultures by the optical
+density of untreated cultures. A t-test was used to determine whether the differ-
+ence in the survival ratio of a deletion strain and the wild type is statistically
+significant in a given stress.
+Genome-wide expression experiments. An overnight culture was diluted into
+fresh YPD and grown to concentration of 2.5 3 107 cells per ml. Cells were
+diluted 3:4 into a fresh medium containing S1 (KCl 0.8 M, heat shock 40 uC or
+YPD) and grown for 45 min. Cells were then diluted 1:10 into S2 (H2O2 0.66 mM
+or YPD). Stress levels were calibrated to have relatively minor effects on survival.
+Aliquots were removed 0, 30 and 45 min after the addition of S1 whereas in S2
+aliquots were removed after 15, 30 and 45 min. RNA was extracted using
+MasterPure, followed by hybridization to Affymetrix yeast 2.0 microarrays.
+The expression data set was deposited in the GEO database (GSE15936).
+Identifying candidate genes that facilitate conditioning. We defined an ideal
+expression profile of a gene that can facilitate the observed cross-protection
+phenotype (heat shock but not osmotic stress protects against oxidative stress).
+The profile is defined accordingly: (1) induction in response to heat shock is 0.2
+or higher in log2 scale; (2) induction in response to oxidative stress is 0.2 or
+higher in log2 scale; (3) induction under osmotic stress is significantly lower than
+in heat shock, 0.4 in log2 scale; (4) induction is maintained higher in the transfer
+from heat shock to oxidative stress relative to transferring from heat shock to
+YPD.
+A control profile is similarly defined by using osmotic stress instead of heat
+shock in the above requirements. The results are qualitatively similar under
+alternative cut-off values (not shown).
+E. coli media. All experiments were done in M9 medium (1 mM MgSO4, 0.1 mM
+CaCl2, 0.05% casamino acids and 5 ng ml21 thiamine), supplemented with the
+appropriate carbon source.
+Three basic media were used: M9, M9-Gly (0.1% glycerol) and M9-Glu (0.1%
+glucose plus 20 mM cAMP; cAMP was added to avoid glucose repression28).
+To test the effect of various treatments the media were supplemented with the
+following: 10 mM lactose, 5 mM maltose (these concentrations allow maximal
+growth), 10 mM galactose, 10 mM sucrose (these concentrations are equal to the
+concentration of lactose), 0.15 mM IPTG (this concentration achieves saturation
+of the lactose operon induction29) and 25 mg ml21 kanamycin.
+Monitoring operon transcription using the promtor-fused GFP library.
+Overnight cultures, each carrying a unique plasmid with a specific promoter
+fused to GFP, were diluted into fresh M9-Glu media, grown for 1 h at 37 uC and
+then treated with sugars. Expression and cell growth (at 30 uC) were monitored
+simultaneously using a multi-well reader (fluorescence at 495/520 nm, optical
+density at 595 nm). The normalized GFP level and promoter activity were cal-
+culated similarly to in ref. 28. Briefly, the GFP signal was calculated after sub-
+traction of the medium fluorescence and cell autofluorescence. GFP per cell was
+calculated dividing the GFP by the optical density. Promoter activity ((dGFP/
+dt)/optical density) was taken as the average promoter activity measured in a
+time window of 1 h of exponential growth.
+The following operons were examined in our research: MalEFG, MalK-lamB-
+malM, MalPQ, MalS, MalZ, LacZYA (referred to by the name of the first gene).
+MalT was not included in our analysis because it shows no responsiveness to
+maltose.
+Monitoring operon transcription using the quantitative RT–PCR. Overnight
+cultures were diluted into either M9-Gly or M9-Glu, alone or supplemented with
+either lactose or maltose, and grown until the logarithmic phase was reached.
+RNA was extracted using RNeasy Mini kit and used as a template for quantitative
+RT–PCR (LightCycler 480 system).
+28. Kaplan, S. et al. Diverse two-dimensional input functions control bacterial sugar
+genes. Mol. Cell 29, 786–792 (2008).
+29. Dekel, E. & Alon, U. Optimality and evolutionary tuning of the expression level of a
+protein. Nature 436, 588–592 (2005).
+doi:10.1038/nature08112
+ 
+Macmillan Publishers Limited. All rights reserved
+©2009

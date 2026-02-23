@@ -1,0 +1,471 @@
+--- Page 1 ---
+Received 24 September; accepted 16 November 2004; doi:10.1038/nature03211.
+1. MacArthur, R. H. & Wilson, E. O. The Theory of Island Biogeography (Princeton Univ. Press,
+Princeton, 1969).
+2. Fisher, R. A., Corbet, A. S. & Williams, C. B. The relation between the number of species and the
+number of individuals in a random sample of an animal population. J. Anim. Ecol. 12, 42–58 (1943).
+3. Preston, F. W. The commonness, and rarity, of species. Ecology 41, 611–627 (1948).
+4. Brown, J. H. Macroecology (Univ. Chicago Press, Chicago, 1995).
+5. Hubbell, S. P. A uniﬁed theory of biogeography and relative species abundance and its application to
+tropical rain forests and coral reefs. Coral Reefs 16, S9–S21 (1997).
+6. Hubbell, S. P. The Uniﬁed Theory of Biodiversity and Biogeography (Princeton Univ. Press, Princeton,
+2001).
+7. Caswell, H. Community structure: a neutral model analysis. Ecol. Monogr. 46, 327–354 (1976).
+8. Bell, G. Neutral macroecology. Science 293, 2413–2418 (2001).
+9. Elton, C. S. Animal Ecology (Sidgwick and Jackson, London, 1927).
+10. Gause, G. F. The Struggle for Existence (Hafner, New York, 1934).
+11. Hutchinson, G. E. Homage to Santa Rosalia or why are there so many kinds of animals? Am. Nat. 93,
+145–159 (1959).
+12. Huffaker, C. B. Experimental studies on predation: dispersion factors and predator-prey oscillations.
+Hilgardia 27, 343–383 (1958).
+13. Paine, R. T. Food web complexity and species diversity. Am. Nat. 100, 65–75 (1966).
+14. MacArthur, R. H. Geographical Ecology (Harper & Row, New York, 1972).
+15. Laska, M. S. & Wootton, J. T. Theoretical concepts and empirical approaches to measuring interaction
+strength. Ecology 79, 461–476 (1998).
+16. McGill, B. J. Strong and weak tests of macroecological theory. Oikos 102, 679–685 (2003).
+17. Adler, P. B. Neutral models fail to reproduce observed species-area and species-time relationships in
+Kansas grasslands. Ecology 85, 1265–1272 (2004).
+18. Connell, J. H. The inﬂuence of interspeciﬁc competition and other factors on the distribution of the
+barnacle Chthamalus stellatus. Ecology 42, 710–723 (1961).
+19. Paine, R. T. Ecological determinism in the competition for space. Ecology 65, 1339–1348 (1984).
+20. Wootton, J. T. Prediction in complex communities: analysis of empirically-derived Markov models.
+Ecology 82, 580–598 (2001).
+21. Wootton, J. T. Markov chain models predict the consequences of experimental extinctions. Ecol. Lett.
+7, 653–660 (2004).
+22. Paine, R. T. Food-web analysis through ﬁeld measurements of per capita interaction strength. Nature
+355, 73–75 (1992).
+23. Moore, J. C., de Ruiter, P. C. & Hunt, H. W. The inﬂuence of productivity on the stability of real and
+model ecosystems. Science 261, 906–908 (1993).
+24. Rafaelli, D. G. & Hall, S. J. in Food Webs: Integration of Pattern and Dynamics (eds Polis, G. &
+Winemiller, K.) 185–191 (Chapman and Hall, New York, 1996).
+25. Wootton, J. T. Estimates and tests of per-capita interaction strength: diet, abundance, and impact of
+intertidally foraging birds. Ecol. Monogr. 67, 45–64 (1997).
+26. Kokkoris, G. D., Troumbis, A. Y. & Lawton, J. H. Patterns of species interaction strength in assembled
+theoretical competition communities. Ecol. Lett. 2, 70–74 (1999).
+27. Drossel, B., McKane, A. & Quince, C. The impact of nonlinear functional responses on the long-term
+evolution of food web structure. J. Theor. Biol. 229, 539–548 (2004).
+Acknowledgements I thank the Makah Tribal Council for providing access to Tatoosh Island;
+J. Sheridan, J. Salamunovitch, F. Stevens, A. Miller, B. Scott, J. Chase, J. Shurin, K. Rose, L. Weis,
+R. Kordas, K. Edwards, M. Novak, J. Duke, J. Orcutt, K. Barnes, C. Neufeld and L. Weintraub for
+ﬁeld assistance; and NSF, EPA (CISES) and the Andrew W. Mellon foundation for partial ﬁnancial
+support.
+Competing interests statement The author declares that he has no competing ﬁnancial interests.
+Correspondence and requests for materials should be addressed to J.T.W.
+(twootton@uchicago.edu).
+..............................................................
+Evolutionary dynamics on graphs
+Erez Lieberman1,2, Christoph Hauert1,3 & Martin A. Nowak1
+1Program for Evolutionary Dynamics, Departments of Organismic and
+Evolutionary Biology, Mathematics, and Applied Mathematics, Harvard
+University, Cambridge, Massachusetts 02138, USA
+2Harvard-MIT Division of Health Sciences and Technology, Massachusetts
+Institute of Technology, Cambridge, Massachusetts, USA
+3Department of Zoology, University of British Columbia, Vancouver, British
+Columbia V6T 1Z4, Canada
+.............................................................................................................................................................................
+Evolutionary dynamics have been traditionally studied in the
+context of homogeneous or spatially extended populations1–4.
+Here we generalize population structure by arranging individ-
+uals on a graph. Each vertex represents an individual. The
+weighted edges denote reproductive rates which govern how
+often individuals place offspring into adjacent vertices. The
+homogeneous population, described by the Moran process3, is
+the special case of a fully connected graph with evenly weighted
+edges. Spatial structures are described by graphs where vertices
+are connected with their nearest neighbours. We also explore
+evolution on random and scale-free networks5–7. We determine
+the ﬁxation probability of mutants, and characterize those
+graphs for which ﬁxation behaviour is identical to that of a
+homogeneous population7. Furthermore, some graphs act as
+suppressors and others as ampliﬁers of selection. It is even
+possible to ﬁnd graphs that guarantee the ﬁxation of any
+advantageous mutant. We also study frequency-dependent selec-
+tion and show that the outcome of evolutionary games can
+depend entirely on the structure of the underlying graph. Evolu-
+tionary graph theory has many fascinating applications ranging
+from ecology to multi-cellular organization and economics.
+Evolutionary dynamics act on populations. Neither genes, nor
+cells, nor individuals evolve; only populations evolve. In small
+populations, random drift dominates, whereas large populations
+Figure 1 Models of evolution. a, The Moran process describes stochastic evolution of a
+ﬁnite population of constant size. In each time step, an individual is chosen for
+reproduction with a probability proportional to its ﬁtness; a second individual is chosen for
+death. The offspring of the ﬁrst individual replaces the second. b, In the setting of
+evolutionary graph theory, individuals occupy the vertices of a graph. In each time step, an
+individual is selected with a probability proportional to its ﬁtness; the weights of the
+outgoing edges determine the probabilities that the corresponding neighbour will be
+replaced by the offspring. The process is described by a stochastic matrix W, where w ij
+denotes the probability that an offspring of individual i will replace individual j. In a more
+general setting, at each time step, an edge ij is selected with a probability proportional to
+its weight and the ﬁtness of the individual at its tail. The Moran process is the special case
+of a complete graph with identical weights.
+letters to nature
+NATURE | VOL 433 | 20 JANUARY 2005 | www.nature.com/nature
+312
+© 2005 Nature Publishing Group 
+
+
+--- Page 2 ---
+are sensitive to subtle differences in selective values. The tension
+between selection and drift lies at the heart of the famous dispute
+between Fisher and Wright8–10. There is evidence that population
+structure affects the interplay of these forces11–15. But the celebrated
+results of Maruyama16 and Slatkin17 indicate that spatial structures
+are irrelevant for evolution under constant selection.
+Here we introduce evolutionary graph theory, which suggests a
+promising new lead in the effort to provide a general account of how
+population structure affects evolutionary dynamics. We study the
+simplest possible question: what is the probability that a newly
+introduced mutant generates a lineage that takes over the whole
+population? This ﬁxation probability determines the rate of evolu-
+tion, which is the product of population size, mutation rate and
+ﬁxation probability. The higher the correlation between the
+mutant’s ﬁtness and its probability of ﬁxation, r, the stronger the
+effect of natural selection; if ﬁxation is largely independent of
+ﬁtness, drift dominates. We will show that some graphs are
+governed entirely by random drift, whereas others are immune to
+drift and are guided exclusively by natural selection.
+Consider a homogeneous population of size N. At each time step
+an individual is chosen for reproduction with a probability pro-
+portional to its ﬁtness. The offspring replaces a randomly chosen
+individual. In this so-called Moran process (Fig. 1a), the population
+size remains constant. Suppose all the resident individuals are
+identical and one new mutant is introduced. The new mutant has
+relative ﬁtness r, as compared to the residents, whose ﬁtness is 1. The
+ﬁxation probability of the new mutant is:
+r1 ¼ 1 2 1=r
+1 2 1=rN
+ð1Þ
+This represents a speciﬁc balance between selection and drift:
+advantageous mutations have a certain chance—but no guaran-
+tee—of ﬁxation, whereas disadvantageous mutants are likely—but
+again, no guarantee—to become extinct.
+We introduce population structure as follows. Individuals are
+labelled i ¼ 1, 2, …N. The probability that individual i places its
+offspring into position j is given by w ij.
+Thus the individuals can be thought of as occupying the vertices
+of a graph. The matrix W ¼ [w ij] determines the structure of the
+graph (Fig. 1b). If w ij ¼ 0 and wji ¼ 0 then the vertices i and j are
+not connected. In each iteration, an individual i is chosen for
+reproduction with a probability proportional to its ﬁtness. The
+resulting offspring will occupy vertex j with probability w ij. Note
+that W is a stochastic matrix, which means that all its rows sum to
+one. We want to calculate the ﬁxation probability r of a randomly
+placed mutant.
+Imagine that the individuals are arranged on a spatial lattice that
+can be triangular, square, hexagonal or any similar tiling. For all
+such lattices r remains unchanged: it is equal to the r1 obtained for
+the homogeneous population. In fact, it can be shown that if W is
+symmetric, w ij ¼ wji, then the ﬁxation probability is always r1. The
+graphs in Fig. 2a–c, and all other symmetric, spatially extended
+models, have the same ﬁxation probability as a homogeneous
+population17,18.
+There is an even wider class of graphs whose ﬁxation probability
+is r1. Let Ti ¼ Sj wji be the temperature of vertex i. Avertex is ‘hot’ if
+it is replaced often and ‘cold’ if it is replaced rarely. The ‘isothermal
+theorem’ states that an evolutionary graph has ﬁxation probability
+r1 if and only if all vertices have the same temperature. Figure 2d
+gives an example of an isothermal graph where W is not symmetric.
+Isothermality is equivalent to the requirement that W is doubly
+stochastic, which means that each row and each column sums to
+one.
+If a graph is not isothermal, the ﬁxation probability is not given
+Figure 2 Isothermal graphs, and, more generally, circulations, have ﬁxation behaviour
+identical to the Moran process. Examples of such graphs include: a, the square lattice;
+b, hexagonal lattice; c, complete graph; d, directed cycle; and e, a more irregular
+circulation. Whenever the weights of edges are not shown, a weight of one is distributed
+evenly across all those edges emerging from a given vertex. Graphs like f, the ‘burst’, and
+g, the ‘path’, suppress natural selection. The ‘cold’ upstream vertex is represented in
+blue. The ‘hot’ downstream vertices, which change often, are coloured in orange. The
+type of the upstream root determines the fate of the entire graph. h, Small upstream
+populations with large downstream populations yield suppressors. i, In multirooted
+graphs, the roots compete indeﬁnitely for the population. If a mutant arises in a root then
+neither ﬁxation nor extinction is possible.
+letters to nature
+NATURE | VOL 433 | 20 JANUARY 2005 | www.nature.com/nature
+313
+© 2005 Nature Publishing Group 
+
+
+--- Page 3 ---
+by r1. Instead, the balance between selection and drift tilts; now to
+one side, now to the other. Suppose N individuals are arranged in a
+linear array. Each individual places its offspring into the position
+immediately to its right. The leftmost individual is never replaced.
+What is the ﬁxation probability of a randomly placed mutant with
+ﬁtness r? Clearly, it is 1/N, irrespective of r. The mutant can only
+reach ﬁxation if it arises in the leftmost position, which happens
+with probability 1/N. This array is an example of a simple popu-
+lation structure whose behaviour is dominated by random drift.
+More generally, an evolutionary graph has ﬁxation probability
+1/N for all r if and only if it is one-rooted (Fig. 2f, g). A one-rooted
+graph has a unique global source without incoming edges. If a graph
+has more than one root, then the probability of ﬁxation is always
+zero: a mutant originating in one of the roots will generate a lineage
+which will never die out, but also never ﬁxate (Fig. 2i). Small
+upstream populations feeding into large downstream populations
+are also suppressors of selection (Fig. 2h). Thus, it is easy to
+construct graphs that foster drift and suppress selection. Is it
+possible to suppress drift and amplify selection? Can we ﬁnd
+structures where the ﬁxation probability of advantageous mutants
+exceeds r1?
+The star structure (Fig. 3a) consists of a centre that is connected
+with each vertex on the periphery. All the peripheral vertices are
+connected only with the centre. For large N, the ﬁxation probability
+of a randomly placed mutant on the star is r2 ¼ ð1 2 1=r2Þ=ð1 2
+1=r2NÞ: Thus, any selective difference r is ampliﬁed to r2. The star
+acts as evolutionary ampliﬁer, favouring advantageous mutants and
+inhibiting disadvantageous mutants. The balance tilts towards
+selection, and against drift.
+The super-star, funnel and metafunnel (Fig. 3) have the amazing
+property that for large N, the ﬁxation probability of any advan-
+tageous mutant converges to one, while the ﬁxation probability of
+any disadvantageous mutant converges to zero. Hence, these popu-
+lation structures guarantee ﬁxation of advantageous mutants how-
+ever small their selective advantage. In general, we can prove that for
+sufﬁciently large population size N, a super-star of parameter K
+satisﬁes:
+rK ¼ 1 2 1=rK
+1 2 1=rKN
+ð2Þ
+Numerical simulations illustrating equation (2) are shown in Fig. 4a.
+Similar results hold for the funnel and metafunnel. Just as one-
+rooted structures entirely suppress the effects of selection, super-star
+structures function as arbitrarily strong ampliﬁers of selection and
+suppressors of random drift.
+Scale-free networks, like the ampliﬁer structures in Fig. 3, have
+most of their connectivity clustered in a few vertices. Such networks
+are potent selection ampliﬁers for mildly advantageous mutants (r
+Figure 3 Selection ampliﬁers have remarkable symmetry properties. As the number of
+‘leaves’ and the number of vertices in each leaf grows large, these ampliﬁers dramatically
+increase the apparent ﬁtness of advantageous mutants: a mutant with ﬁtness r on an
+ampliﬁer of parameter K will fare as well as a mutant of ﬁtness r K in the Moran process.
+a, The star structure is a K ¼ 2 ampliﬁer. b–d, The super-star (b), the funnel (c) and the
+metafunnel (d) can all be extended to arbitrarily large K, thereby guaranteeing the ﬁxation
+of any advantageous mutant. The latter three structures are shown here for K ¼ 3. The
+funnel has edges wrapping around from bottom to top. The metafunnel has outermost
+edges arising from the central vertex (only partially shown). The colours red, orange and
+blue indicate hot, warm and cold vertices.
+letters to nature
+NATURE | VOL 433 | 20 JANUARY 2005 | www.nature.com/nature
+314
+© 2005 Nature Publishing Group 
+
+
+--- Page 4 ---
+close to 1), and relax to r1 for very advantageous mutants (r .. 1)
+(Fig. 4b).
+Further generalizations of evolutionary graphs are possible.
+Suppose in each iteration an edge ij is chosen with a probability
+proportional to the product of its weight, w ij, and the ﬁtness of the
+individual i at its tail. In this case, the matrix W need not be
+stochastic; the weights can be any collection of non-negative real
+numbers.
+Here the results have a particularly elegant form. In the absence of
+upstream populations, if the sum of the weights of all edges leaving
+the vertex is the same for all vertices—meaning the fertility
+is independent of position—then the graph never suppresses
+selection. If the sum of the weights of all edges entering a vertex is
+the same for all vertices—meaning the mortality is independent of
+position—then the graph never suppresses drift. If both these
+conditions hold then the graph is called a circulation, and the
+structure favours neither selection nor drift. An evolutionary graph
+has ﬁxation probability r1 if and only if it is a circulation (see
+Fig. 2e). It is striking that the notion of a circulation, so common in
+deterministic contexts such as the study of ﬂows, arises naturally in
+this stochastic evolutionary setting. The circulation criterion com-
+pletely classiﬁes all graph structures whose ﬁxation behaviour is
+identical to that of the homogeneous population, and includes the
+subset of isothermal graphs (the mathematical details of these
+results are discussed in the Supplementary Information).
+Let us now turn to evolutionary games on graphs18,19. Consider, as
+before, two types A and B, but instead of having constant ﬁtness,
+their relative ﬁtness depends on the outcome of a game with payoff
+matrix:
+A B
+A
+B
+a b
+c
+d
+ 
+!
+In traditional evolutionary game dynamics, a mutant strategy A can
+invade a resident B if b . d. For games on graphs, the crucial
+condition for A invading B, and hence the very notion of evol-
+utionary stability, can be quite different.
+As an illustration, imagine N players arranged on a directed cycle
+ 
+Figure 4 Simulation results showing the likelihood of mutant ﬁxation. a, Fixation
+probabilities for an r ¼ 1.1 mutant on a circulation (black), a star (blue), a K ¼ 3 super-
+star (red), and a K ¼ 4 super-star (yellow) for varying population sizes N. Simulation
+results are indicated by points. As expected, for large population sizes, the simulation
+results converge to the theoretical predictions (broken lines) obtained using equation (2).
+b, The ampliﬁcation factor K of scale-free graphs with 100 vertices and an average
+connectivity of 2m with m ¼ 1 (violet), m ¼ 2 (purple), or m ¼ 3 (navy) is compared to
+that for the star (blue line) and for circulations (black line). Increasing m increases the
+number of highly connected hubs. Scale-free graphs do not behave uniformly across
+the mutant spectrum: as the ﬁtness r increases, the ampliﬁcation factor relaxes from
+nearly 2 (the value for the star) to circulation-like values of unity. All simulations are based
+on 104–106 runs. Simulations can be explored online at http://www.univie.ac.at/
+virtuallabs/.
+Figure 5 Evolutionary games on directed cycles for four different orientations. a, Positive
+symmetric. The invading mutant (red) is favoured over the resident (blue) if b . c.
+b, Negative symmetric. Invasion is favoured if a . d. For the Prisoner’s Dilemma, the
+implication is that unconditional cooperators can invade and replace defectors starting
+from a single individual. c, Positive anti-symmetric. Invasion is favoured if a . c. The
+tables are turned: the invader behaves like a resident in a traditional setting. d, Negative
+anti-symmetric. Invasion is favoured if b . d. We recover the traditional invasion of
+evolutionary game theory.
+letters to nature
+NATURE | VOL 433 | 20 JANUARY 2005 | www.nature.com/nature
+315
+© 2005 Nature Publishing Group 
+
+
+--- Page 5 ---
+(Fig. 5) with player i placing its offspring into i þ 1. In the simplest
+case, the payoff of any individual comes from an interaction with
+one of its neighbours. There are four natural orientations. We
+discuss the ﬁxation probability of a single A mutant for large N.
+(1) Positive symmetric: i interacts with i þ 1. The ﬁxation prob-
+ability is given by equation (1) with r ¼ b/c. Selection favours the
+mutant if b . c.
+(2) Negative symmetric: i interacts with i 2 1. Selection favours the
+mutant if a . d. In the classical Prisoner’s Dilemma, these dynamics
+favour unconditional cooperators invading defectors.
+(3) Positive anti-symmetric: mutants at i interact with i 2 1, but
+residents with i þ 1. The mutant is favoured if a . c, behaving like a
+resident in the classical setting.
+(4) Negative anti-symmetric: Mutants at i interact with i þ 1, but
+residents with i 2 1. The mutant is favoured if b . d, recovering the
+traditional invasion criterion.
+Remarkably, games on directed cycles yield the complete range of
+pairwise conditions in determining whether selection favours the
+mutant or the resident.
+Circulations no longer behave identically with respect to games.
+Outcomes depend on the graph, the game and the orientation. The
+vast array of cases constitutes a rich ﬁeld for future study. Further-
+more, we can prove that the general question of whether a
+population on a graph is vulnerable to invasion under frequency-
+dependent selection is NP (nondeterministic polynomial time)-
+hard.
+The super-star possesses powerful amplifying properties in the
+case of games as well. For instance, in the positive symmetric
+orientation, the ﬁxation probability for large N of a single A mutant
+is given by equation (1) with r ¼ ðb=dÞðb=cÞK21: For a super-star
+with large K, this r value diverges as long as b . c. Thus, even a
+dominated strategy (a , c and b , d) satisfying b . c will expand
+from a single mutant to conquer the entire super-star with a
+probability that can be made arbitrarily close to 1. The guaranteed
+ﬁxation of this broad class of dominated strategies is a unique
+feature of evolutionary game theory on graphs: without structure,
+all dominated strategies die out. Similar results hold for the super-
+star in other orientations.
+Evolutionary graph theory has many fascinating applications.
+Ecological habitats of species are neither regular spatial lattices nor
+simple two-dimensional surfaces, as is usually assumed20,21, but
+contain locations that differ in their connectivity. In this respect, our
+results for scale-free graphs are very suggestive. Source and sink
+populations have the effect of suppressing selection, like one-rooted
+graphs22,23.
+Another application is somatic evolution within multicellular
+organisms. For example, the hematopoietic system constitutes an
+evolutionary graph with a suppressive hierarchical organization;
+stem cells produce precursors which generate differentiated cells24.
+We expect tissues of long-lived multicellular organisms to be
+organized so as to suppress the somatic evolution that leads to
+cancer. Star structures can also be instantiated by populations of
+differentiating cells. For example, a stem cell in the centre generates
+differentiated cells, whose offspring either differentiate further, or
+revert back to stem cells. Such ampliﬁers of selection could be used
+in various developmental processes and also in the afﬁnity matu-
+ration of the immune response.
+Human organizations have complicated network structures25–27.
+Evolutionary graph theory offers an appropriate tool to study
+selection on such networks. We can ask, for example, which net-
+works are well suited to ensure the spread of favourable concepts. If
+a company is strictly one-rooted, then only those ideas that
+originate from the root will prevail (the CEO). A selection ampliﬁer,
+like a star structure or a scale-free network, will enhance the spread
+of favourable ideas arising from any one individual. Notably,
+scientiﬁc collaboration graphs tend to be scale-free28.
+We have sketched the very beginnings of evolutionary graph
+theory by studying the ﬁxation probability of newly arising mutants.
+For constant selection, graphs can dramatically affect the balance
+between drift and selection. For frequency-dependent selection,
+graphs can redirect the process of selection itself.
+Many more questions lie ahead. What is the maximum mutation
+rate compatible with adaptation on graphs? How does sexual
+reproduction affect evolution on graphs? What are the timescales
+associated with ﬁxation, and how do they lead to coexistence in
+ecological settings29,30? Furthermore, how does the graph itself
+change as a consequence of evolutionary dynamics31? Coupled
+with the present work, such studies will make increasingly clear
+the extent to which population structure affects the dynamics of
+evolution.
+A
+Received 10 September; accepted 16 November 2004; doi:10.1038/nature03204.
+1. Liggett, T. M. Stochastic Interacting Systems: Contact, Voter and Exclusion Processes (Springer, Berlin,
+1999).
+2. Durrett, R. & Levin, S. A. The importance of being discrete (and spatial). Theor. Popul. Biol. 46,
+363–394 (1994).
+3. Moran, P. A. P. Random processes in genetics. Proc. Camb. Phil. Soc. 54, 60–71 (1958).
+4. Durrett, R. A. Lecture Notes on Particle Systems & Percolation (Wadsworth & Brooks/Cole Advanced
+Books & Software, Paciﬁc Grove, 1988).
+5. Erdo¨s, P. & Renyi, A. On the evolution of random graphs. Publ. Math. Inst. Hungarian Acad. Sci. 5,
+17–61 (1960).
+6. Barabasi, A. & Albert, R. Emergence of scaling in random networks. Science 286, 509–512 (1999).
+7. Nagylaki, T. & Lucier, B. Numerical analysis of random drift in a cline. Genetics 94, 497–517 (1980).
+8. Wright, S. Evolution in Mendelian populations. Genetics 16, 97–159 (1931).
+9. Wright, S. The roles of mutation, inbreeding, crossbreeding and selection in evolution. Proc. 6th Int.
+Congr. Genet. 1, 356–366 (1932).
+10. Fisher, R. A. & Ford, E. B. The “Sewall Wright Effect”. Heredity 4, 117–119 (1950).
+11. Barton, N. The probability of ﬁxation of a favoured allele in a subdivided population. Genet. Res. 62,
+149–158 (1993).
+12. Whitlock, M. Fixation probability and time in subdivided populations. Genetics 164, 767–779 (2003).
+13. Nowak, M. A. & May, R. M. The spatial dilemmas of evolution. Int. J. Bifurcation Chaos 3, 35–78
+(1993).
+14. Hauert, C. & Doebeli, M. Spatial structure often inhibits the evolution of cooperation in the snowdrift
+game. Nature 428, 643–646 (2004).
+15. Hofbauer, J. & Sigmund, K. Evolutionary Games and Population Dynamics (Cambridge Univ. Press,
+Cambridge, 1998).
+16. Maruyama, T. Effective number of alleles in a subdivided population. Theor. Popul. Biol. 1, 273–306
+(1970).
+17. Slatkin, M. Fixation probabilities and ﬁxation times in a subdivided population. Evolution 35,
+477–488 (1981).
+18. Ebel, H. & Bornholdt, S. Coevolutionary games on networks. Phys. Rev. E. 66, 056118 (2002).
+19. Abramson, G. & Kuperman, M. Social games in a social network. Phys. Rev. E. 63, 030901(R) (2001).
+20. Tilman, D. & Karieva, P. (eds) Spatial Ecology: The Role of Space in Population Dynamics and
+Interspeciﬁc Interactions (Monographs in Population Biology, Princeton Univ. Press, Princeton, 1997).
+21. Neuhauser, C. Mathematical challenges in spatial ecology. Not. AMS 48, 1304–1314 (2001).
+22. Pulliam, H. R. Sources, sinks, and population regulation. Am. Nat. 132, 652–661 (1988).
+23. Hassell, M. P., Comins, H. N. & May, R. M. Species coexistence and self-organizing spatial dynamics.
+Nature 370, 290–292 (1994).
+24. Reya, T., Morrison, S. J., Clarke, M. & Weissman, I. L. Stem cells, cancer, and cancer stem cells. Nature
+414, 105–111 (2001).
+25. Skyrms, B. & Pemantle, R. A dynamic model of social network formation. Proc. Nat. Acad. Sci. USA
+97, 9340–9346 (2000).
+26. Jackson, M. O. & Watts, A. On the formation of interaction networks in social coordination games.
+Games Econ. Behav. 41, 265–291 (2002).
+27. Asavathiratham, C., Roy, S., Lesieutre, B. & Verghese, G. The inﬂuence model. IEEE Control Syst. Mag.
+21, 52–64 (2001).
+28. Newman, M. E. J. The structure of scientiﬁc collaboration networks. Proc. Natl Acad. Sci. USA 98,
+404–409 (2001).
+29. Boyd, S., Diaconis, P. & Xiao, L. Fastest mixing Markov chain on a graph. SIAM Rev. 46, 667–689
+(2004).
+30. Nakamaru, M., Matsuda, H. & Iwasa, Y. The evolution of cooperation in a lattice-structured
+population. J. Theor. Biol. 184, 65–81 (1997).
+31. Bala, V. & Goyal, S. A noncooperative model of network formation. Econometrica 68, 1181–1229
+(2000).
+Supplementary Information accompanies the paper on www.nature.com/nature.
+Acknowledgements The Program for Evolutionary Dynamics is sponsored by J. Epstein. E.L. is
+supported by a National Defense Science and Engineering Graduate Fellowship. C.H. is grateful to
+the Swiss National Science Foundation. We are indebted to M. Brenner for many discussions.
+Competing interests statement The authors declare that they have no competing ﬁnancial
+interests.
+Correspondence and requests for materials should be addressed to E.L. (erez@erez.com).
+letters to nature
+NATURE | VOL 433 | 20 JANUARY 2005 | www.nature.com/nature
+316
+© 2005 Nature Publishing Group 

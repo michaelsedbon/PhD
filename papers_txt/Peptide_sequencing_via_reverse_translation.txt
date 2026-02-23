@@ -1,0 +1,955 @@
+--- Page 1 ---
+ 
+1 
+ 
+Peptide sequencing via reverse translation of peptides into DNA 
+Liwei Zheng1*, Yujia Sun1, Michael Eisenstein1,2, Hyongsok Tom Soh1,2,3* 
+Affiliations 
+ 
+1Department of Radiology, Stanford University, Stanford, CA 94305, USA 
+2Department of Electrical Engineering, Stanford University, Stanford, CA 94305, USA. 
+3Department of Bioengineering, Stanford University, Stanford, CA 94305, USA. 
+*Corresponding authors. Email: lwzheng@stanford.edu, tsoh@stanford.edu 
+ 
+Abstract: Scalable methods that can accurately sequence peptides at single-amino acid resolution 
+could significantly advance proteomic studies. We present a protein sequencing method based on 
+the “reverse translation” of peptide sequence information into DNA barcodes that document the 
+identity, position, and the originating peptide of each amino acid. We employ a modified Edman 
+degradation process that converts peptides into DNA-barcoded amino acids, which are 
+subsequently detected by proximity extension assay, yielding multi-barcoded DNA outputs that 
+can be PCR amplified and sequenced. Using our method, we sequenced multiple consecutive 
+amino acids within a model peptide. This method also enables the differentiation of single amino 
+acid substitutions, and the identification of post-translational modifications and their positions 
+within multiple peptides simultaneously. With further development, we anticipate that this method 
+will enable highly parallel de novo protein sequencing with single-molecule sensitivity. 
+ 
+ 
+was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint (which
+this version posted June 3, 2024. 
+; 
+https://doi.org/10.1101/2024.05.31.596913
+doi: 
+bioRxiv preprint 
+
+
+--- Page 2 ---
+ 
+2 
+ 
+Introduction 
+Single-cell transcriptomics has matured into a powerful method for directly quantifying the 
+heterogeneous functional impact of genomic variations, environmental stimuli, and other 
+physiological factors in different cell types and populations.(1–3) Although messenger RNA 
+(mRNA) transcripts are a highly informative indicator of gene expression activity, the 
+consequences of changes in expression can only be fully understood by assessing a cell’s protein 
+content. This is because the final outcome of mRNA translation is heavily influenced by the effects 
+of translational regulation and kinetics, post-translational modification (PTM), and other 
+biochemical processes.(4, 5) Unfortunately, the toolbox for single-cell proteomics is still in its 
+nascency. Advances in mass spectrometry (MS) instrumentation and techniques, such as 
+multiplexed isobaric labeling, have enabled the quantification of ~3,000 proteins from individual 
+cells.(6–9) However, MS still lacks the dynamic range and sensitivity to document the full breadth 
+of the cellular proteome.(10–12) This has spurred considerable interest in the development of 
+technologies that enable single-molecule analysis and quantitation of proteins.  
+The past several years have witnessed considerable progress in this domain, including several 
+early-stage commercial platforms.(13) One category of approaches emulates nanopore-based 
+DNA sequencing, wherein nucleotide sequences are determined based on real-time changes in 
+ionic current that occur as stretches of nucleic acids are threaded through protein nanopores. 
+Researchers have made substantial headway in developing similarly premised platforms that can 
+mediate the controlled transit of unfolded proteins through nanopores.(14–18) In addition, two 
+recent publications have shown that such approaches can identify all 20 natural amino acids as 
+well as certain PTMs in their monomeric forms or when attached to a constant carrier peptide.(19, 
+20) However, it remains unclear whether nanopore methods can consistently resolve individual 
+amino acids in the context of a peptide,(16, 18) and true single-molecule protein sequencing with 
+a nanopore-based system has yet to be demonstrated. Other methods employ an approach known 
+as “fluorosequencing”, in which surface-conjugated proteins or peptides are selectively tagged 
+with a range of amino acid-specific fluorescent labels.(21) In each round of sequencing, the 
+proteins are imaged and then subjected to Edman degradation to iteratively trim away N-terminal 
+amino acids. By matching labeled amino acids to specific positions on the peptide, one can identify 
+many individual proteins in a highly parallel fashion. This approach is effective for high-level 
+profiling of protein content, but fluorosequencing is inherently limited by the range of reagents 
+available for selective amino acid labeling.(22, 23) Another recently developed approach exploits 
+derivatives of the ClpS family proteins, which selectively recognize specific combinations of 
+amino acids at the N-terminus of peptides.(13) Similar to fluorosequencing, the immobilized 
+proteins are subjected to enzymatic N-terminal digestion to expose new amino acids for analysis. 
+However, this approach is also limited in the range of amino acids that can be discriminated, 
+particularly since each ClpS is also sensitive to the flanking residues in the peptide.(24, 25) As 
+such, although significant progress is being made in terms of single-molecule protein profiling and 
+quantitation, there is still an unmet need for methods that can accurately identify a wide range of 
+proteins—including PTM variants—at a meaningful throughput. 
+In this work, we present a novel method that could potentially deliver such capabilities. Our 
+process uses DNA-tagged, amino acid-specific antibodies to enable the “reverse translation” of 
+peptide sequences into barcoded DNA libraries that encode the amino acid sequence. This is done 
+in iterative cycles, where a modified Edman degradation process is used to iteratively remove 
+amino acids from the N-terminus of an immobilized peptide.(26) During this process, each amino 
+was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint (which
+this version posted June 3, 2024. 
+; 
+https://doi.org/10.1101/2024.05.31.596913
+doi: 
+bioRxiv preprint 
+
+
+--- Page 3 ---
+ 
+3 
+ 
+acid is tagged, before cleavage, with a DNA sequence that allows it to be traced back to the source 
+peptide. The DNA-barcoded amino acids are subsequently detected with primer-tagged amino 
+acid-specific antibodies, enabling PCR amplification of the barcode sequences. These can then be 
+analyzed via high-throughput DNA sequencing methods, such that the resulting sequencing data 
+reveal the identity, originating peptide, and position within that peptide for each amino acid. We 
+initially demonstrate this method with a single seven-residue model peptide, and then explore the 
+multiplexing potential of this approach by sequencing multiple peptide species simultaneously. 
+We also demonstrate the feasibility of PTM mapping using antibodies that selectively bind and 
+identify specific PTMs such as phosphotyrosine.  
+Results and discussion 
+Design of peptide sequencing via “reverse translation”  
+We designed a three-stage process to reverse translate peptide sequence information to DNA. 
+The first stage entails the conversion of peptides into DNA-barcoded amino acids (Fig. 1, stage 
+1). To begin, the C-terminus of the peptides being sequenced are conjugated to beads modified 
+with DNA-based peptide barcodes, which will subsequently be associated with a particular 
+peptide. The immobilized DNA-barcoded peptides are then subjected to a modified version of the 
+Edman degradation reaction. This reaction is a well-established tool for protein sequencing, where 
+the N-terminal amino acid is conjugated to phenylisothiocyanate (PITC) and cleaved from the 
+peptide under acidic conditions. The resulting degradation fragment is converted to a more stable 
+form and identified, after which the process is repeated to identify the next amino acid. Reaction 
+efficiency is generally not limited by amino acid identity or peptide charge states, and thus, Edman 
+degradation can accommodate a wide range of peptide sequences.(21) In our particular 
+implementation, an azide-modified PITC is used for N-terminus conjugation, which allows the 
+click coupling of a dibenzocyclooctyne (DBCO)-modified biotinylated primer that hybridizes with 
+the peptide barcode DNA. The primer is then immediately extended by DNA polymerase, after 
+which the Edman reaction is performed to cleave the N-terminal amino acid. This yields a 
+degradation product that is covalently tagged with the complementary sequence of the peptide 
+barcode.  
+In the second stage, the DNA-barcoded degradation products are converted to DNA reporters 
+via proximity extension assay (PEA; Fig. 1, stage 2).(27, 28) The DNA-barcoded degradation 
+products are enriched by streptavidin (SA) pulldown and subsequently recognized by DNA-
+barcoded amino acid-specific antibodies. The antibody-based identification of cleaved amino acids 
+is more reliable compared to methods that attempt to detect N-terminal amino acids within the 
+peptide context, since antibody binding will not be affected by neighboring amino acids. Binding 
+events are recorded by PEA, where the resulting DNA reporters contain both the initial peptide-
+specific barcodes and the antibody-specific barcodes. 
+In the final stage, the DNA reporters generated by PEA from each cycle are tagged with cycle 
+number barcodes during adaptor PCR before sequencing (Fig. 1, stage 3). This yields peptide 
+sequence encoding DNA comprising a set of barcodes that specifically encode the identity, 
+position, and originating peptide of each amino acid. This three-stage process is performed 
+iteratively on the immobilized peptide, and the resulting DNA library is then sequenced, enabling 
+the reconstruction of the amino acid sequence for each peptide present in the sample. 
+was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint (which
+this version posted June 3, 2024. 
+; 
+https://doi.org/10.1101/2024.05.31.596913
+doi: 
+bioRxiv preprint 
+
+
+--- Page 4 ---
+ 
+4 
+ 
+ 
+Fig. 1. Overview of peptide sequencing via “reverse translation”. In stage 1, peptides are conjugated with peptide 
+barcode DNA sequences immobilized on magnetic beads. A modified Edman degradation reaction is carried out using 
+a PITC molecule modified with an azide group to enable click coupling to a DBCO-modified, biotinylated primer that 
+hybridizes directly to the peptide barcode sequence. This primer is extended to record the peptide barcode before N-
+terminal amino acid cleavage. In stage 2, the DNA-barcoded amino acids released after cleavage are pulled down by 
+streptavidin (SA) beads via their biotin moiety. These immobilized amino acids are recognized by DNA-barcoded amino 
+acid-specific antibodies, and the DNA-barcoded amino acids are subsequently converted into DNA reporters via 
+proximity extension assay (PEA). In stage 3, the DNA reporters from each cycle are barcoded with cycle number 
+barcodes during adaptor PCR, yielding a DNA sequence that encodes the identity, position, and originating peptide of 
+each amino acid. The final DNA library produced by this process can then be sequenced in a single run, enabling the 
+reconstruction of peptide sequences from the sample.  
+ 
+DNA-compatible Edman degradation reaction 
+Preserving DNA integrity during Edman degradation is critical to our “reverse translation” 
+strategy. However, conventional Edman degradation employs harsh conditions that damage DNA 
+(Fig. 2A).(29, 30) For instance, the trifluoroacetic acid (TFA) typically used during the cleavage 
+reaction can cause proton-catalyzed deglycosylation. We, therefore, developed alternative reaction 
+conditions that are compatible with DNA. BF3 etherate (BF3·Et2O)-induced Edman degradation in 
+acetonitrile (40 mM BF3·Et2O, 5 min) has been reported to reduce proton-catalyzed racemization 
+while completely cleaving PITC-modified N-terminal amino acids.(31, 32) Moreover, BF3 
+methanol complex has been used as a non-depurinating detritylation reagent in DNA synthesis.(33) 
+Encouraged by these reports, we hypothesized that DNA stability would be enhanced in a cleavage 
+reaction mediated by BF3·Et2O in acetonitrile. 
+However, no intact DNA was observed after 30 min when we treated an oligodeoxynucleotide 
+(ODN) containing all four deoxynucleotides (ODN-1) with 40 mM BF3·Et2O in anhydrous 
+acetonitrile (Fig. 2B). To better understand the lability of DNA during BF3·Et2O treatment, we 
+was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint (which
+this version posted June 3, 2024. 
+; 
+https://doi.org/10.1101/2024.05.31.596913
+doi: 
+bioRxiv preprint 
+
+
+--- Page 5 ---
+ 
+5 
+ 
+analyzed the degradation products formed by a poly-dT sequence bearing a single dA (5′-
+d(T14AT4), ODN-S1) by MS (Fig. S1, A and B). The major product (m/z = 4,577.3) is consistent 
+with depurination of the single dA and subsequent strand cleavage;(34) no cleavage events at dT 
+sites were detected. A similar cleavage pattern was also observed for an oligonucleotide containing 
+a single dG (5′-d(T14GT4), ODN-S2; Fig. S1, C and D). Based on these results, we concluded that 
+the degradation of native DNA during BF3·Et2O treatment was largely due to the instability of 
+purine deoxynucleotides. We therefore explored the use of chemically modified 7-deazapurine 
+deoxynucleotides (c7dA and c7dG), which have been reported to be resistant to depurination.(35, 
+36) We synthesized ODN-2, a modified version of ODN-1, in which dA and dG were substituted 
+with c7dA and c7dG, respectively. This modified oligonucleotide was unaffected by BF3·Et2O 
+treatment for 4 h (Fig. 2C). Given that N-terminal amino acid cleavage in the presence of 40 mM 
+BF3·Et2O occurs within 5 min, the stability of 7-deazapurine-modified DNA should be more than 
+sufficient for the Edman degradation process. Importantly, 7-deazapurine deoxynucleotide 
+triphosphates are accepted by several commonly used DNA polymerases (e.g., Klenow fragment 
+(exo-), Sequenase version 2.0, and Bst 3.0), and primer extension reactions using c7dATP and 
+c7dGTP proceeded with efficiency comparable to that of dATP and dGTP (Fig. S2).  
+ 
+Fig. 2. Developing a DNA-compatible Edman degradation reaction. (A) Reaction scheme of conventional Edman 
+degradation (bottom) and the BF3·Et2O-mediated version presented in this work (top). The TFA used in conventional 
+Edman degradation is incompatible with DNA. We instead use BF3·Et2O, which generates ATZ amino acids that are 
+then converted to more synthetically accessible PTC amino acids under reducing, basic conditions. (B) HPLC 
+chromatograms of oligonucleotide ODN-1 before (top) and after (bottom) treatment with 40 mM BF3·Et2O in anhydrous 
+acetonitrile for 30 min. (C) MS spectra of oligonucleotide ODN-2 before (top) and after (bottom) treatment with 40 mM 
+BF3·Et2O in anhydrous acetonitrile for 4 h. Inset: HPLC chromatograms of ODN-2 before and after the treatment. 
+ 
+was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint (which
+this version posted June 3, 2024. 
+; 
+https://doi.org/10.1101/2024.05.31.596913
+doi: 
+bioRxiv preprint 
+
+
+--- Page 6 ---
+ 
+6 
+ 
+As with the standard TFA-mediated cleavage reaction during Edman degradation, 
+anilinothiazolinone (ATZ) amino acids are the major product of the BF3·Et2O-mediated 
+degradation reaction.(31) However, ATZ amino acids are unstable and thus not suitable for 
+antibody-based detection. To overcome this problem, we converted the ATZ amino acids into 
+stable PTC amino acids under alkaline reducing conditions (Fig. 2A).(37, 38) Dithiothreitol (DTT) 
+was added to inhibit oxidative degradation of PTC amino acids.(39) Importantly, PTC amino acids 
+can readily be prepared by reacting PITC or its derivatives with amino acids, greatly simplifying 
+the generation of antibodies against these modified amino acids. 
+DNA-encoded Edman degradation 
+We next developed a chemical process for iteratively barcoding the PTC amino acids generated 
+by our modified Edman degradation reaction (Fig. 3A). We performed the degradation reaction 
+on model peptides bearing an azidolysine immobilized onto magnetic beads, which simplifies 
+solvent exchange during the multi-step chemical process while also increasing reagent 
+accessibility to DNA-peptide conjugates when reactions are conducted in neat organic 
+solvents.(40–42) To immobilize the azide-modified peptides, we prepared carboxylic acid beads 
+conjugated with DBCO-modified barcode DNA. Because the conjugation of DNA onto the 
+carboxylic acid beads and the conjugation of the DBCO functional group onto the peptide barcode 
+DNA both utilize amino modification of DNA, we performed these reactions in a stepwise fashion. 
+We first immobilized the 5′-amino-modified anchor DNA (ODN-3) onto the carboxylic acid beads 
+by carbodiimide coupling.(43) We then enzymatically ligated DBCO-modified 5′-phosphorylated 
+DNA containing the primer binding site (ODN-4) onto that anchor DNA (Fig. 3A, step 1) to form 
+the complete peptide barcode DNA. Subsequently, we conjugated a seven amino acid (aa) peptide 
+(FGGGGGX, X = azidolysine) to the DNA via a strain-promoted alkyne-azide cycloaddition 
+(SPAAC) reaction (Fig. 3A, step 2), and reacted azide-modified PITC (1) with the N-terminus of 
+the peptide (Fig. 3A, step 3). To evaluate the yield of each step, we synthesized a Cy3-labeled 
+anchor DNA bearing an internal disulfide linkage (ODN-S10, Table S1), which enables the release 
+of intermediates from the magnetic beads under reducing conditions. These released intermediates 
+were then analyzed via gel electrophoresis. Step 1 to 3 all proceeded with near quantitative yields 
+(Fig. 3B). 
+For the barcode transfer step, we first conjugated a DBCO-modified primer (ODN-5) to the 
+azide group on the PTC peptide via proximity SPAAC (Fig. 3A, step 4). Although SPAAC is 
+generally limited by its relatively slow reaction rate (k = 0.2–0.5 M-1s-1),(44) we opted for this 
+approach due to the susceptibility of the PTC group to oxidation by reactive oxygen species that 
+are generated during copper (I)-catalyzed azide-alkyne cycloaddition (CuAAC).(45, 46) 
+Fortunately, hybridization between the template and primer accelerated the SPAAC reaction by 
+increasing the effective local concentration of reactants,(47) and we found that the primer 
+conjugation reaction reached completion with peptide FGGGGGX within 10 min (Fig. 3B). In 
+contrast, when the reaction was carried out using a non-complementary poly-dT sequence (ODN-
+S11, Table S1), no detectable conjugation was observed after 10 min, highlighting the importance 
+of DNA hybridization in accelerating the reaction. This rate acceleration of the proximity SPAAC 
+reaction was general. The click reaction reached completion within 1 h for various peptides ranging 
+from 10–30 aa in length and of varying rigidities (Fig. S3). 
+The primer was subsequently extended using Klenow fragment (exo-) (Fig. 3A, step 5), after 
+which the beads were subjected to Edman degradation with BF3·Et2O in acetonitrile (Fig. 3A, step 
+6). During this step, we took advantage of the insolubility of DNA in acetonitrile,(48) which allows 
+the DNA-barcoded ATZ amino acids to remain hybridized with the template DNA following the 
+was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint (which
+this version posted June 3, 2024. 
+; 
+https://doi.org/10.1101/2024.05.31.596913
+doi: 
+bioRxiv preprint 
+
+
+--- Page 7 ---
+ 
+7 
+ 
+cleavage reaction. The subsequent basic conversion reaction converts ATZ amino acids into stable 
+PTC amino acids while also denaturing the duplex DNA, releasing the barcoded amino acids (Fig. 
+3A, step 7).(37) The DBCO-modified primer (ODN-5) contains a dT5 region that enables the 
+introduction of a Cy3-labeled complementary strand (ODN-S12, Table S1) via toehold-mediated 
+strand displacement. This allowed us to quantify the yield of the cleavage and conversion reactions 
+by flow cytometry. We confirmed the structure of the cleaved barcoded PTC amino acid via LC-
+MS (Fig. 3C) and measured a cleavage yield of 96.9 ± 0.1% (Fig. 3D). We also validated that 
+peptides bearing N-terminal glycine, tryptophan, tyrosine, aspartic acid, arginine or 
+phosphotyrosine were compatible with this process. Correctly barcoded PTC amino acids were 
+observed in all cases, with degradation yields comparable to that of N-terminal phenylalanine (Fig. 
+S4 and Fig. S5).  
+ 
+Fig. 3. DNA-encoded Edman degradation on magnetic beads. (A) Reaction scheme for barcoding PTC amino acids 
+via DNA-encoded Edman degradation on magnetic beads. Anchor DNA (ODN-3) is immobilized on carboxylic acid 
+beads via carbodiimide coupling and then ligated to DBCO-modified 5′-phosphorylated DNA (ODN-4) (step 1). The 
+azidolysine-modified peptide FGGGGGX is attached to ODN-4 via click reaction (step 2), after which the peptide’s N-
+terminus is reacted with azide-modified PITC (1) (step 3). The DBCO-modified primer (ODN-5) is then coupled via 
+proximity SPAAC reaction (step 4). Next, primer extension generates a complementary sequence to the peptide 
+barcode DNA (step 5). Cleavage by BF3·Et2O-mediated Edman degradation yields a DNA-barcoded ATZ amino acid, 
+which remains hybridized on the bead due to the insolubility of DNA in acetonitrile (step 6). Finally, hydrolysis under 
+reducing basic conditions converts the ATZ amino acid to a PTC amino acid and denatures the DNA duplex, releasing 
+was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint (which
+this version posted June 3, 2024. 
+; 
+https://doi.org/10.1101/2024.05.31.596913
+doi: 
+bioRxiv preprint 
+
+
+--- Page 8 ---
+ 
+8 
+ 
+the DNA-barcoded PTC amino acid from the solid support (step 7). The DNA used in this experiment contains non-
+nucleotide modifications: hexaethylene glycol (2), hexylamine (3), DBCO (4), biotin-dT (5). The structures of the 
+modifications are shown in Table S2. (B) Denaturing PAGE analysis of DNA-encoded Edman degradation. We used a 
+disulfide-modified anchor DNA (ODN-S10) that enables the release of intermediates from magnetic beads by reduction. 
+We analyzed aliquots taken after anchor DNA immobilization (lane 1), DNA ligation (lane 2), conjugation of peptide 
+(lane 3), conjugation of azide-modified PITC (lane 4), and conjugation of DBCO-modified primer (ODN-5, lane 5). In 
+lane 6, we used a DBCO-modified poly-dT sequence (ODN-S12) to carry out the click reaction as a negative control, 
+and no click product was observed after 10 min. (C) MS spectrum of DNA-barcoded PTC-F generated by the first cycle 
+of DNA-encoded Edman degradation on peptide FGGGGGX (calculated molecular weight 18,824.2, observed 
+molecular weight 18,824.0). Peaks at 13,436.1, 16,254.6, 18,191.9, and 18,519.9 correspond to truncated products 
+resulting from incomplete primer extension. The peak at 19,136.0 corresponds to the product from A-tailing. The inset 
+shows HPLC chromatograms of DNA-barcoded PTC-F. (D) Efficiency of DNA-encoded Edman degradation over five 
+cycles as measured by flow cytometry. Stepwise yields are 96.9 ± 0.1%, 95.8 ± 0.1%, 94.75 ± 0.08%, 93.94 ± 0.05%, 
+92.1 ± 0.1%.  
+Finally, we confirmed that we could perform this process over multiple rounds by carrying out 
+five iterative cycles of cleavage with FGGGGGX. The degradation products from each round were 
+isolated, and their structures were confirmed by LC-MS (Fig. S6). The degradation yield for each 
+cycle was determined by flow cytometry as described above (Fig. 3D). We observed a slight 
+decrease in available peptides after each cycle, as indicated by a reduction of fluorescence signal 
+before degradation (Fig. S6). It is unlikely that this is due to the instability of the DBCO-azide 
+linkage since no decomposition of this linkage was observed by MS (Fig. 3C). We hypothesize 
+that the decrease in available peptides is caused by processes that irreversibly block the N-
+terminus, such as oxidative desulfurization of the PTC moiety.(45, 49) 
+Conversion of barcoded PTC amino acids to DNA reporters 
+The DNA-barcoded PTC amino acids are subsequently converted into DNA reporters by an 
+antibody binding-mediated PEA. For PTC amino acids with no existing antibody, we generated 
+novel monoclonal antibodies by immunizing mice with bovine serum albumin (BSA) conjugated 
+to various PTC amino acids (Fig. S7). This process yielded antibodies that achieved good 
+specificity and affinity for PTC-modified phenylalanine (PTC-F, Fig. 4A), tryptophan (PTC-W, 
+Fig. 4B), aspartic acid (PTC-D, Fig. 4C), and arginine (PTC-R, Fig. 4D), as measured by biolayer 
+interferometry (BLI, Fig. S8). An anti-PTC tyrosine (PTC-Y, Fig. 4E) antibody was also obtained 
+with only modest specificity against PTC-F, but high specificity against other non-target PTC 
+amino acids. For some PTC amino acids, their side chains remain intact and unobstructed, such 
+that existing antibodies targeting these side chains—including antibodies against PTMs—may 
+maintain their affinity. We experimentally confirmed that commercially available antibodies 
+against phosphotyrosine (pY), asymmetric dimethylarginine (ADMA), phosphoserine (pS), and 
+acetylated lysine (AcK) all retained their high affinity for corresponding PTC amino acids (Fig. 4F 
+and Fig. S9). 
+We functionalized the Fc domain of anti-PTC amino acid antibodies with tetrazine (Tz) using 
+photoreactive antibody-binding domains (Fig. S10, A and B). The functionalized antibodies were 
+coupled via click chemistry to trans-cyclooctene (TCO)-modified DNA sequences consisting of 
+the PCR reverse primer (RP) and the PEA primer (e.g., ODN-7, Fig. 4G and Fig. S10C). 
+Independently synthesized PTC amino acids were conjugated with a model barcode DNA (ODN-
+6) containing the PCR forward primer (FP) and the PEA primer binding site via SPAAC and pulled 
+down on SA beads (Fig. 4G). The immobilized DNA-barcoded PTC amino acids were recognized 
+by their corresponding primer-functionalized antibodies, and this binding event stabilized the 
+primer-template complex and enabled primer extension. 
+was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint (which
+this version posted June 3, 2024. 
+; 
+https://doi.org/10.1101/2024.05.31.596913
+doi: 
+bioRxiv preprint 
+
+
+--- Page 9 ---
+ 
+9 
+ 
+ 
+Fig. 4. PEA-mediated conversion of DNA-barcoded PTC amino acids into DNA reporters. (A to F) Binding curves 
+of (A) anti-PTC-F, (B) anti-PTC-W, (C) anti-PTC-Y, (D) anti-PTC-D, (E) anti-PTC-R, and (F) PY20 antibody against 
+target and non-target DNA-tagged PTC-amino acids (PTC-E = PTC glutamic acid, PTC-N = PTC asparagine, PTC-Q 
+= PTC glutamine), as measured by biolayer interferometry (BLI). Calculated Kd values for the primary antibody target 
+are shown in each plot. (G) Scheme for converting DNA-barcoded PTC amino acids to DNA reporters. First, anti-PTC-
+F antibody is modified with photoreactive antibody-binding domains (i.e., oYo link) to introduce a tetrazine (Tz) 
+functional group onto the Fc region. Next, a TCO-modified DNA strand featuring a PEA primer sequence of 5–7 nt 
+(ODN-7, -8, or -9) is conjugated with the Tz group to form a primer-antibody conjugate. PTC-F is tagged with biotinylated 
+template DNA (ODN-6) and immobilized onto SA beads. The beads are incubated with primer-modified anti-PTC-F 
+antibody, and then Klenow fragment (exo-) is added to perform PEA. The resulting product is PCR amplified for further 
+analysis. ODN-7, -8, or -9 contain TCO modification (6). The structure is shown in Table S2. (H) Native PAGE of 
+products generated by PEA with primers of varying lengths. 5 nt and 6 nt PEA primers (ODN-7 and ODN-8) can 
+specifically distinguish antibody-antigen interactions, whereas the longer 7 nt primer (ODN-9) produces a non-specific 
+signal. (I) Quantification of DNA output of PEA by qPCR. PEA was carried out with 30 nM ODN-8-tagged anti-PTC-F 
+was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint (which
+this version posted June 3, 2024. 
+; 
+https://doi.org/10.1101/2024.05.31.596913
+doi: 
+bioRxiv preprint 
+
+
+--- Page 10 ---
+ 
+10 
+ 
+antibody and ODN-6-PTC-F immobilized on SA beads. For the positive control, the primer extension was performed 
+using a 12 nt primer (ODN-10, 30 nM) and ODN-6 immobilized on SA beads without PTC-F conjugation. A non-specific 
+PEA was performed as a negative control with similarly ODN-6-modified SA beads and 30 nM ODN-8-tagged anti-
+PTC-F antibody. (J) PEA efficiency of other anti-PTC amino acid antibodies. All antibodies were modified with ODN-8, 
+and PEA was carried out with 100 nM primer-antibody conjugate. (K) Detection of a dilution series of ODN-6-PTC-F 
+immobilized on SA beads by PEA in 20 µL reactions. PEA input copy number is calculated based on the amount of 
+ODN-6-PTC-F added to the SA pulldown. PEA output copy number is calculated based on the qPCR standard curve. 
+The data is fitted using linear regression with equation y = 1.003x - 0.0008015 and R2 = 0.999. 
+ 
+In traditional PEA, a quantitative DNA output is not required for the quantification of the 
+molecule of interest.(50) However, PEA efficiency is critical for our method to achieve high 
+sequencing coverage and single-molecule sensitivity. Specificity is also essential for achieving 
+high-fidelity reads. There are two competing reactions during proximity extension: specific primer 
+extension that only occurs with help from antibody-antigen binding, and non-specific primer 
+extension initiated in the absence of antibody-antigen recognition. The efficiency of specific 
+primer extension is affected by both the affinity of the antibodies and the stability of the primer-
+template complex, while the extent of non-specific primer extension is only affected by the latter. 
+Thus, tuning primer-template complex stability could increase the yield of specific primer 
+extension and suppress the non-specific one. To test this, we assessed the specificity and efficiency 
+of proximity extension when barcoded PTC-F, -W, or -Y were incubated with anti-PTC-F 
+antibodies modified with PEA primer sequences ranging in length from 5–7 nt (ODN-7, -8, or -9, 
+respectively). Considerable non-specific primer extension was observed with ODN-9, whereas the 
+shorter primers favored specific primer extension (Fig. 4H). Next, we evaluated the efficiency of 
+proximity extension by qPCR. At a concentration of 100 nM, anti-PTC-F antibody modified with 
+ODN-7 only converted 24% of PTC-F molecules to a DNA output (Fig. S11D). On the other hand, 
+ODN-8-modified anti-PTC-F yielded complete primer extension at the same concentration (Fig. 
+S11F). In addition to primer length, the stability of primer-template complexes is also affected by 
+the primer concentration. Because non-specific primer extension solely originates from primer-
+template hybridization, it can be greatly inhibited by reducing the primer concentration. With 30 
+nM ODN-8-conjugated anti-PTC-F, the extent of non-specific primer extension was just 1% of 
+that of specific primer extension, and the reduced concentration had minimal impact on the yield 
+of specific primer extension (Fig. 4I). In contrast, increasing the antibody concentration to 300 nM 
+only increased the extent of non-specific primer extension (Fig. S11F). PEA efficiencies were 
+determined for other antibodies conjugated with ODN-8. Specific primer extension reactions were 
+observed for all antibodies, with a positive correlation between the yield of the proximity extension 
+reaction and the affinity of the antibody (Fig. 4J). Lastly, for a certain pair of primer-modified 
+antibody and PTC amino acid, the efficiency of proximity extension is determined by the antibody 
+concentration (see Supplementary Text). Therefore, reducing the amount of input PTC amino acids 
+should not affect PEA performance. We tested this hypothesis with PTC-F/anti-PTC-F and 
+observed that the efficiency of proximity extension remained quantitative for input quantities as 
+low as 10 amol ODN-6-PTC-F in a 20 µL reaction (Fig. 4K, Fig. S11, H and I).  
+Sequencing of model peptides 
+Having optimized the various steps of our protocol, we carried out proof-of-concept 
+sequencing on a model peptide (Fig. 5A). We prepared carboxylic acid beads as described above, 
+ligating the bead-immobilized anchor DNA (ODN-11) with a peptide-barcoding strand featuring 
+a 2 nt peptide barcode (ODN-12). We then immobilized the 7 aa peptide RGFDWGX, which 
+consists of four amino acids that can be detected by previously mentioned anti-PTC amino acid 
+antibodies (anti-PTC-R, -F, -D, and -W). The glycine residue serves as an exemplar of an amino 
+was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint (which
+this version posted June 3, 2024. 
+; 
+https://doi.org/10.1101/2024.05.31.596913
+doi: 
+bioRxiv preprint 
+
+
+--- Page 11 ---
+ 
+11 
+ 
+acid that cannot be detected currently, which allows us to assess the true background in the absence 
+of a specific antibody recognition event during the sequencing process. We performed five cycles 
+of sequencing on ~100 pmol peptide. To introduce cycle number-specific barcodes during the 
+adaptor PCR step, the PTC amino acids from each cycle were collected and processed separately. 
+The DNA-barcoded PTC amino acids were enriched by SA bead pulldown, yielding a final loading 
+density of ~10 pmol biotinylated DNA-barcoded PTC amino acids per mg of beads. Then PEA 
+was carried out with a mixture of DNA-modified anti-PTC-R, -F, -D, and -W antibodies, where 
+each DNA strand comprised the RP sequence for PCR amplification, a 3 nt antibody barcode, and 
+a 6 nt PEA primer sequence (ODN-13, ODN-S23 to S25, Table S1). After PEA, sequencing 
+adaptors were incorporated via PCR, during which 2 nt cycle number barcodes were introduced 
+with forward adaptor primers (ODN-14, ODN-S26 to S29, Table S1). The PCR products were 
+then combined for indexing and sequencing. After sequencing, barcodes encoding cycle number 
+and antibody identity were extracted and counted, and the raw counts of reads bearing the same 
+antibody barcode were normalized by setting the highest read count to 100 (Fig. 5B). Overall, the 
+correct amino acid assignment for each position consistently produced the highest normalized read 
+count, producing signals that were 20–100 times above the background. While sequencing the 
+undetectable glycine in the second cycle, we observed a normalized read count comparable to that 
+of background in other cycles. This demonstrates that undetectable amino acids at a given position 
+can be clearly identified rather than being incorrectly assigned. The raw read counts were generally 
+consistent with degradation yield and proximity extension efficiencies established previously (Fig. 
+S12A).  
+Our procedure is also capable of sensitively discriminating subtle sequence differences in 
+mixtures of peptides. One major challenge in processing multiple peptide species is the possibility 
+of barcode crosstalk during PEA (Fig. 5C), where antibody binding to one PTC amino acid may 
+initiate primer extension on another nearby template. We could address this by reducing the 
+loading density of DNA-barcoded PTC amino acid on the beads—at lower loading densities, the 
+effective template concentration for on-target proximity extension is unaffected. In contrast, the 
+effective template concentration for off-target proximity extension is reduced, yielding a 
+substantially smaller off-target DNA reporter readout. We performed preliminary screening of 
+loading density and determined that the extent of off-target proximity extension was reduced to 
+3% of that of on-target proximity extension at 0.5 pmol/mg loading (Fig. S13, A and B).  
+Having demonstrated the feasibility of minimizing barcode crosstalk between sequencing 
+readouts for different peptides, we set out to distinguish two peptides that differ by a single amino 
+acid (AFGGGX and AWGGGX) by sequencing the first three amino acids in parallel. To sequence 
+these two peptides simultaneously, we slightly modified the initial stages of our method; each of 
+the two peptides was first conjugated with a unique peptide barcode, after which these DNA-
+barcoded peptides were mixed in an equimolar ratio and immobilized onto anchor strand-modified 
+magnetic beads by ligation. Subsequent degradation and sample processing steps were performed 
+similarly to the single-peptide sequencing process described above. The DNA-barcoded PTC 
+amino acids were detected with an equimolar mixture of primer-conjugated anti-PTC-F and -W 
+antibodies (30 nM each). The resulting primer extension products were then barcoded with cycle 
+number barcodes and sequenced. After separating our analyses based on the peptide-identifying 
+barcodes, we confirmed that the normalized read counts accurately reflected each peptide 
+sequence, such that the two could be clearly distinguished (Fig. 5, D and E).  
+Finally, we sequenced three peptides with different phosphorylation patterns in parallel: 
+pYGYGGX, YGpYGGX, and pYGpYGGX. Existing methods like enzyme-linked immunosorbent 
+was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint (which
+this version posted June 3, 2024. 
+; 
+https://doi.org/10.1101/2024.05.31.596913
+doi: 
+bioRxiv preprint 
+
+
+--- Page 12 ---
+ 
+12 
+ 
+assay (ELISA) and MS often struggle to identify the correct position of a PTM given multiple 
+candidate sites. Because our method allows sequential analysis of individual amino acids, 
+phosphorylation sites could be accurately assigned when sequenced with anti-pY (PY20, 30 nM, 
+Fig. 5, F to H). We also sequenced the mixture with anti-PTC-Y antibody (100 nM) separately, 
+which is less efficient during PEA due to its low affinity (Fig. 4J) but demonstrates specificity for 
+PTC-Y over PTC-pY (Fig. 4E). Although the readouts here were also consistently accurate, the 
+signal-to-noise ratio was much lower than that of PY20, in concordance with the proximity 
+extension efficiency of anti-PTC-Y antibody. Collectively, these results highlight our platform’s 
+capacity to accurately discriminate both native and post-translationally modified versions of the 
+same amino acid within a peptide sequence. 
+ 
+Fig. 5. Demonstrations of peptide sequencing. (A) Overview of the complete peptide “reverse translation” process. 
+A DNA strand bearing the FP and 2 nt peptide barcode (ODN-12) is ligated onto anchor DNA (ODN-11)-modified 
+carboxylic acid beads, forming the complete peptide barcode DNA. The model peptide RGFDWGX is then linked to the 
+DNA strand via SPAAC and subjected to our modified Edman degradation process, which yields a DNA-barcoded PTC 
+amino acid. This is recognized by an antibody barcoded with a DNA consisting of the RP sequence, a 3 nt antibody 
+barcode, and a 6 nt PEA primer (e.g., ODN-13 for PTC-R). The resulting PEA product is amplified by adaptor PCR, 
+during which a 2 nt cycle number barcode is introduced through barcoded forward adaptor primers (e.g., ODN-14 for 
+cycle 1). The final DNA reporter sequence contains barcodes for peptide, antibody (i.e., amino acid identity), and cycle 
+number (i.e., amino acid position). (B) Heatmap of normalized barcode read counts from the first five residues of 
+RGFDWGX. The raw counts of reads bearing the same antibody barcode were normalized by setting the highest read 
+was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint (which
+this version posted June 3, 2024. 
+; 
+https://doi.org/10.1101/2024.05.31.596913
+doi: 
+bioRxiv preprint 
+
+
+--- Page 13 ---
+ 
+13 
+ 
+count to 100. The correct residue at each position is shown at the top. (C) Scheme of on-target and off-target proximity 
+extension, the latter of which leads to barcode crosstalk. (D and E) Heatmaps of normalized read counts for peptide 
+sequences (D) AFG and (E) AWG after sequencing an equimolar mixture of the two peptides. (F to H) Heatmaps of 
+normalized read counts for peptide sequences (D) pYGY, (G) YGpY, and (H) pYGpY after analysis with PY20 and anti-
+PTC-Y antibodies. Normalization for (D to E) was applied as in (B). 
+ 
+Conclusions  
+Our "reverse translation" strategy for peptide sequencing offers numerous advantages relative 
+to other methods described to date. The Edman degradation-based method employed here excises 
+one amino acid at a time, enabling each to be analyzed independently outside the larger context of 
+the peptide. This enables peptide sequencing at single-amino acid resolution and eliminates the 
+potential for interference from adjacent amino acids or PTMs. The released amino acids are 
+subsequently detected by antibodies, which can, in principle, be directly generated against the full 
+spectrum of proteinogenic amino acids. In this work, we have demonstrated such capabilities with 
+four antibodies that exhibit good affinity and specificity for their natural amino acid targets. 
+Furthermore, we demonstrated that we can leverage PTM-specific antibodies to accurately identify 
+the presence and position of such modifications. Our method converts peptide sequence 
+information into DNA strands. These DNA strands can be amplified by PCR, enabling detection 
+with single-molecule sensitivity.(51, 52) Thus, the sensitivity of our method ultimately depends 
+on the efficiency of PEA. Using the best-performing antibodies, we have demonstrated that PEA 
+can quantitatively convert 10 amol of PTC amino acids to DNA reporters in a 20 µL reaction 
+containing approximately 1,000 beads (Fig. 4K). Since the efficiency of PEA is determined by the 
+antibody concentration, in theory, the sensitivity of our assay can be further enhanced by dividing 
+the bulk assay into droplet-based single-bead assays, which has been shown to enable the detection 
+of targets with single-molecule sensitivity.(53–55) Additionally, by incorporating unique 
+molecular identifiers, our method should be applicable to the sequencing of complex peptide 
+mixtures as well as the digital quantification of peptides.(56) Finally, this approach employs 
+conventional reagents (e.g., antibodies and oligonucleotides) and does not require specialized 
+instrumentation. The DNA that encodes peptide sequences is analyzed using high-throughput 
+sequencing platforms, the current generation of which can generate tens of billions of reads per 
+run, making this strategy cost-effective and highly scalable.  
+However, several challenges remain in realizing the sequencing of native peptides with single-
+molecule sensitivity. First, our method requires the conjugation of DNA to the C-terminus of 
+peptides, which we achieved in this work by modifying the C-termini of our peptides with 
+azidolysine residues. While several strategies for C-terminus-specific labeling have been 
+reported,(57–60) they are limited in their substrate scope, and a generalizable C-terminus-specific 
+modification reaction is currently unavailable. Alternatively, cysteine can serve as a handle for 
+conjugation, but this approach restricts the scope of peptides that can be sequenced.(61) 
+Additionally, further improvements in the efficiency of DNA-encoded Edman degradation and 
+degradation fragment recovery are needed to accommodate longer sequencing reads. Although we 
+have not observed loss of synchrony due to incomplete cleavage during the sequencing of short 
+model peptides, this potential issue could be addressed by implementing cycle number barcodes 
+during Edman degradation. Finally, the scope, sensitivity, and accuracy of our sequencing method 
+are determined by the performance of our PTC amino acid-specific antibodies. Some applications 
+may not require the identification of all amino acids, and indeed, there are already commercially 
+available instruments that focus on peptide identification based on limited sequence profiling. 
+However, the de novo sequencing of proteins with single-molecule sensitivity will require a 
+complete set of amino acid-specific antibodies. We have demonstrated a complete pipeline for 
+was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint (which
+this version posted June 3, 2024. 
+; 
+https://doi.org/10.1101/2024.05.31.596913
+doi: 
+bioRxiv preprint 
+
+
+--- Page 14 ---
+ 
+14 
+ 
+antibody generation via immunization. However, generating antibodies with high affinity and 
+sufficient specificity to discriminate structurally similar amino acids via this process may be 
+challenging. Further improvement of antibody affinity can be achieved via directed evolution,(62) 
+and specificity could also be reprogrammed from existing cross-reactive binders.(63) 
+Alternatively, new binders could be generated using emerging computational design methods.(64, 
+65)  
+In summary, our work lays the groundwork for sequencing peptides by converting their 
+sequence to DNA. With the expansion of the antibody arsenal and further refinement and 
+streamlining of our chemical process, we believe that our method will be capable of high-
+throughput de novo protein sequencing of both unmodified and PTM-bearing proteins with single-
+amino acid resolution and single-molecule sensitivity, opening up exciting new opportunities for 
+single-molecule proteomic analysis. 
+ 
+References and Notes 
+1.  
+A. A. Pollen, T. J. Nowakowski, J. Shuga, X. Wang, A. A. Leyrat, J. H. Lui, N. Li, L. Szpankowski, B. Fowler, 
+P. Chen, N. Ramalingam, G. Sun, M. Thu, M. Norris, R. Lebofsky, D. Toppani, D. W. Kemp, M. Wong, B. 
+Clerkson, B. N. Jones, S. Wu, L. Knutsson, B. Alvarado, J. Wang, L. S. Weaver, A. P. May, R. C. Jones, M. A. 
+Unger, A. R. Kriegstein, J. A. A. West, Low-coverage single-cell mRNA sequencing reveals cellular 
+heterogeneity and activated signaling pathways in developing cerebral cortex. Nat. Biotechnol. 32, 1053–1058 
+(2014). 
+2.  
+N. Wang, J. Zheng, Z. Chen, Y. Liu, B. Dura, M. Kwak, J. Xavier-Ferrucio, Y.-C. Lu, M. Zhang, C. Roden, J. 
+Cheng, D. S. Krause, Y. Ding, R. Fan, J. Lu, Single-cell microRNA-mRNA co-sequencing reveals non-genetic 
+heterogeneity and mechanisms of microRNA regulation. Nat. Commun. 10, 95 (2019). 
+3.  
+A. A. Kolodziejczyk, J. K. Kim, V. Svensson, J. C. Marioni, S. A. Teichmann, The technology and biology of 
+single-cell RNA sequencing. Mol. Cell 58, 610–620 (2015). 
+4.  
+S. Sonneveld, B. M. P. Verhagen, M. E. Tanenbaum, Heterogeneity in mRNA Translation. Trends Cell Biol. 
+30, 606–618 (2020). 
+5.  
+L. M. Smith, J. N. Agar, J. Chamot-Rooke, P. O. Danis, Y. Ge, J. A. Loo, L. Paša-Tolić, Y. O. Tsybin, N. L. 
+Kelleher, Consortium for Top-Down Proteomics, The Human Proteoform Project: Defining the human 
+proteome. Sci. Adv. 7, eabk0734 (2021). 
+6.  
+M. Tajik, M. Baharfar, W. A. Donald, Single-cell mass spectrometry. Trends Biotechnol. 40, 1374–1392 (2022). 
+7.  
+Z. Ye, P. Sabatier, J. Martin-Gonzalez, A. Eguchi, M. Lechner, O. Østergaard, J. Xie, Y. Guo, L. Schultz, R. 
+Truffer, D. B. Bekker-Jensen, N. Bache, J. V. Olsen, One-Tip enables comprehensive proteome coverage in 
+minimal cells and single zygotes. Nat. Commun. 15, 2474 (2024). 
+8.  
+U. H. Guzman, A. Martinez-Val, Z. Ye, E. Damoc, T. N. Arrey, A. Pashkova, S. Renuse, E. Denisov, J. Petzoldt, 
+A. C. Peterson, F. Harking, O. Østergaard, R. Rydbirk, S. Aznar, H. Stewart, Y. Xuan, D. Hermanson, S. 
+Horning, C. Hock, A. Makarov, V. Zabrouskov, J. V. Olsen, Ultra-fast label-free quantification and 
+comprehensive proteome coverage with narrow-window data-independent acquisition. Nat. Biotechnol., 1–12 
+(2024). 
+9.  
+R. G. Huffman, A. Leduc, C. Wichmann, M. Di Gioia, F. Borriello, H. Specht, J. Derks, S. Khan, L. Khoury, 
+E. Emmott, A. A. Petelski, D. H. Perlman, J. Cox, I. Zanoni, N. Slavov, Prioritized mass spectrometry increases 
+the depth, sensitivity and data completeness of single-cell proteomics. Nat. Methods 20, 714–722 (2023). 
+was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint (which
+this version posted June 3, 2024. 
+; 
+https://doi.org/10.1101/2024.05.31.596913
+doi: 
+bioRxiv preprint 
+
+
+--- Page 15 ---
+ 
+15 
+ 
+10.  M. J. MacCoss, J. A. Alfaro, D. A. Faivre, C. C. Wu, M. Wanunu, N. Slavov, Sampling the proteome by 
+emerging single-molecule and mass spectrometry methods. Nat. Methods 20, 339–346 (2023). 
+11.  J. A. Alfaro, P. Bohländer, M. Dai, M. Filius, C. J. Howard, X. F. van Kooten, S. Ohayon, A. Pomorski, S. 
+Schmid, A. Aksimentiev, E. V. Anslyn, G. Bedran, C. Cao, M. Chinappi, E. Coyaud, C. Dekker, G. Dittmar, N. 
+Drachman, R. Eelkema, D. Goodlett, S. Hentz, U. Kalathiya, N. L. Kelleher, R. T. Kelly, Z. Kelman, S. H. Kim, 
+B. Kuster, D. Rodriguez-Larrea, S. Lindsay, G. Maglia, E. M. Marcotte, J. P. Marino, C. Masselon, M. Mayer, 
+P. Samaras, K. Sarthak, L. Sepiashvili, D. Stein, M. Wanunu, M. Wilhelm, P. Yin, A. Meller, C. Joo, The 
+emerging landscape of single-molecule protein sequencing technologies. Nat. Methods 18, 604–617 (2021). 
+12.  L. Restrepo-Pérez, C. Joo, C. Dekker, Paving the way to single-molecule protein sequencing. Nat. Nanotechnol. 
+13, 786–796 (2018). 
+13.  B. D. Reed, M. J. Meyer, V. Abramzon, O. Ad, O. Ad, P. Adcock, F. R. Ahmad, G. Alppay, J. A. Ball, J. Beach, 
+D. Belhachemi, A. Bellofiore, M. Bellos, J. F. Beltrán, A. Betts, M. W. Bhuiya, K. Blacklock, R. Boer, D. 
+Boisvert, N. D. Brault, A. Buxbaum, S. Caprio, C. Choi, T. D. Christian, R. Clancy, J. Clark, T. Connolly, K. 
+F. Croce, R. Cullen, M. Davey, J. Davidson, M. M. Elshenawy, M. Ferrigno, D. Frier, S. Gudipati, S. Hamill, 
+Z. He, S. Hosali, H. Huang, L. Huang, A. Kabiri, G. Kriger, B. Lathrop, A. Li, P. Lim, S. Liu, F. Luo, C. Lv, 
+X. Ma, E. McCormack, M. Millham, R. Nani, M. Pandey, J. Parillo, G. Patel, D. H. Pike, K. Preston, A. Pichard-
+Kostuch, K. Rearick, T. Rearick, M. Ribezzi-Crivellari, G. Schmid, J. Schultz, X. Shi, B. Singh, N. Srivastava, 
+S. F. Stewman, T. Thurston, T. R. Thurston, P. Trioli, J. Tullman, X. Wang, Y.-C. Wang, E. A. G. Webster, Z. 
+Zhang, J. Zuniga, S. S. Patel, A. D. Griffiths, A. M. van Oijen, M. McKenna, M. D. Dyer, J. M. Rothberg, Real-
+time dynamic single-molecule protein sequencing on an integrated semiconductor device. Science 378, 186–
+192 (2022). 
+14.  P. Martin-Baniandres, W.-H. Lan, S. Board, M. Romero-Ruiz, S. Garcia-Manyes, Y. Qing, H. Bayley, Enzyme-
+less nanopore detection of post-translational modifications within long polypeptides. Nat. Nanotechnol. 18, 
+1335–1340 (2023). 
+15.  L. Yu, X. Kang, F. Li, B. Mehrafrooz, A. Makhamreh, A. Fallahi, J. C. Foster, A. Aksimentiev, M. Chen, M. 
+Wanunu, Unidirectional single-file transport of full-length proteins through a nanopore. Nat. Biotechnol. 41, 
+1130–1139 (2023). 
+16.  H. Brinkerhoff, A. S. W. Kang, J. Liu, A. Aksimentiev, C. Dekker, Multiple rereads of single proteins at single–
+amino acid resolution using nanopores. Science 374, 1509–1513 (2021). 
+17.  I. C. Nova, J. Ritmejeris, H. Brinkerhoff, T. J. R. Koenig, J. H. Gundlach, C. Dekker, Detection of 
+phosphorylation post-translational modifications along single peptides with nanopores. Nat. Biotechnol., 1–5 
+(2023). 
+18.  K. Motone, D. Kontogiorgos-Heintz, J. Wee, K. Kurihara, S. Yang, G. Roote, Y. Fang, N. Cardozo, J. Nivala, 
+Multi-pass, single-molecule nanopore reading of long protein strands with single-amino acid sensitivity. 
+bioRxiv [Preprint] (2023). https://doi.org/10.1101/2023.10.19.563182. 
+19.  K. Wang, S. Zhang, X. Zhou, X. Yang, X. Li, Y. Wang, P. Fan, Y. Xiao, W. Sun, P. Zhang, W. Li, S. Huang, 
+Unambiguous discrimination of all 20 proteinogenic amino acids and their modifications by nanopore. Nat. 
+Methods 21, 92–101 (2024). 
+20.  Y. Zhang, Y. Yi, Z. Li, K. Zhou, L. Liu, H.-C. Wu, Peptide sequencing based on host–guest interaction-assisted 
+nanopore sensing. Nat. Methods 21, 102–109 (2024). 
+21.  J. Swaminathan, A. A. Boulgakov, E. T. Hernandez, A. M. Bardo, J. L. Bachman, J. Marotta, A. M. Johnson, 
+E. V. Anslyn, E. M. Marcotte, Highly parallel single-molecule identification of proteins in zeptomole-scale 
+mixtures. Nat. Biotechnol. 36, 1076–1082 (2018). 
+22.  O. Boutureira, G. J. L. Bernardes, Advances in chemical protein modification. Chem. Rev. 115, 2174–2195 
+(2015). 
+was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint (which
+this version posted June 3, 2024. 
+; 
+https://doi.org/10.1101/2024.05.31.596913
+doi: 
+bioRxiv preprint 
+
+
+--- Page 16 ---
+ 
+16 
+ 
+23.  P. A. Szijj, K. A. Kostadinova, R. J. Spears, V. Chudasama, Tyrosine bioconjugation – an emergent alternative. 
+Org. Biomol. Chem. 18, 9018–9028 (2020). 
+24.  W. S. Choi, B.-C. Jeong, Y. J. Joo, M.-R. Lee, J. Kim, M. J. Eck, H. K. Song, Structural basis for the recognition 
+of N-end rule substrates by the UBR box of ubiquitin ligases. Nat. Struct. Mol. Biol. 17, 1175–1181 (2010). 
+25.  B. J. Stein, R. A. Grant, R. T. Sauer, T. A. Baker, Structural basis of an N-degron adaptor with more stringent 
+specificity. Structure 24, 232–242 (2016). 
+26.  P. Edman, E. Högfeldt, L. G. Sillén, P.-O. Kinell, Method for determination of the amino acid sequence in 
+peptides. Acta Chem. Scand. 4, 283–293 (1950). 
+27.  L. M. McGregor, D. J. Gorin, C. E. Dumelin, D. R. Liu, Interaction-dependent PCR: Identification of 
+ligand−target pairs from libraries of ligands and libraries of targets in a single solution-phase experiment. J. Am. 
+Chem. Soc. 132, 15522–15524 (2010). 
+28.  P. Zhang, J. Hu, J. S. Park, K. Hsieh, L. Chen, A. Mao, T.-H. Wang, Highly sensitive serum protein analysis 
+using magnetic bead-based proximity extension assay. Anal. Chem. 94, 12481–12489 (2022). 
+29.  J. A. Zoltewicz, D. F. Clark, T. W. Sharpless, G. Grahe, Kinetics and mechanism of the acid-catalyzed 
+hydrolysis of some purine nucleosides. J. Am. Chem. Soc. 92, 1741–1750 (1970). 
+30.  J. M. Hong, M. Gibbons, A. Bashir, D. Wu, S. Shao, Z. Cutts, M. Chavarha, Y. Chen, L. Schiff, M. Foster, V. 
+A. Church, L. Ching, S. Ahadi, A. Hieu-Thao Le, A. Tran, M. Dimon, M. Coram, B. Williams, P. Jess, M. 
+Berndl, A. Pawlosky, ProtSeq: Toward high-throughput, single-molecule protein sequencing via amino acid 
+conversion into DNA barcodes. iScience 25, 103586 (2022). 
+31.  T. Iida, T. Santa, A. Toriba, K. Imai, Semi-automatic amino acid sequencing and D/L-configuration 
+determination of peptides with detection of liberated N-terminal phenylthiocarbamoylamino acids. Analyst 123, 
+2829–2834 (1998). 
+32.  H. Matsunaga, T. Santa, T. Iida, T. Fukushima, H. Homma, K. Imai, Proton:  A major factor for the racemization 
+and the dehydration at the cyclization/cleavage stage in the Edman sequencing method. Anal. Chem. 68, 2850–
+2856 (1996). 
+33.  M. J. Mitchell, W. Hirschowitz, F. Rastinejad, P. Lu, Boron trifluoride-methanol complex as a non-depurinating 
+detritylating agent in DNA synthesis. Nucleic Acids Res. 18, 5321 (1990). 
+34.  T. Haldar, J. S. Jha, Z. Yang, C. Nel, K. Housh, O. J. Cassidy, K. S. Gates, Unexpected complexity in the 
+products arising from NaOH-, heat-, amine-, and glycosylase-induced strand cleavage at an abasic site in DNA. 
+Chem. Res. Toxicol. 35, 218–232 (2022). 
+35.  F. Seela, S. Menkhoff, S. Behrendt, Furanoside–pyranoside isomerization of tubercidin and its 2′-deoxy 
+derivatives: influence of nucleobase and sugar structure on the proton-catalysed reaction. J. Chem. Soc. Perkin 
+Trans. 2, 525–530 (1986). 
+36.  M. Potowski, V. B. K. Kunig, L. Eberlein, A. Vakalopoulos, S. M. Kast, A. Brunschweiger, Chemically 
+stabilized DNA barcodes for DNA-encoded chemistry. Angew. Chem. Int. Ed. 60, 19744–19749 (2021). 
+37.  V. Farnsworth, K. Steinberg, The generation of phenylthiocarbamyl or anilinothiazolinone amino acids from 
+the postcleavage products of the edman degradation. Anal. Biochem. 215, 200–210 (1993). 
+38.  P. Matsudaira, “Introduction” in A Practical Guide to Protein and Peptide Purification for Microsequencing 
+(Second Edition), P. Matsudaira, Ed. (Academic Press, San Diego, 1993), pp. 1–13. 
+was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint (which
+this version posted June 3, 2024. 
+; 
+https://doi.org/10.1101/2024.05.31.596913
+doi: 
+bioRxiv preprint 
+
+
+--- Page 17 ---
+ 
+17 
+ 
+39.  P. Rydberg, B. Lüning, C. A. Wachtmeister, L. Eriksson, M. Törnqvist, Applicability of a modified Edman 
+procedure for measurement of protein adducts:  Mechanisms of formation and degradation of 
+phenylthiohydantoins. Chem. Res. Toxicol. 15, 570–581 (2002). 
+40.  D. T. Flood, S. Asai, X. Zhang, J. Wang, L. Yoon, Z. C. Adams, B. C. Dillingham, B. B. Sanchez, J. C. 
+Vantourout, M. E. Flanagan, D. W. Piotrowski, P. Richardson, S. A. Green, R. A. Shenvi, J. S. Chen, P. S. 
+Baran, P. E. Dawson, Expanding reactivity in DNA-encoded library synthesis via reversible binding of DNA to 
+an inert quaternary ammonium support. J. Am. Chem. Soc. 141, 9998–10006 (2019). 
+41.  A. B. MacConnell, P. J. McEnaney, V. J. Cavett, B. M. Paegel, DNA-encoded solid-phase synthesis: Encoding 
+language design and complex oligomer library synthesis. ACS Comb. Sci. 17, 518–534 (2015). 
+42.  D. R. Halpin, J. A. Lee, S. J. Wrenn, P. B. Harbury, DNA display III. solid-phase organic synthesis on 
+unprotected DNA. PLOS Biol. 2, e175 (2004). 
+43.  J. Wang, Q. Gong, N. Maheshwari, M. Eisenstein, M. L. Arcila, K. S. Kosik, H. T. Soh, Particle display: a 
+quantitative screening method for generating high-affinity aptamers. Angew. Chem. Int. Ed. 53, 4796–4801 
+(2014). 
+44.  M. F. Debets, S. S. van Berkel, J. Dommerholt, A. (Ton) J. Dirks, F. P. J. T. Rutjes, F. L. van Delft, 
+Bioconjugation with strained alkenes and alkynes. Acc. Chem. Res. 44, 805–815 (2011). 
+45.  H. D. Niall, “[36] Automated Edman degradation: The protein sequenator” in Methods in Enzymology 
+(Academic Press, 1973), pp. 942–1010. 
+46.  V. Hong, S. I. Presolski, C. Ma, M. G. Finn, Analysis and optimization of copper-catalyzed azide–alkyne 
+cycloaddition for bioconjugation. Angew. Chem. Int. Ed. 48, 9879–9883 (2009). 
+47.  Z. Wang, D. Li, X. Tian, C. Zhang, A copper-free and enzyme-free click chemistry-mediated single quantum 
+dot nanosensor for accurate detection of microRNAs in cancer cells and tissues. Chem. Sci. 12, 10426–10435 
+(2021). 
+48.  S. Nakano, N. Sugimoto, The structural stability and catalytic activity of DNA and RNA oligonucleotides in 
+the presence of organic solvents. Biophys. Rev. 8, 11–23 (2016). 
+49.  R. A. Laursen, Solid-phase Edman degradation. Eur. J. Biochem. 20, 89–102 (1971). 
+50.  S. Fredriksson, M. Gullberg, J. Jarvius, C. Olsson, K. Pietras, S. M. Gústafsdóttir, A. Östman, U. Landegren, 
+Protein detection using proximity-dependent DNA ligation assays. Nat. Biotechnol. 20, 473–477 (2002). 
+51.  C. Zhang, D. Xing, Single-molecule DNA amplification and analysis using microfluidics. Chem. Rev. 110, 
+4910–4947 (2010). 
+52.  A. Y. Maslov, S. Makhortov, S. Sun, J. Heid, X. Dong, M. Lee, J. Vijg, Single-molecule, quantitative detection 
+of low-abundance somatic mutations by high-throughput sequencing. Sci. Adv. 8, eabm3259 (2022). 
+53.  M. Zheng, S. Z. Tian, D. Capurso, M. Kim, R. Maurya, B. Lee, E. Piecuch, L. Gong, J. J. Zhu, Z. Li, C. H. 
+Wong, C. Y. Ngan, P. Wang, X. Ruan, C.-L. Wei, Y. Ruan, Multiplex chromatin interactions with single-
+molecule precision. Nature 566, 558–562 (2019). 
+54.  E. Z. Macosko, A. Basu, R. Satija, J. Nemesh, K. Shekhar, M. Goldman, I. Tirosh, A. R. Bialas, N. Kamitaki, 
+E. M. Martersteck, J. J. Trombetta, D. A. Weitz, J. R. Sanes, A. K. Shalek, A. Regev, S. A. McCarroll, Highly 
+parallel genome-wide expression profiling of individual cells using nanoliter droplets. Cell 161, 1202–1214 
+(2015). 
+was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint (which
+this version posted June 3, 2024. 
+; 
+https://doi.org/10.1101/2024.05.31.596913
+doi: 
+bioRxiv preprint 
+
+
+--- Page 18 ---
+ 
+18 
+ 
+55.  J. Shuga, Y. Zeng, R. Novak, Q. Lan, X. Tang, N. Rothman, R. Vermeulen, L. Li, A. Hubbard, L. Zhang, R. A. 
+Mathies, M. T. Smith, Single molecule quantitation and sequencing of rare translocations using microfluidic 
+nested digital PCR. Nucleic Acids Res. 41, e159 (2013). 
+56.  T. Kivioja, A. Vähärautio, K. Karlsson, M. Bonke, M. Enge, S. Linnarsson, J. Taipale, Counting absolute 
+numbers of molecules using unique molecular identifiers. Nat. Methods 9, 72–74 (2012). 
+57.  S. Bloom, C. Liu, D. K. Kölmel, J. X. Qiao, Y. Zhang, M. A. Poss, W. R. Ewing, D. W. C. MacMillan, 
+Decarboxylative alkylation for site-selective bioconjugation of native proteins via oxidation potentials. Nat. 
+Chem. 10, 205–211 (2018). 
+58.  L. Zhang, B. M. Floyd, M. Chilamari, J. Mapes, J. Swaminathan, S. Bloom, E. M. Marcotte, E. V. Anslyn, 
+Photoredox-catalyzed decarboxylative C-terminal differentiation for bulk- and single-molecule proteomics. 
+ACS Chem. Biol. 16, 2595–2603 (2021). 
+59.  F. B. H. Rehm, T. J. Tyler, K. Yap, S. J. de Veer, D. J. Craik, T. Durek, Enzymatic C-terminal protein 
+engineering with amines. J. Am. Chem. Soc. 143, 19498–19504 (2021). 
+60.  J. M. Antos, G.-L. Chew, C. P. Guimaraes, N. C. Yoder, G. M. Grotenbreg, M. W.-L. Popp, H. L. Ploegh, Site-
+specific N- and C-terminal labeling of a single polypeptide using sortases of different specificity. J. Am. Chem. 
+Soc. 131, 10800–10801 (2009). 
+61.  J. Swaminathan, A. A. Boulgakov, E. M. Marcotte, A Theoretical justification for single molecule peptide 
+sequencing. PLOS Comput. Biol. 11, e1004080 (2015). 
+62.  E. T. Boder, K. S. Midelfort, K. D. Wittrup, Directed evolution of antibody fragments with monovalent 
+femtomolar antigen-binding affinity. Proc. Natl. Acad. Sci. 97, 10701–10705 (2000). 
+63.  A. A. Javanpour, C. C. Liu, Evolving small-molecule biosensors with improved performance and reprogrammed 
+ligand preference using OrthoRep. ACS Synth. Biol. 10, 2705–2714 (2021). 
+64.  L. An, M. Said, L. Tran, S. Majumder, I. Goreshnik, G. R. Lee, D. Juergens, J. Dauparas, I. Anishchenko, B. 
+Coventry, A. K. Bera, A. Kang, P. M. Levine, V. Alvarez, A. Pillai, C. Norn, D. Feldman, D. Zorine, D. R. 
+Hicks, X. Li, M. G. Sanchez, D. K. Vafeados, P. J. Salveson, A. A. Vorobieva, D. Baker, De novo design of 
+diverse small molecule binders and sensors using Shape Complementary Pseudocycles. bioRxiv [Preprint] 
+(2023). https://doi.org/10.1101/2023.12.20.572602. 
+65.  G. R. Lee, S. J. Pellock, C. Norn, D. Tischer, J. Dauparas, I. Anischenko, J. A. M. Mercer, A. Kang, A. Bera, 
+H. Nguyen, I. Goreshnik, D. Vafeados, N. Roullier, H. L. Han, B. Coventry, H. K. Haddox, D. R. Liu, A. H.-
+W. Yeh, D. Baker, Small-molecule binding and sensing with a designed protein family. bioRxiv [Preprint] 
+(2023). https://doi.org/10.1101/2023.11.01.565201. 
+66.  T. Scattolin, A. Klein, F. Schoenebeck, Synthesis of isothiocyanates and unsymmetrical thioureas with the 
+bench-stable solid reagent (Me4N)SCF3. Org. Lett. 19, 1831–1833 (2017). 
+Acknowledgments 
+We thank Dr. Adrian Hugenmatter at Stanford Innovative Medicines Accelerator for the helpful 
+discussion. We thank Joshua Lowitz at Antibody Solutions for his assistance with custom antibody 
+generation. We thank Theresa McLaughlin at Stanford University Mass Spectrometry for her 
+assistance with developing LC-MS methods for oligonucleotides. This work was supported by the 
+Vincent Coates Foundation Mass Spectrometry Laboratory, Stanford University Mass 
+Spectrometry (RRID:SCR_017801) utilizing the Bruker Microflex MALDI TOF mass 
+spectrometer 
+(RRID:SCR_018696) 
+and 
+Thermo 
+Exploris 
+240 
+LC/MS 
+system 
+was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint (which
+this version posted June 3, 2024. 
+; 
+https://doi.org/10.1101/2024.05.31.596913
+doi: 
+bioRxiv preprint 
+
+
+--- Page 19 ---
+ 
+19 
+ 
+(RRID:SCR_022216) 
+that 
+was 
+purchased 
+with 
+funding 
+from 
+Stanford 
+C-ShaRP 
+(RRID:SCR_022986). 
+Funding 
+We are grateful for the financial support from Helmsley Charitable Trust and Wellcome Leap 
+SAVE program. 
+Author contributions 
+Conceptualization: L.Z., H.T.S. 
+Methodology: L.Z. 
+Investigation: L.Z., Y.S. 
+Visualization: L.Z., Y.S. 
+Funding acquisition: H.T.S. 
+Project administration: H.T.S. 
+Writing – original draft: L.Z., H.T.S. 
+Writing – review & editing: all authors 
+Competing interests L.Z., Y.S., and H.T.S. are listed as coinventors on a pending patent 
+application related to this work filed at the U.S. Patent and Trademark Office (no. 
+PCT/US2024/017167). M.E. declares no competing interests. 
+Data and materials availability: All data are available in the main text or the supplementary 
+materials. Next-generation sequencing data will be made available via figshare upon publication. 
+Supplementary Materials 
+Materials and Methods 
+Supplementary Text 
+Figs. S1 to S13 
+Tables S1 to S4 
+References (66) 
+MS Spectra of modified oligonucleotides 
+NMR spectra of organic compounds 
+was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint (which
+this version posted June 3, 2024. 
+; 
+https://doi.org/10.1101/2024.05.31.596913
+doi: 
+bioRxiv preprint 

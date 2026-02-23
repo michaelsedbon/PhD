@@ -1,0 +1,1067 @@
+--- Page 1 ---
+Published online 24 August 2018
+Nucleic Acids Research, 2018, Vol. 46, No. 22
+e131
+doi: 10.1093/nar/gky767
+CRISPR-C: circularization of genes and chromosome
+by CRISPR in human cells
+Henrik Devitt Møller1,†, Lin Lin2,†, Xi Xiang2,3,4,†, Trine Skov Petersen2, Jinrong Huang1,4,5,6,
+Luhan Yang7, Eigil Kjeldsen8, Uffe Birk Jensen2,8, Xiuqing Zhang3,5,6, Xin Liu4,5,6,
+Xun Xu4,5,6, Jian Wang4,5,6,9, Huanming Yang4,5,6,9, George M. Church7,10,
+Lars Bolund2,4,5,11, Birgitte Regenberg1,* and Yonglun Luo
+2,4,5,6,11,*,†,‡
+1Department of Biology, Faculty of Science, University of Copenhagen, Denmark, 2Department of Biomedicine,
+Aarhus University, Denmark, 3BGI Education Center, University of Chinese Academy of Sciences, Shenzhen, China,
+4BGI-Qingdao, Qingdao 266555, China, 5BGI-Shenzhen, Shenzhen 518083, China, 6China National GeneBank,
+BGI-Shenzhen, Shenzhen 518120, China, 7eGenesis, Inc., Cambridge, MA 02139, USA, 8Department of Clinical
+Medicine, Aarhus University, Denmark., 9James D. Watson Institute of Genome Science, 310008 Hangzhou, China,
+10Department of Genetics, Harvard Medical School, Boston, MA 02115, USA and 11Lars Bolund Institute of
+Regenerative Medicine, BGI-Qingdao, Qingdao 266555, China
+Received May 11, 2018; Revised July 28, 2018; Editorial Decision August 10, 2018; Accepted August 20, 2018
+ABSTRACT
+Extrachromosomal circular DNA (eccDNA) and ring
+chromosomes are genetic alterations found in hu-
+mans with genetic disorders. However, there is a lack
+of genetic engineering tools to recapitulate and study
+the biogenesis of eccDNAs. Here, we created a dual-
+ﬂuorescence biosensor cassette, which upon the de-
+livery of pairs of CRISPR/Cas9 guide RNAs, CRISPR-
+C, allows us to study the biogenesis of a speciﬁc ﬂuo-
+rophore expressing eccDNA in human cells. We show
+that CRISPR-C can generate functional eccDNA, us-
+ing the novel eccDNA biosensor system. We fur-
+ther reveal that CRISPR-C also can generate eccD-
+NAs from intergenic and genic loci in human embry-
+onic kidney 293T cells and human mammary ﬁbrob-
+lasts. EccDNAs mainly forms by end-joining medi-
+ated DNA-repair and we show that CRISPR-C is able
+to generate endogenous eccDNAs in sizes from a
+few hundred base pairs and ranging up to 207 kb.
+Even a 47.4 megabase-sized ring chromosome 18
+can be created by CRISPR-C. Our study creates a
+new territory for CRISPR gene editing and highlights
+CRISPR-C as a useful tool for studying the cellular
+impact, persistence and function of eccDNAs.
+INTRODUCTION
+The Clustered Regularly Interspaced Short Palindromic
+Repeats (CRISPR) and CRISPR-associated protein 9
+(Cas9) is an adaptive immune system in bacteria and ar-
+chaea that eliminate phages (1). Mediated by a small guide
+RNA (gRNA), the endonuclease Cas9 is harnessed for gene
+editing and has quickly become a highly attractive and pow-
+erful tool in basic and applied research (2–4). The fidelity
+and nuclease-precision of the CRISPR–Cas9 system insures
+no or minimal off-target effects and facilitates fast, func-
+tional gene studies of e.g. site-directed mutations in eukary-
+otic cells. Moreover, CRISPR–Cas9 mediated gene knock-
+outs can be created through a pair of gRNAs that triggers
+dual double-stranded DNA breaks at essential exons, lead-
+ing to DNA deletion and functional disruption of the gene
+encoded protein (3,4) or the inactivation of porcine endoge-
+nous retroviruses (5).
+However, it is commonly thought that excised DNA after
+dual restriction by CRISPR–Cas9 will degrade or dilute out
+through cell proliferations, yet the fate of deleted chromo-
+somal DNA is still unknown. Any nuclear double-stranded
+DNA breakage will in principle be recognized by the DNA
+repair machinery and two breaks on the same chromosome
+could led to mistakes, either by end joining or by homology-
+directed repair of the deleted linear DNA fragment, re-
+sulting in circular DNA formation. DNA deletions and
+DNA inversions have previously been shown to form after
+*To whom correspondence should be addressed. Tel: +45 87 16 77 61; Fax: +45 87 16 77 61; Email: alun@biomed.au.dk
+Correspondence may also be addressed to Birgitte Regenberg. Tel: +45 35 32 16 80; Fax: +45 35 32 16 80; Email: bregenberg@bio.ku.dk
+†The authors wish it to be known that, in their opinion, the first two authors should be regarded as Joint First Authors.
+‡Lead contact.
+C⃝The Author(s) 2018. Published by Oxford University Press on behalf of Nucleic Acids Research.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution License (http://creativecommons.org/licenses/by/4.0/), which
+permits unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited.
+Downloaded from https://academic.oup.com/nar/article/46/22/e131/5078801 by guest on 14 October 2025
+
+
+--- Page 2 ---
+e131 Nucleic Acids Research, 2018, Vol. 46, No. 22
+PAGE 2 OF 13
+dual restriction by CRISPR–Cas9 (6,7) but it remains to
+be resolved whether deleted DNA fragments also form ex-
+trachromosomal circular DNA (eccDNA). Genome-scale
+studies have recently shown that eccDNAs are common el-
+ements in human cells (8,9) and malignant tumors often
+carry oncogene amplifications on eccDNAs, known as dou-
+ble minutes (10–13). Chromosome-derived eccDNAs ap-
+pear to arise mostly at random, although certain eccDNA
+types form more frequently (8,9,14). Despite mounting ev-
+idence of eccDNA prevalence, a direct connection between
+DNA deletions and eccDNA formation has so far only been
+found sporadically (8,12,15,16) and for fifty years, cancer
+studies of double minutes (microscopically visible eccD-
+NAs) has been prohibited by limited cell models and ec-
+cDNA detection techniques, underlying the need for more
+directed genetic tools to facilitate eccDNA analyses.
+In this study, we first created an exogenous dual-
+fluorescence biosensor cassette (ECC biosensor) for study-
+ing the biogenesis of a fluorophore gene-encoded eccDNA
+in human cells. We discovered that a targeted DNA dele-
+tion in the ECC biosensor, by a pair of CRISPR/Cas9
+gRNAs, can form green fluorescent protein expressing ec-
+cDNA in human cells after end-to-end DNA ligation. This
+technology of generating extrachromosomal circular DNA
+by CRISPR was hereafter referred as CRISPR-C. Using
+CRISPR-C, we further demonstrated generation of ec-
+cDNA from intergenic and genic loci and confirmed forma-
+tion of eccDNAs in human cells, in sizes from a few hundred
+base pairs up to a 47.4 megabase-sized ring chromosome,
+chr18.
+MATERIALS AND METHODS
+Oligonucleotides
+All oligonucleotides are ordered from Merck KGaA, Darm-
+stadt, Germany. The sequences for all oligonucleotides used
+can be found in Supplementary Table S1 and S2.
+Cell culture
+Tissue
+cultures
+of
+human
+embryonic
+kidney
+239T
+(HEK293T) cells and normal immortalized human fi-
+broblasts (HMF, clone MJ2646, a gift from Dr Bin Liu,
+Danish Cancer Society, Denmark) were cultured in Dul-
+becco’s modified Eagle’s medium (DMEM) (LONZA)
+supplemented with 10% fetal bovine serum (FBS) (Gibco),
+1% GlutaMAX (Gibco), and penicillin/streptomycin (100
+units penicillin and 0.1 mg streptomycin/ml) in a 37◦C
+incubator with 5% CO2 atmosphere and maximum humid-
+ity. HEK293T and MJ2646 cells were passaged typically
+every 2–3 days at 1:8 and 1:3 ratio, respectively, when
+reaching approximately 90% confluence. This was done
+by washing cells twice (equal volume as growth medium)
+gently with phosphate buffered saline (PBS, 1×) without
+calcium and magnesium, followed by cell detachment by
+0.05% Trypsin-EDTA for 3–5 min at 37◦C.
+Resource of plasmids
+The following vectors were used: lentiCRISPRv2 (a gift
+from Feng Zhang, Addgene plasmid # 52961) and pUC19
+(gift from Joachim Messing, Addgene plasmid # 50005).
+The pMAX-GFP (VDF-1012) was supplied by the Amaxa
+nucleofection kit. The PiggyBac hybase plasmid is gen-
+erously provided by Prof. Jacob Giehm Mikkelsen from
+the Department of Biomedicine, Aarhus University (http://
+www.giehmlab.dk). Alternatively, the PiggyBac transposase
+expression vector can be purchased from SBI system Bio-
+sciences (Cat. # PB210PA-1).
+Generation of eccDNA biosensors
+The ECC biosensor fragments were synthesized by Gene
+Universal Inc. (229A Lake Dr Newark De 19702, USA)
+and validated by Sanger sequencing. The ECC biosen-
+sor fragments, which contains fluorophore gene mark-
+ers of enhanced green fluorescent protein (EGFP) and
+the monomeric derivative of DsRed fluorescent protein
+(mCherry), were sub-cloned into a PiggyBac transposon
+vector (from Prof. George M. Church’s group, http://
+arep.med.harvard.edu) carrying the pac gene, encoding a
+puromycin N-acetyl-transferase that confer resistance to
+puromycin (see Supplementary Figures S1 and S2). The fi-
+nal PiggyBac transposon-based ECC biosensor plasmids
+(CAG-ECC and TRE-ECC) were verified by restriction en-
+zyme digestion.
+Generation of CRISPR/Cas9 gRNAs
+All CRISPR gRNAs were designed with the online software
+tool CRISPOR v4.2. The gRNAs were selected selecting
+based on (i) minimal off-targets, i.e. off-targets that typically
+requires more than three mismatches for perfect annealing
+elsewhere; (ii) predicted activity over 30% provided by the
+CRISPOR web tool; (iii) avoid strong secondary structure
+of the guide sequences and (iv) absent of poly-thymine (max
+3) and the BsmBI restriction site in the guide. All CRISPR
+gRNA oligos with the corresponding overhangs used for
+Golden Gate Assembly were ordered from Merck KGaA,
+Darmstadt, Germany (Supplementary Table S1).
+To generate CRISPR gRNA expression vector, we used
+a previous optimized protocol. Briefly, for each gRNA, two
+complementary guide oligonucleotides (100 pmol each) in
+1× NEB buffer 2 (in a total volume of 20 l) were first
+denatured at 95◦C for 5 min, using a heating block, fol-
+lowed by slow annealing by turning off the heating block.
+For Golden Gate Assembly, the following reaction mix
+was prepared: 1 l of the above annealed oligonucleotides,
+100 ng of the lentiCRISPRv2 plasmid, 1 l FastDigest
+BsmBI restriction enzyme (Thermo Fisher Scientific), 1
+l T4 Fast ligase (Thermo Scientific), and 2 l T4 lig-
+ase buffer in a total volume of 20 l. Golden Gate As-
+sembly was performed in a thermal cycler using the fol-
+lowing program: Ten cycles of 37◦C for 5 min and 22◦C
+for 10 min; one cycle of 37◦C for 30 min; and one cy-
+cle of 75◦C for 15 min. The ligation product was stored
+at 4◦C or used directly (2 l ligation product) to trans-
+form competent Escherichia coli cells. Using this protocol,
+we have experienced that over 95% of the bacterial clones
+are positive by PCR screening using a U6 forward primer
+(5′-GAGGGCCTATTTCCCATGATTC-3′) and the anti-
+sense guide oligonucleotide (template strand of the gRNA
+Downloaded from https://academic.oup.com/nar/article/46/22/e131/5078801 by guest on 14 October 2025
+
+
+--- Page 3 ---
+PAGE 3 OF 13
+Nucleic Acids Research, 2018, Vol. 46, No. 22 e131
+spacer). Sanger sequencing validated all gRNA vectors used
+in this study.
+Cell transfection
+All transfections in this study were conducted with the X-
+tremeGENE 9 transfection reagent (Roche) in 24-well plate,
+if not stated elsewhere. Briefly, 60,000 cells, counted with nu-
+cleocounter NC-100 (Chemometec), were typically seeded
+into a 24-well plate one day before transfection. For each
+transfection, a total of 250 ng plasmid DNA and 0.75 l
+X-tremeGENE 9 transfection reagent (1:3 ratio of g to-
+tal DNA relative to transfection reagent), were mixed in 50
+l OptiMEM (Gibco) and incubated at room temperature
+for 15 min. The transfection mixture was homogeneously
+added to the cells. Unless stated elsewhere, for transfec-
+tion of pairs of CRISPR plasmid, equal amount of each
+CRISPR plasmid was used. As transfection control, pUC19
+or GFP plasmid was used for control groups. For evaluation
+of endogenous eccDNA formation by CRISPR pairs, 1.5 ×
+106 HEK293T cells or 2.2 × 106 HMF cells were seeded in
+10-cm cell culture dish and transfected next day at ∼50%
+cell confluence.
+Generation of ECC biosensor stable clones
+Stable ECC biosensor clones were generated by transfec-
+tion of 60,000 HEK293T cells with 200 ng ECC biosen-
+sor plasmid and 50 ng PiggyBac hybase plasmid using
+X-tremeGENE 9. Twenty four hours post transfection,
+transfected cells were cultured in complete medium supple-
+mented with puromycin (1 g/ml). One-week after trans-
+fection, the puromycin resistant cells were trypsinized, sin-
+gle cell was manually picked under a stereomicroscope and
+cultured in 96-well until 70–80% confluence. Single clones
+normally evolve after 14 days in culture. The stable clones
+were further expanded and the copy number of the inte-
+grated ECC biosensor was assessed by Southern blot, prob-
+ing for EGFP, using the ECC biosensor plasmid as reference
+in 1, 5 and 10 copies/genome.
+Fluorescence-activated cell sorting (FACS)
+Cells, dissociated with 100 l trypsin-EDTA, were sus-
+pended in 100 l 5% FBS–PBS and transferred to a 96 deep-
+well plate on ice. Cells were spun down ∼800 × g (2000 rpm)
+for 5 min and the supernatant was removed by gently in-
+verting the plate. For fixation, 200 l 4% paraformaldehyde
+was added to the cells and mixed gently by pipetting. After
+fixing for 15 min at room temperature, the fixed cells were
+washed twice with 5% FBS–PBS. Lastly, cell pellets were
+re-suspended in 500 l PBS and cells were kept at 4◦C un-
+til FACS analysis. FACS was performed using a BD LSR-
+Fortessa (supported by the FACS CORE facility, Depart-
+ment of Biomedicine, Aarhus University) with at least 30
+000 events collected for each sample. Data were analyzed
+using Flowjo software.
+Time-course analysis of ECC biosensor
+The CAG-ECC (clone #1–9) and TRE-ECC (clone #1–15)
+were transfected with Cr1 and Cr2. 72 hours after transfec-
+tion (defined as passage 1), the transfected cells were dis-
+sociated with 100 l trypsin-EDTA (37◦C for 5 min) and
+re-suspended in 200 l 5% FBS-PBS medium. One-third of
+the cells were analyzed by FACS, one-third of the cells were
+used for PCR analysis, and the remaining one-third of the
+cells were passaged to a new 24-well plate. The cells were
+passaged every second day at a one-third ratio until passage
+6.
+EccDNA purification in human cells
+Cells were harvested typically at 48 h after transfection
+or harvested from a fraction of the transfected cells in
+time-course experiments at various passages. Suspended,
+trypsinized cells were pelleted at 425 x g (2000 rpm), 5 min.
+The supernatant was removed and cells were lysed for ec-
+cDNA analysis (see the following optimization method);
+either by genotyping, using outward PCR and Sanger se-
+quencing, or by Southern blot.
+Optimization of endogenous eccDNA purification
+To assess the methods for endogenous eccDNA purifica-
+tion, three different protocols were tested before outward
+PCR: (i) genomic DNA column purification; (ii) cell lysate;
+(iii) plasmid DNA column purification. For each of the
+three methods, cells were counted and fractionated in three
+different concentrations: 105 cells, 104 cells and 102 cells.
+Then, to each cell sample was spiked in 105 copies of pUC19
+plasmid as internal control and protocols (i); (ii) or (iii) were
+executed.
+Genomic DNA column purification.
+Genomic DNA was
+purified according to protocol (#056-60, A&A Biotechnol-
+ogy). In brief, cells were lysed by protease for 30 min at 55◦C,
+the RNA was removed by RNase A/T1 mix (2 g/sample,
+Thermo) and genomic DNA was washed and purified by
+gravity flow on an ion exchange membrane (AX tissue), fol-
+lowed by DNA precipitating at 14,000 x g for 30 min at 2◦C,
+70% ethanol wash and finally dissolving the DNA pellet in
+40 l Tris–Cl 10 mM, pH 8.0. Of the total 40 l DNA solu-
+tion, 32 l was transferred for linear DNA removal, saving
+the remaining 8 l at −20◦C until PCR analysis.
+Cell lysate.
+Cells were suspended in 0.2 ml lysis buffer
+(KCl 50 mM, MgCl2 1.5 mM, 0.5% NP40 and 0.5% Tween
+20, 10 mM Tris pH 8.5) and incubated with 10 l proteinase
+K (19.1 mg/ml, Thermo) for 2.5 h at 55◦C. Proteinase K was
+heat-inactivated at 95◦C for 10 min, cooled down at room
+temperature for 15 min, and 32 l DNA solution was trans-
+ferred for linear DNA removal, storing the rest of the cell
+lysate at –20◦C until PCR analysis.
+Plasmid DNA column purification.
+Plasmid DNA from
+cells was purified according to protocol (#010-50, A&A
+Biotechnology) after completed cell lysis in 0.6 ml L1
+suspension buffer with 30 l proteinase K (19.1 mg/ml,
+Thermo) for 6 h at 55◦C, and removal of RNA by RNase
+A/T1 mix (2 g/sample, Thermo) at room temperature for
+10 min. Plasmid DNA was washed and purified by gravity
+flow on an ion exchange membrane (Plasmid 10 AX), fol-
+lowed by DNA precipitating at 14 000 x g for 30 min at 2◦C,
+Downloaded from https://academic.oup.com/nar/article/46/22/e131/5078801 by guest on 14 October 2025
+
+
+--- Page 4 ---
+e131 Nucleic Acids Research, 2018, Vol. 46, No. 22
+PAGE 4 OF 13
+70% ethanol wash and finally dissolving the DNA pellet in
+40 l Tris–Cl 10 mM, pH 8.0. Of the total 40 l DNA solu-
+tion, 32 l was continued for linear DNA removal, saving
+the remaining DNA at –20◦C until PCR analysis.
+Removal of linear DNA
+A maximum of 4–5 g total DNA (most cases < 2 g)
+was digested with four fast digest units (Thermo Scien-
+tific), using an endonuclease that did not cleave investigated
+eccDNA, e.g. for most experiments XbaI (endogenous ec-
+cDNA) or EcoRI (ECC biosensor) was used. Endonuclease
+digestion was completed after 1 hour in a 40 l volume at
+37◦C, followed by heat-inactivation, according to enzyme
+protocol (e.g. 65◦C, 20 min). To the total 40 l endonucle-
+ase digested DNA was added a 35 l Plasmid-Safe DNase
+mixture (Epicentre, Illumina), containing 1.5 l Plasmid-
+Safe DNase (15 units), 3 l ATP (25 mM), 7.5 l 10×
+DNase reaction buffer and 23 l H2O. Samples were incu-
+bated in a heating block at 37◦C for 16 h. Next day, linear
+DNA digestion was continued by adding 5 l fresh Plasmid-
+Safe DNase mixture every two hours, consisting of 1.5 l
+Plasmid-Safe DNase (15 units), 3 l ATP (25 mM ATP)
+and 0.5 l 10× DNase reaction buffer and when reaching
+90 units and ∼24 h digestion, DNase was heat-inactivated
+at 70◦C for 30 min (see Supplementary Figures S13 and
+S14). In case of the cell lysate protocol, the quick proto-
+col included max 4 g DNA, endonuclease digestion of a
+40 l cell lysate volume, conducted directly after cell lysis in
+1× fast digest buffer at 37◦C for 16 h, in combination with
+10 units Plasmid-Safe DNase and 2 l ATP (25 mM). Af-
+ter heat-inactivation of the endonuclease, the Plasmid-Safe
+DNase treatment was continued for additional 24–48 h (de-
+pendent on DNA input), adding fresh Plasmid-Safe DNase
+mixture step-wise and reaching up to 100 units/sample.
+Polymerase chain reaction (PCR)
+All PCR reactions were performed with the high-fidelity
+platinum Pfx polymerase in the presence of 2× enhancer
+solution (#11708013, Thermo). All PCR primers were or-
+dered from from Merck KGaA, Darmstadt, Germany (Sup-
+plementary Table S2).
+Southern blot analysis
+Southern blot was performed using an optimized method
+from our group. In brief, a total 15–25 g genomic DNA
+was digested with EcoRI restriction enzyme overnight. The
+enzyme digested DNA was separated on 1% agarose gel
+for 16 h at 30 V. The DNA was transferred on to a mem-
+brane by vacuum blotting. PCR primers for generating
+the probe: 5′-ATTCACCGTCTCATCCAGCGAGGGC
+GATGCCACCTAC-3′ and 5′-TAAGTCGGTCTCATC
+AGTGGTTGTCGGGCAGCAGCAC-3′ (500 bp EGFP
+probe). Probe labelling was performed using the Prime-It
+II Random Primer Labeling Kit according to the manu-
+facturer’s instructions. Pre-hybridization and hybridization
+steps were carried out at 42◦C. Excess probe was washed
+from the membrane with SSC buffer, and the hybridization
+pattern was visualized on X-ray film by autoradiography. A
+detailed protocol with step-by-step guidance can be found
+at our group page: www.dream.au.dk.
+Karyotyping
+Cells were incubated with Chromosome Resolution Addi-
+tive, diluted 1:10 000, and 500 ng/ml cholcemide for 2.5 h
+at 37◦C. The culture was harvested by incubating with Try-
+pLE for 10–20 min at 37◦C. Cells were collected by cen-
+trifugation and the pellet was re-suspended in 0.4% KCl,
+gently vortexed and subsequently incubated for 30 min at
+37◦C. After re-centrifugation, the pellet was re-suspended
+by adding fixative drop-wise up to 2 ml using 1 volume
+acidic acid and 3 volume methanol. After 20 min fixation
+at room temperature, cells were spun down and the fixa-
+tion step was repeated twice. Chromosome spreads were
+prepared by dripping the cell-suspension onto wet glass
+slides in a humid atmosphere at 37◦C. The slide glasses were
+stained, using quinacrine and mounted in antifade solution.
+Fluorescent in situ hybridization (FISH) of telomere and
+whole chromosome 18 painting
+Slides were made with each of the cells suspensions pre-
+pared for Karyotyping. Hybridization with PNA-telomere
+probe in red was performed, followed by DAPI as coun-
+terstain. Automated scanning of the slides was applied
+to identify and locate metaphases, and image identified
+metaphases were captured using the automated scan-
+ning software. The telomere probe was stripped and re-
+hybridization with whole chromosome 18 probes in green
+followed by DAPI as counterstain. Relocation of previ-
+ously captured metaphases followed by another capture of
+painted metaphases was carried out. For wildtype parental
+cells, we analyzed 65 metaphases. For CRISPR transfected
+cells, we analyzed 113 metaphases. A more detailed FISH
+protocol can be acquired from the authors.
+Sanger sequencing
+All Sanger sequencing in this study were conducted us-
+ing the Mix2Seq Kit in Eurofins Genomics (Munich, Ger-
+many). Sanger sequencing results were analyzed with Snap-
+Gene Viewer or four peaks software.
+Deep sequencing
+Purified PCR products were mixed with End Repair Mix
+(BGI Tech.), incubated at 20◦C for 30 min, then purified
+with QIAquick PCR purification kit (Cat No./ID: 28104).
+Purified PCR products were mixed with an A-Tailing reac-
+tion (BGI Tech.), incubated at 37◦C for 30 min and puri-
+fied with QIAquick PCR purification kit. PCR-free adap-
+tor ligation was carried out by mixing the above 3′ adeny-
+late DNA, PCR Free index adapters (BGI Tech.), T4 DNA
+Ligase and buffer. The reaction was incubated at 16◦C for
+16 h and purified with QIAquick PCR purification kit. The
+ligated PCR products were purified by gel-electrophoresis
+(2% agarose) and the QIAquick Gel Extraction Kit (Qia-
+gen). The molecular length of the final sequencing library
+was determined with Agilent 2100 bioanalyzer (Agilent
+DNA 1000 Reagents) and sequenced with HiSeq2500 Sys-
+tem (HiSeq SBS Kit V4, Illumina).
+Downloaded from https://academic.oup.com/nar/article/46/22/e131/5078801 by guest on 14 October 2025
+
+
+--- Page 5 ---
+PAGE 5 OF 13
+Nucleic Acids Research, 2018, Vol. 46, No. 22 e131
+Analysis of amplicon sequencing results
+The
+theoretical
+circular
+sequences
+of
+[dsCRPcircle 1q23.2:0.57 kb]
+and
+[TRIM28circle exon 1-2]
+were
+generated based on human hg38. Clean reads were aligned
+against the theoretical reference using the BWA-mem algo-
+rithm. Duplicate removing was not suitable for amplicon
+sequencing and thus omitted. Reads across the theoretical
+end joining site (junction) were used for indel-calling.
+Soft-clip reads were omitted.
+Statistics
+Analysis of correlation was conducted with Pearson rank
+test.
+RESULTS
+Generation of an ECC biosensor and circular DNA induction
+by CRISPR-C
+To enable real-time monitoring of eccDNA biogenesis
+in cells, we designed and synthesized a dual-fluorescence
+biosensor cassette (ECC) with constitutive gene-expression:
+CAG-ECC (Supplementary Figure S1) as well as a tetra-
+cycline inducible biosensor: TRE-ECC (Figure 1 and Sup-
+plementary Figure S2). The principle for each designed
+ECC-cassette was to mark the outcome after DNA re-
+pair of two introduced site-directed double-strand DNA
+breaks in cultured human cells, using two CRISPR gR-
+NAs (Cr1 + Cr2) (Figure 1A and Supplementary Figure
+S3). A genomic DNA deletion, of the sequence encoding
+enhanced green fluorescent protein (ΔEGFP), would lead
+to functional mCherry expression after end-joining with the
+mCherry promoter (pCAG or pTRE). Likewise, EGFP ex-
+pression was expected to mark circularization of the deleted
+DNA fragment, leading to an [EGFPcircle]. Alternatively, an
+inversion could also lead to expression of both EGFP and
+mCherry but under a different expression scheme (Figure
+1A and Supplementary Figure S3).
+To experimentally test the ECC biosensor on a plasmid,
+we transiently transfected human embryonic kidney 293T
+cells (HEK293T) with CAG-ECC and Cr1+Cr2, along
+with serial control transfections (Supplementary Figures
+S4 and S5). As expected, only cells transfected with CAG-
+ECC and Cr1+Cr2 expressed both EGFP and mCherry.
+However, as transient transfection of the CAG-ECC vec-
+tor could not distinguish eccDNA from inversion events
+(Supplementary Figure S3) we also tested the inducible
+TRE-ECC in HEK293T. Here the majority of the cells,
+in absence of tetracycline, were EGFP positive, indicat-
+ing [EGFPcircles], while substantially less cells were mCherry
+positive (Figure 1B–D, Supplementary Figures S6 and S7).
+Addition of tetracycline to cells enhanced both EGFP and
+mCherry expression, supporting formation of [EGFPcircles]
+as well as EGFP deletion (ΔEGFP) and EGFP inversions
+(EGFPinv) when targeted by CRISPR pairs, hereafter re-
+ferred as CRISPR-C.
+Transient transfection is known to overload cells with
+many copies of plasmids. To overcome plasmid overload-
+ing and to distinguish inversions from eccDNAs, we es-
+tablished stable HEK293T biosensor reporter cells by the
+PiggyBac transposon system, which recognizes transposon-
+specific inverted terminal repeat sequences (ITRs) of the
+transposon vector and efficiently integrates ITRs and the
+ITR-flanked genes into TTAA chromosomal sites. Nine sta-
+ble CAG-ECC clones and fifteen stable TRE-ECC clones
+were established. Each clone carried from one up to thir-
+teen copies of the biosensor cassette, assessed by Southern
+blotting (Figure 1E–G, Supplementary Figures S8 and S9).
+Fluorescence-activated cell sorting (FACS) analysis of all
+individual cell clones, induced by CRISPR-C (Cr1+Cr2),
+revealed correlation between the ECC biosensor copy num-
+ber per cell and the median levels of EGFP+/mCherry+ co-
+colored cells (R = [0.79 to 0.93], Pearson rank test, Supple-
+mentary Figure S10). It further supported formation of flu-
+orophore transcripts from eccDNA after CRISPR-C (Fig-
+ure 1H, Supplementary Figures S8 and S9). Topological
+confirmation of the 1.9 kb-sized [EGFPcircle], along with
+ΔEGFP and EGFPinv, was obtained by Sanger sequencing
+of PCR products and [EGFPcircles] were further confirmed
+by Southern blot analysis for both the TRE- and the CAG-
+ECC isolated clones (Figure 1I–J and Figure S11).
+CRISPR-C can generate endogenous genic and intergenic ec-
+cDNAs in human cells
+Endogenous eccDNA has previously been found in both tu-
+mor and normal cells (8,10). We next investigated whether
+CRISPR-C also could generate eccDNAs in human em-
+bryonic kidney cells (HEK293T) and immortalized hu-
+man mammary fibroblasts (HMF). EccDNAs are com-
+monly derived from intergenic regions and often con-
+sist of repeated sequences (8,17). Thus, we designed two
+CRISPR gRNAs (Cr3+Cr4) targeting a site on chromo-
+some 1 (chr1:159 708 525–159 709 943), which is located
+2 kb downstream of the C-reactive protein encoding gene,
+CRP, and contains a SINE (AluYk4) element (Figure 2A).
+We first estimated the deletion efficiency to ∼50–70% af-
+ter CRISPR-C (Cr3+Cr4) in HEK293T cells (Figure 2B
+and C). We confirmed CRISPR inversion events in these
+cells by PCR and Sanger sequencing (Figure 2D). Finally,
+and as anticipated, CRISPR-C led to circularization of
+the deleted DNA, resulting in formation of the 0.57 kb-
+sized [dsCRPcircle 1q23.2:0.57 kb] (Figure 2E) validated by out-
+ward PCR and Sanger sequencing. CRP circularization by
+CRISPR-C was further validated by rolling circle ampli-
+fication (data not shown). Since HEK293T cells are poly-
+ploidy and a CRISPR duplication event potentially could
+give a false-positive PCR signal for eccDNA (Supplemen-
+tary Figure S12), we tested and validated three protocols
+(genomic DNA preparation, cell lysate, and plasmid prepa-
+ration) for eccDNA purification and exonuclease treat-
+ment, in order to remove all linear/chromosomal DNA
+(Supplementary Figure S13). We found that cost-effective
+and conventional cell lysate protocol allowed us to detect
+the [dsCRPcircle 1q23.2:0.57 kb] in 10∧5 cells, using outward di-
+recting oligos PCR and Sanger sequencing. Controls con-
+firmed complete removal of linear DNA but not plasmid
+DNA (Supplementary Figure S13). The eccDNA purifica-
+tion protocols were repeated in HMF cells, reaching compa-
+rable results and conclusions (Supplementary Figure S14).
+Thus, the cell lysate method (∼105 cells and exonuclease
+Downloaded from https://academic.oup.com/nar/article/46/22/e131/5078801 by guest on 14 October 2025
+
+
+--- Page 6 ---
+e131 Nucleic Acids Research, 2018, Vol. 46, No. 22
+PAGE 6 OF 13
+Figure 1. A dual-fluorescence eccDNA biosensor system and CRISPR-C for studying eccDNA biogenesis in human cells. (A) Model of TRE-ECC biosen-
+sor after two double-stranded breaks by CRISPR-C (Cr1 and Cr2), leading to [EGFPcircle] and EGFP or EGFP inversion. (B) Scheme of TRE-ECC
+Downloaded from https://academic.oup.com/nar/article/46/22/e131/5078801 by guest on 14 October 2025
+
+
+--- Page 7 ---
+PAGE 7 OF 13
+Nucleic Acids Research, 2018, Vol. 46, No. 22 e131
+treatment) was hereafter used for all proceeding experi-
+ments. Taken together, we found that CRISPR-C can gen-
+erate intergenic eccDNA, both in immortalised human fi-
+broblasts and in human cancer-like cells (HEK293T).
+Next, we tested induction of DNA circularization by
+CRISPR-C at two different genic loci (urokinase, UPA;
+and tripartite motif containing 28, TRIM28) as endoge-
+nous eccDNAs also are reported to derive from genic
+sequences (8,10,13,18,19). In line with findings of the
+[dsCRPcircle 1q23.2:0.57 kb], CRISPR-C led to generation of a
+[UPAcircle exon 4] and a [TRIM28circle exon 1-2] both in HMF
+as well as in HEK293T cells and their structures were
+confirmed by Sanger sequencing of outward PCR prod-
+ucts (Figure 2F-I and Supplementary Figures S15 and
+S16). Hence, endogenous eccDNA formation by CRISPR-
+C seems to be a general outcome in cells, since it is cell-line
+independent and eccDNAs are formed both at genic loci
+and at intergenic regions.
+CRISPR-C eccDNA mainly forms by end-joining
+Sanger
+sequencing
+of
+the
+circular
+junctions
+of
+[EGFPcircle],
+[dsCRPcircle 1q23.2:0.57 kb],
+[UPAcircle exon 4]
+and [TRIM28circle exon 1-2] gave evidence of end-joining
+events. This data support previous notions that the major
+DNA-repair pathway that appears to mediate eccDNA
+formation in mammalian cells is non-homologous end
+joining (NHEJ) (17,18). To better understand the indel
+events, we further sequenced the DNA across the junction
+of the [dsCRPcircle 1q23.2:0.57 kb] and the [TRIM28circle exon 1-2]
+by next-generation sequencing. For CRISPR-C introduced
+dsCRP eccDNA, we observed 68.8% and 77.6% blunt end-
+joining (BEJ) in HEK293T and HMF cells, respectively
+while the remaining 31.2% and 22.4% had a variable indel
+size up to maximum 17 bp (Figure 2J and K). Similarly,
+the majority of [TRIM28circle exon 1-2] indels was less than
+4 bp (79%) (Supplementary Figure S16). Though, for
+[TRIM28circle exon 1-2], we only observed 6.8% formed by
+BEJ while a majority (61%) had either one nucleotide
+insertion (43.3%) or deletion (13.2%) (Supplementary
+Figure S17). Such an indel distribution has previously
+been reported after CRISPR-editing (19,20). In sum, our
+results suggest that the majority of eccDNAs generated by
+CRISPR-C is formed by an end-joining mediated DNA
+repair pathway.
+The stability of CRISPR-C generated [EGFPcircles] in human
+cells
+To evaluate the stability of de novo generated eccDNA by
+CRISPR-C, succeeding experiments were carried out using
+the transgenic TRE-ECC (clone 1) and CAG-ECC (clone 2)
+with a single copy insertion as an example. A time-course
+experiment was carried out as shown in Figure 3A and
+Supplementary Figure S18A for two weeks. One third of
+the cells were harvested at 6 constitutive passages and an-
+alyzed by FACS and outward PCR to detect [EGFPcircles].
+At passage 1, the [EGFPcircle] genotype in TRE-ECC cells (-
+Tet) was mainly found in GFP positive only (GFP+) cells
+(Supplementary Figure S19). ΔEGFP and EGFPinvwere
+mainly found in mCherry positive only (mCherry+) cells
+(Supplementary Figure S19). Over the FACS time-course
+the percentage of GFP+ cells declined rapidly from 7.4%
+(p.1) to 0.2% (p.4) (Figure 3B). However, the percentage
+of mCherry+ cells and co-colored (GFP+mCherry+) cells
+were observed at nearly steady levels from p.1-p.6 (Figure
+3B). Likewise, in the TRE-ECC (+Tet) cells, the percent-
+age of GFP+ cells and high co-colored cells (mCherryhigh+,
+GFPlow+), which harbored [EGFPcircles] (Supplementary
+Figure S19), declined rapidly from p.1-p.4, close to the di-
+lution ratio (i.e. 2.7 ± 1.9). Similar to the experiment -Tet
+(Figure 3B), the mCherry+ cells and low co-colored cells
+(mCherrylow+, GFPhigh+) were detected at nearly stable lev-
+els (Figure 3C, +Tet). Moreover, comparable time-courses
+were observed in CAG-ECC experiments (Supplementary
+Figure S18B and C). Despite the indicative data from FACS,
+supporting a rapid decrease of cells expressing [EGFPcircles]
+over time, when we tested for the stability and presence of
+[EGFPcircles] DNA up to day 13 (six passages) by outward
+PCR, we found DNA products in all passages. Remarkably,
+the detected apparent decrease in [EGFPcircles] from PCR
+analysis was slower than the theoretical dilution rate (Fig-
+ure 3D and E and Supplementary Figure S18D and E). The
+PCR results suggest that [EGFPcircle] DNA can stay rather
+stably in HEK cells, as least for the period tested in this
+study. However, EGFP expression from [EGFPcircles] is un-
+stable and quickly silenced, a pattern similar to EGFP ex-
+pression from transiently transfected plasmids. A previous
+study has found that transfected plasmids can be asymmet-
+rically segregated in dividing mammalian tissue culture cells
+(21). Consistent with that, when assaying the median and
+mean fluorescence intensity in the remaining small propor-
+tion of GFP+ cells (Supplementary Figure S20), we found
+that the GFP+ signal intensity increased at later passages.
+CRISPR-C can generate eccDNAs of various sizes
+We next asked whether CRISPR-C also could generate ec-
+cDNA in sizes larger than 2 kb. To address this question, we
+generated several pairs of CRISPR gRNAs targeting chro-
+mosome 1 (Figure 4A) to test for eccDNA formation in sizes
+up to 207 kb. For all examined sites, we confirmed eccDNA
+formation by CRISPR-C (Figure 4A–C), confirming that
+CRISPR-C can generate eccDNAs in a range of different
+←−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
+biosensor. (C) Experimental outline. (D) TRE-ECC plasmid assessment by fluorescence microscopy after Cr1+Cr2 using pUC19 as control (uncut). (E,
+upper part) Outline of stable genomic integration of TRE-ECC in HEK293T. (F) Copy-number assessment by Southern blot with EGFP-probe after KpnI
+digestion. (E, lower part) Outline for Cr1+Cr2 activation of integrated TRE-ECC. (G) Representative result from FACS analysis of clone 1 in the absence
+or presence of tetracycline (Tet). (H) Histograms of fluorescence cell percentages of all 15 isolated TRE-ECC clones after Cr1+Cr2 and FACS analysis. (I)
+PCR and Sanger sequencing validation of genotypes on exonuclease-treated DNA, displayed in A, after Cr1+Cr2 for TRE-ECC clone 1 and clone 4. C,
+negative CRISPR control; NC, non-template control. (J) Southern blot, probed with EGFP on HEK293T purified and digested DNA from untreated (C,
+KpnI) and Cr1+Cr2 treated cells. X = XbaI, H = HindIII.
+Downloaded from https://academic.oup.com/nar/article/46/22/e131/5078801 by guest on 14 October 2025
+
+
+--- Page 8 ---
+e131 Nucleic Acids Research, 2018, Vol. 46, No. 22
+PAGE 8 OF 13
+Figure 2. Endogenous DNA circularization by CRISPR-C. (A) Chromosome 1 map 2 kb downstream of the CRP locus. gRNA: Cr3, Cr4; diagnostic
+oligos: p5 to p8. (B) Experimental outline. (C–E) Gel-images of corresponding PCR products across junctions after testing for (C) DNA deletion, 0.64
+kb; wildtype, 1.23 kb), (D) inversion and (E) circular DNA, next to resultant chromatograms from Sanger sequencing. (F) Chromosome 10 map at the
+PLAU (UPA) locus. gRNA, Cr5 and Cr6, diagnostic oligos; p9 to p12. (G) PCR and sequencing confirmation of the [UPAcircle exon 4]. (H) Chromosome 19
+map at the TRIM28 locus. (I) PCR and sequencing confirmation of the [TRIM28circle exon 1-2]. (J–K) Indel distribution across the junction of [dsCRPcircle]
+generated in HEK293T and HMF cells, respectively. For (E), (G) and (I), exonuclease-treated DNA was used as template.
+sizes. As controls, we further proved that single double-
+strand DNA breaks by CRISPR gene editing did not led
+to eccDNA formation (Figure 4A–C) as also observed for
+similar control experiments with the ECC biosensor (Sup-
+plementary Figures S4 and S6) and the [UPAcircle exon 4] (Fig-
+ure 2G).
+Generation of ring chromosomes by CRISPR-C
+Ring chromosomes are chromosomal alterations found in
+humans and have been reported for all chromosomes, which
+cause various developmental defects during fetal develop-
+ment and are associated to cancers (22). Ring chromosome
+18 is found at high frequency in 1 out of 40 000 births
+Downloaded from https://academic.oup.com/nar/article/46/22/e131/5078801 by guest on 14 October 2025
+
+
+--- Page 9 ---
+PAGE 9 OF 13
+Nucleic Acids Research, 2018, Vol. 46, No. 22 e131
+Figure 3. Stability of eccDNAs generated by CRISPR-C. (A) Outline of time-course experiment. (B) Left, percent fluorescence cells from 1 to 6 cell passages
+(1:3 split-ratio) in absence of tetracycline (-Tet); right, corresponding FACS gating images. (C) As B description, cells propagated in +Tet conditions. (D)
+Outward PCR analysis of [EGFPcircles] at passage 1 to 6; left, -Tet; right, +Tet. Cr1+Cr2 (1+2), CRISPR gRNAs; C, control – gRNA; ctrl, DNA template
+control. (E) Quantification of PCR analysis by Image J, solid lines; theoretical 1/3 dilution rate, dash lines.
+Downloaded from https://academic.oup.com/nar/article/46/22/e131/5078801 by guest on 14 October 2025
+
+
+--- Page 10 ---
+e131 Nucleic Acids Research, 2018, Vol. 46, No. 22
+PAGE 10 OF 13
+Figure 4. Generation of eccDNAs of various sizes and ring chromosome 18 by CRISPR-C. (A, upper part) Schematic view of distances between targeted
+CRISPR gRNAs on chromosome 1 (Cr9 to Cr17) along with diagnostic oligos (p17 to p26) for PCR confirmation of formation of (A, lower part) kb-sized
+Downloaded from https://academic.oup.com/nar/article/46/22/e131/5078801 by guest on 14 October 2025
+
+
+--- Page 11 ---
+PAGE 11 OF 13
+Nucleic Acids Research, 2018, Vol. 46, No. 22 e131
+(23). Currently, there is no tool for re-modelling ring chro-
+mosomes in vitro. We next investigated whether CRISPR-
+C can be used to generate ring chromosome 18, Ringchr18.
+Two pairs (Cr17+Cr18 and Cr19+Cr20) of CRISPR gR-
+NAs were designed to target the p and q aims of chromo-
+some 18, respectively. When HEK293T cells were treated
+with the designed CRISPR-pairs, we detected both efficient
+formation of large DNA deletions, chr1847.4 Mb as well
+as Ringchr18:47.4 Mb. Sanger sequencing of amplified PCR
+products across the junction validated their structures (Fig-
+ure 4D and E). Karyotyping, telomere staining and whole
+chromosome 18 painting of HEK293T cells treated with
+CRISPR-C further confirmed the appearance of ring18-
+like structures with an efficiency of ∼2% (2/113 metaphases
+analyzed, Figure 4F), whereas no ring18-like structures
+were found in untreated cells (0/65 metaphases analyzed,
+Supplementary Figure S21). In addition, we observed that
+cells with the ring18-like genotype had lower fitness, as the
+ring18-like structure was eventually lost from cell culture
+when passaged multiple times. This result is not surprising
+as ring chromosomes are reported to be unstable (24).
+DISCUSSION
+We previous demonstrated that CRISPR–Cas9 can be used
+for efficient and multiplexed genetic manipulations (25–27).
+Here, we further showed, for the first time, that CRISPR
+technology can be used efficiently to form specific eccDNA
+sequences in the human genome. Designated CRISPR-C,
+eccDNA was formed at all regions tested, if targeted by
+CRISPR-pairs on the same chromosome. In detail, the in-
+troduction of two double-stranded DNA breaks and subse-
+quent DNA repair, mainly driven by blunt end-joining, led
+to formation of an eccDNA product and the corresponding
+chromosomal DNA deletion or alternatively to DNA inver-
+sion. We demonstrated that CRISPR-C can generate entire
+ring chromosomes inside cells and eccDNAs can be gener-
+ated in a broad range of sizes from both genic and inter-
+genic regions. We provided evidence that DNA circulariza-
+tion by CRISPR-C is cell-line independent (Figure 2, Sup-
+plementary Figures S13 and S14). Several reports support
+that eccDNAs can be transcriptionally active (8,11,16,28–
+30). We consolidated previous observations by showing that
+cells formed [EGFPcircles], ΔEGFP and EGFPinv genotypes
+after CRISPR-C (Figure 1), which led to active expression
+of green and/or red fluorescence proteins.
+In this study, we confirmed that the ECC biosensor cas-
+sette can be used for studying eccDNA biogenesis in hu-
+man cells with direct linkage to fluorophore synthesis. The
+exogenous ECC biosensor cassette can likely be a useful
+marker for deciphering more about the DNA repair ma-
+chinery, leading to eccDNA biogenesis. As well, via dual
+fluorophore transcription, the ECC biosensor can provide
+more insights to the heterogeneity and the mutational spec-
+trum when using CRISPR-C. The cassette can either be
+transfected as a plasmid into cells or used for viral trans-
+duction to generate stable chromosome integration. In fu-
+ture experiments, e.g. by cell-dilution down to single cells,
+CRISPR-C induced cells could be analysed by targeted se-
+quencing or propagated mildly, to assess if mainly homoge-
+nous or heterogenous genotypes exist.
+Only a few studies have previously looked at eccDNA sta-
+bility over time (30,31). Continuous cultures of CRISPR-C
+induced stable cells with the ECC biosensor revealed that
+the GFP+ cell population diluted out proportionally to
+the cell-split ratio after few cell passages (Figure 3B and
+C). However, assessed by outward PCR analyses, the pres-
+ence of [EGFPcircles] diluted out more slowly (Figure 3E and
+Supplementary Figure S18E), suggesting that [EGFPcircles]
+could persist in cell populations for much longer time than
+two weeks. Furthermore, the more moderate decline in
+[EGFPcircles] levels over time advocated for possible repli-
+cation and clustering since the GFP+ cell population de-
+creased over time while the mean fluorescence intensity per
+cells increased significantly (Supplementary Figure S20).
+Alternatively, continuous EGFP transcription in slow grow-
+ing or quiescence cells could possibly lead to elevated EGFP
+levels in a subpopulation of cells. Additional studies will be
+needed to elucidate this matter further. In order to gener-
+ally assess eccDNA stability in mammalian cells, the ECC
+biosensor might be a poor representative as many other un-
+known factors might contribute to the stability, such as size
+and sequences constitutions (e.g. replication origins, epige-
+netics, DNA motifs, repeats, genes, etc.).
+Replication of acentric eccDNA in dividing cells can
+quickly led to copy-number variations, if segregated asym-
+metrically. It remains to be investigated whether the gen-
+erated eccDNAs in this study might replicate, which could
+explain longer persistence-time and increased intensity in
+cells. Previous reports on microscopic visible eccDNAs
+(double minutes) showed they can replicate at cell divi-
+sion (32–34). Moreover, upon various replicative stresses,
+increased eccDNA clustering and micronuclei exclusion
+was observed, which correlated with altered cellular traits
+(11,29,35).
+A link between eccDNA and cellular aging has previ-
+ously been described in the eukaryotic cell model of bud-
+ding yeast. As for many other eukaryotes, the ribosomal
+RNA genes are numerous and highly repetitive in yeast. So-
+called [rDNAcircles] (14) or ERCs (36) are frequently pro-
+duced and ERC accumulation has been associated to cell
+senescence and aging of yeast (36). A potentially similar ac-
+cumulation of eccDNAs in human cells could perhaps also
+moderate the number of possible cell divisions, causing ag-
+ing. EccDNA that encodes a specific gene has also been
+shown to improve the growth fitness of yeast (16), confer
+drug-resistance for more than 75 days in human cell culture
+←−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
+[CRPcircles] and corresponding CRP deletions, CRPchr1. (B and C) Chromatograms of Sanger sequencing across the junction of the [CRPcircle 12 kb] and the
+[CRPcircle 207 kb] in both directions and chromatograms below confirming CRP deletions, CRPchr1 12 kband CRPchr1 207 kb. (D) Left, schematic view of
+chromosome 18 with annotated Cr18 to Cr21 sites and resultant formation of Ringchr18:47.4 Mb and Δchr1847.4Mb after CRISPR-C and DNA repair. Right,
+Sanger sequencing chromatograms confirming expected junctions. (E) Corresponding gel-images of amplified PCR products across junctions associated to
+D. Schemes, not drawn to scale. (F) Karyotyping ring18-like structure of chromosome 18 by telomere staining (Telo) and whole chromosome 18 painting
+(WCP18) of HEK293T cells treated with CRISPR-C. Blue, DAPI staining of DNA; Red, telomere; Cyan, chromosome 18.
+Downloaded from https://academic.oup.com/nar/article/46/22/e131/5078801 by guest on 14 October 2025
+
+
+--- Page 12 ---
+e131 Nucleic Acids Research, 2018, Vol. 46, No. 22
+PAGE 12 OF 13
+(30), and to transmit drug-resistance vertically to progeny
+of crop weed (37).
+In this study, we demonstrated the application of
+CRISPR-C in generating eccDNA from different loci, of
+different sizes, and even for generation of a circular chromo-
+some 18. Our study highlights that future studies of chro-
+mosomal abnormalities in medical genetics, such as translo-
+cation, deletion, gene-fusion and ring chromosomes (38)
+can now be supplemented by applying CRISPR-C technol-
+ogy. This method is especially useful for cancer research as
+around half of all tumors carry eccDNAs with oncogenes
+(10,11,13). We expect that CRISPR-C will improve our un-
+derstanding of the role of endogenous eccDNAs in can-
+cer development. The ease of generating ring chromosomes
+by CRISPR-C can further provide easier modelling of hu-
+man genetic disorders caused by ring chromosomes (22,24).
+In addition, the fact that ring chromosomes can be gener-
+ated by CRISPR-C, might provide valuable knowledge and
+novel concept arts to the design of synthetic chromosomes
+(39) and synthetic genomes (40).
+DATA AVAILABILITY
+The eccDNA biosensor vectors and CRISPR-C plasmids
+are available at Addgene repository (https://www.addgene.
+org/Yonglun Luo/). The eccDNA biosensor reporter cells
+can be requested from Yonglun Luo directly. All detail pro-
+tocols can be found at www.dream.au.dk or requesting to
+the corresponding author Yonglun Luo.
+SUPPLEMENTARY DATA
+Supplementary Data are available at NAR Online.
+ACKNOWLEDGEMENTS
+We thank Claus Nielsen for helping with preparing the cells
+for karyotyping analysis and the technical help from our
+FACS CORE facility.
+FUNDING
+Danish Council for Independent Research [FNU 6108-
+00171B to H.D.M. and B.R.]; Carlsberg foundation [CF17-
+0226 to H.D.M.]; Lundbeck Foundation [R219-2016-1375
+to L.L.]; China Scholarship Council (to X.X.); Danish
+Research Council for Independent Research [DFF-1337-
+00128 to Y.L.]; Sapere Aude Young Research Talent Prize
+[DFF-1335-00763A]; Innovation Fund Denmark (Brain-
+Stem); Lundbeck Foundation [R173-2014-1105]; Aarhus
+University Strategic Grant [AU-iCRISPR]. Funding for
+open access charge: Danish Research Council for Indepen-
+dent Research.
+Conflict of interest statement. None declared.
+REFERENCES
+1. Jansen,R., Embden,J.D.A.V., Gaastra,W. and Schouls,L.M. (2002)
+Identification of genes that are associated with DNA repeats in
+prokaryotes. Mol. Microbiol., 43, 1565–1575.
+2. Jinek,M., Chylinski,K., Fonfara,I., Hauer,M., Doudna,J.A. and
+Charpentier,E. (2012) A programmable dual-RNA-guided DNA
+endonuclease in adaptive bacterial immunity. Science, 337, 816–821.
+3. Cong,L., Ran,F.A., Cox,D., Lin,S., Barretto,R., Habib,N., Hsu,P.D.,
+Wu,X., Jiang,W., Marraffini,L.A. et al. (2013) Multiplex genome
+engineering using CRISPR/Cas systems. Science, 339, 819–823.
+4. Mali,P., Yang,L., Esvelt,K.M., Aach,J., G¨uell,M., DiCarlo,J.E.,
+Norville,J.E. and Church,G.M. (2013) RNA-guided human genome
+engineering via Cas9. Science, 339, 823–826.
+5. Niu,D., Wei,H.-J., Lin,L., George,H., Wang,T., Lee,I.-H.,
+Zhao,H.-Y., Wang,Y., Kan,Y., Shrock,E. et al. (2017) Inactivation of
+porcine endogenous retrovirus in pigs using CRISPR–Cas9. Science,
+357, 1303–1307.
+6. Canver,M.C., Bauer,D.E., Dass,A., Yien,Y.Y., Chung,J., Masuda,T.,
+Maeda,T., Paw,B.H. and Orkin,S.H. (2014) Characterization of
+genomic deletion efficiency mediated by clustered regularly
+interspaced short palindromic repeats (CRISPR)/Cas9 nuclease
+system in mammalian cells. J. Biol. Chem., 289, 21312–21324.
+7. Byrne,S.M., Ortiz,L., Mali,P., Aach,J. and Church,G.M. (2014)
+Multi-kilobase homozygous targeted gene replacement in human
+induced pluripotent stem cells. Nucleic Acids Res., 43, e21.
+8. Møller,H.D., Mohiyuddin,M., Prada-Luengo,I., Sailani,M.R.,
+Halling,J.F., Plomgaard,P., Maretty,L., Hansen,A.J., Snyder,M.P.,
+Pilegaard,H. et al. (2018) Circular DNA elements of chromosomal
+origin are common in healthy human somatic tissue. Nat. Commun.,
+9, 1–12.
+9. Shibata,Y., Kumar,P., Layer,R., Willcox,S., Gagan,J.R., Griffith,J.D.
+and Dutta,A. (2012) Extrachromosomal microDNAs and
+chromosomal microdeletions in normal tissues. Science, 336, 82–86.
+10. Turner,K.M., Deshpande,V., Beyter,D., Koga,T., Rusert,J., Lee,C.,
+Li,B., Arden,K., Ren,B., Nathanson,D.A. et al. (2017)
+Extrachromosomal oncogene amplification drives tumour evolution
+and genetic heterogeneity. Nature, 543, 122–125.
+11. Von Hoff,D.D., McGill,J.R., Forseth,B.J., Davidson,K.K.,
+Bradley,T.P., Van Devanter,D.R. and Wahl,G.M. (1992) Elimination
+of extrachromosomally amplified MYC genes from human tumor
+cells reduces their tumorigenicity. Proc. Natl. Acad. Sci. U.S.A., 89,
+8165–8169.
+12. Carroll,S.M., DeRose,M.L., Gaudray,P., Moore,C.M.,
+Needham-Vandevanter,D.R., Von Hoff,D.D. and Wahl,G.M. (1988)
+Double minute chromosomes can be produced from precursors
+derived from a chromosomal deletion. Mol. Cell. Biol., 8, 1525–1533.
+13. Storlazzi,C.T., Lonoce,A., Guastadisegni,M.C., Trombetta,D.,
+D’Addabbo,P., Daniele,G., L’Abbate,A., Macchia,G., Surace,C.,
+Kok,K. et al. (2010) Gene amplification as double minutes or
+homogeneously staining regions in solid tumors: Origin and
+structure. Genome Res., 20, 1198–1206.
+14. Møller,H.D., Parsons,L., Jørgensen,T.S., Botstein,D. and
+Regenberg,B. (2015) Extrachromosomal circular DNA is common in
+yeast. Proc. Natl. Acad. Sci. U.S.A., 112, E3114–E3122.
+15. Durkin,K., Coppieters,W., Dr¨ogem¨uller,C., Ahariz,N.,
+Cambisano,N., Druet,T., Fasquelle,C., Haile,A., Horin,P., Huang,L.
+et al. (2012) Serial translocation by means of circular intermediates
+underlies colour sidedness in cattle. Nature, 482, 81–84.
+16. Gresham,D., Usaite,R., Germann,S.M., Lisby,M., Botstein,D. and
+Regenberg,B. (2010) Adaptation to diverse nitrogen-limited
+environments by deletion or extrachromosomal element formation of
+the GAP1 locus. Proc. Natl. Acad. Sci. U.S.A., 107, 18551–18556.
+17. van Loon,N., Miller,D. and Murnane,J.P. (1994) Formation of
+extrachromosomal circular DNA in HeLa cells by nonhomologous
+recombination. Nucleic Acids Res., 22, 2447–2452.
+18. Meng,X., Qi,X., Guo,H., Cai,M., Li,C., Zhu,J., Chen,F., Guo,H.,
+Li,J., Zhao,Y. et al. (2015) Novel role for non-homologous end
+joining in the formation of double minutes in methotrexate-resistant
+colon cancer cells. J. Med. Genet., 52, 135–144.
+19. Cradick,T.J., Fine,E.J., Antico,C.J. and Bao,G. (2013) CRISPR/Cas9
+systems targeting -globin and CCR5 genes have substantial
+off-target activity. Nucleic Acids Res., 41, 9584–9592.
+20. Lonowski,L.A., Narimatsu,Y., Riaz,A., Delay,C.E., Yang,Z.,
+Niola,F., Duda,K., Ober,E.A., Clausen,H., Wandall,H.H. et al.
+(2017) Genome editing using FACS enrichment of
+nuclease-expressing cells and indel detection by amplicon analysis.
+Nat. Protoc., 12, 581–603.
+21. Wang,X., Le,N., Denoth Lippuner,A., Barral,Y. and Kroschewski,R.
+(2016) Asymmetric partitioning of transfected DNA during
+mammalian cell division. Proc. Natl. Acad. Sci. U.S.A., 113,
+7177–7182.
+Downloaded from https://academic.oup.com/nar/article/46/22/e131/5078801 by guest on 14 October 2025
+
+
+--- Page 13 ---
+PAGE 13 OF 13
+Nucleic Acids Research, 2018, Vol. 46, No. 22 e131
+22. Guilherme,R.S., Meloni,V.F.A., Kim,C.A., Pellegrino,R.,
+Takeno,S.S., Spinner,N.B., Conlin,L.K., Christofolini,D.M.,
+Kulikowski,L.D. and Melaragno,M.I. (2011) Mechanisms of ring
+chromosome formation, ring instability and clinical consequences.
+BMC Med. Genet., 12, 171.
+23. Cody,J.D., Ghidoni,P.D., DuPont,B.R., Hale,D.E., Hilsenbeck,S.G.,
+Stratton,R.F., Hoffman,D.S., Muller,S., Schaub,R.L., Leach,R.J.
+et al. (1999) Congenital anomalies and anthropometry of 42
+individuals with deletions of chromosome 18q. Am. J. Med. Genet.,
+85, 455–462.
+24. Sodr´e,C.P., Guilherme,R.S., Meloni,V.F.A., Brunoni,D., Juliano,Y.,
+Andrade,J.A.D., Belangero,S.I.N., Christofolini,D.M.,
+Kulikowski,L.D. and Melaragno,M.I. (2010) Ring chromosome
+instability evaluation in six patients with autosomal rings. Genet.
+Mol. Res., 9, 134–143.
+25. Niu,D., Wei,H.-J., Lin,L., George,H., Wang,T., Lee,I.-H.,
+Zhao,H.-Y., Wang,Y., Kan,Y., Shrock,E. et al. (2017) Inactivation of
+porcine endogenous retrovirus in pigs using CRISPR–Cas9. Science,
+357, 1303–1307.
+26. Lin,L., Petersen,T.S., Jensen,K.T., Bolund,L., K¨uhn,R. and Luo,Y.
+(2017) Fusion of SpCas9 to E. coli Rec A protein enhances
+CRISPR–Cas9 mediated gene knockout in mammalian cells. J.
+Biotechnol., 247, 42–49.
+27. Zhou,Y., Liu,Y., Hussmann,D., Brøgger,P., Al-Saaidi,R.A., Tan,S.,
+Lin,L., Petersen,T.S., Zhou,G.Q., Bross,P. et al. (2016) Enhanced
+genome editing in mammalian cells with a modified dual-fluorescent
+surrogate system. Cell. Mol. Life Sci., 73, 2543–2563.
+28. Utani,K.-I., Kawamoto,J.-K. and Shimizu,N. (2007) Micronuclei
+bearing acentric extrachromosomal chromatin are transcriptionally
+competent and may perturb the cancer cell phenotype. Mol. Cancer
+Res., 5, 695–704.
+29. Nathanson,D.A., Gini,B., Mottahedeh,J., Visnyei,K., Koga,T.,
+Gomez,G., Eskin,A., Hwang,K., Wang,J., Masui,K. et al. (2014)
+Targeted therapy resistance mediated by dynamic regulation of
+extrachromosomal mutant EGFR DNA. Science, 343, 72–76.
+30. Pauletti,G., Lai,E. and Attardi,G. (1990) Early appearance and
+long-term persistence of the submicroscopic extrachromosomal
+elements (amplisomes) containing the amplified DHFR genes in
+human cell lines. Proc. Natl. Acad. Sci. U.S.A., 87, 2955–2959.
+31. Vogt,N., Gibaud,A., Lemoine,F., la Grange,P., Debatisse,M. and
+Malfoy,B. (2014) Amplicon rearrangements during the
+extrachromosomal and intrachromosomal amplification process in a
+glioma. Nucleic Acids Res., 42, 13194–13205.
+32. Von Hoff,D.D., Needham-Vandevanter,D.R., Yucel,J., Windle,B.E.
+and Wahl,G.M. (1988) Amplified human MYC oncogenes localized
+to replicating submicroscopic circular DNA molecules. Proc. Natl.
+Acad. Sci. U.S.A., 85, 4804–4808.
+33. Itoh,N. and Shimizu,N. (1998) DNA replication-dependent
+intranuclear relocation of double minute chromatin. J. Cell. Sci., 111,
+3275–3285.
+34. Shimizu,N., Ochi,T. and Itonaga,K. (2001) Replication timing of
+amplified genetic regions relates to intranuclear localization but not
+to genetic activity or G/R band. Exp. Cell Res., 268, 201–210.
+35. Shimizu,N., Itoh,N., Utiyama,H. and Wahl,G.M. (1998) Selective
+entrapment of extrachromosomally amplified DNA by nuclear
+budding and micronucleation during S phase. J. Cell Biol., 140,
+1307–1320.
+36. Sinclair,D.A. and Guarente,L. (1997) Extrachromosomal rDNA
+circles––a cause of aging in yeast. Cell, 91, 1033–1042.
+37. Koo,D.-H., Molin,W.T., Saski,C.A., Jiang,J., Putta,K., Jugulam,M.,
+Friebe,B. and Gill,B.S. (2018) Extrachromosomal circular
+DNA-based amplification and transmission of herbicide resistance in
+crop weedAmaranthus palmeri. Proc. Natl. Acad. Sci. U.S.A., 15,
+3332–3337.
+38. Maddalo,D., Manchado,E., Concepcion,C.P., Bonetti,C.,
+Vidigal,J.A., Han,Y.-C., Ogrodowski,P., Crippa,A., Rekhtman,N., de
+Stanchina,E. et al. (2014) In vivo engineering of oncogenic
+chromosomal rearrangements with the CRISPR/Cas9 system.
+Nature, 516, 423–427.
+39. Chari,R. and Church,G.M. (2017) Beyond editing to writing large
+genomes. Nat. Rev. Genet., 18, 749–760.
+40. Richardson,S.M., Mitchell,L.A., Stracquadanio,G., Yang,K.,
+Dymond,J.S., DiCarlo,J.E., Lee,D., Huang,C.L.V.,
+Chandrasegaran,S., Cai,Y. et al. (2017) Design of a synthetic yeast
+genome. Science, 355, 1040–1044.
+Downloaded from https://academic.oup.com/nar/article/46/22/e131/5078801 by guest on 14 October 2025

@@ -98,7 +98,7 @@ def sync():
         title = get_title_from_page(page)
         subjects = get_property_value(page, 'Subject') or []
         url = get_property_value(page, 'URL') or ''
-        paper_files = get_property_value(page, 'Paper') or []
+        paper_files = get_property_value(page, 'Files & media') or []
 
         if not title:
             continue
@@ -164,7 +164,7 @@ def list_papers():
         title = get_title_from_page(page)
         subjects = get_property_value(page, 'Subject') or []
         url = get_property_value(page, 'URL') or ''
-        paper_files = get_property_value(page, 'Paper') or []
+        paper_files = get_property_value(page, 'Files & media') or []
         has_pdf = '📄' if paper_files else '  '
         subj_str = ', '.join(subjects) if subjects else ''
         print(f"  {i:3d}. {has_pdf} {title}")

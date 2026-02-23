@@ -1,0 +1,2895 @@
+--- Page 1 ---
+REVIEW ARTICLE
+OPEN
+Extrachromosomal circular DNA: biogenesis, structure,
+functions and diseases
+Ludi Yang1,2, Ruobing Jia1,2, Tongxin Ge1,2, Shengfang Ge1,2, Ai Zhuang1,2✉, Peiwei Chai1,2✉and Xianqun Fan
+1,2✉
+Extrachromosomal circular DNA (eccDNA), ranging in size from tens to millions of base pairs, is independent of conventional
+chromosomes. Recently, eccDNAs have been considered an unanticipated major source of somatic rearrangements, contributing to
+genomic remodeling through chimeric circularization and reintegration of circular DNA into the linear genome. In addition, the
+origin of eccDNA is considered to be associated with essential chromatin-related events, including the formation of super-
+enhancers and DNA repair machineries. Moreover, our understanding of the properties and functions of eccDNA has continuously
+and greatly expanded. Emerging investigations demonstrate that eccDNAs serve as multifunctional molecules in various organisms
+during diversiﬁed biological processes, such as epigenetic remodeling, telomere trimming, and the regulation of canonical
+signaling pathways. Importantly, its special distribution potentiates eccDNA as a measurable biomarker in many diseases, especially
+cancers. The loss of eccDNA homeostasis facilitates tumor initiation, malignant progression, and heterogeneous evolution in many
+cancers. An in-depth understanding of eccDNA provides novel insights for precision cancer treatment. In this review, we
+summarized the discovery history of eccDNA, discussed the biogenesis, characteristics, and functions of eccDNA. Moreover, we
+emphasized the role of eccDNA during tumor pathogenesis and malignant evolution. Therapeutically, we summarized potential
+clinical applications that target aberrant eccDNA in multiple diseases.
+Signal Transduction and Targeted Therapy  (2022) 7:342 
+; https://doi.org/10.1038/s41392-022-01176-8
+INTRODUCTION
+DNA was discovered by Friedrich Miescher in 1869 and chromo-
+somes consisting of linear double-stranded DNA are known to be
+the major carrier of genetic material in the eukaryotic nucleus.1
+Extrachromosomal circular DNA (eccDNA) is a collective name for
+the circular, double-stranded molecules in the nuclei, which is
+derived from but independent of chromosomal DNA (chrDNA),
+with various sizes and sequences.2,3 EccDNA can be as small as
+dozens of base pairs (bp) with only noncoding repeats, while
+some could contain DNA fragments up to several megabase pairs
+and even acquire all the genetic elements required for its
+replication and propagation of the genetic material.4,5 The
+existence of eccDNA is such a common phenomenon that it has
+been
+found
+in
+all
+tested
+eukaryotes,
+including
+plants,6–10
+nematodes,11 ciliates,12 yeast,13,14 drosophila,15,16 Xenopus,17,18
+pigeons,19 and mammalian species.20–22 It is widely distributed in
+human normal tissues, cancerous tissues, and body ﬂuid.5,23–25
+Despite being discovered for a long time, the signiﬁcance of
+eccDNA remained enigmatic. Moreover, several studies have
+captured some of the crucial features and functions of eccDNA
+(especially those with larger structures and functional genes in
+cancer), which have been validated by advanced high-throughput
+sequencing technologies. Surprisingly, unlike liner DNA in the
+chromosome,
+eccDNA
+is
+featured
+with
+elevated
+chromatin
+accessibility (open-chromatin) and ultralong-range chromatin
+contact.2,23,26,27 Additionally, frequent ampliﬁcation of tumor-
+related genes is observed in the eccDNA.2,28–30 These features
+enable eccDNA to drive malignant transformation, promote tumor
+evolution, and thereby serve as potential biomarkers for tumor
+diagnosis and prognosis. More importantly, the elimination of
+extrachromosomally ampliﬁed proto-oncogenes has triggered
+efﬁcient therapeutic efﬁcacy, functioning as a potential strategy
+in dealing with malignancies.3,4,31,32
+In this review, eccDNA was introduced from a historical
+perspective. Subsequently, we discussed the biogenesis and
+features of eccDNA and summarized the different types of
+eccDNA, with a focus on their critical roles during multiple
+physiological and pathological conditions, especially in cancers.
+We also highlighted up-to-date research methods, tools, and
+databases in the exploration of eccDNAs. Finally, we provided
+novel insights into the potential applications of eccDNA in dealing
+with malignancies.
+HISTORY OF ECCDNA
+EccDNA was ﬁrst reported more than ﬁve decades ago. Franklin
+Stahl conjectured the potential existence of circular DNA in higher
+organisms, which was later conﬁrmed by Yasuo Hotta and Alix
+Bassel in 1964. They found circular DNA in mammalian cells, boar
+sperms, and wheat embryos.33 Before long, extrachromosomal
+DNA elements of diverse sizes and numbers were observed in
+mitotic human tumor cells. They were referred to as double
+minutes (DMs) at that time, as they usually appear in pairs.34,35
+Since
+then,
+researchers
+have
+focused
+on
+updating
+the
+Received: 10 May 2022 Revised: 14 August 2022 Accepted: 1 September 2022
+1Department of Ophthalmology, Ninth People’s Hospital, Shanghai JiaoTong University School of Medicine, Shanghai 20025, P. R. China and 2Shanghai Key Laboratory of Orbital
+Diseases and Ocular Oncology, Shanghai 20025, P. R. China
+Correspondence: Ai Zhuang (aizh9h@163.com) or Peiwei Chai (chaipeiwei123@sjtu.edu.cn) or Xianqun Fan (fanxq@sjtu.edu.cn)
+These authors contributed equally: Ludi Yang, Ruobing Jia, Tongxin Ge.
+www.nature.com/sigtrans
+Signal Transduction and Targeted Therapy
+© The Author(s) 2022
+1234567890();,:
+
+
+--- Page 2 ---
+understanding of these extrachromosomal particles. From the late
+1970s to the 1980s, the existence of eccDNA was conﬁrmed in
+various types of cancers and cancer cell lines.36 The Schimke
+group was the ﬁrst to establish the connections between unstable
+dihydrofolate reductase gene (DHFR) ampliﬁcation and DMs in
+methotrexate (MTX)-resistant cells. This report provided a glimpse
+into the biological functions of extrachromosomal DNA (ecDNA),
+one type of eccDNA that will be discussed further below.37,38
+Oncogene ampliﬁcations, such as MYC and EGFR, were found in
+DMs as well.39–42 A work on drug resistance of glioma made
+ecDNA obtain great attention in 2014. Oncogenic EGFRvIII was
+found to primarily reside on extrachromosomes in glioblastoma
+(GBM). The dynamic elimination and reappearance of oncogene-
+ampliﬁed ecDNA contribute to targeted therapy resistance.43
+Technological
+advancements,
+particularly
+next-generation
+sequencing and bioinformatics, have substantially broadened
+our knowledge of eccDNA.44 Whole-genome sequencing (WGS),
+along with optimized sequencing data analysis methods, provides
+opportunities for mapping the landscape of eccDNA in both
+human cancer and normal tissues. Systematic studies revealed
+that ecDNA is common and abundant in cancer, although its
+levels are highly heterogeneous.45–49 Additionally, eccDNA widely
+exists in healthy human tissues and blood.50 New highly sensitive
+methods for detecting and characterizing eccDNA, such as Circle-
+seq, were subsequently developed and used in investigating the
+yeast genome.14,51 In 2019, researchers rigorously validated the
+circular structure of ecDNA and evaluated its chromatin state.2
+Recently, the clinical impacts of ecDNA-based oncogene ampliﬁ-
+cation have demonstrated that patients with tumors containing
+ecDNA have poorer survival outcomes (Fig. 1).46
+BIOGENESIS OF ECCDNA
+EccDNAs are generated in multiple ways, following a context-
+dependent
+manner.
+Although
+the
+precise
+mechanisms
+are
+enigmatic, several models of eccDNA formation have been
+proposed. The formation processes of eccDNA are generalized
+into four categories: homologous recombination (HR), nonhomo-
+logous end-joining (NHEJ), DNA replication, and the formation of
+R-loops.23,26–28,30 HR and NHEJ are two major repair pathways of
+DNA double-strand breaks (DSBs).52 Studies have shown that HR
+can excise repetitive DNA sequences during early development
+and generate eccDNAs such as extrachromosomal rDNA circles
+(ERCs) and telomeric circles (t-circles/c-circles).13 Furthermore,
+depletion or inhibition of key proteins in NHEJ could trigger a
+decrease in the amount of eccDNAs, indicating that NHEJ is
+involved in the formation of eccDNA.53,54 In addition, polymerase
+slippage at the short direct repeat sequence gives rise to DNA
+loops in the process of DNA replication, and subsequent excision
+of the loop leads to the formation of eccDNAs.55,56 Alternatively,
+the formation of the R-loop in the process of transcription allows
+the direct repeats on the unpaired strand to form into a loop
+which can be excised and ligated into a circle.55 Moreover, the
+widely accepted models for the speciﬁc ways in which eccDNA is
+formed include the breakage-fusion-bridge (BFB) cycle, chromo-
+thripsis, episome model, and translocation-deletion-ampliﬁcation
+model.4,27,28,57
+Breakage-fusion-bridge (BFB) cycle
+BFB, ﬁrst conceptualized by Barbara McClintock in the 1930s, is
+one model of the genome rearrangement process.58,59 The loss of
+telomeres can cause end-to-end chromosome fusions, forming a
+dicentric chromosome and developing into an anaphase bridge.60
+This telomere-free bridge can be extended by replication and
+randomly broken into fragments under stress, followed by
+chromothripsis (discussed below) or another BFB cycle. BFB cycles
+can result in genome instability and the release of eccDNAs
+(Fig. 2a).26,61–63
+Chromothripsis
+Another model is the chromothripsis model, where chromosomes
+are broken into pieces by a catastrophic event.64 Most of the DNA
+fragments can be removed by the DNA repair system, while some
+of the fragments can be ligated randomly (Fig. 2b).60,65 The
+proposal of the model was prompted by the observation of
+complex rearrangement in a patient with chronic lymphocytic
+leukemia. Fragments may be tethered together to drive the
+formation of ecDNAs carrying oncogenes by accident, which
+might be tumorigenic.65–67 Similar phenomena were reported in
+oligodendroglioma and esophageal squamous cell carcinoma.68,69
+Vogt et al. found that the small fragments on the chromosome
+were associated with contigs in DMs. Fluorescence in situ
+hybridization (FISH) and WGS revealed various junctions asso-
+ciated with fusions between noncontiguous sequences in the
+normal reference genome.68 Furthermore, studies suggest that
+DNA damage, which is linked to the chromothripsis model, is
+involved in the biogenesis of eccDNAs. Mehanna P et al. found
+that eccDNAs are signiﬁcantly induced by chemotherapeutic-
+induced apoptosis in lymphoblastoid cells.70 In addition, Sunner-
+hagen P et al. demonstrated that the carcinogen, 7,1-dimethyl-
+benzoanthracene, the DNA replication inhibitor, hydroxyurea (HU),
+and the protein synthesis inhibitor, cycloheximide, all promote
+eccDNA production.71
+Translocation-deletion-ampliﬁcation mechanism
+The translocation-deletion-ampliﬁcation mechanism results from
+exogenous stimuli and can be removed via the DNA repair system.
+EccDNAs are derived from retained or cleaved DNA fragments
+1964
+First report of 
+extrachromosomal 
+circular DNA 
+2017
+Systematic description
+of the existence and 
+role of ecDNA in cancer
+2015
+Development of Circle-seq
+1984
+Discovery of
+telomeric circles
+2012
+Discovery of microDNA
+1972
+Discovery of small 
+polydispersed DNA
+1997
+Discovery of 
+extrachromosomal
+rDNA circles
+1965
+Discovery of 
+double minutes
+1979
+Revealing the connections 
+between unstable DHFR 
+amplification and double minutes
+in methotrexate-resistant cells
+2018
+2019
+Mapping eccDNA in healthy 
+human somatic tissue
+Comprehensively resolving
+the structure and basic 
+function of ecDNA 
+2014
+Dynamic regulation of extra-
+chromosomal EGFRvIII DNA 
+mediating response of glioblastoma 
+to EGFR tyrosine kinase inhibitors 
+2020
+EcDNA-based oncogene 
+amplification predicting 
+worse clinical outcomes
+Fig. 1
+Timeline of the milestone discoveries and research advances of eccDNA. After the ﬁrst discovery of eccDNA in 1964, multiple categories
+of eccDNA in various species have been identiﬁed. With the development of high-throughput sequencing technologies, the biological
+properties and functions of eccDNA have been deeply investigated
+Extrachromosomal circular DNA: biogenesis, structure, functions and. . .
+Yang et al.
+2
+Signal Transduction and Targeted Therapy  (2022) 7:342 
+
+
+--- Page 3 ---
+formed during DNA damage repair (Fig. 2c). This model is
+supported by the coampliﬁcation of MYC and ATBF1 in SJNB-12
+cells, where a reciprocal translocation occurs between chromo-
+somes 8 and 16, followed by excision and deletion near the
+translocation breakpoint. The isolated sequences are ampliﬁed
+and circularized to form eccDNAs.68 In addition, the translocation-
+deletion-ampliﬁcation mechanism is also well suited to account
+for the coampliﬁcation of HMGIC and MDM2 accompanied by
+t(10;12)(p15;q15)
+translocation
+in
+precancerous
+pleomorphic
+adenoma carcinomas.72
+Episome model
+The episome model is one of the classic models for the biogenesis
+of eccDNA, where eccDNAs are produced by DNA slippage and
+R-loops during the DNA synthesis process. These eccDNAs are also
+named episomes. Episomes are able to self-replicate and can be
+expanded by incorporating other DNA components, such as
+transposable elements (TEs) and enhancers/promoters (Fig. 2d).
+Storlazzi CT et al. showed that MYC-containing DMs in leukemia
+cases are triggered by excision and ampliﬁcation, which underpins
+the episome model. Additionally, they also investigated ten cell
+lines from solid tumors and demonstrated that the MYC-contain-
+ing ecDNAs are derived from excision and ampliﬁcation as well,
+which expands the applicability of the episome model to solid
+tumors.73 Furthermore, the formation of EGFR-containing ecDNAs
+results in the generation of cancer-associated circular EGFR
+amplicons, contributing to the oncogenic activation of EGFR.42
+As the production of ERCs depends on DSB formation at the
+replication fork barrier (RFB), it is possible that ERCs are released
+from combined fork breakage at two neighboring replication
+forks.74
+MOLECULAR STRUCTURES OF ECCDNA
+Since the discovery of eccDNA, emerging studies have system-
+atically analyzed the structure of eccDNA.75–77 Advances in next-
+generation sequencing technologies and computational analysis
+technologies have revealed several key structural features of
+eccDNA as follows: First, eccDNAs are circular and independently
+replicate outside of chromosomes.2,78,79 A head-to-tail conﬁgura-
+tion in the nucleotide sequence was detected through polymerase
+chain reaction and mapping by restriction enzyme digestion of
+eccDNA in a human neuroblastoma cell line.80 A recent study from
+late 2019, which combined DNA sequencing and high-resolution
+imaging, obtained deﬁnitive evidence of the circular shape of
+eccDNA.2
+Second, eccDNAs vary widely in size, from a few dozen base
+pairs to hundreds of thousands of base pairs. The sizes and
+features of eccDNAs vary in different life stages and tissues. Fetal-
+derived eccDNAs are shorter and hypomethylated compared with
+maternal eccDNAs.25,81 The methylation density of eccDNA is
+positively correlated with its size. Recent studies have shown that
+most eccDNAs in normal cells are less than 1000 bp in length.
+Cancer cells have larger eccDNAs than normal cells (usually
+greater than 1 kb), and these eccDNAs are long enough to carry
+the full-length region for the ampliﬁcation of oncogenes.
+Third, eccDNAs have different genetic contents, which consti-
+tute the structural diversity of eccDNAs.19,82 According to their
+genomic origins and genetic contents, eccDNAs can be categor-
+ized into the following eight types: full-gene eccDNA, exon
+eccDNA,
+intron
+eccDNA,
+repeat
+eccDNA,
+repeat-intergenic
+eccDNA, intergenic eccDNA, TE eccDNA, and promoter/enhancer
+eccDNA (Fig. 3a). The structural diversity and topological structure
+of eccDNA contribute to the versatility of its functions by possibly
+driving the expression of coding RNAs, noncoding RNAs, and
+other RNAs.26
+Notably, compared to chrDNAs, eccDNAs mainly contain active
+histone marks with a more accessible chromatin landscape.2,5,83
+Immunoﬂuorescence analysis of active and repressive histone
+marks and H3K4me1/H3K27ac ChIP-seq analyses of GBM39 cells
+detected active histone marks on ecDNA in GBM39 cells. After
+normalizing for DNA copy number, transcription was still at a high
+level, suggesting that ecDNA has a highly accessible chromatin
+state, which may contribute to the high transcription levels.2,46
+In addition, eccDNAs appear to possess unusual structural
+plasticity. Evidence suggests that eccDNA is able to reintegrate
+into chromosomes and form homogeneously staining regions
+(HSRs). A large number of factors can cause eccDNA to reintegrate
+as HSRs, such as DNA damage, doxorubicin treatments, and
+pharmacological poly ADP-ribose polymerase (PARP) trapping.67,84
+Studies have identiﬁed two major mechanisms by which eccDNA
+is reintegrated into HSRs. (1) EccDNA segments are reintegrated
+into chromosomes and ampliﬁed through BFB cycles, leading to
+HSR formation. (2) HSRs can also be formed by reintegration of a
+multimerized eccDNA originating from the episomes.85,86 Impor-
+tantly, the reintegration of eccDNA into HSRs facilitates enhanced
+stability and overexpression for these eccDNA-containing onco-
+genes. For example, HU treatment can eliminate oncogene-
+containing DMs but cannot decrease the copy number of
+oncogenes ampliﬁed on HSRs.87 Furthermore, Richard P Koche
+et al. found eccDNA fragments reintegration without HSR
+formation, indicating that eccDNA can also be reintegrated into
+chromosomes in the absence of HSRs.88 Additionally, reintegration
+of eccDNA may lead to gene misregulation. Drug resistance-
+related genes can be reintegrated into chromosomes via eccDNA,
+allowing tumor cells to acquire drug resistance.38,89–91 EccDNA
+inhibits the expression of tumor suppressor DCLK1 by inserting
+itself into its gene body, while eccDNA also promotes oncogene
+TERT
+expression
+by
+integrating
+itself
+into
+the
+vicinity
+of
+oncogenes.88
+CLASSIFICATIONS OF ECCDNA
+Based on size and sequence, eccDNAs can be categorized into the
+following ﬁve types: small polydispersed DNA (spcDNA), micro-
+DNA, t-circle/c-circle, ERC, and ecDNA. These are described in
+detail below (Table 1) (Fig. 3b).
+Small polydispersed DNA (spcDNA)
+SpcDNA is an obsolete concept to commonly characterize small
+eccDNAs that are between hundreds of bp to a few thousand bp
+and measure 0.05 to 2.00 μm.92 SpcDNA was ﬁrst observed in the
+electron microscope examination of the closed DNA from
+unfractionated HeLa cells in 1967.93 From the 1980s to the
+1990s,
+repetitive
+sequences
+were
+widely
+detected
+in
+spcDNAs,94–96 and therefore, it is speculated that spcDNA mainly
+originates from repetitive regions in the genome.92 Studies have
+shown that spcDNA can be found in a variety of eukaryotic cells.
+SpcDNA is much more abundant in genetically unstable cells and
+tissues, such as HeLa cells, ﬁbroblasts of Fanconi anemia, and
+initiating carcinogen-treated cells.97 The occurrence of spcDNA
+has been shown to be linked to genetic instability.
+MicroDNA
+MicroDNA, with an average length of 100 to 400 bp, is derived
+from unique non-repetitive genomic regions with high gene
+density. It is enriched in the 5′-untranslated regions of genes,
+exons, and CpG islands.82 In terms of distribution, microDNAs are
+ubiquitous in normal cells of every species, from yeast to
+humans.98
+Studies
+have
+shown
+that
+microDNA
+levels
+are
+dependent on microhomology-mediated end-joining (MMEJ),
+inhibited by the c-NHEJ pathway, and stimulated by DNA
+damage.99 Further study demonstrated that an increase in
+microDNA size was observed in human lymphoblastoid cell lines
+(LCLs) treated with two chemotherapeutic drugs compared with
+their nontreated counterparts, which suggested a preferential
+Extrachromosomal circular DNA: biogenesis, structure, functions and. . .
+Yang et al.
+3
+Signal Transduction and Targeted Therapy  (2022) 7:342 
+
+
+--- Page 4 ---
+origin of microDNAs from metabolically “active” chromatin sites.70
+A recent study demonstrated that tumor cells could release
+speciﬁc microDNAs into circulation, indicating that microDNAs
+may have a role as an attractive biomarker for monitoring cancer
+progression and therapeutic efﬁcacy.21
+Telomeric circle (t-circle/c-circle)
+Telomeric circles, as a special type of eccDNA, are duplex (t-circle)
+or single-stranded (c-circle), consisting only of telomeric repeats.
+They are integral multiples of 738 bp sequences. T-circles occur in
+a wide range of organisms, including yeasts, plants, and animals.
+Various DNA damage-associated proteins may regulate the
+production of t-circles.100–105 For example, t-circle reduction by
+knockdown of the Ku70/80 heterodimer caused a signiﬁcant
+decrease in cell growth in SaOS2 osteosarcoma cells.106
+Extrachromosomal rDNA circle (ERC)
+ERCs have an average size of 19.3 to 40.4 kb. ERCs can be
+produced by intramolecular HR of chromosomes and function as
+templates for ribosomal RNA transcription.56,107,108 They are much
+more abundant in healthy tissue.74 Additionally, ERCs can self-
+replicate due to their autonomously replicating sequences.109
+ERCs are involved in copy number variations. Saccharomyces
+cerevisiae is able to respond to copy number loss with the clonal
+ampliﬁcation of ERCs from chromosomal repeats. ERCs reinsert
+themselves into the genome in a dosage-dependent manner in
+response to catastrophic gene loss.74
+Extrachromosomal DNA (ecDNA)
+EcDNA was ﬁrst discovered as paired small chromatin bodies
+in 1964 and was referred to as DMs.35 DMs were ﬁrst found
+in metaphase neuroblastoma cells and subsequently found
+in numerous types of cancers.36,110–112 With the combined
+applications of WGS, structural modeling, and computa-
+tional and cytogenetic analysis, Turner et al. analyzed 17
+different cancer types and showed that only 30% of ecDNA
+in tumor cells presents with DMs-like features. As this group
+of eccDNAs can either be detected in a double-body form or
+a single-body form, the deﬁnition of these extrachromoso-
+mal particles needs to be broadened. Therefore, the term
+ecDNA refers to those gene-containing extrachromosomal
+particles of DNA with a size range from 1 to 3 Mb, including
+both DMs and single-body forms.2
+EcDNA lacks centromeres and segregates randomly or asym-
+metrically during cell division. Gene sequences on ecDNA are
+highly rearranged and ampliﬁed. It integrates multiple regions
+scattered throughout different chromosomes in tumors.47,113 In
+addition, breakpoints were found to be randomly distributed
+around oncogenes.46 Hence, ecDNA is unlikely to have a uniﬁed
+genome template. It may originate from several early genomic
+a   BFB cycle
+Telomere loss
+Fusion
+Breakage
+BFB cycle
+Repeating the cycle 
+ and looping out
+b   Chromothripsis
+Chromosome
+   breakages
+Cyclization of 
+centromere-deficient 
+fragments
+c   Translocation deletion amplification mechanism
+Translocation
+Segments near the
+translocation breakage
+Deletion
+Amplification
+Cyclization
+d   Episome
+a
+b
+c
+d
+Replication bubble 
+      looping out
+a b
+c d
++
+Enlargement
+Episome
+Centromere
+Telomere
+Stress
+Stress
+Stress
+Fig. 2
+Mechanisms of eccDNA formation. a “BFB cycle” model. A dicentric anaphase bridge forms in the absence of telomeres. The BFB cycle
+involves an anaphase bridge, followed by bridge breakage under stress, releasing eccDNA. b “Chromothripsis” model. Single- or double-
+stranded DNA breaks are formed under exogenous stress, and some of the fragments are ligated and circularized into eccDNA.
+c “Translocation-deletion ampliﬁcation” model. Exogenous stimuli trigger chromosomal translocation. The DNA segments near the
+translocation breakpoints are ampliﬁed, deleted, and circularized to form ecDNA. d “Episome” model. Episomes are produced by DNA
+slippage and R-loops during the DNA synthesis process and are able to self-replicate and enlarge to form multimerized eccDNA
+Extrachromosomal circular DNA: biogenesis, structure, functions and. . .
+Yang et al.
+4
+Signal Transduction and Targeted Therapy  (2022) 7:342 
+
+
+--- Page 5 ---
+events in a random manner and be selectively chosen during
+tumor evolution.47 Furthermore, structural analysis demonstrates
+that ecDNA evolves constantly via further fusion, rearrangement,
+and mutation, which increases genomic diversity from another
+aspect.68,88,114,115
+REGULATORY MECHANISMS OF FUNCTIONAL ECCDNA
+EccDNA contributes to gene ampliﬁcation and signaling pathway
+regulation
+Gene ampliﬁcation is a common molecular alteration in nearly all
+kinds of cancers, and it provides cancer cells with selective growth
+advantages.5,116 EccDNAs provide an effective method for gene
+ampliﬁcation by increasing the copy number directly or acting as
+trans-acting factors, such as super-enhancers2,45,117,118 (Fig. 4). In
+yeast, eccDNAs are common, and their accumulation and loss
+affect the copy number of genes carried.74,119 This will help yeast
+respond rapidly to selective pressures and adapt to changing
+environments.14,119
+EccDNAs can exert vital biological functions through regulated
+signaling pathways that inﬂuence oxidative stress, bystander
+effects, and tumor progression.32 EccDNA contributes to radiation-
+induced bystander effects by involving stress signaling. Irradiation
+affects not only the cells traversed by the radiation track but also
+non-irradiated
+neighboring
+cells,
+a
+response
+described
+as
+radiation-induced bystander effects. Several studies have revealed
+that eccDNAs released from dying irradiated cells can serve as a
+stress signal that conveys a bystander effect. After the initial
+irradiation, the irradiated cells executed apoptosis and released
+oxidized eccDNA fragments, which induced sustained activation
+of oxidative signaling pathways. Oxidized eccDNA fragments will
+further interact with recipient bystander cells, causing secondary
+oxidative stress in bystander cells. In turn, these cells initiate an
+apoptotic
+cascade
+leading
+to
+the
+release
+of
+oxidized
+eccDNA.120–127
+In addition, eccDNA involves in the regulation of many tumor-
+related signaling pathways, such as the p53 pathway, MAPK/ERK
+pathway, Ras, and PI3K/AKT pathway. Zhao X et al. performed
+functional enrichment analyses through CircleBase, an integrated
+resource and analysis platform for human eccDNAs. They revealed
+that cancer cell eccDNAs were mainly enriched in oncogenic
+pathways such as the Ras and PI3K-Akt signaling pathways.128
+Studies have shown that eccDNA affects the expression of some
+important components in signaling pathways. EccDNA can
+signiﬁcantly elevate copy numbers of EGFR, MDM2, CDK4, and
+BRAF in tumor cells, which implicates the regulation of the PI3K/
+AKT pathway, p53 pathway, and MAPK/ERK pathway.2,129,130
+Moreover, eccDNA can also be regulated by several canonical
+signaling pathways. Sun et al. found that the stability of DMs in
+tumor cells is related to ERK1/2 activation. Inhibition of ERK1/2
+activation
+and
+constitutive
+phosphorylation
+of
+ERK1/2
+can
+signiﬁcantly reduce the number of DMs and the expression of
+DM-carrying genes in tumor cells.131
+EccDNA participates in restoring telomere length
+T-circles contribute to the alternative lengthening of telomeres
+(ALT), which is important in cancer cell proliferation.132–134 Tumor
+cells limit the telomere length by telomere trimming from the
+chromosome
+ends,
+which
+is
+mediated
+by
+the
+release
+of
+t-circles.135,136 Yu et al. detected high levels of t-circles in patients
+with high-risk neuroblastoma, which are associated with active
+“telomere trimming”.137 Another study revealed that trimming
+activity in neuroblastoma triggers rapid telomere deletion and
+increases
+the
+number
+of
+t-circles,
+promoting
+extensive
+proliferation.138 Meanwhile, t-circles are involved in the ALT to
+prevent the shortening of cancer telomeres. Telomerase-negative
+a
+b
+c d
+e
+f
+g
+h
+i
+a
+e
+c
+d
+f
+g
+j
+h
+i
+i
+j
+Full gene eccDNA
+Exon eccDNA
+Intron eccDNA
+Repeat eccDNA
+e
+h
+Repeat-intergenic eccDNA
+Intergenic eccDNA
+TE, promoter or 
+enhancer eccDNA
+Gene
+Exon
+Repeat
+TE, promoter 
+or enhancer
+Intergenic region
+a
+b
+19 Kb to 40 Kb
+Integral multiples of 738 bp
+1 Mb to 3 Mb
+Telomeric repeats
+100 bp to 10 Kb
+ecDNA
+ERC
+t-circles
+c-circles
+spcDNA
+b
+d
+100 bp to 400 bp
+5’ UTR
+CpG
+microDNA
+Fig. 3
+Structures and biological features of eccDNA. a Based on genomic origin and genetic content, eccDNAs are categorized into the
+following types: full-gene eccDNA, exon eccDNA, intron eccDNA, repeat eccDNA, repeat-intergenic eccDNA, intergenic eccDNA, TE, promoter
+or enhancer eccDNA. b Based on size and sequence, eccDNAs are categorized into the following types: small polydispersed DNA (spcDNA),
+microDNA, telomeric circle (t-circle/c-circle), extrachromosomal rDNA circle (ERC), and extrachromosomal DNA (ecDNA). The main elements
+and structures of eccDNAs are shown
+Extrachromosomal circular DNA: biogenesis, structure, functions and. . .
+Yang et al.
+5
+Signal Transduction and Targeted Therapy  (2022) 7:342 
+
+
+--- Page 6 ---
+immortalized human cells maintain their telomeres by ALT. Yeager
+TR et al. found that ALT cells contain the ALT-associated
+promyelocytic leukemia (PML) body (APB), which is composed of
+telomeric DNA and telomere-associated proteins. The presence of
+APB correlates with the activation of ALT.136,139–142
+EccDNA involves in genome plasticity and adaptive evolution
+Due to genomic and spatial mobility, eccDNA possesses the
+capacity for adaptive evolution and genomic plasticity.57 Studies
+have shown that eccDNA is associated with drug resistance by
+regulating drug resistance-related genes, asymmetrical segrega-
+tion, or the shift between eccDNA and HSR. EGFRvIII oncogenic
+variant tumor cells are sensitive to EGFR tyrosine kinase inhibitors
+(TKIs). Tumor cells can reversibly regulate mutant EGFR expression,
+conferring distinct cellular phenotypes to adapt to environmental
+change. Speciﬁcally, GBM cells eliminate mutant EGFR from
+eccDNAs when exposed to TKIs. Moreover, clonal EGFR mutation
+reappears on eccDNAs after drug discontinuation.43 In melanoma,
+the ampliﬁcations of BRAFV600E are highly plastic under MAPK
+inhibitor treatment through the involvement of de novo genomic
+alterations.130
+In terms of genomic plasticity, eccDNAs also participate in gene
+compensation. HTA1-HTB1 and HTA2-HTB2 are the two gene pairs
+that encode histones H2A and H2B. The HTA2-HTB2 dose
+compensates at the transcriptional level when HTA1-HTB1 is
+deleted.143 Libuda DE et al. further revealed that dose compensa-
+tion of HTA2-HTB2 occurs by generating an eccDNA carrying HTA2-
+HTB2, the histone H3-H4 locus, a centromere, and the origin of
+replication when HTA1-HTB1 is absent.144
+EccDNA serves as a molecular sponge
+Increasing evidence has proven that eccDNAs can be transcribed
+into regulatory RNAs that sponge transcription factors. MicroDNAs
+can
+be
+transcribed
+independently
+of
+canonical
+promoter
+sequences in vitro and in vivo. As microDNAs are not long
+enough to carry full protein-coding genes, they usually serve as
+regulators in a diverse spectrum of biological processes. Micro-
+DNAs express regulatory short RNAs, including microRNAs and
+novel si-like RNAs, which elicit changes in cell phenotype by
+regulating gene expression.98 Yerlici VT et al. discovered that a
+large number of eccDNAs were generated during genome
+rearrangement and that these eccDNAs served as templates for
+the transcription of rearrangement-speciﬁc long noncoding RNAs
+(lncRNAs).12
+PHYSIOLOGICAL FUNCTIONS OF ECCDNA
+Recently, eccDNA has become a hot topic in the scientiﬁc ﬁeld,
+with increasing publications indicating its involvement in a variety
+of biological processes. Previous studies have shown that the
+functions of eccDNAs depend on the gene contents and the
+structures of the molecular elements. It is necessary to explore the
+biological functions of eccDNAs to further understand the
+development and progression of diseases28,44,56,145 (Fig. 5).
+EccDNA determines cellular behavior
+Studies have shown that eccDNAs affect phenotypes in many
+ways. It has been widely reported that a high copy number of
+eccDNA results in oncogene overexpression, which is related to
+the malignant
+tumor phenotype.
+Gemcitabine
+reduces
+the
+amount of DMs in the ovarian cancer cell line UACC-1598, which
+results in reduced cancer cell growth, colony formation, and
+invasion.146 Furthermore, the proliferative activity of cells was
+reduced after the elimination of MYCN-containing eccDNAs.147
+EccDNAs also regulate animal phenotypes by reintegrating into
+chromosomes. Cattle color sidedness (Cs), as a dominantly
+inherited trait, is determined by homologous yet non-syntenic
+Cs alleles. EccDNAs serve as circular intermediates, contributing to
+the translocation of KIT-containing DNA fragments.148 For plants,
+EPSPS gene ampliﬁcation through eccDNAs confers herbicide
+resistance to Amaranthus palmeri.149,150
+EccDNA regulates immunity
+EccDNA plays an important role in triggering innate immunity. The
+superior innate immune-stimulating ability of eccDNA has been
+detected. EccDNA can regulate the production of proinﬂammatory
+cytokines. EccDNA, enriched with CpG-rich genomic DNA frag-
+ments, can serve as TLR9 ligands, which increase cell production
+of IL-6 and TNF-α via activation of the TLR9-MyD88-NF-κB
+signaling pathway. However, CpG-unenriched eccDNA cannot
+stimulate the synthesis of IL-6 and TNF-α.151,152 As a part of the
+innate immune response, cells can react to naked DNA in the
+cytoplasm by activating the cyclic GMP-AMP synthase (cGAS)
+pathway, leading to stimulation of the immune system. EccDNA
+may act as an important source of immunostimulatory DNA to
+activate cGAS-STING innate immune signaling.153–156 Furthermore,
+eccDNAs were able to induce higher levels of cytokines than linear
+genomic DNA fragments of the same size. When eccDNAs were
+cleaved into corresponding linear genomic DNA fragments, their
+strong ability to stimulate an immune response was lost,
+indicating that the potent immunostimulatory ability of eccDNA
+depends on its circular structure and cytosolic DNA sensor
+Sting.157 Recently, a study demonstrated that the existence of
+ecDNA in tumors was negatively correlated with the degree of
+immune inﬁltration. Tumor cells may employ ecDNA to decrease
+immunogenicity and evade immune surveillance.158
+EccDNA associates with development and aging
+EccDNA is involved in the development of vertebrates. In Xenopus
+laevis, t-circles speciﬁcally form at the early embryonic stage and
+are gradually eliminated during normal developmental pro-
+cesses.17,18,159 Recent evidence suggests that eccDNA is also
+Table 1.
+The unique characteristics and functions of different types of eccDNAs
+Classiﬁcation
+Size
+Common distribution Function
+Reference
+SpcDNA
+100 bp to 10 kb
+Unstable cells
+Contribute to genomic instability
+92–97
+MicroDNA
+100 bp to 400 bp
+Tumor cells
+Serve as regulators in a diverse spectrum of biological
+processes
+21,70,82,98,99
+Telomeric circles Integral multiples of
+738 bp
+ALT cells
+Contribute to telomeric maintenance and cell proliferation
+100–106
+ERC
+19 kb to 40 kb
+Normal cells
+Contribute to ribosomal RNA transcription
+56,74,107–109
+EcDNA
+1 Mb to 3 Mb
+Tumor cells
+Contribute to oncogene ampliﬁcation and genetic
+heterogeneity
+2,46,47,68,88,113–115
+EccDNA extrachromosomal circular DNA, SpcDNA small polydispersed DNA, ERC extrachromosomal rDNA circles, EcDNA extrachromosomal DNA, ALT
+alternative lengthening of telomeres
+Extrachromosomal circular DNA: biogenesis, structure, functions and. . .
+Yang et al.
+6
+Signal Transduction and Targeted Therapy  (2022) 7:342 
+
+
+--- Page 7 ---
+associated with aging.13,44,160 First, eccDNA accumulates drama-
+tically as cells age in yeast and mammals. Kunisada T et al.
+analyzed the aging process of rat lymphocytes and human lung
+ﬁbroblasts and found that the size and copy number of eccDNA
+increased.160 Sinclair DA et al. showed that the accumulation of
+ERCs is a general phenomenon that occurs in aging yeast cells.
+These ERCs are able to replicate with an autonomously replicating
+sequence (ARS), and they are preferentially segregated to mother
+cells in each cell division. Such asymmetrical segregation results in
+a marked increase in ERCs in aging mother cells and limits the
+amount of ERCs in daughter cells. It has been detected that aging
+yeast mother cells typically exhibit progressive enlargement and
+fragmentation of the nucleolus due to the accumulation of
+ERCs.161 Furthermore, such accumulation is more obvious after
+Sgs1 mutations, but the lack of Fob1 and Bud6 will reduce the
+accumulation of ERCs and extend life.107,162–164
+TOOLS AND METHODS FOR STUDYING ECCDNA
+High-throughput technologies and validation methods
+EccDNA could be reconstructed by analyzing WGS data. The
+detection of extremely ampliﬁed and rearranged regions featuring
+discordant paired-end reads and split reads in the tumor genome
+hints at the existence of circular DNA, which can be inferred and
+resolved by bioinformatic analysis tools, such as AmpliconArch-
+itect and AmpliconReconstructor.2,45,47,113,165 However, bioinfor-
+matics algorithms based on WGS tend to leave out large numbers
+of low-frequency eccDNA. Circle-seq, a puriﬁcation and detection
+method, was developed to screen for a novel or low abundant
+eccDNA in the genomic range. The research in Saccharomyces
+cerevisiae provides a universal tool for investigating the relation-
+ship between copy number variation and eccDNA in other
+models.14 The results of these two methods is highly consistent
+in large eccDNA. However, small eccDNAs presented with different
+results according to Circle-seq and WGS. Therefore, it is necessary
+to integrate results from both WGS and Circle-seq, beneﬁting a
+comprehensive and accurate characterization of eccDNA.46,88
+CIDER-Seq is another novel circular DNA detection method based
+on randomly primed circular DNA ampliﬁcation, followed by long-
+read single-molecule sequencing. Long-read sequencing could
+overcome
+the
+shortcomings
+of
+the
+short-read
+sequencing
+methods we aforementioned, which fail to accurately resolve
+the complicated architecture of ecDNA.4,166,167 Nevertheless, this
+method cannot guarantee the accuracy of detecting eccDNA
+larger than 8 to 10 kb.51 In addition, ATAC-seq data could be
+reanalyzed by Circle_ﬁnder to identify eccDNA.49 Other high-
+throughput methods, especially epigenetic techniques, are quite
+useful for exploring the topological structure and function of
+eccDNA. ChIP-seq, PLAC-seq, ATAC-seq, MNase-seq, 4C-seq, and
+Hi-C have been used to reveal the chromatin accessibility and
+nucleosome compaction state of eccDNA.2,166 Moreover, com-
+bined analysis of single nucleotide polymorphisms in the RNA-seq
+and WGS data could distinguish whether the transcripts are
+derived from genes on eccDNA or from linear chromosomes.2
+After prediction, inverse PCR and Sanger sequencing could be
+adopted to verify the circularity of putative eccDNA. Outward PCR
+will amplify the desired products if a circular structure does exist.
+The
+junction
+points
+could
+be
+conﬁrmed
+by
+aligning
+the
+sequencing data to the reference genome.2
+Imaging and visualization methods
+Microscopic imaging has made a huge contribution to the
+discovery of eccDNA historically. The presence of mammalian
+DNA in a circular conﬁguration was ﬁrst identiﬁed by electron
+microscopy.33 Contemporaneously, when examining the karyo-
+type of surgically removed tumor tissues, researchers observed
+large molecular weight eccDNA, minute double chromatin bodies
+stained with DNA dye in mitotic metaphase cells under light
+microscopy.35 Recent advances in imaging focus on depicting
+eccDNA at high resolution by structured illumination microscopy
+and atomic force microscopy.63,168 In addition, Yi E et al. utilized a
+CRISPR dCas9-based DNA labeling system to visualize the
+spatiotemporal dynamics of eccDNA in live cells. Single-guide
+RNA targeting eccDNA-speciﬁc breakpoint junctions can introduce
+ﬂuorescent tags to eccDNA and track the uneven segregation
+behaviors of eccDNA during mitosis.169
+The links between copy number variation and eccDNA are often
+neglected. Compared with genome sequencing, which has high
+sequence resolution, FISH can visually show the intracellular
+position of target genes. It is contrary to common sense that many
+highly ampliﬁed oncogenes actually reside in eccDNA instead of
+linear chromosomes.43,169 Furthermore, advanced tools, namely,
+Enhancer 1
+Enhancer 2
+Oncogene
+Insulator
+mRNA
+Centromere
+a   Local enhancer hijacking
+b   Distal enhancer hijacking
+c   EccDNA–chromosomal DNA interaction
+d   EccDNA–ecDNA interaction
+Chromosomal DNA
+EccDNA
+Fig. 4
+EccDNA enables distal DNA interactions. a Oncogene segments and enhancers from adjacent topologically related domains can join
+together into a circle. b EccDNA integrates oncogene segments and distant enhancers to form an ecDNA circle. c, d EccDNA serves as a mobile
+enhancer that interacts with both chromosomal DNA (c) and other eccDNA (d)
+Extrachromosomal circular DNA: biogenesis, structure, functions and. . .
+Yang et al.
+7
+Signal Transduction and Targeted Therapy  (2022) 7:342 
+
+
+--- Page 8 ---
+ECdetect and ecSeg, for analyzing microscopic images have been
+developed recently (Fig. 6).45,78
+EccDNA resources
+With the rapid development of high-throughput sequencing and
+bioinformatics analysis technologies, it has been shown that
+eccDNAs are widespread in human disease. This illustrates the
+need to establish eccDNA-related databases. Zhao et al. con-
+structed a public database, CircleBase for the annotation and
+functional analysis of eccDNA in various human cells. CircleBase,
+equipped with highly interactive eccDNA visualization capabilities,
+can identify functional eccDNAs by combining
+sequencing
+datasets, computational predictions, and manual annotations
+and provide comprehensive eccDNA annotation.128 Peng et al.
+constructed a database of eccDNA proﬁles in human cancers
+named “eccDNAdb”. This database provides not only basic
+information and annotations of eccDNA but also the prognostic
+value of eccDNA genes.170
+ECCDNA IN HUMAN CANCERS
+EccDNA, especially ecDNA, is widespread in nearly half of human
+cancers, following a context-depedent manner across diversiﬁed
+cancer categories.45 The unique structure and molecular char-
+acteristics enable a highly spatial and temporal plasticity of
+eccDNA functions, which determines the pathogenesis of cancer
+initiation, progression, and evolution.3,171–173 (Tables 2, 3 and
+Fig. 7a).
+EccDNA in cancer initiation
+Oncogene ampliﬁcation, as one of the most common molecular
+alterations in cancer, plays an important role in tumorigenesis by
+providing cancer cells with selective growth advantages.174–179
+EccDNA promotes oncogene ampliﬁcation and induces cancer
+initiation by serving as a template for directing the transcription of
+oncogenes,
+altering
+the
+landscape
+of
+regulatory
+elements,
+enhancing
+chromatin
+accessibility,
+and
+inducing
+genomic
+remodeling.
+EccDNA serves as a template for oncogene transcription.
+Contain-
+ing more than one full gene and regulatory regions, eccDNA can
+encode genes, especially bona ﬁde oncogenes. MYC family
+proteins (MYC, MYCN, and MYCL) are major drivers of human
+tumorigenesis.180–183 MYC proteins regulate the expression of
+multiple genes and affect multiple biological processes, including
+cell proliferation, growth, senescence, metabolism, differentiation,
+and apoptosis.184–186 Genome alterations in MYC family genes,
+particularly gene ampliﬁcations, are recognized as early events in
+a wide variety of cancers, leading to dysregulations of cell
+functions that result in embryonal or cancer stem-like qualities,
+such as increased self-renewal, apoptotic resistance, and meta-
+bolic ﬂexibility.187–192 In neuroblastomas, MYCN ampliﬁcation has
+been detected in over 20% of neuroblastomas patients.193–198
+Prior research generally conﬁrms that eccDNA drives copy number
+ampliﬁcation of MYCN in neuroblastoma. In the 1960s, eccDNA
+was ﬁrst discovered in metaphase spreads of neuroblastoma cells.
+Numerous eccDNAs in the form of DMs were detected, with no
+evidence of other chromosomal breaks. Subsequently, in the
+1980s, NE et al. further observed the ampliﬁed DNA sequences
+from human neuroblastoma cell lines to explore the role of gene
+ampliﬁcation in maintaining the phenotype of neuroblastomas.
+They detected a new oncogene called MYCN, whose ampliﬁcation
+sequence was located on DMs in the human neuroblastoma cell
+line IMR-32.39 More recently, a genome-wide landscape of
+extrachromosomal DNA circularization in neuroblastoma con-
+ﬁrmed
+that
+the
+MYCN
+gene
+is
+ampliﬁed
+on
+eccDNA
+in
+neuroblastoma199 (Fig. 7). Moreover, it has been detected that
+eccDNA contains ampliﬁed MYC in leukemia.200–202 L Abbate A
+et al. performed a range of high-resolution genomic methods and
+revealed a large cohort of acute myeloid leukemia (AML) cases
+harboring MYC ampliﬁcation in the form of DM, HSR, and ring
+chromosomes.203,204 Besides, several studies have also detected
+MYC-containing eccDNA in GBM, colon cancer, and ovarian
+cancer.2,147,205
+EGFR is a receptor tyrosine kinase (RTK) that is involved in the
+regulation of the cell cycle, apoptosis, angiogenesis, and cellular
+proliferation.206–209 EGFR ampliﬁcation has been reported to play
+eccDNA
+Molecular
+Physiological
+Immunity
+Fig. 5
+The molecular and physiological functions of eccDNAs. EccDNA regulates diversiﬁed molecular and physiological processes.
+Mechanistically, eccDNA plays an important role in gene ampliﬁcation, telomere length restoration, genome plasticity, and molecular sponge.
+EccDNA also plays an important role in multiple physiological events, including cellular behavior, immunity, and aging
+Extrachromosomal circular DNA: biogenesis, structure, functions and. . .
+Yang et al.
+8
+Signal Transduction and Targeted Therapy  (2022) 7:342 
+
+
+--- Page 9 ---
+an important role in cancer initiation.210–214 In GBM, oncogene
+ampliﬁcation is the most frequent gain-of-function alteration,
+which enables tumor cells to circumvent the checks and balances
+that are in place during homeostasis, thereby driving tumorigen-
+esis.215,216 Among them, ampliﬁcation of EGFR is the most
+common molecular hallmark of GBM, which is detected in
+approximately 40–50% of primary GBM patients.217–220 Wu et al.
+demonstrated that eccDNAs in the GBM cell lines encode EGFR as
+well as other oncogenes, such as MYC, CDK4, and MDM2, which
+account for the top 1% of genes expressed in the cancer genome.
+They further showed that oncogenes ampliﬁed by eccDNAs have
+higher copy numbers than the same genes ampliﬁed by linear
+chromosomes.2
+Human epidermal growth factor receptor 2 (HER2) plays an
+important role in cell growth and differentiation.221 It affects the
+activation of the MAPK pathway and PI3K pathway, which are
+associated with tumorigenicity.222–225 Approximately 25% of
+breast cancers overexpress HER2.226–231 Studies have shown that
+eccDNA is involved in HER2 ampliﬁcation in breast cancer. Vicario
+R et al. detected that HER2 ampliﬁcation in DMs or in HSR occurs in
+30 and
+60% of HER2-positive
+breast
+cancers,
+respectively,
+indicating that different mechanisms of HER2 gene ampliﬁcation
+exist in breast cancer.232
+The eukaryotic initiation factor eIF-5A2 has been reported to be
+an oncogenic protein in multiple human cancers.233–236 Accumu-
+lated evidence suggests that eIF-5A2 initiates tumor formation,
+enhances cancer cell growth, and increases cancer cell metas-
+tasis.146,237,238 Guan XY et al. showed that eIF-5A2 is ampliﬁed in
+the ovarian cancer cell line UACC-1598 in the form of DMs.146
+Conclusively, ampliﬁcation of oncogenes on eccDNA provides a
+novel theoretical basis for explaining tumorigenicity.
+EccDNA alters the regulatory element landscapes.
+In addition to
+increased copy numbers, transcriptional activity may be the result
+of alterations in regulatory element landscapes.2 The amplicon
+structure and the chimeric circularization elements can promote
+oncogene expression through regulation in the noncoding
+genome.239
+First, eccDNA may act as a powerful enhancer hijacking element
+in cancer. In neuroblastoma, Helmsauer K et al. analyzed the MYCN
+amplicon structure and chromatin landscape of ecDNA by using
+short-read sequencing, Nanopore sequencing, ChIP-seq, ATAC-
+seq, and Hi-C. They showed two enhancer hijacking models of
+eccDNA
+to explain
+the
+regulatory
+requirements
+for
+MYCN
+overexpression.
+In
+the
+ﬁrst
+type,
+a
+proximal
+enhancer
+is
+coampliﬁed, triggered by the noradrenergic core regulatory circuit
+(CRC). In the second type, MYCN amplicons are characterized by
+the presence of distal chromosomal fragments harboring CRC-
+driven enhancers.166 Likewise, the local enhancer hijacking is also
+involved in EGFR ampliﬁcation in GBM.239 Morton et al. revealed
+EGFR amplicon patterns in eccDNA from primary GBM sequencing.
+They demonstrated the coampliﬁcation of EGFR and its upstream
+enhancer on ecDNA, where the new enhancer–oncogene contacts
+contribute to cancer cell growth.240 Considering that no break-
+points were detected between EGFR and its two upstream
+enhancers, it is suggested that the incorporation of endogenous
+enhancers is not only advantageous for GBM cell survival, but also
+required for oncogene selection. It can be concluded that the
+chimeric circularization can be generated by a selective pressure
+to amplify proto-oncogenes together with suitable regulatory
+elements.
+Moreover,
+the
+proto-oncogenes
+share
+the
+same
+regulatory neighborhood by residing side-by-side on the same
+DNA. The enhancer hijacking models may extend to other cancers
+High-throughput technology
+Imaging and visualization
+LM
+EM
+FISH
+Sanger sequencing
+A G T G T A C G A A C C
+Junction
+Inverse PCR
+Junction
+Junction
+Short-read sequencing 
+(WGS)
+DNA isolation
+Normal sample
+Tumor sample
+Purification & enrichment
+Linear DNA digestion
+Rolling-circle amplification
+Validation
+4C-seq, etc.
+RNA-seq, etc.
+Gene transcription level
+A
+AA
+A
+A
+A
+AA
+A
+A
+A
+AA
+A
+A
+A
+AA
+A
+A
+A
+AA
+A
+A
+Distant chromatin contacts
+ChIP-seq, etc.
+Histone marks
+ac H3K27ac
+me H3K4me1
+Chromatin accessibility
+ATAC-seq, etc.
+......
+Reference genome
+Reference genome
+Discordant pair-end read 
+Split read
+Regular pair-end read 
+Long read
+Junction
+Reference genome
+Long-read sequencing
+(CIDER-seq, etc.)
+Short-read sequencing
+(Circle-seq, etc.)
+Bioinformatics analysis
+Sectioning
+Fig. 6
+Tools and methods in the exploration of eccDNA. High-throughput technologies have been applied to detect the existence and
+structure of eccDNA. EccDNAs can be reconstructed by analyzing data from short-read sequencing, including whole-genome sequencing and
+Circle-seq, along with long-read sequencing by a bioinformatics algorithm. Other epigenetic techniques, such as ChIP-seq, ATAC-seq, and 4C-
+seq, assist in the exploration of the topological structure. Notably, inverse PCR and Sanger sequencing have been applied in the validation of
+eccDNA. Light microscopy (LM), electron microscopy (EM), and ﬂuorescence microscopy are involved in the visualization of eccDNA and
+relevant genetic ampliﬁcations
+Extrachromosomal circular DNA: biogenesis, structure, functions and. . .
+Yang et al.
+9
+Signal Transduction and Targeted Therapy  (2022) 7:342 
+
+
+--- Page 10 ---
+and contribute to identifying relevant loci in the various complex
+aberrations that drive cancers.
+Second, eccDNA serves as a mobile enhancer that interacts with
+chrDNA or other eccDNA in cancer. Zhu et al. identiﬁed various
+trans-interaction sites using ChIA-Drop chromatin interaction
+assays and ChIA-PET, which indicates that ecDNA can interact
+with genome-wide DNA as a mobile enhancer.83
+In addition, ecDNAs are able to trans-activate the oncogene
+expression by forming hubs. A recent study showed that the
+ampliﬁcation of MYC in colon cancer is triggered by ecDNA hubs.
+These ecDNA hubs are bound by the bromodomain and
+extraterminal domain protein BRD4 and enable intermolecular
+enhancer and gene interactions to promote MYC overexpression.
+Inhibition of BRD4 has been shown to have the ability to
+disaggregate ecDNA hubs and reduce ecDNA-derived MYC
+expression.205 The discovery of ecDNA hubs in colon cancer has
+signiﬁcant implications for understanding how ecDNA undergoes
+selection and how ecDNA regulates transcription. Furthermore, it
+is proposed that ecDNA hubs can effectively recruit a large
+number of RNA polymerases and transcription factor complexes to
+form
+molecular
+condensates
+as
+a
+separate
+phase
+in
+the
+nuclei.83,169 The concept of “ecDNA-associated phase separation”
+provides novel insights into oncogenesis.
+Furthermore, the function of eccDNA noncoding sequences in
+oncogene ampliﬁcation has been characterized. Jin et al. used
+bioinformatics analysis and revealed that the 682 kb DMs in
+ovarian cancer harbors ﬁve matrix attachment regions (MARs). PCR
+analysis showed that these MARs can bind to the nuclear matrix
+in vivo, indicating that they are functional. Measured by luciferase
+assay, increased oncogene expression was detected following the
+transfection of MARs constructs, indicating that noncoding
+regions on DMs regulate gene expression and are involved in
+oncogene activation.241 Ultimately, they concluded that high
+oncogene expression cannot be achieved by oncogene ampliﬁca-
+tion alone, but with coampliﬁcation by MAR elements.
+EccDNA enhances chromatin accessibility.
+EccDNA has a highly
+accessible chromatin state that enables distal DNA interactions
+and promotes oncogene ampliﬁcation, which contributes to
+cancer initiation. Wu et al. demonstrated the presence of active
+histone marks on GBM39 ecDNA and the absence of repressive
+histone marks. The results from ATAC-seq and MNase-seq
+revealed that the chromatin landscape of ecDNA is more
+accessible than chrDNA due to its less compacted nucleosomal
+organization.2 Studies of eccDNA have uncovered an insightful
+layer of regulatory complexity in tumorigenicity, which may
+provide
+access
+for
+the
+targeted
+disruption
+of
+oncogene
+ampliﬁcation.
+EccDNA involves in genomic remodeling.
+EccDNA is a major
+source of somatic rearrangements in various types of cancer,
+resulting in oncogenic remodeling through reintegration into the
+linear genome.88 Reintegration of eccDNA could cause gene
+dysregulation, resulting in the defective balance of proto-
+oncogenes and tumor suppressor genes, which further contri-
+butes to tumorigenesis.242 In leukemia, Von Hoff DD et al. used gel
+electrophoresis techniques to locate the ampliﬁed MYC oncogene
+sequences in leukemia cells. With increased passages in culture,
+the ampliﬁed MYC shifted from DMs to a chromosomal site and
+was accompanied by a shortened cell doubling time, suggesting
+that eccDNA actively regulates expression levels by genome
+rearrangements.243 A study in neuroblastoma further showed that
+the expression of oncogenes such as TERT was markedly increased
+because of the integration of eccDNA into the vicinity of
+oncogenes, while the expression of the tumor suppressor DCLK1
+was repressed due to the integration of circle fragments into the
+gene body88 (Fig. 7b).
+EccDNA in cancer progression
+The accumulation of eccDNAs in cells affects the malignant
+phenotype of tumors. Notably, patients with more oncogene
+Table 2.
+Summary of the roles of eccDNA in development
+Cancer type
+Genes on eccDNA
+Functions
+Reference
+Pancancer
+EGFR, MYC,
+CDK4, MDM2
+intratumoral heterogeneity, copy number alteration
+2,281
+Neuroblastoma
+MYCN
+copy number alteration, distal DNA interaction,
+reintegration into chromosomes
+199
+Glioblastoma
+MYC, EGFR, PDGFRα, ERBB2, CDK4, MDM2
+copy number alteration, distal DNA interaction
+2,43,259
+Colon cancer
+MYC
+copy number alteration
+249
+Breast Cancer
+Ovarian cancer
+HER2, PIP
+eIF-5A2, MYC
+copy number alteration, genetic instability
+copy number alteration
+232,315
+146,250
+Leukemia
+MYC
+copy number alteration, reintegration into chromosomes
+147,249
+Melanoma
+BRAF
+copy number alteration, reintegration into chromosomes
+130
+Table 3.
+Summary of eccDNA-related drug resistance
+Cancer type
+Drug-resistance genes Drugs or treatment Functions
+Reference
+Glioblastoma
+EGFR
+Erlotinib
+Irradiation
+The mutations of EGFR ampliﬁed by eccDNA are dynamically
+regulated to evade therapy
+43
+Colon cancer
+DHFR
+Methotrexate
+DHFR-carrying eccDNA contributes to MTX resistance
+53,266,267
+Cervical cancer
+DHFR
+Methotrexate
+DHFR-carrying eccDNA contributes to MTX resistance
+316
+Oral squamous cell
+carcinoma
+MDR1
+Hydroxyurea
+Loss of MDR1-carrying eccDNA promotes drug sensitivity
+273
+Melanoma
+BRAFV600E
+Vemurafenib,
+Selumetinib
+Focal ampliﬁcations contribute to drug resistance
+130
+MTX methotrexate
+Extrachromosomal circular DNA: biogenesis, structure, functions and. . .
+Yang et al.
+10
+Signal Transduction and Targeted Therapy  (2022) 7:342 
+
+
+--- Page 11 ---
+ampliﬁcation on eccDNA had signiﬁcantly worse 5-year survival
+outcomes, indicating that the abundance of oncogene-containing
+eccDNA was associated with tumor aggressiveness. Simulation
+models showed that tumors carrying a circular amplicon have
+higher cellular proliferation scores and lower immune inﬁltration
+scores.46,244 Subsequently, a series of studies were carried out to
+explore the molecular characteristics of eccDNA in tumors.
+Computational analysis of WGS data performed by Kim H. et al.
+showed that circular amplicons of ecDNA are more prevalent in
+aggressive cancers such as GBM.46
+MYC, EGFRvIII, PDGFRα
+ERBB2, CDK4, MDM2
+DHFR, HER2
+MYC, eIF-5A2
+MDR1
+DHFR, MYC
+MYCN, TERT, DCLK1
+Neuroblastoma
+Glioblastoma
+Oral squamous 
+cell carcinoma
+BRAFV600E
+Melanoma
+Ovarian cancer
+Breast cancer
+DHFR
+Cervical cancer
+Colon cancer
+MYC
+Leukemia
+Downregulation of DCLK1 by reintegration
+Upregulation of TERT by reintegration
+DCLK1
+TERT
+Downregulation of DCLK1 
+Upregulation of TERT
+mRNA
+mRNA
+Amplification of MYCN via eccDNA
+Normal cell
+Neuroblastoma cell
+eccDNA
+eccDNA 
+containing MYCN
+a
+b
+Extrachromosomal circular DNA: biogenesis, structure, functions and. . .
+Yang et al.
+11
+Signal Transduction and Targeted Therapy  (2022) 7:342 
+
+
+--- Page 12 ---
+Notably, studies have demonstrated that elimination of tumor
+eccDNA reduces oncogene ampliﬁcation, thereby reverting the
+tumor malignant phenotype. In neuroblastoma, Ambros IM et al.
+revealed that extrachromosomally ampliﬁed MYCN copies can be
+eliminated from the nucleus in ﬂat cells (F-cells). The reduction of
+ampliﬁed sequences in F-cells results in a decreased proliferative
+activity and upregulated expression of the major histocompat-
+ibility complex class I (MHC I).31 In vitro treatment with drugs such
+as HU induce the micronucleus formation and thus expulsion of
+ampliﬁed genes, triggering efﬁcient anti-cancer efﬁcacy in multi-
+ple maligancies.31,153,245,246 Recently, neuroblastoma cell lines
+with DMs exhibited enlarged and ﬂattened morphology and
+increased
+granularity,
+and
+expressed
+senescence-associated-
+β-galactosidase (SA-β-GAL) when exposed to low-dose HU,
+suggesting that low-dose HU can serve as an effective senescence
+activator for neuroblastoma cells with DMs.247,248
+Additionally, DMs in colon cancer can be removed from the
+nucleus by budding of the nuclear membrane during S-phase. Cell
+synchronization and bromodeoxyuridine-pulse labeling indicate
+de novo bud and micronucleus formation in S-phase, which are
+regulated by the p53 pathway. However, it has been further
+demonstrated that HU treatment eliminated oncogene-containing
+DMs but did not decrease the copy number of oncogenes
+ampliﬁed on HSRs, which indicates that oncogene ampliﬁcation is
+more stable on HSRs, rather than on ecDNAs.87 Another study
+showed that HU is able to eliminate DMs with ampliﬁed copies of
+MYC in colon cancer, leading to a reduction in tumorigenicity.249
+Overall, drugs that promote S-phase budding may be valuable in
+the treatment of colon cancer. However, the efﬁcacy is limited by
+the dynamic shifting between DMs and HSR.
+In ovarian cancer, Guan et al. studied the correlation between
+the reduction of eIF-5A2 copy number and cell growth rate and
+showed that the cell growth rate was inhibited when the eIF-5A2
+copy number of DMs was reduced.250 Yu et al. found that
+gemcitabine is able to decrease the number of DMs in the ovarian
+cancer cell line UACC-1598. Cells treated with gemcitabine
+showed reduced cell growth, colony formation, and invasion,
+indicating that gemcitabine affects the biology of ovarian cancer
+cells by decreasing the number of DMs.251
+Previous studies in leukemia suggested that an independent
+active process may naturally exist in HL-60 cells to eliminate the
+extrachromosomal ampliﬁcation of MYC and that this process can
+be enhanced by drugs including a low dose of HU or dimethyl
+sulfoxide.252 A low dose of HU increases the percentage of
+spontaneously differentiated cells where the ampliﬁcation of MYC
+is decreased by entrapment within micronuclei.147,249 Under-
+standing the molecular mechanisms of the natural elimination
+process has important implications for drug intervention in
+leukemia.
+EccDNA in cancer evolution
+EccDNA drives tumor heterogeneity.
+Tumor bulk is a collection of
+cell populations with genetic, phenotypic, and behavioral hetero-
+geneity.253,254 Available evidence suggests that clonal evolution is
+likely mediated by eccDNA, especially ecDNA. EcDNA is thought to
+be acentric and unevenly separate into daughter cells at cell
+division.169,255–257 Live-cell imaging was applied during mitosis
+and showed disjointed ecDNA inheritance patterns.169 Single-cell
+analyses of a patient-based xenograft model showed that the ratio
+of EGFRvIIIHigh/EGFRvIIILow cells in the subcutaneous GBM formed
+by FACS-sorted EGFRvIIIHigh or EGFRvIIILow seeds was the same.
+However, EGFRvIII heterogeneity caused by ecDNAs was comple-
+tely different under continuous drug selection. This result
+suggested a distinct pattern of ecDNAs distribution to daughter
+cells, which does not follow Mendel’s law of inheritance and
+thereby create heterogeneous cell populations. Subsequently,
+speciﬁc subpopulations were screened out by an ever-changing
+external microenvironment to maximize the chances of survival.43
+A simulation model also predicts that the oncogene copy
+numbers on ecDNA could rapidly reach to and maintain a highly
+variable state in this way.45 Increased intratumoral genetic
+heterogeneity will provide tumors with extra survival advantages
+to cope with external pressure.43,89,258
+EccDNA involves in drug resistance.
+Studies have shown that
+changes in the cellular composition mediated by eccDNA facilitate
+drug resistance and thereby dictate a patient response. In GBM,
+Nathanson DA. et al. found that resistance to TKIs in preclinical
+models and GBM patients is related to a decreasing ratio of
+EGFRvIIIHigh/EGFRvIIILow tumor cells. Such regulation is achieved by
+the elimination and reemergence of EGFRvIII from eccDNA.43 It
+provided theoretical foundations for pulsed intermittent treat-
+ment with higher EGFR TKI doses in GBM patients to achieve
+better therapeutic outcomes, as extrachromosomal EGFRvIII DNA
+levels rapidly rise during the treatment interval. Furthermore,
+Nikolaev et al. created a concept called ampliﬁcation-linked
+extrachromosomal mutations (ALEMs), which refers to extrachro-
+mosomal mutations that originate extrachromosomally and could
+be eliminated from tumor cells. ALEMs are most frequently seen in
+GBM and low-grade gliomas and occur not only in EGFR but also in
+PDGFRα and ERBB2, which highlights the diversity of mechanisms
+by which eccDNA is involved in drug resistance to targeted
+therapies in GBM.259 In addition to chemotherapy, eccDNA has
+also been associated with radiotherapy resistance in GBM. Zhou
+et al. investigated the function of EGFR-encoding DMs in GBM by
+comparing two syngeneic primary cultures derived from a GBM
+with and without cells carrying EGFR-encoding DMs. Compared to
+cells without DMs, those with DMs were relatively radio-resistant,
+with an elevated level of glycolytic respiration. In response to
+radiation, DMs-containing cells could switch their respiration from
+glycolic metabolism to oxidative phosphorylation and shift the
+molecular proﬁle to that of DMs-free cells. After exposure to an
+irradiated environment, cells with DMs can alter their extracellular
+microenvironment not only to stimulate the invasiveness of
+surrounding cells but also to build a pro-angiogenic tumor
+microenvironment.260 It is suggested that DMs-containing GBM
+cells may lead to tumor recurrence due to the high invasiveness
+and radio-resistance.
+Studies have shown that eccDNA plays a role in colon cancer
+chemotherapy resistance. MTX, an antifolate chemotherapeutic
+agent that inhibits DHFR, is widely used in colon cancer
+treatment.261–265 DHFR is able to be ampliﬁed in the form of
+Fig. 7
+EccDNA in human cancers. a EccDNA and its containing genes in human cancers. In neuroblastoma, MYCN encoded by eccDNA is
+associated with tumor progression. EccDNA reintegrates into chromosomes in neuroblastoma and affects chromosomal gene expression of
+TERT and DCLK1. In glioblastoma, MYC, EGFR, PDGFRα, ERBB2, CDK4, and MDM2 are ampliﬁed via eccDNA. The mutation of EGFR ampliﬁed by
+eccDNA is dynamically regulated to evade therapy. In colon cancer, DHFR-carrying eccDNA contributes to MTX resistance. MYC is ampliﬁed via
+eccDNA. In breast cancer, HER2 is ampliﬁed via eccDNA, and PIP on eccDNA is associated with genetic instability. In cervical cancer, DHFR-
+carrying eccDNA contributes to MTX resistance. In ovarian cancer, eccDNA-containing MYC and eIF-5A2 stimulates tumorigenesis. In leukemia,
+MYC encoded on eccDNA contributes to tumorigenesis. In oral squamous cell carcinoma, loss of MDR1-carrying eccDNA promotes drug
+sensitivity. In melanoma, focal ampliﬁcations of BRAFV600E contribute to tumorigenesis and drug resistance. b EccDNA facilitates the
+oncogenesis of neuroblastoma in different ways. EccDNA serves as a template for directing the transcription of MYCN. EccDNA inhibits the
+expression of DCKL1 by inserting it into its gene body. EccDNA promotes TERT expression by integrating itself into the vicinity of oncogenes
+Extrachromosomal circular DNA: biogenesis, structure, functions and. . .
+Yang et al.
+12
+Signal Transduction and Targeted Therapy  (2022) 7:342 
+
+
+--- Page 13 ---
+DMs or HSR when cells are treated with MTX. Interestingly, in the
+absence of MTX, the resistant cell lines had reduced copies of the
+DHFR gene in eccDNAs, which suggested that the dynamic
+regulation of eccDNAs determines the response toward che-
+motherapy.53,266,267 Furthermore, Meng et al. found that the
+inhibition of DNA-PKcs (a key NHEJ protein) inhibits the formation
+of
+DHFR-containing
+eccDNAs
+and
+therefore
+increased
+MTX
+sensitivity in colon cancer cells. They revealed that the depletion
+of eccDNAs serves as a promising strategy in MTX-resistant
+cancers.53,232
+Drug resistance is the leading cause of death in cervical cancer
+patients and has been a major challenge in cervical cancer
+treatment.268–271 Ruiz-Herrera A et al. detected that deﬁciency in
+the HR protein RAD54 resulted in a marked increase in DM-
+containing subpopulations in cervical cancer cell-derived MTX-
+resistant subclones. They further showed that DMs were the
+predominant ampliﬁed structures observed in MTX-resistant HeLa
+parental cells and that ampliﬁcation of DHFR on DMs may
+contribute to MTX resistance.272
+Another study showed that HU accelerates the speciﬁc loss of
+extrachromosomally
+ampliﬁed
+drug-resistance
+genes
+from
+vinblastine- and MTX-resistant oral squamous cell carcinoma
+cells, suggesting that the elimination of eccDNA-containing
+ampliﬁed drug-resistance genes contributes to improving drug
+sensitivity.273
+In melanoma, the BRAFV600E mutation is considered a major
+oncogenic driver and can be detected in approximately half of
+the advanced melanomas. Song et al. revealed that BRAFV600E
+was ampliﬁed by either DMs or intrachromosomal homologous
+regions in melanoma. They demonstrated that focal ampliﬁca-
+tion of cells harboring BRAFV600E shows a mode switch between
+DMs and HSR in response to changes in drug concentration.
+Focal ampliﬁcations can combine with kinase domain duplica-
+tions and alternative splicing to enhance drug resistance. In
+addition, melanoma cells with BRAF-containing DMs harbor
+increased resistance towards dual BRAF and MEK inhibition.130
+Furthermore, cisplatin resistance of hypopharyngeal squa-
+mous cell carcinoma is found to be related to eccDNA. RAB3B is
+ampliﬁed on eccDNA, which promotes chemoresistance of
+hypopharyngeal squamous cell carcinoma cells by inducing
+autophagy.274 Recognizing the association of focal eccDNA
+ampliﬁcation patterns with drug resistance is important for
+understanding cancer evolution and drug resistance, providing
+therapeutic approaches to overcome plasticity.
+POTENTIAL APPLICATIONS OF ECCDNA
+Serving as promising biomarkers
+The discovery of nuclear budding and micronucleation provides
+possible pathways for eccDNA to escape from cells. Due to the
+extraordinary structural stability of eccDNAs compared to linear
+DNA,
+they
+may
+be
+an
+ideal
+source
+of
+potential
+biomar-
+kers.25,28,275,276 Several studies have demonstrated the potential
+application of extrachromosomal DNA elements in body ﬂuids as
+candidate biomarkers for the diagnosis and monitoring of various
+diseases (Table 4).81,277,278
+EccDNA may serve as a potential biomarker in cancer diagnosis
+and is valuable in monitoring cancer progression (Fig. 8a). Studies
+show that cancer patients with ecDNAs seem to have signiﬁcantly
+lower survival rates than those without ecDNAs.279 The study by
+Fan et al. found that the frequency of DMs in malignant tumors
+was much higher than that in benign tumors or noncancerous
+tissues,
+suggesting
+that
+these
+DMs
+can
+serve
+as
+reliable
+biomarkers for tumor progression.280 Furthermore, the abundance
+of DMs in peripheral blood lymphocytes has been shown to be an
+independent risk factor in lung cancer patients.281
+Apart from ecDNA, other types of eccDNA can also act as
+biomarkers
+for
+precision
+cancer
+therapy.
+Cohen
+et
+al.
+demonstrated the potential role of spcDNA as a marker of
+genomic instability. They showed high levels of spcDNA in
+genetically unstable cells and tissues.92 Moreover, Schmidt et al.
+showed
+that
+Alu
+sequences
+and
+LINE-1
+sequences
+occur
+frequently in tumor tissues and are dependent on the number
+of spcDNAs.282 Kumar et al. detected tumor-derived human
+microDNA in a mouse xenograft model of human ovarian cancer.
+These microDNAs are longer in lung cancer tissue than in normal
+lung tissue. Longer cell-free microDNA is enriched in preoperative
+samples compared to postoperative samples.21 Unlike other
+classes of eccDNA species, t-circles/c-circles are highly speciﬁc
+for ALT mechanisms and can be used as promising biomarkers for
+the diagnosis and management of ALT-positive tumors.283 Fogli
+et al. analyzed 63 malignant gliomas and identiﬁed that c-circles
+were signiﬁcantly associated with low Ki-67 immunostaining.284
+EccDNA also serves as an ideal biomarker in other diseases. A
+study showed that urinary cell-free eccDNAs (ucf-eccDNAs) act as
+signiﬁcant biomarkers in advanced chronic kidney disease (CKD).
+Lv et al. analyzed ucf-eccDNAs from 21 patients with advanced
+CKD by the Circle-Seq method and demonstrated that ucf-
+eccDNAs have a distinct disease-speciﬁc proﬁle in CKD patients.285
+Yang et al. performed Circle-Seq to identify eccDNAs in the fetal
+growth restriction (FGR) group and the normal group. They found
+that the total amount of eccDNA in the FGR group was
+signiﬁcantly higher than that in the normal group and showed a
+double peak length, peaking at ~146 bp and ~340 bp, respec-
+tively. It provided a new vision for the screening of new
+biomarkers for FGR.286 Neidlinger C et al. detected signiﬁcantly
+more spcDNAs in the angioﬁbroma-derived cell cultures of
+patients with tuberous sclerosis (TS) than in the skin of these
+patients or in the skin of 11 healthy donors.287 Motejlek K et al.
+further found that the spcDNA from angioﬁbroma cultures was
+much longer than that from skin ﬁbroblast cultures. Furthermore,
+the total amount of spcDNA increased with age in angioﬁbroma-
+derived cultures but not in skin ﬁbroblast cultures.288
+As biomarkers, there are several differences between eccDNA
+and linear circulating cfDNA, and eccDNA is more advantageous in
+some respects (Table 5).289,290 First, eccDNAs are resistant to
+exonuclease digestion due to their closed circular structure.
+Therefore, they are more stable than their linear counterparts.25,275
+Second, some eccDNAs identiﬁed in the circulation, such as
+microDNA, are much longer than linear DNA, facilitating detection
+and dynamic monitoring.21 Third, eccDNAs have lineage speciﬁ-
+city in human ovarian/prostate cancer cell lines and cell type
+speciﬁcity in human ﬁbroblasts and granulocytes.11,24 Further-
+more, the rolling-circle ampliﬁcation of eccDNAs can prevent site-
+speciﬁc ampliﬁcation with speciﬁc primers typically used to detect
+linear cfDNA, which enables the detection of genome-wide
+circular cfDNA without pre-existing bias in its origin locus.21
+Serving as potential therapeutic targets
+Carrying complete genes, segregating randomly, and harboring
+genomic plasticity make eccDNA a potential target for disease
+treatment291,292 (Fig. 8b). DNA replication inhibitors (HU, gemci-
+tabine, and radiation) eliminate eccDNA by integrating eccDNA
+into cytoplasmic micronuclei, resulting in the silencing of multiple
+oncogenes.273,293 The effectiveness of these DNA replication
+inhibitors against tumor cells has been veriﬁed in various cancers,
+such as neuroblastoma, colon cancer, ovarian cancer, leukemia,
+and squamous cell carcinoma.47,113,153,200 However, most of these
+studies have been conducted at the cellular and animal levels. A
+clinical trial has investigated whether a noncytotoxic dose of HU
+decreases the number of metaphase spreads containing DMs in
+tumor cells in patients with ovarian carcinomas.294 More clinical
+studies are needed to further investigate the effectiveness of DNA
+replication inhibitors in cancer patients.
+EccDNAs have been determined to play key roles in the
+resistance of chemo- or radio-therapy; therefore, the elimination
+Extrachromosomal circular DNA: biogenesis, structure, functions and. . .
+Yang et al.
+13
+Signal Transduction and Targeted Therapy  (2022) 7:342 
+
+
+--- Page 14 ---
+of
+eccDNA
+may
+beneﬁt
+a
+better
+outcome
+together
+with
+conventional therapy.32,86,295–297 A large amount of laboratory
+evidence has shown that tumor cells can reversibly regulate the
+expression levels of key proteins by altering the amount of
+eccDNA, conferring different cell phenotypes for drug resistance.
+In addition, drug resistance may also be induced by creating
+double-strand DNA breaks, contributing to the conversion of
+eccDNA to HSR.67 Conclusively, DNA repair inhibitors that
+eliminate eccDNA and inhibit double-strand DNA breaks, com-
+bined with conventional therapies such as radiation, chemother-
+apy, and targeted drugs, have the potential to prevent drug
+resistance in cancer patients.
+LIMITATIONS OF ECCDNA
+Real-time monitoring of eccDNA in circulating blood has provided
+a scientiﬁc basis and new insights for further investigation of the
+use of these DNA elements as biomarkers for precision cancer
+therapy. Although the clinical application of the detection of
+circular DNA in liquid biopsies to identify tumorigenesis and
+progression is attractive, several challenges remain.
+First, there are signiﬁcant differences in the abundance of
+eccDNA in different tissues, and the amount of eccDNA in some
+diseases is not large enough to detect. The inability to provide
+biopsies
+of
+some
+tissues
+limits
+the
+spectrum
+of
+clinical
+applications.30
+Second, improvements in eccDNA enrichment and data analysis
+are needed. Currently, reliable methods to easily quantify the
+abundance of circular DNA elements are lacking. As the most
+commonly used method to detect eccDNAs, Circle-Seq ampliﬁes
+eccDNAs by rolling circles with random primers, which may result
+in a loss of a signiﬁcant amount of information related to the
+abundance of speciﬁc eccDNAs.298,299 In addition, it lacks a gold
+standard for eccDNA analysis. Standard analysis algorithms can
+improve the accuracy and efﬁciency of eccDNA sequence
+extraction. A standard analysis and control of bias are needed to
+make the results more reproducible. The possibility of circulating
+eccDNA being taken up by cells and the difference in distribution
+between live and dead cells should be considered in the bias
+analysis.21
+Efﬁcient and speciﬁc removal of eccDNA is expected to be a
+new method for cancer treatment in the future. However, most
+methods for eliminating eccDNAs lack speciﬁcity. To date, no
+technique has been used to remove targetable eccDNA. CRISPR/
+Cas9 is a common gene-editing tool that uses RNA-guided
+nucleases to cleave foreign genetic elements.300–307 CRISPR/Cas9
+may serve as a potential method to target unique eccDNA
+breakpoint
+sequences,
+although
+it
+still
+lacks
+experimental
+evidence.300,301,308,309 The effects of CRISPR/Cas9 on the elimina-
+tion of eccDNA need to be further explored. In addition, although
+HU has shown its ability to eliminate eccDNAs and their contained
+oncogenes, HU treatment cannot reduce the ampliﬁcation of
+oncogenes on the HSR.310
+CONCLUSION AND PROSPECTS
+Chromosomes consisting of linear DNA and histone proteins are
+the fundamental stores of genetic information in most individuals
+and species. The discovery of eccDNA has shed new light on
+spatial information in current genome maps. With rapid advances
+in the ﬁeld of eccDNA, many publications have demonstrated that
+eccDNA functions as an important regulator in intracellular
+homeostasis and its abnormalities serve as a pathological trigger
+for diseases. Herein, we summarized all types of eccDNA and
+demonstrated their functions in multiple biological processes.
+Furthermore, this review summarized the biogenesis, the biologi-
+cal and pathological functions, databases, related methodology,
+and the limitation of eccDNA from a historical perspective.
+Collectively, we introduced the recent progress of eccDNA
+publications, beneﬁting an in-depth understanding of this topic
+for readers. However, some areas still remain to be addressed in
+this ﬁeld.
+First, what are the speciﬁc mechanisms driving the formation
+and maintenance of eccDNAs? What triggers its reintegration, and
+where is it reintegrated? As it is known that the stability of DNA is
+related to the double-helical structure, what is the speciﬁc
+topology of eccDNA? Do topoisomerase participate in the
+formation and maintenance of eccDNAs? Is there a uniﬁed
+theoretical framework to explain the biogenesis of eccDNAs?
+Second, many studies have proposed that eccDNA plays an
+important role in tumorigenesis. Elimination of eccDNAs reduces
+oncogene ampliﬁcation, thereby reverting the tumor pheno-
+types.12,110,311 Studies have shown that noncytotoxic strategies
+that eliminate eccDNA could contribute to personalizing treat-
+ment decisions in cancer patients. It is necessary to clarify the
+dynamic mechanism for regulating eccDNA quantity. The origin of
+eccDNAs
+remains
+controversial.
+These
+non-ecDNA
+eccDNAs
+appear to be selected, replicated, and propagated in the cells
+and are functional regulators in the maintenance of intercellular
+homeostasis. Does it actively adjust based on the environment, as
+Table 4.
+Summary of potential clinical applications of extrachromosomal circular DNA as a biomarker
+eccDNA
+Diseases
+Detail information
+Reference
+SpcDNA
+colon carcinoma, cervical cancer, ovarian adenocarcinoma,
+breast adenocarcinoma, hepatocellular carcinoma, malignant
+melanoma, osteogenic sarcoma, leiomyosarcoma, tuberous
+sclerosis, angioﬁbroma
+spcDNA can serve as a marker of genomic
+instability
+20,92,282,287
+MicroDNA
+ovarian cancer, lung cancer, chronic kidney disease, fetal
+growth restriction
+microDNA is highly consistent with tumor burden
+in cancer patients and is enriched in chronic
+kidney disease.
+21,285,286
+Telomeric
+circles
+ALT+ osteosarcoma, B chronic lymphocytic leukemia,
+malignant glioma
+neuroblastoma
+t-circles/c-circles are highly speciﬁc for the ALT-
+positive tumors
+137,284,317
+ERC
+/
+/
+/
+EcDNA
+adrenal carcinoma, neuroblastoma, thyroid cancer, cervical
+cancer, lung cancer, fetal growth restriction
+ecDNA can be exploited as reliable biomarkers
+of tumor progression and is related to tumor
+recurrence
+280,281,286,316,318
+EccDNA extrachromosomal circular DNA, SpcDNA small polydispersed DNA, ERC extrachromosomal rDNA circles, EcDNA extrachromosomal DNA, ALT
+alternative lengthening of telomeres
+Extrachromosomal circular DNA: biogenesis, structure, functions and. . .
+Yang et al.
+14
+Signal Transduction and Targeted Therapy  (2022) 7:342 
+
+
+--- Page 15 ---
+in Lamarck’s theory, or is it passively selected by the environment,
+as in Darwin’s theory?312
+Third, do eccDNAs interact with other biological processes?
+Several studies have reported the relationships between eccDNAs
+and epigenetic factors, such as the accessible chromatin land-
+scape and enhancer hijacking. Other epigenetic modiﬁcation
+mechanisms of eccDNA, such as DNA and histone modiﬁcations,
+still require further study. Subdivision of the intracellular space
+coordinates various biological processes in space and time. Phase
+separation induces the formation of membrane-less compart-
+ments to separate intracellular materials.313,314 Determination of
+whether eccDNAs are affected by phase separation requires
+further exploration and discussion.
+Recent studies of eccDNA have forced a reconsideration of the
+spatial information contained in the genome atlas. EccDNAs have
+been shown to play speciﬁc roles in disease initiation and
+progression by overriding hereditary constraints and traditional
+segregation laws. We look forward to new discoveries that will
+Urinary, 
+amniotic fluid or others
+Blood
+Tissue
+Identify eccDNAs
+Diagnosis
+Prognosis
+Patient
+Patient with tumor
+Eliminate eccDNAs
+Tumor cell with
+amplified oncogenes
+EccDNA eliminated 
+by micronucleus 
+Tumor cell with amplified 
+drug-resistant genes
+Eliminate eccDNAs
+Loss of
+drug-resistant genes
+a
+b
+Loss of 
+malignant 
+phenotype
+Micronucleus
+Drug-resistant
+Cell survival
+Drug-sensitive
+Cell death
+Fig. 8
+Clinical applications of eccDNA. The clinical value of eccDNAs in cancer. a EccDNAs can be found in patient samples, such as blood,
+urine, amniotic ﬂuid, or tissue. The identiﬁcation of eccDNAs would be helpful in cancer diagnosis and prognosis. b Elimination of eccDNA
+results in a loss of malignant phenotype. It can also lead to a loss of drug-resistance genes and thereby improve therapeutic effects
+Table 5.
+The unique characteristics of linear cfDNAs and eccDNAs as biomarkers
+Classiﬁcation Structure Resistant to exonuclease
+digestion
+Stability
+Length
+Ampliﬁcation
+Bias of the
+origin site
+linear cfDNA
+Linear
+Weak
+Unstable Short
+Ampliﬁed with speciﬁc primers
+Exist
+eccDNA
+Circular
+Strong
+Stable
+Long
+(in some types of eccDNA,
+such as microDNA)
+Ampliﬁed by rolling-circle
+ampliﬁcation with random primers
+Avoid
+EccDNA extrachromosomal circular DNA, CfDNA cell-free DNA
+Extrachromosomal circular DNA: biogenesis, structure, functions and. . .
+Yang et al.
+15
+Signal Transduction and Targeted Therapy  (2022) 7:342 
+
+
+--- Page 16 ---
+lead to the development of a new fundamental understanding of
+eccDNA and to advances in clinical diagnosis and treatment.
+ACKNOWLEDGEMENTS
+This work was supported by the National Natural Science Foundation of China (grants
+82103240, U1932135, 81872339, 82073889, and 81802702), the Natural Science
+Foundation of Shanghai (20ZR1445600), the China Postdoctoral Science Foundation
+Funded Project (2020M681328), the Science and Technology Commission of
+Shanghai (grants 20DZ2270800 and 19JC1410200), and the Innovative research
+team of high-level local universities in Shanghai (SHSMU-ZDCX20210902 and
+SHSMU- ZDCX20210900).
+AUTHOR CONTRIBUTIONS
+X.F., P.C., and A.Z. provided direction and guidance throughout the preparation of
+this manuscript. L.Y. and R.J. collected and interpreted the studies and was major
+contributor to the writing and editing of the manuscript. P.C. and A.Z. reviewed and
+made signiﬁcant revisions to the manuscript. T.G. and S.G. assisted in the revision of
+the manuscript. All authors read and approved the ﬁnal manuscript.
+ADDITIONAL INFORMATION
+Competing interests: The authors declare no competing interests.
+REFERENCES
+1. Dahm, R. Discovering DNA: Friedrich Miescher and the early years of nucleic acid
+research. Hum. Genet. 122, 565–581 (2008).
+2. Wu, S. et al. Circular ecDNA promotes accessible chromatin and high oncogene
+expression. Nature 575, 699–703 (2019).
+3. Wu, S., Bafna, V., Chang, H. Y. & Mischel, P. S. Extrachromosomal DNA: an
+emerging hallmark in human cancer. Annu Rev. Pathol. 17, 367–386 (2022).
+4. Noer, J. B. et al. Extrachromosomal circular DNA in cancer: history, current
+knowledge, and methods. Trends Genet. 38, 766–781 (2022).
+5. Verhaak, R. G. W., Bafna, V. & Mischel, P. S. Extrachromosomal oncogene
+ampliﬁcation in tumour pathogenesis and evolution. Nat. Rev. Cancer 19,
+283–288 (2019).
+6. Molin, W. T., Yaguchi, A., Blenner, M. & Saski, C. A. Autonomous replication
+sequences from the Amaranthus palmeri eccDNA replicon enable replication in
+yeast. BMC Res. Notes 13, 330 (2020).
+7. Wang, K. et al. Deciphering extrachromosomal circular DNA in Arabidopsis.
+Comput. Struct. Biotechnol. J. 19, 1176–1183 (2021).
+8. Cohen, S., Houben, A. & Segal, D. Extrachromosomal circular DNA derived from
+tandemly repeated genomic sequences in plants. Plant J. 53, 1027–1034 (2008).
+9. Kwolek, K. et al. Diverse and mobile: eccDNA-based identiﬁcation of carrot low-
+copy-number LTR retrotransposons active in callus cultures. Plant J. 110,
+1811–1828 (2022).
+10. Lanciano, S. et al. Sequencing the extrachromosomal circular mobilome reveals
+retrotransposon activity in plants. PLoS Genet. 13, e1006630 (2017).
+11. Shoura, M. J. et al. Intricate and cell type-speciﬁc populations of endogenous
+circular DNA (eccDNA) in Caenorhabditis elegans and Homo sapiens. G3 7,
+3295–3303 (2017).
+12. Yerlici, V. T. et al. Programmed genome rearrangements in Oxytricha produce
+transcriptionally active extrachromosomal circular DNA. Nucleic Acids Res. 47,
+9741–9760 (2019).
+13. Hull, R. M. et al. Transcription-induced formation of extrachromosomal DNA
+during yeast ageing. PLoS Biol. 17, e3000471 (2019).
+14. Møller, H. D. et al. Extrachromosomal circular DNA is common in yeast. Proc. Natl
+Acad. Sci. USA 112, E3114–E3122 (2015).
+15. Cohen, S., Yacobi, K. & Segal, D. Extrachromosomal circular DNA of tandemly
+repeated genomic sequences in Drosophila. Genome Res. 13, 1133–1145 (2003).
+16. Cohen, S. et al. Evidence for rolling circle replication of tandem genes in Dro-
+sophila. Nucleic Acids Res. 33, 4519–4526 (2005).
+17. Cohen, S. & Méchali, M. Formation of extrachromosomal circles from telomeric
+DNA in Xenopus laevis. EMBO Rep. 3, 1168–1174 (2002).
+18. Cohen, S. & Mechali, M. A novel cell-free system reveals a mechanism of circular
+DNA formation from tandem repeats. Nucleic Acids Res. 29, 2542–2548 (2001).
+19. Møller, H. D. et al. Near-random distribution of chromosome-derived circular
+DNA in the condensed genome of pigeons and the larger, more repeat-rich
+human genome. Genome Biol. Evol. 12, 3762–3777 (2020).
+20. Regev, A. et al. Telomeric repeats on small polydisperse circular DNA (spcDNA)
+and genomic instability. Oncogene 17, 3455–3461 (1998).
+21. Kumar, P. et al. Normal and cancerous tissues release extrachromosomal circular
+DNA (eccDNA) into the circulation. Mol. Cancer Res. 15, 1197–1205 (2017).
+22. Cohen, Z., Bacharach, E. & Lavi, S. Mouse major satellite DNA is prone to eccDNA
+formation via DNA Ligase IV-dependent pathway. Oncogene 25, 4515–4524
+(2006).
+23. Paulsen, T., Kumar, P., Koseoglu, M. M. & Dutta, A. Discoveries of extra-
+chromosomal circles of DNA in normal and tumor cells. Trends Genet. 34,
+270–278 (2018).
+24. Zhu, J., Chen, S., Zhang, F. & Wang, L. Cell-free eccDNAs: a new type of nucleic
+acid component for liquid biopsy? Mol. Diagn. Ther. 22, 515–522 (2018).
+25. Sin, S. T. K. et al. Identiﬁcation and characterization of extrachromosomal circular
+DNA in maternal plasma. Proc. Natl Acad. Sci. USA 117, 1658–1665 (2020).
+26. Ling, X. et al. Small extrachromosomal circular DNA (eccDNA): major functions in
+evolution and cancer. Mol. Cancer 20, 113 (2021).
+27. Liao, Z. et al. Classiﬁcation of extrachromosomal circular DNA with a focus on
+the role of extrachromosomal DNA (ecDNA) in tumor heterogeneity and pro-
+gression. Biochim. Biophys. Acta Rev. Cancer 1874, 188392 (2020).
+28. Wang, M. et al. Extrachromosomal circular DNAs: origin, formation and emer-
+ging function in cancer. Int J. Biol. Sci. 17, 1010–1025 (2021).
+29. Zuo, S. et al. Extrachromosomal circular DNA (eccDNA): from chaos to function.
+Front. Cell Dev. Biol. 9, 792555 (2021).
+30. Cao, X. et al. Extrachromosomal circular DNA: category, biogenesis, recognition,
+and functions. Front. Vet. Sci. 8, 693641 (2021).
+31. Ambros, I. M. et al. Neuroblastoma cells can actively eliminate supernumerary
+MYCN gene copies by micronucleus formation-sign of tumour cell revertance?
+Eur. J. Cancer 33, 2043–2049 (1997).
+32. Karami Fath, M. et al. Extra chromosomal DNA in different cancers: Individual
+genome with important biological functions. Crit. Rev. Oncol. Hematol. 166,
+103477 (2021).
+33. Hotta, Y. & Bassel, A. Molecular size and circularity of dna in cells of mammals
+and higher plants. Proc. Natl Acad. Sci. USA 53, 356–362 (1965).
+34. Lubs, H. A. Jr. & Salmon, J. H. The chromosomal complement of human solid
+tumors. II. karyotypes of glial tumors. J. Neurosurg. 22, 160–168 (1965).
+35. Cox, D., Yuncken, C. & Spriggs, A. I. Minute chromatin bodies in malignant
+tumours of childhood. Lancet 1, 55–58 (1965).
+36. Balaban-Malenbaum, G. & Gilbert, F. Double minute chromosomes and the
+homogeneously staining regions in chromosomes of a human neuroblastoma
+cell line. Science 198, 739–741 (1977).
+37. Alt, F. W., Kellems, R. E., Bertino, J. R. & Schimke, R. T. Selective multiplication of
+dihydrofolate reductase genes in methotrexate-resistant variants of cultured
+murine cells. J. Biol. Chem. 253, 1357–1370 (1978).
+38. Kaufman, R. J., Brown, P. C. & Schimke, R. T. Ampliﬁed dihydrofolate reductase
+genes in unstably methotrexate-resistant cells are associated with double
+minute chromosomes. Proc. Natl Acad. Sci. USA 76, 5669–5673 (1979).
+39. Kohl, N. E. et al. Transposition and ampliﬁcation of oncogene-related sequences
+in human neuroblastomas. Cell 35, 359–367 (1983).
+40. Schwab, M. et al. Ampliﬁed DNA with limited homology to myc cellular onco-
+gene is shared by human neuroblastoma cell lines and a neuroblastoma
+tumour. Nature 305, 245–248 (1983).
+41. Von Hoff, D. D. et al. Ampliﬁed human MYC oncogenes localized to replicating
+submicroscopic circular DNA molecules. Proc. Natl Acad. Sci. USA 85, 4804–4808
+(1988).
+42. Vogt, N. et al. Molecular structure of double-minute chromosomes bearing
+ampliﬁed copies of the epidermal growth factor receptor gene in gliomas. Proc.
+Natl Acad. Sci. USA 101, 11368–11373 (2004).
+43. Nathanson, D. A. et al. Targeted therapy resistance mediated by dynamic
+regulation of extrachromosomal mutant EGFR DNA. Science 343, 72–76
+(2014).
+44. Qiu, G. H. et al. The decreased exclusion of nuclear eccDNA: From molecular and
+subcellular levels to human aging and age-related diseases. Ageing Res. Rev. 67,
+101306 (2021).
+45. Turner, K. M. et al. Extrachromosomal oncogene ampliﬁcation drives tumour
+evolution and genetic heterogeneity. Nature 543, 122–125 (2017).
+46. Kim, H. et al. Extrachromosomal DNA is associated with oncogene ampliﬁcation
+and poor outcome across multiple cancers. Nat. Genet. 52, 891–897 (2020).
+47. Deshpande, V. et al. Exploring the landscape of focal ampliﬁcations in cancer
+using AmpliconArchitect. Nat. Commun. 10, 392 (2019).
+48. Lee, Y. & Lee, H. Integrative reconstruction of cancer genome karyotypes using
+InfoGenomeR. Nat. Commun. 12, 2467 (2021).
+49. Kumar, P. et al. ATAC-seq identiﬁes thousands of extrachromosomal circular
+DNA in cancer and cell lines. Sci. Adv. 6, eaba2489 (2020).
+50. Møller, H. D. et al. Circular DNA elements of chromosomal origin are common in
+healthy human somatic tissue. Nat. Commun. 9, 1069 (2018).
+51. Mehta, D. et al. Full-length sequencing of circular DNA viruses and extra-
+chromosomal circular DNA using CIDER-Seq. Nat. Protoc. 15, 1673–1689 (2020).
+Extrachromosomal circular DNA: biogenesis, structure, functions and. . .
+Yang et al.
+16
+Signal Transduction and Targeted Therapy  (2022) 7:342 
+
+
+--- Page 17 ---
+52. Ceccaldi, R., Rondinelli, B. & D’Andrea, A. D. Repair pathway choices and con-
+sequences at the double-strand break. Trends Cell Biol. 26, 52–64 (2016).
+53. Meng, X. et al. Novel role for non-homologous end joining in the formation of
+double minutes in methotrexate-resistant colon cancer cells. J. Med. Genet. 52,
+135–144 (2015).
+54. Tseng, H. M. & Tomkinson, A. E. A physical and functional interaction between
+yeast Pol4 and Dnl4-Lif1 links DNA synthesis and ligation in nonhomologous
+end joining. J. Biol. Chem. 277, 45630–45637 (2002).
+55. Dillon, L. W. et al. Production of extrachromosomal microDNAs is linked to
+mismatch repair pathways and transcriptional activity. Cell Rep. 11, 1749–1759
+(2015).
+56. Hull, R. M. & Houseley, J. The adaptive potential of circular DNA accumulation in
+ageing cells. Curr. Genet. 66, 889–894 (2020).
+57. van Leen, E., Brückner, L. & Henssen, A. G. The genomic and spatial mobility of
+extrachromosomal DNA and its implications for cancer therapy. Nat. Genet. 54,
+107–114 (2022).
+58. McClintock, B. The production of homozygous deﬁcient tissues with mutant
+characteristics by means of the aberrant mitotic behavior of ring-shaped
+chromosomes. Genetics 23, 315–376 (1938).
+59. McClintock, B. The stability of broken ends of chromosomes in Zea Mays.
+Genetics 26, 234–282 (1941).
+60. Ly, P. & Cleveland, D. W. Rebuilding chromosomes after catastrophe: emerging
+mechanisms of chromothripsis. Trends Cell Biol. 27, 917–930 (2017).
+61. Guérin, T. M. & Marcand, S. Breakage in breakage-fusion-bridge cycle: an 80-
+year-old mystery. Trends Genet. 38, 641–645 (2022).
+62. Murnane, J. P. & Sabatier, L. Chromosome rearrangements resulting from telo-
+mere dysfunction and their role in cancer. Bioessays 26, 1164–1174 (2004).
+63. Henriksen, R. A. et al. Circular DNA in the human germline and its association
+with recombination. Mol. Cell 82, 209–217.e207 (2022).
+64. Korbel, J. O. & Campbell, P. J. Criteria for inference of chromothripsis in cancer
+genomes. Cell 152, 1226–1236 (2013).
+65. Stephens, P. J. et al. Massive genomic rearrangement acquired in a single cat-
+astrophic event during cancer development. Cell 144, 27–40 (2011).
+66. Rausch, T. et al. Genome sequencing of pediatric medulloblastoma links cata-
+strophic DNA rearrangements with TP53 mutations. Cell 148, 59–71 (2012).
+67. Shoshani, O. et al. Chromothripsis drives the evolution of gene ampliﬁcation in
+cancer. Nature 591, 137–141 (2021).
+68. Vogt, N. et al. Amplicon rearrangements during the extrachromosomal and
+intrachromosomal ampliﬁcation process in a glioma. Nucleic Acids Res. 42,
+13194–13205 (2014).
+69. Cheng, C. et al. Whole-genome sequencing reveals diverse models of structural
+variations in esophageal squamous cell carcinoma. Am. J. Hum. Genet. 98,
+256–274 (2016).
+70. Mehanna, P. et al. Characterization of the microDNA through the response to
+chemotherapeutics in lymphoblastoid cell lines. PLoS ONE 12, e0184365 (2017).
+71. Sunnerhagen, P. et al. Molecular cloning and characterization of small polydisperse
+circular DNA from mouse 3T6 cells. Nucleic Acids Res. 14, 7823–7838 (1986).
+72. Röijer, E. et al. Translocation, deletion/ampliﬁcation, and expression of HMGIC
+and MDM2 in a carcinoma ex pleomorphic adenoma. Am. J. Pathol. 160,
+433–440 (2002).
+73. Storlazzi, C. T. et al. Gene ampliﬁcation as double minutes or homogeneously
+staining regions in solid tumors: origin and structure. Genome Res. 20,
+1198–1206 (2010).
+74. Mansisidor, A. et al. Genomic copy-number loss is rescued by self-limiting
+production of DNA circles. Mol. Cell 72, 583–593.e584 (2018).
+75. Bahr, G., Gilbert, F., Balaban, G. & Engler, W. Homogeneously staining regions
+and double minutes in a human cell line: chromatin organization and DNA
+content. J. Natl Cancer Inst. 71, 657–661 (1983).
+76. Rattner, J. B. & Lin, C. C. Ultrastructural organization of double minute chro-
+mosomes and HSR regions in human colon carcinoma cells. Cytogenet. Cell
+Genet. 38, 176–181 (1984).
+77. Hamkalo, B. A., Farnham, P. J., Johnston, R. & Schimke, R. T. Ultrastructural
+features of minute chromosomes in a methotrexate-resistant mouse 3T3 cell
+line. Proc. Natl Acad. Sci. USA 82, 1126–1130 (1985).
+78. Rajkumar, U. et al. EcSeg: semantic segmentation of metaphase images con-
+taining extrachromosomal DNA. iScience 21, 428–435 (2019).
+79. Brettmann, E. A., Oh, I. Y. & de Guzman Strong, C. High-throughput identiﬁcation
+of gene regulatory sequences using next-generation sequencing of circular
+chromosome conformation capture (4C-seq). J. Vis. Exp. 140, 58030 (2018).
+80. Schneider, S. S. et al. Isolation and structural analysis of a 1.2-megabase N-myc
+amplicon from a human neuroblastoma. Mol. Cell Biol. 12, 5563–5570 (1992).
+81. Sin, S. T. K. et al. Characteristics of fetal extrachromosomal circular DNA in
+maternal plasma: methylation status and clearance. Clin. Chem. 67, 788–796
+(2021).
+82. Shibata, Y. et al. Extrachromosomal microDNAs and chromosomal microdele-
+tions in normal tissues. Science 336, 82–86 (2012).
+83. Zhu, Y. et al. Oncogenic extrachromosomal DNA functions as mobile enhancers
+to globally amplify chromosomal transcription. Cancer Cell 39, 694–707.e697
+(2021).
+84. Oobatake, Y. & Shimizu, N. Double-strand breakage in the extrachromosomal
+double minutes triggers their aggregation in the nucleus, micronucleation, and
+morphological transformation. Genes Chromosomes Cancer 59, 133–143 (2020).
+85. Shimizu, N., Hashizume, T., Shingaki, K. & Kawamoto, J. K. Ampliﬁcation of
+plasmids containing a mammalian replication initiation region is mediated by
+controllable conﬂict between replication and transcription. Cancer Res. 63,
+5281–5290 (2003).
+86. Shimizu, N. Extrachromosomal double minutes and chromosomal homo-
+geneously staining regions as probes for chromosome research. Cytogenet.
+Genome Res. 124, 312–326 (2009).
+87. Shimizu, N., Itoh, N., Utiyama, H. & Wahl, G. M. Selective entrapment of extra-
+chromosomally ampliﬁed DNA by nuclear budding and micronucleation during
+S phase. J. Cell Biol. 140, 1307–1320 (1998).
+88. Koche, R. P. et al. Extrachromosomal circular DNA drives oncogenic genome
+remodeling in neuroblastoma. Nat. Genet. 52, 29–34 (2020).
+89. Haber, D. A. & Schimke, R. T. Unstable ampliﬁcation of an altered dihydrofolate
+reductase gene associated with double-minute chromosomes. Cell 26, 355–362
+(1981).
+90. Kaufman, R. J., Brown, P. C. & Schimke, R. T. Loss and stabilization of ampliﬁed
+dihydrofolate reductase genes in mouse sarcoma S-180 cell lines. Mol. Cell Biol.
+1, 1084–1093 (1981).
+91. Beverley, S. M., Coderre, J. A., Santi, D. V. & Schimke, R. T. Unstable DNA
+ampliﬁcations
+in
+methotrexate-resistant
+Leishmania
+consist
+of
+extra-
+chromosomal circles which relocalize during stabilization. Cell 38, 431–439
+(1984).
+92. Cohen, S., Regev, A. & Lavi, S. Small polydispersed circular DNA (spcDNA) in
+human cells: association with genomic instability. Oncogene 14, 977–985 (1997).
+93. Smith, C. & Vinograd, J. Small polydisperse circular DNA of HeLa cells. J. Mol. Biol.
+69, 163–178 (1972).
+94. Krolewski, J. J., Schindler, C. W. & Rush, M. G. Structure of extrachromosomal
+circular DNAs containing both the Alu family of dispersed repetitive sequences
+and other regions of chromosomal DNA. J. Mol. Biol. 174, 41–54 (1984).
+95. Krolewski, J. J., Bertelsen, A. H., Humayun, M. Z. & Rush, M. G. Members of the Alu
+family of interspersed, repetitive DNA sequences are in the small circular DNA
+population of monkey cells grown in culture. J. Mol. Biol. 154, 399–415 (1982).
+96. Kunisada, T. & Yamagishi, H. Sequence organization of repetitive sequences
+enriched in small polydisperse circular DNAs from HeLa cells. J. Mol. Biol. 198,
+557–565 (1987).
+97. Cohen, S. & Lavi, S. Induction of circles of heterogeneous sizes in carcinogen-
+treated cells: two-dimensional gel analysis of circular DNA molecules. Mol. Cell
+Biol. 16, 2002–2014 (1996).
+98. Paulsen, T. et al. Small extrachromosomal circular DNAs, microDNA, produce
+short regulatory RNAs that suppress gene expression independent of canonical
+promoters. Nucleic Acids Res. 47, 4586–4596 (2019).
+99. Paulsen, T. et al. MicroDNA levels are dependent on MMEJ, repressed by c-NHEJ
+pathway, and stimulated by DNA damage. Nucleic Acids Res. 49, 11787–11799
+(2021).
+100. Pickett, H. A. et al. Normal mammalian cells negatively regulate telomere length
+by telomere trimming. Hum. Mol. Genet. 20, 4684–4692 (2011).
+101. Rivera, T., Haggblom, C., Cosconati, S. & Karlseder, J. A balance between elon-
+gation and trimming regulates telomere stability in stem cells. Nat. Struct. Mol.
+Biol. 24, 30–39 (2017).
+102. Cesare, A. J. et al. Telomere loops and homologous recombination-dependent
+telomeric circles in a Kluyveromyces lactis telomere mutant strain. Mol. Cell Biol.
+28, 20–29 (2008).
+103. Min, J., Wright, W. E. & Shay, J. W. Clustered telomeres in phase-separated
+nuclear condensates engage mitotic DNA synthesis through BLM and RAD52.
+Genes Dev. 33, 814–827 (2019).
+104. Brosnan-Cashman, J. A. et al. ATRX loss induces multiple hallmarks of the
+alternative lengthening of telomeres (ALT) phenotype in human glioma cell
+lines in a cell line-speciﬁc manner. PLoS ONE 13, e0204159 (2018).
+105. Compton, S. A. et al. Xrcc3 and Nbs1 are required for the production of extra-
+chromosomal telomeric circles in human alternative lengthening of telomere
+cells. Cancer Res. 67, 1513–1519 (2007).
+106. Li, B., Reddy, S. & Comai, L. Depletion of Ku70/80 reduces the levels of extra-
+chromosomal telomeric circles and inhibits proliferation of ALT cells. Aging 3,
+395–406 (2011).
+107. Sinclair, D. A. & Guarente, L. Extrachromosomal rDNA circles-a cause of aging in
+yeast. Cell 91, 1033–1042 (1997).
+Extrachromosomal circular DNA: biogenesis, structure, functions and. . .
+Yang et al.
+17
+Signal Transduction and Targeted Therapy  (2022) 7:342 
+
+
+--- Page 18 ---
+108. Heo, S. J. et al. Bloom’s syndrome gene suppresses premature ageing caused by
+Sgs1 deﬁciency in yeast. Genes Cells 4, 619–625 (1999).
+109. Neurohr, G. E. et al. Deregulation of the G1/S-phase transition is the proximal
+cause of mortality in old yeast mother cells. Genes Dev. 32, 1075–1084 (2018).
+110. Benner, S. E., Wahl, G. M. & Von Hoff, D. D. Double minute chromosomes and
+homogeneously staining regions in tumors taken directly from patients versus
+in human tumor cell lines. Anticancer Drugs 2, 11–25 (1991).
+111. Mark, J. & Granberg, I. The chromosomal aberration of double-minutes in three
+gliomas. Acta Neuropathol. 16, 194–204 (1970).
+112. Olinici, C. D. Double minute chromatin bodies in a case of ovarian ascitic car-
+cinoma. Br. J. Cancer 25, 350–353 (1971).
+113. Sanborn, J. Z. et al. Double minute chromosomes in glioblastoma multiforme
+are revealed by precise reconstruction of oncogenic amplicons. Cancer Res. 73,
+6036–6045 (2013).
+114. L’Abbate, A. et al. Genomic organization and evolution of double minutes/
+homogeneously staining regions with MYC ampliﬁcation in human cancer.
+Nucleic Acids Res. 42, 9131–9145 (2014).
+115. Xu, K. et al. Structure and evolution of double minutes in diagnosis and relapse
+brain tumors. Acta Neuropathol. 137, 123–137 (2019).
+116. Matsui, A. et al. Gene ampliﬁcation: mechanisms and involvement in cancer.
+Biomol. Concepts 4, 567–582 (2013).
+117. Zhu, Y., Gong, L. & Wei, C. L. Guilt by association: EcDNA as a mobile transac-
+tivator in cancer. Trends Cancer 8, 747–758 (2022).
+118. Shimizu, N. Gene ampliﬁcation and the extrachromosomal circular DNA. Genes
+12, 1533 (2021).
+119. Gresham, D. et al. Adaptation to diverse nitrogen-limited environments by
+deletion or extrachromosomal element formation of the GAP1 locus. Proc. Natl
+Acad. Sci. USA 107, 18551–18556 (2010).
+120. Ermakov, A. V. et al. Oxidized extracellular DNA as a stress signal in human cells.
+Oxid. Med. Cell Longev. 2013, 649747 (2013).
+121. Ermakov, A. V., Kon’kova, M. S., Kostiuk, S. V. & Veĭko, N. N. [DNA-signaling
+pathway mediating development of a radiation-induced bystander effect in
+human cells]. Radiats Biol. Radioecol. 51, 651–659 (2011).
+122. Ermakov, A. V. et al. Oxidative stress as a signiﬁcant factor for development of an
+adaptive response in irradiated and nonirradiated human lymphocytes after
+inducing the bystander effect by low-dose X-radiation. Mutat. Res. 669, 155–161
+(2009).
+123. Ermakov, A. V. et al. [The DNA fragments obtained from the culture media
+exposed to adaptive doses of the ionizing radiation as factors of stress signaling
+between lymphocytes and bystander cells]. Radiats Biol. Radioecol. 47, 133–140
+(2007).
+124. Kostiuk, S. V. et al. The changing of cell-free DNA properties of peripheral blood
+and TCR-mutant cell frequency in individuals exposed to ionizing radiation.
+Radiats Biol. Radioecol. 48, 5–13 (2008).
+125. Ermakov, A. V. et al. [Bystander effect development in human mesenchymal
+stem cells after exposure to adaptive dose of X-radiation]. Radiats Biol. Radio-
+ecol. 50, 42–51 (2010).
+126. Sergeeva, V. A. et al. Low-dose ionizing radiation affects mesenchymal stem
+cells via extracellular oxidized cell-free DNA: a possible mediator of bystander
+effect and adaptive response. Oxid. Med. Cell Longev. 2017, 9515809 (2017).
+127. Kostyuk, S. V. et al. Role of extracellular DNA oxidative modiﬁcation in radiation
+induced bystander effects in human endotheliocytes. Mutat. Res. 729, 52–60
+(2012).
+128. Zhao, X. et al. CircleBase: an integrated resource and analysis platform for
+human eccDNAs. Nucleic Acids Res. 50, D72–D82 (2022).
+129. Xia, W. & Jie, W. ZEB1-AS1/miR-133a-3p/LPAR3/EGFR axis promotes the pro-
+gression of thyroid cancer by regulating PI3K/AKT/mTOR pathway. Cancer Cell
+Int. 20, 94–94 (2020).
+130. Song, K. et al. Plasticity of extrachromosomal and intrachromosomal BRAF
+ampliﬁcations in overcoming targeted therapy dosage challenges. Cancer Disco.
+12, 1046–1069 (2022).
+131. Sun, W. et al. Constitutive ERK1/2 activation contributes to production of double
+minute chromosomes in tumour cells. J. Pathol. 235, 14–24 (2015).
+132. Tomaska, L., Nosek, J., Kramara, J. & Grifﬁth, J. D. Telomeric circles: universal
+players in telomere maintenance? Nat. Struct. Mol. Biol. 16, 1010–1015 (2009).
+133. Xu, J. & McEachern, M. J. Maintenance of very long telomeres by recombination
+in the Kluyveromyces lactis stn1-M1 mutant involves extreme telomeric turn-
+over, telomeric circles, and concerted telomeric ampliﬁcation. Mol. Cell Biol. 32,
+2992–3008 (2012).
+134. Yu, E. Y., Pérez-Martín, J., Holloman, W. K. & Lue, N. F. Mre11 and Blm-dependent
+formation of ALT-like telomeres in Ku-deﬁcient ustilago maydis. PLoS Genet. 11,
+e1005570 (2015).
+135. Pickett, H. A. et al. Control of telomere length by a trimming mechanism that
+involves generation of t-circles. Embo j. 28, 799–809 (2009).
+136. Cesare, A. J. & Grifﬁth, J. D. Telomeric DNA in ALT cells is characterized by free
+telomeric circles and heterogeneous t-loops. Mol. Cell Biol. 24, 9948–9957
+(2004).
+137. Yu, E. Y. et al. Telomere trimming and DNA damage as signatures of high risk
+neuroblastoma. Neoplasia 21, 689–701 (2019).
+138. Dagg, R. A. et al. Extensive proliferation of human cancer cells with ever-shorter
+telomeres. Cell Rep. 19, 2544–2556 (2017).
+139. van Steensel, B. & de Lange, T. Control of telomere length by the human
+telomeric protein TRF1. Nature 385, 740–743 (1997).
+140. Yeager, T. R. et al. Telomerase-negative immortalized human cells contain a
+novel type of promyelocytic leukemia (PML) body. Cancer Res. 59, 4175–4179
+(1999).
+141. Oganesian, L. & Karlseder, J. Mammalian 5’ C-rich telomeric overhangs are a
+mark of recombination-dependent telomere maintenance. Mol. Cell 42, 224–236
+(2011).
+142. Plantinga, M. J. et al. Telomerase suppresses formation of ALT-associated single-
+stranded telomeric C-circles. Mol. Cancer Res. 11, 557–567 (2013).
+143. Norris, D. & Osley, M. A. The two gene pairs encoding H2A and H2B play
+different roles in the Saccharomyces cerevisiae life cycle. Mol. Cell Biol. 7,
+3473–3481 (1987).
+144. Libuda, D. E. & Winston, F. Ampliﬁcation of histone genes by circular chromo-
+some formation in Saccharomyces cerevisiae. Nature 443, 1003–1007 (2006).
+145. Peng, H., Mirouze, M. & Bucher, E. Extrachromosomal circular DNA: a neglected
+nucleic acid molecule in plants. Curr. Opin. Plant Biol. 69, 102263 (2022).
+146. Guan, X. Y. et al. Isolation of a novel candidate oncogene within a frequently
+ampliﬁed region at 3q26 in ovarian cancer. Cancer Res. 61, 3806–3809 (2001).
+147. Von Hoff, D. D. et al. Elimination of extrachromosomally ampliﬁed MYC genes
+from human tumor cells reduces their tumorigenicity. Proc. Natl Acad. Sci. USA
+89, 8165–8169 (1992).
+148. Durkin, K. et al. Serial translocation by means of circular intermediates underlies
+colour sidedness in cattle. Nature 482, 81–84 (2012).
+149. Koo, D. H. et al. Extrachromosomal circular DNA-based ampliﬁcation and
+transmission of herbicide resistance in crop weed Amaranthus palmeri. Proc.
+Natl Acad. Sci. USA 115, 3332–3337 (2018).
+150. Molin, W. T., Yaguchi, A., Blenner, M. & Saski, C. A. The EccDNA replicon: a
+heritable, extranuclear vehicle that enables gene ampliﬁcation and glyphosate
+resistance in Amaranthus palmeri. Plant Cell 32, 2132–2140 (2020).
+151. Speranskii, A. I., Kostyuk, S. V., Kalashnikova, E. A. & Veiko, N. N. Enrichment of
+extracellular DNA from the cultivation medium of human peripheral blood
+mononuclears with genomic CpG rich fragments results in increased cell pro-
+duction of IL-6 and TNF-a via activation of the NF-kB signaling pathway. Biomed.
+Khim. 62, 331–340 (2016).
+152. Kostjuk, S. et al. Extracellular GC-rich DNA activates TLR9- and NF-kB-dependent
+signaling pathways in human adipose-derived mesenchymal stem cells
+(haMSCs). Expert Opin. Biol. Ther. 12, S99–S111 (2012).
+153. Valent, A. et al. In vivo elimination of acentric double minutes containing
+ampliﬁed MYCN from neuroblastoma tumor cells through the formation of
+micronuclei. Am. J. Pathol. 158, 1579–1584 (2001).
+154. Shimizu, N., Misaka, N. & Utani, K. Nonselective DNA damage induced by a
+replication inhibitor results in the selective elimination of extrachromosomal
+double minutes from human cancer cells. Genes Chromosomes Cancer 46,
+865–874 (2007).
+155. Mackenzie, K. J. et al. cGAS surveillance of micronuclei links genome instability
+to innate immunity. Nature 548, 461–465 (2017).
+156. de Oliveira Mann, C. C. & Kranzusch, P. J. cGAS conducts micronuclei DNA
+surveillance. Trends Cell Biol. 27, 697–698 (2017).
+157. Wang, Y. et al. eccDNAs are apoptotic products with high innate immunosti-
+mulatory activity. Nature 599, 308–314 (2021).
+158. Wu, T. et al. Extrachromosomal DNA formation enables tumor immune escape
+potentially through regulating antigen presentation gene expression. Sci. Rep.
+12, 3590 (2022).
+159. Cohen, S., Menut, S. & Méchali, M. Regulated formation of extrachromosomal
+circular DNA molecules during development in Xenopus laevis. Mol. Cell Biol. 19,
+6682–6689 (1999).
+160. Kunisada, T. et al. Appearance of extrachromosomal circular DNAs during in vivo
+and in vitro ageing of mammalian cells. Mech. Ageing Dev. 29, 89–99 (1985).
+161. Denoth-Lippuner, A., Krzyzanowski, M. K., Stober, C. & Barral, Y. Role of SAGA in
+the asymmetric segregation of DNA circles during yeast ageing. Elife. 3, e03790
+(2014).
+162. Kaeberlein, M., McVey, M. & Guarente, L. The SIR2/3/4 complex and SIR2 alone
+promote longevity in Saccharomyces cerevisiae by two different mechanisms.
+Genes Dev. 13, 2570–2580 (1999).
+163. Defossez, P. A. et al. Elimination of replication block protein Fob1 extends the
+life span of yeast mother cells. Mol. Cell 3, 447–455 (1999).
+Extrachromosomal circular DNA: biogenesis, structure, functions and. . .
+Yang et al.
+18
+Signal Transduction and Targeted Therapy  (2022) 7:342 
+
+
+--- Page 19 ---
+164. Shcheprova, Z. et al. A mechanism for asymmetric segregation of age during
+yeast budding. Nature 454, 728–734 (2008).
+165. Luebeck, J. et al. AmpliconReconstructor integrates NGS and optical mapping to
+resolve the complex structures of focal ampliﬁcations. Nat. Commun. 11, 4374
+(2020).
+166. Helmsauer, K. et al. Enhancer hijacking determines extrachromosomal circular
+MYCN amplicon architecture in neuroblastoma. Nat. Commun. 11, 5823 (2020).
+167. deCarvalho, A. C. et al. Discordant inheritance of chromosomal and extra-
+chromosomal DNA elements contributes to dynamic disease evolution in glio-
+blastoma. Nat. Genet. 50, 708–717 (2018).
+168. Pyne, A. L. B. et al. Base-pair resolution analysis of the effect of supercoiling on
+DNA ﬂexibility and major groove recognition by triplex-forming oligonucleo-
+tides. Nat. Commun. 12, 1053 (2021).
+169. Yi, E. et al. Live-cell imaging shows uneven segregation of extrachromosomal
+DNA elements and transcriptionally active extrachromosomal DNA Hubs in
+cancer. Cancer Disco. 12, 468–483 (2022).
+170. Peng, L. et al. eccDNAdb: a database of extrachromosomal circular DNA proﬁles
+in human cancers. Oncogene 41, 2696–2705 (2022).
+171. Robert, M. & Crasta, K. Breaking the vicious circle: extrachromosomal circular
+DNA as an emerging player in tumour evolution. Semin Cell Dev. Biol. 123,
+140–150 (2022).
+172. Wu, S., Bafna, V. & Mischel, P. S. Extrachromosomal DNA (ecDNA) in cancer
+pathogenesis. Curr. Opin. Genet Dev. 66, 78–82 (2021).
+173. Bailey, C., Shoura, M. J., Mischel, P. S. & Swanton, C. Extrachromosomal DNA-
+relieving heredity constraints, accelerating tumour evolution. Ann. Oncol. 31,
+884–893 (2020).
+174. Pellman, D. & Zhang, C. Z. Decoding complex patterns of oncogene ampliﬁca-
+tion. Nat. Genet. 53, 1626–1627 (2021).
+175. Tanaka, H. & Watanabe, T. Mechanisms underlying recurrent genomic ampliﬁ-
+cation in human cancers. Trends Cancer 6, 462–477 (2020).
+176. Albertson, D. G. Gene ampliﬁcation in cancer. Trends Genet. 22, 447–455 (2006).
+177. Wolpaw, A. J. & Dang, C. V. MYC-induced metabolic stress and tumorigenesis.
+Biochim. Biophys. Acta Rev. Cancer 1870, 43–50 (2018).
+178. Anderson, M. W., Reynolds, S. H., You, M. & Maronpot, R. M. Role of proto-
+oncogene activation in carcinogenesis. Environ. Health Perspect. 98, 13–24
+(1992).
+179. Croce, C. M. Oncogenes and cancer. N. Engl. J. Med. 358, 502–511 (2008).
+180. Albihn, A., Johnsen, J. I. & Henriksson, M. A. MYC in oncogenesis and as a target
+for cancer therapies. Adv. Cancer Res. 107, 163–224 (2010).
+181. Liu, Z. et al. Mutations in the RNA splicing factor SF3B1 promote tumorigenesis
+through MYC stabilization. Cancer Disco. 10, 806–821 (2020).
+182. Liu, Y. et al. MYC dysfunction modulates stemness and tumorigenesis in breast
+cancer. Int. J. Biol. Sci. 17, 178–187 (2021).
+183. Caforio, M. et al. Recent advances in searching c-Myc transcriptional cofactors
+during tumorigenesis. J. Exp. Clin. Cancer Res. 37, 239 (2018).
+184. Levayer, R., Hauert, B. & Moreno, E. Cell mixing induced by myc is required for
+competitive tissue invasion and destruction. Nature 524, 476–480 (2015).
+185. Thompson, C. B., Challoner, P. B., Neiman, P. E. & Groudine, M. Levels of c-myc
+oncogene mRNA are invariant throughout the cell cycle. Nature 314, 363–366
+(1985).
+186. Bechade, C. et al. Induction of proliferation or transformation of neuroretina
+cells by the mil and myc viral oncogenes. Nature 316, 559–562 (1985).
+187. Baluapuri, A., Wolf, E. & Eilers, M. Target gene-independent functions of MYC
+oncoproteins. Nat. Rev. Mol. Cell Biol. 21, 255–267 (2020).
+188. Little, C. D. et al. Ampliﬁcation and expression of the c-myc oncogene in human
+lung cancer cell lines. Nature 306, 194–196 (1983).
+189. Lin, C. Y. et al. Transcriptional ampliﬁcation in tumor cells with elevated c-Myc.
+Cell 151, 56–67 (2012).
+190. Stine, Z. E. et al. MYC, metabolism, and cancer. Cancer Disco. 5, 1024–1039
+(2015).
+191. Tu, R. et al. Crosstalk between oncogenic MYC and noncoding RNAs in cancer.
+Semin. Cancer Biol. 75, 62–71 (2021).
+192. Herrick, J. et al. Genomic organization of ampliﬁed MYC genes suggests distinct
+mechanisms of ampliﬁcation in tumorigenesis. Cancer Res. 65, 1174–1179
+(2005).
+193. Meitar, D., Crawford, S. E., Rademaker, A. W. & Cohn, S. L. Tumor angiogenesis
+correlates with metastatic disease, N-myc ampliﬁcation, and poor outcome in
+human neuroblastoma. J. Clin. Oncol. 14, 405–414 (1996).
+194. Rubie, H. et al. N-Myc gene ampliﬁcation is a major prognostic factor in localized
+neuroblastoma: results of the French NBL 90 study. Neuroblastoma Study Group
+of the Société Francaise d’Oncologie Pédiatrique. J. Clin. Oncol. 15, 1171–1182
+(1997).
+195. Bordow, S. B. et al. Prognostic signiﬁcance of MYCN oncogene expression in
+childhood neuroblastoma. J. Clin. Oncol. 16, 3286–3294 (1998).
+196. Lam, W. A. et al. Extracellular matrix rigidity modulates neuroblastoma cell
+differentiation and N-myc expression. Mol. Cancer 9, 35 (2010).
+197. Hwang, W. L. et al. Clinical impact of tumor mutational burden in neuro-
+blastoma. J. Natl Cancer Inst. 111, 695–699 (2019).
+198. Theissen, J. et al. Heterogeneity of the MYCN oncogene in neuroblastoma. Clin.
+Cancer Res. 15, 2085–2090 (2009).
+199. Karami Fath, M. et al. Revisiting characteristics of oncogenic extrachromosomal
+DNA as mobile enhancers on neuroblastoma and glioma cancers. Cancer Cell Int.
+22, 200 (2022).
+200. Huh, Y. O. et al. Double minute chromosomes in acute myeloid leukemia,
+myelodysplastic syndromes, and chronic myelomonocytic leukemia are asso-
+ciated with micronuclei, MYC or MLL ampliﬁcation, and complex karyotype.
+Cancer Genet. 209, 313–320 (2016).
+201. Koduru, P. et al. Cytogenomic characterization of double minute heterogeneity
+in therapy related acute myeloid leukemia. Cancer Genet. 238, 69–75 (2019).
+202. Wang, H. Y. et al. JAK2 double minutes with resultant simultaneous ampliﬁca-
+tion of JAK2 and CD274 in a therapy-related myelodysplastic syndrome evolving
+into an acute myeloid leukaemia. Br. J. Haematol. 185, 566–570 (2019).
+203. A, L. A. et al. MYC-containing amplicons in acute myeloid leukemia: genomic
+structures,
+evolution,
+and
+transcriptional
+consequences.
+Leukemia
+32,
+2152–2166 (2018).
+204. Bruckert, P. et al. Double minutes and c-MYC ampliﬁcation in acute myelo-
+genous leukemia: are they prognostic factors? Cancer Genet. Cytogenet. 120,
+73–79 (2000).
+205. Hung, K. L. et al. ecDNA hubs drive cooperative intermolecular oncogene
+expression. Nature 600, 731–736 (2021).
+206. Harjes, U. EGFR is going circular. Nat. Rev. Cancer 21, 280 (2021).
+207. Zhang, X. et al. An allosteric mechanism for activation of the kinase domain of
+epidermal growth factor receptor. Cell 125, 1137–1149 (2006).
+208. Meador, C. B., Sequist, L. V. & Piotrowska, Z. Targeting EGFR Exon 20 insertions in
+non-small cell lung cancer: recent advances and clinical updates. Cancer Disco.
+11, 2145–2157 (2021).
+209. Tan, C. S. et al. Third generation EGFR TKIs: current data and future directions.
+Mol. Cancer 17, 29 (2018).
+210. EGFR mutations in GBM alter ligand binding and subsequent dimerization.
+Cancer Discov. 12, 884 (2022).
+211. Castellanos, E., Feld, E. & Horn, L. Driven by mutations: the predictive value of
+mutation subtype in EGFR-mutated non-small cell lung cancer. J. Thorac. Oncol.
+12, 612–623 (2017).
+212. Guardiola, S., Varese, M., Sánchez-Navarro, M. & Giralt, E. A third shot at EGFR:
+new opportunities in cancer therapy. Trends Pharm. Sci. 40, 941–955 (2019).
+213. Qian, W. et al. The EGFR-HSF1 axis accelerates the tumorigenesis of pancreatic
+cancer. J. Exp. Clin. Cancer Res. 40, 25 (2021).
+214. Liu, Y. et al. Rolling-translated EGFR variants sustain EGFR signaling and promote
+glioblastoma tumorigenicity. Neuro Oncol. 23, 743–756 (2021).
+215. Zack, T. I. et al. Pan-cancer patterns of somatic copy number alteration. Nat.
+Genet. 45, 1134–1140 (2013).
+216. Beroukhim, R. et al. The landscape of somatic copy-number alteration across
+human cancers. Nature 463, 899–905 (2010).
+217. Gan, H. K., Kaye, A. H. & Luwor, R. B. The EGFRvIII variant in glioblastoma mul-
+tiforme. J. Clin. Neurosci. 16, 748–754 (2009).
+218. Hu, C. et al. Glioblastoma mutations alter EGFR dimer structure to prevent ligand
+bias. Nature 602, 518–522 (2022).
+219. Shen, J. et al. Lycorine inhibits glioblastoma multiforme growth through EGFR
+suppression. J. Exp. Clin. Cancer Res. 37, 157 (2018).
+220. Gao, X. et al. Circular RNA-encoded oncogenic E-cadherin variant promotes
+glioblastoma tumorigenicity through activation of EGFR-STAT3 signalling. Nat.
+Cell Biol. 23, 278–291 (2021).
+221. Oh, D. Y. & Bang, Y. J. HER2-targeted therapies - a role beyond breast cancer.
+Nat. Rev. Clin. Oncol. 17, 33–48 (2020).
+222. Ruiz-Saenz, A. et al. HER2 ampliﬁcation in tumors activates PI3K/Akt signaling
+independent of HER3. Cancer Res. 78, 3645–3658 (2018).
+223. Moasser, M. M. The oncogene HER2: its signaling and transforming functions
+and its role in human cancer pathogenesis. Oncogene 26, 6469–6487 (2007).
+224. Li, B. T. et al. HER2 ampliﬁcation and HER2 mutation are distinct molecular
+targets in lung cancers. J. Thorac. Oncol. 11, 414–419 (2016).
+225. Kanayama, K. et al. Association of HER2 gene ampliﬁcation and tumor pro-
+gression in early gastric cancer. Virchows Arch. 473, 559–565 (2018).
+226. Harbeck, N. & Gnant, M. Breast cancer. Lancet 389, 1134–1150 (2017).
+227. Waks, A. G. & Winer, E. P. Breast cancer treatment. JAMA 321, 316 (2019).
+228. Yeo, S. K. & Guan, J. L. Breast cancer: multiple subtypes within a tumor? Trends
+Cancer 3, 753–760 (2017).
+229. Bange, J., Zwick, E. & Ullrich, A. Molecular targets for breast cancer therapy and
+prevention. Nat. Med. 7, 548–552 (2001).
+Extrachromosomal circular DNA: biogenesis, structure, functions and. . .
+Yang et al.
+19
+Signal Transduction and Targeted Therapy  (2022) 7:342 
+
+
+--- Page 20 ---
+230. Tolmachev, V., Orlova, A. & Sörensen, J. The emerging role of radionuclide
+molecular imaging of HER2 expression in breast cancer. Semin. Cancer Biol. 72,
+185–197 (2021).
+231. Bardia, A. & Hurvitz, S. Targeted therapy for premenopausal women with HR(+),
+HER2(-) advanced breast cancer: focus on special considerations and latest
+advances. Clin. Cancer Res. 24, 5206–5218 (2018).
+232. Vicario, R. et al. Patterns of HER2 gene ampliﬁcation and response to anti-HER2
+therapies. PLoS ONE 10, e0129876 (2015).
+233. Tang, D. J. et al. Overexpression of eukaryotic initiation factor 5A2 enhances cell
+motility and promotes tumor metastasis in hepatocellular carcinoma. Hepatol-
+ogy 51, 1255–1263 (2010).
+234. He, L. R. et al. Overexpression of eIF5A-2 is an adverse prognostic marker of
+survival in stage I non-small cell lung cancer patients. Int J. Cancer 129, 143–150
+(2011).
+235. Yang, G. F. et al. Expression and ampliﬁcation of eIF-5A2 in human epithelial
+ovarian tumors and overexpression of EIF-5A2 is a new independent predictor
+of outcome in patients with ovarian carcinoma. Gynecol. Oncol. 112, 314–318
+(2009).
+236. Xie, D. et al. Overexpression of EIF-5A2 is associated with metastasis of human
+colorectal carcinoma. Hum. Pathol. 39, 80–86 (2008).
+237. Tome, M. E., Fiser, S. M., Payne, C. M. & Gerner, E. W. Excess putrescine accu-
+mulation inhibits the formation of modiﬁed eukaryotic initiation factor 5A (eIF-
+5A) and induces apoptosis. Biochem J. 328(Pt 3), 847–854 (1997).
+238. Jenkins, Z. A., Hååg, P. G. & Johansson, H. E. Human eIF5A2 on chromosome
+3q25-q27 is a phylogenetically conserved vertebrate variant of eukaryotic
+translation initiation factor 5A with tissue-speciﬁc expression. Genomics 71,
+101–109 (2001).
+239. Shiras, A. & Mondal, A. Extrachromosomal DNA: redeﬁning the pathogenesis of
+glioblastoma. Biochim. Biophys. Acta Rev. Cancer 1876, 188551 (2021).
+240. Morton, A. R. et al. Functional enhancers shape extrachromosomal oncogene
+ampliﬁcations. Cell 179, 1330–1341.e1313 (2019).
+241. Jin, Y. et al. Novel functional MAR elements of double minute chromosomes in
+human ovarian cells capable of enhancing gene expression. PLoS ONE 7, e30419
+(2012).
+242. Rosswog, C. et al. Chromothripsis followed by circular recombination drives
+oncogene ampliﬁcation in human cancer. Nat. Genet. 53, 1673–1685 (2021).
+243. Von Hoff, D. D. et al. Double minutes arise from circular extrachromosomal DNA
+intermediates which integrate into chromosomal sites in human HL-60 leuke-
+mia cells. J. Clin. Invest. 85, 1887–1895 (1990).
+244. Zeng, X., Wan, M. & Wu, J. ecDNA within tumors: a new mechanism that drives
+tumor heterogeneity and drug resistance. Signal Transduct. Target Ther. 5, 277
+(2020).
+245. Bonatti, S. et al. Preferential loss of chromosomes containing ampliﬁed DNA
+regions in cultured cells. Prog. Clin. Biol. Res. 318, 271–276 (1989).
+246. Kuttler, F. & Mai, S. Formation of non-random extrachromosomal elements
+during development, differentiation and oncogenesis. Semin Cancer Biol. 17,
+56–64 (2007).
+247. Singer, M. J. et al. Ampliﬁcation of the human dihydrofolate reductase gene via
+double minutes is initiated by chromosome breaks. Proc. Natl Acad. Sci. USA 97,
+7921–7926 (2000).
+248. Narath, R. et al. Induction of senescence in MYCN ampliﬁed neuroblastoma cell
+lines by hydroxyurea. Genes Chromosomes Cancer 46, 130–142 (2007).
+249. Eckhardt, S. G. et al. Induction of differentiation in HL60 cells by the reduction of
+extrachromosomally ampliﬁed c-myc. Proc. Natl Acad. Sci. USA 91, 6674–6678
+(1994).
+250. Guan, X. Y. et al. Oncogenic role of eIF-5A2 in the development of ovarian
+cancer. Cancer Res. 64, 4197–4200 (2004).
+251. Yu, L. et al. Gemcitabine eliminates double minute chromosomes from human
+ovarian cancer cells. PLoS ONE 8, e71988 (2013).
+252. Snapka, R. M. & Varshavsky, A. Loss of unstably ampliﬁed dihydrofolate reduc-
+tase genes from mouse cells is greatly accelerated by hydroxyurea. Proc. Natl
+Acad. Sci. USA 80, 7533–7537 (1983).
+253. Vitale, I., Shema, E., Loi, S. & Galluzzi, L. Intratumoral heterogeneity in cancer
+progression and response to immunotherapy. Nat. Med. 27, 212–224 (2021).
+254. Dagogo-Jack, I. & Shaw, A. T. Tumour heterogeneity and resistance to cancer
+therapies. Nat. Rev. Clin. Oncol. 15, 81–94 (2018).
+255. Windle, B. et al. A central role for chromosome breakage in gene ampliﬁcation,
+deletion formation, and amplicon integration. Genes Dev. 5, 160–174 (1991).
+256. Lundberg, G. et al. Binomial mitotic segregation of MYCN-carrying double
+minutes in neuroblastoma illustrates the role of randomness in oncogene
+ampliﬁcation. PLoS ONE 3, e3099 (2008).
+257. Levan, A. & Levan, G. Have double minutes functioning centromeres? Hereditas
+88, 81–92 (1978).
+258. Xue, Y. et al. An approach to suppress the evolution of resistance in
+BRAF(V600E)-mutant cancer. Nat. Med. 23, 929–937 (2017).
+259. Nikolaev, S. et al. Extrachromosomal driver mutations in glioblastoma and low-
+grade glioma. Nat. Commun. 5, 5690 (2014).
+260. Zhou, Y. H. et al. The role of EGFR double minutes in modulating the response of
+malignant gliomas to radiotherapy. Oncotarget 8, 80853–80868 (2017).
+261. Song, B. et al. Molecular mechanism of chemoresistance by miR-215 in osteo-
+sarcoma and colon cancer cells. Mol. Cancer 9, 96 (2010).
+262. Álvarez-González, B. et al. Methotrexate gold nanocarriers: loading and release
+study: its activity in colon and lung cancer cells. Molecules 25, 6049 (2020).
+263. Dabrowska, M., Skoneczny, M., Uram, L. & Rode, W. Methotrexate-induced
+senescence of human colon cancer cells depends on p53 acetylation, but not
+genomic aberrations. Anticancer Drugs 30, 374–382 (2019).
+264. Dabrowska, M. et al. Oxidative stress and inhibition of nitric oxide generation
+underlie methotrexate-induced senescence in human colon cancer cells. Mech.
+Ageing Dev. 170, 22–29 (2018).
+265. Ciro, Y. et al. Production, physicochemical characterization, and anticancer
+activity of methotrexate-loaded phytic acid-chitosan nanoparticles on HT-29
+human colon adenocarcinoma cells. Carbohydr. Polym. 243, 116436 (2020).
+266. Morales, C. et al. Dihydrofolate reductase ampliﬁcation and sensitization to
+methotrexate of methotrexate-resistant colon cancer cells. Mol. Cancer Ther. 8,
+424–432 (2009).
+267. Cai,
+M.
+et
+al.
+Inhibiting
+homologous
+recombination
+decreases
+extra-
+chromosomal ampliﬁcation but has no effect on intrachromosomal ampliﬁca-
+tion in methotrexate-resistant colon cancer cells. Int J. Cancer 144, 1037–1048
+(2019).
+268. Waggoner, S. E. Cervical cancer. Lancet 361, 2217–2225 (2003).
+269. Li, H., Wu, X. & Cheng, X. Advances in diagnosis and treatment of metastatic
+cervical cancer. J. Gynecol. Oncol. 27, e43 (2016).
+270. Li, X. et al. CRISPR/Cas9 nanoeditor of double knockout large fragments of E6
+and E7 oncogenes for reversing drugs resistance in cervical cancer. J. Nano-
+biotechnology 19, 231 (2021).
+271. Zhu, H. et al. Molecular mechanisms of cisplatin resistance in cervical cancer.
+Drug Des. Dev. Ther. 10, 1885–1895 (2016).
+272. Ruiz-Herrera, A. et al. Gene ampliﬁcation in human cells knocked down for
+RAD54. Genome Integr. 2, 5 (2011).
+273. Von Hoff, D. D. et al. Hydroxyurea accelerates loss of extrachromosomally
+ampliﬁed genes from tumor cells. Cancer Res. 51, 6273–6279 (1991).
+274. Lin, C. et al. Encoding gene RAB3B exists in linear chromosomal and circular
+extrachromosomal DNA and contributes to cisplatin resistance of hypophar-
+yngeal squamous cell carcinoma via inducing autophagy. Cell Death Dis. 13, 171
+(2022).
+275. Zhu, J. et al. Molecular characterization of cell-free eccDNAs in human plasma.
+Sci. Rep. 7, 10968 (2017).
+276. Wei, J. et al. The biogenesis and roles of extrachromosomal oncogene involved
+in carcinogenesis and evolution. Am. J. Cancer Res. 10, 3532–3550 (2020).
+277. Bronkhorst, A. J., Ungerer, V. & Holdenrieder, S. The emerging role of cell-free
+DNA as a molecular marker for cancer management. Biomol. Detect. Quantif. 17,
+100087 (2019).
+278. Cen, Y. et al. Global characterization of extrachromosomal circular DNAs in
+advanced high grade serous ovarian cancer. Cell Death Dis. 13, 342 (2022).
+279. Kanada, M., Bachmann, M. H. & Contag, C. H. Signaling by extracellular vesicles
+advances cancer hallmarks. Trends Cancer 2, 84–94 (2016).
+280. Fan, Y. et al. Frequency of double minute chromosomes and combined cyto-
+genetic abnormalities and their characteristics. J. Appl. Genet. 52, 53–59 (2011).
+281. Minina, V. I. et al. Chromosome aberrations in peripheral blood lymphocytes of
+lung cancer patients exposed to radon and air pollution. Eur. J. Cancer Prev. 27,
+6–12 (2018).
+282. Schmidt, H. et al. Small polydispersed circular DNA contains strains of mobile
+genetic elements and occurs more frequently in permanent cell lines of
+malignant tumors than in normal lymphocytes. Oncol. Rep. 22, 393–400 (2009).
+283. Henson, J. D. et al. DNA C-circles are speciﬁc and quantiﬁable markers of
+alternative-lengthening-of-telomeres activity. Nat. Biotechnol. 27, 1181–1185
+(2009).
+284. Fogli, A. et al. Detection of the alternative lengthening of telomeres pathway in
+malignant gliomas for improved molecular diagnosis. J. Neurooncol. 135,
+381–390 (2017).
+285. Lv, W. et al. Circle-Seq reveals genomic and disease-speciﬁc hallmarks in urinary
+cell-free extrachromosomal circular DNAs. Clin. Transl. Med. 12, e817 (2022).
+286. Yang, H. et al. Identiﬁcation and characterization of extrachromosomal circular
+DNA in human placentas with fetal growth restriction. Front. Immunol. 12,
+780779 (2021).
+287. Neidlinger, C. et al. Increased amounts of small polydisperse circular DNA
+(spcDNA) in angioﬁbroma-derived cell cultures from patients with tuberous
+sclerosis (TS). Hum. Genet. 79, 286–288 (1988).
+288. Motejlek, K., Assum, G., Krone, W. & Kleinschmidt, A. K. The size of small poly-
+disperse circular DNA (spcDNA) in angioﬁbroma-derived cell cultures from
+Extrachromosomal circular DNA: biogenesis, structure, functions and. . .
+Yang et al.
+20
+Signal Transduction and Targeted Therapy  (2022) 7:342 
+
+
+--- Page 21 ---
+patients with tuberous sclerosis (TSC) differs from that in ﬁbroblasts. Hum.
+Genet. 87, 6–10 (1991).
+289. Song, P. et al. Limitations and opportunities of technologies for the analysis of
+cell-free DNA in cancer diagnostics. Nat. Biomed. Eng. 6, 232–245 (2022).
+290. Sin, S. T. et al. Effects of nucleases on cell-free extrachromosomal circular DNA.
+JCI Insight. 7, e156070 (2022).
+291. Li, R., Wang, Y., Li, J. & Zhou, X. Extrachromosomal circular DNA (eccDNA): an
+emerging star in cancer. Biomark. Res. 10, 53 (2022).
+292. Li, Z., Wang, B., Liang, H. & Han, L. Pioneering insights of extrachromosomal DNA
+(ecDNA) generation, action and its implications for cancer therapy. Int J. Biol. Sci.
+18, 4006–4025 (2022).
+293. Schoenlein, P. V. et al. Radiation therapy depletes extrachromosomally ampliﬁed
+drug resistance genes and oncogenes from tumor cells via micronuclear cap-
+ture of episomes and double minute chromosomes. Int J. Radiat. Oncol. Biol.
+Phys. 55, 1051–1065 (2003).
+294. Raymond, E. et al. Effects of hydroxyurea on extrachromosomal DNA in patients
+with advanced ovarian carcinomas. Clin. Cancer Res. 7, 1171–1180 (2001).
+295. Circular DNA throws gene regulation for a loop. Cancer Discov. 10, 170 (2020).
+296. Hong, J., Zheng, S. & Jiang, D. The contributions of extrachromosomal DNA
+elements in neoplasm progression. Am. J. Cancer Res. 11, 2417–2429 (2021).
+297. Wang, Y. X. et al. The emerging roles of extracellular vesicles in ovarian cancer.
+Curr. Drug Metab. 22, 139–149 (2021).
+298. Zhang, P. et al. ecc_ﬁnder: a robust and accurate tool for detecting extra-
+chromosomal circular DNA from sequencing data. Front. Plant Sci. 12, 743742
+(2021).
+299. Møller, H. D. Circle-Seq: isolation and sequencing of chromosome-derived cir-
+cular DNA elements in cells. Methods Mol. Biol. 2119, 165–181 (2020).
+300. Wang, S. W. et al. Current applications and future perspective of CRISPR/Cas9
+gene editing in cancer. Mol. Cancer 21, 57 (2022).
+301. Selvakumar, S. C. et al. CRISPR/Cas9 and next generation sequencing in the
+personalized treatment of Cancer. Mol. Cancer 21, 83 (2022).
+302. Amitai, G. & Sorek, R. CRISPR-Cas adaptation: insights into the mechanism of
+action. Nat. Rev. Microbiol. 14, 67–76 (2016).
+303. CRISPR technology. Nat Biotechnol. 40, 832 (2022).
+304. Fellmann, C. et al. Cornerstones of CRISPR-Cas in drug discovery and therapy.
+Nat. Rev. Drug Disco. 16, 89–100 (2017).
+305. High, K., Gregory, P. D. & Gersbach, C. CRISPR technology for gene therapy. Nat.
+Med. 20, 476–477 (2014).
+306. Doudna, J. A. & Charpentier, E. Genome editing. The new frontier of genome
+engineering with CRISPR-Cas9. Science 346, 1258096 (2014).
+307. Pineda, M., Lear, A., Collins, J. P. & Kiani, S. Safe CRISPR: challenges and possible
+solutions. Trends Biotechnol. 37, 389–401 (2019).
+308. Zhan, T. et al. CRISPR/Cas9 for cancer research and therapy. Semin Cancer Biol.
+55, 106–119 (2019).
+309. Sánchez-Rivera, F. J. & Jacks, T. Applications of the CRISPR-Cas9 system in cancer
+biology. Nat. Rev. Cancer 15, 387–395 (2015).
+310. Gu, X. et al. Novel insights into extrachromosomal DNA: redeﬁning the onco-
+drivers of tumor progression. J. Exp. Clin. Cancer Res. 39, 215 (2020).
+311. Arrey, G., Keating, S. T. & Regenberg, B. A unifying model for extrachromosomal
+circular DNA load in eukaryotic cells. Semin Cell Dev. Biol. 128, 40–50 (2022).
+312. Chiu, R. W. K. et al. What is extrachromosomal circular DNA and what does it do?
+Clin. Chem. 66, 754–759 (2020).
+313. Yu, M. et al. Interferon-γ induces tumor resistance to anti-PD-1 immunotherapy
+by promoting YAP phase separation. Mol. Cell 81, 1216–1230.e1219 (2021).
+314. Bouchard, J. J. et al. Cancer mutations of the tumor suppressor SPOP disrupt the
+formation of active, phase-separated compartments. Mol. Cell 72, 19–36.e18
+(2018).
+315. Autiero, M. et al. Intragenic ampliﬁcation and formation of extrachromosomal
+small circular DNA molecules from the PIP gene on chromosome 7 in primary
+breast carcinomas. Int J. Cancer 99, 370–377 (2002).
+316. Liu, J. et al. MDM2 inhibition-mediated autophagy contributes to the pro-
+apoptotic effect of berberine in p53-null leukemic cells. Life Sci. 242, 117228
+(2020).
+317. Medves, S. et al. A high rate of telomeric sister chromatid exchange occurs in
+chronic lymphocytic leukaemia B-cells. Br. J. Haematol. 174, 57–70 (2016).
+318. Khatami, F., Larijani, B. & Tavangar, S. M. The presence of tumor extra-
+chomosomal circular DNA (ecDNA) as a component of liquid biopsy in blood.
+Med. Hypotheses 114, 5–7 (2018).
+Open Access This article is licensed under a Creative Commons
+Attribution 4.0 International License, which permits use, sharing,
+adaptation, distribution and reproduction in any medium or format, as long as you give
+appropriate credit to the original author(s) and the source, provide a link to the Creative
+Commons license, and indicate if changes were made. The images or other third party
+material in this article are included in the article’s Creative Commons license, unless
+indicated otherwise in a credit line to the material. If material is not included in the
+article’s Creative Commons license and your intended use is not permitted by statutory
+regulation or exceeds the permitted use, you will need to obtain permission directly
+from
+the
+copyright
+holder.
+To
+view
+a
+copy
+of
+this
+license,
+visit
+http://
+creativecommons.org/licenses/by/4.0/.
+© The Author(s) 2022
+Extrachromosomal circular DNA: biogenesis, structure, functions and. . .
+Yang et al.
+21
+Signal Transduction and Targeted Therapy  (2022) 7:342 

@@ -1,0 +1,2885 @@
+--- Page 1 ---
+Nucleasecolicinsandtheirimmunityproteins
+Grigorios Papadakos, Justyna A. Wojdyla and Colin Kleanthous*
+Department of Biology, University of York, Wentworth Way, Heslington, York YO10 5DD, UK
+Abstract.
+It is more than 80 years since Gratia first described ‘a remarkable antagonism
+between two strains of Escherichia coli’. Shown subsequently to be due to the action of
+proteins (or peptides) produced by one bacterium to kill closely related species with which it
+might be cohabiting, such bacteriocins have since been shown to be commonplace in the
+internecine warfare between bacteria. Bacteriocins have been studied primarily from the twin
+perspectives of how they shape microbial communities and how they penetrate bacteria to kill
+them. Here, we review the modes of action of a family of bacteriocins that cleave nucleic acid
+substrates in E. coli, known collectively as nuclease colicins, and the specific immunity (inhibitor)
+proteins that colicin-producing organisms make in order to avoid committing suicide. In a
+process akin to targeting in mitochondria, nuclease colicins engage in a variety of cellular
+associations in order to translocate their cytotoxic domains through the cell envelope to the
+cytoplasm. As well as informing on the process itself, the study of nuclease colicin import has
+also illuminated functional aspects of the host proteins they parasitize. We also review recent
+studies where nuclease colicins and their immunity proteins have been used as model systems
+for addressing fundamental problems in protein folding and protein–protein interactions, areas
+of biophysics that are intimately linked to the role of colicins in bacterial competition and to
+the import process itself.
+1. Scope of the review
+58
+2. Structural biology of Cols and their Im proteins
+59
+3. Overview of Col import
+63
+4. Receptor binding and recruitment of OM translocator proteins
+65
+4.1. Receptor binding
+65
+4.2. Translocator recruitment and the mechanism of T-domain translocation to the periplasm
+67
+5. Recruitment of periplasmic proteins to form a translocon complex at the OM
+69
+5.1. ColE9
+70
+5.2. ColN
+73
+5.3. ColA
+74
+6. Col translocation across the OM and the role of the PMF
+75
+7. Col nuclease domain translocation across the IM and the role of proteolytic
+processing
+77
+* Address for correspondence: Professor C. Kleanthous, Department of Biology, University of York,
+Wentworth Way, Heslington, York YO10 5DD, UK. Tel.: +44-1904-328820; Fax: +44-1904-328825;
+Email: colin.kleanthous@york.ac.uk
+Quarterly Reviews of Biophysics 45, 1 (2012), pp. 57–103.
+f Cambridge University Press 2011
+57
+doi:10.1017/S0033583511000114
+Printed in the United States of America
+
+
+--- Page 2 ---
+8. Mechanism of action of enzymatic cytotoxic domain
+79
+8.1. DNase Cols
+80
+8.2. rRNase Cols
+82
+8.3. tRNase Cols
+83
+8.4. Peptidoglycan hydrolase Col
+83
+9. Protein–protein interaction studies of the Col endonuclease–Im protein
+complex
+84
+9.1. Kinetic and thermodynamic analyses of Col DNase–Im protein association
+84
+9.2. A dual-recognition mechanism underpins binding specificity in Col DNase–Im protein
+complexes
+85
+9.3. The cognate ColE9 DNase–Im9 complex
+87
+9.4. The non-cognate ColE9 DNase–Im2 complex
+88
+9.5. Evolution and design of Col DNase–Im protein complexes
+90
+10. Im protein folding mechanism and its link to function
+93
+10.1. The folding energy landscape of Im7
+94
+10.2. Folding intermediates in other Im proteins
+96
+11 Acknowledgments
+96
+12 References
+96
+1. Scope of the review
+Colicins (Cols) are highly speciﬁc protein antibiotics released by Escherichia coli that target and kill
+neighbouring E. coli during times of environmental stress as a means of reducing competition for
+resources. Normally plasmid-encoded, Cols are members of the bacteriocin family of antimicro-
+bials, which include both peptide and protein antibiotics that are widespread among Gram-
+negative and Gram-positive bacteria. Long studied by microbial population ecologists in the
+context of their impact on the population dynamics of co-existing bacterial populations (Gardner
+et al. 2004; Kirkup & Riley, 2004; Riley, 1998), the mode of action of Cols has proven fertile
+ground for bacteriologists since their discovery over 80 years ago. These studies have shown that
+while Cols can kill cells by a variety of mechanisms these generally fall into two cytotoxic classes;
+enzymatic Cols cleave either nucleic acid or peptidoglycan while pore-forming Cols depolarize
+the cytoplasmic membrane. Extensive biochemical, structural and biophysical work has been
+published for both classes. Given the number of studies on Cols, in comparison with bacter-
+iocins that target other Gram-negative organisms such as Yersinia pestis or Pseudomonas aeruginosa,
+it is not surprising that they are among the best understood of the protein bacteriocins and not
+just from the perspective of their import across the cell envelope. Cols and their associated
+immunity (Im) proteins, which are the small antidote proteins that protect producing cells from
+the harmful cytotoxic eﬀects of the Col, are often used as models for addressing fundamental
+questions in protein chemistry, particularly in the investigation of the protein-folding mechanism
+and in the dissection, design and directed evolution of protein–protein interaction speciﬁcity.
+The present review focuses on recent discoveries on enzymatic Cols and their Im proteins and
+in particular nuclease Cols, which have been reviewed less in the literature than their pore-
+forming counterparts (Anderluh & Lakey, 2008; Cascales et al. 2007; Iacovache et al. 2008; Ridley
+et al. 2010; Zakharov et al. 2004b). As well as dealing with how these potent cytotoxins target and
+58
+G. Papadakos et al.
+
+
+--- Page 3 ---
+kill E. coli cells–the dogma in the ﬁeld being that one molecule is suﬃcient to kill a cell–we also
+review some of the work in other areas of protein science where nuclease Cols and their Im
+proteins have proven tractable model systems. Although not dealing explicitly with pore-forming
+Cols, we make reference to work on these toxins where relevant to the wider question of how
+Cols translocate cytotoxic domains across the Gram-negative outer membrane (OM) as this is
+independent of cytotoxic activity. The reader is directed to the extensive review of Cascales et al.
+(2007) for topics not covered by the present article.
+2. Structural biology of Cols and their Im proteins
+Col production is generally induced via the SOS pathway in E. coli in response to stress. The
+toxin is then released to the extracellular environment through the action of a small bacteriocin-
+release protein although the mechanism by which this happens is poorly understood. The mo-
+lecular weights of Cols vary substantially, ranging from 40 to 80 kDa, yet despite their very
+diﬀerent structures all Cols are constructed from the same basic modular design: an N-terminal
+translocation (T) domain implicated in coordinating translocation across the OM, a central
+receptor-binding (R) domain, which localizes the toxin to the cell surface, and a C-terminal
+cytotoxic (C) domain, which is translocated across the OM and in the case of nuclease Cols also
+through the inner membrane (IM). Interestingly, the same three-domain arrangement is seen in
+proteins involved in the uptake of some ﬁlamentous bacteriophages into E. coli, to the extent that
+phage/Col chimaeras retain cytotoxic activity suggesting that there are likely to be parallels
+between the early stages of phage infection and Col translocation across the OM (Jakes et al.
+1988).
+In order to avoid suicide all Col-producing E. coli produce an Im protein (y10 kDa). In the
+case of nuclease Cols, the immunity (Im) protein binds to the C-terminal cytotoxic domain and
+neutralizes its activity in the host (Kleanthous & Walker, 2001). Hence, these toxins are released
+to the environment as heterodimeric proteins necessitating removal of the Im protein during cell
+entry (Section 6). In the case of Cols that act from within the conﬁnes of the periplasm, and
+which are not active until they translocate into a cell, the Im protein is either localized to the IM
+through a lipoyl tether (peptidoglycan-cleaving Col) or is an integral IM protein (pore-forming
+Cols).
+To-date, more than 20 Cols have been characterized (Table 1), with structural information for
+many deposited in the protein data bank (PDB). Full-length structures have been published for
+ColE3 (Soelaiman et al. 2001), ColIa (Wiener et al. 1997), ColB (Hilsenbeck et al. 2004), ColM
+(Zeth et al. 2008) and ColS4 (Arnold et al. 2009) (Fig. 1). In many instances, however, these
+structures lack electron density for part or all of the N-terminus of the toxin (e.g. the structure of
+ColN; Vetter et al. 1998), with biophysical measurements (primarily nuclear magnetic resonance
+(NMR), circular dichroism (CD) and ﬂuorescence spectroscopy) on several Cols (ColE9, ColN
+and ColA) consistent with these regions being intrinsically unstructured in solution (Collins et al.
+2002; Deprez et al. 2002; Hecht et al. 2009b; Raggett et al. 1998). The unstructured nature of Col
+N-termini is important for translocation into E. coli because these regions invariably contain one
+or more linear peptide signalling epitopes, which are destined to contact trans–periplasmic sys-
+tems linked to the proton-motive force (PMF) across the IM (Sections 4 and 5). In addition to
+full-length structures, there are also structures available for isolated Col domains, most often the
+C-terminal cytotoxic pore-forming domain (e.g. ColA) or nucleases in complex with Im proteins
+(e.g. ColD DNase bound to ImD).
+Nuclease colicins and their immunity proteins
+59
+
+
+--- Page 4 ---
+Although the nomenclature of Cols is somewhat ad hoc some systematic naming is to be found
+among this diverse group of proteins, most often reﬂecting the commonality of entry routes into
+cells and/or cytotoxic activities. For example, Cols E2–E9, which all utilize the BtuB receptor
+(Section 4), share a high degree of sequence identity in their Col translation domain (T-domain)
+and Col receptor-binding domain (R-domain) (70–90%), and hence have the same mode of
+Table 1. Table shows some of the major Cols that have been identiﬁed, their receptors and translocators,
+where known and, references to structural information for the Col and/or its Im protein
+Col
+Primary
+receptor
+Translocator
+Cytotoxicity
+Structural information available for Col
+and/or Im protein
+Group A
+ColA
+BtuB
+OmpF
+Pore forming
+Pore-forming domain (1COL)
+ColE1
+BtuB
+TolC
+Pore forming
+Pore-forming domain (2I88)
+ColE2, ColE7,
+ColE8, ColE9
+BtuB
+OmpF
+DNase
+E2 R-domain in complex with BtuB (2YSU);
+NMR structure of Im2 (2NO8); Im2 in
+complex with E9 (2WPT); E7 T-domain
+(2AXC); E7 DNase domain free (1M08), in
+complex with Im7 (1MZ8) and with DNA
+(1ZNS & 1PT3); Im7 crystal structure
+(1UNK) and NMR (2K0D); NMR structure
+of Im8 (1GXH and 1GXG); crystal (1EMV)
+and NMR (2K5X) structure of E9
+DNase–Im9 complex; E9 DNase alone
+(1FSJ) and in complex with DNA (1V14 and
+1V15); NMR structure of Im9 (1IMQ and
+1IMP)
+ColE3, ColE4,
+ColE6
+BtuB
+OmpF
+rRNAse
+E3 R-domain in complex with BtuB (1UJW);
+E3 full-length (1JCH)a; rRNase domain
+(1E44) in complex with Im3, E3 rRNase
+bound to 70S ribosome (2XFZ, 2XG0,
+2XG1 and 2XG2), Im3 protein (3EIP)
+ColE5
+BtuB
+OmpF
+tRNase
+tRNase domain alone (2A8K) and in complex
+with Im5 (2FHZ)
+ColK
+Tsx
+OmpF
+Pore forming
+N/a
+ColN
+OmpF
+OmpF
+Pore forming
+Receptor-binding and pore-forming domains
+(1A87)b
+ColS4
+OmpW
+OmpF
+Pore forming
+Full-length Col (3FEW)c
+ColU
+OmpA
+OmpF
+Pore forming
+N/a
+Group B
+Col5, Col10
+Tsx
+TolC
+Pore forming
+N/a
+ColB
+FepA
+?
+Pore forming
+Full-length Col (1RH1)d
+ColD
+FepA
+?
+tRNase
+tRNase domain in complex with Im protein
+(1V74)
+ColIa, ColIb
+Cir
+Cir
+Pore forming
+Full-length Col Ia (1CII)e; R-domain of Col Ia
+in complex with Cir receptor (2HDI)
+ColM
+FhuA
+?
+Phosphatase
+Structure of full-length Col (3DA4)f; Im
+protein ImM (2XGL)
+aColE3 structure lacks the N-terminal 83 residues which are disordered (Soelaiman et al. 2001).
+bN-terminal 90 residues missing in the structure (Vetter et al. 1998). T-domain (residues 17–66) un-
+structured, shown by CD, ﬂuorescence and NMR (Hecht et al. 2009a; Raggett et al. 1998).
+cResidues 1–67 disordered in the structure (Arnold et al. 2009).
+dResidues 1–10 and 29–43 disordered but TonB box (11–28) visible (Hilsenbeck et al. 2004).
+eColIa structure missing residues 1–22 but TonB box (23–27) visible (Wiener et al. 1997).
+fResidues 2–35 (including Ton B box 2–8) present but lacking deﬁned structured (Zeth et al. 2008).
+60
+G. Papadakos et al.
+
+
+--- Page 5 ---
+entry into bacteria, but share no sequence similarity in their cytotoxic domains unless members
+of the same nuclease family. Interestingly, these Cols encompass the three diﬀerent nuclease
+activities so far reported for Cols; deoxyribonucleases (DNases; ColE2, ColE7, ColE8 and
+ColE9), ribosomal-speciﬁc ribonucleases (rRNases; ColE3, ColE4 and ColE6), and a tRNA-
+speciﬁc ribonuclease (tRNase; ColE5). The structures of the diﬀerent nuclease classes are quite
+distinct from each other implying that the entry routes of these Cols are insensitive to the toxic
+payload being carried. Consequently, the conserved T- and R-domains of Cols E2–E9 can be
+thought of as ‘targeting domains’ ensuring delivery of a variety of nucleases to the E. coli
+cytoplasm.
+While all Cols share a characteristic three-domain organization their structures can diﬀer
+signiﬁcantly (Fig. 1). Some Cols adopt compact structures, such as Cols N, M and S4, while
+others are extended, such as Cols B, E3 and Ia. The C-terminal cytotoxic domains are generally
+small, globular domains, as in the bundle of a-helices in pore-forming Cols (built from two
+central hydrophobic helices surrounded by eight amphipatic helices) or the mixed a/b structures
+of nuclease Cols. The exception is Col M the cytotoxic domain of which accounts for more than
+Colicin S4
+Colicin M
+Colicin Ia
+Colicin E3
+Colicin N
+Colicin B
+Fig. 1. Structures of Cols S4 (PDB ID: 3FEW), N (PDB ID: 1A87), Ia (PDB ID: 1CII), M (PDB ID:
+3DA4), E3 in complex with Im3 (PDB ID: 1JCH) and B (PDB ID: 1RH1) are shown in ribbon rep-
+resentation. Translocation (T-) domains are shown in red, receptor-binding (R-) domains in light and dark
+blue and cytotoxic (C-) domains in green, with the Im protein Im3 shown in magenta. The loosely struc-
+tured residues of the TonB box (residues 2–8) are shown for Col M.
+Nuclease colicins and their immunity proteins
+61
+
+
+--- Page 6 ---
+half of molecule and is structurally similar to the open b-barrel of the Haemophilus inﬂuenzae Hir
+autoreceptor (Meng et al. 2006). The structure of the central R-domain of Cols is particularly
+diverse in both size and shape, reﬂecting very diﬀerent binding speciﬁcities for primary receptors.
+Cols B, E3 and Ia have extended a-helical R-domains. The ColB R-domain consists of single
+74 A˚ long a-helix, while the ColE3 R-domain is a coiled-coil of two a-helices. ColIa has two
+long parallel a-helices separated by an additional small domain, formed by a two-stranded anti-
+parallel b-sheet and three short a-helices. In the case of ColN, the R-domain consists of a
+twisted, seven-stranded b-sheet wrapped around an a-helix that extends into the pore-forming
+domain. The R-domain of ColM on the other hand contains six a-helices ﬁve of which surround
+a long central helix, a3 (Zeth et al. 2008). The N-terminal T-domains of Cols are also structurally
+diverse. They can be small and disordered, as in the case of ColM (35 residues) and ColN
+(90 residues) or rather large with some unstructured regions, as in the case of Cols E3, B and Ia.
+The ColIa T-domain consists of two y80 A˚ long antiparallel a-helices, that of ColE3 forms
+a jellyroll structure composed of three b-sheets ﬂanked by two helical stretches while the
+ColB T-domain is composed of 17 b-strands and two a-helices that is topologically similar to
+ColE3. The structures for group A Cols ColE3 and ColN lack the ﬁrst y70–80 residues, con-
+sistent with these regions being disordered (Section 4). In other Cols, the N-terminus either lacks
+regular secondary structure (ColB and ColIa) or is largely unstructured (ColM) (Section 4).
+The pore-forming Col S4 contains an unusual duplication of its R-domain (Pilsl et al. 1999).
+ColS4 has a compact structure with four distinct domains: an N-terminal T-domain, two central
+R-domains and a C-terminal pore-forming domain (Fig. 1). The ﬁrst 67 amino acids of the
+T-domain are unstructured, the remainder consisting of a three-stranded b-sheet and short
+a-helix. The structures and sequences of the two R-domains are very similar (root mean square
+deviation (RMSD) <1 A˚ ), composed of a three-stranded b-sheet followed by three a-helices.
+Mutational analysis has suggested that only one of the R-domains is necessary for cell-killing
+(Arnold et al. 2009).
+With the exception of ColM, enzymatic Cols form high-aﬃnity complexes with their cognate
+Im proteins immediately after synthesis in the producing cell. Structures for a number of Im
+proteins, both in their unbound forms (Im2, Im3, Im7, Im8, Im9 and ImM) and in complex with
+Col catalytic domains (E7 DNase–Im7, E9 DNase–Im9, E3 rRNase–Im3, E5 tRNase–Im5 and
+D tRNase–ImD) have been reported (Fig. 2). The structures provide detailed insight into the
+mechanism of enzymatic Col inhibition by Im proteins (Section 9).
+The ﬁrst structural information on Im protein–Col complexes was reported for the DNase
+Cols E7 and E9 (Kleanthous et al. 1999; Ko et al. 1999). DNase Im proteins share y50%
+sequence identity and adopt an antiparallel four-helix bundle fold, with a characteristic short
+third helix. The ribosome-inactivating ColE3 Im protein Im3 adopts a four-stranded antiparallel
+b-sheet fold with two a-helices packed against one side of the sheet. The exposed face of the
+Im3 b-sheet interacts with an N-terminal a-helix and the ﬁrst two b-sheets of the rRNase (Carr
+et al. 2000). Although the structure of the E3 rRNase–Im3 complex is signiﬁcantly diﬀerent from
+DNase–Im complexes, the mode of inhibition is the same; the inhibitor docks at an exosite
+adjacent to the active site that blocks substrate binding. The structure of the ColD Im protein
+ImD consists of four tightly packed a-helices. In contrast to other nuclease–Im protein com-
+plexes ImD inhibits nuclease activity by binding directly to the active site of ColD (Graille et al.
+2004). A positively charged groove on the surface of ColD that encompasses the active site inter-
+acts with a negatively charged patch on ImD, which mimics the backbone of the tRNA substrate.
+The tRNase Col ColE5 and its Im protein, Im5, form a compact complex with a large interaction
+62
+G. Papadakos et al.
+
+
+--- Page 7 ---
+area, characterized by a high degree of shape- and charge-complementarity (Luna-Chavez et al.
+2006). Im5 adopts a mixed a-/b-fold comprising a four-stranded b-sheet and three a-helices.
+ColE5 and ColD have similar folds, but their RNA-binding sites as well as the location of their
+active sites are diﬀerent. Even though the mechanism of inhibition of tRNase Cols by their Im
+proteins is similar the structures of Im5 and ImD diﬀer signiﬁcantly. Finally, the structure of the
+Im protein for ColM (Cmi or ImM) is composed of four a-helices and a four-stranded anti-
+parallel b-sheet (Gerard et al. 2010). ImM resembles a cystatin-fold and contains a disulﬁde bond
+between Cys31 and Cys107. Despite available structural information it remains unclear as to how
+ImM inhibits the activity of ColM.
+3. Overview of Col import
+Cols translocate into E. coli by parasitizing a variety of membrane and periplasmic proteins in the
+cell envelope all of which serve important functions in the bacterium. Initial localization at the
+cell surface typically occurs through binding of the R-domain to an OM nutrient or vitamin
+receptor although porins can also function as Col receptors (Table 1; Section 4). Receptor-bound
+Cols then recruit an additional OM protein as a ‘translocator’ that the toxin uses to pass speciﬁc
+rRNase E3–Im3
+tRNase E5–Im5
+tRNase D–ImD
+DNase E7–Im7
+Fig. 2. Structures for Col cytotoxic nuclease domains complexed with their cognate Im proteins. ColD
+tRNase–ImD (PDB ID: 1V74), ColE7 DNase–Im7 (PDB ID: 1MZ8), ColE3 rRNase–Im3 (PDB ID:
+1E44) and ColE5 tRNase–Im5 (PDB ID: 2FHZ) are shown in ribbon representation, with the nuclease in
+green and Im protein in magenta.
+Nuclease colicins and their immunity proteins
+63
+
+
+--- Page 8 ---
+peptide epitopes to the periplasm, which are located within the disordered or unstructured
+regions of its T-domain and may even, it has been argued, be used to translocate the entire
+cytotoxic domain to the periplasm (Fig. 3). Porins such as OmpF and OmpC are most often used
+as translocator proteins. Other known translocators include TolC, which forms the exit tunnel
+for a multidrug eﬄux pump, and in at least one case it has been shown that a nutrient receptor
+can also serve as a translocator (Section 4).
+Col translocation across the E. coli OM requires contact between speciﬁc peptide-signalling
+epitopes within the T-domain of the receptor-bound Col and one of two periplasmic systems of
+the bacterium (Section 5). Group A Cols (such as ColE1–ColE9, ColA and ColN) contact Tol,
+while group B Cols (such as ColIa, ColB, ColD and ColM) contact Ton (Davies & Reeves, 1975a,
+b). Both systems, which are evolutionarily related to the stator proteins MotA and MotB of the
+bacterial ﬂagellar motor, are coupled to the PMF across the IM, acting as energy transducers for
+OM stability (Tol) and active transport of iron siderophores and vitamin B12 across the OM
+(Ton). While there is some involvement of PMF in Col toxicity it remains unclear as to how
+much of the translocation process is PMF dependent (Section 6).
+The Ton system consists of three IM proteins TonB, ExbB and ExbD (Postle & Kadner,
+2003). The central components of the Tol system are three IM proteins, TolA, TolQ and
+TolR, and two periplasmic proteins, TolB, a soluble protein, and Pal, which is anchored to the
+OM (Webster, 1991). TolA and TonB are each thought to span the periplasm and, through
+Fig. 3. Cols can be grouped according to which import route they take into an E. coli cell. Group A Cols
+contact the Tol system while group B Cols contact the Ton system. Both Col groups can deliver a cytotoxic
+pore-forming or nuclease to the cell. Each requires initial binding to a high-aﬃnity receptor followed by
+recruitment of a translocator protein. The translocator is utilized to deposit one or more signalling epitopes
+to the periplasm that subvert the normal functions of the Tol or Ton systems, both of which are coupled to
+the PMF across the IM. Figure adapted from (Kleanthous, 2010) with permission from the Nature
+Publishing Group.
+64
+G. Papadakos et al.
+
+
+--- Page 9 ---
+associations with their IM partners, transduce the PMF into conformational transitions although
+what form these transitions take and how they ‘energize’ events at the OM are yet to be eluci-
+dated. Group A Col translocation generally requires an intact TolQRA complex with some Cols
+also requiring TolB. Pal is the only component of the Tol system not required by any known Col
+(Lazzaroni et al. 2002), conﬁrmed by a recent genome-wide survey that identiﬁed many pre-
+viously unknown genes involved in Col uptake but not Pal (Sharma et al. 2009). Although Pal is a
+central component of the Tol apparatus its lack of involvement in Col translocation likely reﬂects
+its function as an OFF-switch for Tol signalling (Bonsor et al. 2009b) (Section 5). Gene deletions
+of additional cytoplasmic (YbgC) and periplasmic (YbgF) proteins encoded within the tol operon
+show no discernible tol phenotype of OM instability (usually assayed by lack of bacterial growth
+in the presence of SDS) and are also not required for Col toxicity (Krachler et al. 2010).
+An intriguing feature of Col import, triggered by contact with Tol or Ton proteins, is that Cols
+can be readily engineered to translocate by the opposing pathway; for example, it has been
+shown that a group A Col can be converted into a group B Col merely by engineering the
+appropriate recognition epitopes (Pilsl & Braun, 1998). This argues that import across the OM is
+likely to be by the same process for both group A and group B Cols involving contact with a
+system close to the underside of the OM that also traverses the periplasm and is linked to the
+PMF across the IM.
+For pore-forming and peptidoglycan-cleaving Cols, the journey into the cell ends in the peri-
+plasm where they exert their cytotoxic activities. Nuclease Cols, however, continue on through
+the IM in order to reach their cytoplasmic nucleic acid targets. While this aspect of import has
+not been investigated extensively, studies suggest it may involve proteolytic processing and direct
+interaction between the nuclease domain and the cytoplasmic membrane followed by retro-
+translocation and refolding in the cytoplasm (Section 7).
+4. Receptor binding and recruitment of OM translocator proteins
+4.1 Receptor binding
+The ﬁrst step in the import of Cols into E. coli is binding to an OM receptor. Cols have evolved
+to parasitize a wide variety of OM proteins, including the vitamin B12 receptor BtuB used by
+E Cols ColE1–ColE9 and ColA, ferrichrome-iron receptor FhuA used by ColM, ferrientero-
+bactin receptor FepA used by ColB and ColD, iron transport receptor Cir used by ColIa
+and ColIb, the nucleoside-speciﬁc channel-forming protein Tsx used by ColK, Col5 and Col10,
+and porins OmpF, OmpA and OmpW used by Cols N, S4 and U, respectively (Table 1).
+Structural and biophysical data are available for a number of these Col-receptor complexes. In
+the case of ColN (a group A Col), biochemical and electron microscopy (EM) studies indicate
+that the Col binds with a Kdy1 mM (Bourdineaud et al. 1990b) to the outer surface of OmpF
+(Baboolal et al. 2008). Two-dimensional (2D) crystals of OmpF obtained in the presence and
+absence of a fragment of ColN containing the receptor-binding and pore-forming domains
+(at 25 A˚ resolution) revealed electron density at the interface between two monomers of the
+OmpF trimer. Density for lipopolysaccharide (LPS), which is normally bound to OmpF, was
+absent in this co-crystal suggesting that Col-binding displaces LPS, a hypothesis conﬁrmed by
+biochemical data (Baboolal et al. 2008).
+High-resolution crystal structures have been published for the R-domains of three Cols bound
+to their primary receptors; group A Cols ColE2 (PDB ID, 2YSU) (Sharma et al. 2007) and ColE3
+Nuclease colicins and their immunity proteins
+65
+
+
+--- Page 10 ---
+(PDB ID, 1UJW) (Kurisu et al. 2003) bound to BtuB, and ColIa, a group B Col, bound to Cir
+(PDB ID, 2HDI) (Buchanan et al. 2007) (Fig. 4). In both sets of complexes the Col-binding site
+overlaps that of the natural ligand. The buried surface areas of Cols E2 and E3 bound to BtuB
+are 1287 and 1533 A˚ 2, respectively. The ColIa–Cir complex has a relatively small buried surface
+area of 990 A˚ 2. Although the complexes of ColIa and ColE3 (and ColE2) are unrelated to each
+other their respective OM receptors show two striking similarities. First, both Cols bind at an
+y45x angle relative to the membrane, which positions the T-domain and Col cytotoxic domain
+(C-domain) well away from the receptor and, second, Col-binding does not displace the central
+plug of the receptor. Transporters such as BtuB and Cir are 22-strand b-barrels with a large central
+pore that is sealed by a soluble plug domain. The plug has to be displaced in order to allow entry
+of the cognate ligand of the receptor in a PMF-dependent process involving contact between the
+TonB box of the receptor and periplasmic TonB. The TonB box is an N-terminal, periplasmi-
+cally located peptide sequence which signals to TonB when the ligand is bound to the receptor.
+A further striking feature of Col binding to these receptors is that there is little or no change to
+their TonB boxes. Binding of Cols E2 and E3 to BtuB causes ordering of the N-terminal Ser4–
+Pro5 residues of the TonB box of the receptor but no changes were evident in the ColIa–Cir
+complex structure (Buchanan et al. 2007; Kurisu et al. 2003; Sharma et al. 2007). Conformational
+changes do occur in the receptors, however, but are localized to the extracellular regions. In the
+complexes of Cols E2 and E3 there are alterations in the conformations of surface loops while in
+the complex of ColIa–Cir a lid domain in the receptor opens in order for the Col to bind.
+It has been suggested that interactions between the R-domain of enzymatic Cols and
+BtuB¡OmpF lead to unfolding of the Col although this has proven controversial. The
+suggestion is based on (i) some disordering of the ends of the coiled-coil R-domain in the ColE3-
+bound structure (Kurisu et al. 2003); (ii) changes in the CD spectrum for the complex relative
+to the unbound proteins (Kurisu et al. 2003); (iii) changes in measured distances between the
+cytotoxic and T-domain of the Col (Fig. 1) as measured by ﬂuorescence resonance energy
+transfer (FRET), these eﬀects dependent on the presence of the translocator OmpF in the OM
+OM
+Cir
+Col Ia
+Col E3
+BtuB
+OmpF
+Cir
+Im3
+IUTD
+IUTD
+Fig. 4. Structures of Cols Ia and E3–Im3 bound to their primary receptors, Cir and BtuB, respectively,
+depicting the recruitment of translocator proteins through their intrinsically unstructured translocation
+domains (IUTDs). Following binding to its primary receptor (PDB ID: 2HDI and 1CII), ColIa binds a
+second copy of the Cir protein (PDB ID: 2HDF) although the mechanism involved is unknown. After
+binding to BtuB (PDB ID: 1UJW and 1JCH), the ColE3–Im3 complex recruits OmpF (PDB ID: 3O0E)
+through speciﬁc OmpF-binding sites (OBSs). See Figs 5–7 for details.
+66
+G. Papadakos et al.
+
+
+--- Page 11 ---
+(Zakharov et al. 2008). The suggestion that the R-domain becomes disordered in its distal ends
+on binding BtuB contrasts the conclusions of Housden et al., who found that the thermo-
+dynamics of binding between ColE9 and BtuB (Kdy2 nM), as measured by isothermal titration
+calorimetry (ITC), were unchanged in a disulﬁde-locked mutant of the Col (Housden et al. 2005);
+detailed discussion on the thermodynamics of Col complexes have been reviewed recently
+(Housden & Kleanthous, 2011). The disulﬁde, positioned within the coiled-coil and distal to the
+receptor, was designed to block opening of the coiled-coil following receptor binding and does
+indeed abolish Col toxicity unless reduced (Penfold et al. 2004a). These observations are con-
+sistent with the coiled-coil of the R-domain undergoing signiﬁcant structural changes but that
+these likely occur post receptor binding, for example, during translocation across the OM
+(Section 5).
+Since the plug domains of BtuB and Cir bound to Col R-domains show little or no change in
+conformation, this tends to rule out a translocation path through the primary receptor. A similar
+conclusion was reached for ColB binding its receptor FepA using ﬂuorescein maleimide labelling
+of unique cysteine residues (Smallwood et al. 2009). As the central channels of Col receptors do
+not appear to be the routes of translocation to the periplasm this explains why additional OM
+proteins have to be recruited. This assertion is consistent with the way in which the T- and
+C-domains of enzymatic E Cols and ColIa are presented well away from their primary receptors,
+in a bid to recruit a translocator (Fig. 4). There has been much recent progress in our under-
+standing of how such translocators are recruited and indeed how they are then used to deliver
+essential signalling epitopes to the periplasm.
+4.2 Translocator recruitment and the mechanism of T-domain translocation to the periplasm
+Col recruitment of a translocator protein in the E. coli OM is through interactions with regions
+of the Col that comprise the intrinsically unstructured translocation domain (IUTD), which
+has been shown for ColE3 and ColE9 and more recently ColIa (Housden et al. 2005; Jakes &
+Finkelstein, 2010; Kurisu et al. 2003) (Fig. 4). An exception to this rule is ColN, one of the
+smallest Cols known, which is thought to use the same OmpF to which it is bound as the trans-
+location route for its IUTD (El Kouhen et al. 1993). In most instances, however, it is likely that
+an additional OM protein needs to be recruited as the translocator. In the case of ColIa, an
+additional copy of the Cir protein is recruited (Jakes & Finkelstein, 2010), whereas enzymatic
+Cols such as ColE3 and ColE9 recruit OmpF or OmpC to the receptor-bound Col (Housden
+et al. 2005; Kurisu et al. 2003; Zakharov & Cramer, 2004). Two translocation routes of Col
+IUTDs to the periplasm via porins have been postulated; translocation through the porin lumen
+or via the lipid–protein interface (Baboolal et al. 2008; Housden et al. 2010; Yamashita et al. 2008).
+The following sections detail work on Cols ColE3 and ColE9, which explain how porin trans-
+locators are recruited and that, at least for these Cols, the lumen of the porin is clearly the route
+by which a speciﬁc signalling epitope within the IUTD is delivered to the periplasm.
+Housden et al. ﬁrst showed that Col IUTDs are used to recruit a translocator following binding
+of the Col to its receptor in the E. coli OM (Housden et al. 2005). Using the ColE9–Im9 complex
+in which the Im protein was His-tagged (and where the Col was disulﬁde-locked to prevent cell-
+killing), they demonstrated that the entire ColE9–Im9–BtuB–OmpF complex could be aﬃnity-
+puriﬁed from OM extracts but that recruitment of OmpF was lost when the 83-residue IUTD
+was deleted. Consistent with this region being sequestered post receptor-binding, Zhang et al.
+reported that unique enterokinase cleavage sites engineered in the ﬁrst 61 residues of the IUTD
+Nuclease colicins and their immunity proteins
+67
+
+
+--- Page 12 ---
+became inaccessible to enzymatic cleavage after binding to BtuB in the OM (Zhang et al. 2008).
+Housden et al. went on to delineate the regions of the ColE9 IUTD involved in binding OmpF
+using a combination of deletion analysis and ITC (Housden et al. 2010). They showed that
+the primary OmpF binding site (OBS1), Kdy2 mM, comprises residues 2–18 of the Col (the
+N-terminal methionine is often missing in ColE9). They also identiﬁed a second, weaker, OmpF
+binding site (OBS2) further along the IUTD between residues 54 and 63, which binds OmpF
+with a Kdy25 mM. Importantly, binding of OBS2 is blocked by the presence of OBS1 suggesting
+that they share the same binding site. Moreover, the two OBSs ﬂank the 16-residue TolB-binding
+epitope (TBE; comprising residues 32–47) in the centre of the IUTD, previously identiﬁed by
+Loftus et al. (2006) (Fig. 5; Section 5). Mutational analysis revealed that many ColE9 OBS1 side
+chains are involved in stabilizing the complex with OmpF although none are essential for
+binding or toxicity. In addition, these studies suggested that conformational ﬂexibility of the
+epitope (which is rich in glycine residues) and a free N-terminus are major factors in binding to
+the porin. Cell-killing assays demonstrated that at least one OBS is required for antibiotic activity.
+Housden et al. also showed that the relative importance of the OBS sites is diﬀerent in cells
+expressing either OmpF or OmpC, emphasizing that the two porins do not behave identically in
+terms of Col translocation. A luminal translocation route to the periplasm was revealed by the
+31 A˚ crystal structure of the OmpF–OBS1 complex in which the peptide was bound in an
+extended, crescent-shaped conformation (Fig. 6a). OBS1 spans the membrane bilayer in its
+.       TBE        .                                                                            .                      TAB                          . 
+ColA  MPGFNYGGKGDGTGWSSERG---SGPEPGGGSHGNSGGHDRGDSSN-VGNESV--TVMKPGDSYNTPWGKVIINAAGQPTMNGTVMTADNSSMVPYGRGF 94 
+.                   OBS1                         .    .         TBE                         .  OBS2       .. 
+ColE9 MSGG--DGRGHNTGAHSTSGNINGGPTGIGVSGGASDGSGWSSENNPWGGGSG--SGIHWGGGSGRGNGGGNGNSGGGSGTGGNLSAVAAP--VAFGFPA 94 
+                                                                .                  TAB                     . 
+ColN  -MGSNGADNAHNNAFGGGKNPGIGNTSGAGSNGSASSNRGNSNGWS-WSNKPHKNDGFHSDGSYHITFHGDNNSKPKPGGNSGNRGNNGDGASAKVGEIT 98 
+Fig. 5. Sequence alignment of N-terminal IUTD sequences of ColA, ColE9 and ColN showing the pres-
+ence of the various OmpF, TolB (TBE) and TolA (TAB) binding epitopes.
+(a)
+(b)
+Fig. 6. Structure of the OmpF-ColE9 OBS1 (PDB ID: 3O0E) and OmpFColE3 IUTD (PDB ID: 2ZLD)
+complexes. (a) OmpF monomer shown in green ribbon (OmpF is trimeric in its native state) with ColE9
+OBS1 peptide (chain L, residues 2–16) modelled into the electron density map (2Fo–Fc, shown at 1s sigma
+cut-oﬀ) within the lumen. Note how the Col traverses the constriction point at the centre of the porin. (b)
+Superposition of the Col peptide structures from the complex of the ColE3 IUTD, where y7 residues of
+unassigned sequence could be seen, and the structure of ColE9 OBS1 bound to OmpF, shown as a
+molecular surface cut-away to reveal the lumen of the porin. The OBS1 peptide is shown in red and the
+fragment from the ColE3 IUTD in yellow. Figure adapted from Housden et al. (2010) with permission from
+the National Academy of Sciences (USA).
+68
+G. Papadakos et al.
+
+
+--- Page 13 ---
+complex with OmpF, traversing the central constriction point of the porin channel that generally
+restricts molecules of >600 Da passing across the OM (Fig. 6b). Moreover, the orientation of
+OBS1 is with its N-terminus facing the periplasm and C-terminus exposed to the extracellular
+surface where the rest of the receptor-bound Col would be located.
+A translocation route for the ColE9 IUTD to the periplasm through the lumen of the porin is
+also supported by a separate series of studies on the ColE3 IUTD from the Cramer laboratory;
+the two enzymatic Cols share y90% sequence identity in their 83-residue IUTD. Focusing on
+the voltage-gated channels displayed by OmpF in planar-lipid bilayer experiments, Zhaharov et al.
+demonstrated that the IUTD of ColE3 blocks OmpF channel activity (Zakharov et al. 2004a),
+suggesting that the polypeptide blocks the porin lumen. They subsequently obtained a 30 A˚
+resolution structure of OmpF crystallized in the presence of the ColE3 IUTD which showed the
+presence of density corresponding to y7 amino acids although the identity of these residues,
+which did not pass the constriction point in OmpF, could not be ascertained (Yamashita et al.
+2008) (Fig. 6b). The subsequent structure from Housden et al. conﬁrmed these residues as likely
+corresponding to the OBS1 sequence of the IUTD (Housden et al. 2010).
+The investigations of the ColE3 and ColE9 IUTDs are consistent with the disordered domain
+recruiting OmpF through a sequential binding mechanism in which OBS1 ﬁrst docks into the
+porin lumen followed by diﬀusion of the polypeptide toward the periplasm (possibly guided by
+the overhanging receptor-bound Col), subsequent docking of OBS2 in the lumen and presen-
+tation of the Col’s TBE for binding TolB (Fig. 7). The initial driving force for binding of the
+OBSs to the OmpF lumen, which is cation selective, is likely to be electrostatic since both have
+overall positive charge. The intervening sequence between the two OBSs does not bind OmpF –
+the TBE is negatively charged and does not bind OmpF in ITC experiments, plus this region
+contains two proline residues and prolines were shown to abolish peptide binding to the OmpF
+lumen (Housden et al. 2010).
+An important new development for probing Col import is the use of single molecule methods.
+Spector et al. have shown using Total Internal Reﬂection Fluorescence (TIRF) microscopy that
+the lateral diﬀusion of the ColE3-bound BtuB complex is relatively unhindered in the E. coli OM
+but that of OmpF is restricted, implying collision between receptor and translocator must occur
+to enable Col translocation (Spector et al. 2010). It is likely that future single molecule methods
+such as TIRF will feature prominently in the elucidation of Col import into bacterial cells.
+5. Recruitment of periplasmic proteins to form a translocon complex at the OM
+The term ‘translocon complex’ has been coined to describe the self-assembled supramolecular
+assembly formed between the Col and its receptor, translocator and periplasmic binding partners
+(Kurisu et al. 2003), by analogy with the translocons of secretory systems (Johnson & van Waes,
+1999; Keenan et al. 2001; Pohlschroder et al. 1997). Formation of the translocon is thought to
+trigger Col translocation across the OM. Translocon assembly requires the presentation of spe-
+ciﬁc signalling epitopes located within the IUTD in the periplasm via translocator proteins, as
+described in Section 4. For the group B Col ColIa, which uses the Cir protein as receptor and
+translocator, a TonB box is delivered that is presumed to mimic the interactions of the TonB box
+of nutrient receptors with TonB. How the IUTD of ColIa delivers its TonB box through the
+translocator Cir protein remains to be established. Much more is known about the interactions of
+IUTD signalling epitopes of group A Cols with their periplasmic binding partners where mol-
+ecular mimicry has been shown to play an important role in the establishment of the translocon
+Nuclease colicins and their immunity proteins
+69
+
+
+--- Page 14 ---
+complex. The following sections summarize this research, which includes work on the IUTDs of
+both pore-forming (ColA and ColN) and enzymatic (ColE9) Cols.
+5.1 ColE9
+Enzymatic Cols E2–E9 contain a 16-residue signalling epitope within their IUTDs called the
+TBE that binds TolB with low mM aﬃnity. Col TBE residues are essential for antibiotic activity;
+mutations abolish Col toxicity in vivo and TolB binding in vitro (Bouveret et al. 1998; Hands et al.
+2005). TolB is a 44-kDa protein that has an N-terminal a-/b-domain and C-terminal, six-bladed
+b-propeller domain that binds the OM lipoprotein Pal with sub-mM aﬃnity as part of the Tol
+system in the bacterial periplasm. Crystal structures have revealed that both the ColE9 TBE and
+Pal bind to the same canyon binding site on the b-propeller domain, distal to the N-terminal
+domain (Bonsor et al. 2007; Loftus et al. 2006) suggesting that the Col ‘competitively recruits’
+TolB from its complex with Pal (Loftus et al. 2006). The soluble domain of Pal, comprised a four-
+stranded b-sheet and four a-helices, contacts the canyon in two sites (Fig. 8a) (Bonsor et al.
+2007). Helix III of Pal interacts with TolB through residues 110–130 (Site 1) while a neigh-
+bouring loop accompanied by a b-strand interacts with TolB through residues 144–163 (Site 2)
+(Fig. 8b). The intrinsically unstructured ColE9 TBE does not adopt regular secondary structure
+TolB
+IUTD
+TAB
+TolA
+TolQ
+TolR
+OmpF
+BtuB
+ColE3
+IM
+OM
+pmf
+Fig. 7. Overview of early OM events during cell entry of Group A nuclease Cols. Following binding to
+BtuB (vitamin B12 transporter, blue) through its R-domain (ColE3–Im3 bound to BtuB is shown), the
+Col–Im protein complex (gold and yellow, respectively) recruits OmpF (green) through its IUTD (shown as
+spheres), ﬁrst docking the OBS1 epitope (red spheres) into the lumen of the porin followed by OBS2
+(yellow spheres). The Col’s TBE (magenta spheres) then binds TolB (pink) in the periplasm. Col mimics
+interactions of the lipoprotein Pal (not shown), but unlike Pal enhances the recruitment of TolA (magenta
+cylinders) through the disordered N-terminal TAB of TolB (green line). TolA is coupled to the PMF
+through its associations with TolR (cyan cylinders) and TolQ (orange cylinders) in the IM. Contact between
+TolB and TolA in the periplasm triggers release of the Im protein to the external medium in a PMF-
+dependent step that initiates Col translocation into the cell.
+70
+G. Papadakos et al.
+
+
+--- Page 15 ---
+on binding TolB, but rather an unusual conformation resembling a distorted paperclip (Fig. 8).
+Importantly, Glu42 and Trp39 of the ColE9 TBE mimic interactions made by Glu116 and
+Tyr117, respectively, of Pal with TolB at Site 1 while Trp46 of the ColE9 TBE is buried within
+a Site 2 pocket on TolB that has no equivalent in the Pal complex due to accompanying con-
+formational changes (Fig. 8b). This latter contact has important implications for TolB signalling
+to TolA, which is discussed below. In contrast, no conformational changes occur in TolB as a
+result of ColE9 TBE binding, which is also relevant to the mechanism of Col translocation.
+The buried solvent-accessible surface area in the TolB–Pal complex is signiﬁcantly greater
+than the surface area buried in the ColE9–TolB complex (2600 versus 1600 A˚ 2), although the latter
+shows greater complementarity (Loftus et al. 2006). TolB undergoes signiﬁcant conformational
+changes in both its domains on binding Pal, while Pal undergoes only limited change in con-
+formation; helix III of Pal unwinds by 19 A˚ due to steric and electrostatic clashes with TolB
+residues. Both the Pal and ColE9 TBE complexes with TolB are stabilized by a signiﬁcant number
+of hydrogen bonds, which are mostly intermolecular in the Pal complex but intramolecular in the
+ColE9 TBE complex. The outcome of these structural diﬀerences between the Pal and ColE9
+TBE complexes with TolB is a 20-fold diﬀerence in their aﬃnities, but these aﬃnities are tuned
+by the presence of divalent metal ions such as Ca2+ that bind within the tunnel running through
+(a)
+(b)
+Fig. 8. (a) Superposition of the complexes of E. coli TolB (grey) with the ColE9 TBE (cyan, PDB ID 1IVZ)
+and Pal (red, PDB ID 2HQS). Two Ca2+ ions (yellow) are present in the ColE9 TBE structure while the
+TolB TAB (green), 22Glu-Ser33, is only visible in the Pal-bound structure. (b) Comparison of the TolB-
+binding site canyon (grey) where both the ColE9-TBE (magenta) and Pal (yellow) dock. Only helix III (Site 1,
+residues 110–130) of Pal and its neighbouring loop and b-strand (Site 2, residues 144–163) are shown for
+clarity. ColE9 TBE residues Glu42 and Trp39 mimic hydrogen bond interactions made by Pal residues
+Glu116 and Tyr117, respectively. ColE9 Trp46, on the other hand, binds in a deep pocket in Site 2 on the
+TolB surface for which there is no equivalent in the Pal complex due to conformational changes that occlude
+the pocket. Binding of ColE9 Trp46 into Site 2 shifts the conformational equilibrium of TolB so that the
+TolB TAB undergoes an order–disorder transition and so becomes available for binding TolA (See Fig. 7).
+Nuclease colicins and their immunity proteins
+71
+
+
+--- Page 16 ---
+the b-propeller domain of TolB (Fig. 8a). The aﬃnity of Pal for TolB in the absence of metal
+ions is 47 nM, as measured by ITC (Loftus et al. 2006), with binding involving a single proto-
+nation event (Bonsor et al. 2007). Moreover, binding is enthalpically and entropically favoured,
+consistent with the signiﬁcant hydrophobic contact and extensive hydrogen bonding between
+the two proteins. Under the same metal-free conditions, the ColE9–TBE binds TolB with an
+aﬃnity of 1 mM where the association is enthalpically favourable but entropically unfavourable in
+accordance with the signiﬁcant loss of conformational entropy upon binding as the intrinsically
+disordered ColE9 TBE folds. In the presence of 1 mM Ca2+ ions, the aﬃnity for Pal is reduced
+2-fold (y100 nM), becoming equivalent to the aﬃnity of ColE9 under the same conditions
+(Loftus et al. 2006). This 10-fold increase in the aﬃnity of ColE9–TBE for TolB is largely
+explained by electrostratic interactions. In the presence of Ca2+ ions, the lower region of the
+TolB canyon has an overall positive charge, which favours association of the negatively charged
+ColE9–TBE. It is reasonable to conclude that divalent metal ions, which are abundant in the
+E. coli cell envelope, would have to be bound in order for the ColE9–TBE to competitively
+recruit TolB from its complex with Pal. Binding of TolB by the Col would also be favoured by
+virtue of Pal’s other binding interaction in the periplasm, which is to peptidoglycan (Parsons et al.
+2006). TolB and peptidoglycan binding are mutually exclusive of each other (Bouveret et al. 1999)
+and so free TolB would invariably be available for Col binding.
+The conformational changes within the C-terminal b-propeller of TolB that result from
+Pal binding are transmitted to the N-terminal a-/b-domain of TolB through motions of loops
+and b-strands of the C-terminus. These changes are relayed to the N-terminal domain of
+TolB through the hinge connecting the two domains and speciﬁcally between a b-strand of the
+b-propeller domain and residues Glu22–Ser33, the N-terminal most residues of TolB (Bonsor
+et al. 2007). Residues Glu22–Ser33 are disordered in crystal structures of TolB as well as in the
+ColE9 TBE–TolB complex, but become ordered in the Pal complex, binding in a cleft between
+the N- and C-terminal domains of TolB that becomes exposed when Pal is bound (Fig. 8a)
+(Bonsor et al. 2009b). Deletion of TolB resides Glu22–Ser33 results in a tol OM instability
+phenotype characteristic of a tolB deletion, showing that this region is indispensable for in vivo
+functionality of the Tol system, and renders E. coli cells resistant to Cols, indicating their im-
+portance to OM translocation. Taken together, these studies reveal that TolB is an allosteric
+protein whereby Pal and the ColE9–TBE are opposing allosteric eﬀectors modulating the ac-
+cessibility of the Glu22–Ser33 sequence at its N-terminus.
+The role of the TolB N-terminal residues Glu22–Ser33 was revealed when it was shown using
+cross-linking and ITC by Bonsor et al. that this epitope is the binding site for the C-terminal
+domain of TolA, which we refer to as the TolA box (TAB) (Fig. 7). TolA has three domains,
+an N-terminal transmembrane helix (TMH; domain I), a central domain postulated to form a
+coiled-coil that spans the periplasm (domain II) and a small globular C-terminal domain (domain
+III or TolAIII). Binding between TolAIII and TolB through the TAB is weak (Kdy43 mM) and
+endothermic in ITC experiments indicating an entropically driven interaction (Bonsor et al.
+2009b). Pal abolishes binding between TolB and TolAIII in ITC experiments while the ColE9
+TBE enhances binding 4-fold and switches the thermodynamics of binding from endothermic to
+exothermic. These eﬀects can be explained by the structural and biophysical properties of the
+two complexes. Pal binding to TolB sequesters the TAB to the surface of TolB while ColE9 TBE
+binding renders the TAB disordered and available for TolAIII binding. Hence, even though the
+ColE9–TBE mimics interactions made by Pal, the eﬀect of its binding to TolB has a diﬀerent
+conformational outcome. The key diﬀerence between the complexes is the hydrophobic contact
+72
+G. Papadakos et al.
+
+
+--- Page 17 ---
+made by ColE9–TBE Trp46 in Site 2 on the surface of TolB. The deep pocket into which Trp46
+inserts is only accessible in TolB in the absence of conformational changes, which unlike Pal the
+Col does not induce. Moreover, these data suggest that TolB is in conformational equilibrium
+between these two structural states, with Pal and the ColE9–TBE stabilizing opposing states
+(Bonsor et al. 2009b). Not only does this interpretation correspond to the changes observed in
+binding thermodynamics between TolB and its protein ligands but is also supported by solution
+NMR experiments; the TolB TAB sequence is only discernible in 1H-15N-HSQC (heteronuclear
+single-quantum coherence) spectra as an intrinsically disordered polypeptide when TolB is
+bound to the ColE9–TBE (Bonsor et al. 2009b).
+Based on these observations a model for the hijacking and activation of the Tol system by
+ColE9 has been proposed in which the Col manipulates the allosteric transition of TolB. In the
+Pal-bound state, the TolB TAB is folded against the surface of the protein disfavouring binding
+to TolA, signalling the OFF-state for the system (Fig. 8a). In the ColE9–TBE-bound state, the
+TolB TAB is disordered and available to bind TolA, signalling an ON-state for the Tol system
+(Fig. 7). Hence, the recruitment of TolB to the ColE9 translocon results in this surface bound
+toxin being able to make a connection to the PMF through protein–protein interactions that
+promote contact between TolB in the periplasm and TolA in the IM (Bonsor et al. 2009b). The
+potential outcome of this contact is explored further in Section 6.
+Studies of Col parasitization of the Tol system have highlighted two important functional
+characteristics of this trans-periplasmic complex. First, the order–disorder transition of the TolB
+TAB that lies at the heart of the interaction between TolB and TolA is reminiscent of the order–
+disorder transitions of OM receptor TonB boxes and TonB (Cadieux et al. 2003; Wiener, 2005),
+suggesting that the same basic signalling mechanism underpins the Ton and Tol systems of
+Gram-negative bacteria (Kleanthous, 2010). Second, these studies cast doubt on the generally
+accepted view of Tol function, which is that of a PMF-driven machine ensuring appropriate
+juxtaposition of the inner and OMs. Components of the Tol system are known to be recruited to
+septation sites in E. coli (Gerding et al. 2007), consistent with Tol function being predominantly
+expressed during cell division. A role as a transmembrane tether necessitates interaction between
+Pal in the OM and TolA in the IM, originally suggested by in vivo cross-linking experiments
+(Cascales et al. 2000, 2001). Moreover, it has been argued that this periplasmic interaction is
+regulated by cellular PMF (Cascales et al. 2000, 2001). However, extensive biochemical and
+biophysical analysis using puriﬁed Pal and TolA failed to demonstrate such an interaction in vitro
+(Bonsor et al. 2009a). An indirect interaction between Pal and TolAIII via TolB is also unlikely
+given that Pal diminishes/abolishes the interaction between TolA and TolB (see above). It
+remains to be elucidated how and for what physiological purpose Tol signalling is deployed
+during cell division.
+5.2 ColN
+The N-terminal 90 residues of the pore-forming Col ColN comprise its IUTD (Raggett et al.
+1998; Vetter et al. 1998). Unlike ColE9, ColN does not require TolB for Col antibiotic activity
+(and does not bind TolB in vitro), but rather contacts TolA directly through its own TAB sequence,
+residues Asn42–Gly68 (Gokce et al. 2000). There is no sequence similarity between the TABs of
+TolB and ColN (Fig. 5). The structure for the TolAIII–ColN TAB complex is not yet known,
+but FRET and NMR experiments indicate that the TAB epitope undergoes a disorder–order
+transition and that its two tryptophan residues (Trp44 and Trp46) are buried on binding TolAIII
+Nuclease colicins and their immunity proteins
+73
+
+
+--- Page 18 ---
+(Anderluh et al. 2003; Raggett et al. 1998), reminiscent of ColE9–TBE binding TolB. The ColN–
+IUTD interaction with TolAIII has been studied extensively by the Lakey and Moore labora-
+tories by mutagenesis, surface plasmon resonance (SPR), ITC and NMR. Intact ColN binds
+TolAIII with a Kd of 18 mM, with this aﬃnity increasing 20-fold when the T-domain in isolation
+is used (Raggett et al. 1998). These diﬀerences in binding suggest that the TAB sequence may be
+sequestered in intact ColN, possibly through interactions with other parts of the Col. This
+interpretation has been borne out by heteronuclear NMR experiments which show the IUTD
+contacts the R-domain of the Col through what has been coined ‘self-recognition’ (Hecht et al.
+2008). NMR data also indicate that parts of the IUTD may in fact be partially structured (Hecht
+et al. 2008), with binding to TolAIII requiring the disassembling of this structure prior to binding
+(Hecht et al. 2009b).
+A critical part of the TAB (61SYHITFH67) is thought to adopt a b-conformation upon com-
+plexation with TolAIII (Hecht et al. 2009b). The involvement of a tyrosine residue (Tyr62) within
+the TAB suggests the binding interaction may be analogous to the binding motifs of other
+TolAIII binding proteins such as the N1 domain of g3p, which contacts TolAIII as part of
+the infection process of bacteriophage fd. Indeed, comparison of the crystal structure of
+TolAIII–N1 g3p (Lubkowski et al. 1999) with chemical shift mapping data, using a 13C/15N-
+labelled TolAII–III binding unlabelled ColN T-domain, have suggested that not only are the
+binding sites of g3p and ColN overlapping on TolAIII but that similar conformational changes
+may be induced in the Tol protein (Hecht et al. 2009b).
+5.3 ColA
+The IUTD of ColA requires both TolB and TolA for cytotoxic activity (Benedetti et al. 1991),
+with biophysical experiments indicating that both are bound by distinct and recognizable Tol
+binding sites; an N-terminal TBE (residues Lys9–Glu18) (Zhang et al. 2009b) and a C-terminal
+TAB (residues 58–90 (Cascales et al. 2007; Deprez et al. 2002; Hecht et al. 2010; Journet et al.
+2001) (Fig. 5). Interestingly, the ColA–TBE, which bears strong sequence similarity to the
+ColE9–TBE is close to the N-terminus of the Col, similar to the position of the ColE9 OBS1.
+This raises the interesting possibility that the 20 ﬁrst residues of the ColA N-terminus may serve
+a dual role, both recruiting OmpF and contacting TolB during Col translocation.
+The ColA–TBE encompasses the N-terminal half of the 16-residue ColE9–TBE. With fewer
+amino acids involved in binding it is not surprising that the aﬃnity of the ColA–TBE–TolB
+complex is signiﬁcantly weaker than its ColE9 counterpart; Kd 16 mM, in the presence of Ca2+
+ions, compared to 90 nM for ColE9 (Loftus et al. 2006; Zhang et al. 2009b). The crystal structure
+of the ColA–TBE bound to TolB shows a similar mode of binding to the TolB b-propeller as
+ColE9 (Zhang et al. 2009b). The RMSD for the core elements of the ColA and ColE9 TBEs
+bound to TolB is 039 A˚ , with a greater number of hydrogen bonds and hydrophobic interac-
+tions observed in the larger ColE9–TBE complex, consistent with its higher aﬃnity. In par-
+ticular, the key hydrogen bond interactions of Glu42 and Trp39 of the ColE9–TBE, which
+mimic the interactions of Pal with TolB (see above), are emulated in the ColA–TBE–TolB
+complex by Glu18 and Trp15 of ColA, respectively.
+The ColA TAB binds TolAIII in SPR experiments with a Kdy05 mM (Derouiche et al. 1997).
+However, the structural delineation of the complex has proven elusive because of the unusual
+characteristics of the complex in solution. Using NMR, Deprez et al. reported that binding of
+ColA to TolAIII caused the domain to unfold, conﬁrmed by subsequent NMR studies (Hecht
+74
+G. Papadakos et al.
+
+
+--- Page 19 ---
+et al. 2009b). The physiological relevance of this eﬀect has been questioned by Hecht et al. who
+found that no unfolding was observed if ColA T-domain constructs were used that only con-
+tained the binding site for TolAIII (constructs by Deprez et al. contained binding sites for both
+TolA and TolB) or if TolB was added to the ColA T-domain–TolAIII complex (Hecht et al.
+2010). These latter experiments also conﬁrmed that a ternary complex of ColA T-domain–TolB–
+TolA could be formed in vitro (Hecht et al. 2010), ﬁrst shown by antibody overlay experiments
+(Bouveret et al. 1998). Hecht et al. have also shown through NMR chemical shift mapping that
+the binding sites for all TolAIII protein partners thus far characterized (N1 domain of g3p, ColN
+TAB and ColA TAB) are distinct but overlap each other. It remains to be seen if this binding
+region coincides with that of the cognate binding partner for TolAIII in the bacterial periplasm,
+the TAB of TolB.
+The question arises as to why ColA requires contact with two Tol proteins when contact with
+TolA or TolB is suﬃcient to catalyse translocation for other Cols such as ColN and ColE9? This
+requirement likely reﬂects the twin problems of (i) weaker TolB binding than that required to
+competitively recruit TolB from its higher-aﬃnity complex with Pal (which is supported by
+analytical gel ﬁltration experiments (Zhang et al. 2009b); and (ii) the inability of ColA to allo-
+sterically promote contact between TolB and TolA. Although this has not been formally ad-
+dressed in biophysical experiments, the structure of the ColA–TBE–TolB complex shows that
+there is no interaction equivalent to that of Trp46 of the ColE9–TBE (Figs 5 and 8), which
+inserts into a deep pocket in Site 2 on the TolB surface (Section 5). Occupation of this site by the
+tryptophan is important for manipulation of the conformational equilibrium in TolB and hence
+for enhancing binding between TolB and TolAIII (Bonsor et al. 2009b). Without such an inter-
+action it is unlikely the ColA T-domain could promote the interaction between TolA and TolB.
+Some studies have suggested that translocating Cols can contact other Tol proteins in addition
+to TolB and TolA. For example, pull-down and immunoprecipitation assays have suggested that
+the group A Col ColK simultaneously contacts TolB, TolA, TolQ and TolR (Barneoud-Arnoulet
+et al. 2010b), although the speciﬁc binding epitopes on the Col for the IM proteins TolQ and
+TolR have not been elucidated. It is also unclear as to how ColK contacts TolB since it does not
+contain a recognizable TBE sequence.
+6. Col translocation across the OM and the role of the PMF
+How Cols translocate cytotoxic domains across the OM following assembly of their translocons
+is not understood. Some of the contributing processes to this event have emerged, however,
+from work on both pore-forming and nuclease Cols. Signiﬁcant conformational changes to the
+Col are thought to be associated with OM translocation, which is unsurprising given that these
+are folded proteins bound to the external surface of the cell. Urea denaturation experiments and
+disulﬁde bond engineering have both suggested that ColA undergoes large-scale structural
+changes during OM translocation (Benedetti et al. 1992; Duche et al. 1994). The use of an internal
+disulﬁde bond, which locks the coiled-coil R-domain of ColE9 closed and so blocks Col entry
+into cells and cytotoxicity (Section 4), is also consistent with the Col experiencing signiﬁcant
+changes in structure in order for translocation to occur (Penfold et al. 2004b). Moreover, cell-
+killing and protease protection studies on Col-treated cells have suggested that translocated Cols
+not only span the cell envelope but that part of the toxin remains exposed to the external surface
+during cell-killing (Benedetti et al. 1992; Beppu et al. 1972; Cramer et al. 1992; Nose & Mizuno,
+1968; Zhang & Cramer, 1992). Notwithstanding these important pieces of information, there is
+Nuclease colicins and their immunity proteins
+75
+
+
+--- Page 20 ---
+currently very little structural understanding of what a translocated Col looks like or indeed how
+much of the Col moves across the membrane in order to deliver the cytotoxic domain to the
+periplasm/cytoplasm. It is not inconceivable that answers to these questions will emerge in the
+future since isolation of part of the translocon for ColE9, containing the Col, BtuB and OmpF,
+has already been described (Housden et al. 2005).
+An area of controversy in the Col ﬁeld concerns the energy dependence of the OM translo-
+cation step. Since the OM is not an energized system, cellular processes requiring the input of
+energy, such as the active transport of iron through siderophore receptors, rely on connection to
+PMF-driven machines, the Ton system in the case of nutrient uptake. The direct relevance of
+cellular PMF to Col uptake through Ton or Tol has proven diﬃcult to ascertain. Indeed, early
+studies (Bourdineaud et al. 1990a) suggested that in the case of ColA the PMF was not involved
+in translocation. Recently, however, Im protein-bound nuclease Cols have provided direct evi-
+dence for the involvement of the PMF in the OM translocation step. Im proteins bind Col
+nuclease domains with femtomolar binding aﬃnities (Section 9), which raises the key question
+of how a complex that has a dissociation half-life of the order of several days at 37 xC is
+dissociated at the cell surface on a timescale commensurate with cell-killing (t1=2<15 min).
+Studies have now shown that not only is the Im protein released at the cell surface but this is a
+PMF-dependent process.
+Using an SOS–lux reporter system, James and co-workers demonstrated that translocation of
+the ColE9 DNase to the cytoplasm (detected by DNA damage-induced luminescence) takes the
+same amount of time whether the Im protein is bound or not (Vankemmelbeke et al. 2005),
+suggesting Im protein dissociation is not rate-limiting for cell-killing. Using an EGFP–Im2
+fusion as well as Western blotting, the Lloubes lab showed that the Im protein from the ColE2–
+Im2 complex dissociates on the same timescale as the kinetics of cell-killing and that the full
+translocon machinery is needed for the separation of Col from Im protein (Duche et al. 2006).
+Using a similar approach but with Alexa594-labelled Im9 in complex with disulﬁde-locked
+ColE9, James and co-workers have shown that Im dissociation at the cell surface requires
+reduction of the disulﬁde implying translocon assembly is not suﬃcient for Im release but that
+Col unfolding is a pre-requisite for complex dissociation (Zhang et al. 2008). Critically, they
+demonstrated that ionophores which destroy the cellular PMF reduce Im release from the Col
+complex at the cell surface and that a mutation within the proton-conducting path of the
+TolQRA complex, which disrupts Tol function in vivo (Goemaere et al. 2007), has a similar eﬀect
+(Vankemmelbeke et al. 2009). Finally, Bonsor et al. have shown that it is the contact between
+TolAIII and the TAB sequence of TolB within the periplasm that is the necessary step for
+enzymatic Col Im release (Bonsor et al. 2009b).
+Current models suggest that the PMF across the cytoplasmic membrane is transduced
+into conformational transitions within TolA through the TolQRA complex. Group A nuclease
+Cols parasitize this system by promoting contact between TolA and TolB thereby promoting
+Im protein dissociation at the cell surface. Several studies have begun to investigate conforma-
+tional changes within the IM TolQRA complex (which has an estimated stoichiometry of
+4–6:2:1; Cascales et al. 2001) and in particular the role of PMF in transmembrane interactions.
+The Lloube`s lab have deployed disulﬁde cross-linking to demonstrate that dimerization
+occurs between TolR molecules through their TMHs (Zhang et al. 2009a) and periplasmic
+C-terminal a-helices (Goemaere et al. 2007). Cellular PMF regulates the rotation of the TMH
+pairs (Zhang et al. 2009a) and conformational changes experienced by each C-terminal
+helix (Goemaere et al. 2007). The latter is also regulated by speciﬁc residues in the TolQR
+76
+G. Papadakos et al.
+
+
+--- Page 21 ---
+ion-conducting pathway, comprised of one TolR and two TolQ TMHs. Self-association of TolQ
+has also been demonstrated by cysteine scanning mutagenesis (Zhang et al. 2011). Presumably, it
+is the rotation of Tol complex TMHs transduced into a conformational change in TolA that
+aﬀects its interaction with the TolB/nuclease Col IUTD complex at the OM and provides the
+signal for Im protein dissociation at the external surface of the cell, although how this occurs is
+not known.
+The Cramer lab has reported that release of the Im protein Im3 from its complex with ColE3
+leads to signiﬁcant destabilization/unfolding of the nuclease and that the rRNase domain oc-
+cludes voltage-gated OmpF channels in planar lipid bilayer experiments. The two observations
+have been combined to suggest the destabilized rRNase is translocated through the OmpF pore
+in a similar fashion to the IUTD of the Col (Zakharov et al. 2006) (Section 4). While attractive as
+a mechanism for translocating the nuclease to the periplasm this model remains problematic for
+several reasons. First, in other work Walker et al. found that the ColE3 rRNase domain free of
+Im3 is rather a stable protein (Tmy48 xC), which has a single co-operative unfolding transition
+and near UV-CD and tryptophan emission ﬂuorescence spectra all indicative of a folded domain
+(Walker et al. 2004a). Second, if this were the translocation route of the nuclease it would be
+expected to be used by other nuclease Cols similarly destabilized by removal of their Im protein.
+Col DNases, however, are even more thermodynamically stable than the E3 rRNase domain
+(in their metal bound states, van den Bremer et al. 2004) and there is currently no evidence that
+DNases block OmpF pores. Third, while OmpF occlusion can be clearly linked to translocation
+of the ColE3 (and ColE9) IUTD (Section 4) it remains to be shown if this also reﬂects trans-
+location of the entire cytotoxic domain to the periplasm.
+7. Col nuclease domain translocation across the IM and the role of
+proteolytic processing
+While a number of studies have suggested proteolytic cleavage of Cols occurs, the linkage of such
+processing to the import mechanism itself is often less clear-cut. Cleavage by bacterial proteases
+has been shown to take place at the cell surface and in the periplasm. For example, the OM
+protease OmpT was reported to cleave group A Cols A, E1, E2 and E3 (Cavard & Lazdunski,
+1990). Recently, ColE2 cleavage by OmpT was studied in more detail (Duche et al. 2009). In vivo
+assays established that a region of the ColE2–Im2 complex is proteolytically processed at the cell
+surface by OmpT leading to the release of the DNase domain. Moreover, BtuB was found to be
+necessary for the cleavage to take place, and experiments with cells overproducing OmpT were
+more sensitive to ColE2–Im2 treatment than Col alone. The results also suggested that Im2
+protects ColE2 from proteolytic cleavage at the cell surface. It has been demonstrated recently
+that while the ColD and ColE3 RNases undergo OmpT proteolytic cleavage at the cell surface,
+DompT cells retain their sensitivity to both Cols, which discounts the involvement of OmpT in
+the import and cytotoxicity of group A or B nuclease Cols (Chauleau et al. 2011). Cleavage in the
+periplasm has been shown for a number of Cols. The group A Col ColE7 is cleaved at the
+junction between the R- and DNase domains (residue 447), and this appears to be required for
+import to the cytoplasm and for cytotoxicity (Shi et al. 2005). In other studies, the IM leader
+protease LepB cleaves the group B Col ColD in a step that is also reported to be essential
+for cytotoxicity (de Zamaroczy & Buckingham, 2002; de Zamaroczy et al. 2001). However, a
+lepB-resistant mutant remains sensitive to other Cols (B, E1, E2 and E3) implying that this is a
+very speciﬁc eﬀect (see below).
+Nuclease colicins and their immunity proteins
+77
+
+
+--- Page 22 ---
+While the mechanism by which the nuclease domain of group A and group B nuclease Cols
+translocate across the IM is yet to be resolved, evidence is emerging which suggests a direct
+interaction of the nuclease with the membrane may play a role. The nuclease domains of both
+ColE3 (rRNase) and ColE9 (DNase), which are highly basic proteins, are signiﬁcantly destabi-
+lized by electrostatically driven interactions with anionic phospholipids, causing them to become
+molten-globule-like, with this eﬀect inhibited by Im protein binding (Mosbahi et al. 2004, 2006).
+The physiological relevance of these interactions to the IM translocation step is inferred from
+two observations. The ﬁrst relates to one of the consequences of such associations for Col
+DNases, which form random, non-voltage-gated channels in planar lipid bilayer experiments.
+DNase channel activity is abolished by an internal disulﬁde bond within the nuclease domain that
+also abolishes Col toxicity (Mosbahi et al. 2002). The second observation comes from studies
+investigating the relationship between Col nuclease electrostatics and cell-killing behaviour of an
+E. coli strain where the negative charge of the cytoplasmic membrane could be regulated. Walker
+et al. demonstrated that a direct correlation exists between the net positive charge on the DNase
+and the level of cell-killing in such a strain, with more positively charged DNases being more
+eﬀective antibiotics (Walker et al. 2007).
+The potential for Col nucleases to form complexes with anionic phospholipid membranes
+such as the E. coli IM raises the critical question of how the Col might subsequently translocate to
+the cytoplasm? One possibility that has been considered is some form of retro-translocation
+through the Sec or Tat secretion pathways. However, mutations in these pathways fail to stop
+Col activity suggesting that they are not the route to the cytoplasm (Walker et al. 2007). FtsH has
+been identiﬁed as a potential candidate for the retro-translocation step (Fig. 9). FtsH is an
+essential AAA+ ATPase/protease in the E. coli IM that degrades misfolded membrane proteins
+after ﬁrst dislocating the protein to the cytoplasm in an ATP-dependent process (Ito & Akiyama,
+2005). Testing an array of diﬀerent Cols with various cytotoxic activities and diﬀerent import
+routes, in combination with FtsH deletion and point mutants, Walker et al. showed that FtsH is
+required for the cytotoxicity of both group A and group B nuclease Cols (rRNase, tRNase and
+DNase) (Walker et al. 2007). Hence, the requirement for FtsH is independent of the import route
+across the OM. FtsH was, however, not required for pore-forming and peptidoglycan-cleaving
+Cols, which function within the periplasm. Moreover, both protease and ATPase activities of
+FtsH are required for nuclease Col toxicity.
+The essential role of FtsH in the processing and translocation of ColD and ColE3 RNases has
+recently been conﬁrmed by the de Zamaroczy lab who showed that FtsH is required for the
+proteolytic processing of these nuclease domain as they enter the cytoplasm (Chauleau et al.
+2011). In the case of ColD, FtsH processing is mediated by LepB although this appears not to
+be a catalytic requirement but a structural one. However, this is not the case for ColE3 the
+processing of which by FtsH is LepB independent. These distinct requirements for LepB may be
+a result of the nuclease domain of ColE3 being more positively charged, and hence better able to
+insert in phospholipid bilayers, than ColD (Chauleau et al. 2011).
+Taken together, these experiments suggest FtsH plays an important role in the IM retro-
+translocation of membrane-associated Col nuclease domains, mistaking the Col as a misfolded
+membrane protein (Fig. 9). The FtsH-mediated mechanism is similar to the retro-translocation
+of bacterial toxins such as the cholera toxin across the ER membrane through the ER-associated
+protein degradation pathway. If this is the route across the IM for the nuclease domain it would
+only require one nuclease molecule to avoid being degraded by the protease and its subsequent
+refolding in the cytoplasm in order for cell-killing to proceed. There is currently, however, no
+78
+G. Papadakos et al.
+
+
+--- Page 23 ---
+evidence that Col nucleases can avoid being degraded by FtsH, although a number of studies
+have shown that they are readily refolded from their denatured states (Ogawa et al. 1999; Walker
+et al. 2003; Wallis et al. 1994).
+8. Mechanism of action of enzymatic cytotoxic domain
+Four enzymatic activities have been identiﬁed in Cols; DNases that target cytoplasmic
+DNA (ColE2 and ColE7–ColE9), rRNases that target 16S ribosomal RNA (ColE3, E4 and
+E6), tRNases that target speciﬁc tRNAs (ColE5 and D) and a phosphatase that targets pepti-
+doglycan precursors in the periplasm (ColM) (Table 2). The following sections summarize the
+structural biochemistry for each enzymatic class and how these toxins are thought to elicit cell
+death.
+Fig. 9. Hypothetical model depicting retro-translocation of a Col nuclease domain across the E. coli cyto-
+plasmic membrane. Although the model incorporates observations on several Cols, as described in the text,
+the ﬁgure highlights work on group A nucleases such as ColE3, ColE7 and ColE9. Step 1, electrostatically
+driven interaction between the Col nuclease domain and the anionic phospholipid bilayer of the cytoplasmic
+membrane; Step 2, destabilization of the nuclease domain (the DNase of ColE9 is shown) to form a molten-
+globule; Step 3, retro-translocation of the destabilized nuclease domain via the cytoplasmic AAA+ ATPase
+domain of FtsH followed by proteolytic processing. FtsH normally degrades proteins down to peptides, the
+mechanism by which Col nucleases avoid complete degradation remains unknown. Step 4, refolding of a
+single Col nuclease in the cytoplasm; Step 5, folded and functional Col nuclease attacks its cellular nucleic
+acid target, in this instance the E. coli chromosome.
+Nuclease colicins and their immunity proteins
+79
+
+
+--- Page 24 ---
+8.1 DNase Cols
+Col DNases are divalent metal ion-dependent enzymes that randomly degrade DNA (Table 2).
+Sequence similarity in the C-terminal 134 amino acid domains of the four E Col DNases that
+Table 2. The catalytic activities of enzymatic Cols.
+aNg et al. (2010b).
+bOgawa et al. (2006).
+cTomita et al. (2000).
+dDoudeva et al. (2006).
+ePommer et al. (2001).
+fEl Ghachi et al. (2006).
+80
+G. Papadakos et al.
+
+
+--- Page 25 ---
+have been identiﬁed to date (E2 and E7–E9) ranges from 70 to 80%. The ColE7 and E9 DNase
+domains in complex with DNA and metal ions have been reported which provide a structural
+foundation for understanding the mechanism of dsDNA hydrolysis (Doudeva et al. 2006; Hsia
+et al. 2004; Mate & Kleanthous, 2004) (Fig. 10a). The core of the active site of Col DNases is the
+H-N-H motif located at the C-terminus of the protein sequence. This y34-amino-acid-long
+motif contains four conserved histidine residues some of which chelate a single metal ion to
+catalyse DNA hydrolysis. The H-N-H motif is widespread in metal-ﬁnger nucleases across all
+kingdoms of life (Gorbalenya, 1994; Keeble et al. 2005; Shub et al. 1994). They are divided into
+four sub-groups: bacterial toxins, homing endonucleases, restriction/repair enzymes and heli-
+cases/reverse transcriptases, with homing enzymes being the largest subgroup (Galburt &
+Stoddard, 2002). The H-N-H motif is also structurally related to the ‘bba-Me’ motif (Kuhlmann
+et al. 1999) found in such nucleases as I-PpoI from Physarum polycephalum, Serratia nuclease
+from Serratia marcescens, Vvn from Vibrio vulniﬁcus and the Holliday junction-resolving enzyme T4
+endo VII.
+The ColE9 DNase has been shown to preferentially cleave dsDNA after thymine, but with
+little cleavage speciﬁcity exhibited for ssDNA and ssRNA (Pommer et al. 2001). Optimal activity
+of E9 DNase against dsDNA has been reported in the presence of millimolar concentrations of
+Mg2+ or Ca2+ while transition metals such as Ni2+ and Co2+ are preferred for ssDNA hydrolysis.
+Cleavage of ssRNA appears not to be metal dependent. Somewhat diﬀerent results have been
+obtained for the closely related ColE7 DNase that is reported to cleave dsDNA in the presence
+of Zn2+ (which by contrast is inhibitory for the E9 DNase) and ssDNA in the presence of Zn2+
+and Ni+ (Doudeva et al. 2006).
+The structure of the E9 DNase bound to dsDNA in the presence of Zn2+ or Mg2+ ions
+(Fig. 10a) shows that the architecture of the E9 DNase active site does not change upon binding
+to the minor groove of substrate DNA (Mate & Kleanthous, 2004). However, the DNA be-
+comes distorted, which positions a single scissile phosphodiester bond close to the divalent
+(a)
+(b)
+Fig. 10. (a) ColE9 DNase domain bound to the minor groove of dsDNA (PDB ID: 1V14) highlighting the
+active site H-N-H motif (cyan), along with two of the motif’s characteristic histidine residues, and its bound
+metal ion. (b) ColE3 rRNase domain (red) bound to the A-site of the E. coli 70S ribosome in which is also
+bound mRNA (black) and P- (light grey) and E-site (dark grey) tRNAs (PDB ID: 2XFZ and 2XG0).
+Nuclease colicins and their immunity proteins
+81
+
+
+--- Page 26 ---
+cation in the active site. Widening and bending of the dsDNA groove has also been observed in
+other structures of similar enzymes containing the V-shaped active site characteristic of the H-N-
+H motif, such as I-PpoI and Vvn, as well as in the E7 DNase (Hsia et al. 2004). Interestingly, the
+same nucleic acid interactions are made regardless of which metal ion is bound. The Mg2+ ion is
+coordinated by two histidine residues within the H-N-H motif (His102 and His127 in E9 DNase,
+numbering of isolated domain), while Zn2+ binding also recruits a third histidine, His131, which
+is thought to explain the lack of enzymatic activity of the E9 DNase in the presence of zinc. It
+has been proposed that His103 serves as a general base, with the role of the Mg2+ ion being to
+polarize the scissile phosphate, stabilize the transition state (TS) and activate the hydrolytic water
+molecule (Pommer et al. 2001).
+It is yet to be established how Col DNases result in cell death since the single-strand nicks to
+dsDNA caused by the enzyme could be repaired by the DNA repair machinery of the cell.
+Indeed, DNase Cols are known to induce the SOS response in E. coli that repairs DNA damage
+(Walker et al. 2004b). Cell death likely results either because the nicking activity of the Col DNase
+overwhelms the repair machinery of the cell or random nicking of the genome occasionally
+produces lethal double-strand breaks.
+8.2 rRNase Cols
+Col E3, the ﬁrst of the rRNase Cols to be isolated (Herschman & Helinski, 1967), cleaves a single
+phosphodiester bond between A1493 and G1494 in helix 44 of 16S rRNA at the decoding
+(A-site) in the 30S subunit (Table 2) (Senior & Holland, 1971). The exact mechanism by which
+this cleavage inhibits translation has until recently proven enigmatic. Detailed investigations from
+the Rodnina lab (Lancaster et al. 2008), using a variety of steady-state and pre-steady approaches,
+showed that cleavage aﬀects predominantly the elongation step of translation, while the rate of
+initiation slows down and becomes less eﬃcient. ColE3 cleavage inhibits peptide bond forma-
+tion and translocation but its main perturbation is on the decoding step of elongation, consistent
+with its cleavage of the phosphodiester bond adjacent to the critical decoding nucleotides A1492
+and A1493. In addition, ColE3-mediated cleavage reduces the stability of the codon–recognition
+complex and the rate of accommodation of amino acyl-tRNA in the A-site decreases y200-fold.
+Accumulation of those two eﬀects results in production of short peptides by ColE3-cleaved
+ribosomes that ultimately leads to cell death.
+The 32 A˚ resolution structure of the E3 rRNase bound to Thermus thermophilus 70S ribosome
+in complex with mRNA and tRNAs (Fig. 10b) sheds light on the high speciﬁcity and mechanism
+of RNA cleavage (Ng et al. 2010a). The ColE3 rRNase binds to the decoding A-site of the 30S
+subunit with a topology similar to the anticodon stem-loop of tRNA, contacting one 30S subunit
+protein, S12, via its N-terminus. When bound to its Im protein, the N-terminal residues of the
+E3 rRNase form an a-helix, while in the ribosome they form a pseudo-b-sheet that makes
+extensive hydrogen bonding with S12 residues. No major global changes occur in the 70S
+ribosome as a result of E3 rRNase binding and cleavage. However, the decoding site adopts
+an open conformation characteristic of an empty 30S subunit in which nucleotide G530 is in a syn
+conformation and helix 69 of the 23S rRNA undergoes a minor change in conformation. The
+crystal structure of the E3 rRNase bound to the 70S ribosome represents the post-cleavage state
+since the bond between A1493 (3k-terminal 2k,3k-cyclic phosphate) and G1494 (free 5k hydroxyl
+group) was hydrolysed even though mutants inactive in cell-killing assays were used in the
+crystallization experiments. While the 3k-16S rRNA product fragment does not change
+82
+G. Papadakos et al.
+
+
+--- Page 27 ---
+conformation, A1492 and A1493 in the 5k end get pushed towards the E3 rRNase with which
+they form a number of interactions. Based on the structure and previously published data, a
+cleavage mechanism was proposed in which His58 and Glu62 form a catalytic general acid–base
+pair, while Asp55 and Glu60 provide additional stabilization of the TS (Ng et al. 2010a). The
+structure of the E3 rRNase–70S product complex is consistent with the biochemical data on the
+eﬀects of 16S rRNA cleavage; slowing down/halting protein synthesis is due to increased
+ﬂexibility in the decoding centre with consequent defects in the acceptance of amino acyl-
+tRNAs.
+8.3 tRNase Cols
+Cols E5 and D cleave single phosphodiester bonds in the anticodon loops of speciﬁc tRNAs
+which ultimately arrests protein synthesis (Table 2). ColE5 cleaves the Q(G)34pU35p dinucleotide
+at the anticodon triplet of tRNATyr, tRNAHis, tRNAAsn and tRNAAsp (Ogawa et al. 2006), while
+ColD cleaves between nucleotides 38 and 39 in at least 3 of the 4 tRNAArg (ICG, U*CU,CCU)
+(Tomita et al. 2000). Cols E5 and D have similar folds; however, their substrate recognition
+mechanism and active sites are diﬀerent. They contain mainly b-sheets and are structurally similar
+to the toxin RelE and the ribonucleases 1. ColE5, which is unique among ribonuclease in not
+having any histidine residues, cleaves the phosphodiester bond between Q34 and U35 on the 3k
+side of the wobble position (Ogawa et al. 1999). Based on the crystal structure, mutational
+analysis and docking experiments, tRNA cleavage has been proposed in which Asp46 acts as a
+general base, activating the 2k-OH group at the position 34, while Arg48 stabilizes the TS (Lin
+et al. 2005). ColD has one histidine residue (His611) the mutation of which abolishes ColD
+cytotoxic activity (Tomita et al. 2000). Based on the structure of ColD in complex with ImD, two
+other residues, Lys608 and Lys610, were proposed to be involved in the cleavage reaction
+(Graille et al. 2004). Both ColD and ColE5 give rise to the same reaction products, which are
+5k-hydroxyl and 2k,3k-cyclic phosphate (Ogawa et al. 1999; Tomita et al. 2000).
+8.4 Peptidoglycan hydrolase Col
+ColM aﬀects peptidoglycan biogenesis by hydrolysing lipid intermediates I and II between C55
+and pyrophosphoryl groups thereby inhibiting peptidoglycan and O-antigen synthesis (Table 2).
+Products of the cleavage reaction are undecaprenol (C55-OH) and either 1-pyrophospho-
+MurNAc-pentapeptide or 1-pyrophospho-MurNAc(pentapeptide)-GlcNAc (El Ghachi et al.
+2006). Based on previously published inactivating point mutants, along with sequence alignment
+data of Col M homologues, Barreteau et al. identiﬁed 20 putative active side residues (Barreteau et
+al. 2010). Enzymatic activity of single alanine mutants at these sites was examined using in vivo
+and in vitro assays. Five residues (Asp229, His235, Asp226, Tyr228 and Arg236), which are all
+essential for ColM activity, cluster at the surface of the Col and likely comprise the ligand-binding
+and catalytic sites.
+It has been shown that the antibacterial activity of ColM depends on the periplasmic cha-
+perone FkpA (Hullmann et al. 2008). Periplasmic chaperones aid in folding of OM proteins and
+prevent aggregation of misfolded periplasmic proteins. ColM is inactive against fkpA E. coli cells,
+as well as four fpkA mutants. Denatured ColM regains its cytotoxic activity when incubated with
+puriﬁed FpkA, suggesting FkpA helps in ColM refold in the periplasm following translocation
+through OM (Hullmann et al. 2008). Conversely, other groups have shown that the isolated
+Nuclease colicins and their immunity proteins
+83
+
+
+--- Page 28 ---
+C-terminal enzymatic domain does not require FkpA for activity in vivo (Barneoud-Arnoulet et al.
+2010a; Barreteau et al. 2010).
+9. Protein–protein interaction studies of the Col endonuclease–Im
+protein complex
+Im proteins inhibit the nuclease domains of Cols through two distinct modes of action; direct
+occlusion of the enzyme active site (tRNase-speciﬁc Im proteins Im5 and ImD) or indirect
+occlusion of nucleic acid binding through association with an Im protein exosite (IPE) adjacent
+to the active site (DNase-speciﬁc Im9 and rRNase-speciﬁc Im3, for example). Below we review
+the extensive biophysical, structural and computational analyses of Col DNase–Im protein
+complexes, which have proven to be a powerful model system for investigating speciﬁcity in
+protein–protein interactions. We also review less extensive work on the ColE3 rRNase–Im3
+complex.
+9.1 Kinetic and thermodynamic analyses of Col DNase–Im protein association
+The complexes between Col DNases and their cognate Im proteins are ultra-high aﬃnity and so
+the exploration of the corresponding binding constants has been performed predominantly
+through kinetic studies employing stopped-ﬂow tryptophan ﬂuorescence. Both ColE2 DNase–
+Im2 (Li et al. 2004) and ColE9 DNase–Im9 (Wallis et al. 1995) complexes associate by a diﬀusion-
+limited, bimolecular collision (of the order of 108–109 Mx1 sx1 at pH 7, 25 xC and in 200 mM
+salt) resulting in the formation of an encounter complex NI*, where N is the nuclease and I the
+inhibitor (Eq. 1):
+N+I Ð
+k1
+kx1 NI* Ð
+k2
+kx2 NI
+(1)
+Electrostatics play a signiﬁcant role in the formation of NI* as demonstrated by the strong
+dependence of the association rates (k1) on the ionic strength. The encounter complex subse-
+quently collapses to the stable complex NI (Eq. 1) in a second slower phase which, it has been
+argued, represents rigid body rotation of the Im protein on the DNase surface (Keeble &
+Kleanthous, 2005). There are no gross changes in conformation in either protein on forming the
+complex. In the case of the ColE3 rRNase–Im3 complex (Walker et al. 2003), a single phase is
+observed in stopped-ﬂow tryptophan ﬂuorescence experiments, attributed to the rapid bimole-
+cular association between the two proteins which is not accompanied by any conformational
+changes. The resulting kinetically derived equilibrium dissociation constants for nuclease–Im
+protein complexes are all in the femtomolar region (007x20r10x15 M), depending on the
+ionic strength (Li et al. 2004; Walker et al. 2003; Wallis et al. 1995).
+Arrhenius analysis of the observed rate constants for the ColE9 DNase–Im9 complex re-
+vealed that low activation barriers for the bimolecular association and the subsequent con-
+formational rearrangement are favoured both by low enthalpy and positive entropy values while
+the dissociation of the encounter complex is slow mainly due to large negative activation entropy
+(Wallis et al. 1995). A similar trend is seen in the case of the ColE3 rRNase–Im3 complex for the
+bimolecular association and dissociation steps (Walker et al. 2003). A large positive entropy
+change favours the observed femtomolar binding constant as revealed by Van’t Hoﬀanalysis of
+the kinetically determined Kd values in the case of the ColE9–Im9 complex. This entropy change
+84
+G. Papadakos et al.
+
+
+--- Page 29 ---
+must be associated with changes in the solvation entropy of the two proteins upon association
+(Wallis et al. 1995). On the other hand, a large negative enthalpy change favours the formation of
+the ColE3 rRNase–Im3 complex, which is associated with a signiﬁcant number of intermolecular
+hydrogen bonds formed upon association of the two proteins (Carr et al. 2000; Walker et al.
+2003).
+Kinetically determined enthalpy changes that occur upon formation of the ColE9 DNase–Im9
+and ColE3 rRNase–Im3 complexes have been veriﬁed by ITC (Keeble et al. 2006; Walker et al.
+2003). Calorimetric analysis of all four cognate DNase–Im complexes shows that binding is
+enthalpically driven (x331, x303, x242 and x105 kcal/mole, respectively). In the case of
+the ColE2, ColE7, ColE8 DNase complexes binding is entropically disfavoured (–135, x105
+and x44 kcal/mol, respectively), while for the ColE9 DNase–Im9 complex binding is en-
+tropically favoured (+81 kcal/mole) (Keeble et al. 2006). These observations are consistent with
+the greater polarity of the Im protein complexes of ColE2, ColE7 and ColE8 DNases and in
+contrast to the ColE9 DNase–Im9 interface, which is more hydrophobic. In accordance with the
+observed large negative values (ranging between x045 and x082 kcal molx1 Kx1) for the
+association heat capacity, binding of the ColE2, ColE7 and ColE8 DNases with their cognate Im
+partners is accompanied by a strong rigidiﬁcation of one or both counterparts while in the case
+of the ColE9 DNase–Im9 complex association is coupled to a signiﬁcant expulsion of interfacial
+water (Keeble et al. 2006).
+9.2 A dual-recognition mechanism underpins binding specificity in Col DNase–Im
+protein complexes
+Exosite binding of Im proteins has driven an evolutionary arms race between Col-producing
+bacteria, allowing extensive sequence variation at the Col DNase–Im interface (Kleanthous &
+Walker, 2001). The manifestation of this diversiﬁcation is the ten-orders-of-magnitude range of
+binding aﬃnities that have been recorded among cognate and non-cognate Col DNase–Im
+protein complexes (Li et al. 2004). This, in turn, has provided a powerful model system with
+which to explore the determinants of binding speciﬁcity more generically in protein–protein
+interactions.
+The majority of studies aimed at investigating Col DNase–Im protein complexes have focused
+primarily on how the Im protein binds and recognizes the DNase speciﬁcally. These studies have
+proposed that a dual-recognition mechanism underpins binding speciﬁcity wherein the bulk of
+complex stabilization emanates from conserved hydrogen bonds and hydrophobic interactions
+between Col DNase IPE residues and a hotspot of conserved Im residues in helix a3 (shown in
+Fig. 11a for the ColE9 DNase–Im9 complex). These contacts are present in both cognate
+(ColE7 DNase–Im7 (Ko et al. 1999) and ColE9 DNase–Im9 (Kuhlmann et al. 2000; Montalvao
+et al. 2008)) and non-cognate (ColE9 DNase–Im2) (Li et al. 1998, 2004) complexes. The stability
+enhancement in the case of the cognate complexes stems from interactions between charged or
+hydrophobic residues of Im helix a2 (shown in Fig. 11a for the ColE9–Im9 complex) and
+residues of identical chemical nature in the DNase IPE (Kuhlmann et al. 2000). In the case of the
+non-cognate complexes, the presence of residues of non-identical chemical nature between
+Im helix a2 and the DNase destabilizes the complex, which play a critical role in determining the
+7–10-orders-of-magnitude diﬀerence in aﬃnities between cognate and non-cognate complexes
+(Kuhlmann et al. 2000; Wallis et al. 1998). In order to confer speciﬁcity to the DNase, only a small
+number of Im helix a2 residues need vary without concomitant alteration of helix a3 core
+Nuclease colicins and their immunity proteins
+85
+
+
+--- Page 30 ---
+F86
+Y54
+Y55
+D33
+N34
+L33
+V34
+Y83
+F86
+T29
+K97
+N75
+V98
+Y54
+Y55
+D33
+N34
+N72
+D62
+V37
+I53
+E41
+E30
+R54
+D51
+helix α3
+α1-α2 loop
+α3–α4 loop
+helix α2
+Y83
+F86
+T27
+K97
+N75
+V98
+Y54
+Y55
+L33
+V34
+N72
+D62
+V37
+I53
+E41
+D51
+E30
+R54
+helix α3
+α1-α2 loop
+α3–α4 loop
+helix α2
+(a)
+(b)
+(c)
+Fig. 11. For legend see following page.
+86
+G. Papadakos et al.
+
+
+--- Page 31 ---
+interactions, which facilitates the diversiﬁcation and evolution of Im speciﬁcity without compro-
+mising the ability of the Im protein to inactivate the toxin (Kuhlmann et al. 2000; Meenan et al.
+2010).
+9.3 The cognate ColE9 DNase–Im9 complex
+An alanine scan of ColE9 DNase IPE interfacial residues, where the DDG of Im9 binding
+between the ColE9 mutants and the wild-type (WT)-ColE9 was determined computationally and
+experimentally using stopped-ﬂow ﬂuorescence kinetics, revealed that the eﬀect of the IPE
+residues on Im9 binding is not as extensive as that of the hotspot residues in Im9 (Keeble et al.
+2008; Kuhlmann et al. 2000). The scan showed four ColE9 DNase IPE residues (Asn75, Phe86,
+Lys97 and Val98; isolated domain numbering) create a speciﬁcity hotspot for the DNase which
+form a central belt at the interface of the ColE9–Im9 complex (Fig. 11a). Phe86 is coordinated
+by the conserved Tyr54 and Tyr55 of Im9 helix a3 and the speciﬁcity Im9 helix a2 residues
+Val34 and Val37 while Lys97 and Val98 interact with Glu41 and Val34 of Im9 helix a2,
+respectively (Kuhlmann et al. 2000). The F86A ColE9 DNase mutant exhibited the greatest
+DDG for Im9 binding of all four hotspot alanine variants. Structural and double-mutant cycle
+(DMC) analyses (experimental and computational) for the F86A mutant binding Im9 (V34A,
+V37A, Y54A and Y55A) and Im2 mutants (D33A, N34A, V37A, Y54A and Y55A) were per-
+formed. This conﬁrmed the importance of Tyr54 and Tyr55 in the stability of cognate and non-
+cognate complexes alike but also showed minimal coupling between Phe86 and Im9 residues
+(with the speciﬁcity residues exhibiting greater interaction than Tyr54 and Tyr55). Negative
+DMC values were obtained for Im2 speciﬁcity residues relative to Phe86, the alanine substitu-
+tions of these Im2 residues relieving the instability conferred to the ColE9 DNase–Im2 complex
+by the WT residues (see below). Phe86 is conserved between the DNase of ColE2 and ColE9
+(the corresponding speciﬁcity residue in ColE7 and ColE8 is a lysine) while Asn75 is conserved
+Fig. 11. Dual-recognition underpins binding speciﬁcity in Col DNase–Im protein complexes. (a) Cognate
+complex of the ColE9 DNase–Im9 complex (Kdy10x14 M). In ColE9 DNase (green), the IPE residues
+PDB ID 1EMV (Asn75, Phe86, Lys97, Val98; isolated domain numbering) (red) form a central belt at the
+binding interface where mutation to alanine has the largest impact on the binding free energy (DDG). At the
+centre of this belt Phe86 stacks with the conserved Im9 helix a3 (purple) residue Tyr54 and is surrounded
+by the variable Im9 helix a2 hydrophobic residues (purple) Leu33, Val34 and Val37 and Ile53. Additional
+stabilizing interactions are made by Im9 helix a3 residues Asp51 and Tyr55. Further speciﬁcity interactions
+made between E9 DNase Lys97 and Val98 with Im9 residues Glu41 and Val34, respectively. E9 DNase
+Arg54, at the periphery of the IPE, forms a salt bridge with Glu30 of Im9 helix a2. Asn75, the only
+completely conserved interfacial residue on the DNase IPE, participates in a water-mediated hydrogen
+bond to the Im9 backbone. Also shown are residues within two critical loops of Im9 (a1–a2, a3–a4),
+which are thought to contribute to binding speciﬁcity. (b) The non-cognate ColE9 DNase–Im2 complex
+(Kdy10x7 M) (PDB ID 2WPT). The key interactions from Im2 helix a3 (Tyr54, Tyr55 and Asp51) that
+surround the E9 DNase IPE residue Phe86 are maintained, including the stacking interaction with Tyr54.
+The strength of Im protein helix a3 hotspot (which also involves several interfacial water molecules, not
+shown) results in unfavourable packing between Phe86 and Asp33 and Asn34 causing frustration at the
+interface. Also evident are the changes in loop conformation in Im2 relative to Im9 (a1–a2, a3–a4 loops)
+that aﬀect the interactions of other E9 DNase IPE residues, particularly Tyr83 and Asn72. (c) Comparison
+of cognate and non-cognate packing interactions at the core of the ColE9 DNase–Im protein interface. The
+ﬁgure emphasizes the chemical frustration that results from the juxtaposition of charged and polar residues
+in Im2 (Asp33 and Asn34, respectively) with E9 DNase Phe86, which destabilize the stability of the
+complex.
+Nuclease colicins and their immunity proteins
+87
+
+
+--- Page 32 ---
+among all DNases. The rest of the hotspot IPE residues are variable. Accordingly, Col DNase–
+Im speciﬁcity is dictated by the conserved elements of the IPE and buﬀered by variable residues
+(Keeble et al. 2008).
+The conformation and dynamics of the ColE9 DNase–Im9 cognate complex and the individual
+proteins have recently been studied through MD simulations (Baron et al. 2008). In this study, the
+conformational entropy of Im9 was demonstrated to be substantially decreased upon binding the
+Col, with the ﬂexibility of the latter only increasing at the binding interface. In accordance with
+the crystal structure of the ColE9 DNase–Im9 complex, the MD simulations were consistent
+with conformational sampling of residues 54–64 in Im9 (involving the a2–a3 loop) and helix a3
+along with the conserved hotspot residues Tyr54 and Ty55 at the binding interface.
+9.4 The non-cognate ColE9 DNase–Im2 complex
+Further insight into the dual-recognition mechanism underpinning Col DNase–Im protein com-
+plex speciﬁcity emerged from the recent crystal structure of the non-cognate ColE9 DNase–Im2
+complex (Meenan et al. 2010) (Fig. 11b). Previous attempts at obtaining a structure for a non-
+cognate complex, which typically have Kd’s in the mM–nM range, had been hampered by
+the rotational dynamics which are thought to be intrinsic to non-cognate complexes. Meenan
+et al. employed NMR-based docking restraints as a guide to place cysteine residues across the
+protein–protein interface in order to trap and crystallize the E9 DNase–Im2 complex, which is
+seven-orders-of-magnitude weaker binding than the E9 DNase–Im9 complex and eight-orders-
+of-magnitude weaker than the E2 DNase–Im2 complex. Surprisingly, the resulting high-
+resolution structure showed an interface devoid of a covalent bond; the engineered disulﬁde
+merely stabilized the crystal lattice, with the non-cognate interface formed between neighbour-
+ing, covalently attached complexes.
+The binding interface for the non-cognate E9 DNase–Im2 complex localizes to the ColE9
+DNase IPE (Phe86), with Im2 anchored through the conserved helix a3 residues Tyr54, Tyr55
+and Asp51, in good agreement with the structure of the cognate ColE9 DNase–Im9 complex.
+Tyr54 (Im2) and Phe86 (ColE9 DNase) are aromatically stacked and present helix a2 N-terminal
+residues of Im2 to the interface in a fashion similar to that seen in the cognate complex (Fig. 11b).
+Computational alanine scanning of non-cognate interfacial residues using the program Rosetta
+design conﬁrmed the conserved hotspot residues Tyr54, Tyr55 and Phe86 are all highly stabi-
+lizing in the non-cognate complex (Meenan et al. 2010).
+Despite these similarities the non-cognate complex is signiﬁcantly less stable than the cognate
+due to a series of destabilizing contacts that dictate the binding speciﬁcity. A hydrophobic
+interaction in the cognate complex between E9 DNase Phe86 and the speciﬁcity helix a2 re-
+sidues Leu33 and Val34 of Im9 is switched to a charged-hydrophobic interaction in the ColE9
+DNase–Im2 complex (Fig. 11b). The resulting unfavourable packing between E9 DNase Phe86
+with Asp33 and Asn34 of Im2 is highly destabilizing as evidenced by the enhancement in binding
+aﬀorded by alanine mutations (Keeble et al. 2008) and the even greater enhancement (up to
+10 000-fold) in binding when Asp33 and Asn34 are substituted for their Im9 counterparts,
+leucine and valine (Keeble et al. 2008; Meenan et al. 2010). The destabilizing interactions of Im2
+Asp33 and Asn34 are maintained in the non-cognate complex at signiﬁcant energetic cost
+through the highly stabilizing interactions surrounding ColE9 DNase Phe86 at the centre of the
+interface. These are largely through the conserved residues of helix a3 of Im2 and aided by many
+conserved hydrogen bonds mediated by interfacial water molecules. As a consequence, the
+88
+G. Papadakos et al.
+
+
+--- Page 33 ---
+non-cognate complex experiences ‘frustration’ through the juxtaposition of non-optimal con-
+tacts (Fig. 10c) (Meenan et al. 2010). It is the relief of this frustration that provides the large
+enhancements in binding that result from single mutations at the Col DNase–Im protein inter-
+face. The eﬀect of such a single mutation in vivo can be appreciated by the data in Fig. 12, which
+show the relationship between binding aﬃnity of ColE9 DNase–Im protein complexes and the
+degree of cell protection aﬀorded by the same Im protein when expressed in E. coli (Li et al.
+2004). Not only do these data emphasize the wide range of binding aﬃnities observed in Col
+DNase–Im protein complexes, but they also strikingly show how a single mutation within the
+speciﬁcity helix a2 (Asp33 to Leu33 in Im2) results in a suﬃciently large improvement in binding
+free energy as to confer resistance towards the Col and hence survival of the bacterial culture.
+The signiﬁcance of the a1–a2 and a3–a4 loops in contributing to Im2 binding speciﬁcity was
+also highlighted by the ColE9 DNase–Im2 crystal structure. Thr27 in the Im9 a1–a2 loop and
+ColE9 DNase Tyr83 form hydrogen bonds but they are not aligned optimally in the non-cognate
+complex because of an intervening water molecule. The same occurs between Asp62 of the a3–
+a4 loop and ColE9 DNase Asn72. An important consequence of the non-optimal placement of
+the a1–a2 loop is that this aﬀects the interactions with the E9 DNase hotspot residue Tyr83
+Fig. 12. Dual-recognition underpins evolution and diversity of Col DNase–Im protein complex
+protein–protein interaction speciﬁcity. Adapted from Li et al. (2004) with permission from Elsevier. The
+ﬁgure shows the relationship between in vivo survival of E. coli K-12 cells expressing imm9, non-cognate Im
+genes or im9 chimeras/mutant genes when challenged with ColE9 and the equilibrium Kd for the same Im
+protein binding the ColE9 DNase domain in vitro. Col resistance was scored for each construct using an
+overlay plate assay in the presence (ﬁlled symbols) or absence (open symbols) of the inducer IPTG.
+Examples of the same construct ¡IPTG are indicated with squares and triangles. Cells become completely
+resistant towards ColE9 even in the absence of inducer (due to leaky expression from the pTrc99a plasmid
+used in these experiments) when harbouring an Im protein with an aﬃnity for the E9 DNase of greater than
+10x10 M, but are eradicated when the aﬃnity falls below 10x6 M. Hence, the evolution of novel ColE9 Im
+protein speciﬁcity in nature likely occurs within this aﬃnity window (pink shading). The frustration of side-
+chain interactions at the heart of the dual-recognition mechanism primes the interface for high-aﬃnity
+binding so that a single mutation (in this instance an Asp-to-Leu mutation at position 33 of Im2) yields an
+Im protein that completely protects the cell from the Col (see Fig. 11c) (Meenan et al. 2010). Further
+enhancements in binding come from additional residues in the Im protein speciﬁcity helix a2, contributions
+from loop regions and interfacial water molecules (see text for details).
+Nuclease colicins and their immunity proteins
+89
+
+
+--- Page 34 ---
+(Fig. 11a, b) (Kuhlmann et al. 2000; Meenan et al. 2010). Although not directly involved in
+binding the ColE9 DNase, residues within the a1–a2 loop of Im9 have been shown to be
+involved in deﬁning Im9 speciﬁcity relative to Im7 (see below). The ﬂexibility of the Im9 helix-
+spanning loops and the signiﬁcance of their conﬁguration to ColE9 DNase binding were also
+demonstrated in an MD simulation study of the ColE9 DNase–Im9 complex (Baron et al. 2008).
+Apart from the destabilizing interference in the Im2 loop conﬁguration, water molecules help
+oﬀset several unfavourable interactions at the interface, centred around variable speciﬁcity re-
+sidues. For this reason, more water is found at the interface of the non-cognate complex. It has
+been suggested that the exclusion of this water from the cognate interface would lead to a higher
+aﬃnity through the gained desolvation entropy, which is consistent with the available calori-
+metric data (Meenan et al. 2010). Essentially complementing the observations of the ColE9
+DNase–Im9 cognate complex, the ColE9 DNase–Im2 non-cognate complex further illustrates
+that the dual recognition mechanism in this protein–protein interaction relies on highly stabi-
+lizing interactions emanating from the conserved elements of the Col DNase–Im interface that
+are modulated by the surrounding variable residues of Im helix a2. The structure further shows
+the importance of interhelical loop conﬁgurations and buried interfacial water molecules in
+encoding Im protein speciﬁcity (Meenan et al. 2010).
+9.5 Evolution and design of Col DNase–Im protein complexes
+Protein drugs are ﬁnding increasing use in medicine but their potential for oﬀ-target eﬀects can
+have disastrous consequences (Hale, 2006; Kiely & Johnson, 2002; Oldham & Dillman, 2008).
+Hence, a major objective in the study of protein–protein interactions is the ability to engineer the
+aﬃnity and binding speciﬁcity of interacting pairs. In recent years, directed evolution and com-
+putational design have both had signiﬁcant impact in this area (Khersonsky et al. 2006; Pokala &
+Handel, 2001; Tokuriki & Tawﬁk, 2009). The rational design of novel speciﬁcities in protein
+complexes relies on the inspection of the protein structure and its in silico perturbation through
+the introduction of substitutions at speciﬁc locations which are then computationally screened
+for the change in complex stability (Kortemme et al. 2004). Directed evolution enables speciﬁcity
+alterations to emerge in in vitro evolution experiments that mimic natural evolution and is based
+on the use of an appropriate selection pressure (Roodveldt et al. 2005). Both approaches have
+been applied in the exploration of novel protein–protein interaction speciﬁcities in Col DNase–
+Im protein complexes, which are ideally suited for these applications for a number of reasons.
+First, the aﬃnities of cognate complexes are high (femtomolar) while the level of discrimination
+between cognate and non-cognate pairs can approach y10-orders of magnitude in binding
+aﬃnity (Li et al. 2004), essentially matching the spectrum of Kd’s observed in nature. Second,
+crystal structures of cognate (ColE9 DNase–Im9 and ColE7 DNase–Im7), and non-cognate
+(ColE9 DNase–Im2) provide a structural framework for understanding binding speciﬁcity (Ko
+et al. 1999; Kuhlmann et al. 2000; Meenan et al. 2010). Third, the cytotoxicity of Cols provides an
+assay (both in vivo and in vitro) for screening, selecting and analysing viable alterations in speciﬁcity
+(Kortemme et al. 2004; Levin et al. 2009). Fourth, the metal dependence of Col DNase activity
+provides a route by which nuclease activity can be readily activated (Levin et al. 2009). Recent
+advances using both approaches are discussed.
+In vitro compartmentalization (IVC) was used by the Tawﬁk lab to evolve Im9 towards Im of
+the ColE7 DNase to which Im9 binds y6-orders of magnitude more weakly than to ColE9
+(Bernath et al. 2005; Levin et al. 2009; Li et al. 2004). In each round of selection y1010 Im9
+90
+G. Papadakos et al.
+
+
+--- Page 35 ---
+variants were generated (with a single gene/droplet of the emulsion) and compartmentalized
+with the ColE7 DNase, which was activated by the addition of Co2+ ions after the Im genes were
+transcribed and translated. Active inhibitors encoded by genes that survived the ColE7 nuclease
+activity were recovered and PCR ampliﬁed. Im9 variants exhibiting increased ColE7 inhibition
+relative to WT-Im9 were isolated after eight rounds of mutation and selection (Bernath et al.
+2005; Levin et al. 2009). In order to increase the aﬃnity of the evolving Im9 towards ColE7 while
+also reducing the cross-reactivity with ColE9 an inactive variant of the ColE9 DNase, bearing the
+H103A active site mutation (Section 8), was added for three additional rounds of selection (Levin
+et al. 2009). The inactive ColE9 DNase provided a negative selection for ColE9 DNase cross-
+binders thereby enhancing ColE7 DNase speciﬁcity. The authors of this study analysed emerging
+speciﬁcity variants and managed to solve structures for some of these to provide a molecular
+picture of the evolutionary process.
+Of the selected ColE7 DNase binding ‘nevIm7’ variants only one mutation in the variable
+region of Im9 helix a2 (V34D) increased directly the aﬃnity of Im9 towards ColE7 (Fig. 13a, b).
+Asp34 (the cognate residue in Im7) interacts with Lys528 and Lys537 in ColE7 switching a
+hydrophobic interaction in the ColE9 DNase–Im9 complex into an electrostatic one in the
+newly evolved ColE7 DNase–nevIm7 complex (Levin et al. 2009). The only other mutations that
+increase the aﬃnity towards ColE7 were in residues of the a1–a2 loop (N24D, D26N, T27A
+and S28T) lying close to the variable region (Fig. 13a, b). These, however, were not previously
+seen to be involved in binding and the substituted amino acids were not identical to those in Im7.
+In the structures of Im9 and Im7 in complex with their cognate enzymes the Im proteins are
+rotated 19o around the Tyr54–Tyr55 (Im9) or Tyr55–Tyr56 (Im7) hotspot (Kuhlmann et al.
+2000). In the case of nevIm7, the emerging a1–a2 loop mutations (N24D, D26N, T27A and
+S28T) resulted in an intermediate conﬁguration between these two rotameric forms (Fig. 13b).
+This intermediate conﬁguration resulted in a 10–30-fold aﬃnity increase of nevIm7 towards the
+ColE7 DNase relative to Im9 by reduction of the dissociation rate constant as observed by
+stopped-ﬂow ﬂuorescence kinetic measurements (Levin et al. 2009). Notably, even two of these
+a1–a2 loop mutations could confer the observed aﬃnity increase although none of them is
+involved directly in binding. Asn24 has a critical role in this switch; when mutated to aspartic
+acid in nevIm7 it becomes part of the a1–a2 loop whereas in Im9 it forms the C-terminus of a1
+helix (Fig. 13a, b). The altered conﬁguration leads to latent interactions between pre-existing
+residues (salt bridges between Glu30 and Asp51 of Im9 with Arg520, Gln532, Thr531 of the
+ColE7 DNase) which are not possible for wild-type (WT) Im9 a1–a2 loop residues (Levin et al.
+2009). These data complement the studies of Meenan et al. on the non-cognate ColE9 DNase–
+Im2 complex, described above, where again a1–a2 loop residues are implicated in contributing
+to binding speciﬁcity (Fig. 13b) (Meenan et al. 2010).
+The combination of V34D and the four a1–a2 loop mutations resulted in higher aﬃnity
+for the nevIm7 towards the ColE7 DNase but also decreased the stability of the new Im
+proteins (determined by urea denaturation experiments and intrinsic tryptophan ﬂuorescence).
+Extending the selection for ColE7 DNase by three more rounds resulted in the V37I mutation
+(Fig. 13b), which improved packing between helices a1 and a3 and recovered this lost stability.
+The nevIm7 variants isolated up to this point all exhibited equal aﬃnity for both ColE7 and
+ColE9; in other words, they reduced ColE9 DNase and increased ColE7 DNase binding but
+with no increase in selectivity. Following the incorporation of the negative selection step the
+selectivity for ColE7 increased relative to ColE9 by 30–70-fold. Variants emerging from these
+rounds contained the E41G mutation (Fig. 13b) which when combined with V37I led to
+Nuclease colicins and their immunity proteins
+91
+
+
+--- Page 36 ---
+molecules of adequate stability that conferred Im to ColE7 in in vivo cell-killing assays (Levin et al.
+2009).
+The Baker lab have deployed computational redesign of the ColE7 DNase–Im7 interface as a
+test of how robust such computational methods can be in generating novel (and predictable)
+speciﬁcities at protein–protein interfaces. In a ﬁrst approach, the binding interface was
+12
+N
+C
+44
+50
+77
+α3
+α2
+α1
+α4
+23
+30
+34
+37
+41
+55
+65
+24
+26
+28
+27
+α3
+α2
+α1
+α4
+V34
+D26
+E41
+V37
+S28
+T27
+N24
+N
+C
+D34
+Y55
+Y56
+V42
+helix α1
+helix α4
+helix α2
+helix α3
+G41
+T51
+I68
+I37
+T28
+A27
+D24
+E39
+V27
+D35
+D31
+A28
+N26
+E23
+(a)
+(b)
+Fig. 13. Directed evolution and design of Im protein speciﬁcity. (a) Secondary structure diagram (left) and
+the structure of Im9 (right, PDB ID 1EMV) showing positions of altered residues resulting from IVC
+experiments aimed at evolving the speciﬁcity of Im9 for the ColE7 DNase and as observed in the mutant
+nevIm7 (black circles, yellow balls and sticks). See text for details. (b) Superposition of the ColE7 DNase-
+bound structures of WT Im7 (grey, PDB ID 7CEI) and nevIm7 (purple, PDB ID 3gkl) highlighting the
+positions aﬀecting Col binding that emerged from directed evolution experiments and the restructuring of
+the nevIm7 a1–a2 loop. When bound to their cognate DNases Im9 and Im7 are related by a 19o rigid body
+rotation, with the nevIm7 binding conﬁguration intermediate between these two extremes. Speciﬁcity
+residues spanning the a1–a2 loop and helix a2 (green) and the hotspot residues (Tyr55 and Tyr56, cyan) in
+helix a3 of Im7 are highlighted. Alterations in residues that occur during the ﬁrst ﬁve rounds of selection in
+the a1–a2 loop and helix a2 (Asp24, Ala27, Thr28 and Asp34) are shown in yellow. Ile37 (orange) and
+Gly41 (cyan) emerged after 8 and 12 rounds of selection, respectively. Also shown in the ﬁgure are the three
+positions, Thr51 (T51Q) and Ile68 (I68W) in helices a3 and a4 (magenta), respectively, and Asp35 (D35Y)
+in helix a2, where computational design of Im7 led to altered Col E7 DNase speciﬁcity.
+92
+G. Papadakos et al.
+
+
+--- Page 37 ---
+redesigned based on a computational second-site suppressor strategy (using the molecular
+modelling program ROSETTA), where rotamers of amino acid side chains were modelled on the
+ﬁxed polypeptide taken from the crystal structure of the ColE7 DNase–Im7 complex such that
+the eﬀect of a destabilizing mutation on one protein was compensated by the alteration of
+interacting residues on its counterpart (Kortemme et al. 2004). Redesign of the interface was
+accomplished through polarity and steric switches both in combination and in isolation. The
+DNase inhibition properties of the designed variants was estimated in vivo in E. coli cells and
+also through an in vitro endonuclease assay while the binding between them (cognate and non-
+cognate) was estimated via SPR and ﬂuorescence measurements (Kortemme et al. 2004). The
+structural accuracy of the prediction method was validated subsequently by the crystal structure
+of the redesigned steric switch (RMSD 062 and 05 A˚ for the interface residues and the Ca
+backbone, respectively). In all cases, the speciﬁcity of the designed proteins towards their
+homologous designed counterpart (cognate binding) was increased relative to the WT or the
+other designed counterparts (non-cognate binding). However, the designed cognate complexes
+were signiﬁcantly weaker than the WT ColE7 DNase–Im7 complex and the aﬃnity diﬀerences
+between the designed cognate and non-cognate complexes are much lower than the cor-
+responding diﬀerences between the WT complexes. These discrepancies were attributed to the
+role of interactions mediated by interfacial water molecules, which play an essential role in both
+stabilizing these complexes and moulding speciﬁcity and were not modelled by the applied
+energy function (Kortemme et al. 2004; Kuhlmann et al. 2000; Meenan et al. 2010).
+In a follow-up study by Joachimiak et al. binding energies were calculated for the cognate
+ColE7 DNase–Im7 complex taking account of all rigid-body conformations around the 19x
+pivot centring on Tyr54–Tyr55 (or Tyr55–Tyr56) in Im7 and Im9, respectively (Joachimiak et al.
+2006). The design in this case involved the introduction of key mutations predicted to increase
+the binding aﬃnity both with and without a second-site suppressor approach. After structural
+determination of the complexes of the corresponding ColE7 DNase and Im7 variants their
+binding was estimated via SPR and ﬂuorescence measurements and optimized again for speci-
+ﬁcity (Joachimiak et al. 2006). A complex of the two proteins bearing seven mutations (K528Q,
+T539Q, N516T and K525R in ColE7 and D35Y, T51Q and I68W in Im7) was designed
+(Fig. 13b). The corresponding crystal structure revealed one site where a speciﬁcally designed
+hydrogen bond network (included in the applied energy function) coincided with the native
+hydrogen bond network between Gln528, Gln539 of the ColE7 DNase and Tyr35 and Gln51 of
+Im7. A second site comprised direct interactions between Thr516 and Gln517 of the ColE7
+DNase with Trp68 of Im7 while Arg525 replaced the salt bridge made by the WT lysine. The
+designed protein pair resulted in a 300-fold higher binding selectivity for the cognate versus the
+non-cognate complexes and an aﬃnity of 55r10x12 M, which is two orders of magnitude
+weaker than the binding aﬃnities of cognate Col DNase–Im protein complexes (Li et al. 2004).
+As in the case of the directed evolution experiments, the ColE7 DNase–Im7 computational
+redesign did not boost speciﬁcity dramatically over non-cognate complexes. However, the design
+demonstrated how interfacial residues and interface hydration leads to the modulation of
+speciﬁcity and aﬃnity between the Col DNase IPE and Im proteins (Joachimiak et al. 2006).
+10. Im protein folding mechanism and its link to function
+The presumption that proteins attain their 3D-fold via a two-state process involving only the
+unfolded (U) and native (N) states is almost certainly an oversimpliﬁcation even for small
+Nuclease colicins and their immunity proteins
+93
+
+
+--- Page 38 ---
+proteins (Jackson, 1998). A simple two-state folding process would require no transitional in-
+termediates existing en route to the N state and that folding take place cooperatively with all the
+productive collisions leading to native interactions occurring simultaneously (Baldwin et al. 2010).
+Regarding the U state as a large ensemble of featureless interchangeable conformers with small
+energy barriers between them (Tanford, 1970), the adoption of the correct set of favourable
+interactions (among the numerous ones the U state can adopt) would more likely lead to a series
+of intermediate states of varying stability thus breaking down the folding pathway into more than
+two states. A major challenge in understanding the process of protein folding involves the
+delineation of such a folding energy landscape. The Radford laboratory has pioneered the use of
+Col DNase-speciﬁc Im proteins to explore the energetics and structure of folding intermediates
+that lie on the energy landscape and to link this to Im protein function.
+Im proteins have many features making them a useful system with which to characterize the
+structure, topology and stability of intermediate (I) state and TS in the folding process. Both Im9
+and Im7, which have been the subject of most studies, are small single-domain proteins (86 and
+94 amino acids, respectively) that adopt similar helical bundle folds (Dennis et al. 1998). Their
+small size, lack of disulﬁdes and prosthetic groups and their all a-helical content along with the
+signiﬁcant and various spectroscopic signatures make the two Im proteins ideal for studies of the
+energy landscape of folding.
+10.1 The folding energy landscape of Im7
+In stopped-ﬂow kinetic and equilibrium studies of unfolding and refolding in the presence of
+denaturant, monitored by tryptophan ﬂuorescence emission and detected both in the presence
+and absence of Na2SO4, it was demonstrated that Im7 folds through a stable intermediate (I) thus
+following a distinct three-state pathway with two TSs, TS1 and TS2 (Fig. 14) (Ferguson et al.
+Fig. 14. Folding energy landscape of Im7 showing the on-pathway intermediate, I, and the two rate-
+determining TSs, TS1 and TS2, involved in the unfolded ensemble of Im7 (U) attaining its native structure
+(N). Figure adopted from Pugh et al. (2010) with permission from Elsevier. The ensembles shown are
+the result of MD simulations while the structure for Im7 is that of the native Im protein (PDB ID 7CEI).
+The regions forming the four helices in the native state are coloured: red (a1), green (a2), purple (a3) and
+yellow (a4).
+94
+G. Papadakos et al.
+
+
+--- Page 39 ---
+1999). The Im7 I-state was fully formed during the burst phase of folding (within the 25 ms
+dead time of the stopped-ﬂow apparatus). In combination with continuous ﬂow data (dead time
+y120 ms), it was demonstrated that the Im7 I-intermediate represents an ensemble of pro-
+ductive states in equilibrium with both the U and N states and hence on-pathway (Capaldi et al.
+2001), and can be formed both in the folding and unfolding pathways irrespective of the con-
+centration of Na2SO4 (Cobos & Radford, 2006).
+The Im7 I-state consists of helices a1, a2 and a4 being folded natively but largely in the
+absence of tertiary interactions, demonstrated through the characterization of Im7 single-point
+variants of hydrophobic residues (Capaldi et al. 2002). An NMR analysis of urea-unfolded Im7
+pointed to the presence of four clusters of interacting residues each corresponding to a helix of
+Im7 (Le Duﬀet al. 2006). In addition to the native fold of the three helices in the Im7 I-state a
+speciﬁc hydrophobic core-template for the binding of helix a3 is also present, pointing to a
+speciﬁc structure for the intermediate (Capaldi et al. 2002). A signiﬁcant amount of non-native
+interactions between helices a1–a2 and a1–a4 are present in the Im7 I-state that serve to
+protect hydrophobic residues in these helices from solvent exposure, which would otherwise
+occur if the three helices folded natively in the absence of helix a3. The native and non-native
+interactions involving a1, a2 and a4 helices, along with signiﬁcant hydrogen bonding that
+stabilizes them, were also revealed through hydrogen–deuterium exchange experiments com-
+bined with W-value analyses (Gorski et al. 2004) and molecular dynamics (MD) simulations
+(Gsponer et al. 2006). The on-pathway Im7 I-state has been trapped through disruption of N-
+state stabilizing interactions between helix a3 and the rest of the protein (Spence et al. 2004).
+NMR studies of the trapped Im7 I-state variants revealed that helices a1 and a4 are native while
+helix a2 is partially folded and helix a3 is unfolded. Additional interactions between helix a3
+residues and other regions of the Im7 I-state were demonstrated as the core switches confor-
+mation through TS2 in order for helix a3 to fold (Whittaker et al. 2007).
+The non-native interactions evident in the I-state of Im7 are perturbed in TS2 (Fig. 14), with a
+number of residues involved participating in the recognition of helix a3 while others become
+solvent exposed in the native state. The binding of helix a3 takes place only after TS2 and only in
+the presence of the three-helix bundle core, which was predicted computationally (Capaldi et al.
+2002) and conﬁrmed through MD simulations (Paci et al. 2004). Helix a3 is the last to fold in the
+folding pathway of Im7; its docking to an already preformed three-helix bundle core disrupts
+non-native interactions involving the helix (e.g. Tyr55) thereby destabilizing the Im7 I-state and
+stabilizing the native state (Knowling et al. 2009).
+Folding in Im7 is rate-limited by the proper alignment of helices a1, a2 and a4 in the Im7 I-
+state, which form the binding site for helix a3. The conserved residues Tyr55 and Tyr56 in helix
+a3 and the variable residues Asn26, Asp31, Leu34, Asp35 and Val42 in helix a2 (Fig. 12b)
+participate in non-native interactions in all stages of the folding pathway, modulating the en-
+ergetics of the Im7 I-state and the formation of the two TSs (Friel et al. 2009). Sutto et al. showed
+that three clusters of frustrated interactions in Im7 involving residues in the a1–a2 loop, helix
+a3 and the C-terminal region of helix a4 are responsible for the formation of the Im7 I-state
+(Sutto et al. 2007). Importantly, these Im7 residues are key to the binding of the ColE7 DNase
+through the dual recognition mechanism (Section 9) and formation of the complex relieves the
+frustration they experience (Sutto et al. 2007). The results highlight how the functional con-
+straints for speciﬁc inhibition of the ColE7 DNase can have a signiﬁcant eﬀect on protein
+folding energetics as manifested in this instance by the stabilization of an intermediate Im7
+folding state by non-native, frustrated interactions (Friel et al. 2009).
+Nuclease colicins and their immunity proteins
+95
+
+
+--- Page 40 ---
+The evolutionary balance between Im7 fold and function has been explored directly by Foit
+et al. (2009). Using Im7 fused to the b-galactosidase gene, an elegant assay was developed to
+screen for in vivo stability of Im7 mutants based solely on antibiotic resistance. Mutations in the
+a1–a2 loop (N26 K, V27D and D31G), helix a2 (D35N) and helix a3 (Y56N) were shown to
+be thermodynamically stabilizing for Im7 but that these mutations compromised the aﬃnity of
+Im7 for the ColE7 DNase (Fig. 12b). Hence, the function of Im7 as a Col inhibitor wins over its
+folding energetics; the stability of native Im7 is not optimal but is suﬃcient for the protein to
+remain folded, and to presumably survive proteolysis in vivo, while maximizing its aﬃnity for the
+ColE7 DNase (Foit et al. 2009).
+10.2 Folding intermediates in other Im proteins
+Under physiological conditions the folding of Im9 does not proceed through a detectable
+I-state even in the presence of stabilizing salt conditions (Ferguson et al. 1999); however, the
+accumulation of an early (sub-ms range) intermediate was suggested at low pH values (Gorski
+et al. 2001). An intermediate can also be detected in the folding of Im2 chimeras containing
+N-terminal regions of Im9. Kinetic analysis of the folding of these chimeras revealed the eﬀect of
+sequence on the ruggedness of the energy landscape, the formation and stability of an inter-
+mediate and the width of the observed reaction coordinate of the folding energy landscape
+(Ferguson et al. 2001; Friel et al. 2003). A misfolded intermediate could be stabilized in Im9
+through substitutions at locations that stabilize the Im7 I-state thus switching the observed two-
+state folding of Im9 to a three-state mechanism (Friel et al. 2004). A similar switch, with con-
+comitant accumulation of an Im9 I-state, has been achieved by increasing the helical propensity
+of the helices comprising the three-helix core and by increasing the hydrophobicity of residues
+in helix a2, which lead to the introduction of non-native interactions in the Im protein fold
+(Cranz-Mileva et al. 2005).
+11. Acknowledgements
+We thank Luke Hillary and Nick Housden (York) for critical reading of this review. We ac-
+knowledge Nick Housden for providing Fig. 7 and Khedidja Mosbahi and Dan Walker
+(Glasgow) for providing Fig. 9. Work on Cols in the C. K. lab would not have been possible
+without many fruitful and enjoyable collaborations with other laboratories, principally those of
+Richard James (Nottingham), GeoﬀMoore (Norwich), Sheena Radford (Leeds) and Marek
+Brzozowski (York). C. K. acknowledges all members of his lab, past and present, for contribu-
+tions to his Col research and to The Wellcome Trust and the Biotechnology and Biological
+Sciences Research Council of the UK for funding.
+12. References
+ANDERLUH, G., HONG, Q., BOETZEL, R., MACDONALD, C.,
+MOORE, G. R., VIRDEN, R. & LAKEY, J. H. (2003).
+Concerted folding and binding of a ﬂexible colicin do-
+main to its periplasmic receptor TolA. Journal of Biological
+Chemistry 278, 21860–21868.
+ANDERLUH, G. & LAKEY, J. H. (2008). Disparate proteins
+use similar architectures to damage membranes. Trends
+in Biochemical Sciences 33, 482–490.
+ARNOLD, T., ZETH, K. & LINKE, D. (2009). Structure and
+function of colicin S4, a colicin with a duplicated re-
+ceptor-binding domain. Journal of Biological Chemistry 284,
+6403–6413.
+BABOOLAL, T. G., CONROY, M. J., GILL, K., RIDLEY, H.,
+VISUDTIPHOLE, V., BULLOUGH, P. A. & LAKEY, J. H.
+(2008). Colicin N binds to the periphery of its receptor
+96
+G. Papadakos et al.
+
+
+--- Page 41 ---
+and translocator, outer membrane protein F. Structure 16,
+371–379.
+BALDWIN, R. L., FRIEDEN, C. & ROSE, G. D. (2010). Dry
+molten globule intermediates and the mechanism of
+protein unfolding. Proteins 78, 2725–2737.
+BARNEOUD-ARNOULET, A., BARRETEAU, H., TOUZE, T.,
+MENGIN-LECREULX, D., LLOUBES, R. & DUCHE, D.
+(2010a). Toxicity of the colicin M catalytic domain
+exported to the periplasm is FkpA independent. Journal
+of Bacteriology 192, 5212–5219.
+BARNEOUD-ARNOULET, A., GAVIOLI, M., LLOUBES, R. &
+CASCALES, E. (2010b). Interaction of the colicin K bac-
+tericidal toxin with components of its import machinery
+in the periplasm of Escherichia coli. Journal of Bacteriology
+192, 5934–5942.
+BARON,
+R.,
+WONG,
+S. E.,
+DE
+OLIVEIRA,
+C. A.
+&
+MCCAMMON, J. A. (2008). E9-Im9 colicin DNase-
+immunity protein biomolecular association in water: a
+multiple-copy and accelerated molecular dynamics
+simulation study. Journal of Physical Chemistry B 112,
+16802–16814.
+BARRETEAU, H., BOUHSS, A., GERARD, F., DUCHE, D.,
+BOUSSAID, B., BLANOT, D., LLOUBES, R., MENGIN-
+LECREULX, D. & TOUZE, T. (2010). Deciphering the
+catalytic domain of colicin M, a peptidoglycan lipid
+II-degrading enzyme. Journal of Biological Chemistry 285,
+12378–12389.
+BENEDETTI, H., FRENETTE, M., BATY, D., KNIBIEHLER, M.,
+PATTUS, F. & LAZDUNSKI, C. (1991). Individual domains
+of colicins confer speciﬁcity in colicin uptake, in pore-
+properties and in immunity requirement. Journal of
+Molecular Biology 217, 429–439.
+BENEDETTI, H., LLOUBES, R., LAZDUNSKI, C. & LETELLIER,
+L. (1992). Colicin A unfolds during its translocation in
+Escherichia coli cells and spans the whole cell envelope
+when its pore has formed. EMBO Journal 11, 441–447.
+BEPPU, T., KAWABATA, K. & ARIMA, K. (1972). Speciﬁc
+inhibition of cell division by colicin E2 without degra-
+dation of deoxyribonucleic acid in a new colicin sensi-
+tivity mutant of Escherichia coli. Journal of Bacteriology 110,
+485–493.
+BERNATH, K., MAGDASSI, S. & TAWFIK, D. S. (2005).
+Directed evolution of protein inhibitors of DNA-
+nucleases by in vitro compartmentalization (IVC) and
+nano-droplet delivery. Journal of Molecular Biology 345,
+1015–1026.
+BONSOR, D. A., GRISHKOVSKAYA, I., DODSON, E. J. &
+KLEANTHOUS, C. (2007). Molecular mimicry enables
+competitive recruitment by a natively disordered pro-
+tein. Journal of the American Chemical Society 15, 4800–4807.
+BONSOR, D. A., HECHT, O., VANKEMMELBEKE, M., SHARMA,
+A., KRACHLER, A. M., HOUSDEN, N. G., LILLY, K. J.,
+JAMES, R., MOORE, G. R. & KLEANTHOUS, C. (2009a).
+Allosteric b-propeller signalling in TolB and its manip-
+ulation by translocating colicins. EMBO Journal 28,
+2846–2857.
+BONSOR, D. A., HECHT, O., VANKEMMELBEKE, M., SHARMA,
+A., KRACHLER, A. M., HOUSDEN, N. G., LILLY, K. J.,
+JAMES, R., MOORE, G. R. & KLEANTHOUS, C. (2009b).
+Allosteric beta-propeller signalling in TolB and its
+manipulation by translocating colicins. EMBO Journal
+28, 2846–2857.
+BOURDINEAUD, J. P., BOULANGER, P., LAZDUNSKI, C. &
+LETELLIER, L. (1990a). In vivo properties of colicin A:
+channel activity is voltage dependent but translocation
+may be voltage independent. Proceedings of the National
+Academy of Sciences, U. S. A. 87(3), 1037.
+BOURDINEAUD, J. P., FIEROBE, H. P., LAZDUNSKI, C. &
+PAGES, J. M. (1990b). Involvement of OmpF during
+reception and translocation steps of colicin N entry.
+Molecular Microbiology 4, 1737–1743.
+BOUVERET, E., BENEDETTI, H., RIGAL, A., LORET, E. &
+LAZDUNSKI, C. (1999). In vitro characterization of pepti-
+doglycan-associated lipoprotein (PAL)-peptidoglycan
+and PAL-TolB interactions. Journal of Bacteriology 181,
+6306–6311.
+BOUVERET, E., RIGAL, A., LAZDUNSKI, C. & BENEDETTI, H.
+(1998). Distinct regions of the colicin A translocation
+domain are involved in the interaction with TolA and
+TolB proteins upon import into Escherichia coli. Molecular
+Microbiology 27, 143–157.
+BUCHANAN, S. K., LUKACIK, P., GRIZOT, S., GHIRLANDO, R.,
+ALI, M. M., BARNARD, T. J., JAKES, K. S., KIENKER, P. K.
+& ESSER, L. (2007). Structure of colicin I receptor
+bound to the R-domain of colicin Ia: implications for
+protein import. EMBO Journal 26, 2594–2604.
+CADIEUX, N., PHAN, P. G., CAFISO, D. S. & KADNER, R. J.
+(2003). Diﬀerential substrate-induced signaling through
+the TonB-dependent transporter BtuB. Proceedings of the
+National Academy of Sciences, U. S. A. 100, 10688–10693.
+CAPALDI, A. P., KLEANTHOUS, C. & RADFORD, S. E. (2002).
+Im7 folding mechanism: misfolding on a path to the
+native state. Nature Structural Biology 9, 209–216.
+CAPALDI,
+A. P.,
+SHASTRY,
+M. C.,
+KLEANTHOUS,
+C.,
+RODER, H. & RADFORD, S. E. (2001). Ultrarapid mixing
+experiments reveal that Im7 folds via an on-pathway
+intermediate. Nature Structural Biology 8, 68–72.
+CARR, S., WALKER, D., JAMES, R., KLEANTHOUS, C. &
+HEMMINGS, A. M. (2000). Crystallization of the cytotoxic
+domain of a ribosome-inactivating colicin in complex
+with its immunity protein. Acta Crystallographica. Section
+D, Biological Crystallography 56, 1630–1633.
+CASCALES, E., BUCHANAN, S. K., DUCHE, D., KLEANTHOUS,
+C., LLOUBES, R., POSTLE, K., RILEY, M., SLATIN, S. &
+CAVARD, D. (2007). Colicin biology. Microbiology and
+Molecular Biology Review 71, 158–229.
+CASCALES, E., GAVIOLI, M., STURGIS, J. N. & LLOUBES, R.
+(2000). Proton motive force drives the interaction of the
+inner membrane TolA and outer membrane pal proteins
+in Escherichia coli. Molecular Microbiology 38, 904–915.
+CASCALES, E., LLOUBES, R. & STURGIS, J. N. (2001).
+The TolQ-TolR proteins energize TolA and share
+Nuclease colicins and their immunity proteins
+97
+
+
+--- Page 42 ---
+homologies
+with
+the
+ﬂagellar
+motor
+proteins
+MotA–MotB. Molecular Microbiology 42, 795–807.
+CAVARD, D. & LAZDUNSKI, C. (1990). Colicin cleavage by
+OmpT protease during both entry into and release from
+Escherichia coli cells. Journal of Bacteriology 172, 648–652.
+CHAULEAU, M., MORA, L., SERBA, J. & DE ZAMAROCZY, M.
+(2011). FtsH-dependent processing of RNase colicins D
+and E3 means that only the cytotoxic domains are
+imported
+into
+the
+cytoplasm. Journal
+of
+Biological
+Chemistry 286, 29397–29407.
+COBOS, E. S. & RADFORD, S. E. (2006). Sulfate-induced
+eﬀects in the on-pathway intermediate of the bacterial
+immunity protein Im7. Biochemistry 45, 2274–2282.
+COLLINS,
+E. S.,
+WHITTAKER,
+S. B.,
+TOZAWA,
+K.,
+MACDONALD, C., BOETZEL, R., PENFOLD, C. N., REILLY,
+A., CLAYDEN, N. J., OSBORNE, M. J., HEMMINGS, A. M.,
+KLEANTHOUS, C., JAMES, R. & MOORE, G. R. (2002).
+Structural dynamics of the membrane translocation
+domain of colicin E9 and its interaction with TolB.
+Journal of Molecular Biology 318, 787–904.
+CRAMER, W. A., ZHANG, Y. L., SCHENDEL, S., MERRILL,
+A. R., SONG, H. Y., STAUFFACHER, C. V. & COHEN, F. S.
+(1992). Dynamic properties of the colicin E1 ion chan-
+nel. FEMS Microbiology and Immunology 5, 71–81.
+CRANZ-MILEVA, S., FRIEL, C. T. & RADFORD, S. E. (2005).
+Helix stability and hydrophobicity in the folding mech-
+anism of the bacterial immunity protein Im9. Protein
+Engineering, Design and Selection 18, 41–50.
+DAVIES, J. K. & REEVES, P. (1975a). Genetics of resistance
+to colicins in Escherichia coli K-12: cross-resistance
+among colicins of group A. Journal of Bacteriology 123,
+102–117.
+DAVIES, J. K. & REEVES, P. (1975b). Genetics of resistance
+to colicins in Escherichia coli K-12: cross-resistance
+among colicins of group B. Journal of Bacteriology 123,
+96–101.
+DE ZAMAROCZY, M. &
+BUCKINGHAM, R. H.
+(2002).
+Importation of nuclease colicins into E coli cells:
+endoproteolytic cleavage and its prevention by the
+immunity protein. Biochimie 84, 423–432.
+DE ZAMAROCZY, M., MORA, L., LECUYER, A., GELI, V. &
+BUCKINGHAM, R. H. (2001). Cleavage of colicin D is
+necessary for cell killing and requires the inner mem-
+brane peptidase LepB. Molecular Cell 8, 159–168.
+DENNIS, C. A., VIDELER, H., PAUPTIT, R. A., WALLIS, R.,
+JAMES, R., MOORE, G. R. & KLEANTHOUS, C. (1998). A
+structural comparison of the colicin immunity proteins
+Im7 and Im9 gives new insights into the molecular de-
+terminants of immunity-protein speciﬁcity. Biochemistry
+Journal 333, 183–191.
+DEPREZ, C., BLANCHARD, L., GUERLESQUIN, F., GAVIOLI, M.,
+SIMORRE, J. P., LAZDUNSKI, C., MARION, D. & LLOUBES,
+R. (2002). Macromolecular import into Escherichia coli:
+the TolA C-terminal domain changes conformation
+when interacting with the colicin A toxin. Biochemistry 41,
+2589–2598.
+DEROUICHE, R., ZEDER-LUTZ, G., BENEDETTI, H., GAVIOLI,
+M., RIGAL, A., LAZDUNSKIL, C. & LLOUBES, R. (1997).
+Binding of colicins A and E1 to puriﬁed TolA domains.
+Microbiology 143, 3185–3192.
+DOUDEVA, L. G., HUANG, H., HSIA, K. C., SHI, Z., LI, C. L.,
+SHEN, Y., CHENG, Y. S. & YUAN, H. S. (2006). Crystal
+structural analysis and metal-dependent stability and
+activity studies of the ColE7 endonuclease domain in
+complex with DNA/Zn2+ or inhibitor/Ni2+. Protein
+Science 15, 269–280.
+DUCHE, D., BATY, D., CHARTIER, M. & LETELLIER, L.
+(1994). Unfolding of colicin A during its translocation
+through the Escherichia coli envelope as demonstrated by
+disulﬁde bond engineering. Journal of Biological Chemistry
+269, 24820.
+DUCHE, D., FRENKIAN, A., PRIMA, V. & LLOUBES, R. (2006).
+Release of immunity protein requires functional endo-
+nuclease colicin import machinery. Journal of Bacteriology
+188, 8593–8600.
+DUCHE, D., ISSOUF, M. & LLOUBES, R. (2009). Immunity
+protein protects colicin E2 from OmpT protease.
+Journal of Biochemistry 145, 95–101.
+EL GHACHI, M., BOUHSS, A., BARRETEAU, H., TOUZE, T.,
+AUGER, G., BLANOT, D. & MENGIN-LECREULX, D.
+(2006). Colicin M exerts its bacteriolytic eﬀect via en-
+zymatic degradation of undecaprenyl phosphate-linked
+peptidoglycan precursors. Journal of Biological Chemistry
+281, 22761–22772.
+EL KOUHEN, R., FIEROBE, H. P., SCIANIMANICO, S., STEIERT,
+M., PATTUS, F. & PAGES, J. M. (1993). Characterization
+of the receptor and translocator domains of colicin N.
+European Journal of Biochemistry 214, 635–639.
+FERGUSON, N., CAPALDI, A. P., JAMES, R., KLEANTHOUS, C.
+& RADFORD, S. E. (1999). Rapid folding with and with-
+out populated intermediates in the homologous four-
+helix proteins Im7 and Im9. Journal of Molecular Biology
+286, 1597–1608.
+FERGUSON, N., LI, W., CAPALDI, A. P., KLEANTHOUS, C. &
+RADFORD, S. E. (2001). Using chimeric immunity pro-
+teins to explore the energy landscape for alpha-helical
+protein folding. Journal of Molecular Biology 307, 393–405.
+FOIT, L., MORGAN, G. J., KERN, M. J., STEIMER, L. R.,
+VON HACHT, A. A., TITCHMARSH, J., WARRINER, S. L.,
+RADFORD, S. E. & BARDWELL, J. C. (2009). Optimizing
+protein stability in vivo. Molecular Cell 36, 861–871.
+FRIEL, C. T., BEDDARD, G. S. & RADFORD, S. E. (2004).
+Switching two-state to three-state kinetics in the helical
+protein Im9 via the optimisation of stabilising non-
+native interactions by design. Journal of Molecular Biology
+342, 261–273.
+FRIEL, C. T., CAPALDI, A. P. & RADFORD, S. E. (2003).
+Structural analysis of the rate-limiting transition states in
+the folding of Im7 and Im9: similarities and diﬀerences
+in the folding of homologous proteins. Journal of
+Molecular Biology 326, 293–305.
+98
+G. Papadakos et al.
+
+
+--- Page 43 ---
+FRIEL, C. T., SMITH, D. A., VENDRUSCOLO, M., GSPONER, J.
+& RADFORD, S. E. (2009). The mechanism of folding of
+Im7 reveals competition between functional and kinetic
+evolutionary constraints. Nature Structural and Molecular
+Biology 16, 318–324.
+GALBURT, E. A. & STODDARD, B. L. (2002). Catalytic me-
+chanisms of restriction and homing endonucleases.
+Biochemistry 41, 13851–13860.
+GARDNER, A., WEST, S. A. & BUCKLING, A. (2004).
+Bacteriocins, spite and virulence. Proceedings of the Royal
+Society of London B 271, 1529–1535.
+GERARD, F., BROOKS, M. A., BARRETEAU, H., TOUZE, T.,
+GRAILLE, M., BOUHSS, A., BLANOT, D., VAN TILBEURGH,
+H. & MENGIN-LECREULX, D. (2010). X-ray structure and
+site-directed mutagenesis analysis of the Escherichia coli
+colicin M immunity protein. Journal of Bacteriology 193,
+205–214.
+GERDING, M. A., OGATA, Y., PECORA, N. D., NIKI, H. &
+DE BOER, P. A. (2007). The trans-envelope Tol–Pal
+complex is part of the cell division machinery and re-
+quired for proper outer-membrane invagination during
+cell constriction in E. coli. Molecular Microbiology 63,
+1008–1025.
+GOEMAERE, E. L., CASCALES, E. & LLOUBES, R. (2007).
+Mutational analyses deﬁne helix organization and key
+residues of a bacterial membrane energy-transducing
+complex. Journal of Molecular Biology 366, 1424–1436.
+GOKCE, I., RAGGETT, E. M., HONG, Q., VIRDEN, R.,
+COOPER,
+A. &
+LAKEY,
+J. H.
+(2000).
+The
+TolA-
+recognition site of colicin N. ITC, SPR and stopped-
+ﬂow ﬂuorescence deﬁne a crucial 27-residue segment.
+Journal of Molecular Biology 304, 621–632.
+GORBALENYA, A. E. (1994). Self-splicing group I and group
+II introns encode homologous (putative) DNA endo-
+nucleases of a new family. Protein Science 3, 1117–1120.
+GORSKI,
+S. A.,
+CAPALDI,
+A. P.,
+KLEANTHOUS,
+C.
+&
+RADFORD, S. E. (2001). Acidic conditions stabilise
+intermediates populated during the folding of Im7 and
+Im9. Journal of Molecular Biology 312, 849–863.
+GORSKI, S. A., LE DUFF, C. S., CAPALDI, A. P., KALVERDA,
+A. P., BEDDARD, G. S., MOORE, G. R. & RADFORD, S. E.
+(2004). Equilibrium hydrogen exchange reveals exten-
+sive hydrogen bonded secondary structure in the on-
+pathway intermediate of Im7. Journal of Molecular Biology
+337, 183–193.
+GRAILLE,
+M.,
+MORA,
+L.,
+BUCKINGHAM,
+R. H.,
+VAN
+TILBEURGH, H. & DE ZAMAROCZY, M. (2004). Structural
+inhibition of the colicin D tRNase by the tRNA-
+mimicking
+immunity
+protein.
+EMBO
+Journal
+23,
+1474–1482.
+GSPONER, J., HOPEARUOHO, H., WHITTAKER, S. B., SPENCE,
+G. R., MOORE, G. R., PACI, E., RADFORD, S. E. &
+VENDRUSCOLO, M. (2006). Determination of an en-
+semble of structures representing the intermediate state
+of the bacterial immunity protein Im7. Proceedings of the
+National Academy of Sciences, U. S. A. 103, 99–104.
+HALE, G. (2006). Therapeutic antibodies – delivering the
+promise?
+Advanced
+Drug
+Delivery
+Review
+58(5–6),
+633–639.
+HANDS, S. L., HOLLAND, L. E., VANKEMMELBEKE, M.,
+FRASER, L., MACDONALD, C. J., MOORE, G. R., JAMES, R.
+& PENFOLD, C. N. (2005). Interactions of TolB with the
+translocation domain of colicin E9 require an extended
+TolB box. Journal of Bacteriology 187, 6733–6741.
+HECHT, O., RIDLEY, H., BOETZEL, R., LEWIN, A., CULL, N.,
+CHALTON, D. A., LAKEY, J. H. & MOORE, G. R. (2008).
+Self-recognition by an intrinsically disordered protein.
+FEBS Letters 582, 2673–2677.
+HECHT, O., RIDLEY, H., LAKEY, J. H. & MOORE, G. R.
+(2009a). A common interaction for the entry of colicin
+N and ﬁlamentous phage into Escherichia coli. Journal of
+Molecular Biology 388, 880–893.
+HECHT, O., RIDLEY, H., LAKEY, J. H. & MOORE, G. R.
+(2009b). A common interaction for the entry of colicin
+N and ﬁlamentous phage into Escherichia coli. Journal of
+Molecular Biology 388, 880–893.
+HECHT, O., ZHANG, Y., LI, C., PENFOLD, C. N., JAMES, R. &
+MOORE, G. R. (2010). Characterisation of the interac-
+tion of colicin A with its co-receptor TolA. FEBS Letters
+584, 2249–2252.
+HERSCHMAN, H. R. & HELINSKI, D. R. (1967). Puriﬁcation
+and characterization of colicin E2 and colicin E3. Journal
+of Biological Chemistry 242, 5360–5368.
+HILSENBECK, J. L., PARK, H., CHEN, G., YOUN, B., POSTLE,
+K. & KANG, C. (2004). Crystal structure of the cytotoxic
+bacterial protein colicin B at 25 A resolution. Molecular
+Microbiology 51, 711–720.
+HOUSDEN, N. G. & KLEANTHOUS, C. (2011). Thermo-
+dynamic dissection of colicin interactions. Methods in
+Enzymology 488, 123–145.
+HOUSDEN, N. G., LOFTUS, S. R., MOORE, G. R., JAMES, R. &
+KLEANTHOUS, C. (2005). Cell entry mechanism of en-
+zymatic bacterial colicins: porin recruitment and the
+thermodynamics of receptor binding. Proceedings of the
+National Academy of Sciences, U. S. A. 102, 13849–13854.
+HOUSDEN,
+N. G.,
+WOJDYLA,
+J. A.,
+KORCZYNSKA,
+J.,
+GRISHKOVSKAYA, I., KIRKPATRICK, N., BRZOZOWSKI,
+A. M. & KLEANTHOUS, C. (2010). Directed epitope de-
+livery across the Escherichia coli outer membrane through
+the porin OmpF. Proceedings of the National Academy of
+Sciences, U.S.A 107, 21412–21417.
+HSIA, K. C., CHAK, K. F., LIANG, P. H., CHENG, Y. S., KU,
+W. Y. & YUAN, H. S. (2004). DNA binding and de-
+gradation by the HNH protein ColE7. Structure 12,
+205–214.
+HULLMANN, J., PATZER, S. I., ROMER, C., HANTKE, K. &
+BRAUN, V. (2008). Periplasmic chaperone FkpA is es-
+sential for imported colicin M toxicity. Molecular
+Microbiology 69, 926–937.
+IACOVACHE, I., VAN DER GOOT, F. G. & PERNOT, L. (2008).
+Pore formation: an ancient yet complex form of attack.
+Biochimica Biophysica Acta 1778(7–8), 1611–1623.
+Nuclease colicins and their immunity proteins
+99
+
+
+--- Page 44 ---
+ITO, K. & AKIYAMA, Y. (2005). Cellular functions, mech-
+anism of action, and regulation of FtsH protease.
+Annual Review of Microbiology 59, 211–231.
+JACKSON, S. E. (1998). How do small single-domain pro-
+teins fold? Fold Design 3, R81–91.
+JAKES, K. S., DAVIS, N. G. & ZINDER, N. D. (1988).
+A hybrid toxin from bacteriophage f1 attachment pro-
+tein and colicin E3 has altered cell receptor speciﬁcity.
+Journal of Bacteriology 170, 4231–4238.
+JAKES, K. S. & FINKELSTEIN, A. (2010). The colicin Ia
+receptor, Cir, is also the translocator for colicin Ia.
+Molecular Microbiology 75, 567–578.
+JOACHIMIAK, L. A., KORTEMME, T., STODDARD, B. L. &
+BAKER, D. (2006). Computational design of a new hy-
+drogen bond network and at least a 300-fold speciﬁcity
+switch at a protein–protein interface. Journal of Molecular
+Biology 361, 195–208.
+JOHNSON, A. E. & VAN WAES, M. A. (1999). The translo-
+con: a dynamic gateway at the ER membrane. Annual
+Review of Cell Development Biology 15, 799–842.
+JOURNET, L., BOUVERET, E., RIGAL, A., LLOUBES, R.,
+LAZDUNSKI, C. & BENEDETTI, H. (2001). Import of co-
+licins across the outer membrane of Escherichia coli
+involves multiple protein interactions in the periplasm.
+Molecular Microbiology 42, 331–344.
+KEEBLE, A. H., JOACHIMIAK, L. A., MATE, M. J., MEENAN,
+N., KIRKPATRICK, N., BAKER, D. & KLEANTHOUS, C.
+(2008). Experimental and computational analyses of the
+energetic basis for dual recognition of immunity pro-
+teins by colicin endonucleases. Journal of Molecular Biology
+379, 745–759.
+KEEBLE,
+A. H.,
+KIRKPATRICK,
+N.,
+SHIMIZU,
+S.
+&
+KLEANTHOUS, C. (2006). Calorimetric dissection of co-
+licin DNase–immunity protein complex speciﬁcity.
+Biochemistry 45, 3243–3254.
+KEEBLE, A. H. & KLEANTHOUS, C. (2005). The kinetic basis
+for dual recognition in colicin endonuclease-immunity
+protein complexes. Journal of Molecular Biology 352,
+656–671.
+KEEBLE, A. H., MATE´, M. J. & KLEANTHOUS, C. (2005).
+HNH endonucleases. In Homing Endonucleases and Inteins,
+vol. 16 (eds. M. Belfort, V. Derbyshire, B. Stoddard &
+D. Wood), pp. 49–65. Berlin: Springer-Verlag.
+KEENAN, R. J., FREYMANN, D. M., STROUD, R. M. &
+WALTER, P. (2001). The signal recognition particle.
+Annual Review of Biochemistry 70, 755–775.
+KHERSONSKY, O., ROODVELDT, C. & TAWFIK, D. S. (2006).
+Enzyme promiscuity: evolutionary and mechanistic
+aspects. Current Opinion in Chemical Biology 10, 498–508.
+KIELY, P. D. & JOHNSON, D. M. (2002). Inﬂiximab and
+leﬂunomide combination therapy in rheumatoid ar-
+thritis: an open-label study. Rheumatology (Oxford) 41,
+631–637.
+KIRKUP, B. C. & RILEY, M. A. (2004). Antibiotic-mediated
+antagonism leads to a bacterial game of rock-paper-
+scissors in vivo. Nature 428, 412.
+KLEANTHOUS, C. (2010). Swimming against the tide: prog-
+ress and challenges in our understanding of colicin
+translocation. Nature Reviews Microbiology 8, 843–848.
+KLEANTHOUS,
+C.,
+KUHLMANN,
+U. C.,
+POMMER,
+A. J.,
+FERGUSON, N., RADFORD, S. E., MOORE, G. R., JAMES, R.
+& HEMMINGS, A. M. (1999). Structural and mechanistic
+basis of immunity toward endonuclease colicins. Nature
+Structural Biology 6, 243–252.
+KLEANTHOUS, C. & WALKER, D. (2001). Immunity pro-
+teins: enzyme inhibitors that avoid the active site. Trends
+in Biochemical Sciences 26, 624–631.
+KNOWLING, S. E., FIGUEIREDO, A. M., WHITTAKER, S. B.,
+MOORE, G. R. & RADFORD, S. E. (2009). Amino acid
+insertion reveals a necessary three-helical intermediate
+in the folding pathway of the colicin E7 immunity pro-
+tein Im7. Journal of Molecular Biology 392, 1074–1086.
+KO, T. P., LIAO, C. C., KU, W. Y., CHAK, K. F. & YUAN,
+H. S. (1999). The crystal structure of the DNase domain
+of colicin E7 in complex with its inhibitor Im7 protein.
+Structure 7, 91–102.
+KORTEMME,
+T.,
+JOACHIMIAK,
+L. A.,
+BULLOCK,
+A. N.,
+SCHULER, A. D., STODDARD, B. L. & BAKER, D. (2004).
+Computational redesign of protein–protein interaction
+speciﬁcity. Nature Structural and Molecular Biology 11,
+371–379.
+KRACHLER, A. M., SHARMA, A., CAULDWELL, A., PAPADAKOS,
+G. & KLEANTHOUS, C. (2010). TolA modulates the
+oligomeric status of YbgF in the bacterial periplasm.
+Journal of Molecular Biology 403, 270–285.
+KUHLMANN, U. C., MOORE, G. R., JAMES, R., KLEANTHOUS,
+C. & HEMMINGS, A. M. (1999). Structural parsimony in
+endonuclease active sites: should the number of homing
+endonuclease families be redeﬁned? FEBS Letters 463, 1.
+KUHLMANN, U. C., POMMER, A. J., MOORE, G. R., JAMES, R.
+& KLEANTHOUS, C. (2000). Speciﬁcity in protein–protein
+interactions: the structural basis for dual recognition in
+endonuclease
+colicin-immunity
+protein
+complexes.
+Journal of Molecular Biology 301, 1163.
+KURISU, G., ZAKHAROV, S. D., ZHALNINA, M. V., BANO, S.,
+EROUKOVA, V. Y., ROKITSKAYA, T. I., ANTONENKO,
+Y. N., WIENER, M. C. & CRAMER, W. A. (2003). The
+structure of BtuB with bound colicin E3 R-domain im-
+plies a translocon. Nature Structural Biology 10, 948–954.
+LANCASTER, L. E., SAVELSBERGH, A., KLEANTHOUS, C.,
+WINTERMEYER, W. & RODNINA, M. V. (2008). Colicin E3
+cleavage of 16S rRNA impairs decoding and accelerates
+tRNA
+translocation
+on
+Escherichia
+coli ribosomes.
+Molecular Microbiology 69, 390–401.
+LAZZARONI, J. C., DUBUISSON, J. F. & VIANNEY, A. (2002).
+The Tol proteins of Escherichia coli and their involvement
+in the translocation of group A colicins. Biochimie 84,
+391–397.
+LE DUFF, C. S., WHITTAKER, S. B., RADFORD, S. E. &
+MOORE, G. R. (2006). Characterisation of the confor-
+mational properties of urea-unfolded Im7: implications
+100
+G. Papadakos et al.
+
+
+--- Page 45 ---
+for the early stages of protein folding. Journal of Molecular
+Biology 364, 824–835.
+LEVIN, K. B., DYM, O., ALBECK, S., MAGDASSI, S., KEEBLE,
+A. H., KLEANTHOUS, C. & TAWFIK, D. S. (2009).
+Following evolutionary paths to protein–protein inter-
+actions with high aﬃnity and selectivity. Nature Structural
+and Molecular Biology 16, 1049–1055.
+LI, W., HAMILL, S. J., HEMMINGS, A. M., MOORE, G. R.,
+JAMES, R. & KLEANTHOUS, C. (1998). Dual recognition
+and the role of speciﬁcity-determining residues in coli-
+cin
+E9
+DNase-immunity
+protein
+interactions.
+Biochemistry 37, 11771–11779.
+LI, W., KEEBLE, A. H., GIFFARD, C., JAMES, R., MOORE,
+G. R. & KLEANTHOUS, C. (2004). Highly discriminating
+protein–protein interaction speciﬁcities in the context
+of a conserved binding energy hotspot. Journal of
+Molecular Biology 337, 743–759.
+LIN, Y. L., ELIAS, Y. & HUANG, R. H. (2005). Structural
+and mutational studies of the catalytic domain of colicin
+E5: a tRNA-speciﬁc ribonuclease. Biochemistry 44,
+10494–10500.
+LOFTUS, S. R., WALKER, D., MATE, M. J., BONSOR, D. A.,
+JAMES, R., MOORE, G. R. & KLEANTHOUS, C. (2006).
+Competitive recruitment of the periplasmic translo-
+cation portal TolB by a natively disordered domain of
+colicin E9. Proceedings of the National Academy of Sciences,
+U. S. A. 103, 12353–12358.
+LUBKOWSKI,
+J.,
+HENNECKE,
+F.,
+PLUCKTHUN,
+A.
+&
+WLODAWER, A. (1999). Filamentous phage infection:
+crystal structure of g3p in complex with its coreceptor,
+the C-terminal domain of TolA. Structure 7, 711–722.
+LUNA-CHAVEZ, C., LIN, Y. L. & HUANG, R. H. (2006).
+Molecular basis of inhibition of the ribonuclease activity
+in colicin E5 by its cognate immunity protein. Journal of
+Molecular Biology 358, 571–579.
+MATE, M. J. & KLEANTHOUS, C. (2004). Structure-based
+analysis of the metal-dependent mechanism of H-N-H
+endonucleases.
+Journal
+of
+Biological
+Chemistry
+279,
+34763–34769.
+MEENAN,
+N. A.,
+SHARMA,
+A.,
+FLEISHMAN,
+S. J.,
+MACDONALD, C. J., MOREL, B., BOETZEL, R., MOORE,
+G. R., BAKER, D. & KLEANTHOUS, C. (2010). The struc-
+tural and energetic basis for high selectivity in a high-
+aﬃnity protein–protein interaction. Proceedings of the
+National Academy of Sciences, U. S. A. 107, 10080–10085.
+MENG, G., SURANA, N. K., ST GEME, III, J. W. &
+WAKSMAN, G. (2006). Structure of the outer membrane
+translocator domain of the Haemophilus inﬂuenzae Hia
+trimeric autotransporter. EMBO Journal 25, 2297–2304.
+MONTALVAO,
+R. W.,
+CAVALLI,
+A.,
+SALVATELLA,
+X.,
+BLUNDELL, T. L. & VENDRUSCOLO, M. (2008). Structure
+determination of protein–protein complexes using
+NMR
+chemical
+shifts:
+case
+of
+an
+endonuclease
+colicin-immunity protein complex. Journal of the American
+Chemical Society 130, 15990–15996.
+MOSBAHI, K., LEMAITRE, C., KEEBLE, A. H., MOBASHERI, H.,
+MOREL, B., JAMES, R., MOORE, G. R., LEA, E. J. &
+KLEANTHOUS, C. (2002). The cytotoxic domain of coli-
+cin E9 is a channel-forming endonuclease. Nature
+Structural Biology 9, 476–484.
+MOSBAHI, K., WALKER, D., JAMES, R., MOORE, G. R. &
+KLEANTHOUS, C. (2006). Global structural rearrange-
+ment of the cell penetrating ribonuclease colicin E3 on
+interaction with phospholipid membranes. Protein Science
+15, 620–627.
+MOSBAHI, K., WALKER, D., LEA, E., MOORE, G. R., JAMES,
+R. & KLEANTHOUS, C. (2004). Destabilization of the
+colicin E9 Endonuclease domain by interaction with
+negatively charged phospholipids: implications for co-
+licin translocation into bacteria. Journal of Biological
+Chemistry 279, 22145–22151.
+NG, C. L., LANG, K., MEENAN, N. A., SHARMA, A., KELLEY,
+A. C., KLEANTHOUS, C. & RAMAKRISHNAN, V. (2010a).
+Structural basis for 16S ribosomal RNA cleavage by the
+cytotoxic domain of colicin E3. Nature Structural and
+Molecular Biology 17, 1241–1246.
+NG, C. L., LANG, K., MEENAN, N. A., SHARMA, A., KELLEY,
+A. C., KLEANTHOUS, C. & RAMAKRISHNAN, V. (2010b).
+Structural basis for 16S ribosomal RNA cleavage by the
+cytotoxic domain of colicin E3. Nature Structural and
+Molecular Biology 17, 1241–1246.
+NOSE, K. & MIZUNO, D. (1968). Degradation of ribosomes
+in Escherichia coli cells treated with colicin E2. Journal of
+Biochemistry 64, 1–6.
+OGAWA, T., INOUE, S., YAJIMA, S., HIDAKA, M. & MASAKI,
+H. (2006). Sequence-speciﬁc recognition of colicin E5,
+a tRNA-targeting ribonuclease. Nucleic Acids Research 34,
+6065–6073.
+OGAWA, T., TOMITA, K., UEDA, T., WATANABE, K., UOZUMI,
+T. & MASAKI, H. (1999). A cytotoxic ribonuclease
+targeting speciﬁc transfer RNA anticodons. Science 283,
+2097–2100.
+OLDHAM, R. K. & DILLMAN, R. O. (2008). Monoclonal
+antibodies in cancer therapy: 25 years of progress.
+Journal of Clinical Oncology 26, 1774–1777.
+PACI, E., FRIEL, C. T., LINDORFF-LARSEN, K., RADFORD,
+S. E., KARPLUS, M. & VENDRUSCOLO, M. (2004). Com-
+parison of the transition state ensembles for folding
+of Im7 and Im9 determined using all-atom molecular
+dynamics simulations with phi value restraints. Proteins
+54, 513–525.
+PARSONS, L. M., LIN, F. & ORBAN, J. (2006). Peptidoglycan
+recognition by Pal, an outer membrane lipoprotein.
+Biochemistry 45, 2122–2128.
+PENFOLD, C. N., HEALY, B., HOUSDEN, N. G., BOETZEL, R.,
+VANKEMMELBEKE, M., MOORE, G. R., KLEANTHOUS, C. &
+JAMES, R. (2004a). Flexibility in the receptor-binding
+domain of the enzymatic colicin E9 is required for
+toxicity against Escherichia coli cells. Journal of Bacteriology
+186, 4520–4527.
+Nuclease colicins and their immunity proteins
+101
+
+
+--- Page 46 ---
+PENFOLD, C. N., HEALY, B., HOUSDEN, N. G., BOETZEL, R.,
+VANKEMMELBEKE, M., MOORE, G. R., KLEANTHOUS, C. &
+JAMES, R. (2004b). Flexibility in the receptor-binding
+domain of the enzymatic colicin E9 is required for
+toxicity against Escherichia coli cells. Journal of Bacteriology
+186, 4520–4527.
+PILSL, H. & BRAUN, V. (1998). The Ton system can func-
+tionally replace the TolB protein in the uptake of mu-
+tated colicin U. FEMS Microbiology Letters 164, 363–367.
+PILSL, H., SMAJS, D. & BRAUN, V. (1999). Characterization
+of colicin S4 and its receptor, OmpW, a minor protein
+of the Escherichia coli outer membrane. Journal of Bacterio-
+logy 181, 3578–3581.
+POHLSCHRODER, M., PRINZ, W. A., HARTMANN, E. &
+BECKWITH, J. (1997). Protein translocation in the three
+domains of life: variations on a theme. Cell 91, 563–566.
+POKALA, N. & HANDEL, T. M. (2001). Review: protein
+design – where we were, where we are, where we’re
+going. Journal of Structural Biology 134, 269–281.
+POMMER, A. J., CAL, S., KEEBLE, A. H., WALKER, D., EVANS,
+S. J., KUHLMANN, U. C., COOPER, A., CONNOLLY, B. A.,
+HEMMINGS,
+A. M.,
+MOORE,
+G. R.,
+JAMES,
+R.
+&
+KLEANTHOUS, C. (2001). Mechanism and cleavage
+speciﬁcity of the H-N-H endonuclease colicin E9.
+Journal of Molecular Biology 314, 735.
+POSTLE, K. & KADNER, R. J. (2003). Touch and go: tying
+TonB to transport. Molecular Microbiology 49, 869–882.
+PUGH, S. D., GELL, C., SMITH, D. A., RADFORD, S. E. &
+BROCKWELL, D. J. (2010). Single-molecule studies of the
+Im7 folding landscape. Journal of Molecular Biology 398,
+132–145.
+RAGGETT, E. M., BAINBRIDGE, G., EVANS, L. J., COOPER, A.
+& LAKEY, J. H. (1998). Discovery of critical Tol
+A-binding residues in the bactericidal toxin colicin N:
+a
+biophysical
+approach.
+Molecular
+Microbiology
+28,
+1335–1343.
+RIDLEY, H., JOHNSON, C. L. & LAKEY, J. H. (2010).
+Interfacial interactions of pore-forming colicins. Ad-
+vances in Experimental Medicine and Biology 677, 81–90.
+RILEY, M. A. (1998). Molecular mechanisms of bacteriocin
+evolution. Annual Review of Genetics 32, 255–278.
+ROODVELDT, C., AHARONI, A. & TAWFIK, D. S. (2005).
+Directed evolution of proteins for heterologous ex-
+pression and stability. Current Opinion in Structural Biology
+15, 50–56.
+SENIOR, B. W. & HOLLAND, I. B. (1971). Eﬀect of colicin
+E3 upon the 30S ribosomal subunit of Escherichia coli.
+Proceedings of the National Academy of Sciencs, U. S. A. 68(5),
+959–963.
+SHARMA, O., DATSENKO, K. A., ESS, S. C., ZHALNINA,
+M. V., WANNER, B. L. & CRAMER, W. A. (2009).
+Genome-wide screens: novel mechanisms in colicin im-
+port and cytotoxicity. Molecular Microbiology 73, 571–585.
+SHARMA, O., YAMASHITA, E., ZHALNINA, M. V., ZAKHAROV,
+S. D., DATSENKO, K. A., WANNER, B. L. & CRAMER,
+W. A. (2007). Structure of the complex of the colicin E2
+R-domain and its BtuB receptor. The outer membrane
+colicin translocon. Journal of Biological Chemistry 282,
+23163–23170.
+SHI, Z., CHAK, K. F. & YUAN, H. S. (2005). Identiﬁcation
+of an essential cleavage site in ColE7 required for im-
+port and killing of cells. Journal of Biological Chemistry 280,
+24663–24668.
+SHUB, D. A., GOODRICH-BLAIR, H. & EDDY, S. R. (1994).
+Amino acid sequence motif of group I intron endo-
+nucleases is conserved in open reading frames of group
+II introns. Trends in Biochemical Sciences 19, 402–404.
+SMALLWOOD, C. R., MARCO, A. G., XIAO, Q., TRINH, V.,
+NEWTON, S. M. & KLEBBA, P. E. (2009). Fluorescein-
+ation of FepA during colicin B killing: eﬀects of tem-
+perature, toxin and TonB. Molecular Microbiology 72,
+1171–1180.
+SOELAIMAN, S., JAKES, K., WU, N., LI, C. & SHOHAM, M.
+(2001). Crystal structure of colicin E3: implications for
+cell entry and ribosome inactivation. Molecular Cell 8,
+1053–1062.
+SPECTOR, J., ZAKHAROV, S., LILL, Y., SHARMA, O., CRAMER,
+W. A. & RITCHIE, K. (2010). Mobility of BtuB and
+OmpF in the Escherichia coli outer membrane: implica-
+tions for dynamic formation of a translocon complex.
+Biophysical Journal 99, 3880–3886.
+SPENCE, G. R., CAPALDI, A. P. & RADFORD, S. E. (2004).
+Trapping the on-pathway folding intermediate of Im7 at
+equilibrium. Journal of Molecular Biology 341, 215–226.
+SUTTO, L., LATZER, J., HEGLER, J. A., FERREIRO, D. U. &
+WOLYNES, P. G. (2007). Consequences of localized
+frustration for the folding mechanism of the IM7 pro-
+tein. Proceedings of the National Academy of Sciences, U. S. A.
+104, 19825–19830.
+TANFORD, C. (1970). Protein denaturation. C. Theoretical
+models for the mechanism of denaturation. Advanced
+Protein Chemistry 24, 1–95.
+TOKURIKI, N. & TAWFIK, D. S. (2009). Protein dynamism
+and evolvability. Science 324, 203–207.
+TOMITA, K., OGAWA, T., UOZUMI, T., WATANABE, K. &
+MASAKI, H. (2000). A cytotoxic ribonuclease which
+speciﬁcally cleaves four isoaccepting arginine tRNAs at
+their anticodon loops. Proceedings of the National Academy
+of Sciences, U. S. A. 97, 8278–8283.
+VAN DEN BREMER, E. T., KEEBLE, A. H., JISKOOT, W.,
+SPELBRINK, R. E., MAIER, C. S., VAN HOEK, A., VISSER,
+A. J., JAMES, R., MOORE, G. R., KLEANTHOUS, C. &
+HECK, A. J. (2004). Distinct conformational stability and
+functional activity of four highly homologous en-
+donuclease colicins. Protein Science 13, 1391–1401.
+VANKEMMELBEKE,
+M.,
+HEALY,
+B.,
+MOORE,
+G. R.,
+KLEANTHOUS, C., PENFOLD, C. N. & JAMES, R. (2005).
+Rapid detection of colicin E9-induced DNA damage
+using Escherichia coli cells carrying SOS promoter–lux
+fusions. Journal of Bacteriology 187, 4900–4907.
+VANKEMMELBEKE,
+M.,
+ZHANG,
+Y.,
+MOORE,
+G. R.,
+KLEANTHOUS, C., PENFOLD, C. N. & JAMES, R. (2009).
+102
+G. Papadakos et al.
+
+
+--- Page 47 ---
+Energy-dependent immunity protein release during
+tol-dependent nuclease colicin translocation. Journal of
+Biological Chemistry 284, 18932–18941.
+VETTER, I. R., PARKER, M. W., TUCKER, A. D., LAKEY, J. H.,
+PATTUS, F. & TSERNOGLOU, D. (1998). Crystal structure
+of a colicin N fragment suggests a model for toxicity.
+Structure 6, 863–874.
+WALKER, D., LANCASTER, L., JAMES, R. & KLEANTHOUS, C.
+(2004a). Identiﬁcation of the catalytic motif of the
+microbial ribosome inactivating cytotoxin colicin E3.
+Protein Science 13, 1603–1611.
+WALKER, D., MOORE, G. R., JAMES, R. & KLEANTHOUS, C.
+(2003). Thermodynamic consequences of bipartite im-
+munity protein binding to the ribosomal ribonuclease
+colicin E3. Biochemistry 42, 4161.
+WALKER, D., MOSBAHI, K., VANKEMMELBEKE, M., JAMES, R.
+& KLEANTHOUS, C. (2007). The role of electrostatics in
+colicin nuclease domain translocation into bacterial
+cells. Journal of Biological Chemistry 282, 31389–31397.
+WALKER, D., ROLFE, M., THOMPSON, A., MOORE, G. R.,
+JAMES, R., HINTON, J. C. & KLEANTHOUS, C. (2004b).
+Transcriptional proﬁling of colicin-induced cell death of
+Escherichia coli MG1655 identiﬁes potential mechanisms
+by which bacteriocins promote bacterial diversity.
+Journal of Bacteriology 186, 866.
+WALLIS, R., LEUNG, K. Y., OSBORNE, M. J., JAMES, R.,
+MOORE, G. R. & KLEANTHOUS, C. (1998). Speciﬁcity in
+protein–protein recognition: conserved Im9 residues
+are the major determinants of stability in the colicin E9
+DNase–Im9 complex. Biochemistry 37, 476.
+WALLIS, R., MOORE, G. R., JAMES, R. & KLEANTHOUS, C.
+(1995). Protein–protein interactions in colicin E9
+DNase-immunity protein complexes. 1. Diﬀusion-
+controlled association and femtomolar binding for the
+cognate complex. Biochemistry 34, 13743–13750.
+WALLIS, R., REILLY, A., BARNES, K., ABELL, C., CAMPBELL,
+D. G., MOORE, G. R., JAMES, R. & KLEANTHOUS, C.
+(1994). Tandem overproduction and characterisation of
+the nuclease domain of colicin E9 and its cognate
+inhibitor protein Im9. European Journal of Biochemistry
+220, 447.
+WEBSTER, R. E. (1991). The tol gene products and the
+import of macromolecules into Escherichia coli. Molecular
+Microbiology 5, 1005–1011.
+WHITTAKER, S. B., SPENCE, G. R., GUNTER GROSSMANN, J.,
+RADFORD, S. E. & MOORE, G. R. (2007). NMR analysis
+of the conformational properties of the trapped on-
+pathway folding intermediate of the bacterial immunity
+protein Im7. Journal of Molecular Biology 366, 1001–1015.
+WIENER, M., FREYMANN, D., GHOSH, P. & STROUD, R. M.
+(1997). Crystal structure of colicin Ia. Nature 385,
+461–464.
+WIENER, M. C. (2005). TonB-dependent outer membrane
+transport: going for Baroque? Current Opinion in Struc-
+tural Biology 15, 394–400.
+YAMASHITA, E., ZHALNINA,
+M. V.,
+ZAKHAROV,
+S. D.,
+SHARMA, O. & CRAMER, W. A. (2008). Crystal structures
+of the OmpF porin: function in a colicin translocon.
+EMBO Journal 27, 2171–2180.
+ZAKHAROV, S. D. & CRAMER, W. A. (2004). On the mech-
+anism and pathway of colicin import across the E. Coli
+outer membrane. Frontiers in Bioscience 9, 1311–1317.
+ZAKHAROV, S. D., EROUKOVA, V. Y., ROKITSKAYA, T. I.,
+ZHALNINA, M. V., SHARMA, O., LOLL, P. J., ZGURSKAYA,
+H. I., ANTONENKO, Y. N. & CRAMER, W. A. (2004a).
+Colicin occlusion of OmpF and TolC channels: outer
+membrane translocons for colicin import. Biophysical
+Journal 87, 3901–3911.
+ZAKHAROV, S. D., KOTOVA, E. A., ANTONENKO, Y. N. &
+CRAMER, W. A. (2004b). On the role of lipid in colicin
+pore formation. Biochimica Biophysica Acta 1666, 239–249.
+ZAKHAROV, S. D., SHARMA, O., ZHALNINA, M. V. &
+CRAMER, W. A. (2008). Primary events in the colicin
+translocon: FRET analysis of colicin unfolding initiated
+by binding to BtuB and OmpF. Biochemistry 47, 12802–
+12809.
+ZAKHAROV, S. D., ZHALNINA, M. V., SHARMA, O. &
+CRAMER, W. A. (2006). The colicin E3 outer membrane
+translocon: immunity protein release allows interaction
+of the cytotoxic domain with OmpF porin. Biochemistry
+45, 10199–10207.
+ZETH, K., ROMER, C., PATZER, S. I. & BRAUN, V. (2008).
+Crystal structure of colicin M, a novel phosphatase
+speciﬁcally imported by Escherichia coli. Journal of Biological
+Chemistry 283, 25324–25331.
+ZHANG, X. Y., GOEMAERE, E. L., SEDDIKI, N., CELIA, H.,
+GAVIOLI, M., CASCALES, E. & LLOUBES, R. (2011).
+Mapping the interactions between Escherichia coli TolQ
+transmembrane segments. Journal of Biological Chemistry
+286, 11756–11764.
+ZHANG, X. Y., GOEMAERE, E. L., THOME, R., GAVIOLI, M.,
+CASCALES, E. & LLOUBES, R. (2009a). Mapping the
+interactions between Escherichia coli tol subunits: ro-
+tation of the TolR transmembrane helix. Journal of
+Biological Chemistry 284, 4275–4282.
+ZHANG, Y., VANKEMMELBEKE, M., BAARDELANG, P., PAOLI,
+M., PENFOLD, C. N. & JAMES, R. (2009b). The crystal
+structure of the TolB box of Colicin A in complex with
+TolB reveals important diﬀerences in the recruitment of
+the common TolB translocation portal used by group A
+colicins. Molecular Microbiology 75, 623–636.
+ZHANG, Y., VANKEMMELBEKE, M. N., HOLLAND, L. E.,
+WALKER, D. C., JAMES, R. & PENFOLD, C. N. (2008).
+Investigating early events in receptor binding and trans-
+location of colicin E9 using synchronized cell killing
+and proteolytic cleavage. Journal of Bacteriology 190,
+4342–4350.
+ZHANG, Y. L. & CRAMER, W. A. (1992). Constraints im-
+posed by protease accessibility on the trans-membrane
+and surface topography of the colicin E1 ion channel.
+Protein Science 1, 1666–1676.
+Nuclease colicins and their immunity proteins
+103

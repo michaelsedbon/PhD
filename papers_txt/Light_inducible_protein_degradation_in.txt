@@ -1,0 +1,1132 @@
+--- Page 1 ---
+Light inducible protein degradation in E. coli with LOVtag 
+ 
+Nathan Tague1,2, Cristian Coriano-Ortiz1,2, Michael B. Sheets1,2, Mary J. Dunlop1,2* 
+ 
+1 Department of Biomedical Engineering, Boston University, Boston, MA, USA 02215 
+2 Biological Design Center, Boston University, Boston, MA, USA 02215 
+* Corresponding author: mjdunlop@bu.edu 
+ 
+ 
+Abstract 
+Molecular tools for optogenetic control allow for spatial and temporal regulation of cell behavior. 
+In particular, light controlled protein degradation is a valuable mechanism of regulation because it 
+can be highly modular, used in tandem with other control mechanisms, and maintain functionality 
+throughout growth phases. Here, we engineered LOVtag, a protein tag that can be appended to a 
+protein of interest for inducible degradation in Escherichia coli using blue light. We demonstrate 
+the modularity of LOVtag by using it to tag a range of proteins, including the LacI repressor, 
+CRISPRa activator, and the AcrB efflux pump. Additionally, we demonstrate the utility of pairing 
+the LOVtag with existing optogenetic tools to enhance performance by developing a combined 
+EL222 and LOVtag system. Finally, we use the LOVtag in a metabolic engineering application to 
+demonstrate post-translational control of metabolism. Together, our results highlight the 
+modularity and functionality of the LOVtag system, and introduce a powerful new tool for 
+bacterial optogenetics. 
+ 
+ 
+Introduction 
+Currently, the most widely used optogenetic systems in bacterial synthetic biology rely on 
+transcription to modulate gene expression. Light responsive transcription factors allow genes of 
+interest to be controlled modularly without having to re-engineer promoters. These tools have 
+provided a valuable means to probe regulatory networks (Dessauges et al., 2022; Harrigan et al., 
+2018; Lugagne and Dunlop, 2019; Olson et al., 2014). However, these networks can be governed 
+by complex control, where post-transcriptional and post-translational mechanisms work in concert 
+with transcriptional regulation (Chubukov et al., 2014; Link et al., 2013; Mahmoud and Chien, 
+2018). Light responsive regulators that act beyond transcription are necessary to more fully mimic 
+natural biology and have the potential to improve upon current deficits of transcriptional control. 
+In synthetic contexts, transcriptional regulation suffers from limited response dynamics. In the 
+case of gene activation, the time delay inherent to transcription and translation, which reaches 
+steady-state after >1.5 hours for inducible promoters (Golding et al., 2005; Olson et al., 2014), 
+restricts the speed at which an input signal can be actuated. More problematically, in the case of 
+gene deactivation, decreasing protein abundance is limited by cell division-based dilution or 
+natural protein half-lives, which are in the range of 5-20 hours for the majority of proteins in E. 
+coli (Maurizi, 1992). When cells are growing in exponential phase the effective degradation rate 
+of these long-lived proteins is the cell cycle time, which is on the order of 0.5 hours. However, at 
+high cell densities, such as during stationary phase, slow growth rates result in protein half-lives 
+on the scale of 10s of hours (Maier et al., 2011). Subpopulations of cells in stationary phase have 
+been reported to proliferate, however these growing subpopulations are small compared to non-
+growing cells and add to heterogeneous protein half-lives within the population (Jõers et al., 2020), 
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint
+this version posted February 26, 2023. 
+; 
+https://doi.org/10.1101/2023.02.25.530042
+doi: 
+bioRxiv preprint 
+
+
+--- Page 2 ---
+making it challenging to reliably remove these proteins. It should be noted that a proportion of 
+proteins are actively degraded during slow growth, but these represent the minority in E. coli 
+(Gupta et al., 2022). This is a critical issue for metabolic engineering where chemical production 
+is typically carried out at stationary phase in two-stage fermentations (Lalwani et al., 2018). 
+ 
+Post-translational optogenetic control has the potential to address some of the shortcomings of 
+transcriptional regulation because post-translational control mechanisms can function 
+independently of growth-based dilution. Existing approaches to post-translational optogenetic 
+control include the use of light inducible dimers in split protein systems (Baumschlager et al., 
+2017; Kawano et al., 2015; Nihongaki et al., 2015), domain insertions with light controlled 
+allosteric domains (Dagliyan et al., 2016; Gil et al., 2020), and membrane-confined functional 
+control (Strickland et al., 2012; Wang et al., 2016). These approaches, however, suffer from a lack 
+of modularity, which is a key benefit of the transcriptional control approaches. Split protein 
+systems and domain insertions require extensive engineering for each protein of interest and 
+solutions for a given protein are unlikely to map to proteins with different structures. Likewise, 
+localization-based approaches are only applicable to a small subset of proteins that have location 
+dependent function, such as transcription factors that require nuclear localization (Yumerefendi et 
+al., 2018).  
+ 
+Protein degradation offers potential as a modular post-translational mechanism of control. 
+Endogenous proteolytic machinery is necessary for proteome homeostasis and acts as a global 
+regulatory system (Mahmoud and Chien, 2018). Targeted proteolysis has proven useful in many 
+synthetic biology applications in both eukaryotic and prokaryotic organisms (Andersen et al., 
+1998; Cameron and Collins, 2014; McGinness et al., 2006; Morreale et al., 2022; Trauth et al., 
+2019) In eukaryotic cells, light dependent protein degradation has been demonstrated using various 
+mechanisms (Bonger et al., 2014; Deng et al., 2020; Liu et al., 2020; Renicke et al., 2013; Xue et 
+al., 2019). For example, Bonger et al. utilized the LOV2 domain of Avena sativa phototropin 1 
+(AsLOV2),  to achieve light dependent protein degradation in mammalian cells (Bonger et al., 
+2014). LOV2 is a blue-light responsive protein that is widely used in optogenetic tools (Pudasaini 
+et al., 2015). LOV2 contains a core Per-Arnt-Sim (PAS) domain surrounded by N- and C-terminal 
+α-helices. Upon blue light illumination, the LOV2 protein undergoes a conformational change 
+where the C-terminal Jα helix reversibly unfolds and becomes unstructured (Halavaty and Moffat, 
+2007; Harper et al., 2003; Yamamoto et al., 2009). Incorporation of a degradation-targeted peptide 
+sequence into the C-terminal resulted in light dependent protein degradation in yeast (Renicke et 
+al., 2013).  
+ 
+However, the bacterial proteasome differs from the eukaryotic proteasome in many ways 
+(Mahmoud and Chien, 2018; Schrader et al., 2009). The bacterial proteasome includes several 
+proteases with divergent targeting behaviors and does not utilize ubiquitin as a generalized 
+modification to trigger degradation (Finley, 2009). In bacteria, protein targeting for degradation is 
+predominantly dependent on primary amino acid sequence as opposed to a ubiquitin-like 
+appendage and, apart from certain well-studied cases, the rules governing sequence recognition of 
+bacterial degrons are not fully understood (Baker and Sauer, 2006; Striebel et al., 2009). Because 
+of these complexities, light dependent degradation systems for bacteria have lagged behind their 
+eukaryotic counterparts, where interaction of a ubiquitin ligase with a defined degron can be used 
+as a control mechanism (Bondeson et al., 2022). Nevertheless, optogenetic degradation remains a 
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint
+this version posted February 26, 2023. 
+; 
+https://doi.org/10.1101/2023.02.25.530042
+doi: 
+bioRxiv preprint 
+
+
+--- Page 3 ---
+key target for bacterial synthetic biology applications. In principle, an optogenetic degradation 
+system could be fast-acting, modular, and interface with endogenous proteasome machinery. 
+These features would provide a straightforward way of adding dynamic control to any protein of 
+interest, complementing existing transcriptional tools for optogenetic control of gene expression. 
+One recent system developed by Komera et al. utilizes a light responsive split TEV protease to 
+expose or remove constitutively active degradation tags in E. coli (Komera et al., 2022). Although 
+this system achieves protein degradation in response to light, it acts indirectly through activation 
+of an exogenous protease. A simpler approach where the degradation tag itself is light responsive 
+would streamline this by eliminating the need for multiple exogenous components. 
+ 
+Here, we develop LOVtag, a modular protein tag based on the AsLOV2 protein that is 
+conditionally degraded in response to blue light in E. coli. We demonstrate that attaching this tag 
+to a protein of interest confers light dependent protein instability. We show the modularity of 
+LOVtag by incorporating it into multiple proteins with widely varying function, converting them 
+all into optogenetically controlled systems without the need for extensive protein engineering. In 
+addition, through photocycle stabilizing mutations, we create a version of the LOVtag that 
+responds to infrequent exposure to blue light. We also demonstrate that our degradation tag can be 
+used in concert with other optogenetic systems for multi-layer control by using EL222, a blue light 
+responsive system for transcriptional control, together with the LOVtag. Lastly, we incorporate 
+optogenetic degradation into a metabolically engineered strain to control production of octanoic 
+acid. Overall, this work introduces a new bacterial optogenetic tool that overcomes the drawbacks 
+of transcriptional control by providing post-translational degradation, while avoiding the 
+substantial protein engineering required for alternative post-translational control mechanisms. 
+ 
+Results 
+  
+Design and characterization of the AsLOV2-based degradation tag 
+ 
+The E. coli proteasome consists of five AAA+ proteases and is continuously active, either 
+degrading misfolded proteins for quality control or balancing regulatory protein levels (Mahmoud 
+and Chien, 2018). We set out to exploit endogenous proteasome activity in order to design a light 
+responsive protein tag. To do this, we took insight from studies related to native protein quality 
+control. In bacteria, peptides from stalled ribosomes are targeted for degradation through 
+interaction with a tmRNA that appends a short amino acid sequence, known as an SsrA tag, to the 
+C-terminal end of the incomplete protein (Keiler, 2015). The E. coli SsrA tag has been studied 
+extensively and is known to interact with the unfoldases ClpX and ClpA (Flynn et al., 2001; 
+Gottesman et al., 1998). Addition of the SsrA peptide sequence to exogenous proteins targets them 
+for degradation by the host proteasome. SsrA mediated degradation has proven useful in synthetic 
+gene circuit function and biochemical production (Elowitz, 2000; Gurbatri et al., 2020; Stricker et 
+al., 2008; Torella et al., 2013; Ye et al., 2021). A recent structural study of ClpX interacting with 
+the SsrA tag from Fei et al. demonstrated that in order for ClpX to unfold a tagged protein, the C-
+terminal tail needs to be unstructured and sufficiently long to fit into the ClpX pore (Fei et al., 
+2020). We reasoned that the mechanism of AsLOV2, in which the C-terminal Jα helix becomes 
+unstructured upon blue light absorption, could be utilized to provide light inducible protein 
+degradation. 
+ 
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint
+this version posted February 26, 2023. 
+; 
+https://doi.org/10.1101/2023.02.25.530042
+doi: 
+bioRxiv preprint 
+
+
+--- Page 4 ---
+Biochemical studies have probed the amino acid sequence of the SsrA tag and its role in 
+degradation targeting. Flynn et al. demonstrated that ClpA and ClpX unfoldases interact with 
+overlapping residues within the SsrA sequence and that the last three amino acids (L-A-A) are 
+particularly important for successful degradation (Flynn et al., 2001). Importantly, they showed 
+that mutation of the leucine in the C-terminal ‘L-A-A’ lowers unfoldase affinity but does not hinder 
+degradation completely. We noticed that the C-terminal amino acid sequence of the AsLOV2 
+domain, comprised of residues 404-546 of Avena sativa phototropin 1, are ‘E-A-A’ at positions 
+541-543 (Fig. 1a). The dark state structure of AsLOV2 (PDB: 2V1A) shows that these three amino 
+acids and K544 complete the folded Jα helix (Fig. 1b). A truncation of residues 544-546 leaves 
+the Jα helix largely intact and the resulting C-terminal ‘E-A-A’ remains caged as part of the folded 
+helix. We hypothesized that this truncation would be stable in the dark state as a consequence of 
+‘E-A-A’ caging and unstable in the light state due to Jα helix unfolding and exposure of an 
+unstructured degradation tag. 
+ 
+Optogenetic systems have used the AsLOV2 domain in E. coli, however, it is often appended N-
+terminally or internally to another protein (Li et al., 2022; Strickland et al., 2008). To the best of 
+our knowledge, wild type or truncated AsLOV2, with its C-terminal end exposed, have not been 
+used for proteolytic degradation in bacterial cells. To test the stability of C-terminal AsLOV2 in 
+E. coli in response to light, we constructed a plasmid where we used an IPTG-inducible promoter 
+to control the expression of mCherry translationally fused to AsLOV2 (Fig. 1c). In this construct, 
+the full C-terminal sequence is intact so unfoldases are not expected to have good access for protein 
+degradation. Consistent with this, induction of mCherry-AsLOV2(546) with IPTG increased 
+expression of the fusion construct, and 465 nm blue light induction resulted in only a modest 
+decrease in expression (Fig. 1d). Next, we tested a version of the construct where three amino acids 
+were truncated to expose the C-terminal ‘E-A-A’, AsLOV2(543). This construct destabilized the 
+protein fusion as predicted, resulting in significantly lower expression compared to the non-
+truncated version (Fig. 1d). However, counter to our expectations, we observed only a modest 
+decrease in expression upon blue light induction. 
+ 
+While AsLOV2 switches from mostly folded in the dark state to mostly unfolded in the light state, 
+both states are present at an equilibrium with or without light (Yao et al., 2008). Due to the 
+suboptimal equilibrium of native AsLOV2, dark state undocking and unfolding of the Jα helix is a 
+common issue in AsLOV2-based optogenetic tools, and many studies have aimed at improving the 
+dynamic range of AsLOV2 (Guntas et al., 2015; Lungu et al., 2012; Strickland et al., 2012, 2010; 
+Wang et al., 2016). Guntas et al., performed phage display on an AsLOV2-based protein that 
+incorporates a caged peptide sequence in the Jα helix. They identified a variant with 11 amino acid 
+substitutions with much tighter dark state caging, called iLID. Interestingly, several of these 
+mutations do not have a direct interaction with the caged peptide, but instead are located at the 
+hinge loop connecting the PAS domain to the Jα helix or in the PAS domain itself (Fig. S1). Guntas 
+et al. further characterized amino acid substitutions and determined several that did not affect 
+caging or dynamic range if reverted (F502Q, H521R, and C530M). We focused on the mutations 
+found to result in tighter dark state caging (L493V, H519R, V520L, D522G, G528A, E537F, 
+N538Q, and D540A), and reasoned that this set should stabilize the Jα helix irrespective of the 
+caged peptide. Thus, we next constructed a variant of AsLOV2 with these eight mutations, which 
+we denote as AsLOV2*. 
+ 
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint
+this version posted February 26, 2023. 
+; 
+https://doi.org/10.1101/2023.02.25.530042
+doi: 
+bioRxiv preprint 
+
+
+--- Page 5 ---
+To test whether these mutations are beneficial in the context of protein stabilization, we fused 
+AsLOV2*(546) or AsLOV2*(543) to mCherry (Fig. 1c). Non-truncated AsLOV2*(546) expressed 
+highly with the addition of IPTG, but blue light did not result in a decrease in mCherry levels, 
+consistent with lack of access by proteases (Fig. 1d). In contrast, the truncated version containing 
+the mutations, AsLOV2*(543), displayed the desired light induced degradation, expressing highly 
+in the dark and exhibiting 11.5x lower expression in response to blue light (Fig. 1d). We also 
+confirmed that AsLOV2*(543) expression was decreased in response to light without any IPTG 
+induction (Fig. S2). Further, AsLOV2*(543) is destabilized in proportion to light intensity (Fig. 
+1e). We conducted experiments to identify the mechanism underlying AsLOV2*(543) degradation 
+and found evidence that ClpA is involved, and other proteases and unfoldases play complementary 
+roles (Supplementary Text, Fig. S3-6). A potential concern is that light induced disorder of the Jα 
+helix could result in a decrease in solubility and aggregation of mCherry-AsLOV2*(543). To rule 
+this out as the cause of the fluorescence decrease, we captured microscopy images of cells in dark 
+and light conditions. The imaging confirmed a light-dependent decrease in mCherry expression 
+without the formation of visible protein aggregates (Fig. S7). Thus, the AsLOV2*(543) variant 
+provides blue light dependent protein degradation; we refer to this variant as the LOVtag. 
+ 
+Modularity of the LOVtag 
+ 
+Post-translational control of protein function typically requires extensive protein engineering for 
+each use case. Degradation tags, by contrast, offer post-translational control that theoretically 
+requires little to no protein engineering and is protein agnostic. To test the modularity of the 
+LOVtag, we incorporated optogenetic control into three systems with highly diverse functions and 
+relevance to synthetic biology and biotechnology applications: the LacI repressor, CRISPRa 
+activation, and the AcrB efflux pump. 
+ 
+First, we sought to test whether the LOVtag could be fused to transcription factors to enable light 
+dependent regulation. The LacI repressor is one of the most commonly used chemically inducible 
+systems in synthetic biology. We translationally fused the LOVtag to LacI and paired it with a 
+reporter where the LacUV5 promoter controls expression of mCherry (Fig. 2a). Our results show 
+that light exposure successfully increased mCherry expression (Fig. 2b). Light induced mCherry 
+expression did not achieve the full levels provided with saturating IPTG induction, however we 
+still observed a notable increase. We tested an alternative strategy for further improving de-
+repression, which suggested that the discrepancy between IPTG versus light dependent induction 
+likely stems from the delay in LacI degradation compared to the rapid allosteric action of IPTG 
+(Supplementary Text, Fig. S8). 
+ 
+Next, we incorporated the LOVtag into the SoxS-based bacterial CRISPRa activation system 
+(Dong et al., 2018). In this system, a scaffold RNA, which is a modified gRNA containing an MS2 
+stem loop, is used to localize dCas9 and the transcriptional activator SoxS, which is fused to an 
+MS2 coat protein (MCP). We translationally fused the LOVtag to the MCP-SoxS protein, such 
+that in the dark CRISPRa will be active and light exposure relieves activation (Fig. 2c). In the 
+original system, MCP-SoxS expression is anhydrotetracycline (aTc) inducible. This induction 
+system in not amenable to blue light stimulation because aTc is photosensitive (Baumschlager et 
+al., 2020). Thus, we changed the MCP-SoxS construct to an IPTG inducible promoter prior to blue 
+light experiments (Fig. S9a, Table S1, Table S2). We confirmed that the promoter switch 
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint
+this version posted February 26, 2023. 
+; 
+https://doi.org/10.1101/2023.02.25.530042
+doi: 
+bioRxiv preprint 
+
+
+--- Page 6 ---
+maintained CRISPRa activity (Fig. S9b). Fusing the LOVtag to the activator component indeed 
+relieved CRISPRa activity, resulting in a decrease in expression under blue light stimulation (Fig. 
+2d). 
+ 
+We also added the LOVtag to the endogenous membrane protein AcrB. This represents a 
+challenging test case for degrading a native protein. The AcrAB-TolC complex is a multidrug 
+efflux pump with clinical relevance due to its role in antibiotic tolerance and resistance acquisition 
+(El Meouche and Dunlop, 2018; Lizarralde-Guerrero and Taraveau, 2021; Okusu et al., 1996). 
+AcrAB-TolC has also been utilized in metabolic engineering as a mechanism to pump out toxic 
+chemical products and boost strain performance (Dunlop et al., 2011; Fisher et al., 2014). 
+However, inducible control of AcrB is challenging because cell viability is sensitive to 
+overexpression (Turner and Dunlop, 2015). Optogenetic transcriptional control systems have high 
+dynamic ranges but do not operate in the low expression ranges relevant to very potent proteins 
+such as AcrB. Light based degradation is well suited for this challenge because it works by 
+decreasing expression, allowing the upper bound of expression to be determined by the promoter. 
+ 
+Previous work from Chai et al. demonstrated that AcrB can be targeted for proteolysis by fusing 
+an SsrA tag to the C-terminal (Chai et al., 2016). Degradation is possible because the C-terminal 
+end of AcrB is on the cytoplasmic side of the inner membrane and can interact with cytoplasmic 
+unfoldases (Du et al., 2014). Therefore, we reasoned that fusing the LOVtag to AcrB would result 
+in light inducible degradation that disrupts activity of the AcrAB-TolC complex (Fig. 2e). To 
+determine if activity of the AcrAB-TolC complex was successfully disrupted by light, we 
+performed a minimum inhibitory concentration (MIC) test using the antibiotic chloramphenicol. 
+AcrAB-TolC is known to increase tolerance to chloramphenicol (Okusu et al., 1996). We 
+transformed a construct containing tagged AcrB into cells lacking the endogenous acrB gene 
+(ΔacrB). When kept in the dark, ΔacrB cells with AcrB-LOVtag showed comparable 
+chloramphenicol tolerance to wild type cells (Fig. 2f-g). Blue light stimulation, in contrast, 
+sensitized the ΔacrB + AcrB-LOVtag strain to chloramphenicol compared to both wild type and 
+ΔacrB + AcrB-LOVtag kept in the dark (Fig. 2f-g). This suggests that the LOVtag successfully 
+targets AcrB for degradation in a light dependent fashion in a range that is physiologically relevant. 
+When compared to ΔacrB without any AcrB complementation, the blue light exposed cells do not 
+reach the same level of chloramphenicol sensitivity, likely due to basal levels of efflux pump 
+expression from AcrB-LOVtag relative to the knockout (Fig. S10). 
+ 
+Tuning frequency response of the LOVtag 
+ 
+Light inducible systems have the potential to respond to the frequency of light exposure. Frequency 
+dependent tools can allow optogenetic circuits to be multiplexed beyond limited wavelength 
+options and add a layer of logic to optogenetic circuits (Benzinger et al., 2022). With added logic 
+operations, optogenetic circuits could perform complex signal processing, analogous to those 
+demonstrated with multiplexed chemically inducible circuits (Shin et al., 2020), while allowing 
+dynamic light inputs.  Additionally, higher sensitivity LOVtags would also be useful in bioreactor 
+settings, where poor light penetration into dense cultures is a feasibility concern. With these use 
+cases in mind, we sought to investigate and alter the LOVtag frequency response. 
+ 
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint
+this version posted February 26, 2023. 
+; 
+https://doi.org/10.1101/2023.02.25.530042
+doi: 
+bioRxiv preprint 
+
+
+--- Page 7 ---
+LOV domains utilize a flavin cofactor to absorb light. In the case of AsLOV2, the cofactor 
+responsible for light absorption is flavin mononucleotide (FMN). A cysteine residue in AsLOV2 
+forms a reversible covalent bond with FMN, which initiates broader conformation change. A full 
+photocycle of AsLOV2 consists of absorption of a photon, covalent bond formation with cysteine 
+450, Jα helix destabilization and unfolding, decay of the cysteine-FMN bond, and Jα helix 
+refolding (Swartz et al., 2001). Previous studies have determined the dynamics of bond formation 
+and the time delay of Jα helix refolding. Further, mutations have been found that stabilize or 
+destabilize the light state conformation (Christie et al., 2007; Kawano et al., 2013; Zayner et al., 
+2013). In the context of the LOVtag, the time needed for the Jα helix to refold, known as the 
+reversion time, likely determines degradation characteristics (Fig. 3a). In principle, the time spent 
+in the light state dictates the amount of time the protein is susceptible to degradation and, therefore, 
+would impact the frequency response given variable light inputs.  
+ 
+To test the effect of LOVtag refolding dynamics, we illuminated cells with 5 second pulses of blue 
+light followed by variable length dark periods to allow Jα helix refolding (Fig. 3b). While holding 
+the blue light duration fixed, we tested dark periods ranging from 475 seconds (5:475 seconds 
+on:off, frequency of 0.01 seconds-1) to 5 seconds (5:5 seconds on:off, frequency of 0.5 seconds-1). 
+We first tested the frequency response of the original LOVtag (Fig. 3c). The response is in line 
+with known refolding dynamics of AsLOV2 (Li et al., 2020), where over 50% degradation is only 
+achieved at high frequencies (0.5 seconds-1, which corresponds to 5:5 seconds on:off). Next, we 
+tested a LOVtag variant that contains a slow-photocycle mutation, V416I (Zoltowski et al., 2009). 
+This amino acid substitution has been shown to increase the dark state recovery from 8 seconds to 
+84 seconds in situ (Li et al., 2020). Indeed, for LOVtag (V416I) over 50% degradation was 
+achieved at medium frequencies (0.04 seconds-1, which corresponds to 5:120 seconds on:off) (Fig. 
+3c). This variant offers the potential for better performance in settings where increased light 
+sensitivity is preferred, such as bioreactors.  
+ 
+Integrating the LOVtag with EL222 for multi-layer control 
+ 
+Another attractive aspect of post-translational optogenetic control is that it can integrate with 
+existing systems that act at the transcriptional or translational level. Adding control at multiple 
+layers has been shown to enhance the performance and robustness of natural and synthetic systems 
+(Alon, 2007; Hasenjäger et al., 2019; Szydlo et al., 2022). One commonly used system for 
+optogenetic transcriptional control is the EL222 protein. EL222 is a blue light responsive LOV 
+protein that dimerizes and binds DNA upon light exposure (Zoltowski et al., 2013). In bacteria, 
+EL222 can be used as a transcriptional repressor or activator depending on the placement of its 
+binding site in the promoter (Ding et al., 2020; Jayaraman et al., 2016). We chose to combine the 
+transcriptional repression of EL222 with the LOVtag. In this arrangement, the systems work 
+synergistically to decrease gene expression in response to blue light using simultaneous 
+transcriptional repression and protein degradation (Fig. 4a).  
+ 
+To test the performance of this combined optogenetic circuit, we created a construct in which the 
+mCherry-LOVtag fusion protein is driven by a constitutively active promoter containing an EL222 
+binding site (PEL222). We tested the light response of mCherry-LOVtag expression with and without 
+EL222 present (Fig. 4b). As expected, mCherry expression decreased in response to light even 
+without EL222 present, representing the sole action of the degradation tag. However, multi-layer 
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint
+this version posted February 26, 2023. 
+; 
+https://doi.org/10.1101/2023.02.25.530042
+doi: 
+bioRxiv preprint 
+
+
+--- Page 8 ---
+control resulted in a faster decrease in expression in response to light and reached significantly 
+lower levels compared to the degradation tag alone. The fold change decrease in expression was 
+improved from 15x for just the LOVtag to 269x when both systems were combined. 
+ 
+Optogenetic control of octanoic acid production 
+ 
+We next sought to apply the LOVtag to a metabolic engineering task, as we envision that post-
+translational control will be especially advantageous in these biotechnology applications. 
+Transcriptional control alone is particularly problematic in a metabolic engineering setting because 
+chemical production is typically carried out at stationary phase with slow growth rates, meaning 
+that proteins expressed at basal levels will accumulate in production settings. Therefore, dynamic 
+control using transcriptional optogenetic systems alone will only allow protein levels to increase 
+or plateau. However, a prerequisite for dynamic control of metabolic pathways is that enzyme 
+levels can be modulated to turn off production. Thus, the LOVtag protein degradation system 
+offers excellent potential for control in metabolic engineering applications. 
+ 
+As a proof of concept, we chose to control the enzyme CpFatB1 with the LOVtag or the EL222-
+LOVtag circuit. CpFatB1 is an acyl-ACP thioesterase from Cuphea palustris that primarily 
+catalyzes octanoyl-ACP to produce octanoic acid. Octanoic acid is a valuable medium chain 
+oleochemical with limited natural sources (Sarria et al., 2017). Specifically, we expressed the 
+catalytically enhanced mutant from Hernandez-Lozada, et al., CpFatB1.2-M4-287, which we 
+denote here as CpFatB1* (Hernández Lozada et al., 2018). This enzyme interfaces with the 
+endogenous fatty acid synthesis pathway in E. coli to produce free fatty acids (Fig. 5a). In this 
+pathway, the carbon tail of an acyl-ACP moiety is elongated two carbons at a time. CpFatB1* 
+specifically catalyzes C8-ACPs, which results in production of free octanoic acid. Importantly, 
+since CpFatB1* is very catalytically active, low levels of expression are optimal for production 
+and strains with high expression exhibit a growth defect (Hernández Lozada et al., 2018). 
+Therefore, to dynamically control CpFatB1* activity in cells, expression must be controlled in a 
+low range, which is particularly challenging in stationary phase.  
+ 
+A first step towards optogenetically controlling this metabolic pathway is to demonstrate that 
+enzyme levels can be modulated between expression levels that are relevant to endpoint titers. If 
+expression can only oscillate between high and medium expression levels, dynamic light control 
+will not be effective. To test whether we could effectively stunt CpFatB1* activity, we controlled 
+enzyme expression using only EL222 repression, only LOVtag degradation, or EL222 and LOVtag 
+throughout at 24 hour fermentation period (Fig. 5b). The EL222 only control did not significantly 
+decrease octanoic acid production with light, demonstrating the shortcomings of solely 
+transcriptional control at stationary phase. In contrast, both the LOVtag alone and the LOVtag 
+with EL222 resulted in a significant decrease in octanoic acid in the continuous light condition. 
+Thus, protein degradation is needed to effectively shunt the metabolic pathway during stationary 
+phase.  
+ 
+Clearly, decreasing titers is not the overall goal in metabolic engineering. However, the ability to 
+control expression at relevant ranges throughout stationary phase represents an important stepping 
+stone to investigate dynamic control schemes or feedback control that may lead to enhanced strain 
+performance. 
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint
+this version posted February 26, 2023. 
+; 
+https://doi.org/10.1101/2023.02.25.530042
+doi: 
+bioRxiv preprint 
+
+
+--- Page 9 ---
+ 
+Discussion 
+ 
+Here, we developed and characterized the LOVtag, which provides blue light inducible protein 
+degradation, offering unique advantages as a tool for bacterial synthetic biology. Protein 
+degradation offers a mode of control that is currently limited in the bacterial optogenetic toolkit. 
+The bacterial light responsive degradation system from Komera et al. accomplishes protein 
+degradation indirectly through an exogenous split protease (Komera et al., 2022). In comparison, 
+in our approach the degradation tag itself is light responsive and does not require extra components, 
+making it straightforward to incorporate. In this study, we showed that the truncated AsLOV2 
+protein can be fused to the C-terminal end of various proteins to destabilize them and then target 
+them for degradation. The addition of stabilizing mutations from iLID result in low basal activity 
+in the dark, with strong switching in response to light. Aside from creating a light-responsive 
+degradation tag, the effectiveness of these stabilizing mutations may serve to improve the switch-
+like behavior in many other AsLOV2-based systems. 
+ 
+We demonstrated the modularity of the LOVtag by incorporating it into three distinct contexts 
+with little to no fine tuning. Each system, the LacI repressor, CRISPRa activation, and the AcrB 
+efflux pump, were converted to optogenetically controlled by simply tagging the protein with the 
+LOVtag. This modularity mimics the ease of use of transcriptional optogenetic systems, which 
+only require a change of the promoter. However, incorporating light control at the protein level 
+simplifies this process because expression levels can remain in their native, or previously fine-
+tuned, context. For example, the AcrB efflux pump is beneficial to the cell only at low expression 
+levels, as higher expression negatively impacts cell health (Turner and Dunlop, 2015). To maintain 
+low exogenous expression, researchers typically rely on leaky expression from inducible systems 
+or chromosomal integration (El Meouche and Dunlop, 2018; Teelucksingh et al., 2022). Addition 
+of the LOVtag has the benefit that it does not disrupt the system at the transcriptional level and 
+allows protein levels to be decreased further. This configuration is especially beneficial for 
+proteins that require low expression, as transcriptional optogenetic systems often suffer from leaky 
+basal expression. The LOVtag provides a design that can work with endogenous expression levels, 
+circumventing this issue. In this study, we focused on proteins expressed on plasmids from 
+synthetic promoters. However, we anticipate the LOVtag can be useful in systems biology contexts 
+where natural promoters linked to endogenous gene networks are best left untouched. In this case, 
+the LOVtag can add the ability to optogenetically manipulate genes while keeping them in their 
+native gene regulatory context.  
+ 
+Since degradation occurs post-translationally, the LOVtag can easily be integrated with existing 
+optogenetic systems to enhance their function. We demonstrated this by combining the LOVtag 
+with the EL222 repression system, showing that the synergistic action of transcriptional repression 
+and degradation results in a drastic increase in the dynamic range, owing to the much lower off-
+state under light illumination. In this configuration, EL222 and the LOVtag work coherently to 
+decease expression. However, the LOVtag can potentially be incorporated into activating systems 
+incoherently to create dynamic functionality, such as pulse generators and inverters (Benzinger et 
+al., 2022). 
+ 
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint
+this version posted February 26, 2023. 
+; 
+https://doi.org/10.1101/2023.02.25.530042
+doi: 
+bioRxiv preprint 
+
+
+--- Page 10 ---
+Throughout this study, we performed experiments using low copy number plasmids that result in 
+moderate expression levels of a given protein of interest. While this is a common use case for 
+synthetic biology, degradation as the sole mode of gene expression control may be limiting when 
+proteins are at very high expression levels. As an ATP-dependent process that utilizes a finite pool 
+of proteolytic machinery, degradation rates can saturate at sufficiently high expression levels. 
+Furthermore, using protein degradation as the sole mode of gene expression control is wasteful in 
+some contexts. Constitutive transcription and translation of a gene followed by degradation utilizes 
+valuable cellular resources, which is an important consideration in metabolic engineering. To 
+avoid this type of energetic waste, we envision the LOVtag could be used in concert with other 
+modes of regulation, as we demonstrated with EL222. In addition, it is unclear whether the LOVtag 
+is compatible with other prokaryotic (including mitochondrial) proteasomes. Future studies 
+focused on the portability of the LOVtag may address this question and potentially lead to further 
+mechanistic insight. 
+ 
+In summary, the LOVtag offers a straightforward route for introducing optogenetic control of 
+protein degradation in E. coli. By lowering the barrier to entry for incorporating light 
+responsiveness into a protein of interest, we envision that systems typically studied with chemical 
+induction or constitutive expression can now be controlled optogenetically without extensive fine-
+tuning. Furthermore, the LOVtag can act as a circuit enhancer when incorporated into existing 
+optogenetic systems to increase functionality and robustness.  
+ 
+Methods 
+ 
+Strains and plasmids 
+We used E. coli BW25113 as the wild type strain. All knockout strains are from the Keio collection 
+(Baba et al., 2006), which were derived from BW25113. We used golden gate cloning to create all 
+plasmid constructs (Engler et al., 2008) (Table S1). The IPTG inducible constructs were derived 
+from pBbS5c-mRFP1 from the BglBrick plasmid library (Lee et al., 2011). In the constitutive 
+version of the mCherry-AsLOV2 variants, we swapped the IPTG inducible promoter with a 
+constitutive 
+promoter, 
+PW7 
+(5’-
+ttatcaaaaagagtattgaaataaagtctaacctataggaagattacagccatcgagagggacacggcgaa-3’). We used this 
+constitutive version for microscopy and the protease knockout studies; all other experiments used 
+the IPTG inducible promoter.  
+ 
+In all cases of protein fusions to AsLOV2 variants, a five amino acid GS linker of ‘S-S-G-S-G’ 
+was used between the protein of interest and the LOVtag. In the LacI-LOVtag experiments, 
+pBbS5c-mCherry was also used as the backbone, but with the LOVtag sequence cloned after the 
+lacI gene instead of mCherry. In the LacI-LOVtag experiment to test the impact of basal LacI, 
+pBbS5c-LacI-LOVtag-mCherry was co-transformed with pBbAa-LacI-Decoy from Wang and 
+Tague et al. (Wang et al., 2021).CRISPRa constructs were based on the MS2-SoxS system from 
+Dong et al. (Dong et al., 2018). The J106 gRNA sequence from Dong et al. was used to target 
+dCas9 upstream mRFP1 under control of the minimal J1 promoter. This gRNA plasmid was 
+constructed using the golden gate assembly method to replace the targeting sequence in the 
+pCD061 backbone (Addgene #113315). The mRFP1 reporter plasmid was derived from pJF076Sa 
+(Addgene #113322) by replacing the ampicillin resistance gene with a kanamycin resistance gene 
+from the BglBrick library. MS2-SoxS-LOVtag was expressed from a variant of pJF093 (Addgene 
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint
+this version posted February 26, 2023. 
+; 
+https://doi.org/10.1101/2023.02.25.530042
+doi: 
+bioRxiv preprint 
+
+
+--- Page 11 ---
+#113323). TetR and its corresponding promoter driving expression of MS2-SoxS were replaced 
+with the LacI-PTrc inducible system from pBbA1c-mRFP1 from the BglBrick library (Lee et al., 
+2011). The inducer was changed to IPTG because aTc is sensitive to blue light (Baumschlager et 
+al., 2020). The LOVtag was added to this construct with a C-terminal fusion to SoxS. Plasmids 
+containing acrAB were built from pBbA5k-acrAB from El Meouche et al. (El Meouche and 
+Dunlop, 2018). The FLP recombination protocol from Datsenko and Wanner was used to cure the 
+kanR cassette from the genome of the ΔacrB strain (Keio collection, JW0451)(Datsenko and 
+Wanner, 2000).   
+ 
+The slow photocycle variant of the LOVtag, V416I, was constructed using site directed 
+mutagenesis of Valine at amino acid position 416. 
+ 
+EL222 was synthesized by IDT (Coralville, IA) and plasmids were constructed to mimic EL222 
+repression systems from Jayaraman et al. (Table S1) (Jayaraman et al., 2016). A variant of the 
+promoter PBLrep-v1 from Ding et al., PraB was used in all EL222 experiments and we refer to it in 
+figures as PEL222 (Ding et al., 2020). Plasmid pBbE5k-PEL222-mCherry-LOVtag was co-
+transformed with pEL222, which constitutively expresses EL222 (Table S2).  
+ 
+For octanoic acid production experiments, the coding sequence of CpFatB1.2-M4-287 derived 
+from Hernández Lozada et al. was synthetized by Twist Biosciences (South San Francisco, CA) 
+and cloned after the PEL222 or PlacUV5 promoter (Hernández Lozada et al., 2018). Plasmid pBbE5k-
+PEL222-CpFatB1*-LOVtag was co-transformed with pEL222 for LOVtag + EL222 production 
+control (Table S2). 
+ 
+Plasmids expressing ClpA, ClpX, and HslU were constructed by amplifying the unfoldase gene 
+from the wild type genome and inserting it into the pBbA8k backbone from the BglBrick library 
+(Lee et al., 2011).  
+ 
+ 
+Blue light stimulation 
+Unless otherwise noted, bacteria were cultured in Luria broth (LB) with appropriate antibiotics for 
+plasmid maintenance at 37 °C with 200 rpm shaking. Antibiotic concentrations used for plasmid 
+maintenance were 30 μg/mL for kanamycin, 100 μg/mL for carbenicillin, and 25 μg/mL for 
+chloramphenicol. All light exposure experiments were carried out with a light plate apparatus 
+(LPA) (Gerhardt et al., 2016) using 465 nm blue light. Overnight cultures of light sensitive strains 
+were diluted 1:50 and precultured in the dark for 2 hours. For IPTG inducible constructs, 1mM 
+IPTG was added when the cells were diluted. After 2 hours in the dark, cells were exposed to blue 
+light in the LPA at a setpoint of 100 μW/cm2. Red fluorescence (excitation 560 nm, emission 600 
+nm) and optical density (OD) readings were taken using a BioTek Synergy H1m plate reader 
+(BioTek, Winooski, VT) after 5 hours of incubation. For CRISPRa experiments, light stimulation 
+was continued for 8 hours prior to RFP and OD readings. For frequency response experiments, the 
+LPA was programmed using its Iris software (https://taborlab.github.io/Iris/) to pulse blue light 
+at varying frequencies. A 5 second light pulse was constant for each experiment while the time 
+between pulses was varied (5s, 55s, 85s, 115s, 235s, and 480s). 
+ 
+Minimum inhibitory concentrations 
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint
+this version posted February 26, 2023. 
+; 
+https://doi.org/10.1101/2023.02.25.530042
+doi: 
+bioRxiv preprint 
+
+
+--- Page 12 ---
+Minimum inhibitory concentration (MIC) experiments for chloramphenicol were performed in M9 
+minimal media (M9 salts, 2mM MgSO4, 100 μM CaCl2) with 1% glucose at 37 °C with 200 rpm 
+shaking. Overnight cultures in LB were initially diluted 1:50 into M9 media for 4 hours. The M9 
+conditioned cultures were then diluted again 1:20 into 24 well plates containing M9 media with 
+varying levels of chloramphenicol (0, 0.3125, 0.625, 1.25, 2.5, 5, and 10 μg/ml) and grown for 20 
+hours before measuring optical density (OD) using a BioTek Synergy H1m plate reader (BioTek, 
+Winooski, VT).  We also conducted experiments with the ΔacrB strain. For these, ΔacrB was 
+transformed with pBbA5k-AcrAB-LOVtag (Table S2) and MIC experiments were carried out 
+either in the LPA with constant light illumination or kept in the dark for the duration of growth. 
+No IPTG was added to the ΔacrB + AcrAB-LOVtag cultures because basal expression is enough 
+to recover wild type resistance. The same MIC protocol was performed in the dark using 
+BW25113, ΔacrB + AcrB, and un-transformed ΔacrB as controls.  
+ 
+Microscopy 
+Strains were grown overnight in LB medium. Cultures were refreshed 1:100 in M9 minimal media 
+(M9 salts supplemented with 2 mM MgSO4, 0.1 mM CaCl2) with 0.4% glucose for two hours. 
+Samples were then placed on 1.5% low melting agarose pads made with M9 minimal media with 
+0.4% glucose. Samples were grown at 30°C. Cells were imaged at 100x using a Nikon Ti-E 
+microscope. Blue light exposure was provided by a LED ring (Adafruit NeoPixel 1586), which 
+was fixed above the microscope stage and controlled by an Arduino using a custom Matlab script. 
+Blue light was kept constant except during image acquisitions. 
+ 
+Production experiment 
+For octanoic acid production experiments, strains expressing CpFatB1* under various modes of 
+control (Table S2) were cultured in LB overnight with light illumination to maintain low CpFatB1* 
+expression. Overnight cultures were diluted 1:20 into M9 minimal media with 2% glucose and 
+kept in the light until they reached an OD600 of 0.6 unless otherwise noted. The LPA was then 
+programmed to either maintain light for low octanoic acid production or turn off light exposure to 
+induce octanoic acid production for 24 hours prior to fatty extraction and quantification. 
+ 
+Fatty acid quantification 
+Samples for GC-MS quantification were taken at 24 hours. 400 μL of vortexed culture was used 
+for fatty acid extraction and derivatization into fatty acid methyl esters as described by Sarria et 
+al. (Sarria et al., 2018) with the following minor modifications: An internal standard of nonanoic 
+acid (C9) was added to the 400 μL sample at a final concentration of 88.8 mg/L and vortexed for 
+5 sec. The following was then added to the sample for fatty acid extraction and vortexed for 30 
+sec: 50 μL 10% NaCl, 50 μL glacial acetic acid, and 200 μL ethyl acetate. The sample was then 
+centrifuged at 12,000 g for 10 mins. After centrifugation, 100 μL of the ethyl acetate layer was 
+mixed with 900 μL of a 30:1 mixture of methanol:HCl (12N) in a 2 mL microcentrifuge tube. The 
+solution was vortexed for 30 sec followed by an incubation at 50°C for 60 mins for methyl ester 
+derivatization. Once cooled to room temperature, 500 μL hexanes and 500 μL water were added 
+to the 2 mL microcentrifuge tube, vortexed for 10 sec, and allowed to settle. 250 μL of the hexane 
+layer was mixed with 250 μL ethyl acetate in a GC-MS vial for quantification. 
+ 
+The samples were analyzed with an Agilent 6890N/Agilent 5973 MS detector using a DB-5MS 
+column. The inlet temperature was set to 300°C with flow at 4 mL/min. The oven heating program 
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint
+this version posted February 26, 2023. 
+; 
+https://doi.org/10.1101/2023.02.25.530042
+doi: 
+bioRxiv preprint 
+
+
+--- Page 13 ---
+was initially set to 70°C for 1 min, followed by a ramp to 290°C at 30°C/min, and a final hold at 
+290°C for 1 min. GLC-20 and GLC-30 FAME standard mixes (Sigma) were tested using this 
+protocol to ensure proper capture of all chain lengths and to gauge retention times. Internal 
+standards were used for quantification, with chain lengths C8-C12 quantified with the nonanoic 
+acid internal standard and C14-C18 quantified with the pentadecanoic internal standard. 
+ 
+ 
+ 
+Acknowledgements 
+We thank members of the Dunlop Lab for helpful discussions. This work was supported by DOE 
+grant DE-SC0019387, NSF grant 1804096, and NIH grant R01AI102922. CCO and MBS 
+received support through the NIH training grants T32 GM130546 and T32 EB006359, 
+respectively. 
+ 
+Conflict of Interest 
+The authors declare no competing interests. 
+ 
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint
+this version posted February 26, 2023. 
+; 
+https://doi.org/10.1101/2023.02.25.530042
+doi: 
+bioRxiv preprint 
+
+
+--- Page 14 ---
+ 
+References 
+Alon U. 2007. Network motifs: Theory and experimental approaches. Nat Rev Genet 8:450–461. 
+doi:10.1038/nrg2102 
+Andersen JB, Sternberg C, Poulsen LK, Bjørn SP, Givskov M, Molin S. 1998. New unstable 
+variants of green fluorescent protein for studies of transient gene expression in bacteria. 
+Appl Environ Microbiol 64:2240–2246. doi:10.1128/aem.64.6.2240-2246.1998 
+Baba T, Ara T, Hasegawa M, Takai Y, Okumura Y, Baba M, Datsenko KA, Tomita M, Wanner 
+BL, Mori H. 2006. Construction of Escherichia coli K-12 in-frame, single-gene knockout 
+mutants: The Keio collection. Mol Syst Biol 2. doi:10.1038/msb4100050 
+Baker TA, Sauer RT. 2006. ATP-dependent proteases of bacteria: recognition logic and 
+operating principles. Trends Biochem Sci 31:647–653. doi:10.1016/j.tibs.2006.10.006 
+Baumschlager A, Aoki SK, Khammash M. 2017. Dynamic Blue Light-Inducible T7 RNA 
+Polymerases (Opto-T7RNAPs) for Precise Spatiotemporal Gene Expression Control. ACS 
+Synth Biol 6:2157–2167. doi:10.1021/acssynbio.7b00169 
+Baumschlager A, Rullan M, Khammash M. 2020. Exploiting natural chemical photosensitivity 
+of anhydrotetracycline and tetracycline for dynamic and setpoint chemo-optogenetic 
+control. Nat Commun 11:1–10. doi:10.1038/s41467-020-17677-5 
+Benzinger D, Ovinnikov S, Khammash M. 2022. Synthetic gene networks recapitulate dynamic 
+signal decoding and differential gene expression. Cell Syst 13:353-364.e6. 
+doi:10.1016/j.cels.2022.02.004 
+Bondeson DP, Mullin-Bernstein Z, Oliver S, Skipper TA, Atack TC, Bick N, Ching M, Guirguis 
+AA, Kwon J, Langan C, Millson D, Paolella BR, Tran K, Wie SJ, Vazquez F, Tothova Z, 
+Golub TR, Sellers WR, Ianari A. 2022. Systematic profiling of conditional degron tag 
+technologies for target validation studies. Nat Commun 13. doi:10.1038/s41467-022-33246-
+4 
+Bonger KM, Rakhit R, Payumo AY, Chen JK, Wandless TJ. 2014. General method for 
+regulating protein stability with light. ACS Chem Biol 9:111–115. doi:10.1021/cb400755b 
+Cameron DE, Collins JJ. 2014. Tunable protein degradation in bacteria. Nat Biotechnol 32:1276–
+1281. doi:10.1038/nbt.3053 
+Chai Q, Wang Z, Webb SR, Dutch RE, Wei Y. 2016. The ssrA-Tag Facilitated Degradation of 
+an Integral Membrane Protein. Biochemistry 55:2301–2304. 
+doi:10.1021/acs.biochem.6b00038 
+Christie JM, Corchnoy SB, Swartz TE, Hokenson M, Han IS, Briggs WR, Bogomolni RA. 2007. 
+Steric interactions stabilize the signaling state of the LOV2 domain of phototropin 1. 
+Biochemistry 46:9310–9319. doi:10.1021/bi700852w 
+Chubukov V, Gerosa L, Kochanowski K, Sauer U. 2014. Coordination of microbial metabolism. 
+Nat Rev Microbiol 12:327–340. doi:10.1038/nrmicro3238 
+Dagliyan O, Tarnawski M, Chu PH, Shirvanyants D, Schlichting I, Dokholyan N V., Hahn KM. 
+2016. Engineering extrinsic disorder to control protein activity in living cells. Science (80- ) 
+354:1441–1444. doi:10.1126/science.aah3404 
+Datsenko KA, Wanner BL. 2000. One-step inactivation of chromosomal genes in Escherichia 
+coli K-12 using PCR products. Proc Natl Acad Sci U S A 97:6640–6645. 
+doi:10.1073/pnas.120163297 
+Deng W, Bates JA, Wei H, Bartoschek MD, Conradt B, Leonhardt H. 2020. Tunable light and 
+drug induced depletion of target proteins. Nat Commun 11:1–13. doi:10.1038/s41467-019-
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint
+this version posted February 26, 2023. 
+; 
+https://doi.org/10.1101/2023.02.25.530042
+doi: 
+bioRxiv preprint 
+
+
+--- Page 15 ---
+14160-8 
+Dessauges C, Mikelson J, Dobrzyński M, Jacques M, Frismantiene A, Gagliardi PA, Khammash 
+M, Pertz O. 2022. Optogenetic actuator – ERK biosensor circuits identify MAPK network 
+nodes that shape ERK dynamics. Mol Syst Biol 18:1–22. doi:10.15252/msb.202110670 
+Ding Q, Ma D, Liu GQ, Li Y, Guo L, Gao C, Hu G, Ye C, Liu J, Liu L, Chen X. 2020. Light-
+powered Escherichia coli cell division for chemical production. Nat Commun 11. 
+doi:10.1038/s41467-020-16154-3 
+Dong C, Fontana J, Patel A, Carothers JM, Zalatan JG. 2018. Synthetic CRISPR-Cas gene 
+activators for transcriptional reprogramming in bacteria. Nat Commun. doi:10.1038/s41467-
+018-04901-6 
+Du D, Wang Z, James NR, Voss JE, Klimont E, Ohene-Agyei T, Venter H, Chiu W, Luisi BF. 
+2014. Structure of the AcrAB-TolC multidrug efflux pump. Nature 509:512–515. 
+doi:10.1038/nature13205 
+Dunlop MJ, Dossani ZY, Szmidt HL, Chu HC, Lee TS, Keasling JD, Hadi MZ, Mukhopadhyay 
+A. 2011. Engineering microbial biofuel tolerance and export using efflux pumps. Mol Syst 
+Biol 7:1–7. doi:10.1038/msb.2011.21 
+El Meouche I, Dunlop MJ. 2018. Heterogeneity in efflux pump expression predisposes 
+antibiotic-resistant cells to mutation. Science (80- ) 362:686–690. 
+doi:10.1126/science.aar7981 
+Elowitz. 2000. A synthetic oscillatory network repressilator. Nature 403:335–338. 
+Engler C, Kandzia R, Marillonnet S. 2008. A one pot, one step, precision cloning method with 
+high throughput capability. PLoS One 3:e3647. doi:10.1371/journal.pone.0003647 
+Fei X, Bell TA, Barkow SR, Baker TA, Sauer RT. 2020. Structural basis of clpxp recognition 
+and unfolding of ssra-tagged substrates. Elife 9:1–39. doi:10.7554/eLife.61496 
+Finley D. 2009. Recognition and processing of ubiquitin-protein conjugates by the proteasome. 
+Annu Rev Biochem 78:477–513. doi:10.1146/annurev.biochem.78.081507.101607 
+Fisher MA, Boyarskiy S, Yamada MR, Kong N, Bauer S, Tullman-Ercek D. 2014. Enhancing 
+tolerance to short-chain alcohols by engineering the Escherichia coli AcrB efflux pump to 
+secrete the non-native substrate n-butanol. ACS Synth Biol 3:30–40. doi:10.1021/sb400065q 
+Flynn JM, Levchenko I, Seidel M, Wickner SH, Sauer RT, Baker TA. 2001. Overlapping 
+recognition determinants within the ssrA degradation tag allow modulation of proteolysis. 
+Proc Natl Acad Sci U S A 98:10584–10589. doi:10.1073/pnas.191375298 
+Gerhardt KP, Olson EJ, Castillo-Hair SM, Hartsough LA, Landry BP, Ekness F, Yokoo R, 
+Gomez EJ, Ramakrishnan P, Suh J, Savage DF, Tabor JJ. 2016. An open-hardware platform 
+for optogenetics and photobiology. Sci Rep 6:1–13. doi:10.1038/srep35363 
+Gil AA, Carrasco-López C, Zhu L, Zhao EM, Ravindran PT, Wilson MZ, Goglia AG, Avalos 
+JL, Toettcher JE. 2020. Optogenetic control of protein binding using light-switchable 
+nanobodies. Nat Commun 11:1–12. doi:10.1038/s41467-020-17836-8 
+Golding I, Paulsson J, Zawilski SM, Cox EC. 2005. Real-time kinetics of gene activity in 
+individual bacteria. Cell 123:1025–1036. doi:10.1016/j.cell.2005.09.031 
+Gottesman S, Roche E, Zhou YN, Sauer RT. 1998. The ClpXP and ClpAP proteases degrade 
+proteins with carboxy-terminal peptide tails added by the SsrA-tagging system. Genes Dev 
+12:1338–1347. doi:10.1101/gad.12.9.1338 
+Guntas G, Hallett RA, Zimmerman SP, Williams T, Yumerefendi H, Bear JE, Kuhlman B. 2015. 
+Engineering an improved light-induced dimer (iLID) for controlling the localization and 
+activity of signaling proteins. Proc Natl Acad Sci U S A 112:112–117. 
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint
+this version posted February 26, 2023. 
+; 
+https://doi.org/10.1101/2023.02.25.530042
+doi: 
+bioRxiv preprint 
+
+
+--- Page 16 ---
+doi:10.1073/pnas.1417910112 
+Gupta M, Johnson A, Cruz E, Costa E, Guest R, Li SH-J, Hart EM, Nguyen T, Stadlmeier M, 
+Bratton BP, Silhavy TJ, Wingreen NS, Gitai Z, Wühr M. 2022. Global Protein-Turnover 
+Quantification in Escherichia coli Reveals Cytoplasmic Recycling under Nitrogen-
+Limitation. bioRxiv 2022.08.01.502339. 
+Gurbatri CR, Lia I, Vincent R, Coker C, Castro S, Treuting PM, Hinchliffe TE, Arpaia N, 
+Danino T. 2020. Engineered probiotics for local tumor delivery of checkpoint blockade 
+nanobodies. Sci Transl Med 12. doi:10.1126/scitranslmed.aax0876 
+Halavaty AS, Moffat K. 2007. N- and C-terminal flanking regions modulate light-induced signal 
+transduction in the LOV2 domain of the blue light sensor phototropin 1 from Avena sativa. 
+Biochemistry 46:14001–14009. doi:10.1021/bi701543e 
+Harper SM, Neil LC, Gardner KH. 2003. Structural basis of a phototropin light switch. Science 
+(80- ) 301:1541–1544. doi:10.1126/science.1086810 
+Harrigan P, Madhani HD, El-Samad H. 2018. Real-Time Genetic Compensation Defines the 
+Dynamic Demands of Feedback Control. Cell 175:877-886.e10. 
+doi:10.1016/j.cell.2018.09.044 
+Hasenjäger S, Trauth J, Hepp S, Goenrich J, Essen LO, Taxis C. 2019. Optogenetic 
+Downregulation of Protein Levels with an Ultrasensitive Switch. ACS Synth Biol 8:1026–
+1036. doi:10.1021/acssynbio.8b00471 
+Hernández Lozada NJ, Lai RY, Simmons TR, Thomas KA, Chowdhury R, Maranas CD, Pfleger 
+BF. 2018. Highly Active C8 -Acyl-ACP Thioesterase Variant Isolated by a Synthetic 
+Selection Strategy. ACS Synth Biol 7:2205–2215. doi:10.1021/acssynbio.8b00215 
+Jayaraman P, Devarajan K, Chua TK, Zhang H, Gunawan E, Poh CL. 2016. Blue light-mediated 
+transcriptional activation and repression of gene expression in bacteria. Nucleic Acids Res 
+44:6994–7005. doi:10.1093/nar/gkw548 
+Jõers A, Liske E, Tenson T. 2020. Dividing subpopulation of Escherichia coli in stationary 
+phase. Res Microbiol 171:153–157. doi:10.1016/j.resmic.2020.02.002 
+Kawano F, Aono Y, Suzuki H, Sato M. 2013. Fluorescence imaging-based high-throughput 
+screening of fast- and slow-cycling LOV proteins. PLoS One 8. 
+doi:10.1371/journal.pone.0082693 
+Kawano F, Suzuki H, Furuya A, Sato M. 2015. Engineered pairs of distinct photoswitches for 
+optogenetic control of cellular proteins. Nat Commun. doi:10.1038/ncomms7256 
+Keiler KC. 2015. Mechanisms of ribosome rescue in bacteria. Nat Rev Microbiol 13:285–297. 
+doi:10.1038/nrmicro3438 
+Komera I, Gao C, Guo L, Hu G, Chen X, Liu L. 2022. Bifunctional optogenetic switch for 
+improving shikimic acid production in E. coli. Biotechnol Biofuels Bioprod 15:1–14. 
+doi:10.1186/s13068-022-02111-3 
+Lalwani MA, Zhao EM, Avalos JL. 2018. Current and future modalities of dynamic control in 
+metabolic engineering. Curr Opin Biotechnol 52:56–65. doi:10.1016/j.copbio.2018.02.007 
+Lee TS, Krupa RA, Zhang F, Hajimorad M, Holtz WJ, Prasad N, Lee SK, Keasling JD. 2011. 
+BglBrick vectors and datasheets: A synthetic biology platform for gene expression. J Biol 
+Eng 5:12. doi:10.1186/1754-1611-5-12 
+Li LL, Klein FM, Li Greci L, Popinigis A, Freudenberg F, Courtney MJ. 2020. Resonance 
+energy transfer sensitises and monitors in situ switching of LOV2-based optogenetic 
+actuators. Nat Commun 11:1–18. doi:10.1038/s41467-020-18816-8 
+Li Y, Zhao M, Wei D, Zhang J, Ren Y. 2022. Photocontrol of Itaconic Acid Synthesis in 
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint
+this version posted February 26, 2023. 
+; 
+https://doi.org/10.1101/2023.02.25.530042
+doi: 
+bioRxiv preprint 
+
+
+--- Page 17 ---
+Escherichia coli. ACS Synth Biol 11:2080–2088. doi:10.1021/acssynbio.2c00014 
+Link H, Kochanowski K, Sauer U. 2013. Systematic identification of allosteric protein-
+metabolite interactions that control enzyme activity in vivo. Nat Biotechnol 31:357–361. 
+doi:10.1038/nbt.2489 
+Liu J, Chen H, Ma L, He Z, Wang D, Liu Y, Lin Q, Zhang T, Gray N, Kaniskan HÜ, Jin J, Wei 
+W. 2020. Light-induced control of protein destruction by opto-PROTAC. Sci Adv 6:1–12. 
+doi:10.1126/sciadv.aay5154 
+Lizarralde-Guerrero M, Taraveau F. 2021. Role of AcrAB-TolC multidrug efflux pump in drug-
+resistance acquisition by plasmid transfer. Medecine/Sciences 37:945–947. 
+doi:10.1051/medsci/2021159 
+Lugagne JB, Dunlop MJ. 2019. Cell-machine interfaces for characterizing gene regulatory 
+network dynamics. Curr Opin Syst Biol 14:1–8. doi:10.1016/j.coisb.2019.01.001 
+Lungu OI, Hallett RA, Choi EJ, Aiken MJ, Hahn KM, Kuhlman B. 2012. Designing 
+Photoswitchable Peptides Using the AsLOV2 Domain. Chem Biol 19:507–517. 
+doi:10.1016/j.chembiol.2012.02.006 
+Mahmoud SA, Chien P. 2018. Regulated Proteolysis in Bacteria. Annu Rev Biochem 87:677–
+696. doi:10.1146/annurev-biochem-062917-012848 
+Maier T, Schmidt A, Güell M, Kühner S, Gavin AC, Aebersold R, Serrano L. 2011. 
+Quantification of mRNA and protein and integration with protein turnover in a bacterium. 
+Mol Syst Biol 7:1–12. doi:10.1038/msb.2011.38 
+Maurizi MR. 1992. Proteases and protein degradation inEscherichia coli. Experientia 48:178–
+201. doi:10.1007/BF01923511 
+McGinness KE, Baker TA, Sauer RT. 2006. Engineering Controllable Protein Degradation. Mol 
+Cell 22:701–707. doi:10.1016/j.molcel.2006.04.027 
+Morreale FE, Kleine S, Leodolter J, Junker S, Hoi DM, Ovchinnikov S, Okun A, Kley J, 
+Kurzbauer R, Junk L, Guha S, Podlesainski D, Kazmaier U, Boehmelt G, Weinstabl H, 
+Rumpel K, Schmiedel VM, Hartl M, Haselbach D, Meinhart A, Kaiser M, Clausen T. 2022. 
+BacPROTACs mediate targeted protein degradation in bacteria. Cell 185:2338-2353.e18. 
+doi:10.1016/j.cell.2022.05.009 
+Nagar N, Ecker N, Loewenthal G, Avram O, Ben-Meir D, Biran D, Ron E, Pupko T. 2021. 
+Harnessing Machine Learning To Unravel Protein Degradation in Escherichia coli. 
+mSystems 6. doi:10.1128/msystems.01296-20 
+Nihongaki Y, Kawano F, Nakajima T, Sato M. 2015. Photoactivatable CRISPR-Cas9 for 
+optogenetic genome editing. Nat Biotechnol 33:755–760. doi:10.1038/nbt.3245 
+Okusu H, Ma D, Nikaido H. 1996. AcrAB efflux pump plays a major role in the antibiotic 
+resistance phenotype of Escherichia coli multiple-antibiotic-resistance (Mar) mutants. J 
+Bacteriol 178:306–308. doi:10.1128/jb.178.1.306-308.1996 
+Olson EJ, Hartsough LA, Landry BP, Shroff R, Tabor JJ. 2014. Characterizing bacterial gene 
+circuit dynamics with optically programmed gene expression signals. Nat Methods 11:449–
+455. doi:10.1038/nmeth.2884 
+Pudasaini A, El-Arab KK, Zoltowski BD. 2015. LOV-based optogenetic devices: Light-driven 
+modules to impart photoregulated control of cellular signaling. Front Mol Biosci 2:1–15. 
+doi:10.3389/fmolb.2015.00018 
+Renicke C, Schuster D, Usherenko S, Essen LO, Taxis C. 2013. A LOV2 domain-based 
+optogenetic tool to control protein degradation and cellular function. Chem Biol 20:619–
+626. doi:10.1016/j.chembiol.2013.03.005 
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint
+this version posted February 26, 2023. 
+; 
+https://doi.org/10.1101/2023.02.25.530042
+doi: 
+bioRxiv preprint 
+
+
+--- Page 18 ---
+Sarria S, Bartholow TG, Verga A, Burkart MD, Peralta-Yahya P. 2018. Matching Protein 
+Interfaces for Improved Medium-Chain Fatty Acid Production. ACS Synth Biol 7:1179–
+1187. doi:10.1021/acssynbio.7b00334 
+Sarria S, Kruyer NS, Peralta-Yahya P. 2017. Microbial synthesis of medium-chain chemicals 
+from renewables. Nat Biotechnol 35:1158–1166. doi:10.1038/nbt.4022 
+Schrader EK, Harstad KG, Matouschek A. 2009. Targeting proteins for degradation. Nat Chem 
+Biol 5:815–822. doi:10.1038/nchembio.250 
+Shin J, Zhang S, Der BS, Nielsen AA, Voigt CA. 2020.  Programming Escherichia coli to 
+function as a digital display . Mol Syst Biol 16:1–12. doi:10.15252/msb.20199401 
+Stricker J, Cookson S, Bennett MR, Mather WH, Tsimring LS, Hasty J. 2008. A fast, robust and 
+tunable synthetic gene oscillator. Nature 456:516–519. doi:10.1038/nature07389 
+Strickland D, Lin Y, Wagner E, Hope CM, Zayner J, Antoniou C, Sosnick TR, Weiss EL, 
+Glotzer M. 2012. TULIPs: Tunable, light-controlled interacting protein tags for cell 
+biology. Nat Methods 9:379–384. doi:10.1038/nmeth.1904 
+Strickland D, Moffat K, Sosnick TR. 2008. Light-activated DNA binding in a designed allosteric 
+protein. Proc Natl Acad Sci U S A 105:10709–10714. doi:10.1073/pnas.0709610105 
+Strickland D, Yao X, Gawlak G, Rosen MK, Gardner KH, Sosnick TR. 2010. Rationally 
+improving LOV domain-based photoswitches. Nat Methods 7:623–626. 
+doi:10.1038/nmeth.1473 
+Striebel F, Kress W, Weber-Ban E. 2009. Controlled destruction: AAA+ ATPases in protein 
+degradation from bacteria to eukaryotes. Curr Opin Struct Biol 19:209–217. 
+doi:10.1016/j.sbi.2009.02.006 
+Swartz TE, Corchnoy SB, Christie JM, Lewis JW, Szundi I, Briggs WR, Bogomolni RA. 2001. 
+The Photocycle of a Flavin-binding Domain of the Blue Light Photoreceptor Phototropin. J 
+Biol Chem 276:36493–36500. doi:10.1074/jbc.M103114200 
+Szydlo K, Ignatova Z, Gorochowski TE. 2022. Improving the Robustness of Engineered Bacteria 
+to Nutrient Stress Using Programmed Proteolysis. ACS Synth Biol 11:1049–1059. 
+doi:10.1021/acssynbio.1c00490 
+Teelucksingh T, Thompson LK, Zhu S, Kuehfuss NM, Goetz JA, Gilbert SE, MacNair CR, 
+Geddes-McAlister J, Brown ED, Cox G. 2022. A genetic platform to investigate the 
+functions of bacterial drug efflux pumps. Nat Chem Biol. doi:10.1038/s41589-022-01119-y 
+Torella JP, Ford TJ, Kim SN, Chen AM, Way JC, Silver PA. 2013. Tailored fatty acid synthesis 
+via dynamic control of fatty acid elongation. Proc Natl Acad Sci U S A 110:11290–11295. 
+doi:10.1073/pnas.1307129110 
+Trauth J, Scheffer J, Hasenjäger S, Taxis C. 2019. Synthetic Control of Protein Degradation 
+during Cell Proliferation and Developmental Processes. ACS Omega 4:2766–2778. 
+doi:10.1021/acsomega.8b03011 
+Turner WJ, Dunlop MJ. 2015. Trade-Offs in Improving Biofuel Tolerance Using Combinations 
+of Efflux Pumps. ACS Synth Biol 4:1056–1063. doi:10.1021/sb500307w 
+Wang H, Vilela M, Winkler A, Tarnawski M, Schlichting I, Yumerefendi H, Kuhlman B, Liu R, 
+Danuser G, Hahn KM. 2016. LOVTRAP: An optogenetic system for photoinduced protein 
+dissociation. Nat Methods 13:755–758. doi:10.1038/nmeth.3926 
+Wang T, Tague N, Whelan SA, Dunlop MJ. 2021. Programmable gene regulation for metabolic 
+engineering using decoy transcription factor binding sites. Nucleic Acids Res 49:1163–1172. 
+doi:10.1093/nar/gkaa1234 
+Xue G, Wang K, Zhou D, Zhong H, Pan Z. 2019. Light-Induced Protein Degradation with 
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint
+this version posted February 26, 2023. 
+; 
+https://doi.org/10.1101/2023.02.25.530042
+doi: 
+bioRxiv preprint 
+
+
+--- Page 19 ---
+Photocaged PROTACs. J Am Chem Soc 141:18370–18374. doi:10.1021/jacs.9b06422 
+Yamamoto A, Iwata T, Sato Y, Matsuoka D, Tokutomi S, Kandori H. 2009. Light signal 
+transduction pathway from flavin chromophore to the Jα helix of Arabidopsis phototropin1. 
+Biophys J 96:2771–2778. doi:10.1016/j.bpj.2008.12.3924 
+Yao X, Rosen MK, Gardner KH. 2008. Estimation of the available free energy in a LOV2-Jα 
+photoswitch. Nat Chem Biol 4:491–497. doi:10.1038/nchembio.99 
+Ye Z, Li S, Hennigan JN, Lebeau J, Moreb EA, Wolf J, Lynch MD. 2021. Two-stage dynamic 
+deregulation of metabolism improves process robustness & scalability in engineered E. coli. 
+Metab Eng 68:106–118. doi:10.1016/j.ymben.2021.09.009 
+Yumerefendi H, Wang H, Dickinson DJ, Lerner AM, Malkus P, Goldstein B, Hahn K, Kuhlman 
+B. 2018. Light-Dependent Cytoplasmic Recruitment Enhances the Dynamic Range of a 
+Nuclear Import Photoswitch. ChemBioChem 19:1319–1325. doi:10.1002/cbic.201700681 
+Zayner JP, Antoniou C, French AR, Hause RJ, Sosnick TR. 2013. Investigating models of 
+protein function and allostery with a widespread mutational analysis of a light-activated 
+protein. Biophys J 105:1027–1036. doi:10.1016/j.bpj.2013.07.010 
+Zoltowski BD, Motta-Mena LB, Gardner KH. 2013. Blue light-induced dimerization of a 
+bacterial LOV-HTH DNA-binding protein. Biochemistry 52:6653–6661. 
+doi:10.1021/bi401040m 
+Zoltowski BD, Vaccaro B, Crane BR. 2009. Mechanism-based tuning of a LOV domain 
+photoreceptor. Nat Chem Biol 5. doi:10.1038/nchembio.210 
+ 
+ 
+ 
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint
+this version posted February 26, 2023. 
+; 
+https://doi.org/10.1101/2023.02.25.530042
+doi: 
+bioRxiv preprint 
+
+
+--- Page 20 ---
+ 
+Figures 
+ 
+ 
+ 
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint
+this version posted February 26, 2023. 
+; 
+https://doi.org/10.1101/2023.02.25.530042
+doi: 
+bioRxiv preprint 
+
+
+--- Page 21 ---
+Figure 1. Design of AsLOV2-based degradation tag. (a) Primary sequence of AsLOV2(546) C-
+terminal sequence. A three amino acid truncation exposes E-A-A. (b) Structure of AsLOV2 
+(aa404-546, PDB: 2V1A). Amino acids 541-543 (E-A-A) are red and 544-546 (K-E-L) are gray 
+at the C-terminal of the Jα helix. (c) Construct used to characterize optogenetic control using 
+AsLOV2 variants. Each variant is translationally fused to mCherry expressed from an IPTG 
+inducible promoter. Variants include wild type AsLOV2 (light blue) and a dark state stabilized 
+version, AsLOV2* (dark blue), with and without the three amino acid truncation. (d) mCherry 
+expression levels in response to 465 nm blue light for wild type AsLOV2 and mutated AsLOV2* 
+fusions with and without truncation. (e) Expression of mCherry-LOVtag in response to variable 
+light intensities. Error bars show standard deviation around the mean (n = 3 biological replicates). 
+ 
+ 
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint
+this version posted February 26, 2023. 
+; 
+https://doi.org/10.1101/2023.02.25.530042
+doi: 
+bioRxiv preprint 
+
+
+--- Page 22 ---
+ 
+Figure 2. Incorporating light responsiveness into diverse proteins with the LOVtag. (a) Control of 
+mCherry repression using a LacI-LOVtag fusion. (b) mCherry expression in response to light 
+exposure for strains with LacI-LOVtag compared to IPTG induction (**p < 0.001, two tailed 
+unpaired t-test). (c) Schematic of SoxS-based CRISPRa activation with a LOVtag appended to the 
+MCP-SoxS activator. (d) CRISPRa control of mRFP1 expression in response to light (***p < 
+0.0001, two tailed unpaired t-test). (e) Schematic of the LOVtag appended to AcrB of the AcrAB-
+TolC efflux pump. IM, inner membrane; OM, outer membrane. (f) Minimum inhibitory 
+concentration (MIC) curves of cells cultured in chloramphenicol. Wild type cells (BW25113) are 
+compared to a ΔacrB strain complemented with AcrB-LOVtag and exposed to light or kept in the 
+dark. (g) OD600 of strains shown in (f) at 2.5 μg/ml chloramphenicol (***p < 0.0001, two tailed 
+unpaired t-test). Error bars show standard deviation around the mean (n = 3 biological replicates). 
+ 
+ 
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint
+this version posted February 26, 2023. 
+; 
+https://doi.org/10.1101/2023.02.25.530042
+doi: 
+bioRxiv preprint 
+
+
+--- Page 23 ---
+ 
+Figure 3. Modulating LOVtag frequency response with photocycle mutations. (a) Photocycle of 
+AsLOV2. Upon light absorption, the Jα helix unfolds for a period of time dictated by stability of 
+the light state conformation. If not degraded, the Jα helix refolds, blocking degradation. (b) The 
+light program used to test frequency responses of LOVtag photocycle variants in (c).  A constant 
+pulse of 5 sec is followed by a variable dark time that allows for Jα helix refolding. (c) Expression 
+of mCherry-LOVtag and variant mCherry-LOVtag (V416I) in response to different frequencies of 
+blue light pulses. Fluorescent values are normalized to dark state expression. Error bars show 
+standard deviation around the mean (n = 3 biological replicates). 
+ 
+ 
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint
+this version posted February 26, 2023. 
+; 
+https://doi.org/10.1101/2023.02.25.530042
+doi: 
+bioRxiv preprint 
+
+
+--- Page 24 ---
+ 
+Figure 4. Enhanced light response using transcriptional control together with the LOVtag. (a) The 
+mCherry-LOVtag expressed from an EL222 responsive promoter that is constitutively active in 
+the absence of EL222. Addition of EL222 results in a circuit that both represses and degrades in 
+response to light. (b) Light and dark expression of mCherry in the ‘degradation only’ (circles) or 
+‘repression + degradation’ (squares) strains from (a) over time. Error bars show standard deviation 
+around the mean (n = 3 biological replicates). 
+ 
+ 
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint
+this version posted February 26, 2023. 
+; 
+https://doi.org/10.1101/2023.02.25.530042
+doi: 
+bioRxiv preprint 
+
+
+--- Page 25 ---
+ 
+Figure 5. Optogenetic control of octanoic acid production. (a) Schematic of fatty acid synthesis 
+in E. coli. CpFatB1* catalyzes elongating C8-ACP molecules from this pathway to produce free 
+octanoic acid. CpFatB1* is tagged with a LOVtag to create optogenetic control. (b) Octanoic acid 
+titer from strains that express EL222 only, CpFatB1*-LOVtag only, or CpFatB1*-LOVtag + 
+EL222 control measured by GC-MS. Strains were kept either in the dark or with continuous blue 
+light exposure for the duration of the production period. Error bars show standard deviation around 
+the mean (****p < 0.0001; ***p < 0.0001; n.s., not significant; two tailed unpaired t-test; n = 3 
+biological replicates). 
+ 
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprint
+this version posted February 26, 2023. 
+; 
+https://doi.org/10.1101/2023.02.25.530042
+doi: 
+bioRxiv preprint 

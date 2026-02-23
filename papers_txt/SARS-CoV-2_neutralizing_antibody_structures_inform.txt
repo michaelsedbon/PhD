@@ -1,0 +1,1500 @@
+--- Page 1 ---
+682  |  Nature  |  Vol 588  |  24/31 December 2020
+Article
+SARS-CoV-2 neutralizing antibody 
+structures inform therapeutic strategies
+Christopher O. Barnes1, Claudia A. Jette1, Morgan E. Abernathy1, Kim-Marie A. Dam1,  
+Shannon R. Esswein1, Harry B. Gristick1, Andrey G. Malyutin2, Naima G. Sharaf3,  
+Kathryn E. Huey-Tubman1, Yu E. Lee1, Davide F. Robbiani4,6, Michel C. Nussenzweig4,5,  
+Anthony P. West Jr1 & Pamela J. Bjorkman1 ✉
+The coronavirus disease 2019 (COVID-19) pandemic presents an urgent health crisis. 
+Human neutralizing antibodies that target the host ACE2 receptor-binding domain 
+(RBD) of the severe acute respiratory syndrome coronavirus-2 (SARS-CoV-2) spike 
+protein1–5 show promise therapeutically and are being evaluated clinically6–8. Here, to 
+identify the structural correlates of SARS-CoV-2 neutralization, we solved eight new 
+structures of distinct COVID-19 human neutralizing antibodies5 in complex with the 
+SARS-CoV-2 spike trimer or RBD. Structural comparisons allowed us to classify the 
+antibodies into categories: (1) neutralizing antibodies encoded by the VH3-53 gene 
+segment with short CDRH3 loops that block ACE2 and bind only to ‘up’ RBDs; (2) 
+ACE2-blocking neutralizing antibodies that bind both up and ‘down’ RBDs and can 
+contact adjacent RBDs; (3) neutralizing antibodies that bind outside the ACE2 site and 
+recognize both up and down RBDs; and (4) previously described antibodies that do not 
+block ACE2 and bind only to up RBDs9. Class 2 contained four neutralizing antibodies  
+with epitopes that bridged RBDs, including a VH3-53 antibody that used a long CDRH3 
+with a hydrophobic tip to bridge between adjacent down RBDs, thereby locking the 
+spike into a closed conformation. Epitope and paratope mapping revealed few 
+interactions with host-derived N-glycans and minor contributions of antibody 
+somatic hypermutations to epitope contacts. Affinity measurements and mapping of 
+naturally occurring and in vitro-selected spike mutants in 3D provided insight into the 
+potential for SARS-CoV-2 to escape from antibodies elicited during infection or 
+delivered therapeutically. These classifications and structural analyses provide rules 
+for assigning current and future human RBD-targeting antibodies into classes, 
+evaluating avidity effects and suggesting combinations for clinical use, and provide 
+insight into immune responses against SARS-CoV-2.
+Neutralizing antibodies (NAbs) against SARS-CoV-2 protect against 
+infection in animal models1,3,4,10,11 and are being evaluated for prophy-
+laxis and as therapeutic agents in humans7,8. These antibodies target the 
+SARS-CoV-2 spike (S) trimer3,5,10,12–17, a viral glycoprotein that mediates 
+binding to the angiotensin-converting enzyme 2 (ACE2) receptor18,19. 
+The S trimer comprises three copies of an S1 subunit that contains the 
+RBD and three copies of S2, which includes the fusion peptide and 
+transmembrane regions20,21. The RBDs of SARS-CoV-2 and other coro-
+naviruses exhibit flexibility, such that they bind to ACE2 only when they 
+are in an ‘up’ conformation, compared with the ‘down’ RBD conforma-
+tion of the closed, prefusion S trimer20–25.
+Many human NAbs isolated from COVID-19-convalescent donors 
+target the RBD, binding to distinct, sometimes non-overlapping, 
+epitopes3–5,10,12–14,17. A subset of these antibodies blocks viral entry 
+by binding to the ACE2-binding site on the RBD6,11,13,15,26,27. A family of 
+recurrent ACE2-blocking human NAbs is composed of heavy chains 
+encoded by the VH3-53 or VH3-66 gene segment3,12,13,16,17,27–29, most of 
+which are known or predicted15,26,28,30,31 to exhibit a common RBD binding 
+mode that results from the use of germline-encoded residues within the 
+complementarity-determining regions 1 and 2 (CDRH1 and CDRH2) and 
+a CDRH3 that is shorter than the average length (15 amino acids; IMGT32 
+complementarity-determining region (CDR) definition) in human 
+antibodies33. Other SARS-CoV-2 RBD-binding antibodies are encoded 
+by VH3-305, and these have also been isolated from donors infected 
+with SARS-CoV34, and antibodies with a variety of the other Vh gene 
+segments3,5,10,12–17.
+To classify commonalities and differences among RBD-binding 
+human NAbs isolated from COVID-19-convalescent individuals5, we 
+solved complexes of NAbs with stabilized (2P and 6P versions)35,36 
+soluble S trimer. Subsequently, we used high-resolution details of the 
+https://doi.org/10.1038/s41586-020-2852-1
+Received: 30 August 2020
+Accepted: 6 October 2020
+Published online: 12 October 2020
+ Check for updates
+1Division of Biology and Biological Engineering, California Institute of Technology, Pasadena, CA, USA. 2Beckman Institute, California Institute of Technology, Pasadena, CA, USA. 3Division of 
+Chemistry and Chemical Engineering, California Institute of Technology, Pasadena, CA, USA. 4Laboratory of Molecular Immunology, The Rockefeller University, New York, NY, USA. 5Howard 
+Hughes Medical Institute, Chevy Chase, MD, USA. 6Present address: Institute for Research in Biomedicine, Università della Svizzera Italiana, Bellinzona, Switzerland.  
+✉e-mail: bjorkman@caltech.edu
+
+
+--- Page 2 ---
+Nature  |  Vol 588  |  24/31 December 2020  |  683
+binding orientations of NAbs encoded by the VH1-2, VH1-46, VH3-30, 
+VH3-53, VH4-34 and VH5-51 gene segments to determine rules for bind-
+ing by four distinct anti-RBD antibody classes (Supplementary Table 2). 
+The NAbs chosen for structures are highly potent, achieving 90% neu-
+tralization in pseudotype virus assays at concentrations ranging from 
+22 to 140 ng ml−1 (ref. 5), and thus our structural analyses and classifica-
+tions directly relate to understanding mechanisms of neutralization 
+and potency differences between human NAbs.
+Class 1 VH3-53 NAbs block ACE2 and bind to up RBDs
+We solved Fab and Fab–RBD crystal structures of C102 (Supplemen-
+tary Table 1), which we compared to our previous26 cryo-electron 
+microscopy (cryo-EM) structure of S trimer complexed with the 
+related human NAb C105 (Extended Data Figs. 1, 2). Both C102 and 
+C105 are VH3-53 NAbs with short (11 and 12 residues, respectively) 
+CDRH3 loops (Extended Data Fig. 1g) that were isolated from the same 
+donor5. They share structural similarities with each other and with 
+other VH3-53-encoded short CDRH3 human NAb structures solved 
+as complexes with RBDs12,30,37,38 (Extended Data Fig. 2a). Notably, the 
+C102–RBD structure resembled the analogous portion of the C105–S 
+structure26 (Extended Data Fig. 2a). These results establish that Fab–
+RBD structures can reproduce interactions with RBDs in the context 
+of an S trimer; however, Fab–RBD structures do not reveal the state(s) 
+of the antibody-bound RBD in the complex (up versus down) or the 
+potential inter-protomer contacts by Fabs.
+Because the C105 Fab bound to either two or three up RBDs on S 
+with no observed interactions with down RBDs or with adjacent RBDs26 
+(Extended Data Fig. 1f), we used the higher-resolution C102 Fab–RBD 
+structure to deduce a more accurate epitope and paratope than was 
+possible using the C105–S cryo-EM structure with flexible up RBDs 
+(Extended Data Fig. 1a–e). Buried surface area calculations showed 
+that the C102 CDRH3 region had a relatively minor role in the paratope: 
+of 1,045 Å2 of buried surface area on the antibody (786 Å2 on the heavy 
+chain; 259 Å2 on the light chain), CDRH3 accounted for only 254 Å2 
+(Extended Data Fig. 2b). This contrasts with most antibodies in which 
+CDRH3 contributes equally or more to the interface with antigen than 
+the sum of CDRH1 and CDRH2 contributions39. The epitopes on RBD 
+for all available VH3-53-encoded short CDRH3 human NAbs span the 
+ACE2-binding site15,26,28,30,31 and show common RBD-binding interac-
+tions, represented by the C102 epitope (Extended Data Fig. 1b–e), which 
+buried 1,017 Å2 on RBD (Extended Data Fig. 2b). The ACE2-blocking 
+epitope for these NAbs is sterically occluded in the RBD down confor-
+mation (Fig. 1b, Extended Data Fig. 1f); therefore, class 1 NAbs can only 
+bind to up RBDs, as observed in the C105–S structure26, and as previ-
+ously discussed, IgGs in this class could crosslink adjacent RBDs within 
+a single trimer to achieve tighter binding through avidity effects26.
+Class 2 NAbs recognize ‘up’ and ‘down’ RBDs
+In addition to the recurrent VH3-53-encoded short CDRH3 NAb struc-
+tures, a small subset of potently neutralizing VH3-53-encoded anti-
+bodies use longer CDRH3 regions5, 12 (more than 15 residues, IMGT 
+definition32) (Extended Data Fig. 1g). A recent structure of a RBD 
+complexed with a VH3-53-encoded long CDRH3 human NAb (COVA2-
+39) revealed a different RBD binding mode38, thus confirming pre-
+dictions that binding with a C102-like interaction requires a short 
+CDRH326,30. To further determine molecular mechanisms for bind-
+ing of VH3-53-encoded long CDRH3 human NAbs, we solved a 3.2 Å 
+cryo-EM structure of C144 (encoded by the VH3-53 and VL2-14 gene 
+segments; 25-residue CDRH3) bound to an S trimer36 (Extended Data 
+Fig. 3). Despite the ability of ligand-free stabilized S trimers to adopt up 
+RBD conformations36 and modelling suggesting the C144 binding site 
+would be accessible on up RBDs (Fig. 1b), the C144–S structure revealed 
+three C144 Fabs bound to a completely closed S with three down RBDs 
+(Fig. 1a). The C144 binding mode differs from class 1 NAbs, the binding 
+orientation of which is incompatible with down RBD conformations 
+(Fig. 1b). In addition, the binding orientation observed for C144 differs 
+from the binding described for COVA2-39, the RBD epitope of which 
+is predicted to be accessible only on up RBDs38 owing to steric hinder-
+ances imposed on the light chain by the N343RBD-associated glycan 
+on the adjacent RBD (Extended Data Fig. 1h). Despite differences in 
+orientation, the RBD epitopes of C144, C102 and COVA2-39 overlap 
+with the ACE2-binding site, which suggests a neutralization mechanism 
+that involves direct competition with ACE2 (Fig. 1b).
+Despite overlapping with the ACE2-binding site on up RBDs, an inter-
+esting feature of C144 binding is that its long CDRH3 bridges between 
+adjacent down RBDs to lock the spike glycoprotein into a closed, prefu-
+sion conformation, providing an additional neutralization mechanism 
+in which S cannot open to engage ACE2 (Fig. 1c, d). The formation of 
+the C144 quaternary epitope is driven by sandwiching CDRH3 residues 
+F100D and W100E (in which subscripts denote numbering of the CDRH3 
+3 ‘down’ RBDs bound by C144
+Viral membrane
+N-linked
+glycans
+S1
+S2
+C144LC
+c
+a
+d
+e
+f
+b
+C144HC
+S1
+RBD
+90˚
+C144HC
+C144HC
+C144HC
+C144HC
+C144LC
+C144LC
+C144LC
+C144LC
+C102LC
+C102HC
+S2
+S1
+C144 
+Down
+RBD
+C102
+RBDC
+RBDB
+RBDB
+RBDA
+RBDA
+C144HC
+C144HC
+C144HC
+CDRH3
+C144HC
+C144LC
+C144LC
+C144LC
+C144LC
+90˚
+RBDB
+RBDA
+Receptor binding
+ridge
+CDRH3
+CDRH1
+CDRH1
+N343
+glycan
+α1
+_1
+RBDB
+RBDB
+RBDA
+N343
+glycan
+CDRH3
+α1
+R346
+W100EHC
+D100CHC
+N100BHC
+F100DHC
+F374
+F342
+RBDA
+E484
+Q493
+F486
+T470
+F490
+Q498
+Y449
+L455
+L368
+F342
+F374
+K444
+W436
+N343
+glycan
+N100BHC
+Fig. 1 | Cryo-EM structure of the C144–S complex illustrates a distinct VH3-
+53 NAb binding mode. a, 3.2 Å cryo-EM density for the C144–S trimer complex 
+revealing C144 binding to a closed (three down RBDs) spike conformation. LC, 
+light chain; HC, heavy chain. b, Overlay of C102 Fab (from C102–RBD crystal 
+structure) (Extended Data Fig. 1) and C144 Fab (from C144–S structure) aligned 
+on a RBD monomer. RBD residues corresponding to the ACE2 epitope 
+(orange-red cartoon) are shown on the same RBD for reference. C144 adopts a 
+distinct conformation relative to the C102-like VH3-53-encoded short CDRH3 
+NAb class, allowing binding to the down RBD conformation on trimeric spike, 
+whereas C102-like NAbs can only bind to up RBDs. c, Quaternary epitope of 
+C144 involving bridging between adjacent RBDs via the CDRH3 loop 
+(illustrated as thicker ribbon). d, e, Close-up view of CDRH3-mediated contacts 
+on adjacent protomer RBD (dark grey). C144 CDRH3 residues F100D and W100E 
+are buried in a hydrophobic pocket comprising the RBD α1 helix, residue 
+F374RBD and the N343RBD glycan. f, Surface representation of C144 epitope (light 
+blue) across two adjacent RBDs. RBD epitope residues (defined as residues 
+containing atom(s) within 4 Å of a Fab atom) are labelled in black.
+
+
+--- Page 3 ---
+684  |  Nature  |  Vol 588  |  24/31 December 2020
+Article
+loop) into a hydrophobic RBD cavity at the base of an N-linked glycan 
+attached to N343RBD. The cavity comprises the RBD α1 helix (337–344), 
+α2 helix (364–371), and hydrophobic residues (F374RBD and W436RBD) at 
+the edge of the RBD five-stranded β-sheet (Fig. 1e, f). In contrast to the 
+CDRH3s of class 1 VH3-53-encoded short CDRH3 NAbs, the C144 CDRH3 
+contributed to most (approximately 60%) of the paratope and buried 
+330 Å2 of surface area on the adjacent RBD (Extended Data Fig. 2b), 
+rationalizing observed escape at L455RBD (Fig. 1f) in C144 selection 
+experiments40. Despite adjacent CDRH3 hydrophobic residues (F100D 
+and W100E) likely to be solvent-exposed before antigen binding, C144 
+IgG showed no evidence of non-specific binding in a polyreactivity 
+assay (Extended Data Fig. 1i).
+Given the unusual binding characteristics of C144, we investigated 
+whether antibodies that showed similar S binding orientations in 
+low-resolution negative-stain electron microscopy reconstructions5 
+use similar neutralization mechanisms. We characterized Fab–S 
+cryo-EM structures (overall resolutions from 3.4 to 3.8 Å) of potent NAbs 
+(C002, C104, C119 and C121) predicted to compete with ACE2 bind-
+ing5, which varied in their use of V gene segments and CDRH3 lengths 
+(Fig. 2, Extended Data Figs. 3, 4, Extended Data Table 1). Fab–S cryo-EM 
+structures of these class 2 NAbs showed bound RBDs in both up or down 
+conformations, consistent with observations of similar human NAbs 
+from negative-stain electron microscopy5,12 and single-particle cryo-EM 
+studies10,34,41. By contrast, the C144–S structure showed Fabs bound 
+only to down RBDs (Fig. 1), which suggests that C144 binding requires 
+recognition of the closed S trimer, or that C144 Fab(s) initially bound 
+to up RBD(s) could trap the closed (three RBDs down) S conformation 
+through CDRH3-mediated interactions between adjacent RBDs.
+To understand commonalities of class 2 RBD epitopes better, we 
+further analysed two additional potent human NAbs, C002 (encoded 
+by VH3-30 and VK1-39 gene segments; 17-residue CDRH3, half-maximal 
+inhibitory concentration (IC50) = 8.0 ng ml−1)5 and C121 (encoded by 
+VH1-2 and VL2-23 gene segments; 23-residue CDRH3, IC50 = 6.7 ng ml−1)5, 
+for which cryo-EM Fab–S structures were solved to 3.4 Å and 3.6 Å, 
+respectively (Fig. 2a, b), using crystal structures of unbound C002 
+and C121 Fabs for fitting (Supplementary Table 1). The C002 and C121 
+RBD epitopes are focused on the receptor-binding ridge, overlapping 
+with polar and hydrophobic residues along the flat face of the RBD 
+responsible for ACE2 interactions (Fig. 2c–e). Similar to C144, NAbs 
+C002 and C121 buried most of their RBD epitopes against heavy-chain 
+CDR loops, with light-chain CDR loops engaging the receptor-binding 
+ridge (Fig. 3). Notably, Fab–S structures of C002, C121, C119 and C104 
+revealed a quaternary epitope involving an adjacent RBD (Extended 
+Data Figs. 3, 4, 5a–c), albeit distinct from the quaternary binding of C144 
+(Fig. 1c–e). The C002/C121/C119/C104 type of secondary interaction 
+was only observed when a Fab was bound to a down RBD and adjacent 
+to an up RBD. The extent of secondary interactions varied depending 
+on the antibody pose (Extended Data Fig. 5a–c). Bridging interactions 
+C121LC
+C121HC
+S1
+S2
+90˚
+C002HC
+C002LC
+NTD/S1A 
+protomer B
+Up 
+RBDB
+Down 
+RBDA
+N165
+glycan
+a
+b
+e
+c
+d
+9
+RBD
+RBD
+E484
+Q493
+F486
+V483
+N450
+F490
+F486
+E484
+A475
+F490
+Q493
+Y449
+90˚
+RBD
+RBD
+E484
+Q493
+F486
+V483
+N450
+F490
+Y489
+Y505
+Y449
+L452
+K444
+K417
+F486
+E484
+F490
+Q493
+Y449
+Y505
+N-linked
+glycans
+Up
+RBD
+S1
+S2
+C002LC
+C002HC
+Up
+RBD
+C002HC
+C002LC
+S1
+90˚
+Viral membrane
+Viral membrane
+Up RBDs
+90˚
+C121LC
+C121HC
+Up
+RBD
+ACE2
+RBD
+C121
+C002
+Inset
+2 ‘down’/1 ‘up’ RBD bound by C002
+1 ‘down’/2 ‘up’ RBDs bound by C121
+N-linked
+glycans
+C002LC
+Fig. 2 | Cryo-EM structures of class 2 C002 and C121 NAbs show binding to 
+up and down RBDs. a, b, Cryo-EM densities for C002–S (a; 3.4 Å) and C121–S  
+(b; 3.7 Å) complexes, revealing binding of C002 or C121 to both down and up 
+RBDs. Inset, alignment of C002 and C121 Fabs on the same RBD. ACE2 is 
+represented as a green surface for reference. c, d, Surface representations of 
+C002 epitope (orange, c) and C121 epitope (purple, d) on the RBD surface 
+(grey). RBD epitope residues (defined as residues containing atom(s) within 4 Å 
+of a Fab atom) are labelled in black. e, C002 forms inter-protomer contacts via 
+binding to an adjacent up RBD conformation on the surface of the trimer spike 
+(also observed for class 2 C121–S, C119–S and C104–S structures) (Extended 
+Data Fig. 5). Red box shows close-up of adjacent up RBD and C002 light-chain 
+interface.
+
+
+--- Page 4 ---
+Nature  |  Vol 588  |  24/31 December 2020  |  685
+between adjacent up and down RBDs would not allow the two Fabs of a 
+single IgG to bind simultaneously to an S trimer. However, this class of 
+antibodies could support bivalent interactions between two adjacent 
+down RBDs (Extended Data Fig. 5h, Extended Data Table 1).
+Characterization of the highest resolution interface (C002–S structure) 
+showed C002 light-chain framework regions 1 and 2 (FWR1 and FWR2) 
+interfaced with the RBD residues comprising the five-stranded β-sheet and 
+α-helix that spans residues 440–444 (Fig. 2e), which is typically located 
+near the three-fold axis of a closed S trimer. In addition to contacting neigh-
+bouring RBDs, inter-protomer engagement with the N165NTD-associated 
+glycan in the N-terminal domain (NTD) was observed for the class 2 NAb 
+BD2313. If fully processed, the N165NTD glycan could adopt a conforma-
+tion that would allow interactions with the heavy-chain FWR3 and CDRH1 
+(Fig. 2e). However, in the structures reported here, we did not observe 
+N165NTD glycan density beyond the initial N-acetylglucosamine.
+Given differences in class 2 human NAb V gene segments, CDRH3 
+lengths and antibody poses, we investigated sequence features 
+that drive conserved interactions. Sequence differences between 
+SARS-CoV-2 and SARS-CoV RBD, including at positions 486RBD and 493RBD 
+(F and Q, respectively, in SARS-CoV-2), in the ACE2 receptor-binding 
+motif allowed more favourable ACE2 binding to the SARS-CoV-2 RBD42. 
+Analysis of interactions by C144, C002 and C121 revealed common 
+interactions with these residues and also for E484RBD by both antibody 
+heavy-chain and light-chain residues (Fig. 3). In particular, class 2 NAb 
+interactions with F486RBD mimicked ACE2 interactions, in that F486RBD 
+buries into a hydrophobic pocket typically involving CDRL1 or CDRL3 
+tyrosine residues43 (Fig. 3d, h, l). Mimicking of the ACE2 F486 binding 
+pocket by SARS-CoV-2 human NAbs was observed across different 
+light-chain V gene segments (Extended Data Table 1), which suggests 
+that there is no restriction in light-chain V gene segment usage for 
+class 2 NAbs. Notably, a germline-encoded feature described for VH3-
+53-encoded short CDRH3 class 1 NAbs, the CDRH2 SXXS motif, is also 
+found in other class 2 NAbs (for example, C121 and C119) despite differ-
+ent Vh gene segment usage. Similar to VH3-53 NAbs C144 and COVA2-39, 
+the C121 CDRH2 SXXS motif forms a potential hydrogen-bond network 
+with E484RBD (Fig. 3b, j).
+Overall, these results suggest a convergent mode of recognition 
+by germline-encoded residues across diverse Vh/Vl gene segments 
+for SARS-CoV-2, which may contribute to low levels of somatic hyper-
+mutation observed for these human NAbs (Extended Data Fig. 4i–n, 
+Extended Data Table 1).
+Class 3 NAbs bind outside the ACE2-binding site
+C135 is a potent NAb that showed distinct binding properties from 
+class 1, 2 and 4 NAbs, the latter of which bind a highly conserved buried 
+epitope that is only accessible in up RBD conformations (Extended Data 
+Table 1). To evaluate the mechanism of C135-mediated neutralization of 
+SARS-CoV-2, we solved the cryo-EM structure of a C135–S complex to 3.5 Å 
+(Fig. 4a, Extended Data Fig. 6), using an unbound C135 crystal structure 
+for fitting (Supplementary Table 1). The structure revealed three C135 
+Fabs bound to an S trimer with two down and one up RBD, although the 
+C135-bound up RBD conformation was weakly resolved and therefore 
+not modelled. C135 recognizes a similar glycopeptidic epitope to the 
+cross-reactive SARS-CoV NAb S30934, focusing on a region of the RBD 
+near the N343 glycan and non-overlapping with the ACE2-binding site 
+(Fig. 4b, Extended Data Fig. 6c, d). Despite differences in binding orienta-
+tions between C135 and S309, targeting of the RBD epitope was mainly 
+Vh-mediated (the surface area buried by RBD on the C135 heavy chain 
+represented approximately 480 Å2 of the 700 Å2 total buried surface area) 
+and included interactions with the core fucose moiety of the N343RBD 
+glycan. The smaller C135 footprint relative to S309 (approximately 700 Å2 
+versus 1,150Å2 buried surface area, respectively) (Extended Data Fig. 6c, 
+d) focused on interactions with R346RBD and N440RBD, which are engaged 
+CDRL1
+N343
+glycan
+CDRL3
+CDRH3
+CDRH1
+CDRH2
+CDRL2
+RBDB
+RBDA
+E484
+Q493
+F486
+N487
+Y58HC
+S53HC
+S56HC
+N31HC
+Y33LC
+Y35LC
+Y91LC
+R100LHC
+D100KHC
+RBDA
+CDRL2
+CDRL1
+CDRL3
+CDRH3
+CDRH1
+CDRH2
+RBDA
+CDRL2
+CDRL1
+CDRL3
+CDRH3
+CDRH1
+CDRH2
+a
+b
+c
+d
+e
+f
+g
+h
+i
+j
+k
+l
+E484
+Y33HC
+S55HC
+S52HC
+Q493
+F98HC
+L97HC
+T30HC
+G31HC
+F486
+N487
+Y100IHC
+Y30LC
+Y91LC
+F486
+N487
+Y32LC
+Y92LC
+V100DHC
+E484
+R96LC
+H35HC
+E95HC
+g
+Q493
+R97HC
+S99HC
+P98HC
+ C144–S interactions
+ C002–S interactions
+ C121–S interactions
+Fig. 3 | Details of common RBD interactions among class 2 human NAbs.  
+a–l, Conserved interactions between the RBD and CDRs of class 2 NAbs as 
+observed for C144 (HC, cyan; LC, sky blue) (a–d), C002 (HC, dark orange; LC, 
+light orange) (e–h), and C121 (HC, purple; LC, pink) (i–l). Primary and secondary 
+epitopes on adjacent down RBDs are shown for C144. Secondary epitopes for 
+C002 and C121, which require adjacent up RBDs, are shown in Extended Data 
+Fig. 5. RBDs are grey; potential hydrogen bonds and π–π stacking interactions 
+(d, Y33LC and F486RBD; h, Y92LC and F486RBD; l, Y91LC and F486RBD) are indicated by 
+dashed lines.
+
+
+--- Page 5 ---
+686  |  Nature  |  Vol 588  |  24/31 December 2020
+Article
+by residues from heavy-chain and light-chain CDRs (Fig. 4c, d) and are 
+not conserved between SARS-CoV-2 and SARS-CoV RBDs, rationalizing 
+the lack of SARS-CoV cross-reactivity observed for C1355.
+The discovery of class 3 NAbs such as C135 and S309 that were raised 
+during SARS-CoV-2 or SARS-CoV natural infections, respectively, and 
+bind outside of the ACE2-binding site, provides the potential for addi-
+tive neutralization effects when combined with NAbs that block ACE2, 
+while also limiting viral escape1,40. A pair of antibodies in human clini-
+cal trials that includes REGN109878, a human NAb that binds distal to 
+the ACE2-binding site, prevented SARS-CoV-2 viral escape in vitro, 
+but did not show synergistic neutralization6. Comparison of C135 and 
+REGN10987 interactions with S showed similarities in epitopes (interac-
+tions focused on R346RBD and N440RBD) (Extended Data Fig. 7c, f). How-
+ever, REGN10987 binding would sterically hinder ACE2 interactions, 
+whereas C135 binding does not (Fig. 4b, Extended Data Fig. 6b). Notably, 
+a structure of S complexed with C110 (encoded by the VH5-51 and VK1-5 
+gene segments), isolated from the same donor as the C102 and C105 
+(class 1) and C119 and C121 (class 2) NAbs5, showed a binding pose that 
+resembled that of REGN10987 (Extended Data Fig. 6b, e, f). The C110 
+epitope showed similarities with both class 3 and class 2 NAbs, binding 
+distal to the ACE2-binding motif, but like REGN10987, could poten-
+tially sterically interfere with ACE2 (Extended Data Fig. 7). For each of 
+these class 3 NAbs, the Fab binding pose suggests that inter-protomer 
+crosslinking by a single IgG is not possible (Extended Data Table 1).
+Class 3 human NAbs add to the anti-SARS-CoV-2 antibody reper-
+toire and could probably be effectively used in therapeutic combi-
+nations with class 1 or 2 NAbs. However, when using structures to 
+predict whether NAbs have overlapping epitopes, it is sometimes 
+not sufficient to only examine Fab–RBD structures or even static 
+images of the S trimer because of the dynamic nature of the spike. 
+Thus, what might appear to be non-overlapping epitopes on an iso-
+lated RBD could overlap in some (Fig. 4e, f), but not all (Extended 
+Data Fig. 7), scenarios on a spike trimer, complicating interpretation 
+of competition experiments using monomeric RBDs and S trim-
+ers. The opposite can also be true; that is, two Fabs predicted to 
+be accommodated on a trimer could clash on an RBD monomer 
+(Fig. 4g, h). Finally, adjacent monomers in different orientations 
+could accommodate different antibodies that target overlapping 
+sites (Extended Data Fig. 7).
+RBD substitutions affect NAb binding
+Vesicular stomatitis virus (VSV) reporter viruses pseudotyped with the 
+SARS-CoV-2 S protein can escape by mutation(s) from the C121, C135 or 
+C144 NAbs40 that we used for structural studies. RBD mutations that 
+were selected in response to antibody pressure correlated with the 
+epitopes mapped from the structures of their Fabs complexed with 
+the S trimer (Figs. 1, 2, 4).
+90˚
+a
+b
+c
+d
+Viral membrane
+N-linked
+glycans
+C135LC
+C135LC
+S1
+S2
+C135HC
+C135HC
+C135LC
+C135LC
+C135HC
+C135HC
+C135LC
+RBD
+Up
+RBD
+RBD
+ACE2
+ACE2
+N343
+glycan
+S309
+90˚
+S1
+2 ‘down’/1 ‘up’ RBD bound by C135
+R346
+W32LC
+Y91LC
+Y98HC
+N440
+N439
+R55HC
+D53HC
+F52AHC
+e
+f
+g
+h
+C135LC
+C135HC
+C135LC
+C135LC
+C135HC
+C135HC
+C135LC
+C135HC
+RBDB
+RBDA
+RBDA
+RBDB
+RBDA
+RBDA
+C144HC
+C144HC
+C144LC
+C144LC
+C119LC
+C119LC
+C119HC
+C119HC
+Fig. 4 | Cryo-EM structure of S complexed with the class 3 (non-ACE2 
+blocking) human NAb C135. a, 3.5 Å cryo-EM density of C135–S complex.  
+b, Composite model of C135–RBD (blue and grey, respectively) overlaid with 
+the SARS-CoV-2 NAb S309 (sand; PDB code 6WPS) and soluble ACE2 (green; 
+PDB code 6M0J). The model was generated by aligning on 188 RBD Cα atoms.  
+c, d, C135 CDRH (dark blue) and CDRL (light blue) interactions with R346RBD (c) 
+and N440RBD (d). Potential π–π stacking interactions (c) and hydrogen bonds  
+(c, d) are illustrated by dashed black lines. e, f, Model of RBD interactions of 
+NAbs C135 (class 3) and C144 (class 2), demonstrating that both Fabs can bind 
+simultaneously to a single monomeric RBD (e), but would clash if bound to 
+adjacent down RDBs on S trimer (f). Steric clashes indicated by a red and yellow 
+star in f. g, h, Model of RBD interaction of NAbs C135 (class 3) and C119 (class 2) 
+demonstrating that both Fabs cannot bind simultaneously to a single 
+monomeric RBD (g), but do not clash if bound to adjacent down RDBs on S 
+trimer (h). Steric clashes indicated by a red and yellow star in g.
+
+
+--- Page 6 ---
+Nature  |  Vol 588  |  24/31 December 2020  |  687
+To further assess the effects of these mutations and other RBD sub-
+stitutions, we assayed NAbs for which we obtained structural informa-
+tion (eight from this study; C105–S complex previously described26) 
+for binding to mutated RBD proteins. The RBD mutants included two 
+that induced escape from the class 3 hNAb C135 (R346S and N440K)40 
+(Fig. 4c, d), one found in circulating isolates44 that conferred partial 
+resistance to C135 (N439K)40 (Fig. 4d), a circulating variant (A475V) 
+that conferred resistance to class 1 and 2 VH3-53 NAbs44, two that 
+induced escape from C121 or C144 (E484K and Q493R)40 (Fig. 3), and a 
+circulating variant that conferred partial resistance to C121 (V483A)40. 
+Kinetic and equilibrium constants for the original and mutant RBDs 
+were derived from surface plasmon resonance (SPR) binding assays 
+in which RBDs were injected over immobilized IgGs. Loss of binding 
+affinity was consistent with RBD mutations that conferred escape 
+(Extended Data Fig. 8). Comparing effects of point mutations between 
+NAb classes showed that point mutations leading to a loss of bind-
+ing for NAbs within one class did not affect NAbs in a different class, 
+indicating that antibody pressure that leads to escape from one NAb 
+class would be unlikely to affect a different class. These results suggest 
+a therapeutic strategy involving human NAbs of different classes for 
+monoclonal NAb treatment of individuals infected with SARS-CoV-2.
+Conclusions
+Here we report structural, biophysical and bioinformatics analyses of 
+SARS-CoV-2 NAbs (Extended Data Fig. 9), providing information for inter­
+preting correlates of protection for clinical use. The structures reveal a 
+wealth of unexpected interactions of NAbs with the spike protein, includ-
+ing five antibodies that reach between adjacent RBDs on the protomers of 
+a single trimer. A notable example of bridging between spike protomers 
+involved the human C144 NAb that uses a long CDRH3 with a hydrophobic 
+tip to reach across to an adjacent RBD, resulting in all three RBDs on the 
+spike trimer being locked into a closed conformation. This example, and 
+four other NAbs that contact adjacent RBDs, demonstrates that crystal 
+structures of Fab–monomeric RBD complexes, although informative 
+for defining primary epitopes on one RBD, do not reveal how antibod-
+ies recognize the flexible up or down RBD conformations on the spike 
+trimer that are targeted for neutralization on a virus. Indeed, our cryo-EM 
+structures of Fab–spike trimer complexes showed all possible up and 
+down combinations of recognized RBDs, with structures showing either 
+three or two Fabs bound per trimer. By analysing approach angles of Fabs 
+bound to RBDs on spike trimers, we predicted whether an IgG can bind 
+to a single spike trimer to gain potency through avidity, which would 
+also render the antibody more resistant to spike mutations. In addition, 
+structural information allowed us to assess RBD mutants that arose in cir­
+culating viral isolates and/or were obtained by in vitro selection. Together, 
+this study provides a blueprint for the design of antibody cocktails for 
+therapeutic agents and potential spike-based immunogens for vaccines.
+Online content
+Any methods, additional references, Nature Research reporting sum-
+maries, source data, extended data, supplementary information, 
+acknowledgements, peer review information; details of author con-
+tributions and competing interests; and statements of data and code 
+availability are available at https://doi.org/10.1038/s41586-020-2852-1.
+1.	
+Baum, A. et al. REGN-COV2 antibody cocktail prevents and treats SARS-CoV-2 infection in 
+rhesus macaques and hamsters. Science https://doi.org/10.1126/science.abe2402 (2020).
+2.	
+Baum, A. et al. Antibody cocktail to SARS-CoV-2 spike protein prevents rapid mutational 
+escape seen with individual antibodies. Science 369, 1014–1018 (2020).
+3.	
+Rogers, T. F. et al. Isolation of potent SARS-CoV-2 neutralizing antibodies and protection 
+from disease in a small animal model. Science 369, 956–963 (2020).
+4.	
+Zost, S. J. et al. Potently neutralizing and protective human antibodies against 
+SARS-CoV-2. Nature 584, 443–449 (2020).
+5.	
+Robbiani, D. F. et al. Convergent antibody responses to SARS-CoV-2 in convalescent 
+individuals. Nature 584, 437–442 (2020).
+6.	
+Hansen, J. et al. Studies in humanized mice and convalescent humans yield a 
+SARS-CoV-2 antibody cocktail. Science 369, 1010–1014 (2020).
+7.	
+US National Library of Medicine. A study of LY3819253 (LY-CoV555) in preventing 
+SARS-CoV-2 infection and COVID-19 in nursing home residents and staff (BLAZE-2). 
+ClinicalTrials.gov https://clinicaltrials.gov/ct2/show/NCT04497987 (2020).
+8.	
+NIH. Clinical trials of monoclonal antibodies to prevent COVID-19 now enrolling. https://
+www.nih.gov/news-events/news-releases/clinical-trials-monoclonal-antibodies-prevent- 
+covid-19-now-enrolling (2020).
+9.	
+Yuan, M. et al. A highly conserved cryptic epitope in the receptor binding domains of 
+SARS-CoV-2 and SARS-CoV. Science 368, 630–633 (2020).
+10.	
+Liu, L. et al. Potent neutralizing antibodies against multiple epitopes on SARS-CoV-2 
+spike. Nature 584, 450–456 (2020).
+11.	
+Kreye, J. et al. A SARS-CoV-2 neutralizing antibody protects from lung pathology in a 
+COVID-19 hamster model. Preprint at https://doi.org/10.1101/2020.08.15.252320 (2020).
+12.	
+Brouwer, P. J. M. et al. Potent neutralizing antibodies from COVID-19 patients define 
+multiple targets of vulnerability. Science 369, 643–650 (2020).
+13.	
+Cao, Y. et al. Potent neutralizing antibodies against SARS-CoV-2 identified by high- 
+throughput single-cell sequencing of convalescent patients’ B cells. Cell 182, 73–84 (2020).
+14.	
+Kreer, C. et al. Longitudinal isolation of potent near-germline SARS-CoV-2-neutralizing 
+antibodies from COVID-19 patients. Cell 182, 843–854 (2020).
+15.	
+Shi, R. et al. A human neutralizing antibody targets the receptor-binding site of 
+SARS-CoV-2. Nature 584, 120–124 (2020).
+16.	
+Zost, S. J. et al. Rapid isolation and profiling of a diverse panel of human monoclonal 
+antibodies targeting the SARS-CoV-2 spike protein. Nat. Med. 26, 1422–1427 (2020).
+17.	
+Seydoux, E. et al. Analysis of a SARS-CoV-2-infected individual reveals development of 
+potent neutralizing antibodies with limited somatic mutation. Immunity 53, 98–105 (2020).
+18.	
+Hoffmann, M. et al. SARS-CoV-2 cell entry depends on ACE2 and TMPRSS2 and is blocked 
+by a clinically proven protease inhibitor. Cell 181, 271–280 (2020).
+19.	
+Wang, Q. et al. Structural and functional basis of SARS-CoV-2 entry by using human 
+ACE2. Cell 181, 894–904 (2020).
+20.	 Walls, A.C. et al. Structure, function, and antigenicity of the SARS-CoV-2 spike 
+glycoprotein. Cell 181, 281–292 (2020).
+21.	
+Wrapp, D. et al. Cryo-EM structure of the 2019-nCoV spike in the prefusion conformation. 
+Science 367, 1260–1263 (2020).
+22.	 Walls, A. C. et al. Cryo-electron microscopy structure of a coronavirus spike glycoprotein 
+trimer. Nature 531, 114–117 (2016).
+23.	 Yuan, Y. et al. Cryo-EM structures of MERS-CoV and SARS-CoV spike glycoproteins reveal 
+the dynamic receptor binding domains. Nat. Commun. 8, 15092 (2017).
+24.	 Kirchdoerfer, R. N. et al. Pre-fusion structure of a human coronavirus spike protein. Nature 
+531, 118–121 (2016).
+25.	 Li, Z. et al. The human coronavirus HCoV-229E S-protein structure and receptor binding. 
+eLife 8, e51230 (2019).
+26.	 Barnes, C.O. et al. Structures of human antibodies bound to SARS-CoV-2 spike reveal 
+common epitopes and recurrent features of antibodies. Cell 182, 828–842 (2020).
+27.	
+Ju, B. et al. Human neutralizing antibodies elicited by SARS-CoV-2 infection. Nature 584, 
+115–119 (2020).
+28.	 Wu, Y. et al. A noncompeting pair of human neutralizing antibodies block COVID-19 virus 
+binding to its receptor ACE2. Science 368, 1274–1278 (2020).
+29.	 Chi, X. et al. A neutralizing human antibody binds to the N-terminal domain of the Spike 
+protein of SARS-CoV-2. Science 369, 650–655 (2020).
+30.	 Yuan, M. et al. Structural basis of a shared antibody response to SARS-CoV-2. Science 
+369, 1119–1123 (2020).
+31.	
+Hurlburt, N. K. et al. Structural basis for potent neutralization of SARS-CoV-2 and role of 
+antibody affinity maturation. Preprint at https://doi.org/10.1101/2020.06.12.148692 (2020).
+32.	 Lefranc, M. P. et al. IMGT®, the international ImMunoGeneTics information system® 25 
+years on. Nucleic Acids Res. 43, D413–D422 (2015).
+33.	 Briney, B., Inderbitzin, A., Joyce, C. & Burton, D. R. Commonality despite exceptional 
+diversity in the baseline human antibody repertoire. Nature 566, 393–397 (2019).
+34.	 Pinto, D. et al. Cross-neutralization of SARS-CoV-2 by a human monoclonal SARS-CoV 
+antibody. Nature 583, 290–295 (2020).
+35.	 Pallesen, J. et al. Immunogenicity and structures of a rationally designed prefusion 
+MERS-CoV spike antigen. Proc. Natl Acad. Sci. USA 114, E7348–E7357 (2017).
+36.	 Hsieh, C. L. et al. Structure-based design of prefusion-stabilized SARS-CoV-2 spikes. 
+Science 369, 1501–155 (2020).
+37.	
+Wu, F. et al. Neutralizing antibody responses to SARS-CoV-2 in a COVID-19 recovered patient 
+cohort and their implications. Preprint at https://doi.org/10.1101/2020.03.30.20047365 
+(2020).
+38.	 Wu, N. C. et al. An alternative binding mode of IGHV3-53 antibodies to the SARS-CoV-2 
+receptor binding domain. Cell Rep. https://doi.org/10.1016/j.celrep.2020.108274 (2020).
+39.	 Marillet, S., Lefranc, M. P., Boudinot, P. & Cazals, F. Novel structural parameters of Ig-Ag 
+complexes yield a quantitative description of interaction specificity and binding affinity. 
+Front. Immunol. 8, 34 (2017).
+40.	 Weisblum, Y. et al. Escape from neutralizing antibodies by SARS-CoV-2 spike protein 
+variants. Preprint at https://doi.org/10.1101/2020.07.21.214759 (2020).
+41.	
+Wang, B. et al. Bivalent binding of a fully human IgG to the SARS-CoV-2 spike proteins reveals 
+mechanisms of potent neutralization. Preprint at https://doi.org/10.1101/2020.07.14.203414 
+(2020).
+42.	 Shang, J. et al. Structural basis of receptor recognition by SARS-CoV-2. Nature 581, 221–224 
+(2020).
+43.	 Yan, R. et al. Structural basis for the recognition of SARS-CoV-2 by full-length human 
+ACE2. Science 367, 1444–1448 (2020).
+44.	 Li, Q. et al. The impact of mutations in SARS-CoV-2 spike on viral infectivity and 
+antigenicity. Cell 182, 1284–1294.e9 (2020).
+Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims in 
+published maps and institutional affiliations.
+© The Author(s), under exclusive licence to Springer Nature Limited 2020, corrected 
+publication 2024
+
+
+--- Page 7 ---
+Article
+Methods
+No statistical methods were used to predetermine sample size. The 
+experiments were not randomized, and investigators were not blinded 
+to allocation during experiments and outcome assessment.
+Cell lines
+Expi293F cells (GIBCO) for protein expression were maintained at 37 °C 
+and 8% CO2 in Expi293 Expression medium (GIBCO), transfected using 
+Expi293 Expression System Kit (GIBCO) and maintained under shak-
+ing at 130 rpm. Cell lines were not specifically authenticated, but lines 
+tested negative for contamination with mycoplasma.
+Protein expression
+Expression and purification of SARS-CoV-2 ectodomains were con-
+ducted as previously described26. In brief, constructs encoded the 
+SARS-CoV-2 S ectodomain (residues 16–1206 of the early SARS-CoV-2 
+GenBank MN985325.1 sequence isolate with 2P35 or 6P36 stabilizing 
+mutations, a mutated furin cleavage site between S1 and S2, a C-terminal 
+TEV site, foldon trimerization motif, octa-His tag, and AviTag) were used 
+to express soluble SARS-CoV-2 S ectodomains. Constructs encoding 
+the SARS-CoV-2 RBD from GenBank MN985325.1 (residues 331–524 
+with C-terminal octa-His tag and AviTag) and mutant RBDs were made 
+as described26, SARS-CoV-2 2P S, 6P S, and RBD proteins were purified 
+from the supernatants of transiently transfected Expi293F cells (Gibco) 
+by nickel affinity and size-exclusion chromatography26. Peak fractions 
+were identified by SDS–PAGE, and fractions corresponding to S trimers 
+or monomeric RBDs were pooled and stored at 4 °C. Fabs and IgGs were 
+expressed, purified, and stored as previously described45,46.
+X-ray crystallography
+Crystallization trials were carried out at room temperature using the 
+sitting drop vapour diffusion method by mixing equal volumes of a Fab 
+or Fab–RBD complex and reservoir using a TTP LabTech Mosquito robot 
+and commercially available screens (Hampton Research). Crystals were 
+obtained in 0.2 M ammonium sulfate, 20% (w/v) PEG 3350 (C102 Fab), 
+0.2 M sodium citrate tribasic, 20% (w/v) PEG 3350 (C102–RBD), 0.2 M 
+lithium sulfate monohydrate, 20% (w/v) PEG 3350 (C002 Fab), 0.04 M 
+potassium phosphate, 16% (w/v) PEG 8000, 20% (v/v) glycerol (C135 
+Fab), 0.2 M ammonium citrate pH 5.1, 20% PEG 3350 (C121 Fab), or 0.2 
+M sodium tartrate dibasic dihydrate pH 7.3, 20% (w/v) PEG 3350 (C110 
+Fab). A C135 Fab crystal was directly looped and cryopreserved in liquid 
+nitrogen. Other crystals were quickly cryoprotected in a mixture of well 
+solution with 20% glycerol and then cryopreserved in liquid nitrogen.
+X-ray diffraction data were collected for Fabs and the Fab–RBD 
+complex at the Stanford Synchrotron Radiation Lightsource (SSRL) 
+beamline 12-1 on a Eiger X 16 M pixel detector (Dectris) at a wavelength 
+of 1.0 Å. Data from single crystals of C121 Fab and C110 Fab were indexed 
+and integrated in XDS47 and merged using AIMLESS v.0.7.4 in CCP448 
+v.7.0.6 (Supplementary Table 1). Data from single crystals of C102 Fab, 
+C135 Fab and C002 Fab were indexed and integrated using XDS47 and 
+merged in Phenix49 (v.1.18). Data from a single crystal of C102 Fab–RBD 
+complex were indexed and integrated using XIA250 v.0.3.8 implement-
+ing DIALS51,52 v.2.2 and merged using AIMLESS in CCP448. For C110 Fab 
+and C121 Fabs, structures were determined by molecular replacement 
+in PHASER53 v.2.8.2 using the coordinates for B38 (PDB 7BZ5) or an 
+inferred germline form of the HIV-1 NAb IOMA54 inferred germline 
+(unpublished), respectively, after removing CDR loops as a search 
+model. For C002 Fab, C102 Fab, C102 Fab–RBD and C135 Fab, structures 
+were determined by molecular replacement in PHASER53 using B38 Fab 
+coordinates (PDB 7BZ5) after trimming heavy and light chain variable 
+domains using Sculptor55 v.2.0 (and for the C102 Fab–RBD data, also 
+RBD coordinates from PDB code 7BZ5) as search models. Coordinates 
+were refined using Phenix49 and cycles of manual building in Coot56 
+(Supplementary Table 1).
+Cryo-EM sample preparation
+Purified Fabs were mixed with the SARS-CoV-2 S 2P trimer35 or 
+SARS-CoV-2 S 6P trimer36 (1.1:1 molar ratio Fab per protomer) to a final 
+Fab–S complex concentration of 2–3 mg ml−1 and incubated on ice for 
+30 min. Immediately before deposition of 3 μl of complex onto a 300 
+mesh, 1.2/1.3 UltrAuFoil grid (Electron Microscopy Sciences) that had 
+been freshly glow-discharged for 1 min at 20 mA using a PELCO easi-
+GLOW (Ted Pella), a 0.5% (w/v) octyl-maltoside, fluorinated solution 
+(Anatrace) was added to each sample to a final concentration of 0.02%. 
+Samples were vitrified in 100% liquid ethane using a Mark IV Vitrobot 
+(Thermo Fisher) after blotting at 22 °C and 100% humidity for 3 s with 
+Whatman No. 1 filter paper.
+Cryo-EM data collection and processing
+Single-particle cryo-EM data were collected on a Titan Krios trans-
+mission electron microscope (Thermo Fisher) operating at 300 kV 
+for all Fab–S complexes except for C144–S, which was collected on a 
+Talos Arctica (Thermo Fisher) operating at 200 kV. Movies were col-
+lected using SerialEM v.3.7 automated data collection software57 with 
+beam-image shift over a 3-by-3 pattern of 1.2 μm holes with 1 exposure 
+per hole. Movies were recorded in super-resolution mode on a K3 cam-
+era (Gatan) for the C144–S dataset on the Arctica (0.435Å per pixel) 
+or on a K3 behind BioQuantum energy filter (Gatan) with a 20 eV slit 
+on the Krios (0.418 Å per pixel) for all other datasets. Data collections 
+parameters are summarized in Supplementary Table 2. In general, 
+the dat- processing workflow described below was performed for all 
+datasets in cryoSPARC v.2.1558.
+Cryo-EM movies were patch motion corrected for beam-induced 
+motion including dose weighting within cryoSPARC58 after binning 
+super-resolution movies. The non-dose-weighted images were used 
+to estimate CTF parameters using CTFFIND459 v.4.1.14 or with cry-
+oSPARC implementation of the Patch CTF job, and micrographs with 
+power spectra that showed poor CTF fits or signs of crystalline ice 
+were discarded. A subset of images were randomly selected and used 
+for reference-free particle picking using Blob picker in cryoSPARC58. 
+Particles were subjected to 2D classification and the best class aver-
+ages that represented different views were used to generate 3 ab initio 
+models. The particles from the best classes were used in another 2D 
+classification job, and the best set of unique views was used as templates 
+for particle picking on the full set of images. Initial particle stacks were 
+extracted, downsampled twice, and used in heterogeneous refinement 
+against the three ab initio volumes generated with the smaller dataset 
+(ab initio volumes used were interpreted as a Fab–S complex, free Fab or 
+dissociated S protomers, and junk/noise class). Particles assigned to the 
+Fab–S volume were further cleaned via iterative rounds of 2D classifica-
+tion to select class averages that displayed unique views and secondary 
+structural elements. Resulting particle stacks were homogenously 
+refined before being split into nine individual exposure groups based 
+upon collection holes. Per particle CTF and aberration corrections were 
+performed and the resulting particles further 3D refined. Additional 
+processing details are summarized in Supplementary Table 2.
+Given the known heterogeneity of spike trimers20,21, homogenously 
+refined particles were used for 3D classification in cryoSPARC58 (ab ini-
+tio job: k = 4 classes, class similarity = 0.3). This typically resulted in one 
+or two majority Fab–S complexes, with the other minority populated 
+classes representing junk or unbound S trimer. Particles from the good 
+class(es) were further subjected to 3D classification (ab initio job: k = 4, 
+class similarity = 0.7) to attempt to separate various Fab–S complex 
+states. If several states were identified (as observed for the C002–S and 
+C121–S complexes), particles were heterogeneously refined, followed 
+by re-extraction without binning (0.836 Å per pixel) before homo-
+geneous refinement of individual states. For all other datasets, most 
+particles represented one state that was homogenously refined after 
+re-extraction without binning.
+
+
+--- Page 8 ---
+Particle stacks for individual states were non-uniform refined with C1 
+symmetry and a dynamic mask. To improve resolution at the Fab–RBD 
+interfaces, volumes were segmented in Chimera60 and the regions 
+corresponding to the NTD and RBD domains of the S1 subunit and the 
+Fab Vh–Vl domains were extracted and used to generate a soft mask 
+(5-pixel extension, 10-pixel soft cosine edge). Local refinements with 
+the mask resulted in modest improvements of the Fab–RBD interface, 
+which allowed for fitting and refinement of this region. The particles 
+were then subjected to CTF refinement and aberration correction, fol-
+lowed by a focused, non-uniform refinement with polished particles 
+imposing C1 symmetry (except for the C144–S complex, in which C3 
+symmetry was used). Final overall resolutions were according to the 
+gold-standard FSC61. Details of overall resolution and locally refined 
+resolutions according to the gold-standard FSC61 can be found in Sup-
+plementary Table 2.
+Cryo-EM structure modelling and refinement
+Coordinates for initial complexes were generated by docking individual 
+chains from reference structures into cryo-EM density using UCSF 
+Chimera62 v.1.13. The following coordinates were used: SARS-CoV-2 S 
+trimers: PDB codes 6VXX, 6VYB and 6XKL, up RBD conformations: PDB 
+codes 7BZ5 or 6W41, and unbound C102, C002, C110, C121, C135 Fab 
+structures (this study) (Supplementary Table 1). Initial models were 
+then refined into cryo-EM maps using one round of rigid body refine-
+ment followed by real space refinement. Sequence-updated models 
+were built manually in Coot56 v.0.8.9 and then refined using iterative 
+rounds of refinement in Coot56 and Phenix49. Glycans were modelled 
+at potential N-linked glycosylation sites in Coot56 using ‘blurred’ maps 
+processed with a variety of B-factors63. Validation of model coordinates 
+was performed using MolProbity64 (Supplementary Table 2).
+Structural analyses
+CDR lengths were calculated based on IMGT definitions32. Structure 
+figures were made with PyMOL (v.2.2 Schrodinger, LLC) or UCSF 
+ChimeraX60 v.1.0. Local resolution maps were calculated using cry-
+oSPARC v.2.1558. Buried surface areas were calculated using PDBePISA 
+v.1.4865 and a 1.4 Å probe. Potential hydrogen bonds were assigned as 
+interactions that were less than 4.0 Å and with an A-D-H angle above 
+90°. Potential van der Waals interactions between atoms were assigned 
+as interactions that were less than 4.0 Å. Hydrogen bond and van der 
+Waals interaction assignments are tentative due to resolution limita-
+tions. r.m.s.d. calculations following pairwise Cα alignments were done 
+in PyMOL without rejecting outliers. Criteria for epitope assignments 
+are described in figure legends.
+To evaluate whether intra-spike crosslinking by an IgG binding to a 
+single spike trimer was possible (Extended Data Table 1), we first measured 
+the Cα distance between a pair of residues near the C termini of adjacent 
+Fab Ch1 domains (residue 222 of the heavy chain on each Fab) (Extended 
+Data Fig. 5h). We compared this distance to the analogous distances in 
+crystal structures of intact IgGs (42 Å, PDB code 1HZH; 48 Å, PDB code 
+1IGY; 52 Å, PDB code 1IGT). To account for potential influences of crystal 
+packing in these measurements, as well as flexibility in the Vh–Vl/Ch1–Cl 
+elbow bend angle and uncertainties in Ch1–Cl domain placement in Fab–S 
+cryo-EM structures, we set a cut-off of ≤65 Å for this measured distance 
+as possibly allowing for a single IgG to include both Fabs. Entries in the 
+‘potential IgG intra-spike binding’ column in Extended Data Table 1 are 
+marked ‘no’ if all of the adjacent Fabs in cryo-EM classes of that structure 
+are separated by more than 65 Å for this measured distance. Entries in the 
+‘potential IgG intra-spike binding’ column in Extended Data Table 1 are 
+marked as ‘yes’ if at least one pair of the adjacent Fabs in cryo-EM classes 
+of that structure are separated by ≤65 Å for this measured distance.
+SPR binding experiments
+SPR experiments were performed using a Biacore T200 instrument (GE 
+Healthcare). IgGs were immobilized on a CM5 chip by primary amine 
+chemistry (Biacore manual) to a final response level of approximately 
+3,000 resonance units. Concentration series of the original SARS-CoV-2 
+RBD and RBD mutants (six fourfold dilutions starting from a top con-
+centration of 1,000 nM) were injected at a flow rate of 30 μl min over 
+immobilized IgGs for a contact time of 60 s, followed by an injection of 
+0.01 M HEPES, pH 7.4, 0.15 M NaCl, 3 mM EDTA, 0.005% (v/v) surfactant 
+P20 buffer for a dissociation time of 300 s. Binding reactions were 
+allowed to reach equilibrium, and Kd values were calculated from the 
+ratio of association and dissociation rates (Kd = kd/ka) derived from a 
+1:1 binding model (C002, C102, C105, C110 and C119 (except for C119 
+mutant E484K)), C121, C135 and C144), or from a two-state binding 
+model (Kd = kd1/ka1 × kd2/[kd2 + ka2]) (C104 and C119 mutant E484K). 
+Kinetic constants were calculated using Biacore T200 Evaluation Soft-
+ware v.3.2 using a global fit to all curves in each dataset. Flow cells were 
+regenerated with 10 mM glycine, pH 2.0, at a flow rate of 90 μl min−1.
+Polyreactivity assays
+IgGs were evaluated for off-target interactions by measuring binding 
+to baculovirus extracts containing non-specific proteins and lipids as 
+described59. The assays were automated on a Tecan Evo2 liquid handling 
+robot fitted with a Tecan Infinite M1000 plate reader capable of read-
+ing luminescence. Maxisorb 384-well plates (Nunc) were adsorbed 
+overnight with a 1% preparation of recombinant baculovirus particles 
+generated in Sf9 insect cells66. The adsorbed plate was blocked with 
+0.5% bovine serum albumin (BSA) in PBS, then incubated with 20 μl of 
+a 1.0 μg ml−1 solution of IgG in PBS for 3 h. Polyreactivity was quanti-
+fied by detecting bound IgG using an HRP-conjugated anti-human 
+IgG secondary antibody (SouthernBiotech) at a 1:5,000 dilution and 
+SuperSignal ELISA Femto Maxiumum Sensitivity Substrate (Thermo 
+Scientific). RLUs were measured at 475 nm in the integrated plate reader. 
+Engineered human anti-HIV-1 IgGs previously demonstrated to exhibit 
+high levels of polyreactivity (NIH45-46(G54W) and 45-46m2)60,61 were 
+used as positive controls. NIH45-46, which exhibited intermediate 
+polyreactivity62, was also evaluated for comparisons. Negative control 
+IgGs with low polyreactivity included the human HIV-1 antibodies N663 
+and 3BNC11762 and BSA. RLU values were plotted in GraphPad Prism 
+v8.4.3 and presented as the mean and standard deviation of triplicate 
+measurements (n = 3 biological replicates) with results for individual 
+experiments shown as circles in Extended Data Fig. 1i.
+Reporting summary
+Further information on research design is available in the Nature 
+Research Reporting Summary linked to this paper.
+Data availability
+The atomic models generated from X-ray crystallographic studies of 
+the C102–RBD complex, C102 Fab, C002 Fab, C110 Fab, C121 Fab and 
+C135 Fab have been deposited at the Protein Data Bank (PDB) under 
+accession codes 7K8M, 7K8N, 7K8O, 7K8P, 7K8Q and 7K8R, respec-
+tively. The atomic models and cryo-EM maps generated from cryo-EM 
+studies of the C002–S 2P (state 1), C002–S 2P (state 2), C104–S 2P, 
+C110–S 2P, C119–S 2P, C121–S 2P (state 1), C121–S 2P (state 2), C135–S 
+2P and C144–S 6P complexes have been deposited at the PDB and the 
+Electron Microscopy Data Bank (EMDB) under the following accession 
+codes: PDB 7K8S, 7K8T, 7K8U, 7K8V, 7K8W, 7K8X, 7K8Y, 7K8Z and 7K90; 
+EMD EMD-22729, EMD-22730, EMD-22731, EMD-22732, EMD-22733, 
+EMD-22734, EMD-22735, EMD-22736 and EMD-22737.
+ 
+45.	 Scharf, L. et al. Broadly neutralizing antibody 8ANC195 recognizes closed and open 
+states of HIV-1 Env. Cell 162, 1379–1390 (2015).
+46.	 Schoofs, T. et al. Broad and potent neutralizing antibodies recognize the silent face of the 
+HIV envelope. Immunity 50, 1513–1529 (2019).
+47.	
+Kabsch, W. XDS. Acta Crystallogr. D 66, 125–132 (2010).
+48.	 Winn, M. D. et al. Overview of the CCP4 suite and current developments. Acta Crystallogr. 
+D 67, 235–242 (2011).
+
+
+--- Page 9 ---
+Article
+49.	 Adams, P. D. et al. PHENIX: a comprehensive Python-based system for macromolecular 
+structure solution. Acta Crystallogr. D 66, 213–221 (2010).
+50.	 Winter, G. xia2: an expert system for macromolecular crystallography data reduction.  
+J. Appl. Crystallogr. 43, 186–190 (2010).
+51.	
+Beilsten-Edmands, J. et al. Scaling diffraction data in the DIALS software package: 
+algorithms and new approaches for multi-crystal scaling. Acta Crystallogr. D. 76, 385–399  
+(2020).
+52.	 Winter, G. et al. DIALS: implementation and evaluation of a new integration package. Acta 
+Crystallogr. D 74, 85–97 (2018).
+53.	 McCoy, A. J. et al. Phaser crystallographic software. J. Appl. Crystallogr. 40, 658–674 (2007).
+54.	 Gristick, H. B. et al. Natively glycosylated HIV-1 Env structure reveals new mode for 
+antibody recognition of the CD4-binding site. Nat. Struct. Mol. Biol. 23, 906–915 (2016).
+55.	 Bunkóczi, G. & Read, R. J. Improvement of molecular-replacement models with Sculptor. 
+Acta Crystallogr. D 67, 303–312 (2011).
+56.	 Emsley, P., Lohkamp, B., Scott, W. G. & Cowtan, K. Features and development of Coot. 
+Acta Crystallogr. D 66, 486–501 (2010).
+57.	
+Mastronarde, D. N. Automated electron microscope tomography using robust prediction 
+of specimen movements. J. Struct. Biol. 152, 36–51 (2005).
+58.	 Punjani, A., Rubinstein, J. L., Fleet, D. J. & Brubaker, M. A. cryoSPARC: algorithms for rapid 
+unsupervised cryo-EM structure determination. Nat. Methods 14, 290–296 (2017).
+59.	 Rohou, A. & Grigorieff, N. CTFFIND4: fast and accurate defocus estimation from electron 
+micrographs. J. Struct. Biol. 192, 216–221 (2015).
+60.	 Goddard, T. D. et al. UCSF ChimeraX: meeting modern challenges in visualization and 
+analysis. Protein Sci. 27, 14–25 (2018).
+61.	
+Bell, J. M., Chen, M., Baldwin, P. R. & Ludtke, S. J. High resolution single particle 
+refinement in EMAN2.1. Methods 100, 25–34 (2016).
+62.	 Goddard, T. D., Huang, C. C. & Ferrin, T. E. Visualizing density maps with UCSF Chimera.  
+J. Struct. Biol. 157, 281–287 (2007).
+63.	 Terwilliger, T. C., Adams, P. D., Afonine, P. V. & Sobolev, O. V. A fully automatic method 
+yielding initial models from high-resolution cryo-electron microscopy maps. Nat. 
+Methods 15, 905–908 (2018).
+64.	 Chen, V. B. et al. MolProbity: all-atom structure validation for macromolecular 
+crystallography. Acta Crystallogr. D 66, 12–21 (2010).
+65.	 Krissinel, E. & Henrick, K. Inference of macromolecular assemblies from crystalline state. 
+J. Mol. Biol. 372, 774–797 (2007).
+66.	 Davis, M. I., Bennett, M. J., Thomas, L. M. & Bjorkman, P. J. Crystal structure of 
+prostate-specific membrane antigen, a tumor marker and peptidase. Proc. Natl Acad. Sci. 
+USA 102, 5981–5986 (2005).
+67.	
+Liu, H. et al. Cross-neutralization of a SARS-CoV-2 antibody to a functionally conserved 
+site is mediated by avidity. Preprint at https://doi.org/10.1101/2020.08.02.233536 (2020).
+68.	 Zhou, D. et al. Structural basis for the neutralization of SARS-CoV-2 by an antibody from a 
+convalescent patient. Nat. Struct. Mol. Biol. 27, 950–958 (2020).
+69.	 Piccoli, L. et al. Mapping neutralizing and immunodominant sites on the SARS-CoV-2 
+spike receptor-binding domain by structure-guided high-resolution serology. Cell 183, 
+1024–1042 (2020).
+70.	 Dunbar, J. et al. SAbDab: the structural antibody database. Nucleic Acids Res. 42,  
+D1140–D1146 (2014).
+Acknowledgements We thank J. Vielmetter, P. Hoffman, and the Protein Expression Center in 
+the Beckman Institute at Caltech for expression assistance, J. Vielmetter and J. Keeffe for 
+setting up automated polyreactivity assays, J. Keeffe for construct design, and N. Koranda for 
+help with cloning and protein purification. Electron microscopy was performed in the Caltech 
+Beckman Institute Resource Center for Transmission Electron Microscopy with assistance from 
+S. Chen. We thank the Gordon and Betty Moore and Beckman Foundations for gifts to Caltech 
+to support the Molecular Observatory (J. Kaiser, director), and S. Russi, A. Cohen and C. Smith 
+and the beamline staff at SSRL for data collection assistance. Use of the Stanford Synchrotron 
+Radiation Lightsource, SLAC National Accelerator Laboratory, is supported by the US 
+Department of Energy, Office of Science, Office of Basic Energy Sciences under contract no. 
+DE-AC02-c76SF00515. The SSRL Structural Molecular Biology Program is supported by the 
+DOE Office of Biological and Environmental Research, and by the National Institutes of Health, 
+National Institute of General Medical Sciences (P41GM103393). The contents of this 
+publication are solely the responsibility of the authors and do not necessarily represent the 
+official views of NIGMS or NIH. This work was supported by NIH grant P01-AI138938-S1 (P.J.B. 
+and M.C.N.), the Caltech Merkin Institute for Translational Research (P.J.B.), NIH grant P50 8 
+P50 AI150464-13 (P.J.B.), and a George Mason University Fast Grant (P.J.B.). C.O.B was 
+supported by the Hanna Gray Fellowship Program from the Howard Hughes Medical Institute 
+and the Postdoctoral Enrichment Program from the Burroughs Wellcome Fund. M.C.N. is a 
+Howard Hughes Medical Institute Investigator.
+Author contributions C.O.B., M.C.N., A.P.W. and P.J.B. conceived the study and analysed data; 
+D.F.R. and M.C.N. provided monoclonal antibody sequences and plasmids derived from 
+COVID-19-convalescent donors. C.O.B. and K.H.T. performed protein purifications and C.O.B. 
+assembled complexes for cryo-EM and X-ray crystallography studies. C.O.B. performed 
+cryo-EM and interpreted structures with assistance from M.E.A., K.A.D., S.R.E., A.G.M. and 
+N.G.S. C.A.J. and C.O.B. performed and analysed crystallographic structures, with refinement 
+assistance from M.E.A. and K.M.D. Y.E.L. performed polyreactivity assays. H.B.G. performed 
+and analysed SPR experiments. A.P.W. analysed antibody sequences. C.O.B., M.C.N., A.P.W. and 
+P.J.B. wrote the paper with contributions from other authors.
+Competing interests The Rockefeller University has filed a provisional patent application in 
+connection with this work on which D.F.R. and M.C.N. are inventors (US 63/021,387).
+Additional information
+Supplementary information is available for this paper at https://doi.org/10.1038/s41586-020-
+2852-1.
+Correspondence and requests for materials should be addressed to P.J.B.
+Peer review information Nature thanks the anonymous reviewer(s) for their contribution to the 
+peer review of this work.
+Reprints and permissions information is available at http://www.nature.com/reprints.
+
+
+--- Page 10 ---
+Extended Data Fig. 1 | See next page for caption.
+
+
+--- Page 11 ---
+Article
+Extended Data Fig. 1 | X-ray structure and epitope mapping of VH3-53 NAb 
+C102. a, X-ray structure of the C102 Fab–RBD331–518 complex. b, C102 CDR loops 
+mapped on the RBD surface. c, Surface representation of C102 epitope 
+coloured by C102 heavy chain (dark green) and light chain (light green) 
+interactions. d, e, CDRH1, CDRH2 (d) and CDRH3 (e) interactions with RBD 
+residues. Potential hydrogen-bond contacts are illustrated as dashed lines.  
+f, Left, overlay of C102–RBD crystal structure (cartoon) with C105–S trimer 
+cryoEM density (PDB 6XCM, EMD-22127) illustrating conserved binding to RBD 
+epitope in an up conformation. Right, the C102 epitope is sterically occluded 
+when aligned to a down RBD conformation (red and yellow star). SARS-CoV-2 S 
+domains are dark grey (S2 domain) and light grey (S1 domain); the C105 Fab is 
+yellow-green. g, Alignment of selected CDRH3 sequences for VH3-53- or  
+VH3-66-encoded SARS-CoV-2 neutralizing antibodies (IMGT definition32).  
+h, Overlay of NAb COVA2-39 Fab38 (lime green and lemon, from COVA2-39–RBD 
+structure, PDB 7JMP) and C144 Fab (blue, from C144–S structure) aligned on a 
+RBDA of C144 epitope. COVA2-39 adopts a distinct conformation relative to the 
+C102-like VH3-53-encoded short CDRH3 NAb class and to C144, recognizing its 
+RBD epitope only in an up RBD conformations owing to steric clashes (red and 
+yellow star) with the N343-associated glycan on the adjacent RBD. i, Polyreactivity 
+assay. IgGs were evaluated for binding to baculovirus extracts to assess non-
+specific binding. Polyreactive positive control IgGs were NIH45-46, 45-46G54W 
+and 45-46m2. Negative controls were bovine serum albumin (BSA) and IgGs N6 
+and 3BNC117. Relative light unit (RLU) values are presented as the mean and s.d. 
+of triplicate measurements (n = 3 biological replicates) with results for 
+individual experiments shown as circles.
+
+
+--- Page 12 ---
+Extended Data Fig. 2 | Overview of VH3-53/VH3-66-encoded human NAb 
+structures. a, Superimposition of Vh and Vl domains of C102 with other  
+VH3-53- or VH3-66-encoded NAbs (top) and root mean square deviation 
+(r.m.s.d.) calculations (bottom). b, Buried surface area comparisons for the 
+indicated Fab–RBD structures. Buried surface areas were calculated using 
+PDBePISA65 and a 1.4 Å probe. c, d, Heavy-chain buried surface areas of 
+anti-SARS-CoV-2 antibodies plotted as CDRH1 (IMGT residues 27–38) plus 
+CDRH2 (residues 56–67*) versus CDRH3 (residues 105–117) (c), and V gene 
+segment region (residues 1–105) versus CDRH3 (residues 106*–117) (d, asterisk 
+indicates differences from IMGT definition). Blue data points represent 501 
+human antibodies complexed with protein antigens. IMGT-numbered 
+structures (resolutions of 3.5 Å or better) were downloaded from the Structural 
+Antibody Database (SAbDab)70 and buried surface area were calculated using 
+PISA65. Buried surface areas from antibody structures with identical or 
+near-identical heavy chain sequences were averaged to give a single point on 
+the graph.
+
+
+--- Page 13 ---
+Article
+Extended Data Fig. 3 | Cryo-EM data processing and validation for C144–S, 
+C002–S and C121–S complexes. a–i, Representative micrograph selected 
+from total dataset (Supplementary Table 2), 2D class averages, gold-standard 
+Fourier shell correlation (FSC) plots, and local resolution estimations for 
+C144–S 6P (a–c), C002–S 2P (d–f) and C121–S 2P (g–i). Scale bars, 100 nm. For 
+the C002–S dataset, two classes were resolved: state 1, C002 Fabs bound to 
+three down RBDs, and state 2, C002 Fabs bound to two down and one up RBD. 
+For the C121–S 2P dataset, two classes were resolved: state 1, C121 Fabs bound to 
+two down and one up RBD and state 2, C121 Fabs bound to one down, two up 
+RBDs.
+
+
+--- Page 14 ---
+Extended Data Fig. 4 | Cryo-EM processing, validation and reconstruction 
+for C119–S and C104–S complexes. a, 3.6 Å cryo-EM reconstruction for a 
+C119–S trimer complex. b, 3.7 Å cryo-EM reconstruction for a C104–S trimer 
+complex. Representative micrograph selected from the total dataset 
+(Supplementary Table 2), 2D class averages, gold-standard FSC plot, and local 
+resolution estimation for C119–S2P (c–e) and C104–S (f–h). Scale bars, 100 nm. 
+Both complexes revealed binding of Fabs to both down and up RBD 
+conformations. i–n, Somatic hypermutations in heavy- and light-chain V gene 
+segments for C002 (i), C121 (j), C119 (k), C144 (l), C102 (m) and C135 (n) are 
+shown as spheres on the antibody Vh and Vl domains (ribbon representations). 
+The primary RBD epitope is shown as a light grey surface; secondary RBD 
+epitope for C144 is in dark grey.
+
+
+--- Page 15 ---
+Article
+Extended Data Fig. 5 | Primary and secondary epitopes of class 2 human 
+NAbs. a–c, Primary epitopes for C002 (a), C121 (b), and C119 (c) on down RBD.  
+A secondary epitope is observed if a Fab is bound to an adjacent up RBD for 
+these NAbs. Antibody paratopes are represented as cartoons. A similar 
+interaction in the C104–S structure is not shown owing to low local resolution 
+on the up RBD. d–g, Primary epitopes for C119 (d), C104 (e), P2B-2F6 (f; PDB 
+7BWJ), and BD23 (g; PDB 7BYR). The existence of secondary epitopes for  
+P2B-2F6 and BD23 cannot be determined because the P2B-2F6 epitope was 
+determined from a crystal structure with an RBD27, and the BD23–S cryo-EM 
+structure showed only one bound Fab13. h, Measurement of Cα distance 
+between the C termini of adjacent C121 Ch1 domains (residue 222 of the heavy 
+chain on each Fab). Measurements of this type were used to evaluate whether 
+intra-spike crosslinking by an IgG binding to a single spike trimer was possible 
+for human NAbs in Extended Data Table 1.
+
+
+--- Page 16 ---
+Extended Data Fig. 6 | Cryo-EM structure of C110–S complex and epitope 
+mapping. a, 3.8 Å cryo-EM reconstruction of the C110–S trimer complex.  
+b, Composite model of C110–RBD (purple and grey, respectively) overlaid with 
+the SARS-CoV-2 NAb REGN-10987 (yellow, PDB 6XDG) and soluble ACE2 (green, 
+PDB 6M0J). Model was generated by aligning structures on 188 RBD Cα atoms. 
+c–f, Surface representation of RBD epitopes for C135 (blue) (c), S309 (brown, 
+PDB 6WSP) (d), C110 (purple) (e) and REGN-10987 (yellow, PDB 6XDG) (f). Given 
+the low resolution of the antibody–RBD interface, epitopes were assigned by 
+selection of any RBD residue within 7 Å of any antibody Cα atom. Mutation sites 
+found in sequence isolates44 (green) and in laboratory selection assays40 (red) 
+are shown. Representative micrograph selected from total dataset 
+(Supplementary Table 2), 2D class averages, gold-standard FSC plot, and local 
+resolution estimation for C135–S 2P (g–i) and C110–S 2P (j–l). Scale bars, 
+100 nm. Both complexes revealed binding of Fabs to both two-down and 
+one-up RBD conformations.
+
+
+--- Page 17 ---
+Article
+Extended Data Fig. 7 | Possibilities for simultaneous engagement of C144 and C135 on spikes with different combinations of up and down RBDs. Modelling 
+of C144 (light blue) and C135 (dark blue) Vh–Vl domains on different RBD conformations. Steric clashes are shown as a red and yellow star.
+
+
+--- Page 18 ---
+Extended Data Fig. 8 | SPR binding data for NAbs. a–c, Kinetic and 
+equilibrium constants for binding to unaltered RBD (indicated as wild type, wt) 
+and mutant RBDs are shown in tables beside structures of a representative 
+NAb–RBD complex for each class. Residues that were mutated are highlighted 
+as coloured side chains on a grey RBD surface. Antibody Vh–Vl domains are 
+shown as cartoons. Kinetic and equilibrium constants for NAbs that contact 
+adjacent RBDs on the S trimer (C144, C002, C119 and C121) do not account for 
+contacts to a secondary RBD because binding was assayed by injected 
+monomeric RBDs over immobilized IgGs. Asterisk indicates kinetic constants 
+determined from a two-state binding model.
+
+
+--- Page 19 ---
+Article
+Extended Data Fig. 9 | Summary of NAbs. a, Structural depiction of a 
+representative NAb from each class binding its RBD epitope. b, Composite 
+model illustrating non-overlapping epitopes of NAbs from each class bound to 
+a RBD monomer. c, Epitopes for SARS-CoV-2 NAbs. RBD residues involved in 
+ACE2 binding are boxed in green. Diamonds represent RBD residues contacted 
+by the indicated antibody.
+
+
+--- Page 20 ---
+Extended Data Table 1 | Classification and structural properties of SARS-CoV-2 RBD-specific antibodies
+IGHV, immunoglobulin heavy chain variable gene segment; IGLV, immunoglobulin light chain variable gene segment. V gene segments, somatic hypermutation information, CDR lengths, IC50 
+and IC90 values for NAbs in this study are from ref. 32. The following references are cited in the table: refs. 6,9,10,13,26–28,30,34,38,41,67–69. 
+^Average human antibody CDRH3 and CDRL3 lengths are 15 (CDRH3) and 9–10 (CDRL3) amino acids. 
+*IC50 value calculated against authentic SARS-CoV-2 virus. 
+**IC50 values varied depending on neutralization assay used. 
+†Unknown IC90 values indicated as NA (not available). 
+§Potential for intra-spike crosslinking by an IgG binding to a single spike trimer was evaluated as described in the Methods. 
+?Sequence information not available. 
+???Inference that cannot be made from a structure of a Fab bound to a RBD.
+
+
+--- Page 21 ---
+1
+nature research  |  reporting summary
+April 2020
+Corresponding author(s):
+Pamela J. Bjorkman
+Last updated by author(s): Sep 29, 2020
+Reporting Summary
+Nature Research wishes to improve the reproducibility of the work that we publish. This form provides structure for consistency and transparency 
+in reporting. For further information on Nature Research policies, see our Editorial Policies and the Editorial Policy Checklist.
+Statistics
+For all statistical analyses, confirm that the following items are present in the figure legend, table legend, main text, or Methods section.
+n/a Confirmed
+The exact sample size (n) for each experimental group/condition, given as a discrete number and unit of measurement
+A statement on whether measurements were taken from distinct samples or whether the same sample was measured repeatedly
+The statistical test(s) used AND whether they are one- or two-sided 
+Only common tests should be described solely by name; describe more complex techniques in the Methods section.
+A description of all covariates tested
+A description of any assumptions or corrections, such as tests of normality and adjustment for multiple comparisons
+A full description of the statistical parameters including central tendency (e.g. means) or other basic estimates (e.g. regression coefficient) 
+AND variation (e.g. standard deviation) or associated estimates of uncertainty (e.g. confidence intervals)
+For null hypothesis testing, the test statistic (e.g. F, t, r) with confidence intervals, effect sizes, degrees of freedom and P value noted 
+Give P values as exact values whenever suitable.
+For Bayesian analysis, information on the choice of priors and Markov chain Monte Carlo settings
+For hierarchical and complex designs, identification of the appropriate level for tests and full reporting of outcomes
+Estimates of effect sizes (e.g. Cohen's d, Pearson's r), indicating how they were calculated
+Our web collection on statistics for biologists contains articles on many of the points above.
+Software and code
+Policy information about availability of computer code
+Data collection
+SerialEM automated image acquisition software version 3.7; BLU-ICE X-ray data collection software at SSRL; Tecan Infinite M1000 plate reader 
+software; Biacore T200 instrument software
+Data analysis
+GraphPad Prism 8.4.3 was used for polyreactivity data analysis; XDS (Build 20200417), Xia2 v0.3.8, DIALS v2.2, and the CCP4 v7.0.6 suite of 
+crystallographic programs (AIMLESS v0.7.4, PHASER v2.8.2), Sculptor v2.0, Phenix v1.18, Coot v0.8.9, cryoSPARC v2.15, CTFFIND4 v4.1.14, 
+PyMOL v2.2, Chimera v1.13, ChimeraX-v1.0, and Molprobity v4.4 were used for structural analysis; Kinetic constants were calculated using 
+Biacore T200 Evaluation Software v3.2; PDBePISA v1.48 for BSA calculations; 
+For manuscripts utilizing custom algorithms or software that are central to the research but not yet described in published literature, software must be made available to editors and 
+reviewers. We strongly encourage code deposition in a community repository (e.g. GitHub). See the Nature Research guidelines for submitting code & software for further information.
+Data
+Policy information about availability of data
+All manuscripts must include a data availability statement. This statement should provide the following information, where applicable: 
+- Accession codes, unique identifiers, or web links for publicly available datasets 
+- A list of figures that have associated raw data 
+- A description of any restrictions on data availability
+The atomic models generated from X-ray crystallographic studies of the C102-RBD complex, C102 Fab, C002 Fab, C110 Fab, C121 Fab, and C135 Fab have been 
+deposited at the Protein Data Bank (PDB, http://www.rcsb.org/) under accession codes PDB 7K8M, 7K8N, 7K8O, 7K8P, 7K8Q, and 7K8R, respectively. The atomic 
+models and cryo-EM maps generated from cryo-EM studies of the C002-S 2P (state 1), C002-S 2P (state 2), C104-S 2P, C110-S 2P, C119-S 2P, C121-S 2P (state 1), 
+C121-S 2P (state 2), C135-S 2P and C144-S 6P complexes have been deposited at the PDB (http://www.rcsb.org/) and the Electron Microscopy Databank (EMDB, 
+
+
+--- Page 22 ---
+2
+nature research  |  reporting summary
+April 2020
+http://www.emdataresource.org/) under the following accession codes: PDB 7K8S, 7K8T, 7K8U, 7K8V, 7K8W, 7K8X, 7K8Y, 7K8Z, and 7K90; EMD 22729, 22730, 
+22731, 22372, 22733, 22734, 22735, 22736, and 22737. 
+Field-specific reporting
+Please select the one below that is the best fit for your research. If you are not sure, read the appropriate sections before making your selection.
+Life sciences
+Behavioural & social sciences
+ Ecological, evolutionary & environmental sciences
+For a reference copy of the document with all sections, see nature.com/documents/nr-reporting-summary-flat.pdf
+Life sciences study design
+All studies must disclose on these points even when the disclosure is negative.
+Sample size
+Not applicable to this study, because no sample size calculation was performed to design the study.
+Data exclusions
+No data were excluded.
+Replication
+All experiments were replicated successfully, n values can be found in figure legends.
+Randomization
+Not applicable to this study, as we do not report experiments that use randomized data.
+Blinding
+Not applicable to this study, as we do not report any experiments that applied blinding.
+Reporting for specific materials, systems and methods
+We require information from authors about some types of materials, experimental systems and methods used in many studies. Here, indicate whether each material, 
+system or method listed is relevant to your study. If you are not sure if a list item applies to your research, read the appropriate section before selecting a response. 
+Materials & experimental systems
+n/a Involved in the study
+Antibodies
+Eukaryotic cell lines
+Palaeontology and archaeology
+Animals and other organisms
+Human research participants
+Clinical data
+Dual use research of concern
+Methods
+n/a Involved in the study
+ChIP-seq
+Flow cytometry
+MRI-based neuroimaging
+Antibodies
+Antibodies used
+HRP-conjugated anti-human IgG secondary antibody (SouthernBiotech, Catalog 2040-04; Goat Anti-Human IgG-HRP; Lot 
+B3919.NEB80B) used at a 1:5000 dilution. All other antibodies reported were expressed in this study.
+Validation
+Primary antibodies reported in this study were described previously in Robbiani et al. (doi:10.1038/s41586-020-2456-9). Target 
+validation was done with multiple binding assays and structural studies using cryo-EM and X-ray crystallography. Control anti-HIV-1 
+antibodies reported in this study have been previously described and validated in a polyreactivity assay (Schoofs, et al. doi:10.1016/
+j.immuni.2019.04.014). Reactivity of the primary antibody listed above is based on the information on manufacturer's homepages.
+Eukaryotic cell lines
+Policy information about cell lines
+Cell line source(s)
+Expi293F (ThermoFisher cat. A14527)
+Authentication
+Not authenticated after purchase.
+Mycoplasma contamination
+The cell lines were not contaminated by mycoplasma as determined by using the Lonza Mycoplasma Detection Kit.
+Commonly misidentified lines
+(See ICLAC register)
+No commonly misidentified cell lines were used.

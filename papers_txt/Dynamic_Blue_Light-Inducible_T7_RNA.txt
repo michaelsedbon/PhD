@@ -1,0 +1,1186 @@
+--- Page 1 ---
+Dynamic Blue Light-Inducible T7 RNA Polymerases (Opto-T7RNAPs)
+for Precise Spatiotemporal Gene Expression Control
+Armin Baumschlager,
+Stephanie K. Aoki, and Mustafa Khammash*
+Department of Biosystems Science and Engineering (D-BSSE), ETH−Zürich, Mattenstrasse 26, 4058 Basel, Switzerland
+*
+S Supporting Information
+ABSTRACT: Light has emerged as a control input for
+biological systems due to its precise spatiotemporal resolution.
+The limited toolset for light control in bacteria motivated us to
+develop a light-inducible transcription system that is
+independent from cellular regulation through the use of an
+orthogonal RNA polymerase. Here, we present our engineered
+blue light-responsive T7 RNA polymerases (Opto-T7RNAPs)
+that show properties such as low leakiness of gene expression in
+the dark state, high expression strength when induced with blue
+light, and an inducible range of more than 300-fold. Following
+optimization of the system to reduce expression variability, we
+created a variant that returns to the inactive dark state within minutes once the blue light is turned oﬀ. This allows for precise
+dynamic control of gene expression, which is a key aspect for most applications using optogenetic regulation. The regulators,
+which only require blue light from ordinary light-emitting diodes for induction, were developed and tested in the bacterium
+Escherichia coli, which is a crucial cell factory for biotechnology due to its fast and inexpensive cultivation and well understood
+physiology and genetics. Opto-T7RNAP, with minor alterations, should be extendable to other bacterial species as well as
+eukaryotes such as mammalian cells and yeast in which the T7 RNA polymerase and the light-inducible Vivid regulator have been
+shown to be functional. We anticipate that our approach will expand the applicability of using light as an inducer for gene
+expression independent from cellular regulation and allow for a more reliable dynamic control of synthetic and natural gene
+networks.
+KEYWORDS: optogenetics, light control, photoreceptor, LOV domain, transcription, dynamic gene expression, dynamic regulation,
+T7 RNA polymerase, protein engineering, orthogonal regulator, split protein
+S
+mall-molecule-induced gene expression systems are a key
+component in synthetic biology1 and biotechnological
+applications.2 However, chemical inducers are limited in their
+application in space and time. Spatiotemporal control is of
+increasing interest, as biological systems are regulated
+dynamically and respond to intracellular stimuli and changes
+in internal states.3 Although static perturbations, such as growth
+media variation and gene knockouts, have been extensively and
+successfully used to elucidate gene network structure and
+function, approaches using dynamic perturbations are providing
+new insight into the organizing principles of biology and the
+study of gene networks.3 Dynamic regulation is also starting to
+be explored by metabolic engineers.4−6 Moreover, very recent
+work has been addressing the problem of there being few
+broadly applicable tools available for dynamic pathway
+regulation, showing that dynamic regulation can signiﬁcantly
+increase product titers through dynamic pathway regulation.7
+Light-based regulation is superior to conventional small-
+molecule inducers in this regard, displaying better temporal
+properties, as removal of small molecules might be challenging
+in scenarios such as batch or fed-batch fermentation processes.
+Further, it allows for spatial control of individual cells (whereas
+small molecules are diﬀusion-limited) and is minimally
+invasive,8 a desired feature for basic research. These distinguish-
+ing properties of light over small molecules led to the
+development of numerous light-controlled devices.9−13 Light-
+inducible dimerization domains were successfully exploited in
+two-hybrid-like systems14 to create optogenetic gene expression
+systems in eukaryotes8−10,15 and for reconstitution of functional
+proteins from their split parts.16−19
+Dynamically light-inducible systems allow for the use of new
+regulation schemes by moving the controller out of the cell and
+using light as an input signal for control. Both biology and
+engineering make use of feedback control to achieve robust
+regulation, which in turn allows natural and engineered systems
+to function reliably in the face of disturbances or changing
+environmental conditions. However, the design of synthetic
+biological feedback controllers remains challenging due to the
+fact that biological parts do not behave as reproducibly as
+electronic ones. To overcome this obstacle, in silico feedback
+control was introduced by our group, which allows for
+electronic control of biological responses.20,21
+Received:
+May 22, 2017
+Research Article
+pubs.acs.org/synthbio
+© XXXX American Chemical Society
+A
+DOI: 10.1021/acssynbio.7b00169
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+Cite This: ACS Synth. Biol. XXXX, XXX, XXX-XXX
+
+
+--- Page 2 ---
+Another challenge for precise control is that the concen-
+tration of RNA polymerase (RNAP) varies depending on the
+growth phase, nutrient conditions, and other extrinsic factors,
+ranging from 1800 to 10 200 molecules per cell.22 Along with
+ﬂuctuations in the ribosome concentration, this can result in
+changes in expression levels23−25 and reduce the performance
+of constitutive promoters. This poses a challenge to systems
+that require precise balances in expression levels,26 especially
+when media and growth conditions change such as during
+industrial scale-up.27 To decouple expression of a gene of
+interest from cellular RNAP concentrations, the heterologous
+T7 DNA-dependent RNA polymerase (T7RNAP), originating
+from the T7 bacteriophage,28,29 is commonly used for protein
+overexpression. This polymerase shows high processivity and
+high selectivity for the T7 promoter, and it does not transcribe
+sequences from endogenous Escherichia coli DNA.30 Apart from
+biotechnology, the enzyme has also found applications in basic
+biological research, such as metagenomic screening.31 As
+T7RNAP-driven transcription is independent from the native
+E. coli RNAP, it allows inhibition of the native transcription
+machinery (e.g., with rifampicin), without aﬀecting the
+orthogonal T7 transcription system, resulting in exclusive
+expression of T7RNAP expressed genes.30 Further, T7RNAP
+variants have been engineered to recognize diﬀerent promoter
+variants,32−35 which allow independent expression of multiple
+genes. T7RNAP has been used in yeast strains such as
+Saccharomyces cerevisiae36,37 and Pichia pastoris,38 other bacterial
+species apart from E. coli including the non-enteric bacterium
+Pseudomonas aeruginosa39 and the biotechnologically relevant
+Gram-positive Bacillus subtilis,40 as well as mammalian cells41
+and higher plants.42
+In this work, we made T7RNAP light inducible by splitting
+the polymerase into two fragments and fusing them to
+photoactivatable dimerization domains. Our protein engineer-
+ing strategy was guided by previous studies showing that
+T7RNAP can be split26,32,43−45 and reconstituted through
+dimerization to enhance and control its function26 as well as by
+structural information about T7RNAP.46 We aimed to
+implement light control using the heterodimeric “Magnet”
+domains.16 Magnets were engineered from the small homo-
+Figure 1. Opto-T7RNAP engineering strategy. (A) Opto-T7RNAP design. T7RNAP is split at diﬀerent positions and fused to light-inducible
+dimerization domains via linkers at the split site. (B) Analysis system: Opto-T7RNAP and the ﬂuorescent reporter mCherry under control of a T7
+promoter are introduced into bacterial cells on two separate plasmids. Activity of Opto-T7RNAP can be measured through reporter ﬂuorescence.
+(C) Steady-state expression of Opto-T7RNAP*s generated from the diﬀerent split sites described in (A), as well as a strain containing only the
+reporter under T7 promoter control but no T7RNAP, with fold-induction depicted above the bars. Raw values of mCherry (au) and molecules of
+equivalent PE (MEPE) are shown in Tables S1 and S2 and Figure S3. (D) Histogram of uninduced and light-induced reporter gene expression in
+Opto-T7RNAP*(563) at diﬀerent time points after induction. Induction of expression is fast and unimodal. Black: uninduced; light-blue: 2 h after
+induction; dark blue: 6 h after induction.
+ACS Synthetic Biology
+Research Article
+DOI: 10.1021/acssynbio.7b00169
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+B
+
+
+--- Page 3 ---
+dimerizing photoreceptor Vivid (VVD) from the ﬁlamentous
+fungus Neurospora crassa47 and consist of the nMag and pMag
+heterodimerizing protein domains, which speciﬁcally bind each
+other. Magnets use ﬂavin as a chromophore for blue light-
+induced binding of the two domains, which is abundant in
+bacterial and eukaryotic cells. A similar strategy to make
+T7RNAP light inducible was recently reported.48 However, this
+approach uses ﬁxed expression levels of slow-reverting
+photoactivatable split T7RNAP, which does not allow for
+easy adjustment of gene expression set points to experimental
+needs or fast reversible dynamics, a key asset of optogenetic
+control. Further, measurement of gene expression variability,
+crucial for precise cell control, was lacking as analysis was
+limited to bulk populations. We have addressed all of these
+points to construct a light-inducible T7RNAP expression
+system that allows for fast and precise dynamic control.
+Using diﬀerent protein engineering designs, our system can be
+brought to diﬀerent set points of basal and maximal expression
+using arabinose-inducible promoters, which allows for adjust-
+ment of expression levels to experimental requirements without
+altering the dynamic range. This is especially important for
+dynamic Opto-T7RNAP versions, which have a reduced
+dynamic range compared to the stable (slow dark state-
+reverting) variants. Gene expression variability was reduced by
+using single cell analysis to optimize the levels of the Opto-
+T7RNAP domains. These improvements allowed us to develop
+the fast-reverting optogenetic regulator Opto-T7RNAP*(563-
+F1) with precise temporal protein expression control. We
+further provide a set of orthogonal light-inducible T7RNAPs
+with diﬀerent properties that can be chosen depending on
+experimental needs, ranging from high expression strength for
+protein overexpression to high dynamic range and precise
+temporal control for dynamic control strategies.
+■RESULTS AND DISCUSSION
+Design of Light-Inducible T7 RNA Polymerases (Opto-
+T7RNAPs). Given that T7RNAP can be split at speciﬁc
+positions of its peptide chain26,32,43−45 and that reconstitution
+of the functional polymerase can be enhanced through fusion of
+heterodimerizing coiled-coil protein structures,26 we imple-
+mented light control by using the light-inducible heterodime-
+rizing “Magnet” domains16 due to their small size (150 amino
+acids) and beneﬁcial structural features for reconstituting split
+proteins. Magnets are engineered variants of the LOV
+photoreceptor Vivid.47 Upon light induction, two Vivid
+domains dimerize, bringing the N-terminus of one domain
+spatially close to the C-terminus of the other binding domain
+(see Figure S1). This allows for the fusion of these domains to
+the C-terminus of the N-terminal fragment of split proteins and
+to the N-terminus of the C-terminal split fragment,
+reconstituting the enzyme in a spatial manner by incorporating
+optogenetic regulation into the T7RNAP through light-induced
+assembly and dissociation.
+Previous studies have shown that T7RNAP can be split at
+multiple positions. Therefore, our ﬁrst objective was to identify
+which split positions allow for modiﬁcations without impairing
+the function of the enzyme structurally or sterically. We
+selected ﬁve split positions: the two previously reported
+positions between amino acids 179/180 and 600/
+60126,32,43−45 as well as amino acid positions 69/70, 302/303,
+and 563/564 (Figure 1A). We chose the latter three sites
+through structural analysis of a transcribing T7RNAP initiation
+complex,46 which was guided by a study that identiﬁed
+regions26 at which the T7RNAP can be split. We excluded
+region 763−77026 as it contains the T7 promoter recognition
+loop (739−772). The chosen positions (69, 302, 563) all lie in
+surface-exposed ﬂexible loops of T7RNAP, minimizing
+structural and steric interference of the additional Magnet
+domains. Further, the amino acids at the split positions 69(A)/
+70(A), 302(K)/303(K), and 563(S)/564(E) are preferred
+residues in natural linkers.49 We named these variants Opto-
+T7RNAP(69), Opto-T7RNAP(179), Opto-T7RNAP(302),
+Opto-T7RNAP(563), and Opto-T7RNAP(600) based on the
+amino acid they were split after.
+The N-terminal domain of T7RNAP was fused to
+nMagHigh1, and the C-terminal domain of T7RNAP was
+fused to pMag, both using a short GGSGG linker, schematically
+depicted in Figure 1A. This conformation was chosen following
+pretests with amino acid linkers of diﬀerent lengths and
+sequences and with both conformations of nMagHigh1 and
+pMag fused to the
+N- and C-terminus
+of Opto-
+T7RNAP*(179) (data not shown). Both fusions were set
+under control of the araB promoter, excluding the CAP/CRP
+site, which we name ParaB*. This promoter shows considerable
+amounts of constitutive leaky expression during log growth, and
+expression can be increased through addition of the sugar
+arabinose (Figure 1B). To reduce expression-induced toxicity
+of T7RNAP, which is thought to be caused by the high
+processivity of the polymerase,50,51 we introduced the mutation
+R632S33 and named these regulators T7RNAP* (Figure 1A).
+As a reporter for Opto-T7RNAP activity, we used the red
+ﬂuorescent protein mCherry, transcribed from a T7 promoter
+(Figure 1B). Absorption and emission of mCherry peak at 587
+and 610 nm, respectively, which is compatible with the 460 nm
+activating light used for the Opto-T7RNAPs. Further, mCherry
+stability met the requirements of our experimental setup
+(Supporting Information: mCherry Maturation Assay).
+We focused on three properties that are important for
+expression systems for our initial analysis of the Opto-T7RNAP
+variants: dark-state basal expression, light-induced expression,
+and fold change. Dark-state basal expression provides combined
+information about dark-state binding of the light regulators and
+self-assembly of the T7RNAP domains. Light-induced ex-
+pression gives the maximal expression level, which is highest
+when the light-inducible dimerizers successfully reassemble the
+split T7RNAP without causing steric or structural problems. A
+system with a high fold change requires light-induced
+dimerization of the split T7RNAP for assembly of the
+functional enzyme without hindering its function. We deﬁne
+the fold change by comparing expression levels under dark and
+light-induced conditions, without removal of basal ﬂuorescence
+of the bacterium or leaky expression of the reporter mCherry
+from the T7 promoter without T7RNAP.
+We analyzed expression levels of the Opto-T7RNAP*s with
+diﬀerent split sites on the single-cell level through ﬂow
+cytometry of cells grown in the dark and under light induction
+with 329 μW/cm2 of 460 nm blue light (Figure 1C) during
+exponential growth. Opto-T7RNAP*(69) reached the highest
+expression level, although it showed signiﬁcant dark-state
+expression,
+resulting
+in
+a
+56-fold
+change.
+Opto-
+T7RNAP*(563) showed the highest fold change (>300-fold),
+with a dark-state expression of ∼5-fold and a lit-state expression
+∼1900-fold above the reporter control. Opto-T7RNAP*(302),
+however, showed the lowest basal expression with an induction
+of more than 140-fold in response to blue light. Gene
+expression is unimodal and fast in all cases, as exemplarily
+ACS Synthetic Biology
+Research Article
+DOI: 10.1021/acssynbio.7b00169
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+C
+
+
+--- Page 4 ---
+shown in the histogram in Figure 1D, reaching high expression
+levels already after 2 h (further example is shown in Figure S4).
+It was not possible to compare the Opto-T7RNAPs to full-
+length T7RNAP, as no cells containing both the full-length
+T7RNAP expressed from the araB promoter and mCherry
+under T7 promoter control could be obtained. Protein
+expression can be a burden on the cell,52,53 and mutations
+might arise that reduce this burden. Mutants can be selected
+due to a reduction of cellular stress and would eventually
+outgrow the population due to increased ﬁtness. The high
+metabolic burden and stress caused by unregulated T7-driven
+mCherry expression led to a W727C mutation in T7RNAP in
+all colonies after transformation into the testing strain. The
+T7RNAP plasmid was sequenced, conﬁrming that it did not
+contain the mutation prior to transformation. This variant
+shows titratable T7-driven expression (Figure S5); however,
+this does not allow for comparison with the Opto-T7RNAPs.
+In general, inducible gene expression systems have to fulﬁll
+diﬀerent requirements based on their applications. Heterolo-
+gous protein production, for example, often requires a
+separation of the growth and production phases. Opto-
+T7RNAP*(69) could be used for such tasks as it allows for
+fast cell growth in the dark state and strong blue light-induced
+expression due to the high activity of the regulator at low
+regulator expression levels. If, however, the product of the T7-
+driven expression is toxic, a tight regulator such as Opto-
+T7RNAP*(302) might be preferred. Opto-T7RNAP*(563)
+provides the highest fold change. Although diﬀerent variants
+might be relevant for diﬀerent tasks, we further focused on
+optimizing the 69 and 563 split Opto-T7RNAP*s.
+Unequal expression of Opto-T7RNAP domains improves
+fold change and maximal expression level and reduces gene
+expression variability. We further investigated how expression
+ratios of the two Opto-T7RNAP fragments inﬂuence properties
+important for inducible gene expression systems. Therefore, we
+created constructs in which we varied the RBS strength of the
+C-terminal Opto-T7RNAP fragment to (1) 0.5-fold, (2) equal,
+and (3) 1.9-fold the predicted translation initiation rate (TIR)
+relative to the N-terminal Opto-T7RNAP fragment, which was
+kept the same (Figure 2A; TIR predictions are from RBS
+calculator v2.054,55).
+Expression levels above the background signal are necessary
+to allow for comparison of fold changes between the constructs.
+All Opto-T7RNAP*(69) constructs showed dark-state ex-
+pression above background without arabinose induction, but
+expression levels of Opto-T7RNAP*(563) with 0.5-fold and
+equal C-terminal fragment expression had to be increased with
+arabinose to generate dark-state expression above background.
+We observed that induced expression was signiﬁcantly
+Figure 2. Higher expression of C-terminal Opto-T7RNAP split fragment improves fold change and expression variability. Diﬀerent split fragment
+expression levels (A) for (B) Opto-T7RNAP*(69) and (C) Opto-T7RNAP*(563). Expression level of the C-terminal Opto-T7RNAP fragment
+(pMag fused to C-terminal T7RNAP) was set to either (1) 0.5-fold, (2) equal, or (3) 1.9-fold TIR of the N-terminal Opto-T7RNAP fragment (from
+left to right in diagrams B and C). (D−F) Single-cell distributions of light-induced steady-state expression of the equal (gray) and 1.9-fold expression
+variants (blue) for (D) Opto-T7RNAP*(69), (E) Opto-T7RNAP*(563), and (F) Opto-T7RNAP*(563-F1). Equal expression resulted in CVs of
+66% for the 69 split and 137% for the 563 split variants, which was reduced through higher expression of the C-terminal fragment to CVs of 38% for
+the 69 split and 58% for the 563 split variants.
+ACS Synthetic Biology
+Research Article
+DOI: 10.1021/acssynbio.7b00169
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+D
+
+
+--- Page 5 ---
+increased when the C-terminal fragment was more highly
+expressed.
+The fold change was lowest when the regulators were
+expressed in equal amounts, and it improved with higher
+expression of either the N- or C-terminal fragment of both the
+69 and 563 split Opto-T7RNAP*s (Figure 2B,C). Further, we
+noticed a signiﬁcant decrease in mCherry cell-to-cell expression
+variability when the C-terminal fragment was overexpressed
+(CV = 38% for Opto-T7RNAP(69) and 58% for Opto-
+T7RNAP*(563)) compared to equal expression of the domains
+(CV = 66% for Opto-T7RNAP*(69) and 137% for Opto-
+T7RNAP*(563)), as shown in Figure 2D−F. Since mean
+expression levels can have an inﬂuence on the variability, we
+chose arabinose levels so that a similar light-induced mean
+expression level was reached for equal and higher C-terminal
+expressing Opto-T7RNAP*(563). Also, for similar mean
+expression levels, we observed a decrease in variability of the
+variant with the higher-expressed C-terminal fragment (see
+Figure S6). We assume that with equally expressed domains,
+the amount of functional Opto-T7RNAP depends on the
+variability of the expression of each domain. However, if the C-
+terminal fragment is overexpressed, the concentration of
+functional regulator is dependent only on the variability of
+the lower expressed fragment. This leads to a decreased
+variability of reporter gene expression.
+Dynamic Light-Inducible T7RNAP. One of the main
+assets of using optogenetics in biological systems is the ability
+for precise spatiotemporal control. Therefore, our aim was to
+develop a light-inducible expression system that reacts rapidly
+to changes in the light input. Since the Magnet dimerization
+system can only be activated, but not deactivated, with light, the
+dynamics depend on the reversal rate to the inactive dark state.
+It was reported that pMag and nMag dissociate with a half-life
+(t1/2) of 1.8 h,16,48 which is not suitable for fast dynamic
+changes of the light input. Therefore, we used previously
+reported mutations in pMag that reduce the dissociation time
+to half-lives of 4.2 min (mutation I85V for pMagFast1) and 25
+s (mutations I74V and I85V for pMagFast2).16
+We
+implemented
+the
+mutation
+I85V
+in
+Opto-
+T7RNAP*(563) to create Opto-T7RNAP*(563-F1) and the
+mutations I74V and I85V to create Opto-T7RNAP*(563-F2).
+Due to the change in regulator, we tested if unequal expression
+is also beneﬁcial for these regulators, as previously described.
+We observed a signiﬁcant reduction in the output variability
+similar to that of the slow dark-reverting regulators (Figure 2F).
+The fold change also increased, although it was less
+pronounced than for the stable regulators (data not shown).
+Therefore, we further used the conformation in which the C-
+terminal split fragment is expressed 1.9-fold higher than the N-
+terminal fragment.
+To test the dynamic properties of the system and if dark-state
+reversal of the regulators also leads to dissociation of the Opto-
+T7RNAP domains, we induced the cells with 329 μW/cm2 blue
+light for 3 h, before turning oﬀthe light, and monitored how
+fast reporter gene expression stops. Measurements were started
+during the last 45 min of light induction and continued for 2.5
+h after the light was turned oﬀ.
+For Opto-T7RNAP*(563-F1), a slight decrease of ﬂuo-
+rescence was observed at the ﬁrst time point after 5 min and
+turned into exponential decay 10−15 min after the light was
+turned oﬀ(Figure 3, left). Considering the median half-life of
+mRNAs in E. coli is 4.7 min,56 we observed a similar half-life as
+the 4.2 min that was previously reported for pMagFast1.
+Fluorescence of the stable variant pMag was constant for 30
+min, before slowly transitioning into exponential decay (Figure
+S7). Since the cells are kept in exponential growth, we also
+expect exponential decay of active Opto-T7RNAP, resulting in
+a decrease in ﬂuorescence. The decrease in ﬂuorescence of the
+stable Opto-T7RNAP*(563) after 30 min could be a
+combination of both dark-state reversal and dilution of active
+Opto-T7RNAP due to cell growth. Surprisingly, we observed a
+similar dynamic behavior for Opto-T7RNAP*(563-F2) (Figure
+S7), which was reported and shown to revert to the dark state
+in 25 s. In the context of Opto-T7RNAPs, we did not observe
+an increased dark-state reversal rate of pMagFast2 compared to
+the stable pMag. Therefore, using pMagFast1 in Opto-
+T7RNAP*(563-F1) allows for dynamic expression control.
+Expression Level Set Points and Light Sensitivity.
+Since the Opto-T7RNAP domains are under the control of
+inducible promoters, the maximal expression of a gene of
+interest can be adjusted to desired values by adjusting the
+arabinose concentration in the medium. To allow for titratable
+arabinose induction, we inserted a mutated lacY permease
+(lacYA177C) into the attB site of our testing strain
+BW25113,57,58 abolishing the all-or-nothing induction of the
+native arabinose transporter.59 Increased expression levels of
+Figure 3. Dynamic experiments with Opto-T7RNAP*(563-F1). Left: Dark-state reversal of Opto-T7RNAP*(563-F1). Cells were induced for 3 h
+with saturating blue light (329 μW/cm2), of which the last 45 min is shown, before light was turned oﬀ. Right: Dynamic mCherry expression proﬁle
+using Opto-T7RNAP*(563-F1) in which cells were ﬁrst induced with saturating blue light (329 μW/cm2), resulting in strong expression, before
+removing the inducing light, which led to fast inactivation and reduction of ﬂuorescence due to cell growth. Finally, the cells were induced with low-
+intensity blue light (20 μW/cm2), leading to low mCherry expression.
+ACS Synthetic Biology
+Research Article
+DOI: 10.1021/acssynbio.7b00169
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+E
+
+
+--- Page 6 ---
+the dynamic Opto-T7RNAP*(563-F1), through increased
+arabinose concentrations, led to increased reporter expression
+without signiﬁcant changes in the fold change (Figure S9), as
+dark-state and light-induced expression increased comparably
+(Figure 4, left). For the stable Opto-T7RNAP*(563), reporter
+expression was maximal with 0.1% arabinose and decreased
+with 0.2% arabinose, which we suspect to be due to the
+additional burden of higher regulator expression and mCherry
+reporter expression at the maximal level of the cell (Figure
+S10).
+To further characterize light sensitivity of the Opto-
+T7RNAP*(563) variants with pMag, pMagFast1, and pMag-
+Fast2, we tested the dose−response of the three regulators to
+diﬀerent
+intensities
+of
+460
+nm
+blue
+light.
+Opto-
+T7RNAP*(563) and Opto-T7RNAP*(563-F1) showed a
+similar dose response, with increasing expression until ∼330
+μW/cm2 (Figure 4 right). The additional I74V mutation,
+however, led to increased light sensitivity and maximal
+induction with light intensities as low as 20 μW/cm2 and
+showed low basal expression in the dark. Our experimental
+setup did not allow for light intensities below this value.
+Changes in the expression ratios of the Opto-T7RNAP
+domains, as used to optimize the fold induction (Figure
+2B,C), resulted in identical light sensitivities for all three
+regulators and did not have an inﬂuence on light sensitivity
+(Figure S11).
+High Expression Strength Opto-T7RNAPs. We also
+wanted to test our regulators with destabilized mCherry to
+further investigate their dynamic properties. However, destabi-
+lization of the reporter led to a signiﬁcant reduction in
+ﬂuorescence signal. To increase the expression strength of our
+regulators, we used the optimized designs of Opto-
+T7RNAP*(563) and Opto-T7RNAP*(563-F1) and reintro-
+duced the arginine at amino acid position 632 of wild-type
+T7RNAP to create Opto-T7RNAP(563) and Opto-T7RNAP-
+(563-F1). This led to a 5.7-fold increase in light-induced
+expression strength for Opto-T7RNAP(563-F1), with the dark-
+state basal expression increasing 3.7-fold, resulting in a light-
+inducible fold change of about 80-fold (Figure 5A; raw
+ﬂuorescence data are in Table S3, and a time course is in
+Figure S12). The dark-state basal expression increased 6.5-fold
+for Opto-T7RNAP(563) compared to Opto-T7RNAP*(563),
+whereas the light-induced expression increased 3.2-fold (Figure
+5A; raw ﬂuorescence data are in Table S3, and a time course is
+in Figure S12). This led to a reduction of the light-inducible
+fold change of Opto-T7RNAP(563) to about 160-fold
+compared to 300-fold for Opto-T7RNAP*(563), which might
+be due to detection limitations of our ﬂow cytometry settings
+or biological limitations, as we also observed signiﬁcantly
+reduced growth when Opto-T7RNAP(563) expression was
+induced with blue light.
+We further used a C-terminal fusion of the SsrA degradation
+tag (AANDENYALAA)60−62 to destabilize mCherry. To stop
+both expression and degradation of our reporter, we ﬁxed the
+cells using formaldehyde to generate time course data for
+dynamic experiments. It was observed that pMagFast1 in Opto-
+T7RNAP(563-F1) leads to faster dark-state reversal compared
+to pMag in Opto-T7RNAP(563) (Figure S13). We also
+noticed that the dynamics are slower compared to Opto-
+T7RNAP*(563-F1), which might be due to the high
+processivity of wild-type T7RNAP.
+We further observed that the use of the strong LAA SsrA
+degradation tag in combination with the high expression level
+of our Opto-T7RNAPs led to a signiﬁcant fold-change increase
+of dark-state basal expression to light-induced expression, with
+maximal measured fold changes of 66 000 for Opto-
+Figure 4. Characterization of Opto-T7RNAP expression set points
+and blue light dose−response. (Left) Arabinose induction to increase
+Opto-T7RNAP*(563-F1) expression levels under dark and light-
+induction (329 μW/cm2 of 460 nm light) conditions results in higher
+reporter expression with similar fold changes. (Right) Dose−response
+for 460 nm blue light. Fluorescence was normalized for individual
+constructs to allow for direct comparison.
+Figure 5. Comparison of Opto-T7RNAPs to paT7P-148 (Supporting Information: paT7P-1 Characterization). (A) Dark-state basal expression and
+light-induced steady-state expression of paT7P-1, Opto-T7RNAP*(563), and Opto-T7RNAP(563) with fold induction depicted above the bars. Raw
+values of mCherry (au) are shown in Table S3. (B) Single-cell distributions of dark-state and light-induced steady-state expression of paT7P-1 (gray)
+and Opto-T7RNAP*(563) (blue). (C) Dark-state reversal of paT7P-1 in comparison to Opto-T7RNAP*(563) and Opto-T7RNAP*(563-F1).
+Induction with saturating blue light (329 μW/cm2) took place until the 30 min time point, before the cultures were grown in the dark.
+ACS Synthetic Biology
+Research Article
+DOI: 10.1021/acssynbio.7b00169
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+F
+
+
+--- Page 7 ---
+T7RNAP(563) and 21 000 for Opto-T7RNAP(563-F1), which
+is most likely beyond the detection range of our ﬂow cytometry
+instrument and the settings used (Figure S14).
+Fast-Reverting Light-Inducible T7 RNA Polymerase
+Allows for Fast Dynamic Regulation. Finally, we show that
+Opto-T7RNAP*(563-F1) can be used to precisely and
+dynamically induce gene expression. In Figure 3 (right
+panel), we show an exemplary dynamic time course by ﬁrst
+inducing gene expression to its maximal level with 329 μW/cm2
+of blue light, resulting in high reporter expression, before
+shutting down the system by turning oﬀthe light at minute
+270, which leads to an immediate drop in the ﬂuorescent
+reporter at the following time point. We then induced the
+system with low-intensity blue light at 20 μW/cm2 at minute
+570, resulting in low expression of the reporter protein. This
+demonstrates that Opto-T7RNAP*(563-F1) allows for dynam-
+ic regulation of gene expression at diﬀerent induction levels.
+Comparison of Opto-T7RNAPs to paT7P-1. We
+compared our system to the “photoactivatable T7RNAP”
+paT7P-148 that was published during the course of this study.
+paT7P-1 consists of split T7RNAP fused to Vivid domains. The
+lower fold-induction of this regulator (62-fold) compared to
+Opto-T7RNAP*(563) (∼300-fold) is mainly due to the higher
+basal expression in the dark state (Figure 5A; Supporting
+Information: paT7P-1 Characterization). Without arabinose-
+inducer, Opto-T7RNAP*(563) reaches a similar maximal
+expression level compared to paT7P-1. Opto-T7RNAP(563)
+however has a 3.3-fold higher expression level compared to
+paT7P-1, even without addition of arabinose into the growth
+medium.
+Further, Opto-T7RNAP*(563) shows a signiﬁcantly reduced
+variability at the single-cell level (Figure 5B) compared to
+paT7P-1, with a distribution tail spanning from uninduced to
+fully induced cells in steady-state induced cells, making Opto-
+T7RNAPs more suitable for precise gene expression control.
+Finally, paT7P-1 shows a highly similar dark-state reversal as
+our slow dark-state reverting Opto-T7RNAP*(563) (Figure
+5C), which was expected due to the use of stable regulators and
+was previously reported.48
+■CONCLUSIONS
+Pioneering work on light-inducible gene expression has been
+done in E. coli using two-component systems.11,63,64 In this
+work, we took a diﬀerent approach by implementing light
+control into the orthogonal T7RNAP, an enzyme that is highly
+relevant in biotechnology and biological science. Building on
+studies of T7RNAP26,32 and light-responsive Magnets, we
+constructed a set of orthogonal blue light-inducible split-T7
+RNA polymerases. Our system shows a wide dynamic range,
+low basal expression levels and gene expression variability, and
+fast dynamics.
+Of particular interest, each Opto-T7RNAP has diﬀerent
+properties, including dynamic range and basal expression levels,
+depending on the split position of T7RNAP. We observed light
+inducibility for all split positions we tested, which might be due
+to the choice of split positions in ﬂexible loops at surface-
+exposed areas of the protein and the avoidance of positions
+close to the DNA-recognition site in the protein to reduce the
+risk of steric interference due to fusion of light-inducible
+domains. Regarding the prediction of speciﬁc properties of the
+resulting regulators depending on the split sites, such as fold
+change and maximal expression strength, no deﬁnite
+assumptions can be made based on our ﬁndings. However,
+split positions might be preferred that do not show
+reassociation on the split parts on their own. For example,
+reassociation of proteolytically split T7 at position 173 was
+shown to retain its speciﬁc activity, which was reduced just 3.5-
+fold. This split site also showed the least fold induction when
+fused to heterodimerizing photoregulators, which was also
+observed by Han et al.48
+We also found that gene expression variability could be
+reduced by optimizing expression levels and ratios of the two
+Opto-T7RNAP domains, a feature that is desirable for precise
+control. Further, the system can be brought to desired set
+points of minimal and maximal expression, allowing for
+adaptation of the system to experimental requirements. It has
+yet to be elucidated if this ﬁnding also holds for other light-
+inducible split proteins.
+During the course of this study, a photoactivatable, stable
+T7RNAP system was published, consisting of split T7RNAP
+fused to Vivid domains. In a direct comparison, we found that
+our stable Opto-T7RNAP*(563) had higher-fold induction,
+lower basal expression in the dark state, and less variability at
+the single-cell level, making it more suitable for precise gene
+expression control. Moreover, variant Opto-T7RNAP*(563-
+F1) can be used for dynamic regulation due to its fast reversion
+of the light-induced regulator to the dark state when light is
+absent. With fold changes of more than 50-fold for the dynamic
+Opto-T7RNAP*(563-F1) and 80-fold for Opto-T7RNAP(563-
+F1), both outperform any previously published dynamic blue
+light system (EL222:5-fold,65 iLID-T7:26-fold66). The fast
+dark-state reversal allows for the use of pulse width modulation,
+which was previously applied to optogenetically controlled
+systems67 and might be useful for additional ﬁne-tuning of
+expression levels. We also found that another variant, Opto-
+T7RNAP*(563-F2), shows a high sensitivity to blue light,
+which might be preferable if only low light levels can be
+provided for activation.
+While characterizing the dynamic properties of our system, it
+was observed that the addition of a strong degradation tag
+(LAA-SsrA) to the mCherry ﬂuorescent reporter increased the
+light-induced fold induction. This “fold-change enhancing”
+eﬀect might be due to saturation of the SsrA-recruited proteases
+ClpX and ClpA at high reporter expression levels. Whether this
+observation also holds for other proteins than mCherry should
+be further investigated, as it might be a valuable and useful
+contribution for dynamic cell regulation.
+The presented Opto-T7RNAPs all respond to blue light.
+However, due to the modularity of the system, the blue light-
+sensitive Magnets could be exchanged with regulators that
+dimerize in response to other wavelengths. As T7RNAP
+variants have been engineered to recognize diﬀerent promoter
+sequences,32−35 Opto-T7RNAPs that respond to diﬀerent
+wavelengths could be used in the same cell for multichromatic
+control of multiple genes. Considering regulation schemes that
+use multiple optogenetic regulators for diﬀerential gene
+expression, regulators that activate at a certain wavelength
+and revert quickly in the dark, such as the Magnet system used
+here, might be preferable to systems that need light of a
+diﬀerent wavelength for dark-state reversion as they leave a
+greater portion of the light spectrum available for other
+optogenetic regulators. It should also be possible to combine
+this system with available light-inducible systems of diﬀerent
+wavelengths, such as the green/red controllable CcaS−CcaR or
+the red/far-red controlled Cph8−OmpR.63
+ACS Synthetic Biology
+Research Article
+DOI: 10.1021/acssynbio.7b00169
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+G
+
+
+--- Page 8 ---
+The Opto-T7RNAPs will also serve as an excellent screening
+system to engineer the properties of the light-inducible
+dimerizing Magnets toward lowering dark-state interaction
+and increasing light-induced binding aﬃnity and dark-state
+reversal rates through rational protein design and directed
+evolution, as it provides an easy screen for transcriptional
+output.
+Optogenetics is emerging as a promising tool for dynamic
+gene expression control. Our Opto-T7RNAP light-inducible
+system could eliminate the use of costly inducers, such as
+IPTG, which can be relevant for high-volume microbial
+production systems.68,69 The dynamic properties of our system
+could also be utilized to tune new or existing metabolic
+pathways. Finally, this system should also be adaptable for use
+in other organisms such as other bacterial species, yeast, or
+mammalian cells, in which T7RNAP and Magnets have been
+shown to be functional.
+■MATERIALS AND METHODS
+Strains and Media. E. coli DH5αZ170 was used for all
+cloning. For characterization, we used E. coli strain AB360
+(derived from E. coli BW25113),57,58 which we modiﬁed by
+integrating lacYA177C into the attB site.8 This transforms the
+all-or-nothing induction of the native arabinose transporter
+toward titratable arabinose induction.59 Relevant for this study
+is that the strains contain the transcription factor araC, whereas
+arabinose metabolizing genes araBAD are deleted. Autoclaved
+LB-Miller medium was used for strain propagation. Sterile-
+ﬁltered M9 medium supplemented with 0.2% casamino acids,
+0.4% glucose, and 0.001% thiamine was used for all gene
+expression experiments. Antibiotics were used if necessary for
+plasmid maintenance at concentrations of 100 μg/mL
+ampicillin, 25 μg/mL chloramphenicol, and 50 μg/mL
+kanamycin.
+Plasmids and Genetic Parts. Plasmids were transformed
+using a one-step preparation protocol of competent E. coli.71
+We used the pZ-series modular vectors70 containing the
+pSC101 origin of replication with repA, and cat for
+chloramphenicol resistance, as the basis for plasmids containing
+the Opto-T7RNAPs. The vector was modiﬁed for expression of
+two proteins so that it contained two arabinose promoters,
+ParaB* (araB promoter from Guzman et al.,72 excluding CAP
+binding site), followed by the Opto-T7RNAP fusions and rrnB
+T1 terminator sequences (BBa_B0010), which are each ﬂanked
+by unique cut sites to allow for modular exchange of promoters
+and RBSs. The N-terminal Opto-T7RNAP fusions can be
+exchanged between BglII and AvrII, its promoters can be
+exchanged with AatII and BglII, the C-terminal Opto-T7RNAP
+can be exchanged between either NsiI (for pAB164, pAB166,
+pAB170) or PacI (for all other plasmids) and XbaI, and its
+promoters can be exchanged between AscI and either NsiI or
+PacI (see plasmid map in Figure S15). The empty reporter
+control strain contains the same plasmid, with araC instead of
+Opto-T7RNAP. The T7 polymerase split fragments were
+ampliﬁed from pTARA73 (Addgene plasmid # 31491). The
+plasmid contained a missense mutation at position 823, which
+was corrected to the original sequence with OEPCR. We
+further introduced the mutation R632S33 to all T7RNAP
+constructs, also through OEPCR using primers with the
+sequence AGT for amino acid position 632. For the T7
+promoter-driven mCherry reporter plasmid, we used pETM6-
+mCherry74 (a gift from Mattheos Koﬀas) and inserted the T7
+promoter between AvrII and NdeI with the same sequence
+used in pTHSSD_826 with a strong RBS using synthesized
+oligos. The TIRs for expression level studies of the Opto-
+T7RNAP fragments were calculated using RBS calculator
+v2.0,54,55 with the resulting mRNA structures and TIRs shown
+in Figure S16. All resulting strains are listed in Table S4, and
+genetic parts are listed in Table S5, which were cloned using
+standard molecular biology protocols.75,76 The plasmids used in
+this study are available from Addgene (www.addgene.org) with
+accession numbers 101661−101677.
+Integration of lacYA177C into E. coli BW25113. We
+used λ integrase expressed from pJW27 to integrate lacYA177C
+into the attB site of BW25113,57,58 using plasmid pSKA27
+(unpublished, sequence available upon request) containing
+lacYA177C, FRT-ﬂanked kanR from pKD13 ligated into XbaI-
+cut pFL503,59 and a sequence identical to the genome regions
+for attB integration. pSKA27 was cut with NotI, and the 4229
+bp band gel was puriﬁed and circularized before transformation
+into pJW27-containing cells. For integration, pJW27 was
+transformed into E. coli BW2511357,58 and selected at 30 °C
+on LB-Agar plates containing chloramphenicol for expression of
+λ integrase. A single colony was used to inoculate 5 mL of LB
+broth containing chloramphenicol, and the culture was grown
+at 30 °C in a water bath with shaking. The cells were then
+moved to 42 °C for 15 min, before incubating on ice for 15
+min. Cells were transformed with the integration construct
+using the previously described transformation protocol. The
+kanamycin resistance cassette can be removed by expressing
+FLP-recombinase following the protocol of Datsenko and
+Wanner58 using plasmid pCP20. The kanamycin resistance was
+kept in all strains for this study.
+T7RNAP-Induced Gene Expression during Steady-
+State Growth. All experiments were performed in biological
+triplicates for data shown in the main text and Supporting
+Information unless explicitly noted otherwise. Expression of the
+Opto-T7RNAPs was chosen so that dark-state expression levels
+of all tested constructs were above the reporter control (cells
+containing just T7 promoter-controlled mCherry without
+T7RNAP), which allows for comparison of fold change
+between the constructs.
+All experiments consist of time course induction experiments
+performed with cells in exponential growth phase to allow for a
+reliable comparison of expression levels. The single-cell ﬂow
+cytometry data shown are steady-state, or close to steady-state,
+expression levels of cells in exponential growth phase. The
+corresponding time courses are provided in Figures S17−S21.
+Further, we provide molecules of equivalent ﬂuorophore for the
+expression levels of the diﬀerent Opto-T7RNAP variants in
+Figure S3, which allows researchers to compare our mCherry
+expression levels independent of having the technical equip-
+ment.
+Overnight cultures inoculated from glycerol stocks, originat-
+ing from single colonies, were grown in M9 medium containing
+chloramphenicol, ampicillin, and kanamycin at 37 °C with
+shaking at 200 rpm in light-proof black tubes (Greiner Bio-
+One). The samples were diluted 1:25000 in 7 mL of fresh M9
+medium in sterile polystyrene tubes (Sarstedt, ethanol washed,
+and capped with aluminum foil). The tubes were wrapped in
+aluminum foil to prevent outside light from other experiments
+reaching the cells, leaving only the bottom uncovered for
+induction with LED light. All experiments were performed in a
+dark room.
+For expression experiments, cells were incubated at 37 °C in
+a water bath (Julabo, ED (v.2) THERM60) and custom-made
+ACS Synthetic Biology
+Research Article
+DOI: 10.1021/acssynbio.7b00169
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+H
+
+
+--- Page 9 ---
+LED lights similar to that described by Milias-Argeitis,21 with
+the diﬀerence being that led lights were placed under the tubes
+in the water bath and LEDs with a 460 nm wavelength (40 lm,
+700 mA; LED Engin Inc.) were used. Tubes were placed on a
+multi position magnetic stirrer (Thermo Scientiﬁc, Telesystem
+15) for stirring with Teﬂon-covered 3 × 8 mm magnetic stirrers
+(Huberlab AG) at 900 rpm (Figure S22).
+Samples were grown without light induction for at least 2.5 h
+before the experiment was started to allow adaptation toward
+log phase growth in fresh M9 media, containing arabinose for
+some experiments, and steady-state expression of the regulators.
+Samples were taken every 60 min for steady-state expression
+experiments or at shorter intervals for dynamic experiments.
+Cells were kept below an OD600 of 0.03 and were therefore
+kept in the logarithmic growth phase through manual dilution
+with fresh medium of the respective arabinose concentration.
+mCherry Maturation Assay. We determined the matura-
+tion of the ﬂuorescent protein mCherry for our experimental
+settings to be 90 min for full maturation with translation and
+transcription inhibition (Supporting Information: Transcription
+and Translation Inhibition, and Figure S23). Sample was added
+to the inhibition solution in equal volumes, resulting in a ﬁnal
+inhibitor concentration of 250 μg/mL rifampicin (Sigma-
+Aldrich Chemie GmbH) and 25 μg/mL tetracycline (Sigma-
+Aldrich Chemie GmbH). The transcription and translation
+inhibition solution contained 500 μg/mL rifampicin and 50 μg/
+mL tetracycline in phosphate buﬀered saline (Sigma-Aldrich
+Chemie GmbH, Dulbecco’s phosphate buﬀered saline) and was
+ﬁltered using a 0.2 μm syringe ﬁlter (Sartorius). The inhibition
+solution was precooled on ice. After sample was added, the
+solution was incubated on ice for at least 30 min to allow for
+diﬀusion of the antibiotics into the cell and inhibition of
+transcription and translation in aluminum foil-covered 96-well
+U-bottom plates (Thermo Scientiﬁc Nunc). In-between wells
+of the 96-well plate that contained sample, we added 200 μL of
+PBS to include an additional wash step, which reduces
+carryover of sample to undetectable levels using the BD High
+Throughput Sampler of the ﬂow cytometer. After incubation on
+ice for 30 min, the sample were transferred to a 37 °C incubator
+for 90 min for mCherry maturation. Then, the cells were put on
+ice until measurement through ﬂow cytometry.
+Formaldehyde Cell Fixation Assay. We ﬁxed cells using
+formaldehyde to inhibit all cellular functions at speciﬁc time
+points for experiments in which the mCherry reporter was
+tagged with an SsrA degradation tag. Therefore, samples of cells
+in growing culture were pelleted at 4 °C and 21 130 rcf for 1
+min. Then, the supernatant was discarded and the cells were
+resuspended in ice-cold 4% (w/v) formaldehyde (Life
+Technologies Europe BV) in 10 mM phosphate buﬀered saline
+(pH 7.4). The samples were collected in a 96-well plate on ice
+and stored at 4 °C. Fixed cells were directly measured by ﬂow
+cytometry within a time frame of 36 h after the samples were
+collected.
+Flow Cytometry Measurement. Cell ﬂuorescence was
+characterized on a BD LSR Fortessa containing a 561 nm laser
+with BD High Throughput Sampler attached and analyzed
+using FlowJo vX (TreeStar). mCherry ﬂuorescence was
+characterized with a 561 nm (100 mW) laser and 610/20 nm
+band pass and 600 nm long pass ﬁlters. At least 10 000 events
+were recorded in a two-dimensional forward and side scatter
+gate, which was drawn by eye and corresponded to the
+experimentally determined size of the testing strain at
+logarithmic growth (Figure S24). Gating for analysis was also
+determined by eye and was kept constant for analysis of all
+experiments and used for calculations of the median and CV
+using the same software.
+■ASSOCIATED CONTENT
+*
+S
+Supporting Information
+The Supporting Information is available free of charge on the
+ACS Publications website at DOI: 10.1021/acssynbio.7b00169.
+Additional methods; dose−response curves; time course
+experiments; activation of Opto-T7RNAP*(69); MEPE
+values for dark- and light-induced expression; list of
+strains; list of genetic parts (PDF)
+■AUTHOR INFORMATION
+Corresponding Author
+*E-mail: mustafa.khammash@bsse.ethz.ch.
+ORCID
+Armin Baumschlager: 0000-0002-2546-9038
+Author Contributions
+A.B. conceived the project, and M.K. supervised the project.
+A.B. designed and performed the experiments and analyzed the
+data. S.K.A. cloned the lacYA177C integration plasmid pSKA27
+and provided experimental advice. A.B., S.K.A., and M.K. wrote
+the manuscript. All authors have given approval to the ﬁnal
+version of the manuscript.
+Notes
+The authors declare no competing ﬁnancial interest.
+■ACKNOWLEDGMENTS
+Marc Rullan and Peter Buchmann are thanked for help with the
+LED light setup. Dr. Gupta Ankit, Dr. Corentin Briat, Dr.
+Andreas Milias-Argeitis, Dr. Gabriele Lillacci and Dirk
+Benzinger are thanked for helpful discussions. We thank the
+Single Cell Facility of the DBSSE, especially Telma Lopez and
+Verena Jäggin. We thank Prof. Dr. Haiyan Liu for kindly
+providing the paT7P-1 plasmid. A.B. is part of the Life Science
+Zurich graduate school.
+■ABBREVIATIONS
+RNAP, DNA-dependent RNA polymerase; RBS, ribosome
+binding site; TIR, translation initiation rate; au, arbitrary units
+■REFERENCES
+(1) Khalil, A. S. S., and Collins, J. J. J. (2010) Synthetic biology:
+applications come of age. Nat. Rev. Genet. 11, 367−379.
+(2) Brautaset, T., Lale, R., and Valla, S. (2009) Positively regulated
+bacterial expression systems. Microb. Biotechnol. 2, 15−30.
+(3) Castillo-Hair, S. M., Igoshin, O. a, and Tabor, J. J. (2015) How to
+train your microbe: methods for dynamically characterizing gene
+networks. Curr. Opin. Microbiol. 24, 113−123.
+(4) Brockman, I. M., and Prather, K. L. J. (2015) Dynamic metabolic
+engineering: New strategies for developing responsive cell factories.
+Biotechnol. J. 10, 1360−1369.
+(5) Torella, J. P., Ford, T. J., Kim, S. N., Chen, A. M., Way, J. C., and
+Silver, P. a. (2013) Tailored fatty acid synthesis via dynamic control of
+fatty acid elongation. Proc. Natl. Acad. Sci. U. S. A. 110, 11290−5.
+(6) Holtz, W. J., and Keasling, J. D. (2010) Engineering Static and
+Dynamic Control of Synthetic Pathways. Cell 140, 19−23.
+(7) Gupta, A., Reizman, I. M. B., Reisch, C. R., and Prather, K. L. J.
+(2017) Dynamic regulation of metabolic flux in engineered bacteria
+using a pathway-independent quorum-sensing circuit. Nat. Biotechnol.
+35, 273.
+ACS Synthetic Biology
+Research Article
+DOI: 10.1021/acssynbio.7b00169
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+I
+
+
+--- Page 10 ---
+(8) Müller, K., Naumann, S., Weber, W., and Zurbriggen, M. D.
+(2015) Optogenetics for gene expression in mammalian cells. Biol.
+Chem. 396, 145−152.
+(9) Müller, K., Engesser, R., Schulz, S., Steinberg, T., Tomakidi, P.,
+Weber, C. C., Ulm, R., Timmer, J., Zurbriggen, M. D., and Weber, W.
+(2013) Multi-chromatic control of mammalian gene expression and
+signaling. Nucleic Acids Res. 41, e124.
+(10) Pathak, G. P., Strickland, D., Vrana, J. D., and Tucker, C. L.
+(2014) Benchmarking of Optical Dimerizer Systems. ACS Synth. Biol.
+3, 832−838.
+(11) Levskaya, A., Chevalier, A. A., Tabor, J. J., Simpson, Z. B.,
+Lavery, L. A., Levy, M., Davidson, E. A., Scouras, A., Ellington, A. D.,
+Marcotte, E. M., and Voigt, C. A. (2005) Synthetic biology:
+engineering Escherichia coli to see light. Nature 438, 441−442.
+(12) Shimizu-Sato, S., Huq, E., Tepperman, J. M., and Quail, P. H.
+(2002) A light-switchable gene promoter system. Nat. Biotechnol. 20,
+1041−4.
+(13) Williams, S. C. P., and Deisseroth, K. (2013) Optogenetics. Proc.
+Natl. Acad. Sci. U. S. A. 110, 16287−16287.
+(14) Fields, S., and Song, O. (1989) A novel genetic system to detect
+protein-protein interactions. Nature 340, 245−246.
+(15) Niu, J., Ben Johny, M., Dick, I. E., and Inoue, T. (2016)
+Following Optogenetic Dimerizers and Quantitative Prospects.
+Biophys. J. 111, 1132−1140.
+(16) Kawano, F., Suzuki, H., Furuya, A., and Sato, M. (2015)
+Engineered pairs of distinct photoswitches for optogenetic control of
+cellular proteins. Nat. Commun. 6, 6256.
+(17) Nihongaki, Y., Kawano, F., Nakajima, T., and Sato, M. (2015)
+Photoactivatable CRISPR-Cas9 for optogenetic genome editing. Nat.
+Biotechnol. 33, 755−760.
+(18) Taslimi, A., Zoltowski, B., Miranda, J. G., Pathak, G. P., Hughes,
+R. M., and Tucker, C. L. (2016) Optimized second-generation CRY2−
+CIB dimerizers and photoactivatable Cre recombinase. Nat. Chem.
+Biol. 12, 425−430.
+(19) Kawano, F., Okazaki, R., Yazawa, M., and Sato, M. (2016) A
+photoactivatable Cre-loxP recombination system for optogenetic
+genome engineering. Nat. Chem. Biol. 12, 1059−1064.
+(20) Milias-Argeitis, A., Summers, S., Stewart-Ornstein, J., Zuleta, I.,
+Pincus, D., El-Samad, H., Khammash, M., and Lygeros, J. (2011) In
+silico feedback for in vivo regulation of a gene expression circuit. Nat.
+Biotechnol. 29, 1114−1116.
+(21) Milias-Argeitis, A., Rullan, M., Aoki, S. K., Buchmann, P., and
+Khammash, M. (2016) Automated optogenetic feedback control for
+precise and robust regulation of gene expression and cell growth. Nat.
+Commun. 7, 12546.
+(22) Bremer, H., and Dennis, P. P. (1987) Modulation of Chemical
+Composition and Other Parameters of the Cell by Growth Rate,
+Escherichia coli and Salmonella typhimurium: Cellular and Molecular
+Biology, pp 1527−1542.
+(23) Keren, L., Zackay, O., Lotan-Pompan, M., Barenholz, U., Dekel,
+E., Sasson, V., Aidelberg, G., Bren, A., Zeevi, D., Weinberger, A., Alon,
+U., Milo, R., and Segal, E. (2013) Promoters maintain their relative
+activity levels under different growth conditions. Mol. Syst. Biol. 9, 701.
+(24) de Vos, D., Bruggeman, F. J., Westerhoff, H. V., and Bakker, B.
+M. (2011) How molecular competition influences fluxes in gene
+expression networks. PLoS One 6, e28494.
+(25) Klumpp, S., Zhang, Z., and Hwa, T. (2009) Growth Rate-
+Dependent Global Effects on Gene Expression in Bacteria. Cell 139,
+1366−1375.
+(26) Segall-Shapiro, T. H., Meyer, A. J., Ellington, A. D., Sontag, E.
+D., and Voigt, C. a. (2014) A “resource allocator” for transcription
+based on a highly fragmented T7 RNA polymerase. Mol. Syst. Biol. 10,
+742.
+(27) Moser, F., Broers, N. J., Hartmans, S., Tamsir, A., Kerkman, R.,
+Roubos, J. A., Bovenberg, R., and Voigt, C. A. (2012) Genetic circuit
+performance under conditions relevant for industrial bioreactors. ACS
+Synth. Biol. 1, 555−564.
+(28) Studier, F. W. (1991) Use of bacteriophage T7 lysozyme to
+improve an inducible T7 expression system. J. Mol. Biol. 219, 37−44.
+(29) Chamberlin, M., McGrath, J., and Waskell, L. (1970) New RNA
+polymerase from Escherichia coli infected with bacteriophage T7.
+Nature 228, 227−231.
+(30) Tabor, S. (2001) Expression Using the T7 RNA Polymerase/
+Promoter System. Curr. Protoc. Mol. Biol., 16.2.1−16.2.11.
+(31) Lussier, F. X., Chambenoit, O., Côté, A., Hupé, J. F., Denis, F.,
+Juteau, P., Beaudet, R., and Shareck, F. (2011) Construction and
+functional screening of a metagenomic library using a T7 RNA
+polymerase-based expression cosmid vector. J. Ind. Microbiol.
+Biotechnol. 38, 1321−1328.
+(32) Shis, D. L., and Bennett, M. R. (2013) Library of synthetic
+transcriptional AND gates built with split T7 RNA polymerase
+mutants. Proc. Natl. Acad. Sci. U. S. A. 110, 5028−33.
+(33) Temme, K., Hill, R., Segall-Shapiro, T. H., Moser, F., and Voigt,
+C. A. (2012) Modular control of multiple pathways using engineered
+orthogonal T7 polymerases. Nucleic Acids Res. 40, 8773−8781.
+(34) Carlson, J. C., Badran, A. H., Guggiana-Nilo, D. A., and Liu, D.
+R. (2014) Negative selection and stringency modulation in phage-
+assisted continuous evolution. Nat. Chem. Biol. 10, 216−222.
+(35) Ellefson, J. W., Meyer, A. J., Hughes, R. a, Cannon, J. R.,
+Brodbelt, J. S., and Ellington, A. D. (2013) Directed evolution of
+genetic parts and circuits by compartmentalized partnered replication.
+Nat. Biotechnol. 32, 97−101.
+(36) Benton, B. M., Eng, W. K., Dunn, J. J., Studier, F. W., Sternglanz,
+R., and Fisher, P. A. (1990) Signal-mediated import of bacteriophage
+T7 RNA polymerase into the Saccharomyces cerevisiae nucleus and
+specific transcription of target genes. Mol. Cell. Biol. 10, 353−360.
+(37) Chen, W., Tabor, S., and Struhl, K. (1987) Distinguishing
+between mechanisms of eukaryotic transcriptional activation with
+bacteriophage T7 RNA polymerase. Cell 50, 1047−1055.
+(38) Hobl, B., Hock, B., Schneck, S., Fischer, R., and Mack, M.
+(2013) Bacteriophage T7 RNA polymerase-based expression in Pichia
+pastoris. Protein Expression Purif. 92, 100−104.
+(39) Brunschwig, E., and Darzins, A. (1992) A two-component T7
+system for the overexpression of genes in Pseudomonas aeruginosa.
+Gene 111, 35−41.
+(40) Conrad, B., Savchenko, R. S., Breves, R., and Hofemeister, J.
+(1996) A T7 promoter-specific, inducible protein expression system
+for Bacillus subtilis. Mol. Gen. Genet. 250, 230−236.
+(41) Elroy-Stein, O., and Moss, B. (1990) Cytoplasmic expression
+system based on constitutive synthesis of bacteriophage T7 RNA
+polymerase in mammalian cells. Proc. Natl. Acad. Sci. U. S. A. 87,
+6743−6747.
+(42) McBride, K. E., Schaaf, D. J., Daley, M., and Stalker, D. M.
+(1994) Controlled expression of plastid transgenes in plants based on
+a nuclear DNA-encoded and plastid-targeted T7 RNA polymerase.
+Proc. Natl. Acad. Sci. U. S. A. 91, 7301−7305.
+(43) Ikeda, R. A., and Richardson, C. C. (1987) Interactions of a
+proteolytically nicked RNA polymerase of bacteriophage T7 with its
+promoter. J. Biol. Chem. 262, 3800−3808.
+(44) Ikeda, R. A., and Richardson, C. C. (1987) Enzymatic properties
+of a proteolytically nicked RNA polymerase of bacteriophage T7. J.
+Biol. Chem. 262, 3790−3799.
+(45) Muller, D. K., Martin, C. T., and Coleman, J. E. (1988)
+Processivity of Proteolytically Modified Forms of T7 RNA Polymer-
+ase. Biochemistry 27, 5763−5771.
+(46) Cheetham, G. M., and Steitz, T. a. (1999) Structure of a
+transcribing T7 RNA polymerase initiation complex. Science 286,
+2305−2309.
+(47) Zoltowski, B. D., Schwerdtfeger, C., Widom, J., Loros, J. J.,
+Bilwes, A. M., Dunlap, J. C., and Crane, B. R. (2007) Conformational
+Switching in the Fungal Light Sensor Vivid. Science 316, 1054−1057.
+(48) Han, T., Chen, Q., and Liu, H. (2017) Engineered
+Photoactivatable Genetic Switches Based on the Bacterium Phage
+T7 RNA Polymerase. ACS Synth. Biol. 6, 357−366.
+(49) Chen, X., Zaro, J. L., and Shen, W. C. (2013) Fusion protein
+linkers: Property, design and functionality. Adv. Drug Delivery Rev. 65,
+1357−1369.
+ACS Synthetic Biology
+Research Article
+DOI: 10.1021/acssynbio.7b00169
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+J
+
+
+--- Page 11 ---
+(50) Iost, I., Guillerez, J., and Dreyfus, M. (1992) Bacteriophage T7
+RNA polymerase travels far ahead of ribosomes in vivo. J. Bacteriol.
+174, 619−622.
+(51) Miroux, B., and Walker, J. E. (1996) Over-production of
+proteins in Escherichia coli: mutant hosts that allow synthesis of some
+membrane proteins and globular proteins at high levels. J. Mol. Biol.
+260, 289−298.
+(52) Malakar, P., and Venkatesh, K. V. (2012) Effect of substrate and
+IPTG concentrations on the burden to growth of Escherichia coli on
+glycerol due to the expression of Lac proteins. Appl. Microbiol.
+Biotechnol. 93, 2543−2549.
+(53) Dekel, E., and Alon, U. (2005) Optimality and evolutionary
+tuning of the expression level of a protein. Nature 436, 588−592.
+(54) Espah Borujeni, A., Channarasappa, A. S., and Salis, H. M.
+(2014) Translation rate is controlled by coupled trade-offs between
+site accessibility, selective RNA unfolding and sliding at upstream
+standby sites. Nucleic Acids Res. 42, 2646−2659.
+(55) Salis, H. M., Mirsky, E. A., and Voigt, C. A. (2009) Automated
+design of synthetic ribosome binding sites to control protein
+expression. Nat. Biotechnol. 27, 946−50.
+(56) Bernstein, J. a, Khodursky, A. B., Lin, P.-H., Lin-Chao, S., and
+Cohen, S. N. (2002) Global analysis of mRNA decay and abundance
+in Escherichia coli at single-gene resolution using two-color fluorescent
+DNA microarrays. Proc. Natl. Acad. Sci. U. S. A. 99, 9697−702.
+(57) Baba, T., Ara, T., Hasegawa, M., Takai, Y., Okumura, Y., Baba,
+M., Datsenko, K. A., Tomita, M., Wanner, B. L., and Mori, H. (2006)
+Construction of Escherichia coli K-12 in-frame, single-gene knockout
+mutants: the Keio collection. Mol. Syst. Biol. 2, 2006.0008.
+(58) Datsenko, K. A., and Wanner, B. L. (2000) One-step
+inactivation of chromosomal genes in Escherichia coli K-12 using
+PCR products. Proc. Natl. Acad. Sci. U. S. A. 97, 6640−5.
+(59) Bowers, L. M., Lapoint, K., Anthony, L., Pluciennik, A., and
+Filutowicz, M. (2004) Bacterial expression system with tightly
+regulated gene expression and plasmid copy number. Gene 340, 11−
+18.
+(60) Andersen, J. B., Sternberg, C., Poulsen, L. K., Bjørn, S. P.,
+Givskov, M., and Molin, S. (1998) New Unstable Variants of Green
+Fluorescent Protein for Studies of Transient Gene Expression in
+Bacteria New Unstable Variants of Green Fluorescent Protein for
+Studies of Transient Gene Expression in Bacteria. Appl. Environ.
+Microbiol. 64, 2240−2246.
+(61) Flynn, J. M., Levchenko, I., Seidel, M., Wickner, S. H., Sauer, R.
+T., and Baker, T. a. (2001) Overlapping recognition determinants
+within the ssrA degradation tag allow modulation of proteolysis. Proc.
+Natl. Acad. Sci. U. S. A. 98, 10584−10589.
+(62) McGinness, K. E., Baker, T. A., and Sauer, R. T. (2006)
+Engineering Controllable Protein Degradation. Mol. Cell 22, 701−707.
+(63) Schmidl, S. R., Sheth, R. U., Wu, A., and Tabor, J. (2014)
+Refactoring and Optimization of Light-Switchable Escherichia coli
+Two-Component Systems. ACS Synth. Biol. 3, 820−831.
+(64) Tabor, J. J., Levskaya, A., and Voigt, C. a. (2011) Multi-
+chromatic control of gene expression in escherichia coli. J. Mol. Biol.
+405, 315−324.
+(65) Jayaraman, P., Devarajan, K., Chua, T. K., Zhang, H., Gunawan,
+E., and Poh, C. L. (2016) Blue light-mediated transcriptional activation
+and repression of gene expression in bacteria. Nucleic Acids Res. 44,
+6994−7005.
+(66) Pu, J., Zinkus-Boltz, J., and Dickinson, B. C. (2017) Evolution of
+a split RNA polymerase as a versatile biosensor platform. Nat. Chem.
+Biol. 13, 432−438.
+(67) Davidson, E. A., Basu, A. S., and Bayer, T. S. (2013)
+Programming microbes using pulse width modulation of optical
+signals. J. Mol. Biol. 425, 4161−4166.
+(68) Lo, T.-M., Chng, S. H., Teo, W. S., Cho, H.-S., and Chang, M.
+W. (2016) A Two-Layer Gene Circuit for Decoupling Cell Growth
+from Metabolite Production. Cell Syst. 3, 133−143.
+(69) Briand, L., Marcion, G., Kriznik, A., Heydel, J. M., Artur, Y.,
+Garrido, C., Seigneuric, R., and Neiers, F. (2016) A self-inducible
+heterologous protein expression system in Escherichia coli. Sci. Rep. 6,
+33037.
+(70) Lutz, R., and Bujard, H. (1997) Independent and tight
+regulation of transcriptional units in escherichia coli via the LacR/O,
+the TetR/O and AraC/I1-I2 regulatory elements. Nucleic Acids Res. 25,
+1203−1210.
+(71) Chung, C. T., Niemela, S. L., and Miller, R. H. (1989) One-step
+preparation of competent Escherichia coli: Transformation and storage
+of bacterial cells in the same solution (recombinant DNA). Proc. Natl.
+Acad. Sci. U. S. A. 86, 2172−2175.
+(72) Guzman, L. L. M., Belin, D., Carson, M. J., and Beckwith, J.
+(1995) Tight Regulation, Modulation, and High-Level Expression by
+Vectors Containing the Arabinose PBAD Promoter. J. Bacteriol. 177,
+4121−4130.
+(73) Wycuff, D. R., and Matthews, K. S. (2000) Generation of an
+AraC-araBAD Promoter-Regulated T7 Expression System. Anal.
+Biochem. 277, 67−73.
+(74) Jones, J. A., Vernacchio, V. R., Lachance, D. M., Lebovich, M.,
+Fu, L., Shirke, A. N., Schultz, V. L., Cress, B., Linhardt, R. J., and
+Koffas, M. A. G. (2015) ePathOptimize: A Combinatorial Approach
+for Transcriptional Balancing of Metabolic Pathways. Sci. Rep. 5,
+11301.
+(75) Sambrook, J. (2001) Molecular Cloning: A Laboratory Manual,
+3rd ed., Cold Spring Harbor Laboratory Press, Cold Spring Harbor,
+NY.
+(76) Gibson, D. G., Young, L., Chuang, R.-Y., Venter, J. C.,
+Hutchison, C. A., and Smith, H. O. (2009) Enzymatic assembly of
+DNA molecules up to several hundred kilobases. Nat. Methods 6, 343−
+5.
+ACS Synthetic Biology
+Research Article
+DOI: 10.1021/acssynbio.7b00169
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+K

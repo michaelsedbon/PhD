@@ -1,0 +1,2124 @@
+--- Page 1 ---
+Articles
+https://doi.org/10.1038/s41564-022-01153-5
+1Department of Biology, Massachusetts Institute of Technology, Cambridge, MA, USA. 2Department of Molecular Genetics, Weizmann Institute of Science, 
+Rehovot, Israel. 3Department of Biochemistry and Molecular Biology, Bloomberg School of Public Health, Johns Hopkins University, Baltimore, MD, 
+USA. 4Department of Molecular Biology and Genetics, Department of Genetic Medicine, Department of Oncology, School of Medicine, Johns Hopkins 
+University, Baltimore, MD, USA. 5Howard Hughes Medical Institute, Massachusetts Institute of Technology, Cambridge, MA, USA. ✉e-mail: laub@mit.edu
+B
+acteriophages, or phages, are the nearly ubiquitous viruses 
+that infect bacteria. Their co-evolution with bacteria has 
+led to an abundance of anti-phage defence systems. CRISPR 
+and restriction-modification systems are two well-known systems 
+that have been extensively characterized and famously co-opted as 
+indispensable tools for molecular biology. In recent years, due to 
+a recognition of the vast, unexplored biological potential of such 
+systems, and the renewed interest in phage therapy as an alterna-
+tive to antibiotics, there has been an explosion in the number of 
+newly identified phage defence systems1–4. However, in most cases, 
+the mechanism of action of these phage defence systems remain 
+unknown or incompletely elucidated.
+One class of genetic elements increasingly implicated in phage 
+defence are toxin-antitoxin (TA) systems, which are found in nearly 
+all sequenced bacterial chromosomes, with some species encod-
+ing dozens of different systems5,6. These systems typically feature a 
+two-gene operon that encodes a growth-inhibiting toxin and a cog-
+nate neutralizing antitoxin, which is often less stable than the toxin5. 
+TA systems are categorized on the basis of the nature of the antitoxin, 
+with the four most common types featuring a small non-coding 
+RNA that prevents toxin translation (type I), a protein that directly 
+interacts with and neutralizes the toxin (type II), a non-coding RNA 
+that directly interacts with the toxin (type III), or a protein that 
+enzymatically reverses the activity of the toxin (type IV)5.
+The biological functions of chromosomally-encoded TA sys-
+tems have remained elusive and controversial5,7–9. Cells expend 
+substantial resources in keeping these systems in an ‘off’ state, in 
+which toxin is neutralized by antitoxin10. Despite the seemingly 
+high cost of their maintenance, the prevalence of TA systems sug-
+gests that they are important for bacterial survival. TA systems are 
+often postulated to be stress-response elements8,11, but we previ-
+ously found in Escherichia coli MG1655 that although stress can 
+drive transcriptional induction of its 10 endoribonuclease tox-
+ins, active toxins do not get released10. Increasing evidence sug-
+gests that some TA systems function in phage defence, which may 
+explain both their variability and ubiquity6. One of the best char-
+acterized examples are type III ToxIN systems, first identified in 
+Pectobacterium atrosepticum, which feature an endoribonuclease 
+toxin, ToxN12. For a ToxIN system found in some E. coli strains, it 
+was recently shown that toxin is liberated following phage-induced 
+shutoff of host transcription and subsequent degradation of 
+the unstable antitoxin13. The toxin then cleaves phage mRNAs 
+to prevent translation of key structural components. Another 
+well-characterized phage defence TA system is RnlAB, a type II 
+system whose toxin is also an RNase14. For most other TA systems 
+that function in phage defence, the toxin’s mechanism of action 
+has only been studied by overexpression, not during infection, so 
+how they disrupt the phage life cycle is unclear. However, given the 
+remarkable diversity of biochemical functions ascribed to toxins 
+beyond RNases, TA systems may block phage development at dif-
+ferent stages in many different ways.
+We set out to identify additional TA systems that provide phage 
+defence by identifying systems frequently found near other phage 
+defence elements. Phage defence systems are often co-located on 
+bacterial chromosomes in so-called defence islands15,16. Efforts to 
+identify genes of unknown function that are frequently found in such 
+genomic contexts have proven to be a fruitful strategy for identifying 
+new phage defence systems3,4. Applying this same approach specifi-
+cally to TA systems led to the identification of two systems, DarTG1 
+and DarTG2, that can provide E. coli with potent defence against 
+select phage. Previous work on DarTG systems demonstrated that 
+DarT toxins can use NAD+ to ADP-ribosylate DNA, and artificial 
+overexpression of these toxins can disrupt chromosomal DNA rep-
+lication17–20. However, our work now demonstrates that under the 
+The DarTG toxin-antitoxin system provides phage 
+defence by ADP-ribosylating viral DNA
+Michele LeRoux   1, Sriram Srikant   1, Gabriella I. C. Teodoro1, Tong Zhang   1, Megan L. Littlehale1, 
+Shany Doron   2, Mohsen Badiee3, Anthony K. L. Leung3,4, Rotem Sorek   2 and Michael T. Laub   1,5 ✉
+Toxin-antitoxin (TA) systems are broadly distributed, yet poorly conserved, genetic elements whose biological functions are 
+unclear and controversial. Some TA systems may provide bacteria with immunity to infection by their ubiquitous viral preda-
+tors, bacteriophages. To identify such TA systems, we searched bioinformatically for those frequently encoded near known 
+phage defence genes in bacterial genomes. This search identified homologues of DarTG, a recently discovered family of TA 
+systems whose biological functions and natural activating conditions were unclear. Representatives from two different sub-
+families, DarTG1 and DarTG2, strongly protected E. coli MG1655 against different phages. We demonstrate that for each sys-
+tem, infection with either RB69 or T5 phage, respectively, triggers release of the DarT toxin, a DNA ADP-ribosyltransferase, 
+that then modifies viral DNA and prevents replication, thereby blocking the production of mature virions. Further, we isolated 
+phages that have evolved to overcome DarTG defence either through mutations to their DNA polymerase or to an anti-DarT 
+factor, gp61.2, encoded by many T-even phages. Collectively, our results indicate that phage defence may be a common function 
+for TA systems and reveal the mechanism by which DarTG systems inhibit phage infection.
+Nature Microbiology | VOL 7 | July 2022 | 1028–1040 | www.nature.com/naturemicrobiology
+1028
+
+
+--- Page 2 ---
+Articles
+NATuRE MiCRoBioloGy
+natural activating conditions of phage infection, the DarT toxins in 
+fact ADP-ribosylate phage DNA, which inhibits both viral DNA and 
+RNA synthesis. Without new copies of their genomes to package, 
+phages are unable to form progeny. Phages can evolve to overcome 
+DarT activity by two different strategies, either mutating their DNA 
+polymerase, probably to bypass ADP-ribosylation in the DNA, or 
+by modifying an existing anti-DarT factor. In sum, our work dem-
+onstrates that DarTG systems can provide cells with strong defence 
+against phage infection through the ADP-ribosylation of phage 
+DNA. More generally, our work underscores the notion that the 
+enzymatically diverse toxins of TA systems may equip bacteria with 
+a diverse arsenal of phage defence mechanisms.
+Results
+DarTG systems provide defence against phage. We set out to 
+examine the propensity of ten common type II TA systems to be 
+present in defence islands, a property previously found as predic-
+tive for function in phage resistance3. To this end, we analysed the 
+genomic context of 202,402 toxin genes found in ~38,000 bacte-
+rial and archaeal genomes. For each type of toxin, we calculated a 
+‘defence score’ as the fraction of toxin homologues found within 
+ten genes of known phage defence genes (Supplementary Table 1). 
+It was previously shown that defence scores >0.4 are strongly pre-
+dictive of anti-phage activity3. In our analysis, one TA family, the 
+DarTG system, stood out with a defence score of 0.48, meaning that 
+nearly half of the genes encoding DarTG homologues in this family 
+are next to known defence genes in microbial genomes. Previous 
+work had noted that darTG is sometimes found encoded within 
+type I restriction-modification system operons17.
+DarTG systems have not been previously shown to function in 
+phage defence. To test whether they can indeed provide defence 
+against phages, we cloned two DarTG systems. In each case, we 
+included the open reading frames encoding the toxin and anti-
+toxin, as well as the native upstream region encompassing the pro-
+moter. These systems were cloned into a pBR322 vector backbone 
+and transformed into E. coli MG1655. Each system was then tested 
+against a panel of 12 phages that can infect MG1655 in both fast 
+and slow growth conditions (LB medium at 37 °C, fast growth; 
+M9-glucose medium at 30 °C, slow growth) (Fig. 1a–c). Both sys-
+tems provided robust defence against different phages under differ-
+ent conditions. DarTG1 prevented plaquing of RB69 and T5 in fast 
+growth conditions, while DarTG2 provided robust phage defence 
+against T5, SECϕ18, and Lust in slow growth conditions, with mod-
+est protection against T5 in fast growth conditions. We also tested 
+whether a single chromosomal copy of DarTG1 was sufficient to 
+confer phage defence, and found that it did defend against RB69, 
+albeit with less potency (Fig. 1d).
+The genes encoding the DarTG1 and DarTG2 systems that we 
+cloned were not near other known defence systems but were each 
+within prophages in E. coli strains C7 and 2-460-02_S4_C3, respec-
+tively (Fig. 1e). Homologues of the DarT toxins were previously 
+shown to be single-stranded DNA ADP-ribosyltransferases17,19. A 
+multiple sequence alignment of DarT homologues (often annotated 
+as containing DUF4433), including the ones we cloned and those 
+previously characterized biochemically, revealed high similarity 
+across the entire length of the proteins (Fig. 1f(top) and Extended 
+Data Fig. 1). There was complete conservation of many residues 
+including a glutamate (E152 and E147 in the cloned DarT1 and 
+DarT2, respectively) (Fig. 1f, red highlight) known to be critical for 
+catalysis of these ssDNA ADP-ribosyltransferases17,19. We mutated 
+this conserved glutamate to an alanine in both DarT1 and DarT2 
+and found that phage defence was abolished in each case (Fig. 1b,c). 
+Hereafter, we refer to these inactive mutant versions of the TA sys-
+tems as DarT*G1 and DarT*G2.
+In contrast to the DarT toxins, a multiple sequence alignment 
+of their cognate DarG antitoxins revealed two distinct families 
+(Fig. 1f(bottom) and Extended Data Fig. 2). DarG1 contains a puta-
+tive YbiA-like fold (80% confidence, Phyre2 prediction), a domain 
+predicted to function in ADP-ribose processing21, while DarG2 
+features a highly conserved, N-terminal macrodomain known to 
+hydrolyse the ADP-ribose modifications introduced by their cog-
+nate toxins17,22,23. The C-terminal region of both proteins, which has 
+been implicated in binding directly to DarT218, is conserved in both 
+protein families.
+DarTG-mediated phage defence functions by abortive infec-
+tion. Phage defence often occurs via an abortive infection (Abi) 
+mechanism in which the infected cell dies but no phage progeny 
+is produced, thereby preventing spread of the virus in a popula-
+tion. Abi mechanisms are traditionally thought to result from a 
+defence mechanism that directly kills the host cell, but can also 
+arise if the defence mechanism targets the virus, with the host 
+cell dying because the virus triggers irreversible damage, such as 
+chromosome degradation. One key characteristic of Abi mecha-
+nisms is that when most cells are infected at a high multiplicity 
+of infection (MOI), the growth of the bacterial population stops, 
+while at lower MOIs, the uninfected bacteria can continue to grow. 
+To test whether the DarTG systems trigger Abi, we infected cells 
+harbouring either the native DarTG1 or the inactive DarT*G1 
+system with RB69 phage at varying MOIs, and tracked bacterial 
+growth by measuring the optical density at 600 nm (OD600) over 
+time in microtitre plates (Fig. 2a and Extended Data Fig. 3a). At 
+MOIs of 10 and 1, cells harbouring DarTG1 did not grow and the 
+OD600 of the cultures decreased over time, indicating that cells 
+were lysing. Consistent with this interpretation, we found that no 
+viable cells remained 30 min post infection for either DarTG1- or 
+DarT*G1-containing cells (Fig. 2c). At MOIs of 0.1 and 0.01, the 
+OD600 of cultures harbouring DarTG1, but not DarT*G1, increased 
+over time indicating that cell growth continued as DarTG1 pre-
+vents the phage infection from spreading throughout the popula-
+tion (Fig. 2a). Similar trends were seen for DarTG2 cells infected 
+with T5 (Fig. 2b,d and Extended Data Fig. 3b). These data sug-
+gest that both DarTG1 and DarTG2 provide phage defence via an 
+abortive infection mechanism.
+We directly assessed the number of RB69 progeny produced in 
+DarTG1- and DarT*G1-containing cells grown in shaking flasks 
+during infection. For cells containing the inactive DarT*G1 sys-
+tem, the initial burst occurred about 25–30 min after infection and 
+released ~100 phages (Fig. 2e). In contrast, when DarTG1 was pres-
+ent, no phage progeny were detected up to 45 min post infection. 
+We obtained similar results for DarTG2 infected with T5 (Fig. 2f), 
+although the burst size was smaller. Taken all together, our results 
+support an abortive infection mechanism for DarTG-containing 
+cells, in which activation of the toxin effectively thwarts the produc-
+tion of new phage particles, but infected cells do not survive.
+We also tracked infected cells by time-lapse fluorescence 
+microscopy, using the cell-permeable DNA dye 4’,6-diamidino-2 
+-phenylindole (DAPI) to stain both bacterial and phage DNA. 
+Phage particles appear as extracellular puncta in the DAPI channel 
+(Extended Data Fig. 4a) and thus phage infections can be visual-
+ized in real time, while DAPI staining of host DNA simultaneously 
+allows tracking of bacterial cell lysis (Extended Data Fig. 4b). We 
+found that cellular DNA appeared more compacted in the infected 
+DarTG1-containing cells before lysis (Fig. 2g, 20 min timepoint 
+and Extended Data Fig. 4c). In the infected DarT*G1-containing 
+cells, the DNA appeared diffuse throughout the infection process, 
+and following lysis, new phage particles appeared (Fig. 2g and 
+Extended Data Fig. 4d). There are some DAPI-stained, extracellular 
+puncta present around both DarTG1 and DarT*G1 cells before cell 
+lysis, which are probably unadsorbed phage. The number of these 
+extracellular puncta increased substantially following lysis of cells 
+harbouring DarT*G1, but not DarTG1.
+Nature Microbiology | VOL 7 | July 2022 | 1028–1040 | www.nature.com/naturemicrobiology
+1029
+
+
+--- Page 3 ---
+Articles
+NATuRE MiCRoBioloGy
+We found that T5 infections did not proceed effectively under 
+time-lapse microscopy conditions, so we sampled from liquid cul-
+tures of DAPI-stained, T5-infected cells and imaged them at vari-
+ous time points after infection (Fig. 2h). Similar to DarTG1, we saw 
+fewer DarTG2-containing cells lysing, combined with a dramatic 
+difference in the appearance of new phage particles following infec-
+tion of DarT*G2 versus DarTG2-containing cells. These microscopy 
+experiments support an abortive infection mechanism for both 
+DarTG systems and, at least for DarTG1, suggest that DarT may 
+affect DNA.
+Activated DarT inhibits DNA synthesis by ADP-ribosylating 
+DNA. Previous studies demonstrated that ADP-ribosylation of chro-
+mosomal DNA by DarT, either following ectopic expression of DarT 
+a
+f
+e
+E. coli C7
+E. coli HICF33
+Neisseria sp. HMSC059F02
+darTG1
+darTG1
+ratAB
+R-M system
+Type I R-M system
+darTG1
+darTG1
+darTG1
+Antitoxin
+Phage defence
+Prophage region
+Toxin
+Yersinia ruckeri SC09
+E. coli 2-460-02_S4_C3 
+Klebsiella sp. CVUAS 8534.2
+Paenibacillus lycopersici 12200R-189
+Bacillus altitudinis BD6
+Type I R-M
+darT2 darG2
+Restriction endonuclease
+E. coli C7
+DarG1
+DarG2
+E. coli O157:H6 
+Mycobacterium tuberculosis
+Thermoaquaticus aquaticus
+Pseudomonas mendocina
+Serratia plymuthica
+Rhizobium leguminosarum
+Shewanella atlantica 
+Geobacter lovleyi
+Burkholderia multivorans
+E. coli C7
+E. coli 2-460-02_S4_C3  
+E. coli 2-460-02_S4_C3  
+E. coli O157:H6 
+Mycobacterium tuberculosis
+Thermoaquaticus aquaticus
+Pseudomonas mendocina
+Serratia plymuthica
+Rhizobium leguminosarum
+Shewanella atlantica 
+Geobacter lovleyi
+Burkholderia multivorans
+DarT1
+DarT2
+abiEii/AbiGii
+darT
+darG
+relBE
+darTG1
+None
+[RB69 phage]
+c
+d
+darTG2
+darTE152AG1
+darTE147AG2
+None
+[T5 phage]
+E. coli O78
+E. coli IM13c
+Type I R-M system
+higB
+tacAT
+Type I-C CRISPR system
+Type I R-M
+darTG2
+darTG2
+b
+darTG2
+darTG1
+darTG2
+darTG1
+T2
+T4
+RB69
+TA system
+T6
+T5
+λvir
+SECφ17
+SECφ18
+SECφ27
+T3
+T7
+Lust
+Phage:
+Slow growth (30 °C, minimal media)
+Rapid growth (37 °C, rich media)
+0
+2
+4
+6
+attHK:darTG1
+[RB69 phage]
+None
+Macrodomain
+YbiA-like
+60–80%
+100%
+Similarity:
+80–100%
+<60%
+Gap
+repeat region
+darTG2
+1
+20
+40
+60
+80
+100
+120
+140
+160
+180
+220
+240
+260
+271
+1
+25
+50
+75
+100
+125
+150
+175
+200
+225
+250
+275
+300
+325
+350
+375
+408
+log10(EOP)
+Similarity:
+60–80%
+100%
+80–100%
+<60%
+Fig. 1 | TA systems encoded near known phage defence elements also defend against phage. a, Efficiency of plaquing (EOP; indicated in green) for strains 
+bearing the indicated DarTG systems infected with a panel of phages compared to a strain bearing an empty vector under two different growth conditions. 
+b,c, Tenfold serial dilution plaque assays of RB69 (b) or T5 (c) phage spotted on E. coli MG1655 harbouring the indicated darTG system regulated by its 
+native promoter (top), an empty vector (middle) or the darTG-bearing plasmid with a mutation in the predicted active site of the toxin (bottom). d, EOP  
+for RB69 phage on E. coli attHK::darTG1 compared to a wild-type MG1655 strain. e, Genomic context for the darTG1 and darTG2 systems in b and c, along 
+with additional selected darTG1-like and darTG2-like systems, illustrating their frequent association with prophages and known phage defence elements.  
+f, Multiple sequence alignments of representative DarT toxins and DarG antitoxins.
+Nature Microbiology | VOL 7 | July 2022 | 1028–1040 | www.nature.com/naturemicrobiology
+1030
+
+
+--- Page 4 ---
+Articles
+NATuRE MiCRoBioloGy
+or the artificial depletion of DarG, inhibits DNA replication in E. coli 
+and M. tuberculosis17,18,20. However, we hypothesized that after phage 
+infection, its more relevant biological function is to prevent the rep-
+lication of phage genomes. To test this hypothesis, we first monitored 
+the uptake of radiolabelled thymidine at various time points after 
+RB69 infection. In DarTG1-containing cells, DNA synthesis rates 
+did not substantially increase, particularly compared with cells with 
+DarT*G1 where the levels of thymidine incorporation increased 
+a
+b
+f
+g
+h
+e
+c
+d
+DAPI
+DAPI
+Phase
+Phase
+darTG1 + RB69
+darT*G1 + RB69
+10 min
+20 min
+30 min
+40 min
+100 min
+85 min
+70 min
+50 min
+35 min
+20 min
+DAPI
+DAPI
+Phase
+Phase
+darTG2 + T5
+darT*G2 + T5
+10
+10
+10
+8
+10
+6
+10
+4
+10
+2
+10
+0
+c.f.u. ml
+−1
+10
+10
+10
+8
+10
+6
+10
+4
+10
+2
+10
+0
+10
+0
+10
+1
+10
+2
+10
+3
+10
+4
+10
+5
+c.f.u. ml
+−1
+Uninfected
++RB69
+log10p.f.u. ml
+−1
+10
+2
+10
+3
+10
+4
+10
+5
+log10p.f.u. ml
+−1
+darT*G2
+darTG2
+20
+40
+60
+80
+Time post T5 infection (min)
+darTG1
+darT*G1
+darTG1
+darT*G1
+5
+15
+25
+35
+45
+Time post RB69 infection (min)
+darTG2
+darT*G2
+–phage
+Time (h)
+darT*G2
+darTG2
+0
+2
+4
+6
+8
+10
+darT*G2
+darTG2
+Time (h)
++T5,
+MOI 10
+0
+2
+4
+6
+8
+10
+darT*G2
+darTG2
+Time (h)
++T5,
+MOI 1
+0
+2
+4
+6
+8
+10
+darT*G2
+darTG2
+Time (h)
++T5,
+MOI 0.1
+0
+2
+4
+6
+8
+10
+Time (h)
+darT*G2
+darTG2
++T5,
+ MOI 0.01
+0
+2
+4
+6
+8
+10
+log10OD600
+log10OD600
+Time (h)
+–phage
+darT*G1
+Empty vector
+darTG1
+0
+1
+2
+3
+4
++RB69,
+MOI 0.01
+Time (h)
+darT*G1
+Empty vector
+darTG1
+0
+1
+2
+3
+4
++RB69,
+MOI 0.1
+Time (h)
+darT*G1
+Empty vector
+darTG1
+0
+1
+2
+3
+4
++RB69,
+MOI 1
+Time (h)
+darT*G1
+Empty vector
+darTG1
+0
+1
+2
+3
+4
++RB69,
+MOI 10
+Time (h)
+–3
+–2
+–1
+0
+–3
+–2
+–1
+0
+log10OD600
+log10OD600
+–3
+–2
+–1
+0
+–3
+–2
+–1
+0
+log10OD600
+log10OD600
+–3
+–2
+–1
+0
+–3
+–2
+–1
+0
+log10OD600
+log10OD600
+–3
+–2
+–1
+0
+–3
+–2
+–1
+0
+log10OD600
+log10OD600
+–3
+–2
+–1
+0
+–3
+–2
+–1
+0
+darT*G1
+Empty vector
+darTG1
+0
+1
+2
+3
+4
+Empty vector
+Empty vector
+Empty vector
+Empty vector
+Empty vector
+Uninfected
++T5
+Fig. 2 | DarTG systems provide phage defence via an abortive infection mechanism. a,b, Growth curves for strains with an empty vector or the indicated 
+plasmid-encoded TA system after infection with RB69 (a) or T5 (b) phage at varying MOI. The mean ± s.d. of 7–11 technical replicates are presented; data 
+are representative of 2 independent experiments (Extended Data Fig. 3). c,d, Survival of E. coli encoding the indicated DarTG systems as measured by colony 
+forming units (c.f.u.) after 15 min of infection with RB69 at MOI 5 (c) or 30 min of infection with T5 at MOI 20 (d). Data are from 3 independent biological 
+replicates. e,f, One-step growth curves showing measurements of plaque forming units (p.f.u.) over time in cultures of DarTG1 or DarT*G1-containing cells 
+infected with RB69 (e) or DarTG2 or DarT*G2-containing cells infected with T5 (f) at MOI 0.01 during the first round of infection. Data are from 3 independent 
+biological replicates. g, Time-lapse microscopy of DAPI-stained RB69-infected E. coli encoding the indicated DarTG1 systems. Scale bars, 4 µM. h, Time-course 
+microscopy of DAPI-stained T5-infected E. coli bearing plasmids with the indicated DarTG2 systems. The 85 min timepoint of DarT*G2 DAPI is displayed at a 
+different scale to accommodate the high intensity of DAPI staining present in this sample. Scale bars, 4 µM.
+Nature Microbiology | VOL 7 | July 2022 | 1028–1040 | www.nature.com/naturemicrobiology
+1031
+
+
+--- Page 5 ---
+Articles
+NATuRE MiCRoBioloGy
+~15-fold following phage infection (Fig. 3a). Differences in DNA 
+synthesis rates were detected as early as 5 min post infection, indicat-
+ing a rapid activation of the DarT1 toxin following phage infection. 
+DarTG2 similarly prevented an increase in DNA synthesis follow-
+ing T5 infection (Fig. 3b). To rule out that these effects of DarTG1 
+and DarTG2 were simply non-specific, or secondary, effects of an 
+activated phage defence system, we also measured DNA synthesis 
+rates in conditions where the E. coli RnlAB TA system, which con-
+tains an RNase toxin, is activated. We infected either wild-type or 
+∆rnlAB cells with T4 ∆dmd, a variant of T4 susceptible to defence 
+by the RnlAB system24. The rate of DNA synthesis was similar in 
+wild-type and ∆rnlAB cells, supporting the conclusion that DarTG1 
+and DarTG2 specifically affect phage replication (Fig. 3c).
+We also deep sequenced DNA extracted from cells post infec-
+tion. For RB69 infection of cells harbouring DarTG1, ~30% of the 
+total DNA was phage derived, whereas for cells with DarT*G1, 
+phage DNA was ~70% of the total (Fig. 3d). Taken together with the 
+thymidine incorporation result for RB69 infections (Fig. 3a), this 
+result indicates that active DarT1 prevents the replication and accu-
+mulation of new phage DNA. We also examined sequencing cover-
+age across the RB69 genome, finding a non-uniform distribution of 
+reads for cells with DarTG1, but not DarT*G1, suggesting that the 
+toxin disrupts DNA replication elongation, not initiation (Fig. 3e).
+For DarTG2 cells infected with T5, DNA sequencing indicated 
+that only ~20% of reads were phage derived at 20 min post infec-
+tion, but >90% of reads were viral by 40 min (Fig. 3f). There were no 
+h
+i
+k
+j
+b
+c
+P
+P
+32P
+dATP(32P)
+OAS1
+OH
+32P
+OH
+P
+P
+DNA from
+infected
+E. coli
++RB69
++
+–
+0
+5
+10
+15
+*
+darTG1
+darT*G1
+0
+5
+10
+15
+20 
+dATP(32P) labelling of DNA
+ (scintillation counts/background)
+dATP(32P) labelling of DNA
+ (scintillation counts/background)
+dATP(32P) labelling of DNA
+ (scintillation counts/background)
+Time post T5
+infection (min)
+darTG2
+darT*G2
+40
+*
+a
+0
+5
+10
+15
+20
+0
+5
+10
+15
+20
+25
+Time post RB69 infection (min)
+darTG1
+darT*G1
+Wild type
+ΔrnlAB
+0
+5
+10
+15
+20
+0
+10
+20
+30
+40
+50
+Time post T4Δdmd infection (min)
+darTG2
+darT*G2
+0
+10
+20
+30
+40
+0
+1
+2
+3
+Time post T5 infection (min)
+g
+0
+0
+50
+100
+150
+1,500
+1,000
+500
+1,500
+1,000
+500
+0
+T5 genome position (kb)
+Reads per nt/total reads×108
+e
+0
+0
+60
+120
+180
+1,000
+750
+250
+RB69 genome position (kb)
+0
+1,000
+750
+250
+Reads per nt/total reads×109
+OH
+OH
+P
+P
+0
+5
+10
+15
+20
+25
+ADP-ribosylated:
+α-ADP-ribose:
+α-ADP-ribose:
+d
+darTG1
+darT*G1
+0
+20
+40
+60
+80
+100
+Reads mapped to RB69 (%)
+f
+0
+50
+75
+25
+100
+Reads mapped to T5 (%)
+20 min
+40 min
+darTG2
+darTG2
+darT*G2
+darT*G2
+Fold change,
+thymidine incorporation
+Fold change,
+thymidine incorporation
+Fold change,
+thymidine incorporation
+Fig. 3 | DarTG inhibits phage DNA replication by ADP-ribosylating viral DNA. a–c, DNA synthesis rates as measured by 3H-labelled thymidine 
+incorporation at the indicated time points after infection of strains encoding the indicated TA systems infected with RB69 at MOI 5 (a), T5 at MOI 20 
+(b) or T4 ∆dmd at MOI 5 (c). Graph depicts 3 independent biological replicates. d, Fraction of RB69 phage versus host-derived DNA, as determined by 
+Illumina sequencing, for DNA extracted from DarTG1 or DarT*G1 cells infected with RB69 at an MOI of 5. Black lines indicate mean values. e, Sequencing 
+read coverage from experiment in d. One representative sample is shown. f,g, Same as d and e but for T5 infection of DarTG2 and DarT*G2 cells at an 
+MOI of 20. h, Overview of an ELTA assay, wherein DNA extracted from infected E. coli cells is incubated with OAS1 protein activated with the synthetic 
+double stranded RNA analogue poly(I:C) (orange line) and 32P-dATP. Incorporation of 32P-dATP onto ADP-ribose modifications is measured by scintillation 
+counting. i, ELTA measurements (top) and dot blots with an anti-ADP-ribose antibody (bottom) for an ssDNA fragment ADP-ribosylated in vitro compared 
+to unribosylated DNA extracted from E. coli. Data from 4 independent replicates are shown. j,k, ELTA measurements of DNA from E. coli encoding the 
+indicated DarTG systems after infection with RB69 at MOI = 5 and 15 min post infection (j) or T5 at MOI = 20 at 20 or 40 min post infection (k). *P < 0.01 
+(two-sided t-test). Bottom panel of j depicts a dot blot of corresponding DNA (DarTG1 cells, left; DarT*G1 cells, right) probed as in i. Each dot on the graph 
+represents an independent biological replicate for ELTA assays, and the dot blots are representative of at least 2 independent experiments.
+Nature Microbiology | VOL 7 | July 2022 | 1028–1040 | www.nature.com/naturemicrobiology
+1032
+
+
+--- Page 6 ---
+Articles
+NATuRE MiCRoBioloGy
+major differences in the percentage of reads derived from T5 when 
+comparing the DarTG2 and DarT*G2 cells, probably because T5 
+triggers rapid and complete degradation of the host chromosome 
+in both cases25. Nevertheless, the thymidine incorporation assays 
+indicated that phage replication was strongly inhibited in DarTG2 
+cells (Fig. 3b). Consistent with this interpretation, agarose gel elec-
+trophoresis of DNA extracted from infected cells demonstrated a 
+substantial decrease in the total amount of DNA in DarTG2 cells 
+compared with DarT*G2 cells (Extended Data Fig. 5). From the 
+DNA sequencing we found that, as with DarTG1, there were also 
+differences in read coverage indicating that DarT2 probably also 
+disrupts phage DNA replication elongation (Fig. 3g). These results 
+are consistent with an Abi mechanism in which the primary target 
+of DarT is phage DNA, not host DNA.
+DarT family toxins have been shown to ADP-ribosylate ssDNA 
+in vitro and when overexpressed in bacterial cells17. We therefore 
+hypothesized that RB69 and T5 infection activates the DarT1 and 
+DarT2 toxins, respectively, and that activated toxin blocks replica-
+tion of the phage genome by ADP-ribosylating DNA in the cell. To 
+assess whether DarTG-dependent ADP-ribosylation of DNA occurs 
+in vivo following phage infection, we adapted a recently developed 
+technique for measuring ADP-ribosylation of proteins to measure 
+ADP-ribosylation of DNA. This assay termed enzymatic labelling 
+of terminal ADP-ribose (ELTA) leverages the enzymatic activity 
+of the innate immune protein, OAS1, to covalently attach dATP to 
+ADP-ribose moieties26 (Fig. 3h). This assay has not previously been 
+used to assess the ADP-ribosylation of DNA. Therefore, we first con-
+firmed that purified ADP-ribosylated ssDNA produced robust sig-
+nal in an ELTA assay (Fig. 3i). We also confirmed ADP-ribosylation 
+in a dot blot using an antibody recently shown to specifically detect 
+ADP-ribose modifications on DNA (Fig. 3i, bottom)19.
+We infected cells harbouring darTG1 or darT*G1 with RB69, iso-
+lated DNA and then added OAS1 and 32P-dATP to label ADP-ribose 
+groups on the DNA (Fig. 3h). We detected a 6.5-fold increase in 
+ADP-ribosylation of DNA extracted from DarTG1-containing cells 
+20 min post infection compared with cells containing the inac-
+tive DarT1* variant by ELTA (Fig. 3j). We also detected a robust 
+signal in an anti-ADP-ribose dot blot on the DNA extracted from 
+RB69-infected cells containing DarTG1, but no signal for an equal 
+amount of DNA extracted from infected cells harbouring DarT*G1 
+(Fig. 3j, bottom). In addition, we measured ADP-ribosylation 
+of DNA following T5 infection of cells harbouring darTG2 and 
+found a similar, 3.5-fold increase in ADP-ribosylation in DarTG2 
+vs DarT*G2-containing cells after 20 min of infection (Fig. 3k). We 
+also observed a ~5.7-fold increase in ADP-ribosylation of DNA 
+after 40 min of infection when our sequencing indicated that vir-
+tually all DNA was of phage origin (Fig. 3f,k). Taken all together, 
+our results indicate that DarT toxins are rapidly activated follow-
+ing phage infection and ADP-ribosylate phage DNA to disrupt 
+its replication.
+DarT blocks RNA synthesis and alters phage protein produc-
+tion. We also asked whether the DarTG systems impact RNA and 
+protein synthesis. RNA synthesis rates were assayed by monitoring 
+radiolabelled uridine uptake following infection. RNA synthesis 
+was substantially reduced in both DarTG1 and DarTG2-containing 
+cells following infection with RB69 and T5, respectively (Fig. 4a,b). 
+To assess how DarTG1 and DarTG2 affect protein synthesis, we 
+pulse-labelled cells pre and post infection and then measured the 
+incorporation of radiolabelled cysteine and methionine using 
+SDS–PAGE to resolve individual proteins. In contrast to DNA and 
+RNA synthesis, protein synthesis rates did not differ substantially 
+between DarTG1 and DarT*G1-containing cells infected with RB69 
+(Fig. 4c). However, there was a shift in which proteins were being 
+synthesized, starting around 10 min post infection. In particular, 
+late-appearing species in DarT*G1-infected cells (Fig. 4c) or empty 
+vector-infected cells (Extended Data Fig. 6a) were either not seen 
+or were substantially reduced in DarTG1-infected cells, with many 
+early-appearing species persisting throughout the 20 min time 
+course. In contrast, when transcription was shut off by treatment 
+of cells with rifampicin, there was no shift in which proteins were 
+being produced, only a reduction in band intensity (Extended Data 
+Fig. 6b). Together, these results demonstrate that phage infecting 
+cells containing DarTG1 can initiate their gene expression pro-
+gramme, but do not progress normally to the production of late 
+gene products.
+For DarTG2 and DarT*G2-containing cells infected with T5, the 
+overall protein synthesis rates were again not substantially differ-
+ent (Fig. 4d). However, in this case, the banding pattern of DarTG2 
+and DarT*G2 cells remained more similar throughout the 40 min 
+time course, although at the latest time points, DarTG2 cells appear 
+to still be producing more middle gene products and less late gene 
+products, as with DarTG1. Taken together, our results indicate that 
+upon phage infection, both DarT toxins rapidly block DNA syn-
+thesis and reduce RNA synthesis. Protein synthesis rates are not 
+substantially affected, but the timing and identities of proteins 
+synthesized are misregulated. We conclude that DarT activation 
+disrupts the proper development of mature virions. Even if phage 
+capsids were produced, the inhibition of DNA synthesis (Fig. 3) 
+means no new phage genomes are available for packaging.
+RB69 can escape DarTG1 defence by mutating 61.2 (adfA). To gain 
+additional insight into how DarTG systems function, we asked how 
+phages can evolve to escape or overcome DarTG-mediated defence. 
+To evolve resistant populations of phage, we serially passaged RB69 
+on both DarTG1 and DarT*G1-containing cells and monitored the 
+pooled phage population for changes in susceptibility to DarTG1 
+(Fig. 5a)27. By pooling together phages propagated on cells contain-
+ing DarT*G1, we were able to increase the diversity of the popu-
+lation, which cannot normally replicate on DarTG1-containing 
+cells. We isolated a DarTG1-resistant clone from each of five dif-
+ferent, independently evolved populations (Fig. 5b) and sequenced 
+their genomes. We also evolved, in parallel as a control, a popula-
+tion of RB69 on only DarT*G1-containing cells and sequenced the 
+genome of this population. We then identified mutations present 
+in the DarTG1-resistant populations but not in the control popula-
+tion. For one clone, we could not identify any mutations, but the 
+other four DarTG1-resistant clones each had a mutation in the 
+same codon of the uncharacterized gene 61.2, which is predicted 
+to encode a 212 amino acid protein. In three cases, the mutation 
+results in a substitution of arginine-164 with a histidine, while in the 
+fourth, arginine-164 becomes a serine (Fig. 5b).
+Intriguingly, a multiple sequence alignment of gp61.2 homo-
+logues, which are encoded in both phage and bacterial genomes, 
+revealed that histidine and serine, as well as asparagine, occur 
+naturally at this position (Fig. 5c). Two phages (T4 and T6) closely 
+related to RB69 both encode homologues of gp61.2 containing 
+a histidine at this position of gp61.2. Additionally, we noted that 
+61.2 is close within the RB69 genome to dmd, which encodes an 
+inhibitor of the RnlA toxin of the RnlAB toxin-antitoxin system24. 
+Together, these observations suggest that 61.2 homologues encode 
+inhibitors of DarT toxins, with the identity of position 164 strongly 
+influencing the specificity of inhibition. To test our hypothesis, 
+we asked whether the ectopic production of gp61.2(R164H) from 
+evolved RB69 or the gp61.2 homologue from T4 could restore 
+the ability of wild-type RB69 to infect cells containing DarTG1 
+on the chromosome. Indeed, producing either of these constructs 
+improved the efficiency of plaquing (EOP) of RB69 compared 
+with cells harbouring an empty vector or producing the wild-type 
+gp61.2 from RB69 (Fig. 5d). We also assessed DarT1 toxin activity 
+when cells were infected with evolved RB69 phages by measuring 
+DNA ADP-ribosylation levels, reasoning that if DarT1 is inhibited 
+Nature Microbiology | VOL 7 | July 2022 | 1028–1040 | www.nature.com/naturemicrobiology
+1033
+
+
+--- Page 7 ---
+Articles
+NATuRE MiCRoBioloGy
+by the gp61.2(R164H) variant, the toxin should be unable to 
+ADP-ribosylate DNA. Consistent with this idea, there was no 
+detectable DNA ADP-ribosylation in cells infected with the evolved 
+RB69 producing the gp61.2(R164H) variant (Fig. 5e). We also tested 
+whether the evolved gp61.2 could inhibit DarT1 in the absence of 
+phage. Indeed, the gp61.2(R164H) variant, but not the wild-type 
+gp61.2, could restore growth to cells producing DarT1 (Fig. 5f). 
+Finally, we reasoned that a DarT1 inhibitor should not be essential 
+to phage in the absence of darTG1. Using T4, which is amenable 
+to genetic manipulation, we successfully made phage in which 61.2 
+contained a premature stop codon or had a large region deleted, and 
+found that in both cases, the phages had no deficiency in plaquing 
+on cells lacking darTG1 (Extended Data Fig. 7). Taken all together, 
+these data suggest that 61.2 encodes a DarT inhibitor and that the 
+escape mutants we isolated improve the ability of the RB69 gp61.2 
+to inhibit DarT1. On the basis of these results, we have renamed 
+61.2 as adfA for anti-DarT factor A.
+SECϕ18 can escape DarTG2 defence by mutating DNA 
+polymerase. We also tried to evolve T5 phages to escape 
+DarTG2-mediated defence, but were unable to identify escape 
+mutants, even after several independent populations were passaged 
+for 15 cycles each. We therefore tried to evolve SECϕ18 phage, 
+which DarTG2 also defended against (Fig. 1a). In this case, resistant 
+SECϕ18 populations were readily obtained, with increased infec-
+tivity emerging after 5 rounds of passaging (Fig. 5g). Full genome 
+sequencing of the evolved escape phage populations and a control 
+population passaged only on cells containing DarT*G2 revealed 
+that each resistant population had accumulated one of five different 
+mutations in mga47, which encodes the SECϕ18 DNA polymerase 
+(Fig. 5g). The mutations in DNA polymerase did not obviously 
+cluster when mapped onto a homology-modelled structure of 
+the protein.
+There are three possibilities for how these mutations allow 
+SECϕ18 phages to escape the DarTG2 system: (1) SECϕ18 DNA 
+polymerase normally activates the toxin, with the mutant variant 
+having lost the ability to do so; (2) the mutant, but not wild-type, 
+variant of DNA polymerase neutralizes the toxin; or (3) the mutant 
+DNA polymerase overcomes or somehow circumvents the activity 
+of the toxin. We ruled out possibility 1 by overexpressing mga47 in 
+cells containing the DarTG2 system and found that it did not induce 
+toxicity, indicating that mga47 is not sufficient to activate DarT2 
+(Fig. 5h). We addressed possibilities (2) and (3) by asking whether 
+the DarT2 toxin was still able to ADP-ribosylate DNA follow-
+ing infection with the SECϕ18 escape phage. If ADP-ribosylation 
+of DNA still occurs in the presence of the evolved phage, it would 
+indicate that the DarT2 toxin is still active but that phages can rep-
+licate despite its activity. Indeed, we found that ADP-ribosylation 
+of DNA occurs at a rate similar to that seen with wild-type SECϕ18 
+(Fig. 5i). This contrasts with what we had observed when evolved 
+RB69 infected DarTG1 cells (Fig. 5e), further underscoring that 
+these phages have overcome DarTG-mediated defence by dif-
+ferent mechanisms. These results strongly support a model in 
+which SECϕ18 modifies its DNA polymerase to accommodate the 
+ADP-ribose modifications on the DNA made by DarT2.
+Discussion
+DarTG-based phage defence. Like most TA systems, the DarTG 
+system had previously only been characterized through the arti-
+ficial overexpression of DarT toxin or the depletion of its anti-
+toxin17,18,20. This previous work elucidated the biochemical function 
+of DarT toxins as ADP-ribosyltransferases that specifically target 
+DNA and demonstrated that cells lacking DarG mount a DNA 
+damage response as the ADP-ribosylation of DNA by DarT prob-
+ably leads to replication fork stalling23. However, the physiological 
+function and native triggers of DarTG systems have been unclear. 
+A Mycobacterium tuberculosis strain lacking darTG was reported 
+to have a modest increase in growth after 15 d, although whether 
+the growth defect of the wild type results from ADP-ribosylation 
+of DNA was not shown and why cells harbour a system that slows 
+growth is not obvious. Here we demonstrated that DarTG1 and 
+DarTG2, taken from two strains of E. coli and representing the two 
+different major classes of DarTG systems, can provide host cells 
+with potent defence against phages (Fig. 1).
+The identification of phages that trigger these DarTG systems 
+enabled us to characterize the activity of the toxins in vivo under 
+growth conditions that naturally, and rapidly, liberate them. Our 
+results indicate that within minutes after phages adsorb to the cell 
+and inject their DNA, DarT toxins are active (Fig. 6). The liberated 
+DarT then ADP-ribosylates phage DNA leading to a near complete 
+cessation of DNA synthesis and an inhibition of RNA synthesis. 
+These effects of the DarT toxins also impacted the programme of 
+phage gene expression and limited the production of late proteins 
+(Fig. 4). Even if procapsids did assemble, DNA packaging would not 
+occur as the phage genome is not fully replicated in cells with active 
+DarT. Our results indicate that DarTG functions through an Abi-like 
+mechanism in which infected cells die, but without producing prog-
+eny phage, thereby sparing uninfected neighbour cells. Although 
+DarT can also target the host cell’s chromosome and is toxic when 
+overexpressed, T5 and probably RB69 trigger chromosome deg-
+radation so there is probably little host DNA present for DarT to 
+modify28,29. Even though the DarT toxin primarily targets viral DNA, 
+darTG1
+darT*G1
+0
+5
+10
+15
+20
+0
+1
+2
+3
+Time post RB69 infection (min)
+Fold change, uridine incorporation
+0
+10
+20
+30
+40
+0
+0.25
+0.50
+0.75
+1.00
+Time post T5 infection (min)
+Fold change, uridine incorporation
+darTG2
+darT*G2
+b
+c
+d
+a
+5 10 15 20
+0
+0
+5
+10 15 20
+darTG1
+darT*G1
+Time
+(min)
+0 10 2030 40
+0 10 20 30 40
+darTG2
+darT*G2
+Time
+(min)
+Fig. 4 | Activated DarT inhibits RNA synthesis and the timing of phage protein production. a,b, RNA synthesis rates as measured by 3H-labelled uridine 
+incorporation at various time points after infection of strains encoding the indicated TA systems infected with RB69 at MOI 5 (a) or T5 at MOI 20 (b).  
+c,d, Protein synthesis rates as measured by 35S-labelled cysteine and methionine incorporation at various time points after infection for E. coli encoding  
+the indicated TA systems and infected with either RB69 at MOI 5 (c) or T5 at MOI 20 (d) and resolved by SDS–PAGE. Data shown are representative of  
+2 independent biological replicates.
+Nature Microbiology | VOL 7 | July 2022 | 1028–1040 | www.nature.com/naturemicrobiology
+1034
+
+
+--- Page 8 ---
+Articles
+NATuRE MiCRoBioloGy
+phage inhibition occurs after key phage processes (for example, chro-
+mosome degradation) have been initiated, hence the infected cells 
+are unable to survive. Additionally, we isolated T5 escape mutants 
+producing a variant phage DNA polymerase that enables replication 
+of the phage genome despite its ADP-ribosylation by DarT and the 
+subsequent release of mature virions. If DarT were aborting infec-
+tion by modifying the host chromosome, such mutant phages would 
+still be inhibited and not escape DarTG. Thus, we conclude that 
+DarTG does not ultimately kill the host cell as in a conventional Abi 
+mechanism, but instead acts to thwart phage replication directly.
+Activation of the DarTG system by phage infection. How DarT 
+becomes activated following phage infection is not yet clear. 
+As noted above, DarT is active within 5 min post infection, as mea-
+sured by differences in DNA synthesis rates between DarTG and 
+DarT*G cells (Fig. 3a), but without transcriptional induction of 
+the system. Recent work on an E. coli ToxIN system demonstrated 
+that the antitoxin toxI is intrinsically unstable and so must be con-
+tinuously produced to bind and neutralize ToxN13. Phage-induced 
+shutdown of host transcription following T4 infection leads to the 
+liberation of ToxN, an endoribonuclease, ~20 min post infection. 
+DarT activation could work similarly. However, although the anti-
+toxins of TA systems are often more unstable than their cognate 
+toxins, we recently found that many are not unstable enough to pro-
+duce pools of active toxin on the timescale of a phage infection sim-
+ply by blocking transcription10. Thus, we favour the possibility that 
+f
+(SECϕ18)
+Parental
+Evolved populations
+DNA polymerase
+(mga47)
+N372D, A481E
+W190G
+T245P
+A481E
+L253Q
+1
+2
+3
+4
+5
+c
+b
+(RB69)
+Evolved
+isolates
+1
+Parental
+2
+3
+4
+5
+R164H
+None
+gp61.2
+R164H
+R164H
+R164S
+darTG
+darT*G
+darTG
+darT*G
+darTG
+darT*G
+(phage)
+a
+d
+g
+h
+e
+dATP(32P) labelling of DNA
+(scintillation counts/background)
+darTG1
+darT*G1
+0
+5
+10
+15
++RB69
++RB69evolved
+Escherichia phage RB69
+Escherichia phage T4
+Enterobacteria phage T6
+Escherichia phage mogra
+Escherichia phage p000y
+Escherichia phage OLB35
+Shigella phage SfPhi01
+Escherichia phage NiC89
+Escherichia phage vB_EcoM_WFL6982
+Myoviridae sp. phage
+S. enterica subsp. enterica ser. Telhashomer
+Citrobacter phage vB_CroM_CrRp10
+Esherichia coli PNUSAE022937 
+Esherichia phage JEP6
+Shigella phage SHSML-51-1
+Escherichia phage slur14
+Escherichia phage vB_EcoM_G4498
+Escherichia phage RB27
+Escherichia phage vB_EcoM_PhAPEC2
+Escherichia phage vB_EcoM_NBG1
+R164
+mga47
+mga47A481E
+mga47
+mga47A481E
+darTG2
+darT*G2
+0
+1
+2
+3
+dATP(32P) labelling of DNA
+ (scintillation counts/background)
++SECϕ18 +SECϕ18evolved
+darTG2
+darT*G2
+i
+(RB69)
+attHK::darTG1 +
+Empty vector
+Empty vector
+(no darTG1)
+61.2RB69
+61.2 T4
+61.2RB69(R164H)
+Empty vector
+DarT1– (glu)
+DarT1+ (ara)
+61.2RB69
+61.2RB69(R164H)
+Fig. 5 | RB69 and SECϕ18 escape DarTG-mediated defence by two distinct mechanisms. a, Overview of phage evolution experiment. DarTG and 
+DarT*G-producing cells seeded in 96-well plates were infected with 10-fold serial dilutions of phage, with the highest well infected at an MOI of 
+~10. Following incubation, all cleared and partially cleared wells (dashed red lines) were pooled and the resulting phages used to re-infect cells. This 
+process was repeated until phage were able to clear an increasing number of wells of DarTG-containing cells. b, EOP of ancestral and evolved RB69 on 
+DarTG1-containing cells. The mutations identified in gene 61.2 following genome sequencing are indicated on the right. The isolates shown were derived 
+from 6 independently evolved populations of RB69. c, Sequence alignment of the region surrounding residue 164 of gp61.2 for 20 homologues. d, EOP 
+of wild-type RB69 on E. coli attHK::darTG1 either bearing an empty vector or producing the wild-type RB69 gp61.2, the evolved RB69 gp61.2(R164H) 
+or the wild-type T4 gp61.2. Bottom panel depicts wild-type MG1655 bearing an empty vector. Data are representative of 2 independent biological 
+replicates. e, ELTA-based measurements of ADP-ribosylation of DNA extracted from E. coli encoding darTG1 or darT*G1 and infected with an evolved 
+RB69 clone. Data of wild-type RB69 infection (Fig. 3j) is reproduced here for comparison. Data are from 3 independent biological replicates. Black lines 
+indicate mean values. f, C.f.u. measured in cells bearing a vector with DarT1 either repressed (+glucose (glu)) or induced (+arabinose (ara)) along 
+with an empty vector, a vector expressing the wild-type RB69 61.2 or the evolved RB69 61.2(R164H) variant. g, Plaque assays showing the increased 
+resistance of 5 independently evolved populations of SECϕ18 selected to overcome DarTG2 defence, with the mutations identified by whole-genome 
+sequencing of each population. h, Expression of the wild-type and an evolved allele of mga47 gene in cells containing DarTG2 or DarT*G2. Data are 
+representative of 2 independent biological replicates. i, ELTA-based measurements of ADP-ribosylation of DNA extracted from E. coli encoding darTG2 
+or darT*G2 and infected with the parental SECϕ18 strains or an evolved SECϕ18 clone. Data are from 2 independent biological replicates.
+Nature Microbiology | VOL 7 | July 2022 | 1028–1040 | www.nature.com/naturemicrobiology
+1035
+
+
+--- Page 9 ---
+Articles
+NATuRE MiCRoBioloGy
+a particular phage protein or factor somehow triggers activation of 
+DarT. The involvement of a specific phage protein would potentially 
+explain why DarTG1 and DarTG2 protect against different phages 
+(Fig. 1a) and it might also explain why different growth conditions 
+are required for their activity. Activation may require particular 
+growth conditions if a host factor, such as a chaperone or a protease, 
+is required for releasing the toxin, but that factor is less abundant or 
+less available in particular growth states.
+If a specific phage protein is required to trigger DarT, it could 
+stimulate separation of DarT from its cognate DarG antitoxin. 
+However, the DarG antitoxins may not only bind and inhibit 
+their cognate DarT toxins, as with canonical type II TA systems. 
+Previous work on the enteropathogenic E. coli DarTG system indi-
+cated that these systems may also rely on a type IV mechanism 
+in which the antitoxin indirectly antagonizes the toxin’s activ-
+ity18. Notably, DarG1 contains structural homology to a YbiA-like 
+domain that is predicted to be an ADP-ribose processing enzyme 
+and DarG2 contains a classic macrodomain typically associated 
+with ADP-glycohydrolases known to remove ADP-ribose modifica-
+tions21,22. Thus, in principle, DarT may always be active, but with 
+sufficient DarG activity in uninfected cells to offset its toxicity. A 
+phage product could inhibit, sequester or degrade DarG, enabling 
+the rapid accumulation of DarT activity.
+Phage evasion of DarTG-mediated defence. Phages and their 
+hosts are locked in an arms race wherein hosts acquire or evolve 
+protection from phage infection, and phages evolve mechanisms to 
+overcome these defences. By evolving RB69 to escape the defence 
+offered by DarTG1, we identified adfA (formerly 61.2) as a prob-
+able phage-encoded anti-DarT factor. The AdfA encoded by RB69 
+probably enables this phage to inhibit a different, but closely related 
+DarTG system. The single substitutions in AdfA we identified 
+enabled RB69 to then overcome the DarTG1 system we introduced. 
+Notably, the mutations selected for in AdfA convert arginine-164 to 
+histidine or serine, which occur naturally at the equivalent position 
+in some AdfA homologues. The presence of adfA homologues in 
+T4, T6, RB69 and other T-even phages suggests that these phages 
+have all been exposed to and selected to produce anti-DarT pro-
+teins, underscoring the notion that DarTG systems are critical and 
+probably common phage defence systems in E. coli and possibly 
+many other species. The adfA homologues are all found in similar 
+genomic positions in the genomes of T-even phages and relatively 
+close to dmd homologues that encode for RnlA toxin inhibitors. 
+Thus, this region may represent an anti-TA system island, similar to 
+the anti-CRISPR islands documented in mobile genetic elements of 
+Enterobacteriaceae and Pseudomonas30.
+For SECϕ18, the mutants that escape defence by DarTG2 all har-
+boured point mutations in mga47, which encodes the phage DNA 
+polymerase (Fig. 5g). Our ELTA measurements indicated that the 
+DNA of escape phages is ADP-ribosylated to a similar extent as 
+wild-type phages (Fig. 5i), suggesting that the mutations in mga47 
+are not leading to a disruption of DarT2 activity. These mga47 
+mutations could, in principle, enable phage replication to happen 
+faster and before DarT2 activity accumulates. More probably, they 
+somehow promote the replication of modified DNA, but precisely 
+how this occurs remains to be studied.
+TA systems in phage defence. Our bioinformatic screen indicated 
+that DarTG homologues are often found in phage defence islands 
+and the initial report on DarTG noted that homologues are some-
+times inserted within type I restriction-modification systems. 
+These results further support the notion that proximity to known 
+phage defence elements is a powerful means of identifying new 
+phage defence systems3,15,17. Intriguingly, the RnlAB family, which 
+is known to consist of phage defence systems RnlAB and LsoAB, 
+had the lowest phage defence score measured14,24 (Supplementary 
+Table 1). This could indicate that only a subset of the RnlAB fam-
+ily is involved in phage defence. The two DarTG systems we exam-
+ined are not encoded near any known or predicted phage defence 
+system and instead are encoded within prophages (Fig. 1e). Previous 
+work has found that prophages often harbour phage defence sys-
+tems31–33. The presence of TA systems on prophages has also been 
+T DarG
+T
+–DarTG
++DarTG
+T
+Fig. 6 | Model for DarTG-mediated defence against phage. When DarTG is not present (top), phage adsorb, inject their DNA and begin producing 
+mRNAs and proteins. These proteins enable them to degrade the host chromosome, replicate their DNA and produce the structural components required 
+to make new phage particles. These components are assembled into capsids into which newly replicated genomes are packaged before lysis of the host 
+cell. When DarTG is present (bottom), phage infection triggers release of the DarT toxin. The toxin ADP-ribosylates phage DNA, thereby inhibiting DNA 
+synthesis and reducing transcription. Because some transcription occurs, particularly early on, phage are able to degrade the host chromosome and the 
+host cell does not recover. However, due to the absence of newly replicated phage genomes and reduced late protein production, new phage particles are 
+not produced.
+Nature Microbiology | VOL 7 | July 2022 | 1028–1040 | www.nature.com/naturemicrobiology
+1036
+
+
+--- Page 10 ---
+Articles
+NATuRE MiCRoBioloGy
+documented, and in some cases these systems may stabilize pro-
+phages within the bacterial chromosome, analogous to the role of 
+some TA systems in stabilizing plasmids34–36. However, the primary, 
+or perhaps additional function, of these prophage-associated TA 
+systems may be to exclude other phage, which by threatening the 
+host cell, also jeopardize their survival and propagation.
+Identifying other TA systems that are associated with defence 
+islands or encoded within prophages could help to identify addi-
+tional systems that function in phage defence. These systems 
+may provide cells with a diverse arsenal of anti-phage elements 
+that complement restriction-modification and CRISPR systems. 
+Importantly, these latter systems can only block phages by degrad-
+ing phage DNA or RNA, whereas TA systems employ toxins with 
+a wide range of enzymatic activities, including the DarT toxins we 
+found here that ADP-ribosylate phage DNA.
+Methods
+Analysis of TA system association with defence islands. Protein sequences of all 
+genes in a set of 38,167 bacterial and archaeal genomes were downloaded from the 
+Integrated Microbial Genomes (IMG) database37 in October 2017. These proteins 
+were clustered using the ‘cluster’ option of MMseqs2 (release 2-1c7a89, ref. 38), with 
+default parameters. Clusters were further aggregated into larger clusters using four 
+additional cycles of clustering; in each cycle, a representative sequence was taken 
+from each cluster using the ‘createsubdb’ option of MMseqs2 and representative 
+sequences were clustered using the ‘cluster’ option with the ‘–add-self-matches’ 
+parameter. For the first additional clustering cycle, the ‘cluster’ option was run with 
+default parameters; for the additional cycles 2–4, clustering was run with sensitivity 
+parameter ‘-s 7.5’, and for the additional cycle 4, the ‘–cluster-mode 1’ parameter 
+was also added.
+Each cluster with 20 or more genes was annotated with the most common 
+protein families (pfam), clusters of orthologous genes (COG) and IMG product 
+annotations in the cluster. For each toxin belonging to one of the analysed toxin 
+families, genes from all clusters annotated as containing this toxin were aggregated. 
+For each of the toxins families, the fraction of genes that have known defence genes 
+in their genomic environment spanning 10 genes upstream and downstream of the 
+inspected gene was recorded. Defence score for each toxin family was calculated as 
+previously described, except that genes belonging to TA systems were eliminated 
+from the positive set3. A representative DarTG system from two distinct families 
+were identified in E. coli strains for further analysis: DarTG1 is encoded in E. coli C7 
+(accession number CP010240.1) and DarTG2 is encoded in E. coli 2-460-02_S4_C3 
+(accession number NZ_JNRF00000000.1).
+Analysis of DarTG1 and DarTG2 context and sequence. A blastp search was 
+seeded with either DarT1 or DarT2. Resulting hits with e-values <10−50 were 
+selected, and associated nucleotide sequences were obtained. Prophage regions 
+were identified as those with >50% of genes having annotated phage elements 
+(for example, genes predicted to encode integrases, recombinases, phage tail 
+or phage capsid proteins) or by using the Phaster phage identification web 
+tool (www.phaster.ca). Phage defence elements were identified by referencing 
+Genbank annotations with known phage defence systems (for example, 
+restriction-modification, abortive infection).
+Representative examples of DarTG1 systems were identified through a blastp 
+search seeded with DarG1 with e-values <10−50. Because of conserved gene order 
+(darT always preceding darG), the protein sequence of the protein upstream was 
+used for the DarT alignments. For DarTG2, systems were identified from previous 
+studies17,18,20, or through a similar strategy described for DarTG1. Protein sequences 
+were aligned in Geneious v. 2020.0 (Biomatters) using the Clustal Omega 
+algorithm and the resulting image files were exported. Similarity was determined 
+using a Blosum62 matrix with threshold set to 1. In each column, the largest group 
+of similar residues was identified and coloured according to the indicated legend; 
+any residues outside of this group are not coloured. Annotations for DarG protein 
+domains were identified through a BLAST (macrodomain) or Phyre2 structural 
+prediction (YbiA-like, 80% confidence).
+Strains and growth conditions. All bacterial and phage strains are listed in 
+Supplementary Table 2. E. coli was grown at 37 °C in LB medium for routine 
+maintenance and cloning. Phages were propagated by infecting E. coli MG1655 or 
+E. coli MG1655 ∆rnlAB (T4 ∆dmd only) cultures of OD600 ~0.1–0.3 at an MOI of 
+0.1 and incubated with aeration at 37 °C. Following clearing, any remaining cells 
+were pelleted by centrifugation and lysates were filtered through a 0.22 µM filter. 
+SECϕ18 was concentrated for ELTA experiments by centrifugation of cleared lysates 
+for 2 h at 10,000 × g and resulting pellets were resuspended in ~100× less volume.
+All RB69 infection experiments were performed at 37 °C in LB medium, 
+whereas experiments with T5 and SECϕ18 were performed at 30 °C and 20 °C, 
+respectively, in M9 medium (6.4 g l−1 Na2HPO4-7H2O, 1.5 g l−1 KH2PO4, 0.25 g l−1 
+NaCl, 0.5 g l−1 NH4Cl medium supplemented with 0.1% casamino acids, 0.4% 
+glucose, 2 mM MgSO4 and 0.1 mM CaCl2). Overnight cultures were prepared in the 
+same media used in the experiment. Media for selection or plasmid maintenance 
+were supplemented with carbenicillin (100 µg ml−1), chloramphenicol (20 µg ml−1), 
+kanamycin (30 µg ml−1), or spectinomycin (100 µg ml-1) as necessary unless 
+otherwise indicated. Induction of ectopic expression were effected with anhydrous 
+tetracycline (100 ng µl−1), arabinose (0.2% w/v) or vanillate (100 µM) as necessary.
+Plasmid construction. All primer and synthesized gene sequences are listed in 
+Supplementary Table 3. DNA encoding candidate DarTG1 and DarTG2 system 
+open reading frames, as well as 200 bp upstream and overlapping ends to the 
+pBR322 vector (MLR1 and MLR2, respectively), were commercially synthesized 
+by Integrated DNA Technology as gBlocks and assembled into a promoter-less 
+backbone of pBR322 amplified with primers MLR3 and MLR4 by Gibson assembly. 
+The pBR322-DarTG1E152A and pBR322-DarTG2E147A variants were inserted into the 
+corresponding wild-type plasmids by site-directed mutagenesis with inverse PCR 
+using primers MLR5 and MLR6, or MLR7 and MLR8, respectively. To generate 
+the chromosomal insertion of darTG1, the darTG1 region containing its native 
+promoter was amplified with primers MLR9 and MLR10, and cloned into pAH144 
+vector linearized with primers MLR11 and MLR12 by Gibson assembly. The mga47 
+open reading frame was amplified from wild-type or evolved SECϕ18 with primers 
+MLR13 and MLR14, and cloned via Gibson assembly into a version of pBAD33 
+with a kanamycin resistance cassette linearized with MLR15 and MLR16. The 61.2 
+open reading frame was amplified from either the wild-type RB69 or an evolved 
+clone from population 1 with primers MLR17 and MLR18, or from T4 phage with 
+primers MLR19 and MLR20, and cloned into pKSV45-Pvan-kan linearized with 
+primers MLR21 and MLR22. The pEXT20-61.2RB69 and pEXT20-61.2RB69 (R164H) 
+vectors were generated by Gibson assembly in which the pEXT20 vector was 
+linearized with primers MLR29 and MLR30 and the insert was amplified from the 
+wild-type RB69 DNA or the evolved phage using primers MLR31 and MLR32. The 
+p-DarT1 construct, in which the toxin is expressed from an arabinose promoter, 
+was produced by amplifying DarT1 using primers MLR33 and MLR34, digested 
+with SacI and KpnI, and ligated into the pJB37 vector digested with the same 
+enzymes39. All plasmids were confirmed by Sanger sequencing of the inserts.
+Strain construction. Plasmids described above were introduced into MG1655 by 
+TSS transformation or electroporation40. A single copy of darTG1 was inserted 
+onto the MG1655 chromosome at the HK022 attachment site using the CRIM 
+system41, employing the pAH144-darTG1 vector with the pAH69 helper plasmid.  
+A scarless unmarked deletion of rnlAB was constructed by two-step allelic 
+exchange. The sacB-neoR cassette from pIB279 was amplified with ML23 and ML24 
+and inserted using lambda Red recombinase42,43. The deletion oligo (MLR25) was 
+subsequently transformed into lambda Red-containing cells and counterselection 
+was performed on 5% sucrose plates. The deletion of rnlAB was verified by PCR 
+amplification and sequencing of sucrose-sensitive, kanamycin-sensitive clones.
+Phage gene deletions. T4 mutants were generated using a CRISPR-Cas system 
+for targeted mutagenesis44. Sequences for RNA guides to target Cas9-mediated 
+cleavage were designed using the toolbox in Geneious Prime 2021.2.2 targeting 
+adfA but nowhere else in the T4 genome. The guides were inserted into the pCas9 
+plasmid as previously described45 using oligos MLR27 and MLR28, and the 
+resulting pCas9-61.2-cr6 plasmid was transformed into MG1655 and tested for 
+its ability to target the T4 genome by restricting T4. Escape plaques were isolated, 
+and two mutated variants with disruptions of the 61.2 gene were identified by 
+sequencing a premature stop codon at position 68 and a large deletion of residues 
+65–196 (Extended Data Fig. 7).
+Plaque assays, phage titering and efficiency of plating assays. Overnight cultures 
+of the indicated bacterial cells were mixed 1:200 with melted 0.5% agar made 
+with either LB or M9 medium. The agar was then overlaid onto a 1.2% agar plate 
+composed of the corresponding medium. Tenfold serial dilutions of the indicated 
+phage were spotted on top. For RB69 experiments, plates composed of LB medium 
+were incubated at 37 °C, whereas for T5 and SECϕ18 experiments, plates were 
+composed of M9 medium and incubated at 30 °C and 20 °C, respectively. All 
+experiments were performed independently at least three times.
+Growth curves. E. coli bearing the indicated DarTG plasmids were grown to 
+an OD600 of 0.3 and then mixed with phages at the indicated MOIs. Replicate 
+(8–12) 100 µl aliquots of the resulting mixtures were seeded into 96-well plates, 
+and growth was measured at 15 min intervals, with orbital shaking on a plate 
+reader (Biotek) at 37 °C for DarTG1-RB69 experiments and 30 °C for DarTG2-T5 
+experiments. Outliers were removed and data presented are the mean and standard 
+deviation of 6–12 plate replicates. Experiments were replicated independently at 
+least two times.
+Bacterial survival after phage infection. E. coli MG1655 containing either 
+DarTG1 plasmids (pBR322-darTG1 or pBR322-darTG1) or DarTG2 plasmids 
+(pMLR6, pMLR7) were grown to OD600 of 0.3 and then phages were added at 
+an MOI of 5 for the RB69 experiments and MOI of 20 for the T5 experiments. 
+Suspensions were incubated without shaking for 5 min to allow for adsorption, 
+Nature Microbiology | VOL 7 | July 2022 | 1028–1040 | www.nature.com/naturemicrobiology
+1037
+
+
+--- Page 11 ---
+Articles
+NATuRE MiCRoBioloGy
+then cultures were washed twice with an equal volume of media to remove 
+unadsorbed phage. Infected cells were incubated at the appropriate temperatures 
+for an additional 5–10 min before serial dilutions were plated onto LB plates to 
+determine bacterial colony forming units (c.f.u.). Data presented are the mean and 
+standard deviation of 3 independent biological replicates.
+One-step growth curves. Bacterial cells with appropriate plasmids were infected 
+at an MOI of 0.01 in LB medium at 37 °C (darTG1-RB69 experiment and 
+rnlAB-T4∆dmd experiment) or in M9 medium at 30 °C (darTG2-T5 experiment). 
+Samples were collected at regular time intervals, serially diluted and immediately 
+spotted onto 0.5% LB top agar mixed with a wild-type MG1655 indicator strain to 
+determine plaque forming units (p.f.u.) per ml. Data presented are the mean and 
+standard deviation of 3 independent biological replicates.
+Microscopy. Cells were grown under conditions described above to an OD600 of 
+0.3, then stained with DAPI (1 µg ml−1) for 10 min. Cells were then treated with 
+100 µg ml−1 carbenicillin or infected with phages at an MOI of 5 (RB69) or 20 
+(T5), as indicated in figure legends. For darTG1-RB69 experiments, the resulting 
+suspension was washed once to remove unadsorbed phages and 1 µl was spotted 
+onto a 1.5% agarose pad prepared with LB containing DAPI (1 µg ml−1) and placed 
+in a 35 mm glass-bottom dish with 20 mm microwell #0 coverglass (Cellvis) sealed 
+with parafilm. Phase-contrast and epifluorescence images were taken at 10 min 
+intervals using a Hamamatsu Orca Flash 4.0 camera on a Zeiss Observer Z1 
+microscope using a ×100/1.4 oil immersion objective and an LED-based Colibri 
+illumination system using MetaMorph software (Molecular Devices).
+For darTG2 experiments, the DAPI-stained infected cells were incubated  
+with shaking at 30 °C and 1 ml aliquots were removed at the indicated time points. 
+Cells were washed once to remove unadsorbed phage, spotted onto 1.5% agarose 
+pads prepared with M9 medium, placed on glass slides, and 3–5 fields were 
+immediately imaged. Data presented are representative of at least 2 independent 
+biological replicates.
+Representative cells from the 20 min timepoint of the DarTG1 and DarT*G1 
+datasets were analysed in Fiji using the ‘Plot Profile’ tool and the measurements 
+were normalized to cell length. Each cell profile was smoothed in Excel using  
+the ‘Exponential Smoothing’ tool with a damping factor of 0.7. Fluorescence 
+profiles were visually inspected and categorized into diffuse, asymmetric and 
+bimodal groups.
+DNA extractions after phage infection. For bulk DNA assays, cells in a volume of 
+10–25 ml were grown and infected as described above for bacterial survival assays, 
+and were incubated with aeration until the indicated time points. One millilitre of 
+the bacterial culture was pelleted and washed once to remove unadsorbed phage. 
+DNA used for sequencing and ELTA experiments were derived from 10 ml of 
+culture collected by vacuum filtration onto a 0.2 µM filter and washed once with 
+an equal volume of media. Filters were placed in conical tubes and cells were 
+removed by scraping into 1 ml of media and pelleting the resulting suspension. In 
+all experiments, samples were flash frozen in liquid nitrogen and stored at −80 °C. 
+DNA was extracted using the Gentra Puregene kit (Qiagen). For agarose gels, an 
+equal volume of DNA was loaded for each sample and visualized on a 0.7% agarose 
+gel stained with ethidium bromide. The amount of DNA was quantified in Fiji 
+(http://imagej.nih.gov/).
+Incorporation assays. Bacterial cells were infected under the same conditions as 
+described for bacterial survival assays and flasks were maintained with aeration 
+at the appropriate temperature. For DNA and RNA synthesis measurements, an 
+aliquot of the bacterial culture was removed before phage addition (T = 0 min) or 
+at the indicated time points post infection, and transferred to a microcentrifuge 
+tube containing methyl-3H thymidine (Perkin Elmer) (40 µCi ml−1) or uridine, 
+5-6(3H) (Perkin Elmer) (6 µCi ml−1). Tubes were incubated at the same temperature 
+as infected cultures for 1 min (37 °C growth) or 2 min (30 °C growth). Reactions 
+were quenched by addition of non-radioactive thymidine or uridine (1.5 mM) and 
+incubated an additional 1 or 2 min. Samples were added to ice-cold trichloroacetic 
+acid (TCA) (10% w/v) and incubated at least 30 min on ice to allow precipitation. 
+The resulting sample was vacuum filtered onto a glass microfibre filter (Whatman, 
+1820-024) that had been pre-wetted with 5% w/v TCA. Filters were washed with 
+35x volume of 5% w/v TCA, then with 5x volume of 100% ethanol. Air-dried filters 
+were placed in tubes with scintillation fluid and measured in a scintillation counter 
+(Perkin Elmer). Three independent biological replicates are presented.
+For protein synthesis assays, a 1 ml aliquot of bacterial culture was removed 
+either before phage addition or rifampicin treatment (T = 0 min), or at indicated 
+time points post treatment, and incubated with EasyTag EXPRESS-35S protein 
+labelling mix, (35S) (Perkin Elmer) at 44 µCi ml−1 for 2 min (37 °C) or 10 min 
+(30 °C). Labelling was quenched with addition of unlabelled cysteine and 
+methionine at 3 mM, and proteins were precipitated by addition of ice-cold TCA 
+(13% w/v) and incubation on ice for at least 30 min. Samples were pelleted, washed 
+twice with 100% acetone, then resuspended in resuspension buffer (100 mM 
+Tris (pH 11.0), 3% w/v SDS). Samples were resolved by 4–20% SDS–PAGE, after 
+which the gel was soaked in Gel Dry drying solution (Thermo Fisher), dried on 
+a vacuum dry gel dryer and exposed to a phosphorimaging screen for 1–4 d. The 
+screen was imaged on a Typhoon scanner (GE Healthcare) at 50 µM resolution. A 
+representative image of two independent experiments is presented.
+DNA sequencing. DNA collected as described above was sheared in a Diagenode 
+Bioruptor 300 sonicator water bath for 15 ×10 s cycles at maximum intensity. 
+Samples were further purified with a Zymo PCR cleanup kit and concentrations 
+were determined on a Nanodrop. Sequencing libraries were prepared by shearing 
+DNA to 150–200 nt using a Bioruptor (Diagenon), then cleaning and size-selecting 
+DNA using AMpure XP magnetic beads (Beckman Coulter). The resulting DNA 
+was end-repaired with T4 DNA polymerase (NEB), Klenow DNA polymerase 
+(NEB) and T4 polynucleotide kinase (NEB), AMPure bead purified, then 3’ 
+adenylated using Klenow Fragment (3’-5’ exo) (NEB). Adaptors were ligated with 
+blunt/TA ligase master mix (NEB) and amplified with barcoding primers for ~10 
+cycles with KAPA Hi-Fi master mix (Roche). The resulting libraries were cleaned 
+and size selected with Ampure XP beads, and run on a NextSeq500 at the MIT 
+BioMicroCenter. Sequencing data are available at the NCBI Sequence Read Archive 
+(BioProject PRJNA776027).
+Reads were trimmed and mapped using Geneious 2020.0 (Biomatters) with 
+the Geneious medium-sensitivity mapping to both MG1655 (accession number 
+CP025268.1) and phage reference genomes (RB69 accession number NC_004928; 
+T5 accession number NC_005859.1). The percent of reads mapping to the phage 
+genome was calculated as (reads mapped to phage/total reads mapped × 100) 
+for each sample and is the average of sequencing data generated from 2 or 3 
+independent biological replicates. Coverage maps were generated by dividing the 
+number of non-end-gap characters at each position by the sum of all positions and 
+multiplied by 109, then generating a moving average with an interval of 100. The 
+resulting data were plotted as a function of position. Coverage data presented are 
+from one replicate representative of 2–3 independent biological replicates.
+ELTA assays. A positive control was generated in vitro via enzymatic 
+ADP-ribosylation of ssDNA as described previously17. Briefly, a 10 µl reaction 
+containing 30 ng µl−1 of DNA substrate containing a TCTC motif (MLR26), 50 mM 
+Tris-HCl pH 8.0, 150 mM NaCl, 100 µM NAD+, and 30 ng µl−1 recombinant Taq 
+DarT (from Thermus aquaticus) was incubated at 37 °C for 2 h. The reaction 
+was purified using the Monarch PCR and DNA cleanup kit (NEB) to remove 
+unincorporated dATP. The successful incorporation of ADP-ribose was confirmed 
+by visualization on 3% agarose gel after ELTA labelling with Cy5-dATP. The 
+experiment in Fig. 3i was performed with 10 femtomole of the in vitro produced 
+ADP-ribosylated DNA, while the control reaction with non-ribosylated DNA 
+was performed using 1 µg of sheared DNA extracted from E. coli cells grown to 
+mid-log phase.
+DNA for all other ELTA assays was collected as described above. For SECϕ18 
+experiments in Fig. 5i, cells were infected at an MOI of 1,000 due to the low 
+adsorption of this phage under the growth conditions (<1%) and infected cultures 
+were incubated for 2 h before collection. The DNA was sheared for 15 ×30 s cycles 
+on the BioRuptor sonicator on the maximal intensity setting and even shearing 
+was confirmed by agarose gel electrophoresis. The resulting samples were further 
+purified with a Zymo DNA Clean and Concentrator kit (Zymo Research).
+Each 20 µl ELTA reaction consisted of 10 mM Tris-HCl pH 7.5, 20 mM 
+magnesium acetate, 2.5 mM 1,4-dithiothreitol, 10 µCi (0.05 µCi µl−1) dATP, α-32P 
+(Perkin Elmer), 2 µM OAS1, 100 µg ml−1 low molecular weight poly I:C (Invivogen) 
+and 1 µg of DNA. These reactions were incubated at 37 °C for 2 h after which 
+the DNA was purified as for the control DNA. Half of the resulting sample was 
+transferred to a 4 ml scintillation tube and counted as above. Data were normalized 
+to a reaction run with no DNA input. This ADP-ribosylated ssDNA control was 
+run alongside each set of reactions to confirm normal assay function. Two or three 
+independent biological replicates are presented in each graph.
+Anti-ADP-ribose dot blots. Dot blots were performed as described previously19. A 
+2 pmol aliquot of either the ADP-ribosylated ssDNA substrate or the corresponding 
+unribosylated substrate (described above) (Fig. 3i), or 2 µg of DNA isolated from 
+phage-infected cells (either DarTG1 or DarT*G1-containing, as described above) 
+(Fig. 3j), was spotted onto a nitrocellulose membrane and cross-linked at 1,200 J 
+with a Stratalinker UV cross-linker. The membranes were probed with poly/
+mono-ADP-ribose antibody (E6F6A; Cell Signaling) at 1:1,000. Membranes were 
+developed with SuperSignal West Femto maximum sensitivity substrate (Thermo 
+Fisher) and imaged on a ChemiDoc system (Biorad). One blot is depicted, which is 
+representative of two independent experiments.
+Phage evolution experiments. Each RB69 evolution experiment consisted of 8 
+wells of cells producing DarTG1 (ML3) and 8 wells of cells producing DarT*G1 
+(ML4) seeded with ~106 cells per well from overnight bacterial cultures in a 96-well 
+plate in LB medium. Cells were infected with 10-fold serial dilutions of phage 
+cultures with the highest MOI at 10, and one well of each strain was uninfected 
+to control for cross-contamination. Plates were sealed with Breathe Easy plate 
+seals (Sigma) and aerated by micro-orbital shaking in an ELMI plate shaker at 
+37 °C. Plates were incubated for 4–6 h. The cleared and partially cleared wells were 
+pooled, centrifuged to remove unlysed bacteria, and the resulting supernatants 
+were used to infect the next evolution round. Resistance to DarTG1 was monitored 
+Nature Microbiology | VOL 7 | July 2022 | 1028–1040 | www.nature.com/naturemicrobiology
+1038
+
+
+--- Page 12 ---
+Articles
+NATuRE MiCRoBioloGy
+by the number of cleared wells as well as by EOP assays. Once resistance to 
+DarTG1 was observed, single plaques were isolated in top agar plates and tested 
+for resistance. One resistant clone from each of 5 independently evolved phage 
+populations was propagated for further analysis and sequencing as described 
+below. A control population that was only passaged on cells containing DarT*G1 
+was also analysed.
+The SECϕ18 evolution experiments were designed as above, except that wells 
+were seeded with E. coli cells producing DarTG2 and DarT*G2, propagated in 
+M9-glucose medium, and plates were incubated at 20 °C for 16 h. Sequencing was 
+performed on evolved populations as opposed to single clones described for the 
+RB69 evolution.
+To extract phage DNA, lysed bacterial cultures were centrifuged to remove 
+bacterial cells, then 100 µl of supernatant containing phages was incubated with 
+TURBO DNase I (0.1 mg ml−1) and RNase A (0.1 mg ml−1) for 45 min at 37 °C to 
+remove residual nucleic acids from bacterial cell lysis. Nucleases were inactivated 
+by addition of EDTA (10 mM) and incubation for 15 min at 37 °C. Proteinase K 
+(0.2 mg ml−1) was added and samples incubated at 50 °C for 30 min to disrupt phage 
+capsids. Samples were centrifuged for 2 min at 21,000 × g and DNA precipitated 
+from the supernatant by standard sodium acetate/ethanol precipitation. The 
+resulting DNA was processed for Illumina sequencing as described for E. coli 
+infection sequencing experiments and mapped to the RB69 reference genome 
+(NC_004928) or SECϕ18 reference genome (LT960609). Only mutations that 
+arose uniquely in the phages evolved on E. coli containing DarTG, that were not 
+also found in the phages evolved on E. coli lacking active DarTG systems, were 
+considered. For the SECϕ18 control population, only the two genes (mga32 and 
+mga47) that had acquired mutations in the populations evolved in the presence 
+of DarTG2, were PCR-amplified and Sanger sequenced. Mutations were also 
+identified in mga32 for the control experiment, so only mga47 mutations were 
+considered relevant to DarTG2 resistance. Mutations were identified using 
+Geneious Variant Finder, with the threshold set to >20%.
+Reporting summary. Further information on research design is available in the 
+Nature Research Reporting Summary linked to this article.
+Data availability
+The bioinformatic analysis was performed using protein sequences available in 
+the Integrated Microbial Genomes (IMG) database (https://img.jgi.doe.gov/). 
+DarTG1 and DarTG2 were identified in Escherichia coli C7 (NCBI accession 
+GCA_001901425.1) and Escherichia coli 2-460-02_S4_C3 (NCBI accession 
+GCA_000704545.1). Sequencing data are available on NCBI (BioProject 
+PRJNA776027). Sequencing data were aligned to reference genomes of MG1655 
+(accession number CP025268.1), RB69 (accession number NC_004928), SECϕ18 
+(accession number LT960609) or T5 (accession number NC_005859.1). All other 
+source data have been deposited to Mendeley Data V1 at https://doi.org/10.17632/
+v9bmr549nf.1. Source data are provided with this paper.
+Received: 19 October 2021; Accepted: 18 May 2022;  
+Published online: 20 June 2022
+References
+	1.	 Bernheim, A. et al. Prokaryotic viperins produce diverse antiviral molecules. 
+Nature 589, 120–124 (2021).
+	2.	 Cohen, D. et al. Cyclic GMP-AMP signalling protects bacteria against viral 
+infection. Nature 574, 691–695 (2019).
+	3.	 Doron, S. et al. Systematic discovery of antiphage defense systems in the 
+microbial pangenome. Science 359, eaar4120-18 (2018).
+	4.	 Gao, L. et al. Diverse enzymatic activities mediate antiviral immunity in 
+prokaryotes. Science 369, 1077–1084 (2020).
+	5.	 Harms, A., Brodersen, D. E., Mitarai, N. & Gerdes, K. Toxins, targets,  
+and triggers: an overview of toxin-antitoxin biology. Mol. Cell 70,  
+768–784 (2018).
+	6.	 Song, S. & Wood, T. K. A primary physiological role of toxin/antitoxin 
+systems is phage inhibition. Front. Microbiol. 11, 1895 (2020).
+	7.	 Page, R. & Peti, W. Toxin-antitoxin systems in bacterial growth arrest and 
+persistence. Nat. Chem. Biol. 12, 208–214 (2016).
+	8.	 Ronneau, S. & Helaine, S. Clarifying the link between toxin-antitoxin 
+modules and bacterial persistence. J. Mol. Biol. 431, 3462–3471 (2019).
+	9.	 Yamaguchi, Y. & Inouye, M. Regulation of growth and death in Escherichia 
+coli by toxin–antitoxin systems. Nat. Rev. Microbiol. 9, 779–790 (2011).
+	10.	LeRoux, M., Culviner, P. H., Liu, Y. J., Littlehale, M. L. & Laub, M. T. Stress 
+can induce transcription of toxin-antitoxin systems without activating toxin. 
+Mol. Cell 79, 280–292.e8 (2020).
+	11.	Christensen, S. K., Pedersen, K., Hansen, F. G. & Gerdes, K. Toxin–antitoxin 
+loci as stress-response-elements: ChpAK/MazF and ChpBK cleave translated 
+RNAs and are counteracted by tmRNA. J. Mol. Biol. 332, 809–819 (2003).
+	12.	Fineran, P. C. et al. The phage abortive infection system, ToxIN, functions  
+as a protein-RNA toxin-antitoxin pair. Proc. Natl Acad. Sci. USA 106, 
+894–899 (2009).
+	13.	Guegler, C. K. & Laub, M. T. Shutoff of host transcription triggers a 
+toxin-antitoxin system to cleave phage RNA and abort infection. Mol. Cell 81, 
+2361–2373 (2021).
+	14.	Koga, M., Otsuka, Y., Lemire, S. & Yonesaki, T. Escherichia coli rnlA and rnlB 
+compose a novel toxin-antitoxin system. Genetics 187, 123–130 (2011).
+	15.	Makarova, K. S., Wolf, Y. I., Snir, S. & Koonin, E. V. Defense islands in 
+bacterial and archaeal genomes and prediction of novel defense systems.  
+J. Bacteriol. 193, 6039–6056 (2011).
+	16.	Makarova, K. S., Wolf, Y. I. & Koonin, E. V. Comparative genomics of defense 
+systems in archaea and bacteria. Nucleic Acids Res. 41, 4360–4377 (2013).
+	17.	Jankevicius, G., Ariza, A., Ahel, M. & Ahel, I. The toxin-antitoxin system 
+DarTG catalyzes reversible ADP-ribosylation of DNA. Mol. Cell 64, 
+1109–1116 (2016).
+	18.	Lawarée, E. et al. DNA ADP-ribosylation stalls replication and is reversed by 
+recf-mediated homologous recombination and nucleotide excision repair. Cell 
+Rep. 30, 1373–1384.e4 (2020).
+	19.	Schuller, M. et al. Molecular basis for DarT ADP-ribosylation of a DNA base. 
+Nature 596, 597–602 (2021).
+	20.	Zaveri, A. et al. Depletion of the DarG antitoxin in Mycobacterium 
+tuberculosis triggers the DNA-damage response and leads to cell death. Mol. 
+Microbiol. 114, 641–652 (2020).
+	21.	De Souza, R. F. & Aravind, L. Identification of novel components of 
+NAD-utilizing metabolic pathways and prediction of their biochemical 
+functions. Mol. Biosyst. 8, 1661–1677 (2012).
+	22.	Rack, J. G. M., Perina, D. & Ahel, I. Macrodomains: structure, function, 
+evolution, and catalytic activities. Annu. Rev. Biochem. 85, 431–454 (2016).
+	23.	Tromans-Coia, C. et al. TARG1 protects against toxic DNA ADP-ribosylation. 
+Nucleic Acids Res. https://doi.org/10.1093/nar/gkab771 (2021).
+	24.	Otsuka, Y. & Yonesaki, T. Dmd of bacteriophage T4 functions as an  
+antitoxin against Escherichia coli LsoA and RnlA toxins. Mol. Microbiol. 83, 
+669–681 (2012).
+	25.	McCorquodale, D. J. & Warner, H. R. in The Bacteriophages (ed. Calendar, R.) 
+439–475 (Springer, 1988); https://doi.org/10.1007/978-1-4684-5424-6_10
+	26.	Ando, Y. et al. ELTA: enzymatic labeling of terminal ADP-ribose. Mol. Cell 
+73, 845–856.e5 (2019).
+	27.	Srikant, S., Guegler, C. K. & Laub, M. T. The evolution of a counter-defense 
+mechanism in a virus constrains its host range. Preprint at bioRxiv https://
+doi.org/10.1101/2022.04.14.488369 (2022).
+	28.	Petrov, V. M., Ratnayaka, S., Nolan, J. M., Miller, E. S. & Karam, J. D. 
+Genomes of the T4-related bacteriophages as windows on microbial genome 
+evolution. Virol. J. 7, 292 (2010).
+	29.	Warner, H. R., Drong, R. F. & Berget, S. M. Early events after infection of 
+Escherichia coli by bacteriophage T5. Induction of a 5’-nucleotidase activity 
+and excretion of free bases. J. Virol. 15, 273–280 (1975).
+	30.	Pinilla-Redondo, R. et al. Discovery of multiple anti-CRISPRs highlights 
+anti-defense gene clustering in mobile genetic elements. Nat. Commun. 11, 
+5652 (2020).
+	31.	Bondy-Denomy, J. et al. Prophages mediate defense against phage infection 
+through diverse mechanisms. ISME J. 10, 2854–2866 (2019).
+	32.	Dedrick, R. M. et al. Prophage-mediated defence against viral attack and viral 
+counter-defence. Nat. Microbiol. 2, 16251 (2017).
+	33.	Rousset, F., Dowding, J., Bernheim, A., Rocha, E. P. C. & Bikard, D. 
+Prophage-encoded hotspots of bacterial immune systems. Preprint at bioRxiv 
+https://doi.org/10.1101/2021.01.21.427644 (2021).
+	34.	Hallez, R. et al. New toxins homologous to ParE belonging to 
+three-component toxin–antitoxin systems in Escherichia coli O157:H7. Mol. 
+Microbiol. 76, 719–732 (2010).
+	35.	Peltier, J. et al. Type I toxin-antitoxin systems contribute to the maintenance 
+of mobile genetic elements in Clostridioides difficile. Commun. Biol. 3,  
+718 (2020).
+	36.	Yao, J. et al. Type II toxin/antitoxin system ParESO /CopASO stabilizes 
+prophage CP4So in Shewanella oneidensis. Environ. Microbiol. 20,  
+1224–1239 (2018).
+	37.	Chen, I.-M. A. et al. IMG/M v.5.0: an integrated data management and 
+comparative analysis system for microbial genomes and microbiomes. Nucleic 
+Acids Res. 47, D666–D677 (2019).
+	38.	Steinegger, M. & Söding, J. MMseqs2 enables sensitive protein sequence 
+searching for the analysis of massive data sets. Nat. Biotechnol. 35,  
+1026–1028 (2017).
+	39.	Bobonis, J. et al. Bacterial retrons encode tripartite toxin/antitoxin systems. 
+Preprint at bioRxiv https://doi.org/10.1101/2020.06.22.160168 (2020).
+	40.	Chung, C. T., Niemela, S. L. & Miller, R. H. One-step preparation of 
+competent Escherichia coli: transformation and storage of bacterial cells in the 
+same solution. Proc. Natl Acad. Sci. USA 86, 2172–2175 (1989).
+	41.	Haldimann, A. & Wanner, B. L. Conditional-replication, integration, excision, 
+and retrieval plasmid-host systems for gene structure-function studies of 
+bacteria. J. Bacteriol. 183, 6384–6393 (2001).
+	42.	Blomfield, I. C., Vaughn, V., Rest, R. F. & Eisenstein, B. I. Allelic exchange in 
+Escherichia coli using the Bacillus subtilis sacB gene and a 
+temperature-sensitive pSC101 replicon. Mol. Microbiol. 5, 1447–1457 (1991).
+Nature Microbiology | VOL 7 | July 2022 | 1028–1040 | www.nature.com/naturemicrobiology
+1039
+
+
+--- Page 13 ---
+Articles
+NATuRE MiCRoBioloGy
+	43.	Datsenko, K. A. & Wanner, B. L. One-step inactivation of chromosomal genes 
+in Escherichia coli K-12 using PCR products. Proc. Natl Acad. Sci. USA 97, 
+6640–6645 (2000).
+	44.	Duong, M. M., Carmody, C. M., Ma, Q., Peters, J. E. & Nugen, S. R. 
+Optimization of T4 phage engineering via CRISPR/Cas9. Sci. Rep. 10,  
+18229 (2020).
+	45.	Jiang, W., Bikard, D., Cox, D., Zhang, F. & Marraffini, L. A. RNA-guided 
+editing of bacterial genomes using CRISPR-Cas systems. Nat. Biotechnol. 31, 
+233–239 (2013).
+Acknowledgements
+M.L. was supported by a postdoctoral fellowship from the Charles A. King Trust 
+Postdoctoral Research Fellowship Program, Bank of America, N.A., Co-Trustees. This 
+work was funded by an NIH grant to M.T.L. (R01GM082899), who is also an Investigator 
+of the Howard Hughes Medical Institute; the Sagol Weizmann-MIT Bridge Program 
+(M.T.L. and R.S.); and grants to R.S.: the European Research Council (grant ERC-CoG 
+681203), the Ernest and Bonnie Beutler Research Program of Excellence in Genomic 
+Medicine, and the German Research Council (DFG) priority program SPP 2330 (grant 
+SO 1611/2). A.K.L.L. was supported by an NIH grant (R01GM104135).
+Author contributions
+M.L. performed all experiments. S.S. helped with the construction of phage gene 
+deletions and plaque assays, and with design and interpretation of phage evolution 
+experiments. G.I.C.T. helped with strain construction, bacterial and phage growth and 
+survival assays, and DNA extraction and sequencing. T.Z. helped with the cysteine and 
+methionine incorporation assays. M.L.L. helped with bacterial and phage growth and 
+survival experiments. M.B. and A.K.L.L. supplied biochemical reagents and controls and 
+helped with design of ELTA assays. S.D. and R.S. performed a bioinformatic analysis 
+of TA proximity to known defence elements. M.L. and M.T.L. designed experiments, 
+analysed data, prepared figures and wrote the manuscript.
+Competing interests
+R.S. is a scientific cofounder and advisor of BiomX and Ecophage.
+Additional information
+Extended data is available for this paper at https://doi.org/10.1038/s41564-022-01153-5.
+Supplementary information The online version contains supplementary material 
+available at https://doi.org/10.1038/s41564-022-01153-5.
+Correspondence and requests for materials should be addressed to Michael T. Laub.
+Peer review information Nature Microbiology thanks the anonymous reviewers for their 
+contribution to the peer review of this work.
+Reprints and permissions information is available at www.nature.com/reprints.
+Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims in 
+published maps and institutional affiliations.
+© The Author(s), under exclusive licence to Springer Nature Limited 2022
+Nature Microbiology | VOL 7 | July 2022 | 1028–1040 | www.nature.com/naturemicrobiology
+1040
+
+
+--- Page 14 ---
+Articles
+NATuRE MiCRoBioloGy
+Articles
+NATuRE MiCRoBioloGy
+Extended Data Fig. 1 | Sequence alignment of DarT homologs. Full multiple sequence alignments of representative DarT homologs corresponding to Fig. 1f.
+Nature Microbiology | www.nature.com/naturemicrobiology
+
+
+--- Page 15 ---
+Articles
+NATuRE MiCRoBioloGy
+Articles
+NATuRE MiCRoBioloGy
+Extended Data Fig. 2 | Sequence alignment of DarG homologs. Full multiple sequence alignments of representative DarG homologs corresponding to Fig. 1f.
+Nature Microbiology | www.nature.com/naturemicrobiology
+
+
+--- Page 16 ---
+Articles
+NATuRE MiCRoBioloGy
+Articles
+NATuRE MiCRoBioloGy
+Extended Data Fig. 3 | DarTG systems provide phage defense via an abortive infection mechanism. Growth curves for strains with the indicated 
+plasmid-encoded TA system after infection with RB69 (a) or T5 (b) phage at varying multiplicities of infection (MOI). The mean and S.D. of 6-12 technical 
+replicates are presented; data are an independent biological replicate for data presented in Fig. 2a, b.
+Nature Microbiology | www.nature.com/naturemicrobiology
+
+
+--- Page 17 ---
+Articles
+NATuRE MiCRoBioloGy
+Articles
+NATuRE MiCRoBioloGy
+Extended Data Fig. 4 | DAPI-staining detects phage particles and changes in DNA compaction in infected cells. a, Snapshots taken of cultures of E. coli 
+MG1655 cells containing DAPI 10-20 min after addition of the indicated phage. b, Time-lapse series of DAPI-stained E. coli MG1655 cells on agarose pads 
+containing 100 µg/mL carbenicillin (top) or untreated (bottom). Lysed cells are indicated with red arrows. c–d, Fluorescence intensity profiles of individual 
+cells are plotted for DarTG1 (c) or DarT*G1 (d) cells. Profiles for 18-20 representative cells are shown for each condition and are grouped into diffuse (left), 
+bimodal (middle), or asymmetric (right). Scale bars, 4 µM.
+Nature Microbiology | www.nature.com/naturemicrobiology
+
+
+--- Page 18 ---
+Articles
+NATuRE MiCRoBioloGy
+Articles
+NATuRE MiCRoBioloGy
+Extended Data Fig. 5 | Less DNA is recovered from infected cells when a DarTG2 system is present. Total DNA extracted from cells containing darTG2 or 
+darT*G2 and infected with T5 for the times indicated. The intensity of the band at each time post-infection relative to the pre-infection band is reported at 
+the bottom. Two independent replicates are shown.
+Nature Microbiology | www.nature.com/naturemicrobiology
+
+
+--- Page 19 ---
+Articles
+NATuRE MiCRoBioloGy
+Articles
+NATuRE MiCRoBioloGy
+Extended Data Fig. 6 | Activated DarT inhibits the timing of phage protein production. Protein synthesis rates as measured by 35S-labeled cysteine and 
+methionine incorporation at various time points after infection for E. coli bearing the indicated plasmids and infected with either RB69 at MOI 5 (a) or 
+treated with 300 µg/mL rifampicin (rif) (b). Data shown are representative of 2 independent biological replicates.
+Nature Microbiology | www.nature.com/naturemicrobiology
+
+
+--- Page 20 ---
+Articles
+NATuRE MiCRoBioloGy
+Articles
+NATuRE MiCRoBioloGy
+Extended Data Fig. 7 | Gene 61.2 is not essential in T4. Plaque assays of the wild-type T4, or variants with either a premature stop-codon in gp61.2 (L68*) 
+or a large deletion of residues 65-196 (T4 61.2∆65–196) on E. coli with an active or inactive version of the DarTG1 system.
+Nature Microbiology | www.nature.com/naturemicrobiology
+
+
+--- Page 21 ---
+1
+nature portfolio  |  reporting summary
+March 2021
+Corresponding author(s):
+Laub
+Last updated by author(s): May 11, 2022
+Reporting Summary
+Nature Portfolio wishes to improve the reproducibility of the work that we publish. This form provides structure for consistency and transparency 
+in reporting. For further information on Nature Portfolio policies, see our Editorial Policies and the Editorial Policy Checklist.
+Statistics
+For all statistical analyses, confirm that the following items are present in the figure legend, table legend, main text, or Methods section.
+n/a Confirmed
+The exact sample size (n) for each experimental group/condition, given as a discrete number and unit of measurement
+A statement on whether measurements were taken from distinct samples or whether the same sample was measured repeatedly
+The statistical test(s) used AND whether they are one- or two-sided 
+Only common tests should be described solely by name; describe more complex techniques in the Methods section.
+A description of all covariates tested
+A description of any assumptions or corrections, such as tests of normality and adjustment for multiple comparisons
+A full description of the statistical parameters including central tendency (e.g. means) or other basic estimates (e.g. regression coefficient) 
+AND variation (e.g. standard deviation) or associated estimates of uncertainty (e.g. confidence intervals)
+For null hypothesis testing, the test statistic (e.g. F, t, r) with confidence intervals, effect sizes, degrees of freedom and P value noted 
+Give P values as exact values whenever suitable.
+For Bayesian analysis, information on the choice of priors and Markov chain Monte Carlo settings
+For hierarchical and complex designs, identification of the appropriate level for tests and full reporting of outcomes
+Estimates of effect sizes (e.g. Cohen's d, Pearson's r), indicating how they were calculated
+Our web collection on statistics for biologists contains articles on many of the points above.
+Software and code
+Policy information about availability of computer code
+Data collection
+MetaMorph v7.10.2.240 (Molecular Devices LLC) was used to collect microscopy data. 
+Biotek Gen5 v. 3.02 was used to collect growth curve data. 
+Data analysis
+Geneious Prime v2020.0.5 and v20212.2 (Biomatters) were used to process and analyze all DNA sequencing data.  
+Prism 9 for macOS (Version 9.2.0) was used to produce graphs and execute statistical analyses.  
+Fiji v 1.0 was used for analyzing microscopy images. 
+Microsoft Excel for Mac (v 16.60) was used for smoothing sequencing data (Fig. 3e, g) and microscopy line scans (Extended Data 4c). 
+Matlab r2017a was used to analyze plate reader data.
+For manuscripts utilizing custom algorithms or software that are central to the research but not yet described in published literature, software must be made available to editors and 
+reviewers. We strongly encourage code deposition in a community repository (e.g. GitHub). See the Nature Portfolio guidelines for submitting code & software for further information.
+Data
+Policy information about availability of data
+All manuscripts must include a data availability statement. This statement should provide the following information, where applicable: 
+- Accession codes, unique identifiers, or web links for publicly available datasets 
+- A description of any restrictions on data availability 
+- For clinical datasets or third party data, please ensure that the statement adheres to our policy 
+ 
+The bioinformatic analysis was performed using protein sequences available in the Integrated Microbial Genomes (IMG) database (https://img.jgi.doe.gov/). DarTG1 
+and DarTG2 were identified in Escherichia coli C7 (NCBI Accession GCA_001901425.1) and Escherichia coli 2-460-02_S4_C3 (NCBI Accession GCA_000704545.1). 
+
+
+--- Page 22 ---
+2
+n at ur e p ortf oli o  |  r e p orti n g s u m m ary
+M arc h 2 0 2 1
+S e q u e nci n g d at a ar e av ail a bl e o n N C BI ( Bi o Pr oj ect P RJ N A 7 7 6 0 2 7).  S e q u e nci n g d at a w er e ali g n e d t o r ef er e nc e g e n o m es of M G 1 6 5 5 ( Acc essi o n n u m b er 
+C P 0 2 5 2 6 8. 1), R B 6 9 ( Acc essi o n n u m b er N C _ 0 0 4 9 2 8), S E C 1 8 ( acc essi o n n u m b er L T 9 6 0 6 0 9), or T 5 ( acc essi o n n u m b er N C _ 0 0 5 8 5 9. 1). All ot h er s o urc e d at a h as b e e n 
+d e p osit e d t o M e n d el ey D at a, V 1, d oi: 1 0. 1 7 6 3 2/v 9 b mr 5 4 9 nf. 1.
+Fi el d-s p ecific r e p orti n g
+Pl e as e s el ect t h e o n e b el o w t h at is t h e b est fit f or y o ur r es e a rc h. If y o u ar e n ot s ur e, r e a d t h e a p pr o pri at e s ecti o ns b ef or e m aki n g y o ur s el ecti o n.
+Lif e sci e nc es
+B e h avi o ur al & s oci al sci e nc es
+ Ec ol o gic al, ev ol uti o n ary & e nvir o n m e nt al sci e nc es
+F or a r ef er e nc e c o py of t h e d oc u m e nt wit h all s ecti o ns, s e e n at ur e.c o m/ d oc u m e nts/ nr-r e p orti n g-s u m m ary-fl at. p df
+Lif e sci e nc es st u dy d esi g n
+All st u di es m ust discl os e o n t h es e p oi nts ev e n w h e n t h e discl os ur e is n e g ativ e.
+S a m pl e siz e
+S a m pl e siz es w er e c h os e n b as e d o n t h e n u m b er n e e d e d t o r eli a bly  d et er mi n e diff er e nc es b et w e e n gr o u ps. All ex p eri m e nts w er e p erf or m e d 
+at 2- 3 ti m es i n d e p e n d e ntly.
+D at a excl usi o ns
+N o d at a w er e excl u d e d.
+R e plic ati o n
+All ex p eri m e nts w er e i n d e p e n d e ntly r e plic at e d at l e ast t wic e.
+R a n d o miz ati o n
+T his st u dy d o es n ot i nv olv e s u bj ects t h at r e q uir e r a n d o miz ati o n .
+Bli n di n g
+T his st u dy d o es n ot i nv olv e pr oc e d ur es t h at r e q uir e bli n di n g. 
+R e p orti n g f or s p ecific m at eri als, syst e ms a n d m et h o ds
+W e r e q uir e i nf or m ati o n fr o m a ut h ors a b o ut s o m e ty p es of m at eri a ls, ex p eri m e nt al syst e ms a n d m et h o ds us e d i n m a ny st u di es. H er e, i n dic at e w h et h er e ac h m at eri al, 
+syst e m or m et h o d list e d is r el ev a nt t o y o ur st u dy. If y o u ar e not s ur e if a list it e m a p pli es t o y o ur r es e arc h, r e a d t h e a p pr o pri at e s ecti o n b ef or e s el ecti n g a r es p o ns e. 
+M at eri als & ex p eri m e nt al syst e ms
+n/ a
+I nv olv e d i n t h e st u dy
+A nti b o di es
+E uk ary otic c ell li n es
+P al a e o nt ol o gy a n d arc h a e ol o gy
+A ni m als a n d ot h er or g a nis ms
+H u m a n r es e arc h p artici p a nts
+Cli nic al d at a
+D u al us e r es e arc h of c o nc er n
+M et h o ds
+n/ a
+I nv olv e d i n t h e st u dy
+C hI P-s e q
+Fl o w cyt o m etry
+M RI- b as e d n e ur oi m a gi n g
+A nti b o di es
+A nti b o di es us e d
+P oly/ M o n o- A D P Ri b os e ( Cl o n e E 6 F 6 A); C ell Si g n ali n g, C at al o g # 8 3 7 3 2; L ot # 3.
+V ali d ati o n
+M a n uf act ur er s p ecifi es t h at s p eci es r e activity is d et er mi n e d by  t esti n g i n at l e ast o n e a p pr ov e d a p plic ati o n ( e. g., w est er n blot). 
+A nti b o dy w as v ali d at e d f or d et ecti o n of D N A A D P-ri b osyl ati o n i n  Sc h ull er et. al. ( 2 0 2 1) N at ur e. W e p erf or m e d i nt er n al v ali d atio n 
+usi n g a n i n vitr o g e n er at e d c o ntr ol D N A oli g o t h at h a d b e e n A D P -ri b osyl at e d, c o m p ar e d t o t h e u n-ri b osyl at e d oli g o. 

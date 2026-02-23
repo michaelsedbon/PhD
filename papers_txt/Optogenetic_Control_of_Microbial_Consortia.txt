@@ -1,0 +1,1582 @@
+--- Page 1 ---
+Optogenetic Control of Microbial Consortia Populations for
+Chemical Production
+Makoto A. Lalwani, Hinako Kawabe, Rebecca L. Mays, Shannon M. Hoﬀman, and José L. Avalos*
+Cite This: https://doi.org/10.1021/acssynbio.1c00182
+Read Online
+ACCESS
+Metrics & More
+Article Recommendations
+*
+sı
+Supporting Information
+ABSTRACT: Microbial co-culture fermentations can improve
+chemical production from complex biosynthetic pathways over
+monocultures by distributing enzymes across multiple strains,
+thereby reducing metabolic burden, overcoming endogenous
+regulatory mechanisms, or exploiting natural traits of diﬀerent
+microbial species. However, stabilizing and optimizing microbial
+subpopulations for maximal chemical production remains a major
+obstacle in the ﬁeld. In this study, we demonstrate that
+optogenetics is an eﬀective strategy to dynamically control
+populations in microbial co-cultures. Using a new optogenetic
+circuit we call OptoTA, we regulate an endogenous toxin-antitoxin
+system, enabling tunability of Escherichia coli growth using only
+blue light. With this system we can control the population
+composition of co-cultures of E. coli and Saccharomyces cerevisiae. When introducing in each strain diﬀerent metabolic modules of
+biosynthetic pathways for isobutyl acetate or naringenin, we found that the productivity of co-cultures increases by adjusting the
+population ratios with speciﬁc light duty cycles. This study shows the feasibility of using optogenetics to control microbial consortia
+populations and the advantages of using light to control their chemical production.
+KEYWORDS: optogenetics, co-culture fermentations, metabolic engineering, microbial consortia, dynamic control
+M
+etabolic engineering aims to rewire the metabolism of
+microorganisms to convert simple feedstocks into
+products of interest.1 Dynamic control,2 pathway compartmen-
+talization,3 and adaptive laboratory evolution4 have helped to
+further improve microbial chemical production in engineered
+strains. However, overburdening an organism with genetic
+modiﬁcations can lead to growth defects and loss of
+productivity.5 Additionally, maximizing metabolic ﬂux through
+a pathway of interest often requires bypassing endogenous
+regulatory mechanisms,6 functionally expressing heterologous
+proteins (including enzymes and transporters),7 or avoiding
+intermediate loss to competing pathways by deleting
+endogenous genes.8 When such interventions to enhance a
+particular step of a pathway undermine others, necessary
+compromises may lead to pathway ineﬃciencies. For example,
+when an enzyme important for one step of the pathway also
+competes in another step to make a byproduct, it may not help
+to overexpress or delete the enzyme.9 Another frequent
+challenge is the ability to functionally express some
+heterologous enzymes in organisms that otherwise have
+important advantages to produce a speciﬁc chemical. For
+example, the diﬃculty of expressing some eukaryotic enzymes
+in E. coli undermines the extraordinary ability of this organism
+to produce many precursors.10 These often-encountered
+challenges limit strain titers, yields, and productivities.
+A solution that has been proposed to overcome these
+challenges is to separate and distribute metabolic roles among
+diﬀerent members of a microbial consortium.11 Natural
+microbial consortia have been used, in some cases for
+millennia, to produce a wide variety of products, notably in
+the food and bulk chemical industries.12 Metabolic engineers
+have thus spent signiﬁcant eﬀort in engineering synthetic
+microbial consortia for chemical production. Co-culturing
+strains or organisms with specialized roles can improve
+productivity by reducing the total resources or genetic
+modiﬁcations required of each member. Furthermore,
+biosynthetic pathways can be split into submodules and be
+optimized based on the unique advantages of diﬀerent species
+while avoiding endogenous regulation and competing path-
+ways. Engineered microbial consortia have been applied to
+divide and optimize biosynthetic pathways within separate
+strains or species, leading to more eﬃcient production of
+compounds such as muconic acid (by overcoming secretion of
+Received:
+April 24, 2021
+Research Article
+pubs.acs.org/synthbio
+© XXXX American Chemical Society
+A
+https://doi.org/10.1021/acssynbio.1c00182
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+Downloaded via KUNMING UNIV OF SCIENCE AND TECHNOLOGY on August 11, 2021 at 01:33:25 (UTC).
+See https://pubs.acs.org/sharingguidelines for options on how to legitimately share published articles.
+
+
+--- Page 2 ---
+an intermediate), resveratrol (by avoiding downregulation of
+an intermediate pathway step), and rosmarinic acid (by
+suboptimization of pathway modules).13−15 They have also
+been utilized in consolidated bioprocessing approaches to
+more eﬃciently break down complex feedstocks, such as
+lignocellulosic biomass, into biofuels such as ethanol, butanol,
+and isobutanol,16−18 while avoiding the increases in production
+time, process complexity, and sterilization costs introduced by
+two-stage bioprocesses.19 Such studies demonstrate the
+beneﬁts of combining the strengths of specialized strains or
+species to perform complex tasks.
+Despite this progress made in engineering microbial
+consortia, maintaining population stability has remained an
+obstacle to their more widespread use and application in
+commercial processes. There is a natural propensity for the
+fastest growing member of a co-culture to eventually
+outcompete the others and establish a monoculture. The
+most common approach to address this problem is to adjust
+the initial inoculation sizes of each member to ensure they are
+all maintained throughout the fermentation.18,20 However,
+variations at inoculation (such as deviations in preculture age
+or measurement errors), ampliﬁed throughout fermentation,
+can lead to batch-to-batch inconsistencies. Furthermore, this
+strategy does not provide the opportunity to adjust microbial
+populations once the fermentation is initialized, which could
+help oﬀset these variations. Clever solutions have been found
+to ensure all members of engineered co-cultures are
+maintained during fermentations by engineered neutrality or
+symbiosis: for example, by making strains reliant on diﬀerent
+carbon or nutrient sources,13 modifying them to be co-
+dependent so that one species cannot grow without the
+other(s),21 or using quorum sensing to regulate growth via
+interpopulation communication.22 While these strategies have
+been largely successful at stabilizing members of engineered
+consortia, they still require careful tuning of parameters such as
+inoculation size and media components, which cannot be
+easily altered mid-fermentation. Furthermore, the population
+distributions established by these strategies are determined by
+the properties of each system and cannot be dynamically
+controlled to ﬁnd, achieve, and maintain varying optimal
+population ratios to maximize chemical production.
+We propose that optogenetic control of microbial growth
+oﬀers a promising solution for optimizing co-culture
+fermentations. Light provides a tunable and reversible method
+of regulating gene expression, and has previously been applied
+to dynamically control and optimize monoculture fermenta-
+tions,23−26 including in lab-scale bioreactors at high cell
+densities. It has also been used to modulate growth rates of
+species such as Escherichia coli27 and Saccharomyces cerevisiae28
+by controlling expression of essential metabolic valves such as
+amino acid biosynthesis or glycolysis. Unlike initial inoculation
+size and ratio, light can be easily turned on and oﬀat any time
+and in any duty cycle, allowing for real-time adjustments to
+perturbations during a fermentation. Additionally, optogenetic
+growth valves can be designed to be independent of process
+conditions or other consortium members, such that each
+Figure 1. OptoTA enables blue light-dependent bacterial growth. (a) OptoTA uses the pDusk and pDawn systems to control growth of E. coli
+using the mazEF toxin-antitoxin system. Growth is suppressed in the dark (left panel) via pDusk expression of mazF leading to mRNA degradation.
+Growth is enabled in blue light (right panel) through pDawn expression of mazE, which inhibits MazF, and ceased expression of mazF. E. coli cells
+and protein shapes were created using Biorender.com. (b) Growth of E. coli strain containing OptoTA (EMAL144) in M9 medium with glucose,
+glycerol, or xylose, or LB in blue light or darkness, compared to a control strain lacking OptoTA (EMAL221) grown in M9 medium with glucose.
+(c) Growth time course of EMAL144 in M9 medium with glucose under diﬀerent light conditions: full light (square), 10 s ON/90 s OFF (circle),
+1 s ON/99 s OFF (triangle), and full darkness (diamond), compared to EMAL221 (Control, X) grown in ambient light. All data are shown as
+mean values; error bars represent the s.d. of n = 3 biologically independent samples.
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.1c00182
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+B
+
+
+--- Page 3 ---
+organism is controlled orthogonally without speciﬁc restric-
+tions from nutrients, carbon sources, or symbiotic relationships
+(natural or engineered). Such advantages of optogenetics could
+make it possible to establish optimal populations in co-culture
+fermentations for chemical production, irrespective of
+ﬂuctuations in inoculations and intermicrobial interactions.
+An eﬀective way to dynamically regulate microbial growth is
+using gene circuits that selectively repress essential functions or
+activate toxins. Strategies to control proliferation of engineered
+strains, often in the context of biocontainment, have included
+“kill switches” that activate toxic genes29 and “safeguards” that
+render strains dependent on expression of essential genes.30,31
+Of these options, the MazEF toxin-antitoxin (TA) system
+seemed especially amenable to optogenetic control. The
+MazEF system consists of a stable toxin, MazF, an
+endoribonuclease that degrades mRNA, and an unstable
+antitoxin, MazE,32 which binds to MazF homodimers to
+inhibit them.33 Under conditions of cellular stress, the unstable
+MazE is degraded by the ClpP protease,32 leading to mRNA
+cleavage by MazF and either programmed cell death32 or
+reversible growth inhibition.34 As an endoribonuclease, MazF
+toxicity is decoupled from any speciﬁc metabolic pathway and
+more self-contained than nutrient-dependent strategies such as
+auxotrophy. Furthermore, it can be neutralized through
+expression of mazE, enabling titratability of its toxicity.
+Previous studies have shown inhibition and recovery of growth
+in E. coli using chemical induction of mazF and mazE,35,36
+respectively, so we reasoned that we could similarly implement
+optogenetic control of these genes for eﬀective light regulation
+of E. coli growth.
+In this study, we apply optogenetics to control the
+population dynamics of co-cultures of the model organisms
+E. coli and S. cerevisiae for chemical production. We develop
+optogenetic circuits to manipulate bacterial growth rate by
+regulating expression of the MazEF TA system using blue light,
+eliminating the need to engineer symbiosis or carbon source
+specialization between the species. We then harness the ability
+of E. coli to produce simple precursor molecules (such as
+amino acids37,38) at high yields and titers, which are then
+assimilated by S. cerevisiae to synthesize downstream products
+while avoiding endogenous upstream regulatory mechanisms
+and competition for intermediate metabolites. Using a division
+of labor approach to feed E. coli-derived intermediates into
+S. cerevisiae for conversion into ﬁnal products, we produce
+isobutyl acetate and naringenin in light-controlled co-culture
+fermentations and show that speciﬁc light schedules can be
+Figure 2. Characterization of bacteria−yeast growth in consortium. (a) Growth measurements of E. coli strain containing OptoTA (EMAL144) in
+YNB + M9 salts (YNB-C), YNB + K3 salts, SC + M9 salts, or SC + K3 salts media under full light or darkness. (b) Final single cell ratios of wild-
+type E. coli/S. cerevisiae grown for 24-h in co-cultures initiated with diﬀerent inoculation sizes (shown as OD600 values in table under the graph) in
+YNB-C medium. Cells were counted with ﬂow cytometry using E. coli (EMAL221) and yeast (yMAL272) strains containing mCherry and BFP,
+respectively. (c) Final single cell E. coli/S. cerevisiae ratios of E. coli containing OptoTA (EMAL144) and wild-type yeast (yMAL272) grown for 24-
+h in co-cultures initiated from diﬀerent inoculation sizes (shown as OD600 values in table under the graph) in YNB-C medium and exposed to full
+light, 10 s ON/90 s OFF, or full darkness. Cells were counted with ﬂow cytometry using mCherry and BFP to label EMAL144 and yMAL272,
+respectively. All data are shown as mean values; error bars represent the s.d. of n = 3 biologically independent samples.
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.1c00182
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+C
+
+
+--- Page 4 ---
+used to establish subpopulations with increased production.
+Our ﬁndings demonstrate the potential of using optogenetics
+as a new method for controlling microbial consortia
+populations and optimizing the productivity of co-culture
+fermentations for chemical production.
+■RESULTS AND DISCUSSION
+Development of a Light-Dependent Growth Control
+Circuit for Escherichia coli. To establish optogenetic control
+over E. coli, we applied the pDusk and pDawn systems39 to
+control the MazEF TA system using darkness and blue light.
+Brieﬂy, pDusk uses the synthetic two-component YF1-FixJ
+system to activate gene expression in darkness, while pDawn
+reverses the signal of pDusk using the cI repressor to activate
+expression in blue light (SI Note). Using these systems, we
+developed a new optogenetic circuit, which we call OptoTA, to
+control bacterial growth with light. OptoTA expresses mazF
+using pDusk (PFixK2) and mazE using pDawn (PR), such that
+MazE-mediated inhibition of MazF enables growth in blue
+light, while repression of mazE and expression of mazF
+prevents growth in darkness (Figure 1a). When grown in M9
+media containing glucose as a carbon source, a ΔmazEF strain
+containing OptoTA shows 19-fold higher growth under full
+blue light compared to darkness, while reaching 77% of the cell
+density of a control strain that is not light-dependent (Figure
+1b), suggesting that MazE-mediated repression of MazF is
+either incomplete or that MazEF production carries some
+burden. The diﬀerence between light and dark (27-fold) is
+even higher in xylose. Additionally, growth in darkness is lower
+(OD600 < 0.25 after 24 h at 30 °C) under diﬀerent carbon
+sources such as glycerol and xylose than in glucose, but higher
+(OD600 = 0.57 after 12 h) in the richer lysogeny broth (LB),
+consistent with previous observations that MazF-mediated
+toxicity is media-dependent.35 These results show that
+OptoTA can regulate E. coli growth in several types of media
+commonly used for biotechnological applications.
+To determine whether light dosage can be used to tune
+growth rate using OptoTA, we performed growth curve
+experiments under diﬀerent light duty cycles, chosen based on
+the rapid time scales of YF1 phosphorylation of FixJ (<30 s)40
+and activation times of pDusk and pDawn (<10 min).39
+Intermediate duty cycles (10 s or 1 s of light per 100 s) result
+in intermediate growth proﬁles between full light and darkness,
+showing that growth rate is titratable by varying light exposure
+(Figure 1c). A 10% light dose (10 s ON/90 s OFF) of light
+recovers 72% of the growth rate observed in full light (0.17 vs
+0.23 h−1), though less light exposure results in a ∼1-h increase
+in lag phase. This strain containing OptoTA, however, shows a
+20% decrease in growth rate under full light compared to a
+wild-type control (0.23 vs 0.29 h−1). Nevertheless, the ability of
+OptoTA to tune bacterial growth provides the capability
+needed to dynamically control populations in co-cultures with
+other species.
+Optogenetic Control of a Consortium of E. coli and
+S. cerevisiae. The optogenetic regulation of E. coli growth
+attainable with OptoTA is suﬃcient to control populations in
+co-cultures with other organisms with lower growth rates that
+would otherwise be outcompeted in media favorable to E. coli
+(which is the case for common culturing conditions),41,42 such
+as the model yeast S. cerevisiae. However, S. cerevisiae does not
+grow on M9 medium (commonly used in E. coli cultures),
+while E. coli does not grow on synthetic complete (SC)
+medium (commonly used in S. cerevisiae cultures) (Supple-
+mentary Figure S1a). To ﬁnd a deﬁned minimal medium that
+would support both E. coli and S. cerevisiae cultivation, while
+still favoring E. coli, we tested combinations of commonly used
+bacterial buﬀersM9 and K343with two commonly used
+yeast media−yeast nitrogen base (YNB) and SC. A strain of
+E. coli containing OptoTA shows diﬀerences in growth
+between blue light and darkness in each of these hybrid
+media, though growth in darkness is signiﬁcantly increased in
+buﬀered SC media (OD600 > 2 after 14 h at 30 °C), suggesting
+that the toxicity of MazF is attenuated by supplementation of
+nutrients such as amino acids, probably due to reduced
+degradation of MazE by Lon protease, which occurs under
+conditions of nutrient starvation (Figure 2a).34,35 YNB media
+supplemented with glucose and M9 buﬀer shows the best
+optogenetic control over E. coli growth (5-fold diﬀerence in
+OD600) while still supporting yeast growth, albeit with a longer
+lag phase (Supplementary Figure S1b). We therefore
+continued our experiments using this media formulation,
+which we named YNB-Consortia (YNB-C).
+To characterize the growth dynamics of E. coli and
+S. cerevisiae in a consortium, we sought to examine how light
+control can create divergent population ratios from the same
+initial inoculation. To do so, we inoculated co-cultures to
+diﬀerent initial cell densities for each species in YNB-C
+medium and grew them under blue light or darkness. Because
+OD600 cannot be used to distinguish population sizes in co-
+cultures due to the diﬀering optical properties of each species,
+we quantiﬁed cell counts using ﬂow cytometry with counting
+beads, distinguishing bacterial and yeast populations by light
+scattering properties and expression of distinct ﬂuorophores
+mCherry for E. coli and BFP for S. cerevisiae (Supplementary
+Figure S2; see Methods). When using a strain of E. coli that is
+not light-regulated, the population ratios after 12 h of co-
+culture at 30 °C greatly favor E. coli in most inoculation ratios
+(Figure 2b). A ﬁnal bacteria-to-yeast ratio <1 is only achieved
+when inoculating a very small amount of E. coli (OD600 = 1 ×
+10−5, or ∼1 × 104 cells/mL) and a much larger amount of
+S. cerevisiae (OD600 = 1, or ∼1 × 107 cells/mL), reﬂecting the
+need to give yeast a considerable advantage in initial
+inoculation to compensate for its slower growth in YNB-C
+medium (Figure 2b). Such large disparities in inoculation size
+could reduce the eﬃciency of co-culture fermentations, in
+which the relative abundances of biosynthetic submodules
+must be carefully balanced to maximize productivity. In
+contrast, when controlling E. coli growth with light using
+OptoTA, it becomes possible to reach bacteria-to-yeast ratios
+of <1 even at much lower yeast (OD600 = 0.1) or higher
+bacterial (OD600 = 1 × 10−3) inoculations (Figure 2c). Such
+inoculations are more balanced and more closely represent
+ratios previously used in E. coli−S. cerevisiae co-cultures (cell
+ratios ∼1:100−100:1).14,44 Our goal was not necessarily to
+achieve speciﬁc target population ratios, but instead to
+demonstrate that it is possible to obtain several ﬁnal
+population ratios from the same initial inoculation, or to
+reach similar ratios from diﬀerent initial inoculations, simply by
+changing light duty cycle. Thus, the light control enabled by
+OptoTA provides an additional degree of freedom that
+augments adjustment of inoculation sizes to control microbial
+populations in co-culture fermentations.
+Production of Isobutyl Acetate Using an E. coli−
+S. cerevisiae Consortium. Precise control over microbial co-
+cultures holds promise for applications in metabolic engineer-
+ing, in which biosynthetic pathways can be divided into
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.1c00182
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+D
+
+
+--- Page 5 ---
+separate modules among diﬀerent species to make products of
+interest. To test this, we devised a division of labor strategy to
+produce isobutyl acetate, a chemical solvent, fragrance, and
+potential biofuel that is derived from isobutanol and acetyl-
+CoA.45 We divided the biosynthetic pathway for isobutyl
+acetate into two modules: an E. coli module that produces
+isobutanol, followed by an S. cerevisiae module that combines
+isobutanol with acetyl-CoA to produce isobutyl acetate (Figure
+3a). Isobutanol and acetyl-CoA are both derived from pyruvate
+in opposing pathways, so there is an inherent competition in
+the biosynthesis of these two precursors that could be resolved
+using two specialized strains in co-culture (Supplementary
+Figure S3a). We engineered a light-controlled isobutanol-
+producing strain of E. coli by transforming a ΔmazEF strain
+with plasmids containing OptoTA and the isobutanol
+biosynthetic pathway.26 This strain (EMAL274) secretes up
+Figure 3. Isobutyl acetate production using bacteria−yeast co-cultures. (a) Isobutyl acetate biosynthetic pathway split into two modules. Module 1
+(E. coli) produces isobutanol from glucose and is comprised of alsS from Bacillus subtilis, ilvC, ilvD, kivd from Lactococcus lactis, and adhA from L.
+lactis. Module 2 (S. cerevisiae) converts isobutanol and acetyl-CoA into isobutyl acetate and is comprised of ATF1 and feedback-insensitive mutant
+acs* from S. enterica (L641P). The acetate to make acetyl-CoA is derived from pyruvate produced from glycolysis, which is decarboxylated by
+Pdc1p and then oxidized by Ald6p (Supplementary Figure S3a). E. coli and S. cerevisiae cells were created using Biorender.com. (b) Isobutanol
+production from monocultures of E. coli strain containing Module 1 (EMAL274), grown in M9 medium + 2% glucose under full light, then induced
+with IPTG at diﬀerent cell densities and fermented under 10 s ON/90 s OFF light for 48 h. UI denotes cultures not induced with IPTG. (c)
+Isobutyl acetate production from monocultures of a yeast strain containing Module 2 (yMAL362), grown in SC medium + 2% glucose, then
+resuspended in fresh media + 4% glucose + 1 g/L of isobutanol at diﬀerent cell densities and fermented for 48 h. Control cultures (Ctrl) were not
+resuspended in media containing isobutanol. (d) Isobutyl acetate production from co-cultures of an E. coli strain containing OptoTA and Module 1
+(EMAL274) and a yeast strain containing Module 2 (yMAL362), starting from diﬀerent inoculation sizes (shown in table below graph) and grown
+for 48-h under diﬀerent light conditions: full light, 10 s ON/90 s OFF, 1 s ON/99 s OFF, and full darkness. Production from co-cultures using a
+light-insensitive strain of E. coli (EMAL203), instead of EMAL274, grown in the dark is shown as control. (e,f) Relative populations of bacteria and
+yeast after 24 and 48 h of co-culture fermentations, shown as serial dilutions on agar plates compatible for bacterial growth: (e) EMAL274 on M9 +
+kanamycin + carbenicillin plates, or yeast growth: (f) yMAL362 on SC plates. Each plate contains serial dilutions from co-cultures grown in
+diﬀerent light conditions 100% = continuous blue light; 10% = 10 s ON/90 s OFF; 1% = 1 s ON/99 s OFF; D = darkness; B = E. coli only control;
+Y = S. cerevisiae only control. Statistics are derived using a two-sided t-test (**P < 0.01); ns = not signiﬁcant. All data are shown as mean values;
+error bars represent the s.d. of n = 4 biologically independent samples.
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.1c00182
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+E
+
+
+--- Page 6 ---
+to 3.9 ± 0.3 g/L isobutanol into the culture supernatant when
+grown in M9 media, with production peaking when IPTG
+induction occurs at intermediate cell densities (0.2 ≤ρ ≤0.9,
+where ρ represents the cell density at induction, measured as
+OD600) (Figure 3b). We next engineered a strain of S. cerevisiae
+with increased acetyl-CoA production that could assimilate
+isobutanol from the culture supernatant and convert it into
+isobutyl acetate. To achieve this, we integrated multiple copies
+of a feedback-insensitive acetyl-CoA synthetase46 from
+Salmonella enterica (acs L641P) and the yeast alcohol
+acetyltransferase (ATF1) into the δ-sites of CEN.PK2−1C.
+The resulting strain (yMAL362) produces up to 90 ± 10 mg/L
+isobutyl acetate when grown to various cell densities and then
+resuspended in SC media containing 1 g/L isobutanol, with
+production saturating around ρ ≥6.6 (Figure 3c; see
+Methods). These results show that our bacterial strain can
+produce and export isobutanol while our yeast strain can
+import it and convert it to isobutyl acetate, oﬀering the
+potential for each module to be optimized independently to
+balance demand for the acetyl-CoA precursor while completing
+a complex production pathway.
+Figure 4. Naringenin production using a bacteria−yeast consortium. (a) Naringenin biosynthetic pathway split into two modules. Module 1
+(E. coli) produces tyrosine from glucose and is comprised of tktA, ppsA, aroGD146N, aroB, aroD, aroE, aroL, aroA, aroC, tyrAM53I, A354V, and tyrB.
+Module 2 (S. cerevisiae) converts tyrosine into naringenin and is comprised of FjTAL, At4CL2, HaCHS, PhCHI, and ACC1S650A, S1157A. * denotes
+feedback-insensitive mutant enzymes. E. coli and S. cerevisiae cells were created using Biorender.com. (b) Tyrosine production from monocultures
+of an E. coli strain containing Module 1 (EMAL374) grown in M9 medium + 2% glucose under full light, then induced with IPTG at diﬀerent cell
+densities and fermented under 10 s ON/90 s OFF light for 48 h. UI denotes cultures not induced with IPTG. (c) Naringenin production from
+monocultures of a yeast strain containing Module 2 (yMAL485) grown in SC medium + 2% glucose, then resuspended in fresh SC + 4% glucose +
+1 g/L of tyrosine at diﬀerent cell densities and fermented for 48 h. Control cultures (Ctrl) were not resuspended in media containing tyrosine. (d)
+Naringenin production from co-cultures of an E. coli strain containing OptoTA and Module 1 (EMAL374) and a yeast strain containing Module 2
+(yMAL485), starting from diﬀerent inoculation sizes (shown in table below graph) and grown for 48-h under diﬀerent light conditions: full light,
+10 s ON/90 s OFF, 1 s ON/99 s OFF, and full darkness. Production from co-cultures using a light-insensitive strain of E. coli (EMAL60), instead of
+EMAL374, grown in the dark is shown as control. *P < 0.05, ***P < 0.001. Statistics are derived using a two-sided t-test. All data are shown as
+mean values; error bars represent the s.d. of n = 4 biologically independent samples.
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.1c00182
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+F
+
+
+--- Page 7 ---
+To determine if optogenetics can be used to improve
+chemical production from microbial consortia, we combined
+our bacterial and yeast modules to produce isobutyl acetate in
+light-controlled fermentations. We grew co-cultures of
+EMAL274 and yMAL362 at 30 °C for 48 h under various
+light conditions and initial inoculum sizes, using 1 mM IPTG
+to induce isobutanol production at the time of co-inoculation.
+We found that isobutyl acetate production depends greatly not
+only on the inoculation but also on the light duty cycles
+applied to the co-cultures (Figure 3d). The highest titer of
+isobutyl acetate (330 ± 10 mg/L) is obtained using
+intermediate inoculation sizes of bacteria (OD600 = 0.5) and
+yeast (OD600 = 2), as well as a 1% duty cycle of light (1 s ON/
+100 s). This isobutyl acetate production is 6.9-fold or 12.3-fold
+higher than if the co-culture is inoculated with less yeast
+(OD600 = 0.2, 48 ± 3 mg/L) or more yeast (OD600 = 10, 27 ±
+6 mg/L), respectively (while keeping the inoculation size of
+bacteria constant), emphasizing the inﬂuence of initial
+inoculation on fermentation productivity. However, within
+the most productive inoculation, light control of the consortia
+population during the fermentation can signiﬁcantly improve
+production by 71% (from 190 ± 30 mg/L) relative to
+conditions that would favor bacterial growth (under con-
+tinuous light), and 3.6-fold higher (from 90 ± 60 mg/L)
+relative to conditions that would favor yeast growth (under
+darkness). These results demonstrate the beneﬁt of adjusting
+microbial populations from productive inoculums during co-
+culture fermentation, which we achieve with light control of
+bacterial cell growth using OptoTA.
+Light duty cycles in optogenetically controlled co-cultures
+can also inﬂuence the levels of intermediates relayed between
+strains, shedding light on the system’s dynamics. Production of
+the intermediate, isobutanol, increases with higher light
+exposure at lower bacterial inoculations, but is maximized by
+intermediate light exposures at higher inoculations (Supple-
+mentary Figure S3b). These results suggest that intermediate
+light doses help tune bacterial growth to maximize production
+of isobutanol without outcompeting yeast, thereby leading to
+improved isobutyl acetate production. This is supported by the
+observation that under the most productive conditions we
+found, isobutyl acetate production is 83% higher using a light-
+regulated bacterial strain relative to using a light-insensitive
+strain (180 ± 40 mg/L), even though isobutanol production is
+comparable (Figure 3d; Supplementary Figure S3b). The levels
+of isobutanol ultimately reﬂect the bacterial population and
+reveal that yeast-catalyzed esteriﬁcation is limiting, probably
+because of limited acetyl-CoA supply,47 which would need to
+be further improved to increase conversion to isobutyl acetate.
+Serial dilution analysis of consortia populations shows that
+bacterial growth is still light-controlled under fermentation
+conditions, while yeast growth is slightly more eﬃcient under
+lower light dosage, likely due to less competition from E. coli
+(Figure 3e,f). There is no apparent contribution from
+phototoxicity, as yeast growth is the same under both full
+light and darkness (Supplementary Figure S4). Bacteria-only
+controls solely produce isobutanol, while yeast-only controls
+produce neither isobutanol nor isobutyl acetate, conﬁrming
+that isobutyl acetate is produced only by combining the two
+strains in co-cultures (Supplementary Figure S3c). Our
+ﬁndings establish optogenetics as an eﬀective strategy to
+dynamically regulate bacteria−yeast populations during co-
+culture fermentations to optimize chemical production.
+Production of Naringenin Using an E. coli−S. cerevi-
+siae Consortium. To demonstrate that light-based control of
+microbial consortia can be extended to other metabolic
+pathways, we developed a co-culture production strategy for
+naringenin, a natural product with potential therapeutic
+properties.48 This long metabolic pathway, which starting
+from increasing aromatic amino acid biosynthesis comprises 16
+diﬀerent enzymes, can load a single strain with excessive
+metabolic burden. Thus, taking advantage of E. coli’s sound
+ability to produce aromatic amino acids,38 and aiming to
+bypass the strong endogenous regulation of aromatic amino
+acid biosynthesis in yeast,6 we split the naringenin production
+pathway into an E. coli module that produces and exports
+tyrosine followed by an S. cerevisiae module that intakes
+tyrosine and combines it with malonyl-CoA to produce
+naringenin (Figure 4a). To engineer a light-responsive E. coli
+strain to produce tyrosine, we transformed a ΔmazEF strain
+with plasmids encoding for OptoTA and enzymes to enhance
+tyrosine biosynthesis.49 This strain (EMAL374) exports up to
+1.4 ± 0.1 g/L tyrosine into the supernatant when grown in M9
+media, with production peaking when inducing with IPTG at
+relatively high cell densities (ρ ≥1.9) (Figure 4b). Next, to
+produce a S. cerevisiae strain that produces naringenin from
+imported tyrosine, we integrated the naringenin biosynthetic
+pathway,50,51 as well as feedback-insensitive acetyl-CoA
+carboxylase,52 into CEN.PK2−1C (see Methods). Naringenin
+production from this strain (yMAL485) in SC media shows no
+dependence on the cell density at which tyrosine is fed,
+reaching 12−14 mg/L from 1 g/L tyrosine (Figure 4c). These
+results suggest that, as with isobutanol and isobutyl acetate, the
+tyrosine and naringenin modules can be combined to complete
+a complex biosynthetic pathway while avoiding endogenous
+regulatory mechanisms.
+We next tested whether co-cultures of our tyrosine and
+naringenin modules can be controlled with light to improve
+naringenin production. Fermentations initiated from inocu-
+lums of various sizes and proportions and conducted under
+diﬀerent light conditions revealed that, as with isobutyl acetate,
+naringenin production depends on both variables. The highest
+naringenin titers (12.6 ± 0.5 mg/L) are obtained at
+intermediate levels of light exposure, this time using a 10%
+(10 s ON/100 s) duty cycle and the largest inoculum sizes
+tested (Figure 4d). This titer is not only 84% higher than what
+a light-insensitive control strain of E. coli produces (6.8 ± 0.2
+mg/L), but it is also 64% higher than what is obtained with the
+light-sensitive strain under full light (7.7 ± 0.3 mg/L) and 50%
+higher than what is produced by the same strain under
+darkness (8.4 ± 0.4 mg/L). This suggests that the populations
+of E. coli and yeast obtained in co-cultures of the light-sensitive
+strain exposed to intermediate levels of light are more favorable
+for naringenin production, and that these populations can be
+achieved by the optogenetic regulation aﬀorded by OptoTA.
+The similar or lower levels of production of the negative
+controls (conducted in the dark with a light-insensitive strain)
+compared to the full light controls indicate that diﬀerences in
+naringenin titers under various light duty cycles reﬂect real
+improvements in production due to optogenetic growth
+control, and are not due to naringenin photobleaching in full
+light conditions, although light sensitivity of the product could
+be inﬂuencing our ﬁnal titers.53 Production is still inﬂuenced
+by initial inoculums, with the most productive yielding 46%
+higher production than that of a co-culture initiated with a 10-
+fold lower E. coli inoculum and kept under the same light
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.1c00182
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+G
+
+
+--- Page 8 ---
+conditions (8.7 ± 0.2 mg/L), indicating that higher levels of
+the ﬁrst module are beneﬁcial but must be carefully regulated.
+Additionally, production is completely abolished when the
+S. cerevisiae inoculum is reduced 10-fold, emphasizing the
+importance of having an abundance of the second yeast
+module. Nevertheless, these results conﬁrm that the additional
+degree of freedom aﬀorded by optogenetic controls of co-
+cultures is applicable to multiple biosynthetic pathways.
+■CONCLUSIONS
+In this study, we establish tunable control of microbial
+consortia using light, which addresses the longstanding
+challenge of dynamically regulating population dynamics for
+optimal co-culture fermentation performance. Our OptoTA
+circuit is not tethered to the properties of a speciﬁc metabolic
+pathway, allowing it to function independently of strain
+modiﬁcations (such as gene overexpression or deletions)
+catered to speciﬁc biosynthetic pathways, and requiring only
+that the endogenous mazEF genes are deleted. We
+demonstrate this advantage by using OptoTA to control co-
+culture production of two chemicals derived from very
+diﬀerent metabolic pathways: isobutyl acetate (central carbon
+metabolism, branched-chain alcohol biosynthesis) and nar-
+ingenin (aromatic amino acid biosynthesis). Previous studies
+using monocultures of more extensively engineered strains and
+optimized fermentations have reported yields higher than what
+we obtained.54,55 However, while such additional genetic
+interventions could be implemented in our strains to further
+increase production, the goal of our study is to provide a proof
+of principle that light can be used as a ﬂexible agent to
+dynamically control co-culture populations during fermenta-
+tions to optimize production of diverse chemicals.
+Optogenetics provides a unique advantage as using light
+allows for continuous control of population dynamics, even
+once the fermentation has started and the inoculum can no
+longer be adjusted. In this sense, light regulation of microbial
+growth provides a new degree of freedom to optimize chemical
+production. This is demonstrated in the ability to increase
+titers of both isobutyl acetate and naringenin by manipulating
+both light condition and inoculation sizes of bacteria and yeast
+(Figures 3d, 4d), with light schedules being capable of
+boosting production by as much as 3.6-fold in co-cultures
+initiated with the most productive inoculums (Figure 3d). The
+light duty cycle in some fermentations may in fact determine
+production above inoculation size, as seen by the higher
+naringenin production in 10% light dose (with 0.5:10
+E. coli:S. cerevisiae inoculums) compared to production in
+100% light in co-culture fermentations initiated with 10-fold
+higher bacterial inoculums (Figure 4d). While experimentation
+is still necessary to determine the optimal population
+composition for maximal chemical production, optogenetic
+controls allow for increased throughput of testing, population
+adjustment in response to potential perturbations, and further
+optimization once a productive inoculation regime has been
+found. Such advantages make light a powerful new variable to
+dynamically control consortia populations for fermentations
+and metabolic engineering applications.
+Dividing metabolic pathways into submodules within
+diﬀerent strains allows for optimization of individual modules
+without genetically or metabolically overburdening a single
+strain. By using E. coli to produce isobutanol and tyrosine at
+high levels, we avoid extensive genetic modiﬁcation of
+S. cerevisiae, which endogenously regulates production of
+both molecules.6,56 In doing so, we can focus engineering of
+the yeast module on overproducing other precursorsacetyl-
+CoA for isobutyl acetate, malonyl-CoA for naringenin, which
+compete for pyruvate with the upstream modulesas well as
+downstream biosynthesis of the ﬁnal products. Production
+could likely be improved by increasing the copy number of
+bottleneck enzymes,57 deleting competing endogenous en-
+zymes,54,58 increasing transport of intermediates between
+modules,59 and developing a media formulation that better
+balances the needs of both species.60 More granular
+experimentation with diﬀerent inoculation sizes and ratios,
+which can then be dynamically diﬀerentiated using varying
+light doses, would likely further increase production. Addi-
+tionally, optimization of process variables, such as fermentation
+length and controlling pH and oxygenation, should reveal
+productive inoculation sizes that are lower than those used in
+this study. Nevertheless, our results conclusively demonstrate
+that light can be used to control and optimize chemical
+production from microbial consortia.
+OptoTA functions by regulating the expression levels of the
+mazEF toxin-antitoxin system, which is endogenous to E. coli
+(Figure 1a). MazEF-like paralogs have been discovered in
+other bacterial species,61 raising the possibility that OptoTA
+could be directly used in other bacterial species to impart
+optogenetic growth control, while likely exhibiting less cross-
+talk with endogenous systems. Alternatively, the architecture of
+OptoTA could feasibly be applied to control other toxin-
+antitoxin systems, which are ubiquitous in nature,62 enabling
+optogenetic regulation of cell growth in diverse bacterial
+genera such as Corynebacterium, Bacillus, Pseudomonas, or
+Lactococcus using diﬀerent toxin-antitoxin pairs. Building
+redundancies by simultaneously using multiple TA systems
+(including with diﬀerent mechanisms of action) in a single
+strain could help attain more stringent growth control and
+attenuate the variability observed in diﬀerent media (Figures
+1b and 2a). Light-dependent growth of other commonly used
+model organisms, each with its own advantages, could make
+diﬀerent types of light-controlled microbial consortia viable for
+a variety of biotechnological applications.
+OptoTA uses single-input (blue light) control over consortia
+in which the growth rates of two species are heavily stratiﬁed,
+such as the E. coli−S. cerevisiae co-culture we use in this study.
+This strategy is extendable to situations in which fermentation
+conditions (pH, temperature, oxygenation, media) are
+disadvantageous to one organism. It could potentially also be
+used for co-cultures featuring two diﬀerent strains of the same
+species but containing genetic modiﬁcations that diverge their
+growth rates. Fermentations for chemical production in lab-
+scale bioreactors have been optogenetically controlled using
+pDawn.26 However, at larger scales, in which light penetration
+may become limiting,63 YF1 mutants with increased light
+sensitivity64 could be incorporated to achieve the required light
+stimulation. OptoTA establishes light control over the faster
+growing strain irrespective of process conditions or genetic
+background, allowing for ﬂexible implementation of co-cultures
+for a wide variety of conditions and applications.
+However, orthogonal optogenetic growth regulators that
+respond to stimuli other than blue light could be developed
+and used alongside OptoTA to eﬀectively engineer and control
+more complex microbial co-cultures. Additional optogenetic
+systems that respond to darkness28 could be employed to allow
+opposing growth in co-cultured species in the presence or
+absence of light. Alternatively, optogenetic systems such as
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.1c00182
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+H
+
+
+--- Page 9 ---
+those based on phytochromes and cyanobacteriochromes,65,66
+which respond to green, red, and far-red light, could enable
+decoupled control of multiple species using diﬀerent wave-
+lengths. Such polychromatic multi-input growth controls could
+be used to dynamically regulate population of consortia with
+more complex functions, including those that feature strains or
+species with similar growth proﬁles or contain more than two
+members.
+The improved control of optogenetics over co-culture
+fermentations raises a unique optimization problem: how to
+adjust the timing and duration of light pulses to optimize
+populations to maximize production from co-cultures. Previous
+studies have investigated in silico approaches to analyze (and
+potentially engineer) interpopulation dynamics in microbial
+communities,67,68 as well as computer-assisted control of
+optogenetic inputs to stabilize gene expression proﬁles toward
+desired set points.69 Moving forward, kinetic models could be
+designed based on growth data (species, light control) and
+pathway information (precursor supply, metabolic branch
+points) to predict highly productive population regimes for
+diﬀerent products a priori, as well as to implement control
+strategies to keep a co-culture within these desired regimes via
+well-timed light pulses. Similar to this study, populations could
+be distinguished using ﬂuorescent markers, or other quickly
+measurable outputs such as pH, oxygenation, and temperature,
+to provide live feedback to the optogenetic controller. Such
+“cybergenetic” approaches could substantially increase the
+throughput of process optimization while alleviating the
+burden of user control over implementing complex light
+schedules.70
+Optogenetic regulation of populations in microbial com-
+munities constitutes a new paradigm that could impact the
+ﬁelds of metabolic engineering, fermentation technology, and
+beyond. The unique advantages that light provides can make it
+possible to identify and maintain optimal microbial popula-
+tions throughout fermentation for maximal chemical produc-
+tion. Optogenetics could thus help resolve the long-standing
+challenge of population control in co-culture fermentations
+and help realize the full potential of improving biosynthesis of
+complex chemical products by microbial division of labor. This
+study also oﬀers a blueprint to establish optogenetic controls of
+microbial communities in diﬀerent settings such as in the areas
+of bioremediation,71 agriculture and food technology,72,73 and
+microbiome research.74
+■METHODS
+Plasmid and Strain Construction. Plasmids were cloned
+into E. coli strain DH5α made chemically competent using the
+Inoue method as previously described.75 Transformants were
+inoculated on LB agar plates with appropriate antibiotics: 100
+μg/mL ampicillin, 100 μg/mL carbenicillin, 50 μg/mL
+kanamycin, or 34 μg/mL chloramphenicol. Epoch DNA
+Miniprep, Omega E.Z.N.A. Gel Extraction, and Omega
+E.Z.N.A. Cycle Pure kits were used to extract and purify
+plasmids and DNA fragments. Genes were ampliﬁed from
+bacterial or yeast genomic DNA or lab plasmids. Backbones
+and inserts were either digested using restriction enzymes
+purchased from NEB or PCR ampliﬁed using CloneAmp HiFi
+PCR premix from Takara Bio. Primers were ordered from
+Integrated DNA Technologies (Coralville, IA). Gibson
+isothermal assembly was performed based on previously
+described protocols.76 For S. cerevisiae constructs, we cloned
+promoter-gene-terminator sequences into standardized vector
+series (pJLA vectors) as previously described77 (Supplemen-
+tary Figure S5). All plasmids were veriﬁed using Sanger
+sequencing from Genewiz. We avoid using tandem repeats to
+prevent recombination after transformation, and thus do not
+observe instability of strains or plasmids. A detailed description
+of all the plasmids used in this study can be found in
+Supplementary Table S1.
+Plasmids pDusk and pDawn were obtained as a gift from
+Andreas Möglich (Addgene #43795 and #43796, respec-
+tively).39 The sequence for the acs (L641P) gene from
+Salmonella enterica was codon-optimized for expression in
+S. cerevisiae and synthesized by Bio Basic’s gene synthesis
+service.
+Bacterial and Yeast Transformations. Deletion of
+endogenous mazEF in E. coli was performed using the
+Datsenko−Wanner method.78 Cells were made electro-
+competent and electroporated as described previously.79
+FRT-ﬂanked resistance markers were cured using FLP
+recombinase from pCP20.80 Gene deletions were genotyped
+by sequencing PCR products ampliﬁed from puriﬁed genomic
+DNA using primers ﬂanking the region of deletion.
+Yeast transformations were carried out using standard
+lithium acetate protocols as previously described. Gene
+constructs derived from pYZ16263 or pYZ2328 vectors were
+linearized with PmeI and genomically integrated into the LEU2
+locus or δ-sites (YARCdelta5), respectively. Zeocin (purchased
+from Thermo Fisher Scientiﬁc) was used at a concentration of
+1200 μg/mL to select for δ-integration. Detailed descriptions
+of all bacterial and yeast strains used in this study can be found
+in Supplementary Tables S2 and S3, respectively.
+Microbial Cell Culture Growth and Measurements.
+Single colonies from agar plates were inoculated into liquid
+media and grown in 96-well (USA Scientiﬁc Item #CC7672−
+7596) or 24-well (USA Scientiﬁc Item #CC7672−7524) plates
+at 30 °C and shaken at 200 rpm (19 mm orbital diameter). For
+E. coli experiments, unless otherwise stated, we used M9
+minimal salts buﬀer containing 2% glucose, 0.2% w/v casamino
+acids (Bio Basic), K3 trace metal mixture,43 and appropriate
+antibiotics using the previously speciﬁed concentrations
+(hereafter referred to as M9 medium). For S. cerevisiae
+experiments, we used yeast nitrogen base (YNB) or synthetic
+complete (SC: YNB supplemented with amino acids) dropout
+media containing 2% glucose.81 YNB media was supplemented
+with 0.3 mM histidine, 1.67 mM leucine, 0.2 mM uracil, and
+0.4 mM tryptophan for strains with these auxotrophies. For
+experiments involving characterization of E. coli and S. cerevisiae
+growth in consortium in deﬁned media, we used YNB or SC
+media containing 2% glucose, either M9 minimal salts buﬀer or
+K3 salts (31) buﬀer, and appropriate antibiotics. For chemical
+production experiments, we used a previously published21
+medium formulation: 13.3 g/L KH2PO4, 4 g/L (NH4)2HPO4,
+1.7 g/L citric acid, 5 g/L yeast extract, K3 trace metal mixture,
+4% glucose, and appropriate antibiotics (hereafter referred to
+as ESC medium).
+To stimulate cells with blue (465 nm) light, we used LED
+panels (HQRP New Square 12” Grow Light Blue LED 14W)
+placed above the culture plates such that light intensity was
+between 80 and 110 μmol/m2/s as measured using a Quantum
+meter (Apogee Instruments, Model MQ-510). To control light
+duty cycles, LED panels were regulated with a Nearpow
+Multifunctional Inﬁnite Loop Programmable Plug-in Digital
+Timer Switch.
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.1c00182
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+I
+
+
+--- Page 10 ---
+To measure cell concentration, optical density measure-
+ments were taken at 600 nm (OD600), using media (exposed to
+the same light and incubation conditions as the bacteria/yeast
+cultures) as blank. Measurements were taken using a TECAN
+plate reader (inﬁnite M200PRO) or Eppendorf spectropho-
+tometer (BioSpectrometer basic) with a microvolume
+measuring cell (Eppendorf μCuvette G1.0), using samples
+diluted to a range of OD600 between 0.1 and 1.0.
+Flow Cytometry. To measure cell counts during co-culture
+experiments, in which OD600 measurements can no longer be
+correlated with cell densities of individual species, we used ﬂow
+cytometry to distinguish populations of diﬀerent species.
+Events were counted using ﬂuorescent counting beads
+(Spherotech AccuCount Particles, ACFP-50-5) as a stopping
+gate, until 100 counting beads were detected. GFP
+ﬂuorescence (for detecting counting beads) was quantiﬁed
+by ﬂow cytometry using a BD LSR II ﬂow cytometer (BD
+Biosciences, San Jose, CA, USA) and BD FacsDiva 8.0.2
+software with a 488 nm laser and 525/50 nm bandpass ﬁlter.
+Fluorescence from mCherry (for detecting E. coli) was
+quantiﬁed with a 561 nm laser and 610/20 nm bandpass
+ﬁlter. BFP ﬂuorescence (for detecting S. cerevisiae) was
+quantiﬁed with a 405 nm laser and 450/50 nm bandpass ﬁlter.
+The gating used in our analyses was deﬁned to exclude
+particles that are either too small or too large to be single living
+E. coli and S. cerevisiae cells or counting beads, based on the
+side scatter (SSC-A) vs forward scatter (FSC-A) plots as well
+as side scatter area (SSC-A) vs width (SSC-W) plots
+(Supplementary Figure S2a−d). Within the single cell
+populations, events with the correct ﬂuorescence (mCherry
+for E. coli cells and TagBFP for S. cerevisiae cells) were gated
+and considered for analysis (Supplementary Figure S2e).
+Events that indicated yeast in size but emitted both mCherry
+and TagBFP ﬂuorescence were considered as events in which
+E. coli and yeast had stuck together; these counts were added
+to both E. coli and S. cerevisiae populations. Single cell counts
+obtained using counting beads correlated linearly with OD600
+values for both E. coli and S. cerevisiae samples (Supplementary
+Figure S2f,g).
+Construction and Characterization of Light-Depend-
+ent Bacterial and Yeast Strains. OptoTA was characterized
+in E. coli strains derived from MO001 (MG1655 lacIq
+ΔlacZYA::PT5_mCherry).82 The endogenous copies of mazE
+and mazF were simultaneously knocked out of MO001 and the
+kanamycin resistance marker removed through FLP-FRT
+recombination to make EMAL142. A plasmid containing
+pDawn controlling mazE and pDusk controlling mazF
+(OptoTA, pMAL511) was used to transform electrocompetent
+strain EMAL142 to make EMAL144. As a control, an empty
+plasmid containing pDusk was used to transform strain
+EMAL142 to make EMAL221.
+To evaluate light dependence of E. coli growth in diﬀerent
+media (Figure 1b), we inoculated 1 mL overnight cultures of
+EMAL221 into M9 medium + kanamycin + 2% glucose, as well
+as EMAL144 into M9 medium + kanamycin + 2% glucose,
+glycerol, or xylose, or LB + kanamycin, under constant blue
+light. The next day, we back-diluted the cultures into the same
+media to OD600 = 0.01 in 1 mL into 24-well plates and grew
+the cultures for 24 h (or 12 h for LB) under blue light or in the
+dark, after which point OD600 measurements were taken.
+To evaluate kinetics of E. coli growth using OptoTA under
+diﬀerent light conditions (Figure 1c), we inoculated 1 mL
+overnight cultures of EMAL144 and EMAL221 into M9
+medium + kanamycin + 2% glucose media under blue light.
+The next day, we back-diluted the cultures to OD600 = 0.01 in
+1 mL into 24-well plates and grew the cultures until steady
+state was reached. Light conditions tested for EMAL144 were
+full blue light; pulses of 10 s ON/90 s OFF, 1 s ON/99 s OFF;
+and full darkness (plates wrapped in aluminum foil). OD600
+measurements were taken every 3−5 h.
+Characterization of E. coli and S. cerevisiae Co-
+cultures. To test the viability of E. coli and S. cerevisiae on
+SC and M9 2% agar plates (Supplementary Figure S1a), we
+inoculated 1 mL overnight cultures of EMAL144 into M9
+medium + kanamycin + 2% glucose under constant blue light
+and CEN.PK2−1C into SC + 2% glucose. The next day, we
+streaked both strains out onto an M9 + kanamycin + 2%
+glucose agar plate, as well as an SC + 2% glucose agar plate,
+and incubated both plates under blue light at 30 °C for 36 h.
+To screen for media formulations in which both E. coli and
+S. cerevisiae could grow and in which OptoTA would still be
+eﬀective (Figure 2a), we inoculated 1 mL overnight cultures of
+EMAL144 into M9 medium + kanamycin + 2% glucose under
+constant blue light. The next day, we back-diluted the cultures
+to OD600 = 0.01 in 1 mL into 24-well plates into the following
+media: YNB + M9 salts buﬀer (YNB-C); YNB + K3 salts
+buﬀer; SC + M9 salts buﬀer; and SC + K3 salts buﬀer. All
+media contained 2% glucose and kanamycin. We then grew the
+cultures for 14 h under blue light or in the dark, after which
+OD600 measurements were taken.
+To characterize the growth of S. cerevisiae in YNB-C media
+(Supplementary Figure S1b), we inoculated 1 mL overnight
+cultures of CEN.PK2−1C into YNB + 2% glucose or YNB-C +
+2% glucose. The next day, we back-diluted the cultures into the
+same media to OD600 = 0.1 in 1 mL into 24-well plates and
+grew the cultures until steady state.
+To characterize potential toxic eﬀects of light toward
+S. cerevisiae (Supplementary Figure S4), we inoculated 1 mL
+overnight cultures of CEN.PK2−1C into SC + 2% glucose.
+The next day, we back-diluted the cultures into the same media
+to OD600 = 0.01 in 1 mL into 24-well plates under blue light
+and darkness and grew the cultures until steady state.
+To evaluate light-dependence of strains grown in consortium
+(Figure 2c), we integrated constitutively expressed TagBFP
+(pMAL653) into the LEU2 locus of CEN.PK2−1C to create
+yMAL272. We inoculated overnight cultures of EMAL221,
+EMAL144 (both of which express mCherry when induced with
+IPTG), and yMAL272 separately in YNB-C + 2% glucose +
+kanamycin media (under full blue light for EMAL144). The
+next day, we used these overnight cultures to inoculate 150 μL
+of fresh media (same medium as the overnights) + 1 mM
+IPTG to induce mCherry expression, in 96-well plates to
+calculated OD600 values of 10−5−10−3 for bacteria and 0.1−1
+for yeast. The co-cultures were then grown at 30 °C under
+diﬀerent blue light conditions, including full light; 10 s ON/90
+s OFF pulses; and full darkness (plates wrapped in aluminum
+foil). After 12 h, 5 μL of each culture was diluted into 95 μL of
+ice-cold PBS containing the manufacturer’s recommended
+concentration (500 μL of beads per 10 mL) of ﬂuorescent
+counting beads for ﬂow cytometry analysis.
+Development of Isobutanol-Producing E. coli and
+Isobutyl Acetate-Producing S. cerevisiae. To make a light-
+sensitive strain of E. coli that produces isobutanol, we
+transformed electrocompetent EMAL142 with pMAL511
+(containing OptoTA) as well as pMAL534 containing a ﬁve-
+gene isobutanol biosynthesis pathway:26 acetolactate synthase
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.1c00182
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+J
+
+
+--- Page 11 ---
+from Bacillus subtilis (alsS), acetohydroxyacid reductoisomer-
+ase (ilvC), dihydroxyacid dehydratase (ilvD), 2-ketoacid
+decarboxylase from Lactococcus lactis (kivd), and alcohol
+dehydrogenase from L. lactis (adhA). The resulting strain,
+EMAL274, was plated onto LB + kanamycin + ampicillin agar
+under full light. As a light-insensitive control, electrocompetent
+MG1655 was transformed with pMAL534 to create EMAL203,
+which was plated onto LB + ampicillin agar. Eight colonies
+were then used to inoculate 1 mL of M9 medium + 2% glucose
++ carbenicillin media in 24-well plates, grown overnight (under
+blue light and + kanamycin for EMAL274). The next day, each
+culture was back-diluted into the same media to an OD600 of
+0.01 and grown for 12 h at 30 °C at 200 rpm (under blue light
+for EMAL274). At this point, 50 μL of 40% glucose was added
+to each culture, as well as 10.6 μL of 100 mM IPTG (ﬁnal
+concentration of 1 mM). The plates were then sealed with
+Nunc Sealing Tape (Thermo Scientiﬁc) to prevent evaporation
+of isobutanol. The strains were fermented for 48 h under
+ambient light for EMAL203 or 10% (10 s ON/90 s OFF) light
+for EMAL274, after which samples were prepared for GC-FID
+analysis as described below. The highest producing colony was
+selected for subsequent optimization.
+To ﬁnd the optimal cell density at which isobutanol
+production is induced with IPTG (Figure 3b), we back-
+diluted 1 mL overnight cultures of EMAL203 and EMAL274
+to diﬀerent OD600 values (ranging from 0.005 to 0.3) in 1 mL
+cultures of M9 medium + 2% glucose + carbenicillin (under
+blue light and + kanamycin for EMAL274). The diﬀerent
+dilutions were grown for 12 h, reaching diﬀerent OD600 values,
+at which point the same fermentation procedure described
+above was then followed.
+To construct a S. cerevisiae strain that converts isobutanol to
+isobutyl acetate, we integrated multiple copies of endogenous
+alcohol acetyltransferase (ATF1) and feedback-insensitive
+acetyl-CoA synthetase from Salmonella enterica (acsL641P)46
+into δ-sites (YARCdelta5) of CEN.PK2−1C (linearized
+pMAL788), creating yMAL362. Transformants were plated
+on YPD agar overnight; the next day, colonies were replica
+plated onto YPD agar supplemented with 1200 ng/μL Zeocin.
+Eight colonies were then used to inoculate 1 mL overnight
+cultures of SC + 2% glucose media in 24-well plates. The next
+day, each culture was back-diluted to an OD600 of 0.1 in fresh
+medium and grown for 24 h. The cultures were then
+centrifuged in a Sorvall Legend XTR (Thermo Fisher) at
+2000 rpm for 10 min and resuspended in fresh SC + 4%
+glucose + 1 g/L isobutanol media, in plates that were sealed
+with Nunc Sealing Tape. The cultures were fermented for 48 h,
+after which samples were prepared for GC-FID analysis as
+described below. The highest producing colony was selected
+for subsequent analysis.
+To ﬁnd the optimal cell density at which to feed isobutanol
+to maximize isobutyl acetate production in this strain (Figure
+3c), we back-diluted 1 mL overnight cultures of yMAL362 to
+diﬀerent OD600 values (ranging from 0.01 to 0.3) in 1 mL
+cultures of SC + 2% glucose. The diﬀerent dilutions were
+grown for 12 h, reaching diﬀerent OD600 values, at which point
+the same fermentation procedure described above was
+followed.
+To produce isobutyl acetate using an E. coli−S. cerevisiae
+consortium (Figure 3d), we inoculated 50 mL overnight
+cultures of EMAL203 or EMAL274 into M9 medium + 2%
+glucose + carbenicillin media (under blue light and +
+kanamycin for EMAL274), as well as yMAL362 into SC +
+2% glucose media. These cultures were centrifuged at 3700
+rpm for 10 min, resuspended in ESC + 4% glucose +
+carbenicillin media (+ kanamycin for EMAL274), and back-
+diluted to the following OD600 values: 0.05 or 0.5 for
+EMAL203 and EMAL274; 0.2, 2, or 10 for yMAL362. The
+plates were then sealed, and the co-cultures were fermented for
+48 h under the following light conditions: full blue light, 10 s
+ON/90 s OFF, 1 s ON/99 s OFF, or full darkness (plates
+wrapped in aluminum foil). Co-cultures containing EMAL203
+were grown in the dark, while monocultures of EMAL274 or
+yMAL362 were grown under full blue light. After 48 h, samples
+were centrifuged and collected for GC-FID analysis as
+described below.
+Development of Tyrosine-Producing E. coli and
+Naringenin-Producing S. cerevisiae. To make a light-
+sensitive strain of E. coli that produces tyrosine, we
+transformed electrocompetent EMAL142 with pMAL511
+(containing OptoTA), and plasmids pS4 and pY3, containing
+11 genes combined that convert glucose into tyrosine:49
+transketolase (tktA); phosphoenolpyruvate synthase (ppsA);
+feedback-insensitive DAHP synthase (aroGD146N); DHQ
+synthase (aroB); DHQ dehydratase (aroD); shikimate
+dehydrogenase (aroE); shikimate kinase II (aroL); EPSP
+synthase (aroA); chorismate synthase (aroC); feedback-
+insensitive chorismate mutase/prephenate dehydrogenase
+(tyrAM53I, A354V); and tyrosine aminotransferase (tyrB). The
+resulting strain, EMAL374, was plated onto LB + kanamycin +
+ampicillin + chloramphenicol agar plates and incubated under
+full light. As a light-insensitive control, electrocompetent
+MG1655 was transformed with pS4 and pY3 to create
+EMAL60, which was plated onto LB + ampicillin +
+chloramphenicol agar plates. Eight colonies were then used
+to inoculate 1 mL of M9 medium + 2% glucose + carbenicillin
++ chloramphenicol media and grown overnight (under blue
+light and + kanamycin for EMAL374). The next day, the same
+procedures were followed as for isobutanol to identify the
+highest producing colony; also sealing the plates, but with a
+single hole poked to allow for limited aeration. After 48 h of
+fermentation under ambient light for EMAL60 or 10% light for
+EMAL374, samples were prepared for HPLC analysis as
+described below. To ﬁnd the optimal cell density at which
+tyrosine production is induced with IPTG (Figure 4b) we
+followed the same procedure described above for isobutanol
+production, except using both carbenicillin and chloramphe-
+nicol for selection (with blue light and kanamycin added for
+EMAL374).
+To construct a S. cerevisiae strain that converts tyrosine into
+naringenin, we integrated tyrosine ammonia-lyase from
+Flavobacterium johnsoniaeu (FjTAL),50 4-coumarate-CoA
+ligase 2 from Arabidopsis thaliana (At4CL2),51 chalcone
+synthase from Hypericum androsaemum (HaCHS),51 chalcone
+isomerase from Petunia hybrida (PhCHI),51 and feedback-
+insensitive acetyl-CoA carboxylase (ACC1S650A, S1157A)52 into
+the LEU2 locus of CEN.PK2−1C (linearized pMAL959),
+creating yMAL485. Transformants were plated on SC −Leu +
+2% glucose agar. Eight colonies were then used to inoculate 1
+mL overnight cultures of SC + 2% glucose media. The next
+day, the same procedures were followed as for isobutyl acetate,
+using 1 g/L tyrosine in the media and sealed plates with a
+single hole poked on the tape. After 48 h of fermentation,
+samples were prepared for HPLC-MS analysis as described
+below. The highest producing colony was selected for
+subsequent analysis.
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.1c00182
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+K
+
+
+--- Page 12 ---
+To ﬁnd the optimal density at which to feed tyrosine to
+maximize naringenin production (Figure 4c), we followed the
+same procedure as above for isobutyl acetate production by
+feeding tyrosine instead of isobutanol.
+To produce naringenin using an E. coli−S. cerevisiae
+consortium, we inoculated 50 mL overnight cultures of
+EMAL60 or EMAL374 into M9 medium + 2% glucose +
+carbenicillin + chloramphenicol media (under blue light and +
+kanamycin for EMAL374), as well as yMAL485 into SC + 2%
+glucose media. The next day, these cultures were centrifuged at
+3700 rpm for 10 min, resuspended in ESC + 4% glucose +
+carbenicillin + chloramphenicol media (+ kanamycin for
+EMAL374), and back-diluted in 1 mL to the following
+OD600 values: 0.5 or 5 for EMAL60 and EMAL374; and 1 or
+10 for yMAL485. The plates were then sealed with a single
+hole poked to allow for limited aeration, and the co-cultures
+were fermented for 48 h under the following light conditions:
+full blue light, 10 s ON/90 s OFF, 1 s ON/99 s OFF, or full
+darkness (plates wrapped in aluminum foil). Co-cultures
+containing EMAL60 were grown in the dark. After 48 h,
+samples were centrifuged and collected for HPLC-MS analysis
+as described below.
+Fermentation Sample Preparation and Analytical
+Methods. For isobutanol and isobutyl acetate, cultures were
+centrifuged in a Sorvall Legend XTR at 2000 rpm for 10 min at
+4 °C. Then, 500 μL of cell-free supernatant was mixed with 1
+mL of ethyl acetate in a 2 mL microcentrifuge tube and
+vortexed for 20 min, then centrifuged at 17 000 RCF in an
+Eppendorf 5424 microcentrifuge for 15 min at 4 °C. Finally,
+400 μL of the organic phase was transferred to an autosampler
+vial for analysis. For tyrosine, cultures were centrifuged in a
+Sorvall Legend XTR at 2000 rpm for 10 min at 4 °C. Then,
+800 μL of supernatant was transferred to a 1.5 mL
+microcentrifuge tube and centrifuged at 17 000 RCF for 45
+min at 4 °C. Finally, 250 μL of cell-free supernatant was
+transferred to an autosampler vial for analysis. For naringenin,
+500 μL of cell culture was mixed with 500 μL of ethanol in a
+1.5 mL microcentrifuge tube and vortexed for 20 min, then
+centrifuged at 17 000 RCF for 45 min at 4 °C. Finally, 250 μL
+of cell-free supernatant was transferred to an autosampler vial
+for analysis.
+Concentrations of isobutanol and isobutyl acetate were
+quantiﬁed using an Agilent 7890B GC System equipped with a
+ﬂame ionization detector (FID). Cultures were centrifuged in a
+Sorvall Legend XTR at 2000 rpm for 10 min at 4 °C. Then,
+500 μL of cell-free supernatant was mixed with 1 mL of ethyl
+acetate in a 2 mL microcentrifuge tube and vortexed for 20
+min, then centrifuged at 17 000 RCF in an Eppendorf 5424
+microcentrifuge for 15 min at 4 °C. Then, 500 μL of the
+organic phase was transferred to an autosampler vial for
+analysis. Samples were injected and subjected to a split (0.5 μL
+injection volume; 1:20 split), using a constant helium ﬂow of
+1.5 mL/min. Samples were separated using a DB-Wax column
+(30 m length, 0.25 mm diameter, 0.5 μm ﬁlm) and a gradient
+as follows: Initial oven temperature was held at 70 °C for 3
+min, temperature was then ramped at a rate of 20 °C/min to
+230 °C and held at that temperature for 5 min. Samples were
+quantiﬁed using Flame-ionization detection (300 °C, H2 ﬂow
+30 mL/min, Air ﬂow 400 mL/min, Makeup ﬂow 25 mL/min),
+and compared to commercial standards (Sigma-Aldrich for
+isobutanol; Alfa Aesar for isobutyl acetate).
+Concentrations of tyrosine and naringenin were quantiﬁed
+with high-performance liquid chromatography−mass spec-
+trometry (HPLC-MS), using an Agilent 1260 Inﬁnity and
+6120 instrument (Agilent Technologies, Santa Clara, CA,
+USA). Samples were analyzed using Alltech Alltima C18
+column (250 × 4.6 mm, 5 μm particle size) using 0.1% formic
+acid in acetonitrile (Solvent A), 0.1% formic acid in water
+(Solvent B) at 35 °C, a ﬂow rate of 0.3 mL/min, and the
+following gradient method: start at 10% Solvent A; from 0 to
+10 min, linear increase of Solvent A from 10% to 40%; from 10
+to 15 min, linear increase of Solvent A from 40% to 60%; from
+15 to 15.5 min, linear increase of Solvent A from 60% to 100%;
+hold at 100% Solvent A from 15.5 to 21 min; linear decrease of
+Solvent A from 100% to 10% A from 21 to 21.5 min; hold at
+10% Solvent A from 21.5 to 28 min. Tyrosine was monitored
+with a diode array detector (DAD) using a detection
+wavelength of 270 nm. Naringenin was monitored using the
+mass spectrometer under selective ion monitoring (SIM) using
+the following settings: m/z = 271.1, Fragmentor = 100, Gain =
+1.00, Dwell = 590 ms, %Rel Dwell = 100. To determine analyte
+concentrations, peak areas were integrated and compared to
+those of standard solutions for quantiﬁcation (Sigma-Aldrich
+for tyrosine; Alfa Aesar for naringenin).
+■ASSOCIATED CONTENT
+*
+sı Supporting Information
+The Supporting Information is available free of charge at
+https://pubs.acs.org/doi/10.1021/acssynbio.1c00182.
+Supplementary Note on how pDusk and pDawn
+function; characterization of bacterial and yeast growth
+in standard and hybrid media; ﬂow cytometry gating
+strategy; isobutanol production using a bacteria−yeast
+consortium; yeast growth under blue light and darkness;
+plasmid assembly diagram; tables of plasmids and
+bacterial and yeast strains (PDF)
+■AUTHOR INFORMATION
+Corresponding Author
+José L. Avalos −Department of Chemical and Biological
+Engineering, Princeton University, Princeton, New Jersey
+08544, United States; The Andlinger Center for Energy and
+the Environment and Department of Molecular Biology,
+Princeton University, Princeton, New Jersey 08544, United
+States;
+orcid.org/0000-0002-7209-4208;
+Email: javalos@princeton.edu
+Authors
+Makoto A. Lalwani −Department of Chemical and Biological
+Engineering, Princeton University, Princeton, New Jersey
+08544, United States;
+orcid.org/0000-0003-4629-4131
+Hinako Kawabe −Department of Chemical and Biological
+Engineering, Princeton University, Princeton, New Jersey
+08544, United States
+Rebecca L. Mays −Department of Chemical and Biological
+Engineering, Princeton University, Princeton, New Jersey
+08544, United States
+Shannon M. Hoﬀman −Department of Chemical and
+Biological Engineering, Princeton University, Princeton, New
+Jersey 08544, United States
+Complete contact information is available at:
+https://pubs.acs.org/10.1021/acssynbio.1c00182
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.1c00182
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+L
+
+
+--- Page 13 ---
+Author Contributions
+M.A.L. and J.L.A. conceived this project and designed the
+experiments. M.A.L. and H.K. constructed the strains and
+plasmids. M.A.L., H.K., R.L.M., and S.M.H. executed the
+experiments. M.A.L. and J.L.A. analyzed the data and wrote the
+paper.
+Funding
+This work was supported by Princeton SEAS Project-X, the
+U.S. Department of Energy, Oﬃce of Science, Oﬃce of
+Biological and Environmental Research Award Number DE-
+SC0019363, the NSF CAREER Award CBET-1751840, The
+Pew Charitable Trusts, and The Camille Dreyfus Teacher-
+Scholar Award.
+Notes
+The authors declare the following competing ﬁnancial
+interest(s): The authors have applied for a patent for some
+of the technologies described in this study.
+The authors declare that all data supporting the ﬁndings of this
+study are available within the paper (and its Supporting
+Information ﬁles), but original data that supports the ﬁndings
+are available from the corresponding author upon reasonable
+request.
+■ACKNOWLEDGMENTS
+We are grateful to Dr. Mark Brynildsen for suggesting the
+MazEF system to control E. coli growth, as well as to Dr.
+Wendy Mok for assistance with E. coli protocols and sharing
+expertise with the MazEF system. We thank Dr. Christina
+DeCoste, Dr. Katherine Rittenbach, and the Princeton
+Molecular Biology Flow Cytometry Resource Center for
+assistance with ﬂow cytometry experiments. E. coli and
+S. cerevisiae cells and proteins in the TOC ﬁgure were created
+using Biorender.com.
+■REFERENCES
+(1) Bailey, J. E. (1991) Toward a science of metabolic engineering.
+Science (Washington, DC, U. S.) 252, 1668−1675.
+(2) Lalwani, M. A., Zhao, E. M., and Avalos, J. L. (2018) Current
+and future modalities of dynamic control in metabolic engineering.
+Curr. Opin. Biotechnol. 52, 56−65.
+(3) Hammer, S. K., and Avalos, J. L. (2017) Harnessing yeast
+organelles for metabolic engineering. Nat. Chem. Biol. 13, 823−832.
+(4) Portnoy, V. A., Bezdan, D., and Zengler, K. (2011) Adaptive
+laboratory evolutionharnessing the power of biology for metabolic
+engineering. Curr. Opin. Biotechnol. 22, 590−594.
+(5) Wu, G., Yan, Q., Jones, J. A., Tang, Y. J., Fong, S. S., and Koffas,
+M. A. G. (2016) Metabolic Burden: Cornerstones in Synthetic
+Biology and Metabolic Engineering Applications. Trends Biotechnol.
+34, 652−664.
+(6) Luttik, M. A. H., Vuralhan, Z., Suir, E., Braus, G. H., Pronk, J. T.,
+and Daran, J. M. (2008) Alleviation of feedback inhibition in
+Saccharomyces cerevisiae aromatic amino acid biosynthesis: Quanti-
+fication of metabolic impact. Metab. Eng. 10, 141−153.
+(7) Hausjell, J., Schendl, D., Weissensteiner, J., Molitor, C.,
+Halbwirth, H., and Spadiut, O. (2020) Recombinant production of
+a hard-to-express membrane-bound cytochrome P450 in different
+yeastsComparison of physiology and productivity. Yeast 37, 217−
+226.
+(8) Kim, S., and Hahn, J. S. (2015) Efficient production of 2,3-
+butanediol in Saccharomyces cerevisiae by eliminating ethanol and
+glycerol production and redox rebalancing. Metab. Eng. 31, 94−101.
+(9) Pyne, M. E., Narcross, L., Melgar, M., Kevvai, K., Mookerjee, S.,
+Leite, G. B., and Martin, V. J. J. (2018) An Engineered Aro1 Protein
+Degradation Approach for Increased cis,cis-Muconic Acid Biosyn-
+thesis in Saccharomyces cerevisiae. Appl. Environ. Microbiol. 84, 1−14.
+(10) Sahdev, S., Khattar, S. K., and Saini, K. S. (2007) Production of
+active eukaryotic proteins through bacterial expression systems: A
+review of the existing biotechnology strategies. Mol. Cell. Biochem.
+307, 249−264.
+(11) Jawed, K., Yazdani, S. S., and Koffas, M. A. (2019) Advances in
+the development and application of microbial consortia for metabolic
+engineering. Metab. Eng. Commun. 9, No. e00095.
+(12) Bader, J., Mast-Gerlach, E., Popović, M. K., Bajpai, R., and
+Stahl, U. (2010) Relevance of microbial coculture fermentations in
+biotechnology. J. Appl. Microbiol. 109, 371−387.
+(13) Zhang, H., Pereira, B., Li, Z., and Stephanopoulos, G. (2015)
+Engineering Escherichia coli coculture systems for the production of
+biochemical products. Proc. Natl. Acad. Sci. U. S. A. 112, 8266−8271.
+(14) Yuan, S. F., Yi, X., Johnston, T. G., and Alper, H. S. (2020) De
+novo resveratrol production through modular engineering of an
+Escherichia coli −Saccharomyces cerevisiae co - culture. Microb. Cell
+Fact. 19, 1−12.
+(15) Li, Z., Wang, X., and Zhang, H. (2019) Balancing the non-
+linear rosmarinic acid biosynthetic pathway by modular co-culture
+engineering. Metab. Eng., DOI: 10.1016/j.ymben.2019.03.002.
+(16) Brethauer, S., and Studer, M. H. (2014) Consolidated
+bioprocessing of lignocellulose by a microbial consortium. Energy
+Environ. Sci. 7, 1446−1453.
+(17) Wang, Z., Cao, G., Zheng, J., Fu, D., Song, J., Zhang, J., Zhao,
+L., and Yang, Q. (2015) Developing a mesophilic co-culture for direct
+conversion of cellulose to butanol in consolidated bioprocess.
+Biotechnol. Biofuels 8, 84.
+(18) Minty, J. J., Singer, M. E., Scholz, S. A., Bae, C.-H., Ahn, J.-H.,
+Foster, C. E., Liao, J. C., and Lin, X. N. (2013) Design and
+characterization of synthetic fungal-bacterial consortia for direct
+production of isobutanol from cellulosic biomass. Proc. Natl. Acad. Sci.
+U. S. A. 110, 14592−7.
+(19) Guleria, S., Zhou, J., and Koffas, M. A. G. (2016) Nutraceuticals
+(Vitamin C, Carotenoids, Resveratrol). Ind. Biotechnol, 309.
+(20) Ganesan, V., Li, Z., Wang, X., and Zhang, H. (2017)
+Heterologous biosynthesis of natural product naringenin by co-
+culture engineering. Synth. Syst. Biotechnol. 2, 236−242.
+(21) Zhou, K., Qiao, K., Edgar, S., and Stephanopoulos, G. (2015)
+Distributing a metabolic pathway among a microbial consortium
+enhances production of natural products. Nat. Biotechnol. 33, 377−
+383.
+(22) Dinh, C. V., Chen, X., and Prather, K. L. J. (2020)
+Development of a Quorum-Sensing Based Circuit for Control of
+Coculture Population Composition in a Naringenin Production
+System. ACS Synth. Biol. 9, 590.
+(23) Li, Z., Wang, H., Ding, D., Liu, Y., Fang, H., Chang, Z., Chen,
+T., and Zhang, D. (2020) Metabolic engineering of Escherichia coli
+for production of chemicals derived from the shikimate pathway. J.
+Ind. Microbiol. Biotechnol. 47, 525.
+(24) Zhao, E. M., Lalwani, M. A., Lovelett, R. J., García-Echaurí, S.
+A., Hoffman, S. M., Gonzalez, C. G., Toettcher, J. E., Kevrekidis, I. G.,
+and Avalos, J. L. (2020) Design and characterization of rapid
+optogenetic circuits for dynamic control in yeast metabolic engineer-
+ing. ACS Synth. Biol. 9, 3254−3266.
+(25) Wu, P., Chen, Y., Liu, M., Xiao, G., and Yuan, J. (2021)
+Engineering an Optogenetic CRISPRi Platform for Improved
+Chemical Production. ACS Synth. Biol. 10, 125.
+(26) Lalwani, M. A., Ip, S. S., Carrasco-lópez, C., Day, C., Zhao, E.
+M., Kawabe, H., and Avalos, J. L. (2021) Optogenetic control of the
+lac operon for bacterial chemical and protein production. Nat. Chem.
+Biol. 17, 71−79.
+(27) Milias-Argeitis, A., Rullan, M., Aoki, S. K., Buchmann, P., and
+Khammash, M. (2016) Automated optogenetic feedback control for
+precise and robust regulation of gene expression and cell growth. Nat.
+Commun. 7, 12546.
+(28) Zhao, E. M., Zhang, Y., Mehl, J., Park, H., Lalwani, M. A.,
+Toettcher, J. E., and Avalos, J. L. (2018) Optogenetic regulation of
+engineered cellular metabolism for microbial chemical production.
+Nature 555, 683−687.
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.1c00182
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+M
+
+
+--- Page 14 ---
+(29) Chan, C. T. Y., Lee, J. W., Cameron, D. E., Bashor, C. J., and
+Collins, J. J. (2016) Deadman” and “Passcode” microbial kill switches
+for bacterial containment. Nat. Chem. Biol. 12, 82−86.
+(30) Rovner, A. J., Haimovich, A. D., Katz, S. R., Li, Z., Grome, M.
+W., Gassaway, B. M., Amiram, M., Patel, J. R., Gallagher, R. R.,
+Rinehart, J., and Isaacs, F. J. (2015) Recoded organisms engineered to
+depend on synthetic amino acids. Nature 518, 89−93.
+(31) Cai, Y., Agmon, N., Choi, W. J., Ubide, A., Stracquadanio, G.,
+Caravelli, K., Hao, H., Bader, J. S., and Boeke, J. D. (2015) Intrinsic
+biocontainment: Multiplex genome safeguards combine transcrip-
+tional and recombinational control of essential yeast genes. Proc. Natl.
+Acad. Sci. U. S. A. 112, 1803−1808.
+(32) Aizenman, E., Engelberg-Kulka, H., and Glaser, G. (1996) An
+Escherichia coli chromosomal “addiction module” regulated by 3′,5′-
+bispyrophosphate: A model for programmed bacterial cell death. Proc.
+Natl. Acad. Sci. U. S. A. 93, 6059−6063.
+(33) Kamada, K., Hanaoka, F., and Burley, S. K. (2003) Crystal
+structure of the MazE/MazF complex: Molecular bases of antidote-
+toxin recognition. Mol. Cell 11, 875−884.
+(34) Tripathi, A., Dewan, P. C., Siddique, S. A., and Varadarajan, R.
+(2014) MazF-induced growth inhibition and persister generation in
+escherichia coli. J. Biol. Chem. 289, 4191−4205.
+(35) Amitai, S., Yassin, Y., and Engelberg-kulka, H. (2004) MazF-
+Mediated Cell Death in Escherichia coli : a Point of No Return. J.
+Bacteriol. 186, 8295−8300.
+(36) Mok, W. W. K., Park, J. O., Rabinowitz, J. D., and Brynildsen,
+M. P. (2015) RNA futile cycling in model persisters derived from
+mazF accumulation. mBio 6, 1−13.
+(37) Kojima, H., Ogawa, Y., Kawamura, K., and Sano, K. (2004)
+Method of producing L-lysine by fermentation, US Pat. EP1477565A1.
+(38) Rodriguez, A., Martnez, J. A., Flores, N., Escalante, A., Gosset,
+G., and Bolivar, F. (2014) Engineering Escherichia coli to over-
+produce aromatic amino acids and derived compounds. Microb. Cell
+Fact. 13, 126.
+(39) Ohlendorf, R., Vidavski, R. R., Eldar, A., Moffat, K., and
+Möglich, A. (2012) From dusk till dawn: One-plasmid systems for
+light-regulated gene expression. J. Mol. Biol. 416, 534−542.
+(40) Moglich, A., Ayers, R. A., and Moffat, K. (2009) Design and
+Signaling Mechanism of Light-Regulated Histidine Kinases. J. Mol.
+Biol. 385, 1433−1444.
+(41) Helmstetter, C. E. (1967) Rate of DNA synthesis during the
+division cycle of Escherichia coli B/r. J. Mol. Biol. 24, 417−427.
+(42) Olivares-Marin, I. K., González-Hernández, J. C., Regalado-
+Gonzalez, C., and Madrigal-Perez, L. A. (2018) Saccharomyces
+cerevisiae exponential growth kinetics in batch culture to analyze
+respiratory and fermentative metabolism. J. Visualized Exp. 2018, 1−
+10.
+(43) Zhou, K., Edgar, S., and Stephanopoulos, G. (2016)
+Engineering Microbes to Synthesize Plant Isoprenoids. In Methods
+Enzymol., 1st ed., Elsevier Inc.
+(44) Zhang, W., Liu, H., Li, X., Liu, D., Dong, X. T., Li, F. F., Wang,
+E. X., Li, B. Z., and Yuan, Y. J. (2017) Production of naringenin from
+D-xylose with co-culture of E. coli and S. cerevisiae. Eng. Life Sci. 17,
+1021−1029.
+(45) Tashiro, Y., Desai, S. H., and Atsumi, S. (2015) Two-
+dimensional isobutyl acetate production pathways to improve carbon
+yield. Nat. Commun. 6, 1−9.
+(46) Shiba, Y., Paradise, E. M., Kirby, J., Ro, D. K., and Keasling, J.
+D. (2007) Engineering of the pyruvate dehydrogenase bypass in
+Saccharomyces cerevisiae for high-level production of isoprenoids.
+Metab. Eng. 9, 160−168.
+(47) Lian, J., Si, T., Nair, N. U., and Zhao, H. (2014) Design and
+construction of acetyl-CoA overproducing Saccharomyces cerevisiae
+strains. In Food, Pharm. Bioeng. Div. 2014 - Core Program. Area 2014
+AIChE Annu. Meet., Vol. 2, pp 750−760.
+(48) Koopman, F., Beekwilder, J., Crimi, B., van Houwelingen, A.,
+Hall, R. D., Bosch, D., van Maris, A. J., Pronk, J. T., and Daran, J.-M.
+(2012) De novo production of the flavonoid naringenin in engineered
+Saccharomyces cerevisiae. Microb. Cell Fact. 11, 155.
+(49) Juminaga, D., Baidoo, E. E. K., Redding-Johanson, A. M., Batth,
+T. S., Burd, H., Mukhopadhyay, A., Petzold, C. J., and Keasling, J. D.
+(2012) Modular engineering of L-tyrosine production in Escherichia
+coli. Appl. Environ. Microbiol. 78, 89−98.
+(50) Rodriguez, A., Chen, Y., Khoomrung, S., Özdemir, E.,
+Borodina, I., and Nielsen, J. (2017) Comparison of the metabolic
+response to over-production of p -coumaric acid in two yeast strains.
+Metab. Eng. 44, 265−272.
+(51) Skjoedt, M. L., Snoek, T., Kildegaard, K. R., Arsovska, D.,
+Eichenberger, M., Goedecke, T. J., Rajkumar, A. S., Zhang, J.,
+Kristensen, M., Lehka, B. J., Siedler, S., Borodina, I., Jensen, M. K.,
+and Keasling, J. D. (2016) Engineering prokaryotic transcriptional
+activators as metabolite biosensors in yeast. Nat. Chem. Biol. 12, 951−
+958.
+(52) Shi, S., Chen, Y., Siewers, V., and Nielsen, J. (2014) Improving
+production of malonyl coenzyme A-derived metabolites by abolishing
+Snf1-dependent regulation of Acc1. mBio 5, 1−8.
+(53) Fang, Z., and Bhandari, B. (2010) Encapsulation of polyphenols
+−a review. Trends Food Sci. Technol. 21, 510−523.
+(54) Tai, Y. S., Xiong, M., and Zhang, K. (2015) Engineered
+biosynthesis of medium-chain esters in Escherichia coli. Metab. Eng.
+27, 20−28.
+(55) Li, H., Gao, S., Zhang, S., Zeng, W., and Zhou, J. (2021) Effects
+of metabolic pathway gene copy numbers on the biosynthesis of (2S)-
+naringenin in Saccharomyces cerevisiae. J. Biotechnol. 325, 119−127.
+(56) Hammer, S. K., and Avalos, J. L. (2017) Uncovering the role of
+branched-chain amino acid transaminases in Saccharomyces cerevisiae
+isobutanol biosynthesis. Metab. Eng. 44, 302−312.
+(57) Lyu, X., Ng, K. R., Lee, J. L., Mark, R., and Chen, W. N. (2017)
+Enhancement of Naringenin Biosynthesis from Tyrosine by Metabolic
+Engineering of Saccharomyces cerevisiae. J. Agric. Food Chem. 65,
+6638−6646.
+(58) Du, Y., Yang, B., Yi, Z., Hu, L., and Li, M. (2020) Engineering
+Saccharomyces cerevisiae Coculture Platform for the Production of
+Flavonoids. J. Agric. Food Chem. 68, 2146−2154.
+(59) Doroshenko, V., Airich, L., Vitushkina, M., Kolokolova, A.,
+Livshits, V., and Mashko, S. (2007) YddG from Escherichia coli
+promotes export of aromatic amino acids. FEMS Microbiol. Lett. 275,
+312−318.
+(60) La, A., Perré, P., and Taidi, B. (2019) Process for symbiotic
+culture of Saccharomyces cerevisiae and Chlorella vulgaris for in situ
+CO2 mitigation. Appl. Microbiol. Biotechnol. 103, 731−745.
+(61) Mittenhuber, G. (1999) MazEZ-like Systems in Bacteria 295
+Occurence of MazEF-like Antitoxin/Toxin Systems in Bacteria JMMB
+Mini-Review. J. Mol. Microbiol. Biotechnol 1, 295−302.
+(62) Page, R., and Peti, W. (2016) Toxin-antitoxin systems in
+bacterial growth arrest and persistence. Nat. Chem. Biol. 12, 208−214.
+(63) Zhao, E. M., Lalwani, M. A., Chen, J., Orillac, P., Toettcher, J.
+E., and Avalos, J. L. (2021) Optogenetic Amplification Circuits for
+Light-Induced Metabolic Control. ACS Synth. Biol. 10 (5), 1143−
+1154.
+(64) Hennemann, J., Iwasaki, R. S., Grund, T. N., Diensthuber, R. P.,
+Richter, F., and Möglich, A. (2018) Optogenetic Control by Pulsed
+Illumination. ChemBioChem 19, 1296−1304.
+(65) Hirose, Y., Shimada, T., Narikawa, R., Katayama, M., and
+Ikeuchi, M. (2008) Cyanobacteriochrome CcaS is the green light
+receptor that induces the expression of phycobilisome linker protein.
+Proc. Natl. Acad. Sci. U. S. A. 105, 9528−9533.
+(66) Ong, N. T., Olson, E. J., and Tabor, J. J. (2018) Engineering an
+E. coli Near-Infrared Light Sensor. ACS Synth. Biol. 7, 240−248.
+(67) Thommes, M., Wang, T., Zhao, Q., Paschalidis, I. C., and Segrè,
+D. (2019) Designing Metabolic Division of Labor in Microbial
+Communities. mSystems 4, 1−21.
+(68) Gupta, S., Ross, T. D., Gomez, M. M., Grant, J. L., Romero, P.
+A., and Venturelli, O. S. (2020) Investigating the dynamics of
+microbial consortia in spatially structured environments. Nat.
+Commun. 11, 1−15.
+(69) Milias-Argeitis, A., Summers, S., Stewart-Ornstein, J., Zuleta, I.,
+Pincus, D., El-Samad, H., Khammash, M., and Lygeros, J. (2011) In
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.1c00182
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+N
+
+
+--- Page 15 ---
+silico feedback for in vivo regulation of a gene expression circuit. Nat.
+Biotechnol. 29, 1114−1116.
+(70) Carrasco-López, C., García-Echauri, S. A., Kichuk, T., and
+Avalos, J. L. (2020) Optogenetics and biosensors set the stage for
+metabolic cybergenetics. Curr. Opin. Biotechnol. 65, 296−309.
+(71) Jariyal, M., Jindal, V., Mandal, K., Gupta, V. K., and Singh, B.
+(2018) Bioremediation of organophosphorus pesticide phorate in soil
+by microbial consortia. Ecotoxicol. Environ. Saf. 159, 310−316.
+(72) Aguilar-Paredes, A., Valdés, G., and Nuti, M. (2020) Ecosystem
+Functions of Microbial Consortia in Sustainable Agriculture.
+Agronomy 10, 1902.
+(73) Smid, E. J., and Lacroix, C. (2013) Microbe-microbe
+interactions in mixed culture food fermentations. Curr. Opin.
+Biotechnol. 24, 148−154.
+(74) Vázquez-Castellanos, J. F., Biclot, A., Vrancken, G., Huys, G. R.,
+and Raes, J. (2019) Design of synthetic microbial consortia for gut
+microbiota modulation. Curr. Opin. Pharmacol. 49, 52−59.
+(75) Inoue, H., Nojima, H., and Okayama, H. (1990) High
+efficiency transformation of Escherichia coli with plasmids. Gene 96,
+23−28.
+(76) Gibson, D. G, Young, L., Chuang, R.-Y., Venter, J C.,
+Hutchison, C. A, and Smith, H. O (2009) Enzymatic assembly of
+DNA molecules up to several hundred kilobases. Nat. Methods 6,
+343−345.
+(77) Avalos, J. L., Fink, G. R., and Stephanopoulos, G. (2013)
+Compartmentalization of metabolic pathways in yeast mitochondria
+improves the production of branched-chain alcohols. Nat. Biotechnol.
+31, 335−341.
+(78) Datsenko, K. A., and Wanner, B. L. (2000) One-step
+inactivation of chromosomal genes in Escherichia coli K-12 using
+PCR products. Proc. Natl. Acad. Sci. U. S. A. 97, 6640−6645.
+(79) Dower, W. J., Miller, J. F., and Ragsdale, C. W. (1988) High
+efficiency transformation of E.coli by high voltage electroporation.
+Nucleic Acids Res. 16, 6127−6145.
+(80) Cherepanov, P. P., and Wackernagel, W. (1995) Gene
+disruption in Escherichia coli: TcR and KmR cassettes with the
+option of Flp-catalyzed excision of the antibiotic-resistance determi-
+nant. Gene 158, 9−14.
+(81) Sherman, F. (1991) Getting Started with Yeast. Methods
+Enzymol. 194, 3−21.
+(82) Orman, M. A., and Brynildsen, M. P. (2013) Dormancy Is Not
+Necessary or Sufficient for Bacterial Persistence. Antimicrob. Agents
+Chemother. 57, 3230−3239.
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.1c00182
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+O

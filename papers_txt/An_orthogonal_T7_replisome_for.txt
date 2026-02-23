@@ -1,0 +1,1391 @@
+--- Page 1 ---
+RESEARCH ARTICLES
+Science 
+7 August 2025
+618
+SYNTHETIC BIOLOGY
+An orthogonal T7 replisome  
+for continuous hypermutation  
+and accelerated evolution in E. coli
+Christian S. Diercks1*, Philipp Sondermann1,  
+Cynthia Rong1, Thomas G. Gillis1, Yahui Ban1, Celine Wang1,  
+David A. Dik1,2, Peter G. Schultz1,2* 
+Systems that perform continuous hypermutation of 
+designated genes without compromising the integrity of the 
+host genome can substantially accelerate the evolution of 
+new or enhanced protein functions. We describe an orthogonal 
+DNA replication system in Escherichia coli based on the 
+controlled expression of the replisome of bacteriophage T7 
+(T7-ORACLE). The system replicates circular plasmids that 
+enable high transformation efficiencies and seamless 
+integration into standard molecular biology workflows. 
+Engineering of T7 DNA polymerase yielded variant proteins 
+with mutation rates of 1.7 × 10−5 substitutions per base 
+in vivo—100,000-­fold above the genomic mutation rate. We 
+demonstrated continuous evolution using the T7 replisome by 
+expanding the substrate scope of TEM-­1 β-­lactamase and 
+increasing activity 5000-­fold against clinically relevant 
+monobactam and cephalosporin antibiotics in less than 1 week.
+Low organismal mutation rates [~10−10 substitutions per base pair (spb)] 
+render mere passaging of cells under selective pressure an inefficient 
+strategy for the diversification of genes on laboratory timescales (1, 2). 
+Historically, directed evolution addressed this limitation by mutagenesis 
+in vitro [e.g., error-­prone polymerase chain reaction (PCR)] followed by 
+transformation of a microbial host with such diversified libraries for 
+selection of phenotypic fitness (3–5). However, in vitro mutagenesis is 
+time consuming and laborious and limits both the depth (rounds of 
+mutagenesis) and scale (number of parallel experiments) of these experi-
+ments. Although alternative randomization strategies (e.g., DNA shuf-
+fling) have improved the efficiency of this process, the removal of ex vivo 
+diversification by increasing in vivo mutagenicity enables continuous 
+evolution at an accelerated pace (6).
+Early efforts to increase in vivo mutation rates relied on chemical 
+mutagens, engineered host DNA polymerases, and interference with 
+host DNA repair machinery. The mutation rates that can be achieved 
+according to these strategies are fundamentally limited by the large 
+number of essential host genes that must be maintained faithfully to 
+ensure survival (7–10). These limitations can be mitigated by using an 
+orthogonal replication system where an error-­prone DNA polymerase 
+exclusively maintains a dedicated episome (11, 12).
+The first orthogonal replication system, OrthoRep, was developed by 
+minimizing extranuclear plasmids of yeast that are replicated by an 
+orthogonal cytosolic protein-­primed DNA polymerase (11, 12). Engineering 
+of this DNA polymerase yielded clones with mutation rates of 10−5 spb 
+that enable accelerated continuous evolution in vivo (13–16). Developing 
+a mutagenic replication system in Escherichia coli will benefit from faster 
+generation times and higher cell densities compared with yeast and en-
+able markedly accelerated evolution experiments at the same mutation 
+rate. Recently, a bacterial replication system, EcORep, based on the 
+protein-­primed DNA polymerase of the lytic bacteriophage PDR1, was 
+developed for E. coli (17). However, the mutation rates that can stably be 
+maintained in the disclosed system (~2.0 × 10−7 spb) are only modestly 
+enhanced over genomic levels (18). As such, the development of a highly 
+mutagenic orthogonal replication system in E. coli remains an important 
+challenge. In this work, we describe the development of T7-ORACLE (T7 
+orthogonal replisome-assisted continuous laboratory evolution), a new 
+orthogonal replication system for continuous hypermutation and acceler-
+ated evolution in E. coli.
+Establishing an orthogonal replication system based on the 
+bacteriophage T7 replisome
+The replication of the linear double-­stranded genome of T7 phage is initi-
+ated by the priming of its replisome by T7 RNA polymerase (gp1) at a T7 
+origin of replication (Fig. 1A) (19–23). T7 origins of replication rely on 
+the orthogonality of the T7 RNA polymerase–promoter pair to E. coli 
+RNA polymerase–promoter pairs for specificity in recruiting the repli-
+some (Fig. 1B) (24). The orthogonal T7 transcript primes the T7 DNA 
+polymerase (gp5), which further recruits the T7 helicase (gp4B) and 
+helicase-­primase (gp4A) fusion protein to the transcription bubble. The 
+host factor thioredoxin (trxA) binds to the T7 DNA polymerase and serves 
+as a β-­sliding clamp. Replisome assembly initiates concerted leading and 
+lagging strand synthesis, which further requires the presence of the T7 
+single-­stranded DNA binding protein (gp2.5) for stabilizing the lagging 
+strand replication loop (Fig. 1C) (23).
+To create an orthogonal T7 replication system in E. coli, we gener-
+ated a strain based on E. coli BW25113 in which all four essential T7 
+replisome genes (gp1, gp2.5, gp4, and gp5) are supplied in trans using 
+plasmid-­based expression systems (table S1) (25). We only expressed 
+one of the two reading frames of gp4 (gp4A, helicase-­primase fusion), 
+given the reported toxicity and nonessentiality of gp4B (helicase) 
+(26, 27). Initial attempts at transforming this replisome strain with a 
+circular plasmid carrying only a T7 origin of replication proved unsuc-
+cessful, in agreement with literature precedent (28).
+We reasoned that additional T7 genes are required to establish an or-
+thogonal replication system. Although not strictly essential to T7 phage 
+replication, T7 lysozyme (gp3.5) knockout phages, in which the gene is 
+deleted, are severely replication deficient (29). T7 lysozyme has two func-
+tions: cysteine hydrolase activity and inhibition of transcription by binding 
+to T7 RNA polymerase (30, 31). The concerted expression of T7 lysozyme 
+with the other replication proteins (gp1, gp2.5, gp4, gp5; fig. S1) suggests 
+a regulatory mechanism in which lysozyme accumulation leads to a switch 
+from transcription to replication in the phage life cycle (32). Inhibition by 
+T7 lysozyme causes abortive cycling instead of the transcription of full 
+genes. This produces short RNA “primers” for the T7 DNA polymerase to 
+stimulate the assembly of the T7 replisome at the T7 origin (33–36).
+To stimulate replication, we fused hydrolase-­deficient T7 lysozyme 
+[C131S (Cys131→Ser)] to T7 RNA polymerase (37). To maximize this effect, 
+we used the T7 origin of replication φOR (Fig. 1A), for which replication 
+stimulation by T7 lysozyme was reported to be the highest (32). Finally, 
+we chose a reported exonuclease-­deficient clone of T7 DNA polymerase 
+(Δ28, T7 Sequenase 2) that had previously been used for T7 replisome-­
+based in vitro replication assays (38–41). These changes enabled trans-
+formation of a plasmid carrying a T7 origin of replication (pOR-­1; 
+table S1), as well as stable replication for more than 2 weeks (Fig. 1, D and 
+E). The strain showed robust growth [doubling time (Tdouble) of 29 min] 
+and reached high cell densities [optical density at 600 nm (OD600) of 
+7.2] in liquid culture (Fig. 1F). Mutation rates determined by fluctua-
+tion analysis showed increased mutagenesis of the T7 origin plasmid 
+(2.81 × 10−7 spb per generation) without affecting the host genomic muta-
+tion rate (3.66 × 10−10 spb; table S4). The copy number of the T7 origin 
+1Department of Chemistry and Skaggs Institute for Chemical Biology, The Scripps Research 
+Institute, La Jolla, CA, USA. 2Department of Biology, California Institute for Biomedical 
+Research (Calibr), La Jolla, CA, USA. *Corresponding author. Email: cdiercks@​scripps.​edu 
+(C.S.D.); schultz@​scripps.​edu (P.G.S.)
+Downloaded from https://www.science.org on September 07, 2025
+
+
+--- Page 2 ---
+Research Articles
+Science 
+7 August 2025
+619
+plasmid of 8.5 was determined by quantitative PCR, yielding an adjusted 
+mutation rate of 3.31 × 10−8 spb (Fig. 2G, fig. S13, and table S3). Notably, 
+the transformation efficiency of the circular plasmid was determined to 
+be 2.4 × 1010 colony-­forming units per μg (cfu μg−1), which is orders of 
+magnitude higher than the transformation efficiency for the linear plas-
+mids of OrthoRep or EcORep (13, 17).
+Engineering T7 DNA polymerase mutants with increased 
+mutation rate
+Three distinct mechanisms account for the high fidelity (10−9 to 10−10 spb) 
+of DNA replication. Base selection in the T7 DNA polymerase active site 
+accounts for a fidelity of ~10−5 spb, 3′-­5′ exonucleolytic proofreading 
+further increases fidelity by ~10−2 spb, and host mismatch repair is re-
+sponsible for the remaining ~10−3 spb. Initially, we had used a 3′-­5′ proof-
+reading exonuclease-­deficient version of T7 DNA polymerase (Δ28; 
+Fig. 2A) (40–42). Comparison of this Δ28 mutant (3.31 × 10−8 spb) to wild-​
+­type (WT) T7 DNA polymerase (1.4 × 10−9 spb) showed a 25-­fold differ-
+ence in mutation rate (Fig. 2C).
+Because DNA mismatch repair cannot be altered without compromis-
+ing host fitness, we next targeted the fidelity of base selection in the 
+polymerase active site to further increase mutagenicity. We selected 11 
+sites of T7 DNA polymerase based on studies of homologous polymerases 
+(10, 43) and generated single-­site–saturation libraries at each position 
+(i.e., R429X, V443X, R444X, L479X, E480X, N520X, A521X, K522X, T523X, 
+F524X, Y530X, P560X, and N611X; R, Arg; V, Val; L, Leu; E, Glu; N, Asn; 
+A, Ala; K, Lys; T, Thr; F, Phe; Y, Tyr; P, Pro; X, any residue). A replisome 
+strain deficient in T7 DNA polymerase (T7Rep-­Δgp5; table S2) was trans-
+formed with these site-­saturation libraries and then challenged to revert 
+a premature ochre stop codon in the TEM-­1 β-­lactamase gene (E26*ochre) 
+on the T7 origin plasmid (pOR-­3; table S1) to restore resistance to the an-
+tibiotic carbenicillin. We sequenced surviving clones using Illumina am-
+plicon sequencing and subjected enriched DNA polymerase mutants to 
+fluctuation analysis. This identified three mutations (N520M, P560V, and 
+V443K; M, Met; Fig. 2B) that were mapped onto the Δ28 mutant. N520M 
+likely decreases geometric constraints that contribute to base-­pairing se-
+lectivity given its position in the O-­helix, which is in contact with incoming 
+nucleotides in the active site. P560V is located in a flexible loop of the 
+fingers domain that contacts this O-­helix. This loop serves as a “hinge” that 
+opens and closes the active site for incoming nucleotides. Mutations in this 
+domain likely affect base pairing by altering the kinetics of binding of the 
+correct or incorrect nucleotides. V443K interacts with the DNA double helix 
+at the replication fork and might decrease base-­pairing constraints by in-
+creasing the flexibility at the replication fork. The identified mutations 
+increased the mutation rate of exonuclease-­deficient T7 DNA polymerase 
+to 6.75 × 10−7 spb for the best single mutant, 4.26 × 10−6 spb for the best 
+double mutant, and 1.04 × 10−5 spb for the best triple mutant (Fig. 2C).
+Next, we constructed a random mutagenesis library on top of the 
+triple mutant and subjected it to the same reversion assay. This identi-
+fied an additional seven sites for which single-­site–saturation libraries 
+were constructed and screened (Y24X, P84X, M146X, N171X, A433X, 
+L437X, Q585X, and R678X; Q, Gln; figs. S2 to S4). The most beneficial 
+mutations identified were Y24F and Q585R (Fig. 2B). Notably, the Y24F 
+mutation is in the exonuclease domain and was found to reverse 
+growth deficiencies observed for the single, double, and triple mutants 
+(figs. S5 to S10 and table S5) but did not show a change in mutation 
+rate (1.1 × 10−5 spb). The last mutation was found in the Palm domain 
+B
+5’5’
+3’3’
+pppG
+pppG
+φOR
+φOR
+Primase
+Primase
+Site
+Site
+T7 RNA Pol. Transcript
+T7 RNA Pol. Transcript
+AT-rich Region
+AT-rich Region
+T7 DNA Polymerase
+T7 DNA Polymerase
+T7 Helicase
+T7 Helicase
+RBD
+RBD
+dTTP
+dTTP
+dTDP + Pi
+dTDP + Pi
+3’3’
+5’5’
+ZBD
+ZBD
+Primase
+Primase
+T7 DNA Polymerase
+T7 DNA Polymerase
+T7 ssDNA
+T7 ssDNA
+BP 
+BP 
+RNA
+RNA
+Primer
+Primer
+Lagging Strand
+Lagging Strand
+Leading Strand
+Leading Strand
+C
+3’3’
+5’5’
+3’3’
+5’5’
+3’3’
+5’5’
+T7 Helicase/Primase
+T7 Helicase/Primase
+Previous OF
+Previous OF
+Nascent OF
+Nascent OF
+E. coli 
+E. coli  Thioredoxin
+ Thioredoxin
+A
+5’5’
+3’3’
+pppG
+pppG
+3’3’
+5’5’
+T7 RNA Pol. Transcript
+T7 RNA Pol. Transcript
+Abortive Cycling
+Abortive Cycling
+T7 RNA Polymerase
+T7 RNA Polymerase
+T7 Lysozyme
+T7 Lysozyme
+Genome
+Genome
+T7 Replisome
+T7 Replisome
+Escherichia coli 
+Escherichia coli BW25113
+BW25113
+Orthogonal 
+Orthogonal 
+Replicon
+Replicon
+OR-1
+OR-1
+Cam
+CamR
+T7 origin of 
+T7 origin of 
+replication 
+replication 
+φOR
+φOR
+D
+Initiation of Replication
+Initiation of Replication
+Replisome Coordination
+Replisome Coordination
+Origin of Replication
+Origin of Replication
+Plasmid Transformation
+Plasmid Transformation
+E Replication of OR Plasmid
+Replication of OR Plasmid
+G Mutation Rate [sbp]
+Mutation Rate [sbp]
+T7 Primase
+T7 Primase
+φOR
+φOR
+F Growth Curve
+Growth Curve
+– T7 Replisome
+– T7 Replisome
++ T7 Replisome
++ T7 Replisome
+Transformation of OR plasmid:
+Transformation of OR plasmid:
+A
+B
+C
+OR 
+OR Mutations/Generation
+Mutations/Generation
+OR 
+OR Mutations [spb]
+Mutations [spb]
+Genome Mutations [spb]
+Genome Mutations [spb]
+bla
+blaTEM1
+TEM1
+TAA
+T7 Replisome Mutation Rate
+T7 Replisome Mutation Rate
+rpoB
+rpoB
+Genomic Mutation Rate
+Genomic Mutation Rate
+E. coli
+E. coli Replisome
+ Replisome
+RP1
+RP1 RP2
+RP2 RP3
+RP3
+Tdouble
+double  = 28.2 min
+  = 28.2 min
+OD
+ODmax 
+max = 7.12
+= 7.12
+Time
+0:00:00
+10:00:00
+20:00:00
+0
+2
+4
+6
+8
+Optical Density
+OR-1
+OR-1
+A
+B
+1×10-10
+1×10-9
+1×10-8
+1×10-7
+1×10-6
+Frequency +/- 95% CI Median 
+B
+C
+Frequency +/- 95% CI Median 
+1×10-10
+1×10-9
+1×10-8
+1×10-7
+1×10-6
+gp 4A
+gp 4A
+T7 helicase-primase
+T7 helicase-primase
+gp 2.5
+gp 2.5
+T7 ssDNA-bp
+T7 ssDNA-bp
+RP1 (pCD0280)
+RP1 (pCD0280)
+T7 DNA polymerase
+T7 DNA polymerase
+RP2 (pCD026X)
+RP2 (pCD026X)
+gp 5
+gp 5
+X = 1-7
+X = 1-7
+gp 3.5
+gp 3.5
+T7 lysozyme-RNAP trans. fusion
+T7 lysozyme-RNAP trans. fusion
+RP3 (pCD0275)
+RP3 (pCD0275)
+gp 1
+gp 1
+spacer
+spacer
+Fig. 1. Establishing an orthogonal replication system in E. coli based on the bacteriophage T7 replisome. (A) T7 RNA polymerase initiates replication by priming the  
+replisome at the T7 origin of replication. T7 lysozyme stimulates initiation of replication. (B) T7 DNA polymerase is primed by the orthogonal transcript and T7 helicase and  
+primase are recruited to the origin, leading to (C) concerted leading-­ and lagging-­strand synthesis. T7 single-­stranded DNA (ssDNA)–binding protein (BP) stabilizes the replication 
+loop, and E. coli thioredoxin serves as a sliding clamp to increase T7 DNA polymerase processivity. AT, adenine and thymine base pair; dTDP, thymidine diphosphate; dTTP,  
+thymidine triphosphate; Pi, inorganic phosphate. (D) Transformation of a plasmid with a selection marker and a T7 origin of replication is only replicated by E. coli strains that  
+(E) provide the T7 replisome proteins in trans. CamR, chloramphenicol acetyltransferase gene; OR, plasmid featuring T7 origin of replication; RP, replisome expression plasmid.  
+(F) T7 origin plasmids are stably maintained, and transformed strains show robust growth with a doubling time of 28 min and a final OD600 of 7.2. (G) The Δ28 mutant of T7 DNA 
+polymerase displays an elevated mutation rate of 3.31 × 10−8 spb on the origin replicon (pOR-­1), without increasing the genomic mutation rate (3.6 ×10−10 spb). CI, 
+confidence interval.
+Downloaded from https://www.science.org on September 07, 2025
+
+
+--- Page 3 ---
+Research Articles
+Science 
+7 August 2025
+620
+of the polymerase and yielded a mutation rate of 1.73 × 10−5 spb for 
+the quintuple mutant (Fig. 2C and table S3).
+We investigated the mutational spectrum of the quintuple mutant 
+by Illumina sequencing using the NovaseqX platform (two replicates 
+of 600 million paired-­end reads each) and analyzed the data using a 
+custom analysis pipeline (44). The observed mutation rate across the 
+two replicates was calculated as 1.93 × 10−5 spb, in good agreement 
+with the results from fluctuation analysis. Heatmaps of the mutational 
+spectrum were generated by calculating the mutational frequency of 
+each nucleotide substitution across the two replicate datasets. We ob-
+served a fairly unbiased mutational spectrum for both transition muta-
+tions and transversion mutations (Fig. 2E).
+Orthogonality to the genome was confirmed by fluctuation analysis 
+using rifampicin resistance, which displayed a genomic mutation rate 
+of 4.4 × 10−10 spb (Fig. 2D and table S4). Stability of the quintuple 
+mutant was further confirmed by passaging the strain for 2 weeks, 
+after which sequencing of the quintuple mutant of the replisome strain 
+showed no changes in sequence and mutation rate (fig. S19). We fur-
+ther determined that plasmid sizes of up to 13 kb in size can be main-
+tained (pOR-­6; fig. S11 and tables S1 and S5) with comparable mutation 
+rates (1.53 × 10−5 spb; table S3).
+Continuous evolution of TEM-­1 β-­lactamase
+Next, to demonstrate the utility of the mutagenic T7 system, which we 
+have termed T7-ORACLE, for evolving protein function, we applied it to 
+the continuous evolution of TEM-­1 β-­lactamase for an expanded 
+substrate scope and improved activity against monobactam (az-
+treonam) and cephalosporin antibiotics (cefotaxime, ceftazi-
+dime, and cefepime; Fig. 3, A to C). An understanding of the 
+mutational landscape of TEM-­1 β-­lactamase provides insight into 
+the molecular basis for resistance in clinical isolates and is es-
+sential for designing next-­generation β-­lactam antibiotics. To this 
+end, T7rep-­7 was transformed with a pOR-­4 encoding the blaTEM-­1 
+β-­lactamase gene (Fig. 3A and tables S1 and S2). Initial plating of 
+the strain on antibiotic concentrations that approximate the mini-
+mum inhibitory concentration of TEM-­1 against the respective 
+antibiotics (0.1 μg ml−1 for aztreonam, cefotaxime, and cefepime; 
+0.4 μg ml−1 for ceftazidime) served as the starting point for evo­
+lution. For each experiment, 96 colonies were picked and pas-
+saged under increasing concentrations of antibiotic to more than 
+1000-­fold within 6 days (100 μg ml−1 for aztreonam, cefotaxime, 
+cefepime; 500 μg ml−1 for ceftazidime; Fig. 3B). At the end of 
+the experiment, the coding sequences of the β-­lactamase genes, 
+as well as the pAmpR promoter region, were determined (Fig. 3D 
+and figs. S14 to S16).
+Convergence of mutations across replicates was observed for all 
+antibiotics (Fig. 3, D and E), with all enriched mutations having 
+previously been described in clinical isolates of extended spectrum 
+β-­lactamases or laboratory evolution experiments (45, 46). Both 
+the nature and the combination of mutations differed for the four 
+antibiotics. In addition, the entire 96-­well plate for each evolution 
+experiment was pooled after every passage and subjected to nano-
+pore amplicon sequencing to establish a time course of when 
+mutations occurred (Fig. 4 and figs. S17 and S18). For instance, the 
+evolution of cefotaxime resistance (Fig. 4A) began to enrich for the 
+G238S (G, Gly) substitution from the beginning, in agreement with 
+the substitution being associated with increased hydrolysis of ce-
+fotaxime. After passage 3, only clones that acquired a secondary 
+mutation, E104K, survived. E104K is generally associated with mu­
+tations G238S, R164H, or R164S (H, His) where it increases resis-
+tance to cefotaxime, ceftazidime, or aztreonam, respectively (45, 47). 
+Starting at passage 4, mutations that increased the strength of the 
+promoter pAmpR were observed. Finally, over passages 4 to 6, one 
+of four accessory mutations was enriched in most cultures (M182T, 
+L49M, T264M, or G92D; D, Asp), all of which have been found as 
+secondary mutations in clinical isolates or evolution experiments (45). 
+M182T increases thermodynamic stability and helps prevent aggregation. 
+Similarly, G92D and T264M were identified in evolution campaigns that 
+select for stabilizing and compensatory mutations (45). The role of L49M 
+is unknown, but the fact that it is observed frequently in the context of 
+cefotaxime resistance supports an adaptive effect (45).
+In the ceftazidime resistance time-­course experiment, mutations in 
+the promoter region were observed from the outset (Fig. 4B). Ad­
+ditionally, mutations R164H and R164S (improved active-­site access 
+for β-­lactams with large side chains) were enriched from the begin-
+ning, along with the aforementioned E104K secondary mutation. After 
+passage 3, additional mutations (i.e., M182T, E240K, and D179G) were 
+observed. E240K commonly occurred in combination with R164S and 
+R164H, where it increases activity against ceftazidime and aztreonam 
+(45,  47). D179G has been observed in evolution campaigns using 
+ceftazidime as a selective agent (45). Over the last three passages, the 
+percentage of D179G mutations steadily decreased, indicating that the 
+mutation was being outcompeted at higher antibiotic concentrations. 
+This 1-­week experiment perfectly recapitulated the vast body of work 
+on extended-­spectrum β-­lactamases collected over decades, highlight-
+ing the power of the T7 evolution system in interrogating complex 
+evolutionary fitness landscapes.
+A major advantage of T7-­ORACLE compared with other continuous 
+evolution systems is that maintenance of a circular replicon enables high 
+transformation efficiencies and integration of continuous hypermutation 
+2×10-5
+5×10-6
+P560V
+N520M
+Q585R
+V443K
+Y24F
+Thioredoxin
+Exonuclease
+Thioredoxin
+Binding Site
+Palm Domain
+Fingers Domain
+A T7 DNA Polymerase
+C Mutation Rate T7 DNA Polymerase
+B Mutations in T7 DNAP
+D Genomic Mutation 
+     Rate
+E Mutational Spectrum
+A
+C
+G
+T
+A
+C
+G
+T
+0
+A
+C
+G
+T
+A
+C
+G
+T
+A
+C
+G
+T
+A
+C
+G
+T
+1×10-5
+A
+B
+C
+D
+E
+F
+G
+Frequency +/- 95% CI Median
+1×10-10
+1×10-9
+1×10-8
+1×10-7
+1×10-6
+Transitions Transversions
+GOR GG
+1×10-10
+1×10-9
+1×10-8
+1×10-7
+1×10-6
+1×10-5
+Frequency +/- 95% CI Median
+1×10-5
+Mutation Rate (spb)
+Fig. 2. Directed evolution of a mutagenic T7 DNA polymerase. (A) Structure of T7 DNA 
+polymerase (white piped helices) bound to DNA (orange) and its thioredoxin cofactor (light gray). 
+(B) Mutations in T7 DNA polymerase (DNAP) that decrease base-­pairing fidelity (Y24F, V443K, 
+N520M, P560V, Q585R) are highlighted in red (ball and stick representation). (C) Mutation rates 
+of T7 DNA polymerase mutants as determined by fluctuation analysis. Reversion rates are 
+converted to mutation rates by fitting the data to the Luria-­Delbruck function using the 
+Ma-­Sandri-­Sarkar maximum likelihood estimator. Variants are as follows: A (WT), B (Δ28), C 
+(Δ28, N520M), D (Δ28, N520M, P560V), E (Δ28, N520M, P560V, V443K), F (Δ28, N520M, 
+P560V, V443K, Y24F), and G (Δ28, N520M, P560V, V443K, Y24F , Q585R). (D) Comparison of 
+the mutagenesis by T7 DNA polymerase mutant G on the orthogonal replicon (pOR-­3; GOR) to the 
+genomic mutation rate (GG) shows a five-­order-­of-­magnitude increase in targeted mutagenesis 
+and no off-­target activity. (E) Mutational spectrum of T7 DNA polymerase mutant G in the 
+absence of selection pressure on the orthogonal replicon (pOR-­3), expressed as the substitution 
+type–specific substitution rate (spb) for all possible base transitions and transversions.
+Downloaded from https://www.science.org on September 07, 2025
+
+
+--- Page 4 ---
+Research Articles
+Science 
+7 August 2025
+621
+with prediversified libraries (e.g., site-­saturation mutagenesis and gene 
+shuffling). Under constant selective pressure, laboratory evolution tends 
+to follow a path of least resistance across a hypothetical fitness landscape. 
+This can be illustrated for the evolution of TEM-­1 for activity against 
+cefotaxime, where replicate evolution experiments broadly converge 
+to the same solution (Fig. 3, D and E). Conceptually, this can be described 
+as evolution trajectories on a hypothetical fitness landscape being 
+trapped in local fitness maxima as opposed to sampling the entire 
+land­scape (Fig. 5, A to C). To overcome this limitation, we generated 
+a site-­saturation library of TEM-­1 (E104X, Y105X, G238X, E240X, and 
+R244X) covering the five residues that line the enzyme’s active site. 
+Transformation of the library plasmid pOR-­5 (table S1) into the T7-­
+ORACLE strain yielded full library coverage (3.4 × 107–member library). 
+Ninety-­six clonal starting points were picked after initial selec-
+tion (0.1 μg ml−1 cefotaxime) and passaged under increasing selection 
+stringency. After 5 days, the replicate evolution experiments displayed 
+vast diversity in their active-­site residues and differed from the solution 
+for evolution of WT TEM-­1 (Fig. 5, D and E). Notably, although E104K 
+was one of the most important mutations for cefotaxime resistance in 
+WT TEM-­1, 16 distinct solutions were observed at this site in the evolu-
+tion of the site-­saturation library (Fig. 5D). Similarly, 14 distinct solutions 
+were observed at site 238, seven at site 105, and seven at site 240. No 
+substitutions for R244 were identified, indicating that this residue is 
+essential for activity. Secondary mutations related to stability and ex-
+pression levels followed similar trends as for the WT enzyme evolution 
+(e.g., pAmpR, M182T, L49M, T264M, and G92D). A second evolution 
+experiment was carried out where, instead of 96 individual clones, the 
+entire library was used as a starting point in each of the replicates. In 
+this case, the active-­site mutations converged again, with >80% se-
+quence identity at four of the five sites (E104F, Y105W, G238S, and 
+R244R; W, Trp) and divergence only being observed at site 240 (Fig. 5, 
+D and F). In addition, starting from the entire library allowed for in-
+creasing the cefotaxime concentration even further (500 μg ml−1) with-
+out any loss in viability, supporting the fact that evolution under these 
+conditions can identify global maxima on the protein’s fitness land-
+scape. This was further corroborated by the fact that the active-­site 
+residues that converged in the experiment starting from the site-­
+saturation library, when tested clonally, were found to be more active 
+than the clones that converged from the evolution starting from WT 
+TEM-­1 (fig. S20).
+Discussion
+We have established an orthogonal replication system in E. coli based 
+on the replisome of bacteriophage T7. Directed evolution of the T7 
+DNA polymerase for increased mutation rates yielded a replisome 
+strain that can be continuously passaged at a mutation rate of 1.7 × 
+10−5 spb. The combination of the high mutagenesis rate, the fast 
+growth rate of E. coli, the high transformation efficiency, and the ease 
+with which both the E. coli and the circular replicon plasmid can be 
+integrated into standard molecular biology workflows differentiates 
+T7-­ORACLE from OrthoRep and EcORep. In comparison to PACE, an-
+other highly mutagenic continuous evolution system in E. coli, our 
+system benefits from simplicity and the lack of specialized equipment 
+that is required to run evolution campaigns, as well as from the ability 
+to autonomously run continuous evolution campaigns in a large num-
+ber of replicates (48, 49). One present limitation of T7-­ORACLE is the 
+lack of inducible control of the replisome proteins, which would enable 
+control over both the copy number of the replicon as well as modula-
+tion of the mutation rate during evolution campaigns. To facilitate 
+adaptation of the system, we constructed a strain in which all repli-
+some genes are encoded on the genome (fig. S12 and tables S2, S3, and 
+S5). Maintaining a circular replicon enables high transformation ef-
+ficiencies of circular plasmids (2.4 × 1010 cfu μg−1) and thus the integra-
+tion of prediversified libraries and continuous mutagenesis into a 
+single workflow. This was illustrated by continuous evolution cam-
+paigns in which we started with large active-­site libraries to explore 
+broader fitness landscapes. Following this approach, we identified 
+clones with improved activity relative to those found starting from the 
+native enzyme. This will be particularly beneficial for evolving funda-
+mentally new, as opposed to improved, activities, as well as for inves-
+tigating vast fitness landscapes through divergent, as opposed to 
+convergent, evolution campaigns.
+0.1 µg/ml
+0.5 µg/ml
+2.5 µg/ml
+10 µg/ml
+50 µg/ml
+100 µg/ml
+0.1 µg/ml
+0.5 µg/ml
+2.5 µg/ml
+10 µg/ml
+50 µg/ml
+100 µg/ml
+0.1 µg/ml
+0.5 µg/ml
+2.5 µg/ml
+10 µg/ml
+50 µg/ml
+100 µg/ml
+0.1 µg/ml
+0.5 µg/ml
+2.5 µg/ml
+10 µg/ml
+50 µg/ml
+100 µg/ml
+0.1 µg/ml
+0.5 ug/ml
+2.5 µg/ml
+10 µg/ml
+50 µg/ml
+100 µg/ml
+0.1 µg/ml
+0.5 µg/ml
+2.5 µg/ml
+10 µg/ml
+50 µg/ml
+100 µg/ml
+0.1 µg/ml
+0.5 µg/ml
+2.5 µg/ml
+10 µg/ml
+50 µg/ml
+100 µg/ml
+0
+20
+40
+60
+80
+100
+Percent Reads
+E104K
+G238S
+M182T
+L49M
+T264M
+G92D
+Promoter
+0.4 µg/ml
+2.0 µg/ml
+10 µg/ml
+50 µg/ml
+250 µg/ml
+500 µg/ml
+0.4 µg/ml
+2.0 µg/ml
+10 µg/ml
+50 µg/ml
+250 µg/ml
+500 µg/ml
+0.4 µg/ml
+2.0 µg/ml
+10 µg/ml
+50 µg/ml
+250 µg/ml
+500 µg/ml
+0.4 µg/ml
+2.0 µg/ml
+10 µg/ml
+50 µg/ml
+250 µg/ml
+500 µg/ml
+0.4 µg/ml
+2.0 µg/ml
+10 µg/ml
+50 µg/ml
+250 µg/ml
+500 µg/ml
+0.4 µg/ml
+2.0 µg/ml
+10 µg/ml
+50 µg/ml
+250 µg/ml
+500 µg/ml
+0.4 µg/ml
+2.0 µg/ml
+10 µg/ml
+50 µg/ml
+250 µg/ml
+500 µg/ml
+0.4 µg/ml
+2.0 µg/ml
+10 µg/ml
+50 µg/ml
+250 µg/ml
+500 µg/ml
+Percent Reads
+E104K
+R164X
+R164H
+R164S
+M182T
+E240K
+D177G
+A
+B
+ Cefotaxime Resistance Time Course
+Cefotaxime Resistance Time Course
+Ceftazidime Resistance Time Course
+Ceftazidime Resistance Time Course
+0
+20
+40
+60
+100
+Promoter
+Fig. 4. Time course of β-­lactamase evolution experiments. The time course for 
+evolution of (A) cefotaxime and (B) ceftazidime resistance was interrogated by 
+deep-­sequencing of all 96 replicates after each passage (once per day). Mutations in 
+the promoter are depicted in blue, and mutations in the TEM-­1 reading frame are 
+depicted in red and orange.
+Genome
+Genome
+OR-4
+OR-4
+Mutagenic T7 
+Mutagenic T7 
+Replisome
+Replisome
+Replisome Strain T7
+Replisome Strain T7Rep-7
+Rep-7
+T7 DNAP (∆28, N520M, P560V, V443K, Y24F, Q585R) 
+ 
+Orthogonal 
+Orthogonal 
+Replicon
+Replicon
+bla
+blaTEM-1
+TEM-1
+T7 origin of 
+T7 origin of 
+replication 
+replication 
+φOR
+φOR
+A Selection System
+Selection System
+CTX conc. [µg/ml]
+CTX conc. [µg/ml]
+FEP conc. [µg/ml]
+FEP conc. [µg/ml]
+AZ conc. [µg/ml]
+AZ conc. [µg/ml]
+CAZ conc. [µg/ml]
+CAZ conc. [µg/ml]
+Passage
+Passage
+0.1
+0.1
+0.1
+0.1
+0.1
+0.1
+0.4
+0.4
+1
+0.5
+0.5
+0.5
+0.5
+0.5
+0.5
+2.0
+2.0
+2
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+10
+10
+3
+10
+10
+10
+10
+10
+10
+50
+50
+4
+50
+50
+50
+50
+50
+50
+250
+250
+5
+100
+100
+100
+100
+100
+100
+500
+500
+6
+1000-fold Increase
+1000-fold Increase
+B Selection Stringency
+Selection Stringency
+96 repl.
+96 repl.
+C β-Lactam Antibiotics
+β-Lactam Antibiotics
+D Sanger Sequencing CTX Resistance
+Sanger Sequencing CTX Resistance
+N+
+N
+O
+H
+N
+O
+N O
+S
+N
+H2N
+S
+O
+O-
+H
+Cefepime, FEP
+Cefepime, FEP
+H
+N
+O
+N O
+O
+OH
+S
+N
+H2N
+O
+O
+O-
+N
+H
+S
+N+
+Ceftazidime, CAZ
+Ceftazidime, CAZ
+N
+S
+O
+O
+OH
+H
+N
+O
+N O
+O
+OH
+S
+N
+H2N
+O
+Aztreonam, AZ
+Aztreonam, AZ
+Cefotaxime
+Cefotaxime
+Cefepime
+Cefepime
+Aztreonam
+Aztreonam
+Ceftazidime
+Ceftazidime
+pAmpR
+AmpR
+L49M
+L49M
+E104K
+E104K
+G92D
+G92D
+M182T
+M182T
+G238S
+G238S
+T264M
+T264M
+E Resistance Mutations
+Resistance Mutations
+M182T
+M182T
+G92D
+G92D
+E104K
+E104K
+E104K
+E104K
+E104K
+E104K
+G238S
+G238S
+T264M
+T264M
+L49M
+L49M
+M182T
+M182T
+M182T
+M182T
+R164H
+R164H
+R164S
+R164S
+R164H
+R164H
+R164S
+R164S
+R164H
+R164H
+R164S
+R164S
+L30V
+L30V
+OR-4
+OR-4
+S70
+S70
+S70
+S70
+E240K
+E240K
+E240K
+E240K
+S70
+S70
+S70
+S70
+0
+10
+10
+20
+20
+30
+30
+40
+40
+50
+50
+60
+60
+70
+70
+80
+80
+90
+90
+100
+100
+110
+110
+120
+120
+130
+130
+140
+140
+150
+150
+160
+160
+170
+170
+180
+180
+190
+190
+200
+200
+210
+210
+220
+220
+230
+230
+240
+240
+250
+250
+260
+260
+270
+270
+280
+280
+Carbenicilin
+Carbenicilin
+O
+OH
+N
+O
+H
+N
+O
+O
+HO
+S
+H
+Cefotaxime, CTX
+Cefotaxime, CTX
+O
+O
+N
+O
+H
+N
+O
+N O
+S
+N
+H2N
+S
+O
+OH
+H
+Fig. 3. Continuous evolution of TEM-­1 β-­lactamase. (A) TEM-­1 β-­lactamase is 
+continuously mutagenized by the mutagenic T7 replisome (T7rep-­7, quintuple mutant).  
+(B) Selection for expanded substrate scopes is achieved by passaging cells (96 rep­licates) 
+in the presence of increasing amounts of cephalosporin and monobactam antibiotics.  
+AZ, aztreonam; CAZ, ceftazidime; CTX, cefotaxime; FEP, cefepime. (C) Chemical 
+structures of carbenicillin, cephalosporin β-­lactams (cefotaxime, cefepime, ceftazidime), 
+and the monobactam aztreonam. (D) Sanger sequencing for 96 cefotaxime-­resistance 
+evolution experiments after a 1000-­fold increase in antibiotic concentration (missense 
+mutations are marked in red and silent mutations in blue). (E) Structure of TEM-­1 
+β-­lactamase, with mutations that multiple replicates converge upon highlighted in red 
+and the catalytic S70 residue highlighted in orange.
+Downloaded from https://www.science.org on September 07, 2025
+
+
+--- Page 5 ---
+Research Articles
+Science 
+7 August 2025
+622
+REFERENCES AND NOTES
+	1.	 J. W. Drake, Proc. Natl. Acad. Sci. U.S.A.  88, 7160–7164 (1991). 
+	2.	 C. K. Biebricher, M. Eigen,  Curr. Top. Microbiol. Immunol.  299, 1–31 (2006). 
+	3.	 M. S. Packer, D. R. Liu, Nat. Rev. Genet.  16, 379–394 (2015). 
+	4.	 F. H. Arnold, Acc. Chem. Res.  31, 125–131 (1998). 
+	5.	 A. J. Simon, S. d’Oelsnitz, A. D. Ellington, Nat. Biotechnol.  37, 730–743 (2019). 
+	6.	 W. P. C. Stemmer, Nature  370, 389–391 (1994). 
+	7.	 D. M. Hillis, J. J. Bull, M. E. White, M. R. Badgett, I. J. Molineux, Science  255, 589–592 
+(1992). 
+	8.	 J. J. Bull, R. Sanjuán, C. O. Wilke, J. Virol.  81, 2930–2939 (2007). 
+	9.	 A. J. Herr et al., PLOS Genet.  7, e1002282 (2011). 
+	10.	M. Camps, J. Naukkarinen, B. P. Johnson, L. A. Loeb, Proc. Natl. Acad. Sci. U.S.A.  100, 
+9727–9732 (2003). 
+	11.	 A. Ravikumar, A. Arrieta, C. C. Liu, Nat. Chem. Biol.  10, 175–177 (2014). 
+	12.	R. Tian et al., Nat. Chem. Biol.  19, 1504–1512 (2023). 
+	13.	 A. Ravikumar, G. A. Arzumanyan, M. K. A. Obadi, A. A. Javanpour, C. C. Liu, Cell  175, 
+1946–1957.e13 (2018). 
+	14.	 G. Rix et al., Nat. Commun.  11, 5644 (2020). 
+	15.	 A. Wellner et al., Nat. Chem. Biol.  17, 1057–1064 (2021). 
+	16.	 E. D. Jensen et al., Microb. Biotechnol.  14, 2617–2626 (2021). 
+	17.	 R. Tian et al., Science  383, 421–426 (2024). 
+	18.	R. L. Williams, C. C. Liu, Science  383, 372–373 (2024). 
+	19.	 C. Weigel, H. Seitz, FEMS Microbiol. Rev.  30, 321–381 (2006). 
+	20.	C. C. Richardson, Cell  33, 315–317 (1983). 
+	21.	A. W. Kulczyk, C. C. Richardson, Enzymes  39, 89–136 (2016). 
+	22.	Y. Gao et al., Science  363, eaav7003 (2019). 
+	23.	S. J. Lee, C. C. Richardson, Curr. Opin. Chem. Biol.  15, 580–586 (2011). 
+	24.	S. Tabor, C. C. Richardson, Proc. Natl. Acad. Sci. U.S.A.  82, 1074–1078 (1985). 
+	25.	T. Baba et al., Mol. Syst. Biol.  2, 2006.0008 (2006). 
+	26.	H. Zhang, S.-­J. Lee, A. W. Kulczyk, B. Zhu, C. C. Richardson, J. Biol. Chem.  287,  
+34273–34287 (2012). 
+	27.	 A. H. Rosenberg, S. S. Patel, K. A. Johnson, F. W. Studier, J. Biol. Chem.  267, 15005–15012 
+(1992). 
+	28.	K. Becker, A. Meyer, T. M. Roberts, S. Panke, Nucleic Acids Res.  49, 8189–8198 (2021). 
+	29.	W. T. McAllister, H.-­L. Wu, Proc. Natl. Acad. Sci. U.S.A.  75, 804–808 (1978). 
+	30.	B. A. Moffatt, F. W. Studier, Cell  49, 221–227 (1987). 
+	31.	X. Cheng, X. Zhang, J. W. Pflugrath, F. W. Studier, Proc. Natl. Acad. Sci. U.S.A.  91, 
+4034–4038 (1994). 
+	32.	X. Zhang, F. W. Studier, J. Mol. Biol.  340, 707–730 (2004). 
+	33.	X. Zhang, F. W. Studier, J. Mol. Biol.  269, 10–27 (1997). 
+	34.	D. Jeruzalmi, T. A. Steitz, EMBO J.  17, 4101–4113 (1998). 
+	35.	A. Kumar, S. S. Patel, Biochemistry  36, 13954–13962 (1997). 
+	36.	N. M. Stano, S. S. Patel, J. Biol. Chem.  279, 16136–16143 (2004). 
+	37.	 B. C. Dickinson, M. S. Packer, A. H. Badran, D. R. Liu, Nat. Commun.  5, 5352 (2014). 
+	38.	S. Tabor, C. C. Richardson, Proc. Natl. Acad. Sci. U.S.A.  84, 4767–4771 (1987). 
+	39.	S. Doublié, T. Ellenberger, Curr. Opin. Struct. Biol.  8, 704–712 (1998). 
+	40.	B. Zhu, Front. Microbiol.  5, 181 (2014). 
+	41.	T. A. Kunkel, S. S. Patel, K. A. Johnson, Proc. Natl. Acad. Sci. U.S.A.  91, 6830–6834  
+(1994). 
+	42.	S. Doublié, S. Tabor, A. M. Long, C. C. Richardson, T. Ellenberger, Nature  391, 251–258 
+(1998). 
+	43.	D. T. Minnick et al., J. Biol. Chem.  274, 3067–3075 (1999). 
+	44.	C. S. Diercks et al., An orthogonal T7 replisome for continuous hypermutation and 
+accelerated evolution in E. coli. Zenodo (2025); https://doi.org/10.5281/zenodo.14990911.
+	45.	M. L. M. Salverda, J. A. G. M. De Visser, M. Barlow, FEMS Microbiol. Rev.  34, 1015–1036 
+(2010). 
+	46.	R. Fernandes, P. Amador, C. Oliveira, C. Prudêncio, Scientific World Journal  2014, 782897 
+(2014). 
+	47.	 T. Palzkill, Front. Mol. Biosci.  5, 16 (2018). 
+	48.	S. M. Miller, T. Wang, D. R. Liu, Nat. Protoc.  15, 4101–4127 (2020). 
+	49.	K. M. Esvelt, J. C. Carlson, D. R. Liu, Nature  472, 499–503 (2011). 
+ACKNOWLEDGMENTS
+The authors thank K. Williams for assistance with manuscript preparation and submission. 
+This manuscript is dedicated to the memory of Tsotne Javahishvili. Funding: This work was 
+funded by National Institutes of Health grant RGM145323A. Author contributions: 
+Conceptualization: C.S.D., P.G.S.; Methodology: C.S.D., P.G.S.; Investigation: C.S.D., P.S., C.R., 
+T.G.G., Y.B., C.W., D.A.D.; Funding acquisition: P.G.S.; Supervision: C.S.D., P.G.S.; Writing – 
+original draft: C.S.D., P.G.S.; Writing – review & editing: C.S.D., P.S., C.R., D.A.D., P.G.S. 
+Competing interests: The authors declare that they have no competing interests. Data and 
+materials availability: C.S.D. and P.G.S. are listed as inventors on US provisional patent 
+application 63/670,151 submitted by Scripps Research Institute, which covers “Orthogonal 
+DNA replication systems based on T7 replisome.” Plasmids and strains listed in tables S1  
+and S2 are available from the authors upon reasonable request. Custom scripts can be found 
+at Zenodo (44). License information: Copyright © 2025 the authors, some rights reserved; 
+exclusive licensee American Association for the Advancement of Science. No claim to original 
+US government works. https://www.science.org/about/science-licenses-journal-article-reuse
+SUPPLEMENTARY MATERIALS
+science.org/doi/10.1126/science.adp9583
+Materials and Methods; Figs. S1 to S21; Tables S1 to S6; References (50–57);  
+MDAR Reproducibility Checklist
+Submitted 19 April 2024; resubmitted 24 December 2024; accepted 15 May 2025
+10.1126/science.adp9583
+0
+10
+20
+30
+40
+50
+60
+70
+80
+90
+100
+110
+120
+130
+140
+150
+160
+170
+180
+190
+200
+210
+220
+230
+240
+250
+260
+270
+280
+pAmpR
+AmpR
+L49M
+L49M
+E104X
+E104X
+G92D
+G92D
+M182T
+M182T
+Y105X
+Y105X
+E240X
+E240X
+0
+10
+20
+30
+40
+50
+60
+70
+80
+90
+100
+110
+120
+130
+140
+150
+160
+170
+180
+190
+200
+210
+220
+230
+240
+250
+260
+270
+280
+pAmpR
+AmpR
+L49M
+L49M
+M182T
+M182T
+G238S
+G238S
+T264M
+T264M
+S267G
+S267G
+G238S
+G238S
+T264M
+T264M
+S267G
+S267G
+M
+I
+T K N S R G D E A V H Q P L F Y C W
+104
+105
+238
+240
+244
+M
+I
+T K N S R G D E A V H Q P L F Y C W
+104
+105
+238
+240
+244
+M
+I
+T K N S R G D E A V H Q P L F Y C W
+104
+105
+238
+240
+244
+104
+105
+238
+240
+244
+M
+I
+T K N S R G D E A V H Q P L F Y C W
+0
+20
+40
+60
+80
+100
+A
+B
+C
+Single Starting Point
+Single Starting Point
+Multiple Starting Points
+Multiple Starting Points
+Library Starting Point
+Library Starting Point
+D
+F TEM-1 Evolution (Library Starting Point)
+TEM-1 Evolution (Library Starting Point)
+E
+Active Site Mutations
+Active Site Mutations
+TEM-1
+TEM-1 Evolution (Multiple Starting Points)
+Evolution (Multiple Starting Points)
+E240X
+E240X
+Wild Type
+Wild Type
+TEM-1 Evolution
+TEM-1 Evolution
+Multiple Starting Points
+Multiple Starting Points
+Library Starting Point
+Library Starting Point
+E104F
+E104F
+Y105W
+Y105W
+G92D
+G92D
+Fig. 5. Continuous evolution of TEM-­1 β-­lactamase saturation 
+libraries. Evolutionary trajectories on a hypothetical fitness 
+landscape for (A) evolution of a hypothetical gene from a single 
+starting point and evolution of members of a site-­saturation 
+library from multiple starting points (B) in isolation and  
+(C) in competition. (D) Comparison of the active-­site mutations  
+in the WT enzyme, the TEM-­1 evolution campaign starting  
+from the WT enzyme, the evolution campaign starting from 
+isolated members of the site-­saturation library, and the  
+evolution campaign starting from the entire site-­saturation 
+library. (E) Sanger sequencing for 96 cefotaxime-­resistance 
+evolution experiments after starting from 96 individual colonies 
+of a five-­site saturation library of TEM-­1 (E104X, Y105X, G238X, 
+E240X, and R244X) and after a 1000-­fold increase in antibiotic 
+concentration. (F) Sanger sequencing for 96 cefotaxime-­
+resistance evolution experiments after starting from 96 cultures 
+comprising the entire TEM-­1 library (E104X, Y105X, G238X, 
+E240X, and R244X) and after a 1000-­fold increase in antibiotic 
+concentration. Missense mutations are marked in red and silent 
+mutations in blue.
+Downloaded from https://www.science.org on September 07, 2025
