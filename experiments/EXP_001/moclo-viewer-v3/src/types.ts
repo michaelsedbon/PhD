@@ -128,7 +128,37 @@ export interface AppData {
     cdsRegions: CDSRegion[];
     tilesByGroup: Map<number, Tile[]>;
     geneProducts: GeneProduct[];
+    pathwayReactions: PathwayReactionMap;
 }
+
+/* ── Pathway reaction data (from KEGG) ────────────────────────────── */
+export interface PathwayReactionCompound {
+    id: string;
+    name: string;
+}
+
+export interface PathwayReactionGene {
+    b_number: string;
+    name: string;
+}
+
+export interface PathwayReaction {
+    id: string;
+    name: string;
+    substrates: PathwayReactionCompound[];
+    products: PathwayReactionCompound[];
+    ec: string[];
+    genes: PathwayReactionGene[];
+}
+
+export interface PathwayReactionEntry {
+    id: string;
+    description: string;
+    gene_count: number;
+    reactions: PathwayReaction[];
+}
+
+export type PathwayReactionMap = Record<string, PathwayReactionEntry>;
 
 // Navigation
 export type ViewType = 'presentation' | 'genome' | 'group' | 'tile' | 'recombine' | 'about';

@@ -3524,3 +3524,73 @@ body {
     color: var(--text-muted);
     font-size: 11px;
 }
+
+/* ── Pathway tag in table ──────────────────────────────────────────── */
+.gt-pathway {
+    max-width: 180px;
+}
+
+.pathway-tag {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    background: rgba(56, 211, 159, .12);
+    color: #38d39f;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 170px;
+}
+
+/* ── Pathway reaction diagram ──────────────────────────────────────── */
+.pathway-diagram {
+    margin-top: 14px;
+    border: 1px solid #21262d;
+    border-radius: 8px;
+    background: #0d1117;
+    overflow: hidden;
+}
+
+.pathway-diagram-header {
+    padding: 12px 16px 10px;
+    border-bottom: 1px solid #21262d;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.pathway-diagram-header h4 {
+    margin: 0;
+    font-size: 14px;
+    color: #c9d1d9;
+    font-weight: 600;
+}
+
+.pathway-diagram-desc {
+    font-size: 11px;
+    color: #8b949e;
+    line-height: 1.4;
+}
+
+.pathway-diagram-stats {
+    font-size: 11px;
+    color: #6e7681;
+}
+
+.pathway-diagram-svg-wrap {
+    overflow-x: auto;
+    padding: 8px 16px 12px;
+}
+
+.pathway-diagram-svg-wrap svg {
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+.pathway-diagram-more {
+    padding: 8px 16px;
+    font-size: 11px;
+    color: #6e7681;
+    border-top: 1px solid #21262d;
+    text-align: center;
+}

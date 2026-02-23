@@ -1,6 +1,6 @@
 import { useMemo, useState, useCallback } from 'react';
 import Plot from 'react-plotly.js';
-import { AppData, ViewState, GeneProduct, Tile } from '../types';
+import { AppData, ViewState, GeneProduct, Tile, PathwayReaction } from '../types';
 
 /* ── Color palette (same as QCDashboard) ──────────────────────────── */
 const CATEGORY_COLORS: Record<string, string> = {
@@ -90,8 +90,131 @@ function filteredCatVector(cv: Record<string, number>, excluded: Set<string>): R
     return r;
 }
 
+/* ── Pathway reaction diagram (SVG) ───────────────────────────────── */
+import { PathwayReactionEntry } from '../types';
+
+function PathwayDiagram({ pathwayName, entry, groupTileIds, tiles, tileGenes }: {
+    pathwayName: string;
+    entry: PathwayReactionEntry;
+    groupTileIds: (number | null)[];
+    tiles: Tile[];
+    tileGenes: Map<number, GeneProduct[]>;
+}) {
+    // Collect all gene names present in this group's tiles
+    const groupGeneNames = useMemo(() => {
+        const names = new Set<string>();
+        for (const tid of groupTileIds) {
+            if (tid === null) continue;
+            const genes = tileGenes.get(tid) || [];
+            for (const g of genes) names.add(g.gene);
+        }
+        return names;
+    }, [groupTileIds, tileGenes]);
+
+    // Filter reactions that have genes mappable to E. coli and limit count
+    const reactions = useMemo(() => {
+        const rxns = entry.reactions
+            .filter(r => r.genes.length > 0 && r.substrates.length > 0 && r.products.length > 0);
+        // Sort: reactions with group genes first
+        rxns.sort((a, b) => {
+            const aHas = a.genes.some(g => groupGeneNames.has(g.name)) ? 1 : 0;
+            const bHas = b.genes.some(g => groupGeneNames.has(g.name)) ? 1 : 0;
+            return bHas - aHas;
+        });
+        return rxns.slice(0, 20);
+    }, [entry.reactions, groupGeneNames]);
+
+    const presentCount = reactions.filter(r => r.genes.some(g => groupGeneNames.has(g.name))).length;
+
+    if (reactions.length === 0) return null;
+
+    // Layout constants
+    const rxnH = 56;
+    const padTop = 42;
+    const svgH = padTop + reactions.length * rxnH + 10;
+    const leftCol = 220;
+    const arrowW = 200;
+    const rightCol = 220;
+    const svgW = leftCol + arrowW + rightCol + 20;
+
+    return (
+        <div className="pathway-diagram">
+            <div className="pathway-diagram-header">
+                <h4>🧬 {pathwayName}</h4>
+                <span className="pathway-diagram-desc">{entry.description?.slice(0, 120)}{entry.description && entry.description.length > 120 ? '…' : ''}</span>
+                <span className="pathway-diagram-stats">
+                    {reactions.length} reactions shown · <span className="accent-green">{presentCount} with enzymes in this group</span>
+                </span>
+            </div>
+            <div className="pathway-diagram-svg-wrap">
+                <svg width={svgW} height={svgH} viewBox={`0 0 ${svgW} ${svgH}`} xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <marker id="arrow-green" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+                            <path d="M0,0 L8,3 L0,6" fill="#3fb950" />
+                        </marker>
+                        <marker id="arrow-gray" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+                            <path d="M0,0 L8,3 L0,6" fill="#484f58" />
+                        </marker>
+                    </defs>
+                    {/* Header labels */}
+                    <text x={leftCol / 2} y={18} textAnchor="middle" fill="#8b949e" fontSize={11} fontWeight={600}>Substrates</text>
+                    <text x={leftCol + arrowW / 2} y={18} textAnchor="middle" fill="#8b949e" fontSize={11} fontWeight={600}>Enzyme</text>
+                    <text x={leftCol + arrowW + rightCol / 2} y={18} textAnchor="middle" fill="#8b949e" fontSize={11} fontWeight={600}>Products</text>
+                    <line x1={0} y1={28} x2={svgW} y2={28} stroke="#21262d" strokeWidth={1} />
+                    {reactions.map((rxn, i) => {
+                        const y = padTop + i * rxnH + rxnH / 2;
+                        const hasEnzyme = rxn.genes.some(g => groupGeneNames.has(g.name));
+                        const color = hasEnzyme ? '#3fb950' : '#484f58';
+                        const textColor = hasEnzyme ? '#3fb950' : '#6e7681';
+                        const bgColor = hasEnzyme ? '#3fb95012' : 'transparent';
+
+                        const subText = rxn.substrates.map(s => s.name).join(' + ');
+                        const prodText = rxn.products.map(p => p.name).join(' + ');
+                        const enzymeLabel = rxn.genes.length > 0
+                            ? rxn.genes.map(g => g.name).join(', ')
+                            : rxn.ec.join(', ') || '?';
+                        const truncSub = subText.length > 32 ? subText.slice(0, 30) + '…' : subText;
+                        const truncProd = prodText.length > 32 ? prodText.slice(0, 30) + '…' : prodText;
+
+                        return (
+                            <g key={rxn.id}>
+                                <rect x={0} y={y - rxnH / 2 + 4} width={svgW} height={rxnH - 8} rx={4} fill={bgColor} />
+                                <text x={leftCol - 10} y={y + 1} textAnchor="end" fill="#c9d1d9" fontSize={11}>
+                                    {truncSub}
+                                </text>
+                                <line
+                                    x1={leftCol + 8} y1={y}
+                                    x2={leftCol + arrowW - 8} y2={y}
+                                    stroke={color} strokeWidth={1.5}
+                                    markerEnd={hasEnzyme ? 'url(#arrow-green)' : 'url(#arrow-gray)'}
+                                />
+                                <text x={leftCol + arrowW / 2} y={y - 8} textAnchor="middle" fill={textColor} fontSize={10} fontWeight={hasEnzyme ? 600 : 400}>
+                                    {enzymeLabel.length > 24 ? enzymeLabel.slice(0, 22) + '…' : enzymeLabel}
+                                </text>
+                                {rxn.ec.length > 0 && (
+                                    <text x={leftCol + arrowW / 2} y={y + 14} textAnchor="middle" fill="#484f58" fontSize={9}>
+                                        EC {rxn.ec[0]}
+                                    </text>
+                                )}
+                                <text x={leftCol + arrowW + 10} y={y + 1} textAnchor="start" fill="#c9d1d9" fontSize={11}>
+                                    {truncProd}
+                                </text>
+                            </g>
+                        );
+                    })}
+                </svg>
+            </div>
+            {entry.reactions.filter(r => r.genes.length > 0 && r.substrates.length > 0).length > 20 && (
+                <div className="pathway-diagram-more">
+                    Showing 20 of {entry.reactions.filter(r => r.genes.length > 0 && r.substrates.length > 0).length} reactions with E. coli genes
+                </div>
+            )}
+        </div>
+    );
+}
+
 export default function Recombinator({ data, onNavigate }: Props) {
-    const { bundle, geneProducts } = data;
+    const { bundle, geneProducts, pathwayReactions } = data;
     const nPos = bundle.design.tiles_per_group; // 15
     const nGroups = bundle.lvl1_groups.length; // 46
 
@@ -104,6 +227,9 @@ export default function Recombinator({ data, onNavigate }: Props) {
 
     // ── Expanded group in genome table ──
     const [expandedGroup, setExpandedGroup] = useState<number | null>(null);
+
+    // ── Pathway targets per group (set by pathwayFocus strategy) ──
+    const [groupPathwayTargets, setGroupPathwayTargets] = useState<string[]>([]);
 
     // ── Index tiles by position ──
     const tilesByPosition = useMemo(() => {
@@ -538,6 +664,7 @@ export default function Recombinator({ data, onNavigate }: Props) {
                 }
             }
             setGenomeArrangement(result);
+            setGroupPathwayTargets(groupTargets);
             setActiveGenomeStrategy('pathwayFocus');
             return;
         }
@@ -852,6 +979,7 @@ export default function Recombinator({ data, onNavigate }: Props) {
                                             <tr>
                                                 <th></th>
                                                 <th>Group</th>
+                                                {activeGenomeStrategy === 'pathwayFocus' && <th>Pathway</th>}
                                                 <th>Categories</th>
                                                 <th>Genes</th>
                                                 <th>GG-Ready</th>
@@ -872,6 +1000,9 @@ export default function Recombinator({ data, onNavigate }: Props) {
                                                         <tr key={g} className={`gt-row ${isExpanded ? 'expanded' : ''}`} onClick={() => setExpandedGroup(isExpanded ? null : g)}>
                                                             <td className="gt-expand">{isExpanded ? '▼' : '▶'}</td>
                                                             <td className="gt-group">G{g}</td>
+                                                            {activeGenomeStrategy === 'pathwayFocus' && (
+                                                                <td className="gt-pathway"><span className="pathway-tag">{groupPathwayTargets[g] || '—'}</span></td>
+                                                            )}
                                                             <td><span className="accent-blue">{s.nCats}</span></td>
                                                             <td>{s.totalGenes}</td>
                                                             <td><span className="accent-green">{s.ggReady}/{nPos}</span></td>
@@ -884,7 +1015,7 @@ export default function Recombinator({ data, onNavigate }: Props) {
                                                         </tr>
                                                         {isExpanded && (
                                                             <tr key={`${g}-detail`} className="gt-detail-row">
-                                                                <td colSpan={9}>
+                                                                <td colSpan={activeGenomeStrategy === 'pathwayFocus' ? 10 : 9}>
                                                                     <div className="gt-detail-content">
                                                                         <div className="gt-detail-tiles">
                                                                             {groupTileIds.map((tid, p) => {
@@ -930,6 +1061,16 @@ export default function Recombinator({ data, onNavigate }: Props) {
                                                                                 ))
                                                                             }
                                                                         </div>
+                                                                        {/* Pathway reaction diagram */}
+                                                                        {activeGenomeStrategy === 'pathwayFocus' && groupPathwayTargets[g] && pathwayReactions[groupPathwayTargets[g]] && (
+                                                                            <PathwayDiagram
+                                                                                pathwayName={groupPathwayTargets[g]}
+                                                                                entry={pathwayReactions[groupPathwayTargets[g]]}
+                                                                                groupTileIds={groupTileIds}
+                                                                                tiles={bundle.tiles}
+                                                                                tileGenes={tileGenes}
+                                                                            />
+                                                                        )}
                                                                     </div>
                                                                 </td>
                                                             </tr>
