@@ -64,11 +64,21 @@ Full molecular detail for the selected tile:
 - **Overview** — genomic coordinates, length, GC%, Lvl1 group, position index, boundary type
 - **MoClo Lvl0 construct** — visual diagram: `pICH — BsaI — [overhang_L] — [insert] — [overhang_R] — BsaI — pICH`
 - **Tile primers** — forward and reverse sequences with colour-coded regions:
-  - Purple = BsaI recognition site (`CGTCTCN`)
+  - Purple = BsaI recognition site (`GGTCTCN`)
   - Blue = 4-nt standardized overhang
   - Grey = genome-binding region
 - **Mutagenic primers** (if tile needs domestication) — each internal BsaI site with its silent mutation, codon change, gene name, and primer pair
 - **OE-PCR plan** (if domestication needed) — sub-fragment diagram and table with coordinates and Tm values
+
+### Downloads
+
+The app includes download buttons throughout:
+
+| Page | Downloads Available |
+|------|--------------------|
+| **About** | All Lvl0 clones (.zip), All Lvl1 assemblies (.zip), All CSVs (.zip) |
+| **Group Detail** | Lvl1 assembly (.gb), Group's Lvl0 clones (.zip), Group primers (.csv) |
+| **Tile Detail** | Lvl0 clone (.gb), Tile primers (.csv) |
 
 ## Colour legend
 
@@ -99,6 +109,8 @@ The 16 positional overhangs ensure that **any tile at position *i*** can be used
 Design constraints: no palindromes, no homopolymer runs ≥ 3, Hamming distance ≥ 2 between all pairs, no BsaI site overlap, no reverse-complement duplicates.
 
 ## Data pipeline
+
+See **[`SCRIPTS.md`](../SCRIPTS.md)** for a full index of all 11 Python scripts with inputs, outputs, and run order.
 
 The data bundle is generated from four source CSVs produced by `pipeline_v2.py`:
 

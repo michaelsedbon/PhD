@@ -132,6 +132,36 @@ export default function GroupDetail({ data, groupId, onNavigate }: Props) {
                 </div>
             </div>
 
+            {/* Download Lvl1 GenBank */}
+            <div className="lvl1-download-row">
+                <a
+                    href={`/downloads/lvl1/lvl1_group_${String(groupId).padStart(3, '0')}.gb`}
+                    download
+                    className="lvl1-download-btn"
+                >
+                    📥 Download Lvl1 Assembly (.gb)
+                </a>
+                <a
+                    href={`/downloads/lvl0_by_group/group_${String(groupId).padStart(3, '0')}_lvl0s.zip`}
+                    download
+                    className="lvl1-download-btn"
+                    style={{ borderColor: 'var(--purple)', color: 'var(--purple)' }}
+                >
+                    🧬 Download All Lvl0s (.zip)
+                </a>
+                <a
+                    href={`/downloads/primers/group_${String(groupId).padStart(3, '0')}_primers.csv`}
+                    download
+                    className="lvl1-download-btn"
+                    style={{ borderColor: 'var(--green)', color: 'var(--green)' }}
+                >
+                    🧪 Download Primers (.csv)
+                </a>
+                <span className="lvl1-download-meta">
+                    ~{(group.length / 1000).toFixed(0)} kb · {group.total_tiles} tiles
+                </span>
+            </div>
+
             {/* Genome context strip */}
             <div className="genome-context-section">
                 <h3>Position on Genome — {groupPctOfGenome}% of total ({(genomeLen / 1e6).toFixed(2)} Mb)</h3>
@@ -234,6 +264,9 @@ export default function GroupDetail({ data, groupId, onNavigate }: Props) {
                 </div>
             </div>
 
+            {/* Lvl1 Assembly Map */}
+            <Lvl1AssemblyMap tiles={tiles} group={group} />
+
             {/* Tile detail table */}
             <div className="tile-table-wrapper">
                 <table className="tile-table">
@@ -323,6 +356,205 @@ export default function GroupDetail({ data, groupId, onNavigate }: Props) {
                     </div>
                 </div>
             )}
+        </div>
+    );
+}
+/* ── Lvl1 Assembly Map ─────────────────────────────────────────────── */
+
+function Lvl1AssemblyMap({ tiles, group }: { tiles: any[]; group: { id: number; start: number; end: number; length: number } }) {
+    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const wrapRef = useRef<HTMLDivElement>(null);
+    const [tooltip, setTooltip] = useState<{ x: number; y: number; text: string } | null>(null);
+
+    const TILE_COLORS = [
+        '#3fb950', '#58a6ff', '#d29922', '#bc8cff', '#f85149',
+        '#39d2c0', '#ff7b72', '#79c0ff', '#d2a8ff', '#ffa657',
+        '#56d364', '#7ee787', '#f778ba', '#ff9bce', '#ffdf5d',
+    ];
+    const OH_COLOR = '#e3b341';
+
+    const draw = useCallback(() => {
+        const canvas = canvasRef.current;
+        const wrap = wrapRef.current;
+        if (!canvas || !wrap) return;
+
+        const dpr = window.devicePixelRatio || 1;
+        const w = wrap.clientWidth;
+        const h = 100;
+
+        canvas.width = w * dpr;
+        canvas.height = h * dpr;
+        canvas.style.width = `${w}px`;
+        canvas.style.height = `${h}px`;
+
+        const ctx = canvas.getContext('2d')!;
+        ctx.scale(dpr, dpr);
+        ctx.clearRect(0, 0, w, h);
+
+        const padX = 20;
+        const plotW = w - padX * 2;
+        const totalLen = tiles.reduce((s, t) => s + t.length, 0) + (tiles.length + 1) * 4; // include overhangs
+
+        // Track layout
+        const trackY = 20;
+        const tileH = 40;
+        const ohW = Math.max(2, (4 / totalLen) * plotW); // overhang visual width (proportional)
+
+        let x = padX;
+
+        // Draw backbone label
+        ctx.fillStyle = '#6e7681';
+        ctx.font = '10px Inter, sans-serif';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'top';
+        ctx.fillText(`Lvl1 Assembly — Group ${group.id} — ${(group.length / 1000).toFixed(1)} kb`, padX, 2);
+
+        // Draw each tile block
+        for (let i = 0; i < tiles.length; i++) {
+            const t = tiles[i];
+            const tileW = Math.max(8, (t.length / totalLen) * plotW);
+            const color = TILE_COLORS[i % TILE_COLORS.length];
+
+            // Left overhang (only first tile, or junction)
+            if (i === 0) {
+                ctx.fillStyle = OH_COLOR;
+                ctx.fillRect(x, trackY, ohW, tileH);
+                ctx.fillStyle = '#0d1117';
+                ctx.font = 'bold 7px monospace';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                if (ohW > 12) ctx.fillText(t.overhang_left, x + ohW / 2, trackY + tileH / 2);
+                x += ohW;
+            }
+
+            // Tile block
+            ctx.fillStyle = color + 'cc';
+            ctx.fillRect(x, trackY, tileW, tileH);
+
+            // Tile border
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 1;
+            ctx.strokeRect(x + 0.5, trackY + 0.5, tileW - 1, tileH - 1);
+
+            // Label
+            if (tileW > 30) {
+                ctx.fillStyle = '#ffffff';
+                ctx.font = 'bold 10px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(`T${t.id}`, x + tileW / 2, trackY + tileH / 2 - 6);
+                ctx.fillStyle = '#ffffffbb';
+                ctx.font = '9px Inter, sans-serif';
+                ctx.fillText(`${(t.length / 1000).toFixed(1)}kb`, x + tileW / 2, trackY + tileH / 2 + 7);
+            }
+
+            // GG status indicator
+            if (!t.gg_ready) {
+                ctx.fillStyle = '#f85149';
+                ctx.beginPath();
+                ctx.arc(x + tileW - 5, trackY + 6, 3, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            x += tileW;
+
+            // Right overhang / junction
+            ctx.fillStyle = OH_COLOR;
+            ctx.fillRect(x, trackY, ohW, tileH);
+            ctx.fillStyle = '#0d1117';
+            ctx.font = 'bold 7px monospace';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            if (ohW > 12) ctx.fillText(t.overhang_right, x + ohW / 2, trackY + tileH / 2);
+            x += ohW;
+        }
+
+        // Position scale below tiles
+        const scaleY = trackY + tileH + 6;
+        ctx.fillStyle = '#484f58';
+        ctx.fillRect(padX, scaleY, plotW, 1);
+
+        // Scale ticks
+        ctx.font = '8px Inter, sans-serif';
+        ctx.fillStyle = '#6e7681';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'top';
+        const tickCount = 6;
+        for (let i = 0; i <= tickCount; i++) {
+            const pos = group.start + (group.length * i) / tickCount;
+            const px = padX + (plotW * i) / tickCount;
+            ctx.fillRect(px, scaleY - 2, 1, 5);
+            ctx.fillText(`${(pos / 1000).toFixed(0)}k`, px, scaleY + 4);
+        }
+
+        // Legend
+        const legY = scaleY + 18;
+        ctx.font = '9px Inter, sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillStyle = OH_COLOR;
+        ctx.fillRect(padX, legY, 8, 8);
+        ctx.fillStyle = '#8b949e';
+        ctx.fillText('Junction overhang (4 nt)', padX + 12, legY + 7);
+
+        ctx.fillStyle = '#f85149';
+        ctx.beginPath();
+        ctx.arc(padX + 160, legY + 4, 3, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#8b949e';
+        ctx.fillText('Needs domestication', padX + 167, legY + 7);
+    }, [tiles, group]);
+
+    useEffect(() => { draw(); }, [draw]);
+    useEffect(() => {
+        const handler = () => draw();
+        window.addEventListener('resize', handler);
+        return () => window.removeEventListener('resize', handler);
+    }, [draw]);
+
+    const handleMouseMove = useCallback((e: React.MouseEvent) => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+        const rect = canvas.getBoundingClientRect();
+        const mx = e.clientX - rect.left;
+        const my = e.clientY - rect.top;
+
+        if (my < 20 || my > 60) { setTooltip(null); return; }
+
+        const padX = 20;
+        const plotW = rect.width - padX * 2;
+        const totalLen = tiles.reduce((s: number, t: any) => s + t.length, 0) + (tiles.length + 1) * 4;
+        const ohW = Math.max(2, (4 / totalLen) * plotW);
+
+        let x = padX + ohW; // after first overhang
+        for (const t of tiles) {
+            const tileW = Math.max(8, (t.length / totalLen) * plotW);
+            if (mx >= x && mx < x + tileW) {
+                setTooltip({
+                    x: e.clientX,
+                    y: e.clientY,
+                    text: `Tile ${t.id} | P${t.position} | ${(t.length / 1000).toFixed(1)} kb | ${t.overhang_left}→${t.overhang_right} | ${t.gg_ready ? 'GG-Ready' : `${t.internal_bsai} BsaI`}`,
+                });
+                return;
+            }
+            x += tileW + ohW;
+        }
+        setTooltip(null);
+    }, [tiles]);
+
+    return (
+        <div className="genome-context-section" style={{ position: 'relative' }}>
+            <h3>Lvl1 Assembly Map</h3>
+            <div ref={wrapRef} className="qc-canvas-wrap assembly-map-wrap">
+                <canvas ref={canvasRef} onMouseMove={handleMouseMove} onMouseLeave={() => setTooltip(null)} />
+                {tooltip && (
+                    <div
+                        className="assembly-tooltip"
+                        style={{ left: tooltip.x, top: tooltip.y - 40, position: 'fixed' }}
+                    >
+                        {tooltip.text}
+                    </div>
+                )}
+            </div>
         </div>
     );
 }

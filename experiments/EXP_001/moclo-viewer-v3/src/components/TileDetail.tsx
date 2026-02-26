@@ -93,6 +93,27 @@ export default function TileDetail({ data, tileId, onNavigate }: Props) {
                 </div>
             </div>
 
+            {/* Download buttons */}
+            <div className="lvl1-download-row">
+                <a
+                    href={`/downloads/lvl0/tile_${String(tileId).padStart(3, '0')}.gb`}
+                    download
+                    className="lvl1-download-btn"
+                >
+                    🧬 Download Lvl0 Clone (.gb)
+                </a>
+                <a
+                    href={`/downloads/primers/tile_${String(tileId).padStart(3, '0')}_primers.csv`}
+                    download
+                    className="lvl1-download-btn"
+                    style={{ borderColor: 'var(--green)', color: 'var(--green)' }}
+                >
+                    🧪 Download Primers (.csv)
+                </a>
+                <span className="lvl1-download-meta">
+                    {(tile.length / 1000).toFixed(1)} kb · P{tile.position} · G{tile.lvl1_group}
+                </span>
+            </div>
             {/* Genomic range */}
             <div className="genome-canvas-wrapper">
                 <h3>Genomic Range</h3>

@@ -3963,3 +3963,63 @@ body {
     color: var(--text-muted);
     font-family: var(--font-mono);
 }
+
+/* ── Lvl1 download row ─────────────────────────────────────────────── */
+
+.lvl1-download-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.lvl1-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: var(--blue-dim);
+    border: 1px solid var(--blue);
+    border-radius: var(--radius);
+    color: var(--blue);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.lvl1-download-btn:hover {
+    background: var(--blue);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.lvl1-download-meta {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+}
+
+/* ── Assembly map ──────────────────────────────────────────────────── */
+
+.assembly-map-wrap {
+    position: relative;
+}
+
+.assembly-tooltip {
+    position: fixed;
+    padding: 6px 10px;
+    background: #1c2128;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text-primary);
+    font-size: 11px;
+    font-family: var(--font-mono);
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 100;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .4);
+}
