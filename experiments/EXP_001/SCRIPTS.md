@@ -27,6 +27,7 @@ All Python scripts for the MoClo genome tiling pipeline.
 |--------|---------|-------|--------|
 | `export_genbank_clones.py` | Generate annotated Lvl0 clone GenBank files (pICH41308 backbone + insert) | `data/v2_tiles.csv`, `data/domestication_primers.csv`, backbone `.gbk` | `data/genbank_clones/tile_XXX.gb` (686 files) |
 | `export_lvl1_assemblies.py` | Generate annotated Lvl1 assembly GenBank files (15-tile Golden Gate products) | `data/v2_tiles.csv`, `data/v2_lvl1_groups.csv`, `data/domestication_primers.csv` | `data/genbank_lvl1/lvl1_group_XXX.gb` (46 files) |
+| `export_primer_genbank.py` | Generate annotated GenBank files for all primers (amplification + mutagenic + subfragment) | `data/v2_tiles.csv`, `data/domestication_primers.csv`, `data/domestication_subfragments.csv` | `data/genbank_primers/` (2,698 records) |
 
 ## Typical Run Order
 
@@ -46,6 +47,7 @@ python3 fetch_kegg_reactions.py
 # 3. GenBank export
 python3 export_genbank_clones.py
 python3 export_lvl1_assemblies.py
+python3 export_primer_genbank.py
 ```
 
 ## Data Files
@@ -62,3 +64,4 @@ python3 export_lvl1_assemblies.py
 | `data/gene_products.json` | Gene annotations + KEGG pathways |
 | `data/genbank_clones/` | 686 Lvl0 clone GenBank files |
 | `data/genbank_lvl1/` | 46 Lvl1 assembly GenBank files |
+| `data/genbank_primers/` | 2,698 primer GenBank records (by_tile/, by_group/, combined) |

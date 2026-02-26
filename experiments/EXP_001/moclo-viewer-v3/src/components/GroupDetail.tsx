@@ -139,7 +139,7 @@ export default function GroupDetail({ data, groupId, onNavigate }: Props) {
                     download
                     className="lvl1-download-btn"
                 >
-                    📥 Download Lvl1 Assembly (.gb)
+                    📥 Lvl1 Assembly (.gb)
                 </a>
                 <a
                     href={`/downloads/lvl0_by_group/group_${String(groupId).padStart(3, '0')}_lvl0s.zip`}
@@ -147,7 +147,7 @@ export default function GroupDetail({ data, groupId, onNavigate }: Props) {
                     className="lvl1-download-btn"
                     style={{ borderColor: 'var(--purple)', color: 'var(--purple)' }}
                 >
-                    🧬 Download All Lvl0s (.zip)
+                    🧬 All Lvl0s (.zip)
                 </a>
                 <a
                     href={`/downloads/primers/group_${String(groupId).padStart(3, '0')}_primers.csv`}
@@ -155,7 +155,15 @@ export default function GroupDetail({ data, groupId, onNavigate }: Props) {
                     className="lvl1-download-btn"
                     style={{ borderColor: 'var(--green)', color: 'var(--green)' }}
                 >
-                    🧪 Download Primers (.csv)
+                    🧪 Primers (.csv)
+                </a>
+                <a
+                    href={`/downloads/primers_gb/by_group/group_${String(groupId).padStart(3, '0')}_primers.gb`}
+                    download
+                    className="lvl1-download-btn"
+                    style={{ borderColor: 'var(--orange)', color: 'var(--orange)' }}
+                >
+                    🧪 Primers (.gb)
                 </a>
                 <span className="lvl1-download-meta">
                     ~{(group.length / 1000).toFixed(0)} kb · {group.total_tiles} tiles

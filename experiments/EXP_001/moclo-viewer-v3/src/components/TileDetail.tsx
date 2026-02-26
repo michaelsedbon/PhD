@@ -108,7 +108,15 @@ export default function TileDetail({ data, tileId, onNavigate }: Props) {
                     className="lvl1-download-btn"
                     style={{ borderColor: 'var(--green)', color: 'var(--green)' }}
                 >
-                    🧪 Download Primers (.csv)
+                    🧪 Primers (.csv)
+                </a>
+                <a
+                    href={`/downloads/primers_gb/by_tile/tile_${String(tileId).padStart(3, '0')}_primers.gb`}
+                    download
+                    className="lvl1-download-btn"
+                    style={{ borderColor: 'var(--orange)', color: 'var(--orange)' }}
+                >
+                    🧪 Primers (.gb)
                 </a>
                 <span className="lvl1-download-meta">
                     {(tile.length / 1000).toFixed(1)} kb · P{tile.position} · G{tile.lvl1_group}
