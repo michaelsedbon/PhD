@@ -30,7 +30,7 @@ const REFERENCES: Reference[] = [
         method: 'In-vitro Cas9 excision from gel plugs + Gibson assembly into cloning vector',
         relevance: 'First targeted cloning of large genome segments. Proven on E. coli.',
         color: '#90caf9',
-        url: 'https://doi.org/10.1038/ncomms9101',
+        url: `${import.meta.env.BASE_URL}papers/CATCH_Cas9_targeting_chromosome_segments.pdf`,
     },
     {
         project: 'CAPTURE',
@@ -41,7 +41,7 @@ const REFERENCES: Reference[] = [
         method: 'Cas12a digestion + T4 polymerase assembly + in vivo Cre-lox circularization',
         relevance: '~100% cloning efficiency up to 113 kb. 150× more efficient than CATCH.',
         color: '#66bb6a',
-        url: 'https://doi.org/10.1038/s41467-021-21275-4',
+        url: `${import.meta.env.BASE_URL}papers/CAPTURE_Cas12a_targeted_cloning_Zhao_2021.pdf`,
     },
     {
         project: 'CReATiNG',
@@ -52,7 +52,7 @@ const REFERENCES: Reference[] = [
         method: 'Cas9 excision + BAC/YAC capture + homologous recombination assembly in yeast',
         relevance: 'Tiled chromosome segments with programmable adapters. Closest to a modular library concept.',
         color: '#ab47bc',
-        url: 'https://doi.org/10.1038/s41467-023-44112-2',
+        url: `${import.meta.env.BASE_URL}papers/Building_synthetic_chromosomes_CReATiNG_Ehrenreich_2023.pdf`,
     },
     {
         project: 'REXER / GENESIS',
@@ -63,7 +63,7 @@ const REFERENCES: Reference[] = [
         method: 'λ Red recombination + CRISPR selection for sequential genome segment replacement',
         relevance: 'Proven for replacing 100 kb E. coli genome segments. Used to build Syn61.',
         color: '#4fc3f7',
-        url: 'https://doi.org/10.1038/s41596-020-00464-3',
+        url: `${import.meta.env.BASE_URL}papers/REXER_GENESIS_Syn61_Chin_2019.pdf`,
     },
     {
         project: 'BASIS / CGS',
@@ -74,7 +74,7 @@ const REFERENCES: Reference[] = [
         method: 'BAC stepwise insertion + continuous genome synthesis',
         relevance: 'Megabase assembly in E. coli BACs. Built Syn57 (2025).',
         color: '#42a5f5',
-        url: 'https://doi.org/10.1038/s41586-023-06268-1',
+        url: `${import.meta.env.BASE_URL}papers/BASIS_CGS_Chin_2023.pdf`,
     },
 ];
 

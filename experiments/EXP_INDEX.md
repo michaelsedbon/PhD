@@ -35,15 +35,20 @@ This file is auto-maintained by the sync scripts and AI assistant.
 | [PRIMER_DESIGN_REPORT.md](EXP_001/PRIMER_DESIGN_REPORT.md) | Genome tiling & primer design |
 | [PCR_SIMULATION_REPORT.md](EXP_001/PCR_SIMULATION_REPORT.md) | PCR simulation & Lvl1 assembly |
 | [DOMESTICATION_REPORT.md](EXP_001/DOMESTICATION_REPORT.md) | OE-PCR domestication primers |
+| [V2_REPORT.md](EXP_001/V2_REPORT.md) | V2 redesign — standardized overhangs & 100 kb groups |
+| [SCRIPTS.md](EXP_001/SCRIPTS.md) | Script documentation |
+| [literature_review_large_fragment_cloning.md](EXP_001/literature_review_large_fragment_cloning.md) | CAPTURE vs CATCH vs MoClo for T7 replisome |
+| [state_of_the_art_ecoli_genome_libraries.md](EXP_001/state_of_the_art_ecoli_genome_libraries.md) | Survey of *E. coli* genome library approaches |
 | [LOG.md](EXP_001/LOG.md) | Experiment log |
 
 ### Scripts
 
 | Script | Purpose |
 |--------|---------|
-| [restriction_utils.py](EXP_001/restriction_utils.py) | Genome download, site mapping |
-| [primer_design.py](EXP_001/primer_design.py) | Tiling + primer design |
-| [pcr_simulation.py](EXP_001/pcr_simulation.py) | PCR simulation + Lvl1 analysis |
-| [domestication_primers.py](EXP_001/domestication_primers.py) | OE-PCR mutagenic primer design |
+| [restriction_utils.py](EXP_001/scripts/restriction_utils.py) | Genome download, site mapping |
+| [primer_design.py](EXP_001/scripts/primer_design.py) | Tiling + primer design |
+| [pcr_simulation.py](EXP_001/scripts/pcr_simulation.py) | PCR simulation + Lvl1 analysis |
+| [domestication_primers.py](EXP_001/scripts/domestication_primers.py) | OE-PCR mutagenic primer design |
+| [pipeline_v2.py](EXP_001/scripts/pipeline_v2.py) | V2 pipeline (standardized overhangs) |
 
 ---

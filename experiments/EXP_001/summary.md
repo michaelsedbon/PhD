@@ -4,6 +4,34 @@
 
 ---
 
+## 📁 Document Index
+
+| | Document | Description | Category |
+|---|---|---|---|
+| 📋 | [summary.md](summary.md) | Master summary — all sections, figures, and results | Main |
+| 📝 | [LOG.md](LOG.md) | Chronological experiment log | Log |
+| 📋 | [REPORT.md](REPORT.md) | Restriction site analysis across 8 enzymes | Report |
+| 📋 | [PRIMER_DESIGN_REPORT.md](PRIMER_DESIGN_REPORT.md) | Genome tiling (686 tiles) & primer design | Report |
+| 📋 | [PCR_SIMULATION_REPORT.md](PCR_SIMULATION_REPORT.md) | In-silico PCR & Lvl1 assembly feasibility | Report |
+| 📋 | [DOMESTICATION_REPORT.md](DOMESTICATION_REPORT.md) | OE-PCR domestication primer design | Report |
+| 📋 | [V2_REPORT.md](V2_REPORT.md) | V2 redesign — standardized overhangs & 100 kb groups | Report |
+| 🔧 | [SCRIPTS.md](SCRIPTS.md) | Documentation for all analysis scripts | Reference |
+| 📖 | [literature_review_large_fragment_cloning.md](literature_review_large_fragment_cloning.md) | CAPTURE vs CATCH vs MoClo for T7 replisome cloning | Literature |
+| 📖 | [state_of_the_art_ecoli_genome_libraries.md](state_of_the_art_ecoli_genome_libraries.md) | Survey of *E. coli* genome library approaches | Literature |
+
+### Folder Structure
+
+```
+EXP_001/
+├── *.md              ← Documents (above)
+├── Sedbon_BF.pdf     ← Grant proposal reference
+├── data/             ← Figures, CSVs, interactive plots
+├── scripts/          ← Python scripts & notebooks
+└── moclo-viewer-v3/  ← Interactive genome viewer app
+```
+
+---
+
 ## 1. Enzyme Selection
 
 We screened 8 Type IIS restriction enzymes commonly used for Golden Gate assembly. The ideal enzyme should have minimal recognition sites in the target genome, so most ~7 kb PCR tiles can be cloned without internal site removal ("domestication").
@@ -448,13 +476,13 @@ A systematic review of existing large fragment cloning methods was conducted to 
 
 | Script | Purpose |
 |--------|---------|
-| [restriction_utils.py](restriction_utils.py) | Genome download, site mapping, statistics |
-| [restriction_site_analysis.ipynb](restriction_site_analysis.ipynb) | Enzyme comparison notebook (Plotly) |
-| [primer_design.py](primer_design.py) | V1 tiling + primer design + domestication |
-| [pcr_simulation.py](pcr_simulation.py) | PCR simulation + Lvl1 assembly analysis |
-| [domestication_primers.py](domestication_primers.py) | OE-PCR mutagenic primer design |
-| [pipeline_v2.py](pipeline_v2.py) | V2 pipeline (standardized overhangs) |
-| [analyze_v2_lvl1.py](analyze_v2_lvl1.py) | V2 Lvl1 group analysis |
+| [restriction_utils.py](scripts/restriction_utils.py) | Genome download, site mapping, statistics |
+| [restriction_site_analysis.ipynb](scripts/restriction_site_analysis.ipynb) | Enzyme comparison notebook (Plotly) |
+| [primer_design.py](scripts/primer_design.py) | V1 tiling + primer design + domestication |
+| [pcr_simulation.py](scripts/pcr_simulation.py) | PCR simulation + Lvl1 assembly analysis |
+| [domestication_primers.py](scripts/domestication_primers.py) | OE-PCR mutagenic primer design |
+| [pipeline_v2.py](scripts/pipeline_v2.py) | V2 pipeline (standardized overhangs) |
+| [analyze_v2_lvl1.py](scripts/analyze_v2_lvl1.py) | V2 Lvl1 group analysis |
 
 ### References
 
