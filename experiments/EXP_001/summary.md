@@ -16,6 +16,7 @@
 | [PCR_SIMULATION_REPORT.md](PCR_SIMULATION_REPORT.md) | In-silico PCR & Lvl1 assembly feasibility | <span style="background:#4fc3f7;color:#0d1117;padding:2px 8px;border-radius:12px;font-size:11px">Report</span> |
 | [DOMESTICATION_REPORT.md](DOMESTICATION_REPORT.md) | OE-PCR domestication primer design | <span style="background:#4fc3f7;color:#0d1117;padding:2px 8px;border-radius:12px;font-size:11px">Report</span> |
 | [V2_REPORT.md](V2_REPORT.md) | V2 redesign — standardized overhangs & 100 kb groups | <span style="background:#4fc3f7;color:#0d1117;padding:2px 8px;border-radius:12px;font-size:11px">Report</span> |
+| [CODE_REVIEW.md](CODE_REVIEW.md) | Pipeline code review — all algorithmic decisions & potential issues | <span style="background:#4fc3f7;color:#0d1117;padding:2px 8px;border-radius:12px;font-size:11px">Report</span> |
 
 ### Literature
 

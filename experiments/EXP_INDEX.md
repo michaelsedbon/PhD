@@ -36,6 +36,7 @@ This file is auto-maintained by the sync scripts and AI assistant.
 | [PCR_SIMULATION_REPORT.md](EXP_001/PCR_SIMULATION_REPORT.md) | PCR simulation & Lvl1 assembly |
 | [DOMESTICATION_REPORT.md](EXP_001/DOMESTICATION_REPORT.md) | OE-PCR domestication primers |
 | [V2_REPORT.md](EXP_001/V2_REPORT.md) | V2 redesign — standardized overhangs & 100 kb groups |
+| [CODE_REVIEW.md](EXP_001/CODE_REVIEW.md) | Pipeline code review — all algorithmic decisions & potential issues |
 | [SCRIPTS.md](EXP_001/SCRIPTS.md) | Script documentation |
 | [literature_review_large_fragment_cloning.md](EXP_001/literature_review_large_fragment_cloning.md) | CAPTURE vs CATCH vs MoClo for T7 replisome |
 | [state_of_the_art_ecoli_genome_libraries.md](EXP_001/state_of_the_art_ecoli_genome_libraries.md) | Survey of *E. coli* genome library approaches |
