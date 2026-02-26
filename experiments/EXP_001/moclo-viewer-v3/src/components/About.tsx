@@ -261,6 +261,43 @@ export default function About({ data }: Props) {
                 </div>
             </section>
 
+            {/* ── Downloads ── */}
+            <section className="about-section">
+                <h3>📥 Downloads</h3>
+                <div className="about-card">
+                    <p>
+                        All annotated GenBank files and primer/design data are available for download.
+                        Clone files can be opened in SnapGene, Geneious, Benchling, or ApE.
+                    </p>
+                    <div className="download-grid">
+                        <a href="/downloads/lvl0_clones.zip" download className="download-card">
+                            <div className="download-icon">🧬</div>
+                            <div className="download-info">
+                                <div className="download-name">Lvl0 Clones</div>
+                                <div className="download-desc">686 annotated GenBank files — pICH41308 backbone + genomic insert + domestication mutations</div>
+                                <div className="download-meta">3.8 MB · .gb files in ZIP</div>
+                            </div>
+                        </a>
+                        <a href="/downloads/lvl1_assemblies.zip" download className="download-card">
+                            <div className="download-icon">🔗</div>
+                            <div className="download-info">
+                                <div className="download-name">Lvl1 Assemblies</div>
+                                <div className="download-desc">46 annotated GenBank files — 15-tile Golden Gate assemblies (~100 kb each) with CDS annotations</div>
+                                <div className="download-meta">2.1 MB · .gb files in ZIP</div>
+                            </div>
+                        </a>
+                        <a href="/downloads/csv_data.zip" download className="download-card">
+                            <div className="download-icon">📊</div>
+                            <div className="download-info">
+                                <div className="download-name">Design Data (CSV)</div>
+                                <div className="download-desc">Tile coordinates, primers, domestication mutations, PCR simulation, clone & assembly summaries</div>
+                                <div className="download-meta">81 KB · 7 CSV files in ZIP</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
             {/* ── Key statistics ── */}
             <section className="about-section">
                 <h3>📈 Key Statistics</h3>

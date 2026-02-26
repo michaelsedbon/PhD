@@ -31,7 +31,7 @@ BSAI_FWD = 'GGTCTC'
 BSAI_REV = 'GAGACC'
 
 # BsaI adapter for primers: recognition site + 1nt spacer
-BSAI_ADAPTER = 'CGTCTCN'
+BSAI_ADAPTER = 'GGTCTCN'
 
 # Primer design parameters
 PRIMER_MIN_LEN = 18
