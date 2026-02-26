@@ -22,7 +22,7 @@ tile_id,plasmid_length,insert_length,lvl1_group,position,gg_ready,domestication_
 20,8634,6384,1,5,True,0,7,6,21,tile_020.gb
 21,8832,6582,1,6,True,0,8,7,23,tile_021.gb
 22,9777,7527,1,7,True,0,8,7,23,tile_022.gb
-23,10388,8138,1,8,False,0,8,6,22,tile_023.gb
+23,10388,8138,1,8,False,0,8,6,23,tile_023.gb
 24,8485,6235,1,9,True,0,5,4,17,tile_024.gb
 25,9505,7255,1,10,True,0,10,9,27,tile_025.gb
 26,10146,7896,1,11,True,0,7,6,21,tile_026.gb
@@ -32,7 +32,7 @@ tile_id,plasmid_length,insert_length,lvl1_group,position,gg_ready,domestication_
 30,8649,6399,2,0,True,0,9,8,25,tile_030.gb
 31,8916,6666,2,1,True,0,8,7,23,tile_031.gb
 32,8444,6194,2,2,False,1,2,6,17,tile_032.gb
-33,9413,7163,2,3,False,0,10,11,29,tile_033.gb
+33,9413,7163,2,3,False,0,10,11,30,tile_033.gb
 34,9551,7301,2,4,True,0,7,9,24,tile_034.gb
 35,9250,7000,2,5,True,0,8,9,25,tile_035.gb
 36,8382,6132,2,6,True,0,7,9,24,tile_036.gb
@@ -108,7 +108,7 @@ tile_id,plasmid_length,insert_length,lvl1_group,position,gg_ready,domestication_
 106,11113,8863,7,1,True,0,7,8,23,tile_106.gb
 107,6387,4137,7,2,True,0,4,3,15,tile_107.gb
 108,8369,6119,7,3,False,0,4,4,17,tile_108.gb
-109,9571,7321,7,4,False,0,7,8,23,tile_109.gb
+109,9571,7321,7,4,False,1,7,8,24,tile_109.gb
 110,9401,7151,7,5,True,0,9,8,25,tile_110.gb
 111,10216,7966,7,6,False,2,9,8,27,tile_111.gb
 112,9626,7376,7,7,False,0,6,5,20,tile_112.gb
@@ -163,7 +163,7 @@ tile_id,plasmid_length,insert_length,lvl1_group,position,gg_ready,domestication_
 161,9250,7000,10,11,False,1,6,6,22,tile_161.gb
 162,9250,7000,10,12,True,0,9,9,26,tile_162.gb
 163,7726,5476,10,13,True,0,8,7,23,tile_163.gb
-164,9499,7249,10,14,False,0,7,6,21,tile_164.gb
+164,9499,7249,10,14,False,1,7,6,22,tile_164.gb
 165,8275,6025,11,0,True,0,9,8,25,tile_165.gb
 166,9017,6767,11,1,True,0,8,7,23,tile_166.gb
 167,8387,6137,11,2,True,0,10,9,27,tile_167.gb
@@ -193,7 +193,7 @@ tile_id,plasmid_length,insert_length,lvl1_group,position,gg_ready,domestication_
 191,9250,7000,12,11,True,0,5,5,18,tile_191.gb
 192,8737,6487,12,12,False,0,7,6,22,tile_192.gb
 193,8559,6309,12,13,False,0,8,7,23,tile_193.gb
-194,9614,7364,12,14,False,0,11,10,29,tile_194.gb
+194,9614,7364,12,14,False,1,11,10,30,tile_194.gb
 195,8553,6303,13,0,True,0,7,6,21,tile_195.gb
 196,8250,6000,13,1,True,0,7,6,21,tile_196.gb
 197,10038,7788,13,2,True,0,7,6,21,tile_197.gb
@@ -256,7 +256,7 @@ tile_id,plasmid_length,insert_length,lvl1_group,position,gg_ready,domestication_
 254,8465,6215,16,14,True,0,7,6,21,tile_254.gb
 255,8510,6260,17,0,True,0,8,7,23,tile_255.gb
 256,6680,4430,17,1,True,0,7,6,21,tile_256.gb
-257,10832,8582,17,2,False,0,7,6,21,tile_257.gb
+257,10832,8582,17,2,False,0,7,6,22,tile_257.gb
 258,9413,7163,17,3,False,1,7,6,22,tile_258.gb
 259,8433,6183,17,4,False,1,7,8,24,tile_259.gb
 260,8347,6097,17,5,True,0,7,6,21,tile_260.gb
@@ -267,7 +267,7 @@ tile_id,plasmid_length,insert_length,lvl1_group,position,gg_ready,domestication_
 265,8817,6567,17,10,True,0,6,5,19,tile_265.gb
 266,9948,7698,17,11,False,1,9,8,26,tile_266.gb
 267,9418,7168,17,12,False,0,8,8,24,tile_267.gb
-268,8465,6215,17,13,False,0,8,7,23,tile_268.gb
+268,8465,6215,17,13,False,1,8,7,24,tile_268.gb
 269,8425,6175,17,14,True,0,6,5,19,tile_269.gb
 270,8687,6437,18,0,True,0,9,8,25,tile_270.gb
 271,9295,7045,18,1,True,0,7,6,21,tile_271.gb
@@ -319,7 +319,7 @@ tile_id,plasmid_length,insert_length,lvl1_group,position,gg_ready,domestication_
 317,8813,6563,21,2,True,0,6,5,19,tile_317.gb
 318,9061,6811,21,3,True,0,5,4,17,tile_318.gb
 319,7238,4988,21,4,True,0,7,8,23,tile_319.gb
-320,13234,10984,21,5,False,0,7,6,21,tile_320.gb
+320,13234,10984,21,5,False,1,7,6,22,tile_320.gb
 321,6863,4613,21,6,True,0,6,7,21,tile_321.gb
 322,9843,7593,21,7,False,1,9,9,27,tile_322.gb
 323,8697,6447,21,8,True,0,7,6,21,tile_323.gb
@@ -483,8 +483,8 @@ tile_id,plasmid_length,insert_length,lvl1_group,position,gg_ready,domestication_
 481,9036,6786,32,1,True,0,13,12,33,tile_481.gb
 482,8158,5908,32,2,True,0,7,6,21,tile_482.gb
 483,9449,7199,32,3,False,0,6,5,19,tile_483.gb
-484,10162,7912,32,4,False,0,8,8,24,tile_484.gb
-485,8250,6000,32,5,False,0,7,8,23,tile_485.gb
+484,10162,7912,32,4,False,1,8,8,25,tile_484.gb
+485,8250,6000,32,5,False,1,7,8,24,tile_485.gb
 486,8250,6000,32,6,True,0,7,7,22,tile_486.gb
 487,8352,6102,32,7,True,0,6,5,19,tile_487.gb
 488,8830,6580,32,8,False,0,9,8,26,tile_488.gb
@@ -511,7 +511,7 @@ tile_id,plasmid_length,insert_length,lvl1_group,position,gg_ready,domestication_
 509,8250,6000,33,14,True,0,9,9,26,tile_509.gb
 510,9250,7000,34,0,False,0,14,13,36,tile_510.gb
 511,8960,6710,34,1,False,0,16,15,40,tile_511.gb
-512,9993,7743,34,2,False,0,7,6,21,tile_512.gb
+512,9993,7743,34,2,False,1,7,6,22,tile_512.gb
 513,8250,6000,34,3,False,0,11,10,30,tile_513.gb
 514,9318,7068,34,4,False,1,5,4,18,tile_514.gb
 515,9330,7080,34,5,True,0,12,11,31,tile_515.gb
@@ -567,7 +567,7 @@ tile_id,plasmid_length,insert_length,lvl1_group,position,gg_ready,domestication_
 565,9250,7000,37,10,False,1,8,7,25,tile_565.gb
 566,8817,6567,37,11,True,0,6,5,19,tile_566.gb
 567,9543,7293,37,12,False,1,5,4,18,tile_567.gb
-568,8694,6444,37,13,False,0,8,9,25,tile_568.gb
+568,8694,6444,37,13,False,1,8,9,26,tile_568.gb
 569,8472,6222,37,14,True,0,5,5,18,tile_569.gb
 570,8732,6482,38,0,True,0,9,9,26,tile_570.gb
 571,8320,6070,38,1,True,0,8,8,24,tile_571.gb
@@ -609,7 +609,7 @@ tile_id,plasmid_length,insert_length,lvl1_group,position,gg_ready,domestication_
 607,9250,7000,40,7,False,1,10,9,28,tile_607.gb
 608,10012,7762,40,8,True,0,9,8,25,tile_608.gb
 609,8388,6138,40,9,False,0,7,6,22,tile_609.gb
-610,9840,7590,40,10,False,0,5,4,17,tile_610.gb
+610,9840,7590,40,10,False,1,5,4,18,tile_610.gb
 611,8456,6206,40,11,True,0,6,5,19,tile_611.gb
 612,8346,6096,40,12,True,0,7,6,21,tile_612.gb
 613,8780,6530,40,13,True,0,4,3,15,tile_613.gb
@@ -617,7 +617,7 @@ tile_id,plasmid_length,insert_length,lvl1_group,position,gg_ready,domestication_
 615,9250,7000,41,0,False,1,6,6,21,tile_615.gb
 616,8450,6200,41,1,False,2,3,6,19,tile_616.gb
 617,9250,7000,41,2,True,0,9,12,29,tile_617.gb
-618,10776,8526,41,3,False,0,3,2,13,tile_618.gb
+618,10776,8526,41,3,False,0,3,2,14,tile_618.gb
 619,8776,6526,41,4,True,0,8,8,24,tile_619.gb
 620,7412,5162,41,5,False,1,8,7,24,tile_620.gb
 621,9250,7000,41,6,True,0,6,6,20,tile_621.gb
@@ -669,8 +669,8 @@ tile_id,plasmid_length,insert_length,lvl1_group,position,gg_ready,domestication_
 667,9134,6884,44,7,False,1,6,6,23,tile_667.gb
 668,9667,7417,44,8,False,1,8,8,26,tile_668.gb
 669,9978,7728,44,9,False,2,10,10,31,tile_669.gb
-670,10068,7818,44,10,False,0,8,10,26,tile_670.gb
-671,10342,8092,44,11,False,0,7,7,22,tile_671.gb
+670,10068,7818,44,10,False,1,8,10,27,tile_670.gb
+671,10342,8092,44,11,False,0,7,7,23,tile_671.gb
 672,7338,5088,44,12,True,0,6,5,19,tile_672.gb
 673,10110,7860,44,13,True,0,12,11,31,tile_673.gb
 674,10089,7839,44,14,False,0,9,8,26,tile_674.gb
