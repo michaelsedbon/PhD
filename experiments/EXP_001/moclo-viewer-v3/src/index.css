@@ -1358,6 +1358,133 @@ body {
     color: var(--text-secondary);
 }
 
+/* Applicability table */
+
+.applicability-table td {
+    font-size: 11px;
+    line-height: 1.55;
+}
+
+.applicability-yes {
+    color: var(--green);
+    font-weight: 700;
+    font-size: 11px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.applicability-partial {
+    color: var(--orange);
+    font-weight: 700;
+    font-size: 11px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.applicability-pros {
+    color: var(--green);
+    max-width: 320px;
+}
+
+.applicability-cons {
+    color: var(--red);
+    max-width: 320px;
+    opacity: 0.85;
+}
+
+.applicability-pros strong,
+.applicability-cons strong {
+    color: var(--text-primary);
+}
+
+.pros-cons-list {
+    margin: 0;
+    padding-left: 14px;
+    list-style: none;
+}
+
+.pros-cons-list li {
+    position: relative;
+    padding-left: 4px;
+    margin-bottom: 3px;
+}
+
+.applicability-pros .pros-cons-list li::before {
+    content: '+';
+    position: absolute;
+    left: -12px;
+    font-weight: 700;
+    color: var(--green);
+}
+
+.applicability-cons .pros-cons-list li::before {
+    content: '−';
+    position: absolute;
+    left: -12px;
+    font-weight: 700;
+    color: var(--red);
+}
+
+/* Intro box */
+
+.sota-intro-box {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sota-intro-goal,
+.sota-intro-question {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 20px 24px;
+    backdrop-filter: blur(10px);
+}
+
+.sota-intro-goal {
+    border-left: 3px solid var(--green);
+}
+
+.sota-intro-question {
+    border-left: 3px solid var(--orange);
+}
+
+.sota-intro-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.sota-intro-goal h3,
+.sota-intro-question h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+
+.sota-intro-goal p,
+.sota-intro-question p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.sota-intro-goal p strong,
+.sota-intro-question p strong {
+    color: var(--text-primary);
+}
+
+.slide-sub-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
 /* Enzyme Selection table */
 
 .enzyme-table .enzyme-num {
