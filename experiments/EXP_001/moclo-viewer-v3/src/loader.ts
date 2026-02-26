@@ -5,13 +5,14 @@ interface RawMutations {
 }
 
 export async function loadAllData(): Promise<AppData> {
+    const base = import.meta.env.BASE_URL;
     const [bundleRes, mutRes, seqRes, cdsRes, gpRes, pwRes] = await Promise.all([
-        fetch('/data_bundle_v2.json'),
-        fetch('/mutations.json'),
-        fetch('/genome_seq.txt'),
-        fetch('/cds_regions.json'),
-        fetch('/gene_products.json'),
-        fetch('/pathway_reactions.json').catch(() => null),
+        fetch(`${base}data_bundle_v2.json`),
+        fetch(`${base}mutations.json`),
+        fetch(`${base}genome_seq.txt`),
+        fetch(`${base}cds_regions.json`),
+        fetch(`${base}gene_products.json`),
+        fetch(`${base}pathway_reactions.json`).catch(() => null),
     ]);
 
     const bundle: DataBundle = await bundleRes.json();
