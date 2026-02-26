@@ -135,14 +135,14 @@ export default function GroupDetail({ data, groupId, onNavigate }: Props) {
             {/* Download Lvl1 GenBank */}
             <div className="lvl1-download-row">
                 <a
-                    href={`/downloads/lvl1/lvl1_group_${String(groupId).padStart(3, '0')}.gb`}
+                    href={`${import.meta.env.BASE_URL}downloads/lvl1/lvl1_group_${String(groupId).padStart(3, '0')}.gb`}
                     download
                     className="lvl1-download-btn"
                 >
                     📥 Lvl1 Assembly (.gb)
                 </a>
                 <a
-                    href={`/downloads/lvl0_by_group/group_${String(groupId).padStart(3, '0')}_lvl0s.zip`}
+                    href={`${import.meta.env.BASE_URL}downloads/lvl0_by_group/group_${String(groupId).padStart(3, '0')}_lvl0s.zip`}
                     download
                     className="lvl1-download-btn"
                     style={{ borderColor: 'var(--purple)', color: 'var(--purple)' }}
@@ -150,7 +150,7 @@ export default function GroupDetail({ data, groupId, onNavigate }: Props) {
                     🧬 All Lvl0s (.zip)
                 </a>
                 <a
-                    href={`/downloads/primers/group_${String(groupId).padStart(3, '0')}_primers.csv`}
+                    href={`${import.meta.env.BASE_URL}downloads/primers/group_${String(groupId).padStart(3, '0')}_primers.csv`}
                     download
                     className="lvl1-download-btn"
                     style={{ borderColor: 'var(--green)', color: 'var(--green)' }}
@@ -158,7 +158,7 @@ export default function GroupDetail({ data, groupId, onNavigate }: Props) {
                     🧪 Primers (.csv)
                 </a>
                 <a
-                    href={`/downloads/primers_gb/by_group/group_${String(groupId).padStart(3, '0')}_primers.gb`}
+                    href={`${import.meta.env.BASE_URL}downloads/primers_gb/by_group/group_${String(groupId).padStart(3, '0')}_primers.gb`}
                     download
                     className="lvl1-download-btn"
                     style={{ borderColor: 'var(--orange)', color: 'var(--orange)' }}

@@ -96,14 +96,14 @@ export default function TileDetail({ data, tileId, onNavigate }: Props) {
             {/* Download buttons */}
             <div className="lvl1-download-row">
                 <a
-                    href={`/downloads/lvl0/tile_${String(tileId).padStart(3, '0')}.gb`}
+                    href={`${import.meta.env.BASE_URL}downloads/lvl0/tile_${String(tileId).padStart(3, '0')}.gb`}
                     download
                     className="lvl1-download-btn"
                 >
                     🧬 Download Lvl0 Clone (.gb)
                 </a>
                 <a
-                    href={`/downloads/primers/tile_${String(tileId).padStart(3, '0')}_primers.csv`}
+                    href={`${import.meta.env.BASE_URL}downloads/primers/tile_${String(tileId).padStart(3, '0')}_primers.csv`}
                     download
                     className="lvl1-download-btn"
                     style={{ borderColor: 'var(--green)', color: 'var(--green)' }}
@@ -111,7 +111,7 @@ export default function TileDetail({ data, tileId, onNavigate }: Props) {
                     🧪 Primers (.csv)
                 </a>
                 <a
-                    href={`/downloads/primers_gb/by_tile/tile_${String(tileId).padStart(3, '0')}_primers.gb`}
+                    href={`${import.meta.env.BASE_URL}downloads/primers_gb/by_tile/tile_${String(tileId).padStart(3, '0')}_primers.gb`}
                     download
                     className="lvl1-download-btn"
                     style={{ borderColor: 'var(--orange)', color: 'var(--orange)' }}

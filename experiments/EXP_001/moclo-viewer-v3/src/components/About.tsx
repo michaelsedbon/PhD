@@ -270,7 +270,7 @@ export default function About({ data }: Props) {
                         Clone files can be opened in SnapGene, Geneious, Benchling, or ApE.
                     </p>
                     <div className="download-grid">
-                        <a href="/downloads/lvl0_clones.zip" download className="download-card">
+                        <a href={`${import.meta.env.BASE_URL}downloads/lvl0_clones.zip`} download className="download-card">
                             <div className="download-icon">🧬</div>
                             <div className="download-info">
                                 <div className="download-name">Lvl0 Clones</div>
@@ -278,7 +278,7 @@ export default function About({ data }: Props) {
                                 <div className="download-meta">3.8 MB · .gb files in ZIP</div>
                             </div>
                         </a>
-                        <a href="/downloads/lvl1_assemblies.zip" download className="download-card">
+                        <a href={`${import.meta.env.BASE_URL}downloads/lvl1_assemblies.zip`} download className="download-card">
                             <div className="download-icon">🔗</div>
                             <div className="download-info">
                                 <div className="download-name">Lvl1 Assemblies</div>
@@ -286,7 +286,7 @@ export default function About({ data }: Props) {
                                 <div className="download-meta">2.1 MB · .gb files in ZIP</div>
                             </div>
                         </a>
-                        <a href="/downloads/csv_data.zip" download className="download-card">
+                        <a href={`${import.meta.env.BASE_URL}downloads/csv_data.zip`} download className="download-card">
                             <div className="download-icon">📊</div>
                             <div className="download-info">
                                 <div className="download-name">Design Data (CSV)</div>
