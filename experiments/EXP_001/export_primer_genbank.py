@@ -54,9 +54,20 @@ if os.path.exists(DOMEST_SF_CSV):
 
 print(f"Loaded domestication data for {len(dom_primers)} tiles, subfragments for {len(dom_subfragments)} tiles")
 
+PRIMER_FLANK = 20  # Must match domestication_primers.py
+BSAI_ADAPTER_LEN = 7  # GGTCTCN
+OVERHANG_LEN = 4  # standardized 4-nt overhang
 
-def make_primer_record(name, seq, primer_type, direction, tm, tile_id, gene=None, note=None):
-    """Create a SeqRecord for a single primer."""
+
+def make_primer_record(name, seq, primer_type, direction, tm, tile_id,
+                       gene=None, note=None, binding_start=None, binding_end=None,
+                       mutation_pos=None):
+    """Create a SeqRecord for a single primer with binding/overlap annotations.
+
+    binding_start/binding_end: 0-indexed positions of the binding region within the primer.
+    Everything outside this range is annotated as overlap/adapter (non-binding tail).
+    mutation_pos: position of the introduced mutation within the primer (for mutagenic only).
+    """
     desc_parts = [
         f"Tile {tile_id}",
         primer_type,
@@ -79,21 +90,79 @@ def make_primer_record(name, seq, primer_type, direction, tm, tile_id, gene=None
         },
     )
 
-    # Add primer feature spanning full length
-    feat = SeqFeature(
-        FeatureLocation(0, len(seq)),
-        type='primer_bind',
-        qualifiers={
-            'label': [name],
-            'note': [f"{primer_type} {direction}"],
-            'tile': [str(tile_id)],
-        },
-    )
-    if tm:
-        feat.qualifiers['melting_temperature'] = [str(tm)]
-    if gene:
-        feat.qualifiers['gene'] = [gene]
-    rec.features.append(feat)
+    seq_len = len(seq)
+
+    if binding_start is not None and binding_end is not None:
+        # Binding region (anneals to template)
+        bind_feat = SeqFeature(
+            FeatureLocation(binding_start, binding_end),
+            type='primer_bind',
+            qualifiers={
+                'label': [name],
+                'note': [f"{primer_type} {direction} — binding region"],
+                'tile': [str(tile_id)],
+            },
+        )
+        if tm:
+            bind_feat.qualifiers['melting_temperature'] = [str(tm)]
+        if gene:
+            bind_feat.qualifiers['gene'] = [gene]
+        rec.features.append(bind_feat)
+
+        # Non-binding tail (overlap / adapter)
+        if binding_start > 0:
+            tail_label = 'OE-PCR overlap' if primer_type == 'mutagenic' else 'BsaI adapter + overhang'
+            tail_feat = SeqFeature(
+                FeatureLocation(0, binding_start),
+                type='misc_feature',
+                qualifiers={
+                    'label': [f"{name}_tail"],
+                    'note': [tail_label],
+                },
+            )
+            rec.features.append(tail_feat)
+
+        if binding_end < seq_len:
+            tail_label = 'OE-PCR overlap' if primer_type == 'mutagenic' else 'BsaI adapter + overhang'
+            tail_feat = SeqFeature(
+                FeatureLocation(binding_end, seq_len),
+                type='misc_feature',
+                qualifiers={
+                    'label': [f"{name}_tail"],
+                    'note': [tail_label],
+                },
+            )
+            rec.features.append(tail_feat)
+
+        # Mutation marker (for mutagenic primers)
+        if mutation_pos is not None and 0 <= mutation_pos < seq_len:
+            mut_feat = SeqFeature(
+                FeatureLocation(mutation_pos, mutation_pos + 1),
+                type='variation',
+                qualifiers={
+                    'label': ['mutation'],
+                    'note': ['Introduced silent mutation for BsaI domestication'],
+                },
+            )
+            if gene:
+                mut_feat.qualifiers['gene'] = [gene]
+            rec.features.append(mut_feat)
+    else:
+        # Fallback: annotate entire sequence as primer_bind
+        feat = SeqFeature(
+            FeatureLocation(0, seq_len),
+            type='primer_bind',
+            qualifiers={
+                'label': [name],
+                'note': [f"{primer_type} {direction}"],
+                'tile': [str(tile_id)],
+            },
+        )
+        if tm:
+            feat.qualifiers['melting_temperature'] = [str(tm)]
+        if gene:
+            feat.qualifiers['gene'] = [gene]
+        rec.features.append(feat)
 
     return rec
 
@@ -103,71 +172,116 @@ def get_tile_primers(tile):
     tid = int(tile['id'])
     records = []
 
-    # Amplification primers
+    # Amplification primers — 5' tail is BsaI adapter (7nt) + overhang (4nt) = 11nt
+    amp_fwd = tile['fwd_primer']
+    amp_rev = tile['rev_primer']
+    adapter_tail = BSAI_ADAPTER_LEN + OVERHANG_LEN  # 11 nt non-binding 5' tail
+
     records.append(make_primer_record(
         name=f"T{tid}_amp_fwd",
-        seq=tile['fwd_primer'],
+        seq=amp_fwd,
         primer_type='amplification',
         direction='forward',
         tm=tile['fwd_tm'],
         tile_id=tid,
+        binding_start=adapter_tail,
+        binding_end=len(amp_fwd),
     ))
     records.append(make_primer_record(
         name=f"T{tid}_amp_rev",
-        seq=tile['rev_primer'],
+        seq=amp_rev,
         primer_type='amplification',
         direction='reverse',
         tm=tile['rev_tm'],
         tile_id=tid,
+        binding_start=adapter_tail,
+        binding_end=len(amp_rev),
     ))
 
     # Mutagenic primers (for BsaI domestication)
+    # These are 41 nt centered on the mutation (pos 20).
+    # FWD primer: 5' tail (0..20) = overlap, 3' (21..41) = binding
+    # REV primer: 5' (0..20) = binding, 3' tail (21..41) = overlap
     if tid in dom_primers:
         for i, dp in enumerate(dom_primers[tid]):
             site_pos = dp['site_genome_pos']
             gene = dp.get('gene', '')
+            fwd_seq = dp['mutagenic_fwd']
+            rev_seq = dp['mutagenic_rev']
+            plen = len(fwd_seq)
+            mut_pos = PRIMER_FLANK  # mutation at center
+
             records.append(make_primer_record(
                 name=f"T{tid}_mut{i}_fwd",
-                seq=dp['mutagenic_fwd'],
+                seq=fwd_seq,
                 primer_type='mutagenic',
                 direction='forward',
                 tm=dp['fwd_tm'],
                 tile_id=tid,
                 gene=gene,
                 note=f"BsaI site at {site_pos}",
+                binding_start=mut_pos + 1,  # 3' of mutation = binding
+                binding_end=plen,
+                mutation_pos=mut_pos,
             ))
             records.append(make_primer_record(
                 name=f"T{tid}_mut{i}_rev",
-                seq=dp['mutagenic_rev'],
+                seq=rev_seq,
                 primer_type='mutagenic',
                 direction='reverse',
                 tm=dp['rev_tm'],
                 tile_id=tid,
                 gene=gene,
                 note=f"BsaI site at {site_pos}",
+                binding_start=0,           # 5' of mutation = binding
+                binding_end=mut_pos,
+                mutation_pos=mut_pos,
             ))
 
-    # Subfragment primers
+    # Subfragment primers (these reuse tile amp primers or mutagenic primers,
+    # so they have the same structure — annotate based on type)
     if tid in dom_subfragments:
         for sf in dom_subfragments[tid]:
             sf_idx = sf.get('subfragment_index', sf.get('index', '?'))
+            sf_fwd = sf['fwd_primer']
+            sf_rev = sf['rev_primer']
+
+            # Subfragment fwd: if it starts with GGTCTCN it's an amplification primer reuse
+            if sf_fwd[:6] == 'GGTCTC':
+                bind_s, bind_e = adapter_tail, len(sf_fwd)
+            else:
+                # It's a mutagenic primer — binding is the 3' half
+                bind_s, bind_e = PRIMER_FLANK + 1, len(sf_fwd)
+
             records.append(make_primer_record(
                 name=f"T{tid}_sf{sf_idx}_fwd",
-                seq=sf['fwd_primer'],
+                seq=sf_fwd,
                 primer_type='subfragment',
                 direction='forward',
                 tm=sf['fwd_tm'],
                 tile_id=tid,
                 note=f"Subfragment {sf_idx}",
+                binding_start=bind_s,
+                binding_end=bind_e,
             ))
+
+            # Subfragment rev: if it starts with GGTCTCN it's an amplification primer reuse
+            if sf_rev[:6] == 'GGTCTC':
+                bind_s, bind_e = adapter_tail, len(sf_rev)
+            else:
+                # It's a mutagenic primer — binding is the 5' half
+                bind_s, bind_e = 0, PRIMER_FLANK
+
             records.append(make_primer_record(
                 name=f"T{tid}_sf{sf_idx}_rev",
-                seq=sf['rev_primer'],
+                seq=sf_rev,
                 primer_type='subfragment',
                 direction='reverse',
                 tm=sf['rev_tm'],
                 tile_id=tid,
                 note=f"Subfragment {sf_idx}",
+                binding_start=bind_s,
+                binding_end=bind_e,
             ))
 
     return records

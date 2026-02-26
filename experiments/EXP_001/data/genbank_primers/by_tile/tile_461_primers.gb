@@ -7,11 +7,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..32
+     primer_bind     12..32
                      /label="T461_amp_fwd"
-                     /note="amplification forward"
+                     /note="amplification forward — binding region"
                      /tile="461"
                      /melting_temperature="58.3"
+     misc_feature    1..11
+                     /label="T461_amp_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcntat caagcgcaaa cccgtttcgg gg
 //
@@ -24,11 +27,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..30
+     primer_bind     12..30
                      /label="T461_amp_rev"
-                     /note="amplification reverse"
+                     /note="amplification reverse — binding region"
                      /tile="461"
                      /melting_temperature="57.6"
+     misc_feature    1..11
+                     /label="T461_amp_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcntgt acccgtaggc cggataaggc
 //

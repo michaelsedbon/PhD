@@ -7,11 +7,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..29
+     primer_bind     12..29
                      /label="T585_amp_fwd"
-                     /note="amplification forward"
+                     /note="amplification forward — binding region"
                      /tile="585"
                      /melting_temperature="57.2"
+     misc_feature    1..11
+                     /label="T585_amp_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcnaat aggcggtggc gtgggtatg
 //
@@ -24,11 +27,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..36
+     primer_bind     12..36
                      /label="T585_amp_rev"
-                     /note="amplification reverse"
+                     /note="amplification reverse — binding region"
                      /tile="585"
                      /melting_temperature="56.0"
+     misc_feature    1..11
+                     /label="T585_amp_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcnagt tgtggattta cgcgatctga aaacct
 //
@@ -42,11 +48,18 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     22..41
                      /label="T585_mut0_fwd"
-                     /note="mutagenic forward"
+                     /note="mutagenic forward — binding region"
                      /tile="585"
                      /melting_temperature="66.4"
+                     /gene="ilvD"
+     misc_feature    1..21
+                     /label="T585_mut0_fwd_tail"
+                     /note="OE-PCR overlap"
+     variation       21
+                     /label="mutation"
+                     /note="Introduced silent mutation for BsaI domestication"
                      /gene="ilvD"
 ORIGIN
         1 agcttcctga aatcaatggg cctcggcaaa gcctgtgcgc t
@@ -61,11 +74,18 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     1..20
                      /label="T585_mut0_rev"
-                     /note="mutagenic reverse"
+                     /note="mutagenic reverse — binding region"
                      /tile="585"
                      /melting_temperature="66.4"
+                     /gene="ilvD"
+     misc_feature    21..41
+                     /label="T585_mut0_rev_tail"
+                     /note="OE-PCR overlap"
+     variation       21
+                     /label="mutation"
+                     /note="Introduced silent mutation for BsaI domestication"
                      /gene="ilvD"
 ORIGIN
         1 agcgcacagg ctttgccgag gcccattgat ttcaggaagc t
@@ -80,11 +100,18 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     22..41
                      /label="T585_mut1_fwd"
-                     /note="mutagenic forward"
+                     /note="mutagenic forward — binding region"
                      /tile="585"
                      /melting_temperature="62.4"
+                     /gene="ilvD"
+     misc_feature    1..21
+                     /label="T585_mut1_fwd_tail"
+                     /note="OE-PCR overlap"
+     variation       21
+                     /label="mutation"
+                     /note="Introduced silent mutation for BsaI domestication"
                      /gene="ilvD"
 ORIGIN
         1 aaaaatcgtg aacgtcaggt ttcctttgcc ctgcgtgctt a
@@ -99,11 +126,18 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     1..20
                      /label="T585_mut1_rev"
-                     /note="mutagenic reverse"
+                     /note="mutagenic reverse — binding region"
                      /tile="585"
                      /melting_temperature="62.4"
+                     /gene="ilvD"
+     misc_feature    21..41
+                     /label="T585_mut1_rev_tail"
+                     /note="OE-PCR overlap"
+     variation       21
+                     /label="mutation"
+                     /note="Introduced silent mutation for BsaI domestication"
                      /gene="ilvD"
 ORIGIN
         1 taagcacgca gggcaaagga aacctgacgt tcacgatttt t
@@ -117,11 +151,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..29
+     primer_bind     22..29
                      /label="T585_sf?_fwd"
-                     /note="subfragment forward"
+                     /note="subfragment forward — binding region"
                      /tile="585"
                      /melting_temperature="56.9"
+     misc_feature    1..21
+                     /label="T585_sf?_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 cgtctcnggc gggcggtggc gtgggtatg
 //
@@ -134,11 +171,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     1..20
                      /label="T585_sf?_rev"
-                     /note="subfragment reverse"
+                     /note="subfragment reverse — binding region"
                      /tile="585"
                      /melting_temperature="52.8"
+     misc_feature    21..41
+                     /label="T585_sf?_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 agcgcacagg ctttgccgag gcccattgat ttcaggaagc t
 //
@@ -151,11 +191,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     22..41
                      /label="T585_sf?_fwd"
-                     /note="subfragment forward"
+                     /note="subfragment forward — binding region"
                      /tile="585"
                      /melting_temperature="52.8"
+     misc_feature    1..21
+                     /label="T585_sf?_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 agcttcctga aatcaatggg cctcggcaaa gcctgtgcgc t
 //
@@ -168,11 +211,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     1..20
                      /label="T585_sf?_rev"
-                     /note="subfragment reverse"
+                     /note="subfragment reverse — binding region"
                      /tile="585"
                      /melting_temperature="48.7"
+     misc_feature    21..41
+                     /label="T585_sf?_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 taagcacgca gggcaaagga aacctgacgt tcacgatttt t
 //
@@ -185,11 +231,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     22..41
                      /label="T585_sf?_fwd"
-                     /note="subfragment forward"
+                     /note="subfragment forward — binding region"
                      /tile="585"
                      /melting_temperature="48.7"
+     misc_feature    1..21
+                     /label="T585_sf?_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 aaaaatcgtg aacgtcaggt ttcctttgcc ctgcgtgctt a
 //
@@ -202,11 +251,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..36
+     primer_bind     1..20
                      /label="T585_sf?_rev"
-                     /note="subfragment reverse"
+                     /note="subfragment reverse — binding region"
                      /tile="585"
                      /melting_temperature="46.7"
+     misc_feature    21..36
+                     /label="T585_sf?_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 cgtctcngtg ggtggattta cgcgatctga aaacct
 //
@@ -219,11 +271,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..33
+     primer_bind     12..33
                      /label="T586_amp_fwd"
-                     /note="amplification forward"
+                     /note="amplification forward — binding region"
                      /tile="586"
                      /melting_temperature="58.6"
+     misc_feature    1..11
+                     /label="T586_amp_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcnaac tagggacagc cctcgatgtt gac
 //
@@ -236,11 +291,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..32
+     primer_bind     12..32
                      /label="T586_amp_rev"
-                     /note="amplification reverse"
+                     /note="amplification reverse — binding region"
                      /tile="586"
                      /melting_temperature="58.3"
+     misc_feature    1..11
+                     /label="T586_amp_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcngct tatgggttcc acctcgtcgc tg
 //
@@ -254,11 +312,18 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     22..41
                      /label="T586_mut0_fwd"
-                     /note="mutagenic forward"
+                     /note="mutagenic forward — binding region"
                      /tile="586"
                      /melting_temperature="64.4"
+                     /gene="ilvC"
+     misc_feature    1..21
+                     /label="T586_mut0_fwd_tail"
+                     /note="OE-PCR overlap"
+     variation       21
+                     /label="mutation"
+                     /note="Introduced silent mutation for BsaI domestication"
                      /gene="ilvC"
 ORIGIN
         1 ctgaacatgc gtgattctgg cctcgatatc tcctacgctc t
@@ -273,11 +338,18 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     1..20
                      /label="T586_mut0_rev"
-                     /note="mutagenic reverse"
+                     /note="mutagenic reverse — binding region"
                      /tile="586"
                      /melting_temperature="64.4"
+                     /gene="ilvC"
+     misc_feature    21..41
+                     /label="T586_mut0_rev_tail"
+                     /note="OE-PCR overlap"
+     variation       21
+                     /label="mutation"
+                     /note="Introduced silent mutation for BsaI domestication"
                      /gene="ilvC"
 ORIGIN
         1 agagcgtagg agatatcgag gccagaatca cgcatgttca g
@@ -292,11 +364,18 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     22..41
                      /label="T586_mut1_fwd"
-                     /note="mutagenic forward"
+                     /note="mutagenic forward — binding region"
                      /tile="586"
                      /melting_temperature="66.4"
+                     /gene="ilvC"
+     misc_feature    1..21
+                     /label="T586_mut1_fwd_tail"
+                     /note="OE-PCR overlap"
+     variation       21
+                     /label="mutation"
+                     /note="Introduced silent mutation for BsaI domestication"
                      /gene="ilvC"
 ORIGIN
         1 ctgctgacct ggcgtgaaga aaccggcaaa accgcgtttg a
@@ -311,11 +390,18 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     1..20
                      /label="T586_mut1_rev"
-                     /note="mutagenic reverse"
+                     /note="mutagenic reverse — binding region"
                      /tile="586"
                      /melting_temperature="66.4"
+                     /gene="ilvC"
+     misc_feature    21..41
+                     /label="T586_mut1_rev_tail"
+                     /note="OE-PCR overlap"
+     variation       21
+                     /label="mutation"
+                     /note="Introduced silent mutation for BsaI domestication"
                      /gene="ilvC"
 ORIGIN
         1 tcaaacgcgg ttttgccggt ttcttcacgc caggtcagca g
@@ -329,11 +415,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..32
+     primer_bind     22..32
                      /label="T586_sf?_fwd"
-                     /note="subfragment forward"
+                     /note="subfragment forward — binding region"
                      /tile="586"
                      /melting_temperature="50.8"
+     misc_feature    1..21
+                     /label="T586_sf?_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 cgtctcnagg gagggacagc cctcgatgtt ga
 //
@@ -346,11 +435,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     1..20
                      /label="T586_sf?_rev"
-                     /note="subfragment reverse"
+                     /note="subfragment reverse — binding region"
                      /tile="586"
                      /melting_temperature="46.7"
+     misc_feature    21..41
+                     /label="T586_sf?_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 agagcgtagg agatatcgag gccagaatca cgcatgttca g
 //
@@ -363,11 +455,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     22..41
                      /label="T586_sf?_fwd"
-                     /note="subfragment forward"
+                     /note="subfragment forward — binding region"
                      /tile="586"
                      /melting_temperature="46.7"
+     misc_feature    1..21
+                     /label="T586_sf?_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ctgaacatgc gtgattctgg cctcgatatc tcctacgctc t
 //
@@ -380,11 +475,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     1..20
                      /label="T586_sf?_rev"
-                     /note="subfragment reverse"
+                     /note="subfragment reverse — binding region"
                      /tile="586"
                      /melting_temperature="48.7"
+     misc_feature    21..41
+                     /label="T586_sf?_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 tcaaacgcgg ttttgccggt ttcttcacgc caggtcagca g
 //
@@ -397,11 +495,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     22..41
                      /label="T586_sf?_fwd"
-                     /note="subfragment forward"
+                     /note="subfragment forward — binding region"
                      /tile="586"
                      /melting_temperature="48.7"
+     misc_feature    1..21
+                     /label="T586_sf?_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ctgctgacct ggcgtgaaga aaccggcaaa accgcgtttg a
 //
@@ -414,11 +515,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..30
+     primer_bind     1..20
                      /label="T586_sf?_rev"
-                     /note="subfragment reverse"
+                     /note="subfragment reverse — binding region"
                      /tile="586"
                      /melting_temperature="48.7"
+     misc_feature    21..30
+                     /label="T586_sf?_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 cgtctcnatg gatgggttcc acctcgtcgc
 //
@@ -431,11 +535,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..36
+     primer_bind     12..36
                      /label="T587_amp_fwd"
-                     /note="amplification forward"
+                     /note="amplification forward — binding region"
                      /tile="587"
                      /melting_temperature="54.4"
+     misc_feature    1..11
+                     /label="T587_amp_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcnaag cactcttcat ccttcaatct gtctct
 //
@@ -448,11 +555,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..35
+     primer_bind     12..35
                      /label="T587_amp_rev"
-                     /note="amplification reverse"
+                     /note="amplification reverse — binding region"
                      /tile="587"
                      /melting_temperature="57.4"
+     misc_feature    1..11
+                     /label="T587_amp_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcntta ttcgattctc ttcgaataag cggcg
 //
@@ -466,11 +576,18 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     22..41
                      /label="T587_mut0_fwd"
-                     /note="mutagenic forward"
+                     /note="mutagenic forward — binding region"
                      /tile="587"
                      /melting_temperature="57.4"
+                     /gene="rhlB"
+     misc_feature    1..21
+                     /label="T587_mut0_fwd_tail"
+                     /note="OE-PCR overlap"
+     variation       21
+                     /label="mutation"
+                     /note="Introduced silent mutation for BsaI domestication"
                      /gene="rhlB"
 ORIGIN
         1 attgagtgac caatataggt ttcaatagca ggcaaattca a
@@ -485,11 +602,18 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     1..20
                      /label="T587_mut0_rev"
-                     /note="mutagenic reverse"
+                     /note="mutagenic reverse — binding region"
                      /tile="587"
                      /melting_temperature="57.4"
+                     /gene="rhlB"
+     misc_feature    21..41
+                     /label="T587_mut0_rev_tail"
+                     /note="OE-PCR overlap"
+     variation       21
+                     /label="mutation"
+                     /note="Introduced silent mutation for BsaI domestication"
                      /gene="rhlB"
 ORIGIN
         1 ttgaatttgc ctgctattga aacctatatt ggtcactcaa t
@@ -503,11 +627,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..36
+     primer_bind     22..36
                      /label="T587_sf?_fwd"
-                     /note="subfragment forward"
+                     /note="subfragment forward — binding region"
                      /tile="587"
                      /melting_temperature="42.6"
+     misc_feature    1..21
+                     /label="T587_sf?_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 cgtctcnact cactcttcat ccttcaatct gtctct
 //
@@ -520,11 +647,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     1..20
                      /label="T587_sf?_rev"
-                     /note="subfragment reverse"
+                     /note="subfragment reverse — binding region"
                      /tile="587"
                      /melting_temperature="40.5"
+     misc_feature    21..41
+                     /label="T587_sf?_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ttgaatttgc ctgctattga aacctatatt ggtcactcaa t
 //
@@ -537,11 +667,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     22..41
                      /label="T587_sf?_fwd"
-                     /note="subfragment forward"
+                     /note="subfragment forward — binding region"
                      /tile="587"
                      /melting_temperature="40.5"
+     misc_feature    1..21
+                     /label="T587_sf?_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 attgagtgac caatataggt ttcaatagca ggcaaattca a
 //
@@ -554,11 +687,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..33
+     primer_bind     1..20
                      /label="T587_sf?_rev"
-                     /note="subfragment reverse"
+                     /note="subfragment reverse — binding region"
                      /tile="587"
                      /melting_temperature="44.6"
+     misc_feature    21..33
+                     /label="T587_sf?_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 cgtctcnaga aagaatgcga gagcatgcct gac
 //
@@ -571,11 +707,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..36
+     primer_bind     12..36
                      /label="T588_amp_fwd"
-                     /note="amplification forward"
+                     /note="amplification forward — binding region"
                      /tile="588"
                      /melting_temperature="52.8"
+     misc_feature    1..11
+                     /label="T588_amp_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcnata atgtgaaagt actgactgta tttggt
 //
@@ -588,11 +727,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..34
+     primer_bind     12..34
                      /label="T588_amp_rev"
-                     /note="amplification reverse"
+                     /note="amplification reverse — binding region"
                      /tile="588"
                      /melting_temperature="57.1"
+     misc_feature    1..11
+                     /label="T588_amp_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcngaa tttatccttc aacctgcgtc cgga
 //
@@ -606,11 +748,18 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     22..41
                      /label="T588_mut0_fwd"
-                     /note="mutagenic forward"
+                     /note="mutagenic forward — binding region"
                      /tile="588"
                      /melting_temperature="64.4"
+                     /gene="rffC"
+     misc_feature    1..21
+                     /label="T588_mut0_fwd_tail"
+                     /note="OE-PCR overlap"
+     variation       21
+                     /label="mutation"
+                     /note="Introduced silent mutation for BsaI domestication"
                      /gene="rffC"
 ORIGIN
         1 ggtgctgtag tggcacaaga aaccgatatt cccgcattac g
@@ -625,11 +774,18 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     1..20
                      /label="T588_mut0_rev"
-                     /note="mutagenic reverse"
+                     /note="mutagenic reverse — binding region"
                      /tile="588"
                      /melting_temperature="64.4"
+                     /gene="rffC"
+     misc_feature    21..41
+                     /label="T588_mut0_rev_tail"
+                     /note="OE-PCR overlap"
+     variation       21
+                     /label="mutation"
+                     /note="Introduced silent mutation for BsaI domestication"
                      /gene="rffC"
 ORIGIN
         1 cgtaatgcgg gaatatcggt ttcttgtgcc actacagcac c
@@ -643,11 +799,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..35
+     primer_bind     22..35
                      /label="T588_sf?_fwd"
-                     /note="subfragment forward"
+                     /note="subfragment forward — binding region"
                      /tile="588"
                      /melting_temperature="38.5"
+     misc_feature    1..21
+                     /label="T588_sf?_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 cgtctcngga aggaagcgtt aaaaaataat cggat
 //
@@ -660,11 +819,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     1..20
                      /label="T588_sf?_rev"
-                     /note="subfragment reverse"
+                     /note="subfragment reverse — binding region"
                      /tile="588"
                      /melting_temperature="46.7"
+     misc_feature    21..41
+                     /label="T588_sf?_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 cgtaatgcgg gaatatcggt ttcttgtgcc actacagcac c
 //
@@ -677,11 +839,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     22..41
                      /label="T588_sf?_fwd"
-                     /note="subfragment forward"
+                     /note="subfragment forward — binding region"
                      /tile="588"
                      /melting_temperature="46.7"
+     misc_feature    1..21
+                     /label="T588_sf?_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtgctgtag tggcacaaga aaccgatatt cccgcattac g
 //
@@ -694,11 +859,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..33
+     primer_bind     1..20
                      /label="T588_sf?_rev"
-                     /note="subfragment reverse"
+                     /note="subfragment reverse — binding region"
                      /tile="588"
                      /melting_temperature="52.8"
+     misc_feature    21..33
+                     /label="T588_sf?_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 cgtctcncac gcacgcggtt catggtaaac agc
 //
@@ -711,11 +879,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..36
+     primer_bind     12..36
                      /label="T589_amp_fwd"
-                     /note="amplification forward"
+                     /note="amplification forward — binding region"
                      /tile="589"
                      /melting_temperature="57.7"
+     misc_feature    1..11
+                     /label="T589_amp_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcnatt ccaatgaata acaacaccac ggcacc
 //
@@ -728,11 +899,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..36
+     primer_bind     12..36
                      /label="T589_amp_rev"
-                     /note="amplification reverse"
+                     /note="amplification reverse — binding region"
                      /tile="589"
                      /melting_temperature="52.8"
+     misc_feature    1..11
+                     /label="T589_amp_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcnaca tatggaattt tcgttttcac ccaaac
 //
@@ -746,11 +920,18 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     22..41
                      /label="T589_mut0_fwd"
-                     /note="mutagenic forward"
+                     /note="mutagenic forward — binding region"
                      /tile="589"
                      /melting_temperature="69.4"
+                     /gene="intergenic"
+     misc_feature    1..21
+                     /label="T589_mut0_fwd_tail"
+                     /note="OE-PCR overlap"
+     variation       21
+                     /label="mutation"
+                     /note="Introduced silent mutation for BsaI domestication"
                      /gene="intergenic"
 ORIGIN
         1 ctgccctccg gaggcagagg actcaggttc gaatcctgtc g
@@ -765,11 +946,18 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     1..20
                      /label="T589_mut0_rev"
-                     /note="mutagenic reverse"
+                     /note="mutagenic reverse — binding region"
                      /tile="589"
                      /melting_temperature="69.4"
+                     /gene="intergenic"
+     misc_feature    21..41
+                     /label="T589_mut0_rev_tail"
+                     /note="OE-PCR overlap"
+     variation       21
+                     /label="mutation"
+                     /note="Introduced silent mutation for BsaI domestication"
                      /gene="intergenic"
 ORIGIN
         1 cgacaggatt cgaacctgag tcctctgcct ccggagggca g
@@ -783,11 +971,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..36
+     primer_bind     22..36
                      /label="T589_sf?_fwd"
-                     /note="subfragment forward"
+                     /note="subfragment forward — binding region"
                      /tile="589"
                      /melting_temperature="46.7"
+     misc_feature    1..21
+                     /label="T589_sf?_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 cgtctcngag agagcccaat cttacgtggg tgatcc
 //
@@ -800,11 +991,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     1..20
                      /label="T589_sf?_rev"
-                     /note="subfragment reverse"
+                     /note="subfragment reverse — binding region"
                      /tile="589"
                      /melting_temperature="48.7"
+     misc_feature    21..41
+                     /label="T589_sf?_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 cgacaggatt cgaacctgag tcctctgcct ccggagggca g
 //
@@ -817,11 +1011,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     22..41
                      /label="T589_sf?_fwd"
-                     /note="subfragment forward"
+                     /note="subfragment forward — binding region"
                      /tile="589"
                      /melting_temperature="48.7"
+     misc_feature    1..21
+                     /label="T589_sf?_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ctgccctccg gaggcagagg actcaggttc gaatcctgtc g
 //
@@ -834,11 +1031,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..36
+     primer_bind     1..20
                      /label="T589_sf?_rev"
-                     /note="subfragment reverse"
+                     /note="subfragment reverse — binding region"
                      /tile="589"
                      /melting_temperature="42.6"
+     misc_feature    21..36
+                     /label="T589_sf?_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 cgtctcnatg gatggaattt tcgttttcac ccaaac
 //
@@ -851,11 +1051,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..36
+     primer_bind     12..36
                      /label="T590_amp_fwd"
-                     /note="amplification forward"
+                     /note="amplification forward — binding region"
                      /tile="590"
                      /melting_temperature="56.0"
+     misc_feature    1..11
+                     /label="T590_amp_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcnatg tgcaaaatgc tccggtttca tgtcat
 //
@@ -868,11 +1071,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..36
+     primer_bind     12..36
                      /label="T590_amp_rev"
-                     /note="amplification reverse"
+                     /note="amplification reverse — binding region"
                      /tile="590"
                      /melting_temperature="51.1"
+     misc_feature    1..11
+                     /label="T590_amp_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcngtg ttcacgaaaa atattgctgt aatagc
 //
@@ -886,11 +1092,18 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     22..41
                      /label="T590_mut0_fwd"
-                     /note="mutagenic forward"
+                     /note="mutagenic forward — binding region"
                      /tile="590"
                      /melting_temperature="69.4"
+                     /gene="hemX"
+     misc_feature    1..21
+                     /label="T590_mut0_fwd_tail"
+                     /note="OE-PCR overlap"
+     variation       21
+                     /label="mutation"
+                     /note="Introduced silent mutation for BsaI domestication"
                      /gene="hemX"
 ORIGIN
         1 gtgtccacgg cctccctggt ttcttcaacc acggcggagg t
@@ -905,11 +1118,18 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     1..20
                      /label="T590_mut0_rev"
-                     /note="mutagenic reverse"
+                     /note="mutagenic reverse — binding region"
                      /tile="590"
                      /melting_temperature="69.4"
+                     /gene="hemX"
+     misc_feature    21..41
+                     /label="T590_mut0_rev_tail"
+                     /note="OE-PCR overlap"
+     variation       21
+                     /label="mutation"
+                     /note="Introduced silent mutation for BsaI domestication"
                      /gene="hemX"
 ORIGIN
         1 acctccgccg tggttgaaga aaccagggag gccgtggaca c
@@ -924,11 +1144,18 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     22..41
                      /label="T590_mut1_fwd"
-                     /note="mutagenic forward"
+                     /note="mutagenic forward — binding region"
                      /tile="590"
                      /melting_temperature="63.4"
+                     /gene="cyaA"
+     misc_feature    1..21
+                     /label="T590_mut1_fwd_tail"
+                     /note="OE-PCR overlap"
+     variation       21
+                     /label="mutation"
+                     /note="Introduced silent mutation for BsaI domestication"
                      /gene="cyaA"
 ORIGIN
         1 ggcgagattg tatcgtttgg cctcgatcca tactgcatga t
@@ -943,11 +1170,18 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     1..20
                      /label="T590_mut1_rev"
-                     /note="mutagenic reverse"
+                     /note="mutagenic reverse — binding region"
                      /tile="590"
                      /melting_temperature="63.4"
+                     /gene="cyaA"
+     misc_feature    21..41
+                     /label="T590_mut1_rev_tail"
+                     /note="OE-PCR overlap"
+     variation       21
+                     /label="mutation"
+                     /note="Introduced silent mutation for BsaI domestication"
                      /gene="cyaA"
 ORIGIN
         1 atcatgcagt atggatcgag gccaaacgat acaatctcgc c
@@ -961,11 +1195,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..36
+     primer_bind     22..36
                      /label="T590_sf?_fwd"
-                     /note="subfragment forward"
+                     /note="subfragment forward — binding region"
                      /tile="590"
                      /melting_temperature="44.6"
+     misc_feature    1..21
+                     /label="T590_sf?_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 cgtctcngca agcaaaatgc tccggtttca tgtcat
 //
@@ -978,11 +1215,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     1..20
                      /label="T590_sf?_rev"
-                     /note="subfragment reverse"
+                     /note="subfragment reverse — binding region"
                      /tile="590"
                      /melting_temperature="50.8"
+     misc_feature    21..41
+                     /label="T590_sf?_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 acctccgccg tggttgaaga aaccagggag gccgtggaca c
 //
@@ -995,11 +1235,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     22..41
                      /label="T590_sf?_fwd"
-                     /note="subfragment forward"
+                     /note="subfragment forward — binding region"
                      /tile="590"
                      /melting_temperature="50.8"
+     misc_feature    1..21
+                     /label="T590_sf?_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 gtgtccacgg cctccctggt ttcttcaacc acggcggagg t
 //
@@ -1012,11 +1255,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     1..20
                      /label="T590_sf?_rev"
-                     /note="subfragment reverse"
+                     /note="subfragment reverse — binding region"
                      /tile="590"
                      /melting_temperature="44.6"
+     misc_feature    21..41
+                     /label="T590_sf?_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 atcatgcagt atggatcgag gccaaacgat acaatctcgc c
 //
@@ -1029,11 +1275,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     22..41
                      /label="T590_sf?_fwd"
-                     /note="subfragment forward"
+                     /note="subfragment forward — binding region"
                      /tile="590"
                      /melting_temperature="44.6"
+     misc_feature    1..21
+                     /label="T590_sf?_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggcgagattg tatcgtttgg cctcgatcca tactgcatga t
 //
@@ -1046,11 +1295,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..36
+     primer_bind     1..20
                      /label="T590_sf?_rev"
-                     /note="subfragment reverse"
+                     /note="subfragment reverse — binding region"
                      /tile="590"
                      /melting_temperature="44.6"
+     misc_feature    21..36
+                     /label="T590_sf?_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 cgtctcntca ctcacgaaaa atattgctgt aatagc
 //
@@ -1063,11 +1315,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..32
+     primer_bind     12..32
                      /label="T591_amp_fwd"
-                     /note="amplification forward"
+                     /note="amplification forward — binding region"
                      /tile="591"
                      /melting_temperature="58.3"
+     misc_feature    1..11
+                     /label="T591_amp_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcnaca ctgaacgtgc cggaaagcga gg
 //
@@ -1080,11 +1335,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..31
+     primer_bind     12..31
                      /label="T591_amp_rev"
-                     /note="amplification reverse"
+                     /note="amplification reverse — binding region"
                      /tile="591"
                      /melting_temperature="57.9"
+     misc_feature    1..11
+                     /label="T591_amp_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcnaag tttacaccga ctccagccgg g
 //
@@ -1097,11 +1355,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..29
+     primer_bind     12..29
                      /label="T592_amp_fwd"
-                     /note="amplification forward"
+                     /note="amplification forward — binding region"
                      /tile="592"
                      /melting_temperature="57.2"
+     misc_feature    1..11
+                     /label="T592_amp_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcnact tcgttgccgg atgcggtgc
 //
@@ -1114,11 +1375,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..35
+     primer_bind     12..35
                      /label="T592_amp_rev"
-                     /note="amplification reverse"
+                     /note="amplification reverse — binding region"
                      /tile="592"
                      /melting_temperature="57.4"
+     misc_feature    1..11
+                     /label="T592_amp_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcnatc tctactcttc gtcatcgcca tcaac
 //
@@ -1131,11 +1395,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..36
+     primer_bind     12..36
                      /label="T593_amp_fwd"
-                     /note="amplification forward"
+                     /note="amplification forward — binding region"
                      /tile="593"
                      /melting_temperature="54.4"
+     misc_feature    1..11
+                     /label="T593_amp_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcnaga ttcagcagca taaaaaagtg ccagta
 //
@@ -1148,11 +1415,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..33
+     primer_bind     12..33
                      /label="T593_amp_rev"
-                     /note="amplification reverse"
+                     /note="amplification reverse — binding region"
                      /tile="593"
                      /melting_temperature="58.6"
+     misc_feature    1..11
+                     /label="T593_amp_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcntgc tttacccccg acgcaagttc tgc
 //
@@ -1165,11 +1435,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..36
+     primer_bind     12..36
                      /label="T594_amp_fwd"
-                     /note="amplification forward"
+                     /note="amplification forward — binding region"
                      /tile="594"
                      /melting_temperature="57.7"
+     misc_feature    1..11
+                     /label="T594_amp_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcnagc aaatccaaac cgggtggtaa taccac
 //
@@ -1182,11 +1455,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..33
+     primer_bind     12..33
                      /label="T594_amp_rev"
-                     /note="amplification reverse"
+                     /note="amplification reverse — binding region"
                      /tile="594"
                      /melting_temperature="58.6"
+     misc_feature    1..11
+                     /label="T594_amp_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcnatt atcagcgtgt tttgcgccaa ccg
 //
@@ -1200,11 +1476,18 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     22..41
                      /label="T594_mut0_fwd"
-                     /note="mutagenic forward"
+                     /note="mutagenic forward — binding region"
                      /tile="594"
                      /melting_temperature="59.4"
+                     /gene="intergenic"
+     misc_feature    1..21
+                     /label="T594_mut0_fwd_tail"
+                     /note="OE-PCR overlap"
+     variation       21
+                     /label="mutation"
+                     /note="Introduced silent mutation for BsaI domestication"
                      /gene="intergenic"
 ORIGIN
         1 ggttataagt tctgacagga aaccggaaat gccttttaaa c
@@ -1219,11 +1502,18 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     1..20
                      /label="T594_mut0_rev"
-                     /note="mutagenic reverse"
+                     /note="mutagenic reverse — binding region"
                      /tile="594"
                      /melting_temperature="59.4"
+                     /gene="intergenic"
+     misc_feature    21..41
+                     /label="T594_mut0_rev_tail"
+                     /note="OE-PCR overlap"
+     variation       21
+                     /label="mutation"
+                     /note="Introduced silent mutation for BsaI domestication"
                      /gene="intergenic"
 ORIGIN
         1 gtttaaaagg catttccggt ttcctgtcag aacttataac c
@@ -1237,11 +1527,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..36
+     primer_bind     22..36
                      /label="T594_sf?_fwd"
-                     /note="subfragment forward"
+                     /note="subfragment forward — binding region"
                      /tile="594"
                      /melting_temperature="46.7"
+     misc_feature    1..21
+                     /label="T594_sf?_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 cgtctcnaat caatccaaac cgggtggtaa taccac
 //
@@ -1254,11 +1547,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     1..20
                      /label="T594_sf?_rev"
-                     /note="subfragment reverse"
+                     /note="subfragment reverse — binding region"
                      /tile="594"
                      /melting_temperature="42.6"
+     misc_feature    21..41
+                     /label="T594_sf?_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 gtttaaaagg catttccggt ttcctgtcag aacttataac c
 //
@@ -1271,11 +1567,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     22..41
                      /label="T594_sf?_fwd"
-                     /note="subfragment forward"
+                     /note="subfragment forward — binding region"
                      /tile="594"
                      /melting_temperature="42.6"
+     misc_feature    1..21
+                     /label="T594_sf?_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggttataagt tctgacagga aaccggaaat gccttttaaa c
 //
@@ -1288,11 +1587,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..31
+     primer_bind     1..20
                      /label="T594_sf?_rev"
-                     /note="subfragment reverse"
+                     /note="subfragment reverse — binding region"
                      /tile="594"
                      /melting_temperature="48.7"
+     misc_feature    21..31
+                     /label="T594_sf?_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 cgtctcntca gtcagcgtgt tttgcgccaa c
 //
@@ -1305,11 +1607,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..34
+     primer_bind     12..34
                      /label="T595_amp_fwd"
-                     /note="amplification forward"
+                     /note="amplification forward — binding region"
                      /tile="595"
                      /melting_temperature="57.1"
+     misc_feature    1..11
+                     /label="T595_amp_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcntaa tttttttcat cgctcaaggc gggc
 //
@@ -1322,11 +1627,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..36
+     primer_bind     12..36
                      /label="T595_amp_rev"
-                     /note="amplification reverse"
+                     /note="amplification reverse — binding region"
                      /tile="595"
                      /melting_temperature="56.0"
+     misc_feature    1..11
+                     /label="T595_amp_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcngat aatggaacag gttgtcattg tcgatg
 //
@@ -1340,11 +1648,18 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     22..41
                      /label="T595_mut0_fwd"
-                     /note="mutagenic forward"
+                     /note="mutagenic forward — binding region"
                      /tile="595"
                      /melting_temperature="64.4"
+                     /gene="tatD"
+     misc_feature    1..21
+                     /label="T595_mut0_fwd_tail"
+                     /note="OE-PCR overlap"
+     variation       21
+                     /label="mutation"
+                     /note="Introduced silent mutation for BsaI domestication"
                      /gene="tatD"
 ORIGIN
         1 gtggcgattg gtgaatgtgg cctcgacttt aaccgcaact t
@@ -1359,11 +1674,18 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     1..20
                      /label="T595_mut0_rev"
-                     /note="mutagenic reverse"
+                     /note="mutagenic reverse — binding region"
                      /tile="595"
                      /melting_temperature="64.4"
+                     /gene="tatD"
+     misc_feature    21..41
+                     /label="T595_mut0_rev_tail"
+                     /note="OE-PCR overlap"
+     variation       21
+                     /label="mutation"
+                     /note="Introduced silent mutation for BsaI domestication"
                      /gene="tatD"
 ORIGIN
         1 aagttgcggt taaagtcgag gccacattca ccaatcgcca c
@@ -1377,11 +1699,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..33
+     primer_bind     22..33
                      /label="T595_sf?_fwd"
-                     /note="subfragment forward"
+                     /note="subfragment forward — binding region"
                      /tile="595"
                      /melting_temperature="48.7"
+     misc_feature    1..21
+                     /label="T595_sf?_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 cgtctcnttt tttttttcat cgctcaaggc ggg
 //
@@ -1394,11 +1719,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     1..20
                      /label="T595_sf?_rev"
-                     /note="subfragment reverse"
+                     /note="subfragment reverse — binding region"
                      /tile="595"
                      /melting_temperature="44.6"
+     misc_feature    21..41
+                     /label="T595_sf?_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 aagttgcggt taaagtcgag gccacattca ccaatcgcca c
 //
@@ -1411,11 +1739,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     22..41
                      /label="T595_sf?_fwd"
-                     /note="subfragment forward"
+                     /note="subfragment forward — binding region"
                      /tile="595"
                      /melting_temperature="44.6"
+     misc_feature    1..21
+                     /label="T595_sf?_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 gtggcgattg gtgaatgtgg cctcgacttt aaccgcaact t
 //
@@ -1428,11 +1759,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..36
+     primer_bind     1..20
                      /label="T595_sf?_rev"
-                     /note="subfragment reverse"
+                     /note="subfragment reverse — binding region"
                      /tile="595"
                      /melting_temperature="46.7"
+     misc_feature    21..36
+                     /label="T595_sf?_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 cgtctcnatg gatggaacag gttgtcattg tcgatg
 //
@@ -1445,11 +1779,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..36
+     primer_bind     12..36
                      /label="T596_amp_fwd"
-                     /note="amplification forward"
+                     /note="amplification forward — binding region"
                      /tile="596"
                      /melting_temperature="57.7"
+     misc_feature    1..11
+                     /label="T596_amp_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcntat ctgtgactcc ttaagccgtt ttcagg
 //
@@ -1462,11 +1799,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..32
+     primer_bind     12..32
                      /label="T596_amp_rev"
-                     /note="amplification reverse"
+                     /note="amplification reverse — binding region"
                      /tile="596"
                      /melting_temperature="58.3"
+     misc_feature    1..11
+                     /label="T596_amp_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcntgt acccatctgg gcacatccga tg
 //
@@ -1479,11 +1819,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..35
+     primer_bind     12..35
                      /label="T597_amp_fwd"
-                     /note="amplification forward"
+                     /note="amplification forward — binding region"
                      /tile="597"
                      /melting_temperature="57.4"
+     misc_feature    1..11
+                     /label="T597_amp_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcntac aattagctag taggtggggt aacgg
 //
@@ -1496,11 +1839,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..36
+     primer_bind     12..36
                      /label="T597_amp_rev"
-                     /note="amplification reverse"
+                     /note="amplification reverse — binding region"
                      /tile="597"
                      /melting_temperature="56.0"
+     misc_feature    1..11
+                     /label="T597_amp_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcngta agtgaatctg atgacgacga taacag
 //
@@ -1514,11 +1860,18 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     22..41
                      /label="T597_mut0_fwd"
-                     /note="mutagenic forward"
+                     /note="mutagenic forward — binding region"
                      /tile="597"
                      /melting_temperature="66.4"
+                     /gene="intergenic"
+     misc_feature    1..21
+                     /label="T597_mut0_fwd_tail"
+                     /note="OE-PCR overlap"
+     variation       21
+                     /label="mutation"
+                     /note="Introduced silent mutation for BsaI domestication"
                      /gene="intergenic"
 ORIGIN
         1 gggtagtttg actggggcgg actcctccta aagagtaacg g
@@ -1533,11 +1886,18 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     1..20
                      /label="T597_mut0_rev"
-                     /note="mutagenic reverse"
+                     /note="mutagenic reverse — binding region"
                      /tile="597"
                      /melting_temperature="66.4"
+                     /gene="intergenic"
+     misc_feature    21..41
+                     /label="T597_mut0_rev_tail"
+                     /note="OE-PCR overlap"
+     variation       21
+                     /label="mutation"
+                     /note="Introduced silent mutation for BsaI domestication"
                      /gene="intergenic"
 ORIGIN
         1 ccgttactct ttaggaggag tccgccccag tcaaactacc c
@@ -1552,11 +1912,18 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     22..41
                      /label="T597_mut1_fwd"
-                     /note="mutagenic forward"
+                     /note="mutagenic forward — binding region"
                      /tile="597"
                      /melting_temperature="69.4"
+                     /gene="intergenic"
+     misc_feature    1..21
+                     /label="T597_mut1_fwd_tail"
+                     /note="OE-PCR overlap"
+     variation       21
+                     /label="mutation"
+                     /note="Introduced silent mutation for BsaI domestication"
                      /gene="intergenic"
 ORIGIN
         1 gcgccgatgg tagtgtgggg actcctcatg cgagagtagg g
@@ -1571,11 +1938,18 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     1..20
                      /label="T597_mut1_rev"
-                     /note="mutagenic reverse"
+                     /note="mutagenic reverse — binding region"
                      /tile="597"
                      /melting_temperature="69.4"
+                     /gene="intergenic"
+     misc_feature    21..41
+                     /label="T597_mut1_rev_tail"
+                     /note="OE-PCR overlap"
+     variation       21
+                     /label="mutation"
+                     /note="Introduced silent mutation for BsaI domestication"
                      /gene="intergenic"
 ORIGIN
         1 ccctactctc gcatgaggag tccccacact accatcggcg c
@@ -1589,11 +1963,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..36
+     primer_bind     22..36
                      /label="T597_sf?_fwd"
-                     /note="subfragment forward"
+                     /note="subfragment forward — binding region"
                      /tile="597"
                      /melting_temperature="50.8"
+     misc_feature    1..21
+                     /label="T597_sf?_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 cgtctcnatt aattagctag taggtggggt aacggc
 //
@@ -1606,11 +1983,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     1..20
                      /label="T597_sf?_rev"
-                     /note="subfragment reverse"
+                     /note="subfragment reverse — binding region"
                      /tile="597"
                      /melting_temperature="46.7"
+     misc_feature    21..41
+                     /label="T597_sf?_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ccgttactct ttaggaggag tccgccccag tcaaactacc c
 //
@@ -1623,11 +2003,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     22..41
                      /label="T597_sf?_fwd"
-                     /note="subfragment forward"
+                     /note="subfragment forward — binding region"
                      /tile="597"
                      /melting_temperature="46.7"
+     misc_feature    1..21
+                     /label="T597_sf?_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 gggtagtttg actggggcgg actcctccta aagagtaacg g
 //
@@ -1640,11 +2023,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     1..20
                      /label="T597_sf?_rev"
-                     /note="subfragment reverse"
+                     /note="subfragment reverse — binding region"
                      /tile="597"
                      /melting_temperature="50.8"
+     misc_feature    21..41
+                     /label="T597_sf?_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ccctactctc gcatgaggag tccccacact accatcggcg c
 //
@@ -1657,11 +2043,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..41
+     primer_bind     22..41
                      /label="T597_sf?_fwd"
-                     /note="subfragment forward"
+                     /note="subfragment forward — binding region"
                      /tile="597"
                      /melting_temperature="50.8"
+     misc_feature    1..21
+                     /label="T597_sf?_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 gcgccgatgg tagtgtgggg actcctcatg cgagagtagg g
 //
@@ -1674,11 +2063,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..36
+     primer_bind     1..20
                      /label="T597_sf?_rev"
-                     /note="subfragment reverse"
+                     /note="subfragment reverse — binding region"
                      /tile="597"
                      /melting_temperature="46.7"
+     misc_feature    21..36
+                     /label="T597_sf?_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 cgtctcngtg agtgaatctg atgacgacga taacag
 //
@@ -1691,11 +2083,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..36
+     primer_bind     12..36
                      /label="T598_amp_fwd"
-                     /note="amplification forward"
+                     /note="amplification forward — binding region"
                      /tile="598"
                      /melting_temperature="56.0"
+     misc_feature    1..11
+                     /label="T598_amp_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcntta ccgatatcgc ctcttttatt gtggga
 //
@@ -1708,11 +2103,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..35
+     primer_bind     12..35
                      /label="T598_amp_rev"
-                     /note="amplification reverse"
+                     /note="amplification reverse — binding region"
                      /tile="598"
                      /melting_temperature="57.4"
+     misc_feature    1..11
+                     /label="T598_amp_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcnaga attagtgcgc ctgatcccag ttttc
 //
@@ -1725,11 +2123,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..36
+     primer_bind     12..36
                      /label="T599_amp_fwd"
-                     /note="amplification forward"
+                     /note="amplification forward — binding region"
                      /tile="599"
                      /melting_temperature="56.0"
+     misc_feature    1..11
+                     /label="T599_amp_fwd_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcnttc tgattcgcct gaacatgcct tttttc
 //
@@ -1742,11 +2143,14 @@ SOURCE      .
   ORGANISM  .
             .
 FEATURES             Location/Qualifiers
-     primer_bind     1..31
+     primer_bind     12..31
                      /label="T599_amp_rev"
-                     /note="amplification reverse"
+                     /note="amplification reverse — binding region"
                      /tile="599"
                      /melting_temperature="57.9"
+     misc_feature    1..11
+                     /label="T599_amp_rev_tail"
+                     /note="BsaI adapter + overhang"
 ORIGIN
         1 ggtctcnttc aatggcaaca ggcacgcagc c
 //
