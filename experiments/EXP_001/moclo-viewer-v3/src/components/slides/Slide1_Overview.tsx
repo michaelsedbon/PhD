@@ -54,17 +54,7 @@ export default function Slide1Overview({ data }: Props) {
                 </div>
             </div>
 
-            {/* Interactive figures */}
-            <div className="slide-figures-row">
-                <div className="slide-figure">
-                    <h3>GG-Readiness</h3>
-                    <iframe src="/figures/domestication_donut.html" title="Domestication donut" />
-                </div>
-                <div className="slide-figure">
-                    <h3>Genome Tiling Map</h3>
-                    <iframe src="/figures/tiling_map.html" title="Tiling map" />
-                </div>
-            </div>
+
         </div>
     );
 }

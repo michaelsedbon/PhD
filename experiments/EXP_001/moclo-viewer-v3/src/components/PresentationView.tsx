@@ -1,10 +1,12 @@
 import { AppData, ViewState, TOTAL_SLIDES } from '../types';
-import Slide1Overview from './slides/Slide1_Overview';
-import Slide2Domestication from './slides/Slide2_Domestication';
-import Slide3MoCloStandard from './slides/Slide3_MoCloStandard';
-import Slide4PCRPlan from './slides/Slide4_PCRPlan';
-import Slide5BuildingLvl1 from './slides/Slide5_BuildingLvl1';
-import Slide6Combinations from './slides/Slide6_Combinations';
+import Slide0StateOfTheArt from './slides/Slide0_StateOfTheArt';
+import Slide1EnzymeSelection from './slides/Slide1_EnzymeSelection';
+import Slide2Overview from './slides/Slide1_Overview';
+import Slide3Domestication from './slides/Slide2_Domestication';
+import Slide4MoCloStandard from './slides/Slide3_MoCloStandard';
+import Slide5PCRPlan from './slides/Slide4_PCRPlan';
+import Slide6BuildingLvl1 from './slides/Slide5_BuildingLvl1';
+import Slide7Combinations from './slides/Slide6_Combinations';
 
 interface Props {
     data: AppData;
@@ -13,6 +15,8 @@ interface Props {
 }
 
 const SLIDE_TITLES = [
+    'State of the Art',
+    'Enzyme Selection',
     'Genome Tiling Overview',
     'Domestication Process',
     'MoClo Standard',
@@ -47,12 +51,14 @@ export default function PresentationView({ data, slideIndex, onNavigate }: Props
             {/* Slide content */}
             <div className="pres-content">
                 <div className="slide-container">
-                    {slideIndex === 0 && <Slide1Overview {...slideProps} />}
-                    {slideIndex === 1 && <Slide2Domestication {...slideProps} />}
-                    {slideIndex === 2 && <Slide3MoCloStandard {...slideProps} />}
-                    {slideIndex === 3 && <Slide4PCRPlan {...slideProps} />}
-                    {slideIndex === 4 && <Slide5BuildingLvl1 {...slideProps} />}
-                    {slideIndex === 5 && <Slide6Combinations {...slideProps} />}
+                    {slideIndex === 0 && <Slide0StateOfTheArt {...slideProps} />}
+                    {slideIndex === 1 && <Slide1EnzymeSelection {...slideProps} />}
+                    {slideIndex === 2 && <Slide2Overview {...slideProps} />}
+                    {slideIndex === 3 && <Slide3Domestication {...slideProps} />}
+                    {slideIndex === 4 && <Slide4MoCloStandard {...slideProps} />}
+                    {slideIndex === 5 && <Slide5PCRPlan {...slideProps} />}
+                    {slideIndex === 6 && <Slide6BuildingLvl1 {...slideProps} />}
+                    {slideIndex === 7 && <Slide7Combinations {...slideProps} />}
                 </div>
             </div>
 
@@ -81,3 +87,4 @@ export default function PresentationView({ data, slideIndex, onNavigate }: Props
         </div>
     );
 }
+

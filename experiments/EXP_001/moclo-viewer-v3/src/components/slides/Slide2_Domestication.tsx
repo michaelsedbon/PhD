@@ -25,17 +25,18 @@ export default function Slide2Domestication({ data }: Props) {
         <div className="slide">
             <h1 className="slide-title">Domestication Process</h1>
             <p className="slide-subtitle">
-                Removing internal BsaI recognition sites by silent mutation
+                Eliminating internal BsaI sites (GGTCTC/GAGACC) via synonymous codon substitutions
             </p>
 
             {/* Problem explanation */}
             <div className="slide-section">
-                <h2>The Problem</h2>
+                <h2>Internal Site Interference</h2>
                 <div className="slide-explanation">
                     <p>
-                        Golden Gate cloning uses <strong>BsaI</strong> (a Type IIS restriction enzyme) to cut DNA at precise positions.
-                        If a Lvl0 tile contains <strong>internal BsaI recognition sites</strong> (<code>GGTCTC</code> or its
-                        reverse complement <code>GAGACC</code>), the enzyme will cut inside the tile — destroying the insert.
+                        Tiles containing internal <strong>BsaI recognition sites</strong> (<code>GGTCTC</code> / <code>GAGACC</code>)
+                        are cleaved during Golden Gate assembly, preventing correct ligation.
+                        Each site is destroyed by a <strong>single synonymous nucleotide substitution</strong> within the
+                        recognition hexamer, preserving the encoded protein.
                     </p>
                 </div>
 
@@ -68,13 +69,12 @@ export default function Slide2Domestication({ data }: Props) {
 
             {/* Solution */}
             <div className="slide-section">
-                <h2>The Solution — Silent Mutations + OE-PCR</h2>
+                <h2>OE-PCR Assembly of Domesticated Tiles</h2>
                 <div className="slide-explanation">
                     <p>
-                        Each internal BsaI site is destroyed by a <strong>single silent nucleotide change</strong> —
-                        the codon is altered but the encoded amino acid remains the same. The mutagenic primers
-                        are used in an <strong>Overlap Extension PCR (OE-PCR)</strong> workflow to assemble the
-                        domesticated tile from subfragments.
+                        Mutagenic primers encode the synonymous substitution at their 3′ end.
+                        Subfragments are amplified individually, then fused by <strong>Overlap Extension PCR (OE-PCR)</strong>
+                        using the outer tile primers — yielding the full domesticated tile in two PCR rounds.
                     </p>
                 </div>
 

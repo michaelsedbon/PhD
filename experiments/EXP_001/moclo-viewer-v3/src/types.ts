@@ -170,4 +170,4 @@ export interface ViewState {
     tileId?: number;
 }
 
-export const TOTAL_SLIDES = 6;
+export const TOTAL_SLIDES = 8;

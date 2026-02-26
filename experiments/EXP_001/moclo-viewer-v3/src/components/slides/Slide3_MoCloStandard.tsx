@@ -12,19 +12,18 @@ export default function Slide3MoCloStandard({ data }: Props) {
 
     return (
         <div className="slide">
-            <h1 className="slide-title">MoClo Standard — Standardized Adapters</h1>
+            <h1 className="slide-title">MoClo Standard — Positional Overhangs</h1>
             <p className="slide-subtitle">
-                Type IIS Golden Gate cloning with interchangeable positional overhangs
+                Standardized 4-nt overhang set enabling combinatorial tile interchange across all Lvl1 groups
             </p>
 
             {/* Golden Gate mechanism */}
             <div className="slide-section">
-                <h2>Golden Gate Assembly</h2>
+                <h2>BsaI Cut Mechanism</h2>
                 <div className="slide-explanation">
                     <p>
-                        <strong>BsaI</strong> is a Type IIS restriction enzyme — it cuts <strong>outside</strong> its
-                        recognition site, producing a programmable 4-nt overhang. Parts with matching overhangs are
-                        ligated directionally in a single-pot reaction.
+                        BsaI (GGTCTC) cleaves 1/5 nt downstream, generating programmable 4-nt 5′-overhangs.
+                        Ligation is directional and scarless in a single-pot restriction–ligation cycle.
                     </p>
                 </div>
 
@@ -41,12 +40,12 @@ export default function Slide3MoCloStandard({ data }: Props) {
 
             {/* V2 innovation */}
             <div className="slide-section">
-                <h2>V2 Innovation — Standardized Overhangs</h2>
+                <h2>Standardized Overhang Set</h2>
                 <div className="slide-explanation">
                     <p>
-                        Instead of using genome-derived overhangs (V1), V2 assigns <strong>{overhangs.length} fixed 4-nt
-                            overhangs</strong> to positional junctions. Every tile at position <em>i</em> in
-                        any Lvl1 group uses the <strong>same flanking overhangs</strong> — making them fully interchangeable.
+                        V2 assigns <strong>{overhangs.length} fixed 4-nt overhangs</strong> to positional junctions.
+                        Every tile at position <em>i</em> in any Lvl1 group uses the <strong>same flanking overhangs</strong> —
+                        enabling direct combinatorial interchange without primer redesign.
                     </p>
                 </div>
 
@@ -73,9 +72,9 @@ export default function Slide3MoCloStandard({ data }: Props) {
             <div className="slide-section">
                 <h2>Lvl0 Construct Design</h2>
                 <div className="slide-diagram">
-                    <div className="diagram-label neutral">Lvl0 in pICH Backbone</div>
+                    <div className="diagram-label neutral">Lvl0 in Backbone</div>
                     <div className="diagram-construct">
-                        <span className="d-part backbone">pICH</span>
+                        <span className="d-part backbone">Backbone</span>
                         <span className="d-arrow-sm">—</span>
                         <span className="d-part bsai">BsaI▸</span>
                         <span className="d-part oh">OH_L</span>
@@ -83,7 +82,7 @@ export default function Slide3MoCloStandard({ data }: Props) {
                         <span className="d-part oh">OH_R</span>
                         <span className="d-part bsai">◂BsaI</span>
                         <span className="d-arrow-sm">—</span>
-                        <span className="d-part backbone">pICH</span>
+                        <span className="d-part backbone">Backbone</span>
                     </div>
                 </div>
             </div>
