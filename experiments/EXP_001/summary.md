@@ -406,7 +406,26 @@ After domestication, all **46 Lvl1 groups** are complete.
 
 ---
 
-## 10. Output Files
+## 10. Literature Review — Large Fragment Cloning for T7 Replisome
+
+A systematic review of existing large fragment cloning methods was conducted to answer: **is MoClo the best way to get 100 kb into the T7 replisome, or can we use direct cloning?**
+
+### Key finding
+
+| Method | Verdict | Best for |
+|--------|---------|----------|
+| **CAPTURE** | ✅ Best fit | One-shot extraction of 100 kb → T7 vector. ~100% efficiency, 3–4 days |
+| **CATCH** | ✅ Viable | Simpler protocol but lower efficiency at 100 kb |
+| **CReATiNG** | ⚠️ Not applicable | Yeast-only, max ~64 kb |
+| **MoClo Tiling** | ✅ Designed | Downstream dissection: which ~7 kb sub-region carries the mutation? |
+
+**Conclusion:** For one-shot cloning, **CAPTURE is faster and simpler**. MoClo adds value **after** mutagenesis — to identify which tiles carry beneficial mutations and recombine them.
+
+→ Full review: [literature_review_large_fragment_cloning.md](literature_review_large_fragment_cloning.md)
+
+---
+
+## 11. Output Files
 
 ### V1 Data
 
