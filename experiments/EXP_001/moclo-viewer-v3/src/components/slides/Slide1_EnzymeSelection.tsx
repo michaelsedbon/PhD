@@ -108,11 +108,11 @@ export default function Slide1EnzymeSelection({ data }: Props) {
             <div className="slide-figures-row">
                 <div className="slide-figure">
                     <h3>Site Density — 7 kb Sliding Window (BsaI vs SapI vs AarI)</h3>
-                    <iframe src="/figures/site_density_7kb_window.html" title="BsaI site density" />
+                    <iframe src={`${import.meta.env.BASE_URL}figures/site_density_7kb_window.html`} title="BsaI site density" />
                 </div>
                 <div className="slide-figure">
                     <h3>BsaI Domestication Breakdown — Sites per 7 kb Tile</h3>
-                    <iframe src="/figures/domestication_donut.html" title="Domestication donut" />
+                    <iframe src={`${import.meta.env.BASE_URL}figures/domestication_donut.html`} title="Domestication donut" />
                 </div>
             </div>
         </div>

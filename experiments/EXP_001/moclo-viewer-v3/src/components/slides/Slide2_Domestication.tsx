@@ -124,11 +124,11 @@ export default function Slide2Domestication({ data }: Props) {
             <div className="slide-figures-row">
                 <div className="slide-figure">
                     <h3>Before vs After Domestication</h3>
-                    <iframe src="/figures/domestication_before_after.html" title="Domestication before/after" />
+                    <iframe src={`${import.meta.env.BASE_URL}figures/domestication_before_after.html`} title="Domestication before/after" />
                 </div>
                 <div className="slide-figure">
                     <h3>Domestication Effort by Group</h3>
-                    <iframe src="/figures/domestication_effort.html" title="Domestication effort" />
+                    <iframe src={`${import.meta.env.BASE_URL}figures/domestication_effort.html`} title="Domestication effort" />
                 </div>
             </div>
         </div>

@@ -105,7 +105,7 @@ export default function Slide4PCRPlan({ data }: Props) {
             <div className="slide-figures-row single">
                 <div className="slide-figure wide">
                     <h3>PCR Simulation Results</h3>
-                    <iframe src="/figures/pcr_simulation.html" title="PCR simulation" />
+                    <iframe src={`${import.meta.env.BASE_URL}figures/pcr_simulation.html`} title="PCR simulation" />
                 </div>
             </div>
         </div>

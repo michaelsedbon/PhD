@@ -93,7 +93,7 @@ export default function Slide5BuildingLvl1({ data }: Props) {
             <div className="slide-figures-row single">
                 <div className="slide-figure wide">
                     <h3>Lvl1 Assembly Map</h3>
-                    <iframe src="/figures/lvl1_assembly_map.html" title="Lvl1 assembly map" />
+                    <iframe src={`${import.meta.env.BASE_URL}figures/lvl1_assembly_map.html`} title="Lvl1 assembly map" />
                 </div>
             </div>
         </div>
