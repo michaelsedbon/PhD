@@ -1,5 +1,7 @@
 # MoClo Genome Viewer — V2
 
+> **Live demo → [michaelsedbon.github.io/PhD/](https://michaelsedbon.github.io/PhD/)**
+
 Interactive browser for the *E. coli* K-12 MG1655 Golden Gate genome tiling — **686 Lvl0 parts** across **46 Lvl1 assemblies** with **standardized positional overhangs**.
 
 ## What's new in V2
@@ -77,8 +79,8 @@ The app includes download buttons throughout:
 | Page | Downloads Available |
 |------|--------------------|
 | **About** | All Lvl0 clones (.zip), All Lvl1 assemblies (.zip), All CSVs (.zip) |
-| **Group Detail** | Lvl1 assembly (.gb), Group's Lvl0 clones (.zip), Group primers (.csv) |
-| **Tile Detail** | Lvl0 clone (.gb), Tile primers (.csv) |
+| **Group Detail** | Lvl1 assembly (.gb), All Lvl0 clones (.zip), Primers (.csv), Primers (.gb) |
+| **Tile Detail** | Lvl0 clone (.gb), Primers (.csv), Primers (.gb) |
 
 ## Colour legend
 
@@ -149,3 +151,14 @@ python3 generate_data_bundle.py   # outputs public/data_bundle_v2.json
 - **shadcn/ui** — Card, Badge, Tooltip, ScrollArea, Separator, Tabs components
 - **HTML Canvas** — genome track rendering (performant with 686+ elements)
 - **Inter** + **JetBrains Mono** — typography
+
+## Deployment
+
+The app is deployed to **GitHub Pages** via a GitHub Actions workflow.
+
+- **Live URL**: [michaelsedbon.github.io/PhD/](https://michaelsedbon.github.io/PhD/)
+- **Auto-deploy**: any push to `experiments/EXP_001/moclo-viewer-v3/` triggers a rebuild
+- **Manual deploy**: Actions tab → "Deploy MoClo Viewer to GitHub Pages" → Run workflow
+- **Workflow file**: [`.github/workflows/deploy-moclo-viewer.yml`](../../../.github/workflows/deploy-moclo-viewer.yml)
+
+> **Note**: All asset paths use `import.meta.env.BASE_URL` so the app works both locally (`/`) and on GitHub Pages (`/PhD/`).
