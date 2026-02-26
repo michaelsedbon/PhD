@@ -6,18 +6,30 @@
 
 ## 📁 Document Index
 
-| | Document | Description | Category |
-|---|---|---|---|
-| 📋 | [summary.md](summary.md) | Master summary — all sections, figures, and results | Main |
-| 📝 | [LOG.md](LOG.md) | Chronological experiment log | Log |
-| 📋 | [REPORT.md](REPORT.md) | Restriction site analysis across 8 enzymes | Report |
-| 📋 | [PRIMER_DESIGN_REPORT.md](PRIMER_DESIGN_REPORT.md) | Genome tiling (686 tiles) & primer design | Report |
-| 📋 | [PCR_SIMULATION_REPORT.md](PCR_SIMULATION_REPORT.md) | In-silico PCR & Lvl1 assembly feasibility | Report |
-| 📋 | [DOMESTICATION_REPORT.md](DOMESTICATION_REPORT.md) | OE-PCR domestication primer design | Report |
-| 📋 | [V2_REPORT.md](V2_REPORT.md) | V2 redesign — standardized overhangs & 100 kb groups | Report |
-| 🔧 | [SCRIPTS.md](SCRIPTS.md) | Documentation for all analysis scripts | Reference |
-| 📖 | [literature_review_large_fragment_cloning.md](literature_review_large_fragment_cloning.md) | CAPTURE vs CATCH vs MoClo for T7 replisome cloning | Literature |
-| 📖 | [state_of_the_art_ecoli_genome_libraries.md](state_of_the_art_ecoli_genome_libraries.md) | Survey of *E. coli* genome library approaches | Literature |
+### Reports
+
+| Document | Description | Type |
+|----------|-------------|------|
+| [summary.md](summary.md) | Master summary — all sections, figures, and results | <span style="background:#1a6fff;color:#fff;padding:2px 8px;border-radius:12px;font-size:11px">Main</span> |
+| [REPORT.md](REPORT.md) | Restriction site analysis across 8 enzymes | <span style="background:#4fc3f7;color:#0d1117;padding:2px 8px;border-radius:12px;font-size:11px">Report</span> |
+| [PRIMER_DESIGN_REPORT.md](PRIMER_DESIGN_REPORT.md) | Genome tiling (686 tiles) & primer design | <span style="background:#4fc3f7;color:#0d1117;padding:2px 8px;border-radius:12px;font-size:11px">Report</span> |
+| [PCR_SIMULATION_REPORT.md](PCR_SIMULATION_REPORT.md) | In-silico PCR & Lvl1 assembly feasibility | <span style="background:#4fc3f7;color:#0d1117;padding:2px 8px;border-radius:12px;font-size:11px">Report</span> |
+| [DOMESTICATION_REPORT.md](DOMESTICATION_REPORT.md) | OE-PCR domestication primer design | <span style="background:#4fc3f7;color:#0d1117;padding:2px 8px;border-radius:12px;font-size:11px">Report</span> |
+| [V2_REPORT.md](V2_REPORT.md) | V2 redesign — standardized overhangs & 100 kb groups | <span style="background:#4fc3f7;color:#0d1117;padding:2px 8px;border-radius:12px;font-size:11px">Report</span> |
+
+### Literature
+
+| Document | Description | Type |
+|----------|-------------|------|
+| [literature_review_large_fragment_cloning.md](literature_review_large_fragment_cloning.md) | CAPTURE vs CATCH vs MoClo for T7 replisome cloning | <span style="background:#ab47bc;color:#fff;padding:2px 8px;border-radius:12px;font-size:11px">Literature</span> |
+| [state_of_the_art_ecoli_genome_libraries.md](state_of_the_art_ecoli_genome_libraries.md) | Survey of *E. coli* genome library approaches | <span style="background:#ab47bc;color:#fff;padding:2px 8px;border-radius:12px;font-size:11px">Literature</span> |
+
+### Reference
+
+| Document | Description | Type |
+|----------|-------------|------|
+| [SCRIPTS.md](SCRIPTS.md) | Documentation for all analysis scripts | <span style="background:#66bb6a;color:#0d1117;padding:2px 8px;border-radius:12px;font-size:11px">Reference</span> |
+| [LOG.md](LOG.md) | Chronological experiment log | <span style="background:#d29922;color:#0d1117;padding:2px 8px;border-radius:12px;font-size:11px">Log</span> |
 
 ### Folder Structure
 
