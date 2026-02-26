@@ -464,6 +464,85 @@ body {
     background: rgba(248, 81, 73, 0.6);
 }
 
+/* ── Prior work table (slide 1) ─────────────────────────────────── */
+
+.slide-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.slide-table.compact {
+    font-size: 12px;
+}
+
+.slide-table thead th {
+    text-align: left;
+    padding: 10px 14px;
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--border);
+}
+
+.slide-table thead th:last-child {
+    text-align: center;
+    width: 80px;
+}
+
+.slide-table tbody td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+
+.slide-table tbody td:last-child {
+    text-align: center;
+    font-size: 14px;
+}
+
+.slide-table tbody tr:hover {
+    background: var(--bg-tertiary);
+}
+
+.slide-table tbody tr.highlight-row {
+    background: rgba(88, 166, 255, 0.08);
+    border: 1px solid rgba(88, 166, 255, 0.2);
+}
+
+.slide-table tbody tr.highlight-row td {
+    color: var(--text-primary);
+}
+
+.text-red {
+    color: var(--red);
+}
+
+.text-green {
+    color: var(--green);
+}
+
+.ref-tag {
+    font-size: 10px;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.slide-note {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-style: italic;
+    padding: 8px 0;
+}
+
+.slide-note strong {
+    color: var(--blue);
+    font-style: normal;
+}
+
 /* ── Figures (iframes) ───────────────────────────────────────────── */
 
 .slide-figures-row {

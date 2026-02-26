@@ -83,6 +83,18 @@ const PRIOR_WORKS: PriorWork[] = [
         url: '/papers/The_physical_map_of_the.pdf',
     },
     {
+        project: 'CATCH',
+        team: 'Jiang & Zhu (Tsinghua)',
+        year: 2015,
+        organism: 'E. coli (and others)',
+        size: 'Up to 100 kb',
+        approach: 'Cas9 in-vitro excision of target chromosome segments + Gibson assembly',
+        cloning: 'Bacterial cells lysed in agarose gel plugs → RNA-guided Cas9 cleaves chromosome at two designed loci → target segment isolated → Gibson assembly into cloning vector',
+        highlight: 'One-step targeted cloning of large gene clusters. Up to 100 kb in a single step — but NOT modular and no standardized overhangs.',
+        color: '#90caf9',
+        url: 'https://doi.org/10.1038/ncomms9101',
+    },
+    {
         project: 'ASKA Library',
         team: 'NIG Japan',
         year: 2005,
@@ -93,6 +105,42 @@ const PRIOR_WORKS: PriorWork[] = [
         highlight: 'Complete ORFeome. Individual genes only — no intergenic regions, not assembly-compatible.',
         color: '#ef9a9a',
         url: '/papers/Complete_set_of_ORF_clones.pdf',
+    },
+    {
+        project: 'CAPTURE',
+        team: 'Zhao Lab (UIUC)',
+        year: 2021,
+        organism: 'Various bacteria',
+        size: '10–113 kb',
+        approach: 'Cas12a in-vitro digestion + T4 polymerase assembly + in vivo Cre-lox circularization',
+        cloning: 'Cas12a staggered cuts release target fragment → T4 polymerase exo+fill-in assembles with two DNA receivers carrying loxP sites → linear product transformed into E. coli with Cre helper plasmid → in vivo circularization',
+        highlight: '47 BGCs cloned at ~100% efficiency, up to 113 kb. 150× more efficient than in vitro. But targets specific loci — NOT a tiling library.',
+        color: '#66bb6a',
+        url: 'https://doi.org/10.1038/s41467-021-21275-4',
+    },
+    {
+        project: 'CReATiNG',
+        team: 'Ehrenreich Lab (USC)',
+        year: 2023,
+        organism: 'S. cerevisiae',
+        size: '230 kb (ChrI)',
+        approach: 'Cas9 excision of natural chromosome segments + BAC/YAC capture + in vivo assembly',
+        cloning: 'Cas9 + gRNAs excise 51–64 kb segments in donor yeast → captured in BAC/YAC vector (pASC1) with programmable adapter sequences → segments co-transformed into recipient yeast → assembled via homologous recombination',
+        highlight: 'Closest to our approach: tiled natural segments with programmable adapters. Built 27 recombinant chromosomes. But yeast-only, NOT Golden Gate.',
+        color: '#ab47bc',
+        url: 'https://doi.org/10.1038/s41467-023-44112-2',
+    },
+    {
+        project: 'BASIS / CGS',
+        team: 'Chin Lab (MRC-LMB)',
+        year: 2023,
+        organism: 'E. coli',
+        size: '0.5–1.1 Mb',
+        approach: 'BAC stepwise insertion + continuous genome synthesis',
+        cloning: 'BASIS: stepwise insertion of synthetic DNA segments into BAC episomes → assembled 1.1 Mb human DNA. CGS: sequential replacement of 100 kb genomic stretches with synthetic DNA → 0.5 Mb E. coli genome in 10 days',
+        highlight: 'Megabase-scale assembly pipeline. Used to build Syn57 (2025). But a synthesis pipeline — NOT a reusable modular parts library.',
+        color: '#42a5f5',
+        url: 'https://doi.org/10.1038/s41586-023-06268-1',
     },
 ];
 
@@ -156,8 +204,9 @@ export default function Slide0StateOfTheArt({ data }: Props) {
                         <h3>No Modular Genome Library Exists</h3>
                         <p>
                             Syn61 produced a <strong>finished strain</strong> — not reusable parts.
-                            The Kohara bank and ASKA library are <strong>not assembly-compatible</strong>.
-                            No group has built a <strong>MoClo-tiled, interchangeable</strong> library of <em>E.&nbsp;coli</em>.
+                            CReATiNG tiles natural chromosome segments with adapters — but is <strong>yeast-only</strong> and uses homologous recombination.
+                            CAPTURE and BASIS/CGS clone large fragments but are <strong>not modular libraries</strong>.
+                            No group has built a <strong>MoClo-tiled, Golden Gate–compatible</strong> library of <em>E.&nbsp;coli</em>.
                         </p>
                     </div>
                     <div className="sota-gap-card solution">

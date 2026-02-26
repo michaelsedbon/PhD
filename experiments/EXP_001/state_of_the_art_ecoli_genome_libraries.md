@@ -166,9 +166,79 @@ Recent expansion adding MoClo-compatible **low-copy (p15A) and medium-copy (pBR3
 
 ---
 
-## 5. Genome Engineering Techniques (Supporting Methods)
+## 5. Direct Cloning of Large Genomic Fragments
 
-### 5.1 REXER & GENESIS
+### 5.1 CAPTURE — Cas12a-Assisted Precise Targeted Cloning
+
+**Enghiad, Zhao et al., Nature Communications, 2021** — Zhao Lab (UIUC)
+
+An improved successor to CATCH, CAPTURE combines **Cas12a digestion** (staggered cuts), a novel **T4 polymerase exo+fill-in DNA assembly**, and **in vivo Cre-lox recombination** in *E. coli*:
+
+- Cloned **47 BGCs ranging from 10 to 113 kb** with **~100% efficiency**, including 3 clusters **>100 kb** (100, 103, 113 kb).
+- In vivo Cre-lox circularization was **~150-fold** more efficient than in vitro for 73 kb DNA.
+- Works regardless of GC-content (tested on high-GC Actinomycetes up to 77%).
+- Complete cloning in **3–4 days**.
+- Primarily designed for **targeted gene cluster capture**, not genome-wide tiling.
+
+> **Key limitation:** Targets specific loci — not a genome-tiling library. Requires pre-designed guide RNAs for each target region.
+
+**Source:** Downloaded and verified (full text read) — `agent_papers_txt/CAPTURE_Cas12a_targeted_cloning_Zhao_2021.txt`
+**URL:** https://doi.org/10.1038/s41467-021-21275-4
+
+---
+
+### 5.2 CReATiNG — Building Synthetic Chromosomes from Natural DNA
+
+**Coradini, Ehrenreich et al., Nature Communications, 2023** — Ehrenreich Lab (USC)
+
+Conceptually the **closest existing work to a MoClo genome library**, CReATiNG (Cloning, Reprogramming, and Assembling Tiled Natural Genomic DNA) builds synthetic chromosomes from **cloned natural chromosome segments** in *S. cerevisiae*:
+
+- Uses **Cas9** to excise **51–64 kb segments** from donor chromosomes.
+- Segments are captured in **BAC/YAC vectors** (pASC1) with **programmable flanking adapter sequences** that define assembly order — conceptually analogous to MoClo fusion site overhangs.
+- Segments are assembled into synthetic chromosomes via **homologous recombination** in recipient yeast cells.
+- Demonstrated on *S. cerevisiae* ChrI (230 kb): cloned 3 segments at **93% efficiency**, assembled with **80% efficiency**.
+- Built **27 inter-strain/inter-species recombinant chromosomes** from 3 donor strains.
+- **Deleted 39%** of ChrI (91.7 kb) in a multiplex deletion experiment using 11 segments (3.8–21 kb each).
+
+> **Key limitation:** Yeast-only system — **NOT applicable to *E. coli***. Segments are NOT MoClo-compatible; assembly uses homologous recombination, not standardized Golden Gate.
+
+**Source:** Downloaded and verified (full text read) — `agent_papers_txt/Building_synthetic_chromosomes_CReATiNG_Ehrenreich_2023.txt`
+**URL:** https://doi.org/10.1038/s41467-023-44112-2
+
+---
+
+### 5.3 BASIS/CGS — Continuous Synthesis of *E. coli* Genome Sections
+
+**Zürcher, Chin et al., Nature, 2023** — Chin Lab (MRC-LMB, Cambridge)
+
+Two linked methods from the Syn61 team for genome-scale DNA assembly:
+
+- **BASIS** (BAC Stepwise Insertion Synthesis): megabase-scale assembly of DNA in *E. coli* episomes. Assembled **1.1 Mb of human DNA** including exons, introns, repetitive sequences, LINEs/SINEs.
+- **CGS** (Continuous Genome Synthesis): replaces sequential **100 kb stretches** of the *E. coli* genome with synthetic DNA, minimizing crossovers so each output provides the input for the next replacement.
+- Synthesized **0.5 Mb** of the *E. coli* genome from 5 episomes in **10 days**.
+- Authors estimate entire *E. coli* genomes from functional designs in **<2 months** by parallelizing CGS.
+
+> **Key limitation:** A synthesis *pipeline*, not a reusable parts library. DNA is assembled sequentially, not stored as modular interchangeable components.
+
+**URL:** https://doi.org/10.1038/s41586-023-06268-1
+
+---
+
+### 5.4 Syn57 — *E. coli* with a 57-Codon Genetic Code
+
+**Robertson, Chin et al., bioRxiv, 2025** — Chin Lab
+
+The Church lab's rE.coli-57 design (2016) has been **fully assembled** into a living organism — by the Chin lab. Created **Syn57**, an *E. coli* with a **4 Mb synthetic genome** using only **57 codons** (55 sense + 2 stop), recoding **105 codons**. Built using the BASIS/CGS methods above.
+
+> **Relevance:** Proves that genome-scale synthesis in *E. coli* is now routinely achievable. The MoClo genome library offers a complementary modular approach.
+
+**URL:** https://doi.org/10.1101/2025.05.02.651837
+
+---
+
+## 6. Genome Engineering Techniques (Supporting Methods)
+
+### 6.1 REXER & GENESIS
 
 **Wang et al., Nature Protocols, 2020** — Chin Lab
 
@@ -180,7 +250,7 @@ Protocols for creating custom synthetic genomes in *E. coli*:
 
 ---
 
-### 5.2 MAGE — Multiplex Automated Genome Engineering
+### 6.2 MAGE — Multiplex Automated Genome Engineering
 
 **Wang et al., Nature, 2009** — Church Lab
 
@@ -188,7 +258,7 @@ Enables simultaneous modification of many genomic loci using synthetic oligonucl
 
 ---
 
-### 5.3 CRISPR-Cas12a Multiplex Genome Editing
+### 6.3 CRISPR-Cas12a Multiplex Genome Editing
 
 **Ao et al., Frontiers in Microbiology, 2018**
 
@@ -199,7 +269,7 @@ Multiplex genome editing method for *E. coli* based on CRISPR-Cas12a, enabling e
 
 ---
 
-## 6. Summary Comparison
+## 7. Summary Comparison
 
 | Project | Year | Organism | Scale | Format | Modular? | Assembly-ready? |
 |---------|------|----------|-------|--------|----------|-----------------|
@@ -211,19 +281,26 @@ Multiplex genome editing method for *E. coli* based on CRISPR-Cas12a, enabling e
 | **JCVI-syn3.0** | 2016 | *M. mycoides* | 531 kb | Synthetic genome | ❌ | ❌ |
 | **Sc2.0** | 2017+ | *S. cerevisiae* | 12 Mb | Synthetic chromosomes | ✅ (SCRaMbLE) | ✅ |
 | **Syn61** | 2019 | *E. coli* MDS42 | 4.0 Mb | Synthetic genome | ❌ | ❌ |
+| **CAPTURE** | 2021 | Various bacteria | 10–113 kb per target | Targeted clones | ❌ | ❌ |
+| **CReATiNG** | 2023 | *S. cerevisiae* | 230 kb (ChrI) | Tiled natural segments | ⚠️ (adapters) | ❌ |
+| **BASIS/CGS** | 2023 | *E. coli* | 0.5–1.1 Mb | BAC episomes | ❌ | ❌ |
+| **Syn57** | 2025 | *E. coli* | 4.0 Mb | Synthetic genome | ❌ | ❌ |
 | **MoClo Genome Library** | **2026** | ***E. coli* MG1655** | **Full genome** | **MoClo Lvl0 tiles** | **✅** | **✅** |
 
 ---
 
-## 7. The Gap
+## 8. The Gap
 
 Despite decades of work, **no modular, assembly-compatible library of the *E. coli* genome** exists:
 
-1. **Syn61** and **rE.coli-57** produced finished or designed genomes — but not interchangeable parts.
+1. **Syn61/Syn57** produced finished synthetic genomes — but not interchangeable parts.
 2. **ASKA** cloned all ORFs — but without intergenic regions, regulatory context, or modular assembly compatibility.
 3. **Keio** provides knockouts — but no cloned DNA.
 4. **Kohara** covered the genome — but in a non-modular lambda phage format.
 5. **EcoFlex** is MoClo-compatible — but is a parts toolkit, not a genome-tiling library.
+6. **CAPTURE** clones large fragments with high efficiency — but targets specific loci, not a genome-wide tiling library.
+7. **CReATiNG** is conceptually the closest: tiled natural segments with programmable adapters — but yeast-only, not MoClo-compatible, and uses homologous recombination rather than standardized Golden Gate assembly.
+8. **BASIS/CGS** assembles megabases of DNA — but as a synthesis pipeline, not a reusable modular parts library.
 
 A **MoClo-tiled genome library** — where every position in the genome is represented by standardized, interchangeable Level 0 parts with defined overhangs — would enable:
 
@@ -231,6 +308,8 @@ A **MoClo-tiled genome library** — where every position in the genome is repre
 - **Chimeric constructs**: swap individual genes or regulatory regions while maintaining genomic context
 - **Rapid prototyping**: assemble custom genome segments from a library of pre-built parts
 - **Evolutionary studies**: create defined genomic variants for experimental evolution
+
+The key distinction from CReATiNG is that MoClo uses **Type IIS restriction enzyme-based Golden Gate assembly** — a standardized, sequence-verified, and highly reproducible format — rather than relying on homologous recombination. This enables true mix-and-match modularity across the entire genome.
 
 This is the goal of the MoClo Genome Library project (EXP_001).
 
@@ -249,3 +328,7 @@ This is the goal of the MoClo Genome Library project (EXP_001).
 9. Wang, K., et al. "Creating custom synthetic genomes in Escherichia coli with REXER and GENESIS." *Nature Protocols* 15, 2349–2376 (2020).
 10. Wang, H. H., et al. "Programming cells by multiplex genome engineering and accelerated evolution." *Nature* 460, 894–898 (2009).
 11. Ao, X., et al. "A Multiplex Genome Editing Method for Escherichia coli Based on CRISPR-Cas12a." *Frontiers in Microbiology* 9, 2307 (2018).
+12. Enghiad, B., et al. "Cas12a-assisted precise targeted cloning using in vivo Cre-lox recombination." *Nature Communications* 12, 1171 (2021).
+13. Coradini, A. L. V., et al. "Building synthetic chromosomes from natural DNA." *Nature Communications* 14, 8337 (2023).
+14. Zürcher, J. F., et al. "Continuous synthesis of E. coli genome sections and Mb-scale human DNA assembly." *Nature* 619, 555–562 (2023).
+15. Robertson, W. E., et al. "Escherichia coli with a 57-codon genetic code." *bioRxiv* (2025).
