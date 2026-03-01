@@ -17,6 +17,7 @@ import re
 import sys
 import time
 import argparse
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_DIR = os.path.dirname(SCRIPT_DIR)
@@ -34,20 +35,88 @@ PAPERS_DIR = os.path.join(PROJECT_DIR, 'papers')
 BIB_DB_ID = CONFIG['notion']['bibliography_db']
 
 # Sci-Hub mirrors to try (in order — working ones first)
+# Last checked: 2026-02-27
 SCIHUB_MIRRORS = [
-    'https://sci-hub.red',
-    'https://sci-hub.al',
-    'https://sci-hub.box',
-    'https://sci-hub.vg',
-    'https://sci-hub.se',
-    'https://sci-hub.st',
-    'https://sci-hub.ru',
-    'https://sci-hub.mksa.top',
-    'https://sci-hub.ren',
+    'https://sci-hub.fr',       # from Telegram @scihubot
+    'https://sci-hub.al',       # ✅ working
+    'https://sci-hub.vg',       # ✅ working
+    'https://sci-hub.ren',      # ✅ working
+    'https://sci-hub.st',       # ⚠️ redirects
+    'https://sci-hub.mksa.top', # ⚠️ redirects
+    'https://sci-hub.se',       # ❌ dead as of 2026-02
+    'https://sci-hub.red',      # ❌ dead as of 2026-02
+    'https://sci-hub.box',      # ❌ dead as of 2026-02
+    'https://sci-hub.ru',       # ❌ dead as of 2026-02
 ]
 
 # Delay between downloads (seconds)
 DOWNLOAD_DELAY = 3
+
+
+# ─── Mirror health check ─────────────────────────────────────────────
+
+def _check_one_mirror(mirror, timeout=8):
+    """Check a single mirror. Returns (mirror, status_code, latency_ms)."""
+    try:
+        start = time.time()
+        resp = requests.head(mirror, timeout=timeout, allow_redirects=True)
+        latency = int((time.time() - start) * 1000)
+        return (mirror, resp.status_code, latency)
+    except requests.RequestException:
+        return (mirror, 0, None)
+
+
+def check_mirrors(mirrors=None):
+    """
+    Test all Sci-Hub mirrors in parallel and print a status report.
+    Returns a reordered list: working first, then redirects, then dead.
+    """
+    if mirrors is None:
+        mirrors = SCIHUB_MIRRORS
+
+    print("🔍 Checking Sci-Hub mirrors...\n")
+    results = []
+
+    with ThreadPoolExecutor(max_workers=len(mirrors)) as pool:
+        futures = {pool.submit(_check_one_mirror, m): m for m in mirrors}
+        for future in as_completed(futures):
+            results.append(future.result())
+
+    # Sort: 200 first (by latency), then 3xx, then dead
+    def sort_key(r):
+        mirror, code, latency = r
+        if code == 200:
+            return (0, latency or 9999)
+        elif 300 <= code < 400:
+            return (1, latency or 9999)
+        else:
+            return (2, 9999)
+
+    results.sort(key=sort_key)
+
+    # Print table
+    print(f"  {'Mirror':<30} {'Status':>8}  {'Latency':>10}  Verdict")
+    print(f"  {'─'*30} {'─'*8}  {'─'*10}  {'─'*10}")
+    for mirror, code, latency in results:
+        name = mirror.replace('https://', '')
+        if code == 200:
+            verdict = '✅ Working'
+            lat_str = f'{latency} ms'
+        elif 300 <= code < 400:
+            verdict = '⚠️  Redirect'
+            lat_str = f'{latency} ms'
+        else:
+            verdict = '❌ Dead'
+            lat_str = '—'
+        print(f"  {name:<30} {f'HTTP {code}':>8}  {lat_str:>10}  {verdict}")
+
+    ordered = [m for m, c, _ in results if c == 200] + \
+              [m for m, c, _ in results if 300 <= c < 400] + \
+              [m for m, c, _ in results if c == 0 or c >= 400]
+
+    working = sum(1 for _, c, _ in results if c == 200)
+    print(f"\n  {working}/{len(results)} mirrors responding\n")
+    return ordered
 
 # ─── DOI extraction ──────────────────────────────────────────────────
 
@@ -342,6 +411,16 @@ if __name__ == '__main__':
     parser.add_argument('--dry-run', action='store_true', help='Preview without downloading')
     parser.add_argument('--filter', type=str, help='Only download papers matching this title keyword')
     parser.add_argument('--force', action='store_true', help='Re-download even if PDF exists')
+    parser.add_argument('--check-mirrors', action='store_true',
+                        help='Test all Sci-Hub mirrors and show which are alive')
     args = parser.parse_args()
+
+    if args.check_mirrors:
+        ordered = check_mirrors()
+        # If not downloading, just exit after the report
+        if not args.dry_run and not args.filter and not args.force:
+            sys.exit(0)
+        # Otherwise, use the reordered list for downloads
+        SCIHUB_MIRRORS[:] = ordered
 
     fetch_papers(dry_run=args.dry_run, filter_text=args.filter, force=args.force)

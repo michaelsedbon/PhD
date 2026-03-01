@@ -1,0 +1,809 @@
+Article https://doi.org/10.1038/s41467-025-61209-y
+A generalized platform for arti ﬁcial
+intelligence-powered autonomous enzymeengineering
+Nilmani Singh1,2,5,S t e p h a nL a n e1,2,3,5, Tianhao Yu1,3,4, Jingxia Lu1,4,
+Adrianna Ramos1,H a i y a n gC u i3,4&H u i m i nZ h a o1,2,3,4
+Proteins are the molecular machines of life with numerous applications in
+energy, health, and sustainability. However, engineering proteins with desiredfunctions for practical applications re mains slow, expensive, and specialist-
+dependent. Here we report a generally applicable pl atform for autonomous
+enzyme engineering that integrates m achine learning and large language
+models with biofoundry au tomation to eliminate the need for human inter-
+vention, judgement, and domain exper tise. Requiring only an input protein
+sequence and a quanti ﬁable way to measure ﬁtness, this automated platform
+can be applied to engineer a wide array of proteins. As a proof of concept, weengineer Arabidopsis thaliana halide methyltransferase ( AtHMT) for a 90-fold
+improvement in substrate preference and 16-fold improvement in ethyl-transferase activity, along with developing a Yersinia mollaretii phytase
+(YmPhytase) variant with 26-fold improvement in activity at neutral pH. This is
+accomplished in four rounds over 4 weeks, while requiring construction and
+characterization of fewer than 500 varia nts for each enzyme. This platform for
+autonomous experimentation paves th e way for rapid advancements across
+diverse industries, from medicine and biotechnology to renewable energy andsustainable chemistry.
+Laboratory experiments are essential to scienti ﬁc research, which is
+traditionally driven by skilled researchers. However, many factors can
+slow down the conventional discovery process and limit ef ﬁciency.
+Manual laboratory tasks are time- and labor-intensive, prone toreproducibility issues, limited in scalability, and grow increasinglycomplicated when managing large datasets and high-throughputexperiments. Autonomous experimentation has the potential totransform scienti ﬁc research by enabling integration of arti ﬁcial
+intelligence (AI) and robotics to iteratively propose hypotheses, designand conduct experiments, and re ﬁne models with minimal human
+intervention. AI-enabled systems can explore vast, multi-dimensionalspaces more ef ﬁciently than traditional computational techniqueswhile robotics and automation can perform experiments faster, more
+reliably and at higher throughputs wi th better scalability. Autonomous
+laboratories hold tremendous potential for diverse ﬁelds such as
+synthetic biology, chemical synthesis, and materials discovery byenabling more ef ﬁcient and scalable research
+1–3. Early demonstration
+of such a system includes the Robot Scientist “Adam ”that autono-
+mously generated and tested functional genomics hypotheses forSaccharomyces cerevisiae
+4. Coscientist, a multi-LLMs-based intelligent
+agent, can autonomously perform chemical synthesis reactions5.I n
+materials science, autonomous experimentation platform Ada opti-mized thin- ﬁlm compositions
+6. The A-Lab combines robotics, machine
+learning (ML), and historical data to synthesize inorganic powders andReceived: 18 December 2024
+Accepted: 13 June 2025
+Check for updates
+1Carl R. Woese Institute for Genomic Biology, University of Illinois Urbana-Champaign, Urbana, IL 61801, USA.2DOE Center for Advanced Bioenergy and
+Bioproducts Innovation, University of Illinois Urbana-Champaign, Urbana, IL 61801, USA.3NSF Molecule Maker Lab Institute, University of Illinois Urbana-
+Champaign, Urbana, IL 61801, USA.4Department of Chemical and Biomolecular Engineering, University of Illinois Urbana-Champaign, Urbana, IL 61801, USA.
+5These authors contributed equally: Nilmani Singh, Stephan Lane. e-mail: zhao5@illinois.edu
+Nature Communications |         (2025) 16:5648 11234567890():,;
+1234567890():,;successfully created 41 new compounds in 17 days of continuous
+operation7. A recent work developed autonomous mobile robots that
+can perform, analyze and decide next steps for exploratory syntheticchemistry reactions
+3,8.
+In biology, autonomous experimentation is comparatively less
+mature, making even routine processes like DNA assembly, geneediting, or metabolic engineering a challenging task
+1,9.M o r e o v e r ,
+integrating instruments for conti nuous experimentation requires
+skilled personnel with expertise at the intersection of biologicalexperimentation, robotics, and programmings
+10–12.M u c hp r e v i o u s
+work in autonomous synthetic biology has been highly speci ﬁc, tar-
+geting singular goals like engineering a single protein11,m e t a b o l i c
+engineering for a single product13, or orphan enzyme identi ﬁcation4.
+Despite these advances, a broadly applicable autonomous systemmust be highly generalizable for extensive utility. Generalizable plat-
+forms are more scalable and adaptable, able to address diverse pro-
+blems across different locations without the need for new work ﬂows.
+Widely adopted systems enable researchers to use a common scienti ﬁc
+framework, promoting collaboration and ef ﬁcient knowledge transfer
+while minimizing the need to redevelop similar methods for commongoals. With scalable, generalizable platforms, synthetic biology canmove beyond isolated successes and drive innovation in a wide rangeofﬁelds.
+In this work, we use protein engineering as a case study to
+establish a roadmap for generalize d autonomous experimentation in
+synthetic biology. Protein engineering provides an extensive toolkit
+for modifying enzymes for widespread application in ﬁelds such as
+medicine, biofuels, and biocatalysis
+14,15.B yi t e r a t i v ed e s i g n ,b u i l d ,t e s t ,
+and learn (DBTL) cycles, enzymes can be made more stable, selective,or ef ﬁcient. Methods like directed evolution and computer-aideddesign offer diverse strategies for protein engineering and high-
+throughput screening strategies allow iterating over a large samplespace
+16–18. Despite the wide applicability of protein engineering, there
+remain unmet needs, particularly in ef ﬁciently navigating vast
+sequence spaces and optimizing protein function in complex envir-
+onments. Autonomous protein engineering represents the state-of-the-art in addressing these challenges through self-driving frameworksfor executing the DBTL cycle
+10,19,20. Many synthetic biology applica-
+tions have demonstrated decent success for automated design, suchas in metabolic engineering
+13and construction of plasmids21.Ar e c e n t
+study11demonstrated an automated protein engineering campaign
+that improved glycoside hydrolase thermostability using Bayesianoptimization, cell-free expression and gene fragment-based variantcreation
+11. However, reliance on an external cloud lab adds a layer of
+opaqueness while the high cost of gene fragments, limitations of cell
+free systems, and enzyme-speci ﬁc generation of variant libraries
+reduce the work ﬂow’s overall versatility and scalability.
+Here, we present a generalized platform for autonomous enzyme
+engineering enabled by the Illinois Biological Foundry for AdvancedBiomanufacturing (iBioFAB) (Supplementary Fig. 1), ML, and largelanguage models (LLMs) (Fig. 1). The process begins by designing a
+high quality mutant library using a protein LLM
+22and epistasis model23.
+The library is constructed and screened by iBioFAB using optimizedmodular and integrated work ﬂows. The assay data from each cycle is
+used for training a low-N ML model
+24to predict variant ﬁtness for
+subsequent iterations. Since this platform requires only a protein
+sequence and quanti ﬁedﬁtness data, it can be applied to a wide array
+of proteins. As a proof of concept, in four rounds within 4 weeks, weengineer variants of two enzymes, Arabidopsis thaliana halide
+methyltransferase ( AtHMT)
+25and Yersinia mollaretii phytase
+Fig. 1 | Overview of the generalized platform for autonomous protein engi-
+neering. The platform consists of three modules. First, a sequence-based unsu-
+pervised predictive model generates variants for the initial library. This variant
+library is created by an integrated biofoundry, a laboratory automation platform
+that combines various instruments for robust and continuous experimentation.Next, the biofoundry measures the ﬁtness of the variants, and the resulting data isused to train a supervised ML model to predict subsequent variants. The seamless
+integration of protein language models, automated experimentation, and MLminimizes the need for human decisions and interventions during the protein
+engineering process. This autonomous protein engineering platform can design,
+test, and create improved enzymes without input from a human operator. Figure 1
+was created with BioRender.Article https://doi.org/10.1038/s41467-025-61209-y
+Nature Communications |         (2025) 16:5648 2(YmPhytase)26,27with ~16- and 26-fold higher activity compared to the
+wild type enzymes, respectively.
+Results
+Automating construction and char acterization of protein var-
+iants on a biofoundry
+The iBioFAB (Supplementary Fig. 1) has been used to automate various
+biological processes, such as pathway optimization13,y e a s tg e n o m e
+engineering28, TALEN assembly29, plasmid design and construction21,
+and natural product discovery30,31. In ML-guided protein engineering,
+sequencing and verifying the mutants generated through site-directedmutagenesis (SDM) often delays the process and increases costs. Todesign a robust and continuous work ﬂow (Fig. 2a), we developed a
+HiFi-assembly based mutagenesis method (Fig. 2b) that eliminated the
+need for sequence veri ﬁcation in the middle of the protein engineering
+campaign, enabling an uninterrupted work ﬂow. Throughout multiple
+rounds of protein engineering, some mutants were randomly selected,sequenced, and con ﬁrmed to have the correct targeted mutations with
+around 95% accuracy (Fig. 2c). All higher-order mutants are combina-
+tions of single mutants from the initial library, with one additionalmutation added in each round. Variants with multiple mutations canbe generated through SDM of a template plasmid containing one fewermutation and, as such, there is no need to order new primers for eachiterative cycle barring a few exceptions, thereby saving time and cost.This optimized high- ﬁdelity approach was crucial for a reliable and
+continuous work ﬂow during iterative cycles of protein engineer-
+ing (Fig. 2a).
+The protein engineering work ﬂow was divided into manageable
+automated modules for robustness and ease of troubleshooting(Fig. 2d, Supplementary Fig. 2), allowing recovery without restarting
+the entire process. Seven automated modules comprise the end-to-end work ﬂow for each cycle of protein engineering. Experimental
+steps within a module are completely automated, requiring little, ifany, human intervention (Supplementary Fig. 2-6). Each module wasindividually programmed onto the iBioFAB platform and meticulouslyreﬁned to ensure robust and reliable operation during continuous
+automated execution. Such examp les include preparation of muta-
+genesis PCR, DpnI digestion, 96-well microbial transformations, plat-
+ing on 8-well omnitray LB plates, crude cell lysate removal from 96-wellplates, and functional enzyme assays. For automated execution, theinstruments were scheduled via Thermo Momentum software and fully
+integrated by a central robotic arm. The robotic pipeline automates allprotein engineering steps including mutagenesis PCR, DNA assembly,transformation, colony picking, plasmid puri ﬁcation, protein expres-
+sion, and enzyme assays (Supplementary Fig. 2-6).
+Design of protein variants using protein LLM and ML
+The design of the initial library is crucial to the protein engineering
+campaign as a diverse and high-quality library increases the likelihood
+of ef ﬁcient optimization32. To create a generally applicable autono-
+mous protein engineering platform, we employed a combination of aprotein LLM and an epistasis model. This approach maximized boththe diversity and quality of the initial library, enhancing the chances ofidentifying promising mutants early in the process. We used a state-of-the-art protein LLM, ESM-2
+22, a transformer model trained on global
+protein sequences. ESM-2 predicts the likelihood of amino acidsoccurring at speci ﬁc positions based on sequence context, and the
+likelihood can be interpreted as variant ﬁtness
+33. Additionally, we
+included an epistasis model, EVmutation23focusing on the local
+homologs of the target protein.
+To demonstrate the generality of our autonomous enzyme engi-
+neering platform, we selected two distinct enzymes, AtHMT and
+YmPhytase, with a goal of improving two different enzymatic proper-
+ties. Both enzymes have rarely been studied using AI/ML tools,offer potential for industrial applications, and are suitable forautomation-friendly high-throughput quanti ﬁcation. The halide
+methyltransferase AtHMT offers potential for synthesizing S-adenosyl-
+L-methionine (SAM) analogs, which are essential for biocatalytic alky-
+lation, a process with crucial biological applications34,35.H o w e v e r ,t h e
+chemical synthesis and commercial availability of SAM analogs are
+often limited. AtHMT has shown promising promiscuous alkyl-
+transferase activity, allowing for the synthesis of SAM analogs frommore readily available and cost-effective alkyl halides and S-adenosyl-
+L-
+homocysteine (SAH)25,36. We focused here on improving the ethyl-
+transferase activity of AtHMT, seeking to improve its preference for
+ethyl iodide over methyl iodide. We secondly aimed to broaden the pHrange for activity of YmPhytase, a phosphate-hydrolyzing enzyme that
+exhibits low activity at neutral pH
+26. Phytases can hydrolyze phytic
+acid, the main storage form of phosphate in plant tissues that is indi-gestible by most animals, and release inorganic phosphate, an
+important nutrient
+37.H o w e v e r ,t of u n c t i o ni na n i m a lf e e d ,p h y t a s e
+must have high activity at a broad pH range to tolerate the pH variationof the gastrointestinal tract of animals. Most phytases function opti-mally in acidic conditions and exhibit a sharp loss of activity at neutralpH, motivating the development of phytase enzymes with improvedactivity closer to neutral pH. We therefore engineered YmPhytase,
+which has better activity than commonly used fungal phytases and hasshown promising improvements in previously reported directed evo-lution campaigns
+26,27.
+By combining the two unsupervised models, we generated a list of
+180 variants each of AtHMT and YmPhytase for initial screening
+(Fig. 3a, b). We found that 59.6% of AtHMT and 55% of YmPhytase
+variants performed above the wild type baseline (Fig. 3c, Supplemen-
+tary Figs. 7, 10), with 50% and 23% being signi ﬁcantly better, respec-
+tively (two-tailed Student ’st-test p< 0.05, Supplementary Figs. 7, 10).
+The mutants generated by EVmutation performed better than thosepredicted by ESM-2, although there was signi ﬁcant overlap between
+predictions of the two models (Supplementary Fig. 27). The bestmutants from the unsupervised models ’predictions were V140T for
+AtHMT, with a 2.1-fold improvement, and V141M for YmPhytase, with a
+2.6-fold improvement. For AtHMT, both models had independently
+identi ﬁed V140T as one of the top ranked variants, which was reported
+as the best mutant in a previous semi-rational design study
+25.W h e r e a s ,
+forYmPhytase, the predictions from both models did not include
+previously identi ﬁed sites T44 and K45 in top predictions26.
+Starting from the second round, the data from all previous rounds
+were used to train a supervised low-N regression model24.O n c e
+trained, the model predicted variants with one additional mutationthan the previous round for the subsequent screening cycle. While theunsupervised models started with a wide search space in the ﬁrst
+round, the supervised learning model narrowed to focus on a few keymutations in the top 90 predictions for both proteins (Fig. 3a, b). We
+constructed the top 96 predicted mutants and 90 were used for
+enzyme activity screening along with controls (Supplementary Figs. 7,
+10). Although there was little overall consistency between observedenzyme activities and the predictions of the low-N model, the modelwas nonetheless able to predict a subset of mutants with substantiallyimproved activity in each round of engineering (Fig. 3f, g) demon-
+strating the observed practical effectiveness of the model. For thesecond round of AtHMT engineering, we predicted additional single
+mutations after training the low-N model using the data from the ﬁrst
+round. The 14 new single mutant predictions performed poorly com-pared to the wtHMT (Fig. 3d, Supplementary Fig. 7) suggesting that the
+low-N model may not be well suited for ﬁnding new single mutation
+variants as compared to the unsupervised models used in the
+ﬁrst round.
+New insights through ML-guided protein engineering
+ML-driven experimentation often lea ds to surprising results and unex-
+pected directions, as shown by the model ’s prediction of counter-Article https://doi.org/10.1038/s41467-025-61209-y
+Nature Communications |         (2025) 16:5648 3intuitive variants during the third round of AtHMT engineering. None of
+the S99T/V140T-containing triple mutants were ranked in the top 100,
+d e s p i t eS 9 9 T / V 1 4 0 Tb e i n gt h eb e s td o u b l em u t a n tf r o mt h es e c o n d
+round. We tested the top 36 ranked triple mutants containing S99T/
+V140T and compared them against the model ’s top predictions for triple
+mutants. Most S99T/V140T-based triple mutants failed to signi ﬁcantly
+improve activity over the V140T mutant with only 4/36 (11%) showingsigniﬁcantly better activity than V140T (two-tailed Student ’st-test
+p<0 . 0 5 , F i g . 3e, Supplementary Fig. 8), whereas the model-predicted
+triple mutants showed superior performance with 74/90 (82%) per-
+forming signi ﬁcantly better than V140T (two-tailed Student ’st-test
+p<0 . 0 5 ,F i g . 3e, Supplementary Fig. 7). This suggests the ML model can
+potentially recognize synergistic eff ects between mutations, predicting
+more effective combinations than human-designed mutants.
+Article https://doi.org/10.1038/s41467-025-61209-y
+Nature Communications |         (2025) 16:5648 4We observed an increase in the desired activity (Fig. 4a, b)
+throughout all four engineering cycles (Fig. 4c, d, Supplementary
+Figs. 7, 10). The ﬁtness of variants improved in each round compared
+to the wild type for both AtHMT and YmPhytase (Fig. 4c, d). In four
+rounds of protein engineering, we screened 446 variants of AtHMT
+and 448 variants of YmPhytase using a crude lysate assay. For AtHMT,
+the top performing variant in each subsequent round was 2.1-, 3-, 4.3-and 5.1-fold better than wtHMT in the crude lysate assay (Supple-mentary Figs. 7, 9). For YmPhytase, the top performing variant in
+each subsequent round was 2.6-, 7.5-, 9- and 11.1-fold better thanwtPhy in the crude lysate assay (Supplementary Fig. 10). We puri ﬁed
+some of the best performing mutants from each round and char-
+acterized the enzyme kinetics (Supplementary Figs. 11 –26, Supple-
+mentary Table 1 –6). The best identi ﬁedAtHMT variant (round 4:
+V140T/L101I/E206D/S63N) showed an ~16-fold improvement inethyltransferase activity compared to wtHMT (Fig. 4e, Supplemen-
+tary Figs. 13 –14, Supplementary Table 3). Another AtHMT variant
+(round 4: V140T/L101I/T213S/V178E) showed an ~90-fold increase inpreference for ethyl iodide over methyl iodide (SupplementaryTable 1 –2, 4).
+ForYmPhytase, one variant from the fourth round (round 4:
+V141M/K226G/I15V/Q362R) exhibited a 26.3-fold improvement inspeci ﬁc activity over wtPhy at pH 6.6 (Fig. 4f). Another variant (round
+4: V141M/K226G/I15V/E316P) performed remarkably well at both pH
+5.6 and 6.6, exhibiting 25.8- and 19.8-fold improvements in speci ﬁc
+activity compared to wtPhy, respectively (Fig. 4f, Supplementary
+Fig. 18). All proteins selected for puri ﬁcation showed a higher speci ﬁc
+activity (Supplementary Table 5) and improved kinetic parameters(Supplementary Table 6) compared to the wild type at pH 4.5, 5.6, and6.6. Since the screening involved several hours to obtain completedata from multiple replicates, the cell lysates contained a proteaseinhibitor cocktail in the crude lysates. After puri ﬁcation of selected
+phytase variants we noticed that the addition of the protease inhibitorcocktail, and more speci ﬁcally one of its components 4-(2-aminoethyl)
+benzenesulfonyl ﬂuoride hydrochloride (AEBSF), was critical to
+observe high activities of YmPhytase enzyme variants (Supplementary
+Fig. 19). In a previous report, it was also noted that puri ﬁed variants
+were less active compared to when assayed using crude lysates
+26.
+Screening conditions are therefore crucial to the design of the proteinengineering campaign, as proteins become optimized for the speci ﬁc
+assay environment —emphasizing the old adage “You get what you
+screen for ”
+38.
+In the previous work that identi ﬁed V140T as an improved
+variant25, 10 residues in the active sites were screened using NNK site-
+saturation libraries. Further screening by generating double and triplemutant libraries combining active site residues didn ’t yield a better
+mutant than V140T
+25. In the current work, V140T is present in all third
+and fourth round variants and is the on ly mutation in the active site. All
+other mutation sites in top performing mutants (L101, T213, V195,E206, D9, E32) from the fourth rou nd of engineering are located
+relatively far from the active site and on the surface of the protein(Supplementary Movie 1). Moreover, the majority of fourth round
+variants show signi ﬁcantly improved activity over V140T alone.
+In contrast, our YmPhytase engineering yielded a new mutation
+V141M during the ﬁrst round of screening that signi ﬁcantly improved
+activity compared to the wild type and was carried over into all sub-sequent iterative cycles. None o f the top predictions by the unsu-
+pervised models included the previously identi ﬁed T44/K45 sites
+discovered by semi-rational design
+26. Since the YmPhytase crystal
+structure was not available, it was predicted using AlphaFold39.T h e
+majority of variants in the fourth round contain three mutationsV141M, K226G, and I15V, of which V141 and K226 residues are close tothe active site, while I15 is located at a more distant ﬂexible region.
+Most other common mutation sites in the fourth round such as Q167,
+T25, L303 are distant from the active site, while A65 is located close tothe active site (Supplementary Movie 2).
+Language model-based user interface
+As mentioned above, we demonstrated that using unsupervised pro-tein mutation prediction tools and supervised regression models cansigniﬁcantly speed up protein engineering without requiring domain
+expertise in rational design. To further simplify access, we developed anatural language-based user interface utilizing LLMs (Fig. 1). This
+allows users without programming skills to easily interact with our
+protein engineering platform. We created a user interface, leveraging
+OpenAI ’s assistant API with customized functions, to design the initial
+library using simple language commands, like “help me improve phy-
+tase ”or“design the initial library for AtHMT ”, especially for users
+without required coding skills. The system responds by accessing pre-programmed functions to execute sequence-based predictions andtrain regression models, making the platform accessible to non-technical users.
+Discussion
+Through systematic development and optimization, we have demon-
+strated a generally applicable autonomous enzyme engineering plat-
+form which accepts a protein sequence as the sole input and requiresminimal human decision-making or specialized protein knowledge.Without the need for human judgement, the automated platform isfully scalable and compatible with a wide array of proteins. Our naturallanguage user interface further reduces barriers to entry, allowingusers to operate the platform without specialized coding knowledge.We used two comprehensive case studies, AtHMT and YmPhytase, to
+demonstrate the automated enzyme engineering platform in action.Starting with only the wild type sequences, our approach autono-mously performed successful engineering campaigns for both pro-teins by identifying variants with 16-fold improvements for AtHMT and
+26-fold improvements for YmPhytase within four iterative cycles of
+protein engineering. We assayed the previously identi ﬁed best
+mutants for AtHMT (V140T)
+25andYmPhytase (T44V/K45E)26alongside
+the top variants identi ﬁed in this study. For both AtHMT and YmPhy-
+tase, the most active variants discovered in this study demonstrate aFig. 2 | Automated Protein Engineering Work ﬂow. a The protein engineering
+work ﬂow was initiated by predicting 180 mutants for the ﬁrst round of screening in
+two 96-well plates. The data from each screening cycle was used for training a low-Nsupervised learning model to predict variants for subsequent cycles. After the ﬁrst
+cycle, subsequent screening cycles used a single 96-well plate, containing 90 new
+variants with controls. bA site-directed mutagenesis protocol based on PCR and
+HiFi assembly was optimized for high ﬁdelity. The PCR using mutagenic primers
+generates two DNA fragments that span the ORF and contain targeted mutation,
+followed by ligation with the linearized vector backbone that was digested by
+restriction enzyme (RE) using HiFi assembly. cWe created 482 mutants for AtHMT,
+and DNA sequencing con ﬁrmed that 70 of 74 variants had the correct mutations.
+ForYmPhytase, we created 448 mutants and 20 of 21 were correctly mutated based
+on sequencing. Overall, the success rate for mutagenesis was about 95% whenpicking only a single colony for each variant. dOverview of the laboratory auto-
+mation pipeline used for autonomous protein engineering. The work ﬂow was
+divided into smaller modules, programmed into iBioFAB instruments, and opti-mized for robustness and continuous operation. The automated work ﬂow for a
+complete round of screening, from mutagenesis PCR to functional assay, is com-
+pleted within 7 days (Supplementary Fig. 2) with each module designed to auto-
+mate one of the protein engineering tasks. Each module is fully automated, which isachieved by integrating various instruments on the iBioFAB using Thermo
+Momentum Scheduling Software and Thermo F5 robotic arm. Detailed descriptions
+for each automated module are provided in supplementary information (Supple-mentary Figs. 2 –5). Source data are provided as a Source Data File. Figure 2a –cw a s
+created with BioRender.Article https://doi.org/10.1038/s41467-025-61209-y
+Nature Communications |         (2025) 16:5648 5remarkable improvement compared to the previous engineering
+reports of these enzymes25–27.
+A few previous attempts have prototyped automated experi-
+mentation using Bayesian optimization for traversing a relatively lim-ited search space
+11,13,40for protein engineering (Supplementary
+Table 7). With the unimaginably vast and high-dimensional samplespace of proteins, state-of-the-art AI tools are better suited for ef ﬁcientexploration
+41. A recent study11used a cell-free expression system,
+which is challenging to generalize due to many issues such as limited
+protein yield, poor protein folding, instability and degradation. Sup-
+plementary Table 7 provides a concise comparison with prior auto-mated protein engineering studies. In many protein engineeringcampaigns, initial variant libraries are tailored for proteins of interestand require deep expertise about structure and function of the target.
+Article https://doi.org/10.1038/s41467-025-61209-y
+Nature Communications |         (2025) 16:5648 6In contrast, we present a generalizable framework that can predict
+variants with only the protein amino acid sequence for the initiallibrary and ﬁtness data for iterative engineering cycles. This coupled
+with our stepwise approach for mutagenesis offers a broadly applic-able and cost-effective solution for autonomous enzyme engineering.Following one of the frameworks developed to evaluate levels ofautomation
+20, we assess that our current autonomous enzyme engi-
+neering platform falls between level 3 (conditional automation) and
+level 4 (high automation), as it can perform end-to-end protein engi-neering with minimal human intervention and predict variants forscreening in subsequent cycles.
+The modularity of our framework makes possible substantial
+expansions and improvements in the future. With advancements in thestate-of-the-art AI models for protein engineering, we expect this fra-mework to improve as new models can be integrated into this plat-form. The exploration of higher-order mutants with substantiallygreater numbers of mutations becomes feasible with this platform, achallenge that has proven dif ﬁcult to address especially for in vitro
+protein engineering studies. Moreover, while we used crude lysate
+assays in this study, this framework is compatible with many quanti ﬁed
+measurements of protein activity, including in vitro, in vivo, growth-coupled, or reporter-based assays. By incorporating this ﬂexibility, we
+have developed a general-purpose autonomous protein engineeringplatform that maximizes its potential applications.
+Nonetheless, our platform still contains several limitations. On the
+computational side, while we use ESM-2 and EVmutation for initialvariant predictions, ESM-2 has performed poorly in some benchmarksand may not be suitable for all proteins
+42and EVmutation depends on
+the availability of homologous sequences23. Applying our platform to
+proteins that are not well-suited for these models may result in poorly-
+performing initial variant libraries. Moreover, the supervised low-Nmodel used for iterative predictions showed relatively weak correla-tion with experimental results, suggesting the possibility that certainproteins may perform particularly poorly using such a predictivemodel. Our site-directed mutagenesis method employing PCR and HiFiassembly to accumulate mutations in a stepwise manner also containssome limitations. Recycling of mutagenesis primers limits the imple-mentation of simultaneous multiple mutations in adjacent residues. Assuch, implementing multiple mutations in adjacent residues mayrequire the design and purchase of new mutagenesis primers whichcontain desired mutations. High GC-content sequences may also lead
+to dif ﬁculty with PCR ampli ﬁcation and HiFi assembly. We have suc-
+cessfully engineered two enzymes so far using the autonomous plat-form and extending it to additional proteins could further broaden itsgeneralizability. Additionally, our platform requires a functional assaythat is compatible with high throughput automation. Here, we focused
+speci ﬁcally on enzymes with established high throughput quantitative
+assays that are functional in crude cell lysates. The suitability of ourplatform for transporters, chaperones, transcription factors, and othertypes of proteins remains unexplored at this time and would requirethe development of suitab le functional assays.
+Autonomous experimentation platforms have the potential
+to transform protein engineering and related ﬁelds including
+synthetic biology
+43, biocatalysis44, metabolic engineering45,a n d
+retrobiosynthesis46. The rapid progress of laboratory automation,
+such as liquid-handling robots47, micro ﬂuidics48, laboratory virtuali-
+zation services49, and increasing global investment into biofoundries50
+will make these platforms more accessible to researchers. The inte-gration of ML tools and robotic laboratory platforms offers round-the-clock operation, improved reproducibility, and increased ef ﬁciency
+while minimizing the need for human decision-making. Variousapplications, including the design of new-to-nature enzymes
+51, dis-
+covery of novel natural products30,31, enhancement of drug and bio-
+molecule ef ﬁcacy, and the optimization of products for sustainable
+chemistry44, stand to bene ﬁt greatly from the transformative power of
+autonomous experimentation. The broadly applicable frameworkpresented here for protein engineering forms a crucial component ofthe autonomous research toolbox, es tablishing a strong foundation
+for the future of synthetic biology.
+Methods
+LLM and supervised learning for prediction of protein variants
+Two different zero-shot prediction models were used to guide thedesign of the initial variant library: EVmutation and ESM-2. EVmutation
+is a statistical model designed by Hopf et al.
+23that captures the co-
+variations between pairs of residues in an amino acid sequence. This isachieved by ﬁtting a pairwise graph model to the multiple sequence
+alignment (MSA) of the homologous to the target protein. The modelthen scores the impact of amino acid substitutions by calculating thelog-ratio of sequence probabilities between the mutant and wild-typesequence. In this work, we utilized the integrated web serverEVcouplings
+52with the default searching parameters and highlighted
+bit-scores. ESM-2 is a transformer-based protein language modeldesigned by Rives et al.
+53that is trained on large and diverse protein
+sequence database and captured the rules governing the proteinstructure and functions. ESM-2 can output the probability of a
+certain amino acid occurring at a given position based on the up and
+down stream context. Thus, we can score any given mutation by usingwild-type as a reference and compare the probability of the givenmutation with that of the wild-type. In this work, we used the work ﬂowFig. 3 | ESM-2, EVmutation, and low-N supervised learning ML models predict
+better variants during the screening of AtHMT and YmPhytase. a ,bThe indi-
+vidual mutated amino acid (aa) residue predicted in each round at various sites ofthe protein are marked and color coded by their prevalence in the screened var-iants. The initial sequence-based models start with a wide search, followed by
+narrowing down by a low-N supervised learning model to a few select mutation
+sites in later rounds. The active site for AtHMT (P20, V23, L27, W36, W47, Y139,
+V140, C143, Y172, R214) and YmPhytase (R37, R41-T47, E241, D327) are marked by
+red lines on x-axis. The x-axis represents the mutation positions, and the y-axis
+represents the mutated amino acids. The exact amino acid sequence for both isavailable in the supplementary materials as sequenced DNA ﬁle.cThe majority of
+variants predicted by unsupervised models for the ﬁrst round of screening show
+higher activity than the wild type for both AtHMT and YmPhytase with at least one
+variant showing remarkably improvement. The black dashed line shows wild-typeactivity. dNone of the new single mutants predicted by the supervised learning for
+the second round of AtHMT engineering show better activity than the wild-type
+enzyme. Black dashed line indicates WT activity and orange dashed line shows
+V140T activity. eNone of the S99T/V140T-containing triple mutants, which wouldtypically be designed by human intuition in a traditional directed evolution
+approach, show better activity than the top supervised machine-learning predicted
+triple mutants from the third round. A comparison between S99T/V140T-contain-ing triple mutants (the ones designed by human intuition) with all of the third-round mutants, which were predicted by the machine-learning algorithm (left).
+Comparison of activities for six predicted third round mutants with best prediction
+scores which were assayed alongside the 36 human-intuited triple mutants con-taining S99T/V140T mutation (right) ( n= 5 biological repeats for round 3 mutants
+andn= 4 biological replicates for S99T/V140T triple mutants, Gray dots Q1 (25%):
+2.48, Median (50%): 2.74, Q3 (75%): 3.07 IQR: 0.60 Whisker Min: 2.09 Whisker Max:3.76; Orange dots Q1 (25%): 2.60, Median (50%): 3.08, Q3 (75%): 3.39, IQR: 0.78,Whisker Min: 1.7, Whisker Max: 4.3). f,gThe predicted ﬁtness by the low-N
+supervised learning model and observed ﬁtness of mutants for AtHMT and
+YmPhytase. The dashed black line indicates the wild-type activity for respective
+proteins. Red crosses indicate mutants with the best predicted ﬁtness according to
+the supervised model. The Spearman rank correlation coef ﬁcient is displayed at the
+bottom of the graphs. Source data underlying the ﬁgures are provided as a Source
+Data File.Article https://doi.org/10.1038/s41467-025-61209-y
+Nature Communications |         (2025) 16:5648 7implement in ESM-2 ( https://github.com/facebookresearch/esm )t o
+make the prediction with the model esm2_t36_3B_UR50D.
+For each round of engineering, we trained a supervised prediction
+model based on all experimentally measured variant ﬁtness data from
+current round and all rounds prior. We ﬁrst preprocess raw data by
+removing all zero or negative variants and normalize the data by takingthe log scale. In this work, we trained the supervised model bymodifying the work ﬂow implement by Hsu et al.
+24(https://github.com/
+chloechsu/combining-evolutionary-and-assay-labelled-data ). We initi-
+ally trained the model using augmented Potts and ESM approach, but
+the evolutionary density score featu re has negatively correlated with
+experimental results. Thus, we modi ﬁed the original training script and
+used the command ‘python src/evaluate.py phytase onehot
+–n_seeds = 1 –n_threads = 1 –n_train = -1 ’for training and prediction.
+Article https://doi.org/10.1038/s41467-025-61209-y
+Nature Communications |         (2025) 16:5648 8GPT-based user interface
+To implement a Generative Pre-trained Transformer (GPT)-based user
+interface, OpenAI ’s assistant Application Programming Interface
+(API) ( https://platform.openai.com/docs/assistants/overview )w a s
+employed. The assistant was con ﬁgured using the ‘gpt-4-turbo ’model.
+The user interface carries tools of ﬁle-search ( https://platform.
+openai.com/docs/assistants/tools/ ﬁle-search ) and function-calling
+(https://platform.openai.com/docs/assistants/tools/function-calling ).
+The user interface will invoke ﬁle searching to respond to user ’sg e n -
+eral questions and invoke function calling to assist the design of initialvariant library.
+Expression plasmids
+The HMT and CiVCPO plasmids were a gift from Uwe Bornscheuer lab.Both the HMT plasmids and empty vector (pET-28a) were transformedinEscherichia coli BL21 ( Δmtn) strain, a gift from Uwe Bornscheuer lab,
+w h i c hi sa nM T A / S A Hn u c l e o s i d a s ek n o c k o u t E. coli BL21(DE3) strain
+25.
+The phytase cDNA was ordered from Twist Biosciences and cloned inpET-28a vector using HiFi assembly. These plasmids were sequenceveriﬁed using Plasmidsaurus (San Francisco, CA, USA). Complete
+sequence of these plasmids are provided in Supplementary Data 5.
+Site-directed mutagenesis
+For site-directed mutagenesis, three PCR fragments were assembledusing HiFi assembly (Fig. 2b). The mutagenesis primers (27 base-pairs,
+12 + 3 + 12) were designed using a Python script and ordered in 96-deepwell plates from IDT. For PCR templates, the plasmids were line-arized with restriction enzymes and puri ﬁed using a PCR cleanup kit
+(Zymo #D4018). The HMT plasmid was linearized with EcoR V( f o r
+mutagenesis PCR of the ORF) and XbaI (for backbone PCR). The phy-
+tase plasmid was linearized with HpaI( f o rm u t a g e n e s i sP C Ro ft h e
+ORF) and XhoI (for backbone PCR). The PCR fragments contained 27-
+40 overlapping base pairs. The PCR for the vector backbone wastreated with DpnI (37 °C for 4 h, followed by overnight incubation at
+room temperature) and puri ﬁed using a PCR cleanup kit (Zymo
+#D4018), and stored at -20 °C until used. The mutagenesis PCR forforward and reverse fragments was run in separate 96-well plates,followed by DpnI treatment. Q5 DNA polymerase (NEB #M0491) was
+used for mutagenesis PCR (50 µL reaction, ~200 pg template, 18 cycles,
+65 °C 30 s, and 72 °C 1 min). We observed that NEB Q5 polymerase cantolerate a wide range of theoretical annealing temperatures, thus allmutagenic PCRs were annealed at 65 °C for ease of automation.Ensuring correct amount of input template DNA was critical to suc-cessful PCRs and ef ﬁcient SDM, thus the DNA concentration was
+measured using Invitrogen Qubit Fluorometer with dsDNA Quantita-tion kit (Invitrogen #Q32853) and further veri ﬁed by agarose gel
+electrophoresis. The primers were ordered from IDT in 96-well plate at
+2 uM. For PCRs, 12.5 ul of primers were added to 96-well PCR plates onTecan Fluent. After PCR, 2.5 µL of the reaction was mixed with 50 µLo f
+1x EvaGreen Dye (Biotinum #31000) and ﬂuorescence ( λ
+ex= 488 nm /
+λem= 535 nm) was measured to verify successful PCR.HiFi assembly reactions (15 µL) were prepared using 30 ng of
+puriﬁed vector backbone PCR, 1.25 µL each of DpnI treated forward
+and reverse PCR reactions, and 7.5 µL of HiFi master mix (NEB #E2621)
+followed by incubation at 50 °C for 30 min. To increase the ef ﬁciency
+of HiFi assembly, 50 ng of single-strand binding protein (NEB #M2401)was added to 500 µLH i F im a s t e rm i x
+54. Homemade competent DH5 α
+cells in a 96-well plate (Biorad # HSS9641) were transformed with 5 µL
+of the HiFi reaction by 30 s heat shock, followed by 1 h outgrowth in150µLS O C Sm e d i a .D H 5 αoutgrowth cultures were spread on 8-well
+omnitray plates (120 µL per well, kanamycin 50 µg/mL) and incubated
+overnight at 37 °C. DH5 αcolonies were picked using Pickolo and
+incubated overnight at 37 °C in a 96-deepwell plate containing 1 mL of
+Terriﬁc Broth (TB) and kanamycin. Minipreps were then performed
+using PureLink Pro Quick96 Plasmid Puri ﬁcation Kit (Invitrogen
+#K211004A). Miniprep DNA of some mutants from the 96-well platewas sent for sequencing. The miniprep DNA was used to transformcompetent BL21 cells in a 96-well plate for further protein expressionand functional assays.
+E. coli heat shock competent cell preparation in 96-well plate
+DH5α, BL21, and BL21( Δmtn) competent cells were prepared in the lab
+a n ds t o r e di nah i g h - p r o ﬁle 96-well PCR plate (Bio-Rad #HSS9641) at
+-80 °C. Brie ﬂy, an overnight preculture (no antibiotics, 37 °C) was
+started from a single colony. A 250 mL LB media was inoculated with
+5 mL of the starter culture and grown at 30 °C until the OD reached0.4–0.6, and then transferred to cold room (4 °C) for 1 h. The cells were
+centrifuged at 1000xg for 20 min at 4 °C. The cells were then gentlyresuspended in Buffer RF1 (100 mM rubidium chloride, 50 mM man-ganese chloride, 30 mM potassium acetate, 10 mM calcium chloride,15% w/v glycerol, pH 5.8), incubated at 4 °C for 30 min, then cen-trifuged. Subsequently, the cells were resuspended in 10 mL of RF2buffer (10 mM MOPS, 10 mM rubidium chloride, 75 mM calciumchloride, 15% w/v glycerol, pH 5.8). 50 µL was aliquoted into each well
+of a 96-well plate in a cold room, followed by sealing and snap-freezing
+in liquid nitrogen. The cells were stored at -80 °C until used.
+Iodide detection assay for the ethyltransferase activity of HMT
+We followed the iodide quanti ﬁcation protocol developed by Tang
+et al.25that can speci ﬁcally detect iodide and is insensitive to chloride
+concentration as described here. For HMT screening in 96-wellplates, the iodide detection reagent consisted of 1 μLp u r i ﬁed
+chloroperoxidase from Curvularia inaequalis (CiVCPO, 0.75 mg/mL)
+and 79 μL3 , 3 ′,5,5 ′-tetramethylbenzidine (TMB, Sigma #T0565), to
+which 20 μL of HMT reaction I (see below) was added. For enzyme
+kinetics of puri ﬁed HMT proteins, the iodide detection reagent
+contained 47 μL TMB, 0.5 μL CiVCPO (0.75 mg/mL), and 2.5 μLH M T
+reaction I. For the standard curve (Supplementary Fig. 13), 2.5 μLo f
+potassium iodide (KI) at varying concentrations (5 μMt o5 0 0 μM)
+was added to 47 μL TMB and 0.5 μL CiVCPO (0.75 mg/mL), and
+absorbance at 570 nm was measured (Supplementary Fig. 11) using aTecan In ﬁnite plate reader. Variance of iodide detection assay forFig. 4 | Results from AI-powered autonomous engineering of AtHMT and
+YmPhytase enzymes. a Two sequential reactions were used to quantify the activity
+ofAtHMT: (I) the HMT-catalyzed release of iodide from ethyl iodide and SAH and
+(II) colorimetric quanti ﬁcation of iodide by measuring absorbance at 570 nm. bThe
+phytase activity assay measured 4-MUP hydrolysis to 4-MU by monitoring ﬂuor-
+escence ( λex=3 5 4n m/ λem= 465 nm). The wild type exhibits a sharp decrease in
+activity at pH 6.6. ( n= 4 biological replicates) ( c) The fold change in HMT ethyl-
+transferase activity with respect to the wild type is shown in a violin plot for four
+rounds of crude lysate screening ( n≥3 biological replicates). The source data is
+available in Supplementary Data 3. dThe fold change in phytase activity with
+respect to the wild type is shown in a violin plot for four rounds of crude lysatescreening (n ≥3 biological replicates). The source data is available in Supplemen-
+tary Data 4. For detailed plots for each screening round of AtHMT and YmPhytasesee Supplementary Figs 7, 10. e,fA selection of the best performing mutants from
+each screening round were puri ﬁed and speci ﬁc activity was calculated at ( e)1 5m M
+ethyl iodide for AtHMT ( n= 3 biological replicates) and ( f) at 0.9 mM 4-MUP for
+YmPhytase ( n= 4 biological replicates). R1P1 and R1P2 denote plates 1 and 2
+respectively from the ﬁrst cycle of protein engineering. Labels with R2, R3, and R4
+denote subsequent screening rounds (e.g. R2A1 denotes well A1 from the second
+round). The mutations present in each variant can be found in SupplementaryData 3 and 4. Full kinetic characterization of the AtHMT (Supplementary
+Figs. 12 –14) and YmPhytase (Supplementary Figs. 20 –26) mutants are provided as
+Supplementary Figures. Error bars ( b−f) represent the standard deviation (SD) and
+the data are presented as mean values +/- SD. Source data underlying the ﬁgures are
+provided as a Source Data File.Article https://doi.org/10.1038/s41467-025-61209-y
+Nature Communications |         (2025) 16:5648 9AtHMT activity in 96-well plate was measured using wild-type and
+V140T mutant (Supplementary Fig. 6).
+High throughput screening for ethyltransferase activity of HMT
+Single colonies of HMT mutants in BL21 ( Δmtn) cells were picked and
+inoculated into 800 μL LB broth supplemented with 50 μg/mL kana-
+mycin for preculture. From preculture, 300 μL was used for glycerol
+stocks and stored at -80 °C. Then, 50 μL of the preculture was inocu-
+lated into 1 mL of TB (96- deepwell plate, 50 μg/mL kanamycin, 100 μM
+isopropyl β-D-1-thiogalactopyranoside (IPTG)) and incubated over-
+night at 30 °C, 900 rpm in Cytomat automated shaking incubator.Cells were pelleted at 2900xg for 15 min, then lysed in 300 μLo fl y s i s
+buffer (1.5 mg/mL lysozyme, 0.1x Bugbuster reagent, 10 μg/mL DNase
+I, 1x Halt Protease inhibitor, 50 mM sodium phosphate buffer, pH 7.5).Lysis occurred at 30 °C for 1.5 h at 900 rpm, followed by centrifugation
+for 20 min at 2900xg at room temperature.
+For Reaction I, 160 μL of crude cell lysate was mixed with 20 μL
+SAH (1 mM) and 20 μL ethyl iodide (5 mM), both freshly prepared in
+DMSO. After 1 h incubation at room temperature, 20 μLo fR e a c t i o nI
+was added to 80 μL of Reaction II (1 μLC i V C P O + 7 9 μL TMB), and
+absorbance at 570 nm was measured using Tecan In ﬁnite plate reader.
+A Python script calculated the slope of the increase in absorbance foreach well, then calculated the fold change relative to the wild type.Each screening plate contained 90 mutants with controls (two wellseach of wild type, V140T, and empty vector). For screening V140T/S99T triple mutants, each 96-well plate contained duplicates of 36
+triple mutants containing V140T/S99T, six triple mutants from the
+third round, and the same controls as above.
+HMT kinetics assay
+The Michaelis-Menten kinetics for HMT and its mutants were deter-mined for ethyl iodide and methyl iodide. A 50 μL reaction was pre-
+pared with 1 mM SAH, 10 μL haloalkane, and puri ﬁed HMT in 50 mM
+sodium phosphate buffer (pH 7.5). To prevent hydrolysis, 5x haloalk-ane stocks were freshly prepared in DMSO. For ethyl iodide, puri ﬁed
+wild-type HMT (wtHMT) was used at a ﬁnal concentration of 87 μM
+(2.4 mg/mL), V140T, round 2, and round 3 mutants at 29 μM, and
+round 4 mutants at 8.7 μM. For methyl iodide, wtHMT was used at
+0.145 nM, and V140T, round 2, round 3, and round 4 mutants at0.29 nM. After a 10 min incubation, 2.5 μL of the above reaction was
+added to the iodide assay reagent (0.5 μLC i V C P O+4 7 μLT M B ) ,a n d
+absorbance at 570 nm was measured to determine iodide concentra-tion. For the kinetic assay, the concentration of haloalkanes was variedwhile keeping HMT and SAH concentration constant. The speci ﬁc
+activity was calculated at 15 mM ethyl iodide for all puri ﬁed HMT
+proteins. Autohydrolysis rates for each haloalkane concentration weresimultaneously measured and subtracted from enzymatic reactionrates. The amount of iodide produced per minute was calculated using
+the standard curve (Supplementary Fig. 9) and ﬁtt ot h eM i c h a e l i s -
+Menten model using Origin software. All reactions were performed intriplicate.
+Puriﬁcation of HMT proteins
+We followed the published protocol25for purifying chloroperoxidase
+from Curvularia inaequalis (CiVCPO) and stored in 50 mM sodium
+phosphate buffer (pH 8.0) with 100 µMs o d i u mo r t h o v a n a d a t e .F o rt h e
+iodide detection assay, 0.375 mg CiVCPO was added per 50 μL
+reaction.
+For HMT puri ﬁcation, starter cultures were prepared from gly-
+cerol stocks of mutant libraries in BL21 Δmtn (DE3) strain. For protein
+expression, a 1:100 preculture was added to TB (50 μg/mL kanamycin)
+and grown at 37 °C until the OD600 reached ~0.6. Cells were cooledand incubated overnight at 20 °C with 200 μM IPTG. The cells were
+harvested by centrifugation at 10,000 x g at 4 °C for 10 min, and thepellet was resuspended in lysis buffer (20 mM sodium phosphate,0.5 M sodium chloride, 20 mM imidazole, 1× PIC, pH 7.5). Cells were
+lysed by sonication (10 min on ice, 20% amplitude), followed by cen-trifugation (12,000xg, 20 min at 4 °C). His6-tagged proteins werepuriﬁed using immobilized metal-af ﬁnity chromatography (IMAC).
+Lysates were clari ﬁed through a 0.45 μmﬁlter, and 2 mL of pre-washed
+nickel beads (Nuvia ™IMAC Resin, Bio-Rad #7800800) were added.
+After 45 min of incubation and mixing at 4 °C, the lysates were cen-trifuged at 2900xg, and the supernatant was discarded. The af ﬁnity
+beads were transferred to a column and washed with 10x volume oflysis buffer. Proteins were eluted with elution buffer (20 mM sodiumphosphate, 0.5 M sodium chloride, and 0.2 M imidazole, pH 7.5), thendesalted using PD-10 desalting columns (Cytiva #17085101) and Ami-con Ultra 10 kDa centrifugal ﬁlters. The proteins were stored in 50 mM
+sodium phosphate (pH 7.5), and concentrations were determinedusing absorbance at 280 nm with a Nanodrop, using the HMT extinc-
+tion coef ﬁcient (42,065 M
+−1cm−1). Purity was analyzed via SDS-PAGE
+(Supplementary Fig. 15).
+High throughput screening for phytase activity using
+4-MUP assay
+Single colonies of phytase plasmids in BL21 cells were picked and
+inoculated into 800 μL LB broth supplemented with 50 μg/mL kana-
+mycin for preculture in a 96-deepwell plate. 1 mL of autoinductionmedia (15 g/L peptone, 30 g/L yeast extract, 6.25 mL/L glycerol, 90 mL1 M potassium phosphate buffer pH 7, 10 mL glucose (50 g/L), 100 mLlactose (20 g/L), and 50 μg/mL kanamycin) was inoculated with 5 μL
+aliquot of the preculture in a 96-deepwell plate. Phytase was expressed
+overnight (16 h, 37 °C, 900 rpm) in a Cytomat automated shakingincubator. Cells were pelleted by centrifugation (2900xg, 15 min, roomtemperature) and resuspended in 200 μL lysis buffer (1 mg/mL lyso-
+zyme, 50 mM Tris-HCl buffer, pH 7.5). Lysis was carried out by incu-bating at 37 °C, 900 rpm for 1 h, followed by centrifugation to removecell debris.
+Phytase activity was measured using a ﬂuorescence-based 4-MUP
+assay
+26,27. Cleared cell lysate (10 μL) was added to 90 μLo f1 . 1 1 m M
+4-MUP (4-methylumbelliferyl phosphate, Sigma #M8168) in Tris-maleate buffer (0.2 M, pH 6.6) in black, clear-bottom plates. The
+increase in ﬂuorescence ( λ
+ex=3 5 4n m / λem= 465 nm) was measured
+over time using a Tecan In ﬁnite M1000 plate reader. Each screening
+plate contained 90 mutants and six control wells (wild type, M16(T44V/K45E) mutant, empty vector, and the best mutant from theprevious round). The slope of the ﬂuorescence increase was calculated
+for each well using a Python script, with empty vector values sub-tracted at each time point for normalization.
+Standard curve for 4-MUP assay
+4-Methylumbelliferone (4-MU, Sigma #M1381) was dissolved intomethanol and 50 µL of dissolved 4-MU solution was mixed with 50 µL
+of appropriate pH buffer. For pH 4.5, the buffer used was 0.25 M
+sodium acetate, 1 mM calcium chloride, 0.01% Tween-20. For pH 5.6and 6.6, 0.2 M tris maleate buffer was used. Fluorescence ( λ
+ex=3 5 4n m
+/λem= 465 nm) was measured using Tecan In ﬁnite plate reader and
+plotted against 4-MU concentrations to generate standard curves foreach pH (Supplementary Fig. 17).
+Phytase kinetics assay
+Kinetics of phytase variants was determined using a4-methylumbelliferyl phosphate (4-MUP) assay as previously descri-bed with some modi ﬁcations
+5as described here. Assays at pH 5.6 and
+6.6 were performed in 0.2 M tris maleate buffer while assays at pH 4.5
+were performed in 0.25 M sodium acetate, 1 mM calcium chloride,
+0.01% Tween-20 buffer. Standard curves for pH 4.5, 5.6 and 6.6 wereprepared for different concentrations of 4-MU (4-methylumbellifer-one), the ﬂuorescent product of 4-MUP (pH 4.5: 2.5-640 μM;
+pH 5.6: 2.5-320 μM; pH 6.6: 3.125-40 μM) and can be viewed inArticle https://doi.org/10.1038/s41467-025-61209-y
+Nature Communications |         (2025) 16:5648 10Supplementary Fig. 15. 50 μL of 4-MU dissolved in methanol was mixed
+with 50 μLo ft h es p e c i ﬁed buffer followed by ﬂuorescent measure-
+ment with λex354 nm and λem465 nm on a Tecan INFINITE plate
+reader. To prepare enzymes for kinetic assays, proteins were ﬁrst
+mixed with 1 mM AEBSF (4-benzenesulfonyl ﬂuoride hydrochloride)
+and incubated at 37 °C for 30 min. 90 μLo f4 - M U Ps u b s t r a t ei n
+respective buffer was then mixed with 10 μLo ft h ee n z y m es o l u t i o n
+followed by kinetic measurement on the TECAN in ﬁnite. Fluorescence
+data was converted to mM 4-MU using the appropriate standardcurves then divided by the enzyme concentration and used to calcu-late initial reaction rates. As Yersinia mollaretii phytase is a tetrameric
+enzyme with allosteric interactions, initial reaction rates were ﬁtu s i n g
+OriginLab graphing software to the Hill equation y=V
+max*x/(Khalf+x)
+where y is the initial reaction rate, Vmax is the maximum reaction rate,X is the substrate concentration, and K
+halfis the substrate concentra-
+tion that enables half the maximum reaction rate.
+Puriﬁcation of phytase proteins
+For phytase protein puri ﬁcation, BL21 glycerol stock from each round
+was used to inoculate a starter culture in LB medium followed bygrowth at 37 °C for 12 –16 h. 5 mL of starter cultures were added to
+ﬂasks containing 500 mL Terri ﬁc Broth (6 g tryptone, 12 g yeast
+extract, 2 mL glycerol, 0.085 mol potassium dihydrogen phosphate,0.36 mol dipotassium hydrogen phosphate) supplemented with50μg/mL kanamycin. Flasks were then shaken at 200 rpm and 37 °C
+for 12 –16 h. Following growth, protein expression was induced by
+adding 100 µM IPTG and culturing for an additional 4 h at 200 rpm and
+37 °C. The cells were harvested by centrifugation at 10,000xg at 4 °Cfor 10 min, and the pellet was resuspended in lysis buffer (20 mMsodium phosphate, 0.5 M sodium chloride, 30 mM imidazole, 1× Pro-tease Inhibitor Cocktail (Sigma #P8849), pH 7.5) su pplemented with
+1 mg/mL lysozyme. Cells were then lysed for 1 h at 37 °C followed bycentrifugation (12,000xg, 20 min at 4 °C). His6-tagged proteins werepuriﬁed using immobilized metal-af ﬁnity chromatography (IMAC).
+Lysates were clari ﬁed through a 0.45 μmﬁlter, and 3 mL of pre-washed
+nickel beads (Nuvia ™IMAC Resin, Bio-Rad #7800800) were added.
+After 45 min of incubation and mixing at room temperature, the
+lysates were centrifuged at 2900xg, and the supernatant was dis-
+carded. The af ﬁnity beads were transferred to a column and washed
+with 10x volume of lysis buffer. Protein was eluted by adding 10 mLelution buffer (20 mM sodium phosphate, 0.5 M sodium chloride, and0.2 M imidazole, pH 7.5). Protein was concentrated and the buffer wasexchanged to 0.25 M sodium acetate, pH 5.5, 1 mM calcium chloride,0.01% Tween-20 using Amicon Ultra 10 kDa centrifugal ﬁlters. Con-
+centrations were determined using absorbance at 280 nm with aNanodrop and enzymes were stored at 4 °C. Purity was analyzed viaSDS-PAGE (Supplementary Fig. 16).
+PAGE gels for puri ﬁed proteins
+For SDS-PAGE, the puri ﬁed proteins were mixed with 1x Laemmli
+sample buffer (Biorad #1610737) w ith 5% 2-mercaptoethanol (Sigma
+#M6250) and boiled at 95 °C for 5 min. An equal amount of eachsample was then loaded onto a 10% precast gel (Biorad #4561034) withprotein ladder (Biorad # 1610374) and run using Tris/Glycine/SDSrunning buffer (Biorad # 1610732). After Coomassie staining, the gelswere thoroughly washed before imaging. For native gel for phytaseproteins, the puri ﬁed proteins were mixed with native sample buffer
+(Biorad #1610738) and equal amount was loaded onto 7.5% gel (Biorad#4568024) and run with Tris/glycine running buffer (Biorad #1610771). NativeMark unstained protein standard (Invitrogen #
+LC0725) ladder was used for native gel.
+Worklist generation and laboratory automation
+The seamless integration of various modules required generating
+worklists for PCR, which were created using Python scripts. Each roundof mutagenesis added one additional mutation to plasmids generated
+in the previous round, such that the variants in the third round ofevolution contained three total mutations. Thus, linearized plasmidscontaining mutations from one round of screening serve as templates
+for the next round. A Python script ef ﬁciently selected the minimal
+number of PCR templates needed for the next cycle. The linearizedPCR templates were transferred to a 384-well plate, and a worklist wasgenerated to distribute them into a 96-well PCR plate. Another worklistwas created to distribute the primers using Tecan Fluent in 96-well PCRplates. Primers were ordered in a 96-well format from IDT and dilutedto 2μMs t o c k sw i t h1 2 . 5 μL being added to each PCR reaction. Work-
+lists were also used for spreading the transformed E. coli cells in 8-well
+omnitray LB plates. Laboratory automation was facilitated using theiBioFAB facility, which employs a Thermo F5 robotic arm to connectinstruments and Thermo Momentum Scheduling software to execute
+integrated and automated experimental work ﬂows. The comprehen-
+sive descriptions about instrumentation and automation are providedin Supplementary Fig. 2-5.
+Reporting summary
+Further information on research design is available in the NaturePortfolio Reporting Summary linked to this article.
+Data availability
+The raw data for all ﬁgures and tables are included in the Source Data
+File. The AtHMT and YmPhytase mutant functional assay screening
+data generated in this study ar ep r o v i d e di nS u p p l e m e n t a r y
+Data 3 and 4, respectively. The plasmids created during this researchare available upon request. Correspondence and requests for materialsshould be addressed to Huimin Zha o. The corresponding author will
+respond within a month for any plasmid requests. Source data areprovided with this paper.
+Code availability
+The source code for zero-shot predictions and supervised learningmodel is available at https://github.com/Zhao-Group/closed-loop .
+The python scripts used for primer design and worklist generation
+are available at https://github.com/Zhao-Group/Primer_Design_and_
+Worklists . Both repositories can also be found at https://zenodo.org/
+records/15243671 andhttps://zenodo.org/records/15233300 .
+References
+1 . M a r t i n ,H .G .e ta l .P e r s p e c t i v e sf o rs e l f - d r i v i n gl a b si ns y n t h e t i c
+biology. Curr. Opin. Biotechnol. 79, 102881 (2023).
+2. Tom, G. et al. Self-driving laboratories for chemistry and materials
+science. Chem. Rev. 124,9 6 3 3 –9732 (2024).
+3. Dai, T. et al. Autonomous mobile r obots for exploratory synthetic
+chemistry. Nature 635,8 9 0 –897 (2024).
+4 . K i n g ,R .D .e ta l .T h ea u t o m a t i o no fs c i e n c e . Science 324,8 5 –89
+(2009).
+5. Boiko, D. A., MacKnight, R., Kline, B. & Gomes, G. Autonomous
+chemical research with large language models. Nature 624,
+570 –578 (2023).
+6. MacLeod, B. P. et al. Self-driving laboratory for accelerated dis-
+covery of thin- ﬁlm materials. Sci. Adv. 6, eaaz8867 (2020).
+7. Szymanski, N. J. et al. An autonomous laboratory for the accelerated
+synthesis of novel materials. Nature 624,8 6 –91 (2023).
+8. Burger, B. et al. A mobile robotic chemist. Nature 583,2 3 7 –241
+(2020).
+9. Carbonell, P., Radivojevic, T. & García Martín, H. Opportunities at
+the intersection of synthetic biology, machine learning, and auto-
+mation. ACS Synth. Biol. 8,1 4 7 4 –1477 (2019).
+10. Yu, T., Boob, A. G., Singh, N., Su, Y. & Zhao, H. In vitro continuous
+protein evolution empowered by machine learning and automation.Cell Syst. 14,6 3 3 –644 (2023).Article https://doi.org/10.1038/s41467-025-61209-y
+Nature Communications |         (2025) 16:5648 1111. Rapp, J. T., Bremer, B. J. & Romero, P. A. Self-driving laboratories to
+autonomously navigate the protein ﬁtness landscape. Nat. Chem.
+Eng. 1,9 7 –107 (2024).
+12. Thurow, K. Automation for life science laboratories. Adv. Biochem
+Eng. Biotechnol. 182,3–22 (2022).
+13. HamediRad, M. et al. Towards a fully automated algorithm driven
+platform for biosystems design. Nat. Commun. 10, 5150 (2019).
+14. Arnold, F. H. Directed evolution: bringing new chemistry to life.
+Angew. Chem. Int. Ed. 57,4 1 4 3 –4148 (2018).
+15. Brannigan, J. A. & Wilkinson, A. J. Protein engineering 20 years on.
+Nat. Rev. Mol. Cell Biol. 3,9 6 4 –970 (2002).
+16. Romero, P. A. & Arnold, F. H. Exploring protein ﬁtness landscapes
+by directed evolution. Nat. Rev. Mol. Cell Biol. 10,8 6 6 –876 (2009).
+17. Wang, Y. et al. Directe d evolution: methodologies and applications.
+Chem. Rev. 121,1 2 3 8 4 –12444 (2021).
+18. Lutz, S. & Iamurri, S. M. Protein engineering: past, present, and
+future. In Protein Engineering: Methods and Protocols (eds. Born-
+scheuer, U. T. & Höhne, M.) 1 –12 (Springer, 2018).
+19. Yang, J., Li, F.-Z. & Arnold, F. H. Opportunities and challenges for
+machine learning-assisted enzyme engineering. ACS Cent. Sci. 10,
+226 –241 (2024).
+20. Stephenson, A. et al. Physical laboratory automation in synthetic
+biology. ACS Synth. Biol. 12,3 1 5 6 –3169 (2023).
+21. Enghiad, B. et al. PlasmidMaker is a versatile, automated, and high
+throughput end-to-end platform for plasmid construction. Nat.
+Commun. 13, 2697 (2022).
+22. Lin, Z. et al. Evolutionary-scale prediction of atomic-level protein
+structure with a language model. Science 379, 1123 –1130 (2023).
+23. Hopf, T. A. et al. Mutation effects predicted from sequence co-
+variation. Nat. Biotechnol. 35,1 2 8 –135 (2017).
+24. Hsu, C., Nisonoff, H., Fannjiang, C. & Listgarten, J. Learning protein
+ﬁtness models from evolutionary and assay-labeled data. Nat. Bio-
+technol. 40, 1114 –1122 (2022).
+25. Tang, Q. et al. Directed evolution of a halide methyltransferase
+enables biocatalytic synthesis of diverse sam analogs. Angew.
+Chem. Int. Ed. 60,1 5 2 4 –1527 (2021).
+26. Korfer, G. et al. Directed evolu tion of an acid Yersinia mollaretii
+phytase for broadened activity at neutral pH. Appl. Microbiol. Bio-
+technol. 102,9 6 0 7 –9620 (2018).
+27. Shivange, A. V. et al. Directed evolution of a highly active Yersinia
+mollaretii phytase. Appl Microbiol. Biotechnol. 95,4 0 5 –418 (2012).
+28. Si, T. et al. Automated multiplex genome-scale engineering in
+yeast. Nat. Commun. 8, 15187 (2017).
+29. Chao, R. et al. Fully automated one-step synthesis of single-
+transcript TALEN pairs using a biological foundry. ACS Synth. Biol.
+6,6 7 8 –685 (2017).
+30. Ayikpoe, R. S. et al. A scalable platform to discover antimicrobials of
+ribosomal origin. Nat. Commun. 13, 6135 (2022).
+31. Yuan, Y., Huang, C., Singh, N., Xun, G. & Zhao, H. Self-resistance-
+gene-guided, high-throughput automated genome mining ofbioactive natural products from Streptomyces. Cell Syst. 16,
+101237 (2025).
+32. Wittmann, B. J., Yue, Y. & Arnold, F. H. Informed training set design
+enables ef ﬁcient machine learning-assisted directed protein evo-
+lution. Cell Syst. 12,1 0 2 6 –1045.e7 (2021).
+33. Meier, J. et al. Language models e nable zero-shot prediction of the
+effects of mutations on protein function. In Advances in Neural
+Information Processing Systems 34 (NeurIPS 2021).
+34. Schönherr, H. & Cernak, T. Prof ound Methyl Effects in Drug Dis-
+covery and a Call for New C −H Methylation Reactions. Angew.
+Chem. Int. Ed. 52, 12256 –12267 (2013).
+35. Tang, Q., Pavlidis, I. V., Badenhorst, C. P. S. & Bornscheuer, U. T.
+From natural methylation to vers atile alkylations using halide
+methyltransferases. ChemBioChem 22,2 5 8 4 –2590 (2021).36. Yang, G.-Y., Zheng, G.-W., Zeng, B.-B., Xu, J.-H. & Chen, Q. Engi-
+neering of halide methyltransferases for synthesis of SAE and itsapplication in biosynthesis of ethyl vanillin. Mol. Catal. 550,
+113533 (2023).
+37. Haefner, S. et al. Biotechnological production and applications of
+phytases. A p p l .M i c r o b i o l .B i o t e c h n o l . 68,5 8 8 –597 (2005).
+38. Schmidt-Dannert, C. & Arnold, F. H. Directed evolution of industrial
+enzymes. Trends Biotechnol.
+17,1 3 5 –136 (1999).
+39. Abramson, J. et al. Accurate str ucture prediction of biomolecular
+interactions with AlphaFold 3. Nature 630,4 9 3 –500 (2024).
+40. Hu, R. et al. Protein engineering via Bayesian optimization-guided
+evolutionary algorithm and robotic experiments. Brief. Bioinform.
+24, bbac570 (2023).
+41. Santoni, M. L., Raponi, E., Leone, R. D. & Doerr, C. Comparison of
+high-dimensional bayesian optimization algorithms on BBOB. ACM
+Trans. Evol. Learn Optim. 4,1 7 : 1 –17:33 (2024).
+4 2 . M a r q u e t ,C . ,S c h l e n s o k ,J . ,A b a k a r o v a ,M . ,R o s t ,B .&L a i n e ,E .E x p e r t -
+guided protein language models enable accurate and blazingly fastﬁtness prediction. Bioinformatics 40,b t a e 6 2 1( 2 0 2 4 ) .
+43. Radivojevi ć, T., Costello, Z., Workman, K. & Garcia Martin, H. A
+machine learning automated recommendation tool for syntheticbiology. Nat. Commun. 11, 4879 (2020).
+44. Reisenbauer, J. C., Sicinski, K. M. & Arnold, F. H. Catalyzing the
+future: recent advances in chemical synthesis using enzymes. Curr.
+Opin. Chem. Biol. 83,1 0 2 5 3 6( 2 0 2 4 ) .
+45. Lawson, C. E. et al. Machine learning for metabolic engineering: a
+review. Metab. Eng. 63,3 4 –60 (2021).
+46. Gricourt, G., Meyer, P., Duigou, T. & Faulon, J.-L. Arti ﬁcial intelli-
+gence methods and models for retro-biosynthesis: a scopingreview. ACS Synth. Biol. 13, 2276 –2294 (2024).
+47. Norton-Baker, B. et al. Enabling h igh-throughput enzyme discovery
+and engineering with a low-cost, robot-assisted pipeline. Sci. Rep.
+14, 14449 (2024).
+48. Diefenbach, X. W. et al. Enabling biocatalysis by high-throughput
+protein engineering using droplet micro ﬂuidics coupled to mass
+spectrometry. ACS Omega 3,1 4 9 8 –1508 (2018).
+49. Segal, M. An operating system for the biology lab. Nature 573,
+S112 –S113 (2019).
+50. Global Centers (GC). NSF—National Science Foundation .https://
+new.nsf.gov/funding/opportunities/gc-global-centers (2024).
+51. Bell, E. L. et al. Biocatalysis. Nat. Rev. Methods Prim. 1,1–21 (2021).
+52. Hopf, T. A. et al. The EVcouplings python framework for coevolu-
+tionary sequence analysis. Bioinformatics 35
+,1 5 8 2 –1584 (2019).
+53. Rives, A. et al. Biological structure and function emerge from
+scaling unsupervised learning to 250 million protein sequences.P r o c .N a t lA c a d .S c i . 118, e2016239118 (2021).
+54. Rabe, B. A. & Cepko, C. A simple enhancement for gibson iso-
+thermal assembly. bioRxiv https://doi.org/10.1101/2020.06.14.
+150979 (2020).
+Acknowledgements
+This work was supported by the Molecule Maker Lab Institute: An AI
+Research Institute program supported by U.S. National Science Foun-dation (NSF) under grant no. 2019897 (H.Z.), the NSF iBioFoundry (DBI-2400058 to H.Z.), the NSF Global Center for Reliable and ScalableBiofoundries (OISE-2435374 to H.Z.), and U.S. Department of Energy(DOE) Center for Advanced Bioenergy and Bioproducts Innovation(award no. DE-SC0018420 to H.Z.). Any opinions, ﬁndings and conclu-
+sions or recommendations expressed in this material are those of theauthor(s) and do not necessarily re ﬂect those of the funding agencies.
+We thank members of the Biosystems Design theme at the Carl R. Woese
+Institute for Genomic Biology for their discussions and feedback. Wethank Prof. Uwe Bornscheuer (University of Greifswald) for sharingresearch materials necessary for the AtHMT enzyme and Prof. UlrichArticle https://doi.org/10.1038/s41467-025-61209-y
+Nature Communications |         (2025) 16:5648 12Schwaneberg and Dr. Anna Joelle Ruff f or helpful discussions related to
+theYmPhytase enzyme. We also thank N icole Setiawan for general
+laboratory duties that helped this project. All or parts of Fig. 1,F i g . 2and
+Supplementary Fig. 2 has been created in Biorender ( https://www.
+biorender.com/ ).
+Author contributions
+T.Y. predicted enzyme mutations using the unsupervised and super-
+vised models and designed the natural language agent. N.S. developedthe site-directed mutagenesis protocol and designed the automatedworkﬂow while N.S. and S.L. performed a utomation implementation and
+operation. N.S. and S.L performed the four cycles of engineering of theAtHMT and YmPhytase enzymes. H.C. validated the phytase 4-MUP
+assay. A.R. helped with performing pr otein engineering experiments and
+SDM. N.S., S.L., and J.L. puri ﬁed the AtHMT and YmPhytase protein
+variants and performed kinetic characterization. N.S., S.L., T.Y., and H.Z.
+wrote the manuscript. All authors contributed to editing the manuscript.H.Z. directed research activities and procured the funding to supportthis study.
+Competing interests
+The authors declare no competing interests.
+Additional information
+Supplementary information The online version contains
+supplementary material available at
+https://doi.org/10.1038/s41467-025-61209-y .
+Correspondence and requests for materials should be addressed to
+Huimin Zhao.Peer review information Nature Communications thanks Tong Si,
+Yongcan Chen and the other, anonymous, reviewer(s) for their con-tribution to the peer review of this work. A peer review ﬁle is available.
+Reprints and permissions information is available at
+http://www.nature.com/reprints
+Publisher ’s note Springer Nature remains neutral with regard to jur-
+isdictional claims in published maps and institutional af ﬁliations.
+Open Access This article is licensed under a Creative Commons
+Attribution-NonCommercial-NoDeri vatives 4.0 International License,
+which permits any non-commercial use, sharing, distribution andreproduction in any medium or format, as long as you give appropriatecredit to the original author(s) and the source, provide a link to the
+Creative Commons licence, and indicate if you modi ﬁed the licensed
+material. You do not have permission under this licence to share adaptedmaterial derived from this article or parts of it. The images or other thirdparty material in this article are included in the article ’s Creative
+Commons licence, unless indicated otherwise in a credit line to the
+material. If material is not included in the article ’s Creative Commons
+licence and your intended use is not permitted by statutory regulation orexceeds the permitted use, you will need to obtain permission directlyfrom the copyright holder. To view a copy of this licence, visit http://
+creativecommons.org/licenses/by-nc-nd/4.0/ .
+© The Author(s) 2025Article https://doi.org/10.1038/s41467-025-61209-y
+Nature Communications |         (2025) 16:5648 13
