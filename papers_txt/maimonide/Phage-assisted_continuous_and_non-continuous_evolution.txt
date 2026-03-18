@@ -1,0 +1,2262 @@
+--- Page 1 ---
+Phage-assisted continuous and non-continuous
+evolution
+Shannon M. Miller1,2,3,5, Tina Wang1,2,3,4,5 and David R. Liu
+1,2,3✉
+Directed evolution, which applies the principles of Darwinian evolution to a laboratory setting, is a powerful strategy for
+generating biomolecules with diverse and tailored properties. This technique can be implemented in a highly efﬁcient
+manner using continuous evolution, which enables the steps of directed evolution to proceed seamlessly over many
+successive generations with minimal researcher intervention. Phage-assisted continuous evolution (PACE) enables
+continuous directed evolution in bacteria by mapping the steps of Darwinian evolution onto the bacteriophage life cycle
+and allows directed evolution to occur on much faster timescales compared to conventional methods. This protocol
+provides detailed instructions on evolving proteins using PACE and phage-assisted non-continuous evolution (PANCE)
+and includes information on the preparation of selection phage and host cells, the assembly of a continuous ﬂow
+apparatus and the performance and analysis of evolution experiments. This protocol can be performed in as little as
+2 weeks to complete more than 100 rounds of evolution (complete cycles of mutation, selection and replication) in a single
+PACE experiment.
+Introduction
+A single round of conventional directed evolution of gene-encoded biomolecules requires four dis-
+crete steps: mutagenesis, gene expression, screening or selection and replication1,2. Typically, per-
+forming these four steps to complete a round of evolution requires several days and extensive
+researcher engagement. Because it often takes several rounds or more to evolve desirable properties,
+the ability to carry out laboratory evolution in an automated or self-sustaining manner can greatly
+increase the efﬁciency of obtaining optimal protein variants. The ﬁrst demonstration of so-called
+‘continuous’ evolution was reported by Mills et al. over 5 decades ago3. In this seminal work, the Qβ
+phage RNA genome was minimized and optimized through serial ampliﬁcation with its cognate
+RNA-dependent RNA replicase. Thirty years later, Wright and Joyce established the feasibility of the
+continuous evolution of catalytic function4. This groundbreaking work was nevertheless limited to
+in vitro RNA evolution and not easily adaptable to proteins or intracellular settings.
+PACE was reported in 2011 as a versatile continuous method for protein evolution in bacterial
+cells5. By mapping the discrete steps of laboratory evolution onto the life cycle of M13 ﬁlamentous
+bacteriophage and using mutagenesis plasmids to diversify in situ, PACE requires minimal researcher
+intervention during evolution and allows for the evolution of new or improved activity in signiﬁcantly
+shorter timespans compared to traditional methods. Here we describe a protocol for PACE with
+instructions for preparation of cell lines, phage and an apparatus for continuous ﬂow. We also include
+instructions to adapt these components for PANCE and describe approaches for the analysis of
+evolution experiments.
+Development of the protocol
+During PACE, propagation of an evolving population of ﬁlamentous bacteriophage (‘selection phage’
+(SP); Box 1) is dependent on the activity of a protein of interest (POI; Box 1) encoded in the phage
+genome (Fig. 1a)2,5. The SP exist in a ‘lagoon’ of ﬁxed volume that is continuously diluted with a
+culture of host Escherichia coli cells. The SP population can persist in the lagoon only if their rate of
+propagation from infecting and replicating in host cells exceeds their rate of dilution. The SP are
+engineered to lack gene III (gIII), which encodes the minor coat protein pIII. Because pIII is
+1Merkin Institute of Transformative Technologies in Healthcare, The Broad Institute of Harvard and MIT, Cambridge, MA, USA. 2Department of
+Chemistry and Chemical Biology, Harvard University, Cambridge, MA, USA. 3Howard Hughes Medical Institute, Harvard University, Cambridge, MA,
+USA. 4Department of Chemistry, University of Wisconsin–Madison, Madison, WI, USA. 5These authors contributed equally: Shannon M. Miller,
+Tina Wang. ✉e-mail: drliu@fas.harvard.edu
+NATURE PROTOCOLS |www.nature.com/nprot
+1
+PROTOCOL
+https://doi.org/10.1038/s41596-020-00410-3
+1234567890():,;
+1234567890():,;
+
+
+--- Page 2 ---
+absolutely essential for both host cell infection and phage particle detachment during assembly, it can
+be used to link POI activity and phage propagation. In PACE, gIII is provided on an accessory
+plasmid (AP; Box 1)6 in the host cells, and its expression is triggered by the desired activity from the
+POI encoded in its place on the SP genome (Fig. 1b). Therefore, only SP encoding an active POI can
+induce pIII production and propagate faster than their rate of dilution5.
+To simultaneously evolve and select for function, the host cells also contain a mutagenesis plasmid
+(MP; Box 1)5,7,8. The MP subjects all DNA in the host cell to random mutagenesis, including the SP
+and host cell genomes, as well as any plasmids the cell contains (i.e., the AP and MP) (Fig. 1b).
+Critically, because the host cells replicate more slowly than the rate of lagoon turnover, any cells that
+accumulate mutations in their plasmids or genome are washed out of the system and replaced with
+fresh host cells. Thus, the only persisting genetic variation occurs in the SP, which replicates at a
+much faster rate of ~15 min per life cycle9.
+PACE was initially validated by evolving T7 RNA polymerase (T7 RNAP) mutants that transcribe
+from the T3 promoter (PT3) (Fig. 1c)5. After 8 d of continuous evolution in PACE (corresponding to
+~200 generations of T7 RNAP mutation, selection and replication), promiscuous RNAPs that could
+initiate transcription from both the native (PT7) and target (PT3) promoters emerged5. Although this
+initial example demonstrated the power of protein continuous evolution, the study also highlighted
+limitations in the early PACE technology that were addressed through subsequent developments.
+For example, applications in cellular or therapeutic contexts would likely require PACE-evolved
+proteins to be highly selective to avoid detrimental off-target activity. Therefore, our laboratory
+developed negative selection PACE by linking undesired activity to the expression of a dominant-
+negative version of pIII, pIII-neg (Fig. 1d)10, which contains a deletion of 70 amino acids in its C
+domain that results in the production of phage particles unable to detach from the host cell mem-
+brane during phage assembly even in the presence of wild-type pIII11. Negative selection can be
+implemented simultaneously with a positive selection during PACE such that desired activity leads to
+gIII expression, and undesired activity leads to gIII-negative expression10.
+The ability to simultaneously mutagenize and select for activity is a critical component for con-
+tinuous evolution. Mutagenesis must occur at levels sufﬁcient to access active sequences during
+selection. The initial mutagenesis plasmid, MP1, increased mutagenesis rates ~100-fold over the basal
+E. coli mutation rate by expressing a dominant-negative variant of the E. coli DNA polymerase III
+proofreading domain (dnaQ926) and the error-prone DNA polymerase V (polV) (Table 1)5. How-
+ever, the resulting mutational rate of ~10−8 substitutions per base pair per generation was low
+compared to in vitro mutagenesis techniques, impeding access to variants containing many muta-
+tions1. To address this limitation, our laboratory developed inducible mutagenesis plasmids
+(MP2–MP6) with a wide range of cellular mutagenesis rates (Table 1)8. These MPs increase muta-
+genesis rates by expressing additional proteins that increase DNA methylation and deamination (dam
+and cda1), inhibit cellular repair pathways (ugi) and retain mutagenic bases in the cell (emrR)12.
+Uninduced background mutagenesis was decreased by strategically orienting the genes to remove
+Box 1 | Abbreviations and deﬁnitions
+POI: protein of interest. The protein whose activity is selected for in evolution.
+SP: selection phage. M13 bacteriophage with gIII removed from the genome. The POI is encoded on the SP genome in its place under the control of
+the gIII promoter (PgIII).
+AP: accessory plasmid. A plasmid in the host cells that encodes the phage survival genes, usually comprised of gIII transcribed from a promoter
+that is triggered by POI activity.
+CP: complementary plasmid. A plasmid in the host cells that expresses any non-evolving proteins or other elements that are important for
+supporting the selection. Often, this plasmid encodes a polymerase that is activated by POI activity.
+MP: mutagenesis plasmid. A plasmid in the host cells that expresses mutagenic genes upon induction with arabinose. The most commonly used
+mutagenesis plasmid, MP6, expresses the genes dnaQ926, dam, seqA, emrR, ugi and cda1 from an arabinose-inducible promoter.
+DP: drift plasmid. A plasmid in the host cells that expresses mutagenic genes upon induction with arabinose and also allows for genetic drift
+through the expression of gIII upon induction with anhydrotetracycline and phage infection. The most common drift plasmid, DP6, expresses the
+genes dnaQ926, dam, seqA, emrR, ugi and cda1 from an arabinose-inducible promoter and gIII from a hybrid phage shock/Tet promoter.
+S2060: The E. coli cell line engineered for use in PACE (Materials). The parent strain is DH10B. Modiﬁcations were made to enable infection by
+M13 phage, reduce bioﬁlming, enable the use of n-hybrid systems and enable colorimetric or luminescent detection of phage infection. The strain
+has the genotype F’ proA+B+ Δ(lacIZY) zzf::Tn10 lacIQ1 PN25-tetR luxCDE Ppsp(AR2) lacZ luxR Plux groESL / endA1 recA1 galE15 galK16 nupG rpsL
+ΔlacIZYA araD139 Δ(ara,leu)7697 mcrA Δ(mrr-hsdRMS-mcrBC) proBA::pir116 araE201 ΔrpoZ Δﬂu ΔcsgABCDEFG ΔpgaC λ–.
+S2208: S2060 cells transformed with pJC175e, a plasmid that expresses gIII under the control of the phage shock promoter, allowing for activity-
+independent phage growth.
+PACE host cells: S2060 cells transformed with a combination of the AP(s)/CP(s) needed for a given selection.
+PROTOCOL
+NATURE PROTOCOLS
+2
+NATURE PROTOCOLS|www.nature.com/nprot
+
+
+--- Page 3 ---
+potential unwanted promoters and by adding seqA to modulate DNA supercoiling8. In E. coli, full
+induction of the most mutagenetic MP (MP6) results in a ~300,000-fold increase in the mutation rate
+of chromosomal DNA (Table 1), which corresponds to ∼2.3 substitutions per kb per generation in
+phage8. The greatly increased rate of mutagenesis provided by MP6 allowed evolution of T7 RNAP
+variants active on the T3 promoter in less than 10 h, compared to ~200 h when using MP1.
+In directed evolution, selection stringency affects both the feasibility of evolution and the activity
+of surviving proteins. Selection stringency in PACE has been modulated using several strategies,
+which are discussed further below: (i) changing the rate of lagoon dilution; (ii) using evolutionary
+stepping stones to guide the evolving SP through a series of progressively more challenging targets;
+(iii) applying drift by using a drift plasmid (DP), which mutagenizes DNA while providing pIII in a
+selection-independent manner to generate diversity with little selection pressure; and (iv) adjusting
+the selection circuit on the AP that relates desired activity to pIII production5,7,8,10,13–18.
+Increasing the lagoon dilution rate in PACE increases the required rate of replication for SP
+persistence. Thus, the SP must trigger gIII production at a higher rate, which, in turn, correlates to
+higher POI activity. Because selection in PACE is kinetically controlled, POIs that act slowly can be
+more difﬁcult to evolve, and ﬂow rates below 0.5 volumes/h can lead to bioﬁlm formation in pump
+tubing. In these cases, PANCE can present a lower-stringency alternative18–20. PANCE uses the same
+selection principles as PACE but is performed through serial dilution instead of under continuous
+ﬂow (Supplementary Fig. 1a). In addition to lower stringency, PANCE also enables multiplexing of
+phage-based evolution as it can be performed easily in parallel (i.e., in deep-well plates)18,21. However,
+PANCE is slower and can be more time intensive than PACE.
+The lagoon
+AP
+MP
+AP
+MP
+SP
+Constant inflow
+from chemostat
+Phage (SP)
+infection
+Host cells with
+accessory plasmid &
+mutagenesis plasmid
+Active gene variants trigger pIII
+production and phage propagation
+Constant outflow
+to waste
+Inactive gene variants do not trigger
+pIII production and cannot replicate
+a
+AP
+MP
+SP
+MP
+Mutagenic genes
+AraC
+Arabinose
+AP
+gIII
+Triggered by
+POI activity
+SP
+POI
+ΔgIII SP genome
+PgIII
+Desired activity of interest
+RNAP
+POI
+b
+Polymerases
+gIII
+gIII
+rpoZ E. coli
+RNAP
+DNA-binding protein
+Protein-protein interactions
+gIII
+rpoZ E. coli
+RNAP
+gIII
+T7 RNAP
+Degron
+Base editing
+TAA
+AUU
+T7
+RNAP
+Proteases
+gIII
+T7 lysozyme
+T7
+RNAP
+gIII
+T7
+RNAPC
+T7 RNAPN
+Protein solubility
+Aminoacyl-tRNA snythetases
+T7 RNAP STOP
+Non-natural
+amino acid
+Supressor
+tRNA
+gIII
+T7
+RNAP
+c
+POI
+SP
+gIII
+RNAP
+On-target
+activity
+gIII
+transcription
+gIII-neg
+RNAP
+Off-target
+activity
+gIII-neg
+transcription
+Infectious phage
+Non-infectious phage
+d
+Fig. 1 | Overview of PACE. a, In a ﬁxed-volume vessel—the ‘lagoon’—selection phage3 encoding an evolving POI triggers gIII expression from an
+accessory plasmid6 in host E. coli cells, resulting in the production of the essential phage protein pIII. The lagoon is continuously diluted with a culture
+of fresh host cells. All replicating DNA within the lagoon is mutagenized via an engineered mutagenesis plasmid7 to provide genetic diversity. Only the
+SP-containing genes encoding functional POI variants are capable of replicating faster than the rate of dilution, allowing them to persist in the lagoon.
+b, Gene variants on the SPs that encode active POIs trigger the expression of gIII from the AP, typically through the activation or recruitment of an
+RNAP. The MP expresses mutagenic genes under the control of the arabinose promoter; induction of mutagenesis occurs upon addition of arabinose
+to the growth media. c, Established PACE selection strategies for various POI (blue) activities, including RNAP activity (upper left), protein:DNA
+binding (upper middle), protein solubility (upper right), proteolysis of speciﬁc amino acid sequences (middle left), protein:protein binding (middle
+right), base editing (lower left) and incorporation of non-canonical amino acids by orthogonal aminoacyl-tRNA synthetases (lower right). d, Negative
+selections can be performed in PACE by linking the expression of a dominant-negative version of gIII, gIII-neg, to undesired activity, such that phage
+propagation requires SP-encoding POI variants with the desired activity and lacking the undesired activity.
+NATURE PROTOCOLS
+PROTOCOL
+NATURE PROTOCOLS |www.nature.com/nprot
+3
+
+
+--- Page 4 ---
+Stepping-stone approaches are particularly useful when evolving POIs with no or minimal starting
+activity7,14,17–19. In this strategy, an intermediate target encoded on a stepping-stone AP in PACE is
+used to bridge the wild-type activity and desired target activity. When POI variants with activity on
+the stepping-stone target can be accessed during PACE, but POI variants with activity on the ﬁnal
+target are difﬁcult to access, stepping-stone strategies can increase the likelihood of successful evo-
+lution. For example, a hybrid T7/T3 promoter was used to facilitate evolution of T7 RNAP to
+transcribe from the T3 promoter, as wild-type T7 RNAP had no detected activity on the T3 pro-
+moter5. Similarly, protease target stepping stones14, protein-binding target stepping stones7, small-
+molecule substrate concentration stepping stones17,18 and DNA sequence stepping stones19,21 have
+also been used to guide evolution to successful endpoints during PACE.
+Another option when evolving proteins that have slow kinetics or minimal starting activity is to
+implement evolutionary drift by using a DP7,15,21. DPs express the same mutagenic genes as MPs but,
+in addition, express gIII from a hybrid phage shock/Tet promoter8. Induction of gIII in the presence
+of mutagenesis allows for diversiﬁcation of SPs in the absence of selection pressure to produce a
+starting library of mutants in the initial stages of a PACE experiment. After this drift phase, gIII
+production from the DP can be reduced to increase selection pressure.
+Finally, modulating stringency by tuning the selection circuit on the AP can be especially effec-
+tive5,15,21,22. AP tuning tailors copy number, promoter strength, ribosome-binding site strength and
+other parameters that deﬁne the relationship between target activity and gIII expression and is usually
+required for optimal PACE outcomes. Optimal selection tuning usually requires insight into the basic
+mechanism of the POI and will sometimes require adjustment beyond simple modiﬁcations on the
+AP, such as changes to the form or expression level of the POI on the SP.
+Applications of the method
+PACE is, in principle, capable of evolving any protein whose activity can be linked to expression of an
+essential phage gene in bacteria. In most cases, this essential phage gene is gIII; however, gVI has also
+been used21,23. Phage-based continuous evolution has been used to evolve polymerases5,10,22,24–26;
+DNA-binding
+proteins,
+including
+TALE
+arrays12,
+Cas919,21
+and
+transcription
+factors23;
+protein–protein interactions, including antibody-like proteins16 and insecticidal proteins7; pro-
+teases14,27; aminoacyl-tRNA synthetases17,20; dehydrogenases18; and cytidine and deoxyadenosine
+deaminases used for base editing15,16,28 (Fig. 1c).
+PACE was initially applied to evolve RNAPs using APs that placed gIII expression directly under
+the control of a speciﬁc promoter5. Applying this circuit in both positive and negative selection forms
+resulted in the evolution of highly active T7 RNAP variants with ~10,000-fold altered selectivity for
+PT3 over PT7
+10. PACE has also been used to evolve T7 RNAP variants tolerant to C-terminal
+fusions24. Similar approaches using phage-derived transcription factors have been reported for
+phagemid-based evolution (PACEmid). In these studies, gVI was used as the selection marker because
+high gIII background expression from the synthetic promoters employed rendered host cells unin-
+fectable23. PACEmid also allows for the generation of large combinatorial libraries of transcription
+factors and is compatible with continuous and non-continuous evolution23,29.
+Evolving proteins other than polymerases requires more elaborate systems to couple protein
+activity to gene expression. A modiﬁcation of the RNAP selection is a circuit in which POI DNA
+binding recruits a RNAP to a promoter upstream of gIII using a one-hybrid approach12. In these
+Table 1 | Inducible bacterial mutagenesis plasmids
+Plasmid Genes
+Mutagenesis rate (per
+bp per generation)
+Uninduced background mutagenesis
+(per bp per generation)
+MP1
+dnaQ926, polV
+6.4 × 10−8
+8.2 × 10−10
+MP2
+dnaQ926
+9.9 × 10−8
+2.8 × 10−10
+MP3
+dnaQ926, dam
+2.7 × 10−7
+1.7 × 10−8
+MP4
+dam, seqA, dnaQ926
+4.4 × 10−7
+2.7 × 10−10
+MP5
+dam, seqA, dnaQ926, ugi, cda1
+2.0 × 10−6
+4.8 × 10−9
+MP6
+dam, seqA, dnaQ926, ugi,
+cda1, emrR
+6.2 × 10−6
+2.4 × 10−9
+PROTOCOL
+NATURE PROTOCOLS
+4
+NATURE PROTOCOLS|www.nature.com/nprot
+
+
+--- Page 5 ---
+cases, the POI is linked to the ω subunit of E. coli RNAP (rpoZ) such that successful DNA binding
+recruits endogenous RNAP to enable gIII transcription from a nearby weak promoter. This strategy
+was used to evolve TALE array proteins12 and Cas9 variants19,21 with increased DNA speciﬁcity or
+altered DNA recognition requirements.
+Analogously, a two-hybrid system can be used to evolve protein–protein interactions in PACE by
+linking the POI (prey) to rpoZ and the bait to a DNA-binding protein such as the 434 cI phage
+repressor7. Our laboratory has used such a selection to evolve the insecticidal toxin Cry1Ac to bind a
+non-native receptor found in an insect pest resistant to the wild-type toxin7 and antibody-like
+proteins with improved soluble expression16.
+In addition to recruitment, PACE selections can use polymerase activation by the POI to trigger
+gIII expression and phage propagation. For example, our laboratory created a selection for protease
+activity by ﬁrst inactivating T7 RNAP through tethering to its natural inhibitor T7 lysozyme and then
+placing a substrate for proteolysis in the linker region between the two proteins, thus rendering
+liberation of T7 RNAP and transcription of gIII from PT7 dependent on protease cleavage of the
+target substrate in the linker. This selection was used to evolve drug-resistant HCV proteases27, as
+well as a TEV protease variant that recognizes and cleaves human interleukin-23 (ref. 14). T7 RNAP
+can also be inactivated by splitting into two halves. Split T7 RNAP complementation has been used as
+a folding reporter selection to evolve proteins with improved soluble expression16, as well as to select
+protein–protein interaction-dependent RNAPs24,25.
+Modiﬁcations to the sequence of T7 RNAP can result in inactivation that is then corrected by POI
+activity. For example, aminoacyl-tRNA synthetases were evolved in PACE using amber suppression
+of premature stop codons in the T7 RNAP gene, as well as in gIII itself17. This selection was used to
+improve the selectivity of a promiscuous aminoacyl-tRNA synthetase toward incorporation of
+p-iodophenylalanine. T7 RNAP activation through sequence modiﬁcation can also be used to evolve
+DNA-modifying enzymes. For example, T7 RNAP inactivated through C-terminal fusion to a degron
+was used to evolve cytidine deaminases in base editors that could introduce a stop codon in the linker
+region through a successful C-to-T transition15. A similar approach was used to evolve deox-
+yadenosine deaminases in base editors that could ﬁx a stop codon placed within the coding region of
+T7 RNAP28. These selections yielded new deaminase variants with increased activity and altered
+target sequence compatibility.
+PACE can also be used to evolve proteins that act on small molecules, such as enzymes involved in
+metabolite biosynthesis. Our laboratory recently evolved methanol dehydrogenase (Mdh) variants
+with increased activity18. Mdh activity was linked to gIII production through use of a formaldehyde-
+responsive promoter. This work was also a key example of using PANCE as a strategy for evolving
+POIs with poor starting activity.
+Comparisons with other methods
+Although many methods exist for discrete in vitro evolution, only a few examples of continuous
+directed evolution systems have been reported. These systems typically employ either viral vectors or
+orthogonal error-prone replication systems2. PACE and other phage/phagemid-based systems are the
+only bacterial continuous evolution methods available. Although continuous evolution using con-
+tinuous ﬂow enables remarkably fast evolution times (often reaching dozens of generations per 24 h)
+with minimal researcher intervention, it limits the scope of evolvable POIs toward those that can
+express and function in bacterial cells.
+Liu and co-workers created a system for continuous evolution in yeast (OrthoRep) that uses a
+linear plasmid system replicated using a dedicated DNA polymerase (DNAP1) orthogonal to
+endogenous yeast polymerases30–32. DNAP1 was engineered to increase its mutagenesis rate to exceed
+genomic error thresholds. As an initial example, OrthoRep was used to evolve drug resistant variants
+of malarial dihydrofolate reductases (DHFR)31. Like PACE, this system selects for organismal survival
+and should accommodate any selection that can link the activity of interest with yeast propagation.
+Although theoretically slower than PACE, OrthoRep enables continuous evolution in a eukaryotic
+system33 and should be compatible with POIs that require more complex post-translational
+modiﬁcation or that can only be expressed functionally in eukaryotic cells.
+Continuous evolution systems have also been developed for mammalian cells by relying on viral
+life cycles to mutagenize and transfer genetic information. To date, two viruses, adenovirus type 5 and
+the RNA virus Sindbis, have been used for mammalian continuous evolution. Shoulders and co-
+workers used an engineered adenovirus type 5 with both its dedicated DNA polymerase (AdPol) and
+NATURE PROTOCOLS
+PROTOCOL
+NATURE PROTOCOLS |www.nature.com/nprot
+5
+
+
+--- Page 6 ---
+essential protease (AdProt) deleted from its genome6. Instead, an engineered error-prone AdPol
+variant (~10−6 mutations per bp per generation) and AdProt are provided by the mammalian cell
+genome. The evolving POI encoded on the viral genome is selected for its ability to trigger expression
+of AdProt and therefore viral propagation. This system was used to evolve doxycycline-resistant
+tetracycline transactivator proteins. Roth and co-workers engineered the Sindbis virus to remove the
+capsid proteins E1, E2 and E3 from the viral genome and instead encode a POI34. These proteins are
+then provided in a POI activity-dependent manner on a vector in the mammalian cell host.
+Diversiﬁcation is achieved by the naturally error-prone Sindbis viral RNA-dependent RNA poly-
+merase, which is capable of mutagenizing the viral RNA genome at ~10-4 mutations per bp per
+generation. This system, known as ‘viral evolution of genetically actuating sequences’ (VEGAS), has
+been used successfully to evolve transcription factors, GPCRs and nanobodies.
+Limitations of PACE
+Although the versatility of PACE has been demonstrated through its application to many classes of
+proteins, evolution of a given POI using PACE is possible only if its desired activity can be linked to
+gene transcription in bacteria. The selection circuit resulting from this coupling must have good
+dynamic range: we suggest activation of at least ten-fold. Furthermore, as low levels of pIII expression
+will render a host cell uninfectable9, the selection circuit must possess low background gIII expression
+levels or, alternatively, use a different phage gene, such as gVI in place of gIII21,23.
+Because the POI must be made faithfully in the E. coli cytosol, poor folding or the requirement for
+post-translational modiﬁcations, such as disulﬁde bond formation or complex glycosylation, will
+preclude evolution using PACE. Another limitation on the POI is imposed by the packaging limit of
+the SP (~11-kb max, corresponding to a ~5-kb limit on the POI/POIs)9. Thus, very large proteins or
+protein clusters might be unsuitable for PACE. To date, the largest single protein that has been
+evolved in PACE is ω-dSpCas9 (~4.4 kb)19,21.
+PACE selections involving small-molecule substrates can be challenging to implement. The small
+molecule must be either synthesized by the host cell or readily cell permeable and available at a
+sufﬁciently high concentration to sustain the selection. In the case of exogenous addition, a large
+quantity of small molecule might be required since a single PACE experiment can turn over >10 L of
+media; substrate cost can therefore limit the evolution of enzymes that catalyze transformations of
+precious small molecules. Additionally, free diffusion of a given enzymatic product between host cells
+can signiﬁcantly complicate selections by triggering or repressing gene circuits in trans. In some cases,
+local concentrations of product molecules (such as formaldehyde in the methanol dehydrogenase
+example described above18) can activate gene circuits before their diffusion and dilution takes place,
+or an exogenous chemical sink can be used to limit in trans circuit modulation18.
+Finally, selection in PACE takes place very rapidly, as a complete phage life cycle typically requires
+only ~15–30 min9. If the activity of interest proceeds more slowly than phage replication, selection in
+PACE could prove too stringent, even when lagoon ﬂow rates are minimized and selection circuits are
+optimized.
+Experimental design
+The overall ﬂow of the Procedure is shown in Fig. 2.
+Preparation of PACE host cells and phage (Steps 1–50)
+Like other members of the Inovirus genus, M13 ﬁlamentous bacteriophage form long, pilus-like
+particles of various coat proteins encasing a circular, single-stranded genome9,35. Eleven phage
+proteins (gI–gXI) are encoded on the wild-type genome; the engineered SPs used in PACE encode all
+of these, except for gIII. The SP genome can be transformed as circular double-stranded DNA into
+host cells that provide gIII in trans to produce fully packaged and infectious phage particles.
+Accordingly, both cloning and expansion of SP stocks are typically performed using strain S2208
+(Box 1), which contains a plasmid (pJC175e) that supplies gIII under the control of the phage shock
+promoter5. Typically, after transformation or transduction into S2208 followed by a period of
+overnight growth to allow propagation, SP particles can be easily isolated by collecting the culture
+supernatant and passing it through a 0.22-µm ﬁlter to remove any residual host cells. The con-
+centration of phage particles (titer) in SP stocks can be determined by performing a plaque assay
+using S2208 cells (Steps 18–22). Additionally, as the SPs in each plaque are clonal, picking individual
+PROTOCOL
+NATURE PROTOCOLS
+6
+NATURE PROTOCOLS|www.nature.com/nprot
+
+
+--- Page 7 ---
+plaques (Steps 23–25) allows for the isolation of clonal SP populations for sequencing (Steps 26–29).
+SP stocks can be ampliﬁed if needed using S2208 cells (Steps 30–34).
+Our laboratory engineered the PACE host cell strain S2060 (Box 1) from strain DH10β through
+several rounds of engineering5,10,12. Modiﬁcations include deletion of ﬂu, pgaC and csgABCDEFG to
+substantially reduce bioﬁlming and deletion of rpoZ to enable the use of n-hybrid systems using
+fusions to the RNAP ω subunit. Furthermore, S2060 cells contain an F plasmid, which allows phage
+infection via the expressed F pilus, modiﬁed to incorporate lacI, tetR and luxCDE, as well as lacZ
+under the control of the phage shock promoter. Phage infection triggers transcription from the phage
+shock promoter, leading to lacZ production that enables colorimetric visualization of phage infection
+or plaque activity by addition of Bluo-Gal or related substrates to the growth media.
+Before starting a PACE experiment, we recommend benchmarking the starting activity of the SP
+using S2060s transformed with the AP and CP, if using. Overnight propagation experiments in the
+absence of mutagenesis (Steps 35–39) can be performed with these cells to estimate the ability of the
+starting SP to survive under conditions of continuous ﬂow. We discovered empirically that SP will
+persist in a lagoon at a ﬂow rate of 0.5 volumes/h if their overnight propagation on the host cells
+TSS chemicompetent cell preparation
+Steps 1–5
+Phage cloning
+Steps 14–17
+Activity-independent phage plaque assays
+Steps 18–22
+Isolation of clonal phage
+Steps 23–25
+Sequencing clonal phage
+Steps 26–29
+Activity-independent phage propagation
+Steps 30–34
+Purification of SP stocks
+Steps 46–50
+Activity-dependent phage propagation
+Steps 35–39
+Preparation of PACE tubing
+Steps 51–54
+Preparation of PACE apparatus
+Steps 55–64
+Preparation of DRM carboy
+Steps 65–71
+Setting up the PACE experiment
+Steps 72–83
+Taking samples from lagoons
+Steps 84–87
+Maintaining a PACE experiment
+Steps 88–90
+Dismantling the PACE apparatus
+Steps 91–97
+TSS chemicompetent cell preparation
+Steps 1–5
+TSS chemicompetent cell transformation
+Steps 6–13
+Preparation of host cells
+Steps 40–45
+Preparation of host cells
+TSS chemicompetent cell transformation
+Steps 6–13
+Transformation of host cells with MP or DP
+Sequencing clonal phage
+Steps 26–29
+Activity-independent phage plaque assays
+Steps 18–22
+Isolation of clonal phage
+Steps 23–25
+Characterization of evolved phage
+by bacterial luciferase assay
+Steps 100–105
+Running and maintaining a PACE experiment
+Activity-dependent phage propagation
+Steps 35–39
+Analyzing PACE outcomes
+Preparation of SP
+Fig. 2 | Flow diagram of the Procedure. This is a suggested, general ﬂow of a PACE experiment. Individual variations from the order of steps as listed
+are sometimes required.
+NATURE PROTOCOLS
+PROTOCOL
+NATURE PROTOCOLS |www.nature.com/nprot
+7
+
+
+--- Page 8 ---
+equals or exceeds ~103-fold. Typically, 102- to 103-fold overnight propagation is sufﬁcient activity to
+begin a PACE experiment with the expectation that any SPs that acquire a ﬁtness-increasing mutation
+will be able to persist in the system. Selections with lower than 102-fold overnight propagation levels
+may still be used to initiate a PACE experiment by enabling an initial period of evolutionary drift
+using a DP. On the other hand, overnight propagation magnitudes that equal or exceed 105-fold
+imply signiﬁcant starting activity of the POI and suggest that selection stringency should be increased
+before PACE is attempted.
+MPs8 are always transformed immediately before a PACE experiment, as increased background
+mutagenesis due to the leakiness of the arabinose promoter can lead to slow accumulation of
+mutations in host cells over time. To help prevent leaky expression of MP components, strains
+containing the MP or DP are always grown using glucose-containing media to further repress the
+arabinose promoter and are never stored for more than 1 week. Similarly, after their initial cloning,
+the SPs used in PACE are re-isolated before being used to infect the lagoons in a process we
+term ‘puriﬁcation’ (Steps 46–50). SP puriﬁcation decreases the likelihood of random recombination
+with host cell-encoded gIII to produce recombinant phage in the SP stock that can rapidly poison a
+PACE experiment.
+Setting up the PACE apparatus (Steps 51–71)
+The lagoons in PACE are continually diluted with host cell culture at a ﬂow rate that is faster than the
+rate of host cell division but slower than the replication rate of propagating phage. Continuous
+dilution is implemented by using two peristaltic pumps to cycle the chemostat (host cell culture) and
+the lagoons, respectively. The chemostat is diluted with fresh media to maintain constant cell density,
+thus ensuring that F pilus expression in the host cells is preserved, whereas the lagoons are diluted
+with fresh host cells from the chemostat for SP infection and propagation. Induction of the muta-
+genesis plasmid present in the host cells occurs solely in the lagoons such that the phage experience a
+high rate of mutagenesis while the chemostat cells remain un-mutagenized.
+This protocol lists all necessary materials and instructions for setting up a PACE experiment using
+one chemostat and two lagoons (Fig. 3 and Supplementary Fig. 2). We typically perform PACE
+experiments in 2–4 replicate lagoons, where one chemostat provides host cells to multiple identical
+lagoons evolving at the same time. Although this protocol can be scaled to multiple chemostats,
+because of the resource-intensive nature of PACE, running many evolutions in parallel can be
+c
+17
+x1
+18
+x2
+19
+x3
+20
+x4
+21 x10
+22
+x1
+A
+x2
+B
+x1
+4a
+4b
+4b
+4c
+6b
+6b
+1
+6a
+6a
+2
+6c
+6c
+3
+6a
+6a
+6a
+4c
+8
+7a
+7a
+7a
+7a
+12
+13
+14
+9
+12
+14
+10
+Preparation of PACE tubing 1
+Direction of flow
+Incoming
+Outgoing
+From media
+C x1
+From
+chemostat
+D x1
+From
+chemostats
+and lagoons
+3E x3
+Preparation of PACE tubing 2
+1. 1.42 mm ID 2-stop line:
+x1
+2. 0.89 mm ID 2-stop line:
+x2
+3. 2.06 mm ID 2-stop line:
+x3
+4. 1/16 in ID PVC tubing:
+4a - 30 in length
+4b - 12 in length
+4c - 5 in length
+x4
+x11
+x2
+8. Y-connector, 1/16 in ID:
+x1
+x19
+6. Male luer adapter:
+6a - 1/16 in ID
+6b - 3/32 in ID
+6c - 1/8 in ID
+6d - 1/4 in ID
+x2
+x6
+x2
+x16
+7. Female luer adapter:
+7a - 1/16 in ID
+7b - 1/4 in ID
+x1
+9. 22 ml glass vial & lid
+with PFTE septa:
+x2
+10. 100 ml media bottle
+& lid with PFTE septa:
+x1
+11. 50 ml syringe:
+x2
+12. 18 G x 1.5 in needle:
+x4
+13. 22 G x 4 in needle:
+x4
+14. 16 G x 4 in needle:
+x4
+15. 1.5 in stir bar:
+x1
+16. 1/2 in stir bar:
+x2
+5. 1/4 in ID BPT tubing:
+5a - 5 in length
+5b - 30 in length
+x2
+Parts list
+x1
+10 L carboy
+Preparation of DRM Carboy
+5a
+5a
+5b
+6d
+7b
+6d
+5a
+Assembly of PACE apparatus
+To
+waste
+To
+waste
+To
+waste
+Sterile
+media
+in
+Under pump 1 control
+Under pump 2 control 
+Inducers
+under syringe
+pump control 
+A
+A
+C
+D
+3E
+3E
+21
+3E
+16
+15
+B
+11
+16
+11
+21
+To chemostat
+To lagoons
+To waste
+21
+19
+20
+21
+21
+22
+18
+18
+21
+21
+21
+17
+20
+d
+e
+b
+a
+Fig. 3 | Assembly of a PACE apparatus. a, List of parts required for assembly of a PACE apparatus. b, Schematic for preparation of PACE tubing
+segments using parts listed in a. c, Construction of PACE tubing using parts shown in b. d, An example of a media carboy suitable for supporting the
+host cell chemostat during PACE. e, Assembly of the full PACE apparatus from parts depicted in a–d.
+PROTOCOL
+NATURE PROTOCOLS
+8
+NATURE PROTOCOLS|www.nature.com/nprot
+
+
+--- Page 9 ---
+challenging. If a high degree of parallelization or throughput is required, PANCE might offer an
+attractive alternative (Steps 106–116).
+Initiating PACE (Steps 72–83)
+The initial stage of M13 phage infection involves binding of pIII to the F pilus9. Because expression of
+the F pilus decreases when temperatures are lower than 37 °C and when cells enter the late expo-
+nential stage of growth, maintaining the host cells at 37 °C and in mid-exponential growth in the
+chemostat is critical for the success of a PACE experiment. Mutagenesis and drift, if used, should be
+induced in the lagoon host cells at least 1 h before infection with phage. This delay allows for
+adequate time for the host cells to begin expressing the mutagenic factors from the MP. Immediately
+after SP addition, the ﬂow in and out of the lagoons is temporarily halted to allow infection to occur
+in the absence of dilution. Flow is typically resumed ~10 min after infection.
+Monitoring PACE (Steps 84–97)
+The infection of lagoons with SP marks the beginning of the PACE experiment. After this point, the
+researcher should monitor the titer of phage in each lagoon to inform adjustments to ﬂow rate or drift
+induction (Fig. 4a). During the course of the PACE experiment, samples of the lagoons can be drawn.
+We typically remove ~1 ml of culture from the lagoon every 8–16 h to determine the lagoon phage
+titer or to sequence the evolving gene pool.
+Phage titer can be estimated by quantitative polymerase chain reaction (qPCR) (Steps 117–124);
+however, the most precise way to measure titer is through plaque assays (Steps 18–22) (Fig. 4b). A
+drop in lagoon phage titer (reduction of ten-fold or greater) is typically associated with POIs with
+little or no activity. A lagoon with a phage titer at or below ~103 plaque-forming units (pfu)/ml is
+considered to have ‘washed out’: as library size is proportionate to SP population size, such a small
+phage population may be unlikely to ﬁnd a ﬁtness-increasing mutation to recover. Conversely, an
+increase in lagoon titer (expansion of ten-fold or greater) often indicates the acquisition of a ﬁtness-
+increasing mutation.
+Thus, lagoon ﬂow rates should be increased if titers either remain stable (suggesting a lack of
+selection pressure) or increase (Fig. 4a). We suggest increasing ﬂow rates in increments of 0.5–1
+volume/h. After such an increase, lagoon titers will usually drop. A recovery of titer after such a
+decrease can signify an increase in ﬁtness from the acquisition of beneﬁcial mutations. In the course
+of a typical PACE, ﬂow rate is increased every 24–48 h, with rates ranging between 0.5 and 3 volumes/
+h. As replication time of M13 phage is proportionate to genome size, SPs carrying smaller POIs
+replicate faster and can persist at higher rates of dilution compared to SPs encoding larger POIs.
+If using drift, the researcher should expect lagoon phage titers to remain consistently high (108
+pfu/ml or greater) during DP induction (Fig. 4c). Decreases in titer are typically observed after drift is
+discontinued; however, if a solution that improves ﬁtness has been found, titers should increase
+subsequently. Once the lagoons reach a ﬂow rate of 3 volumes/h or higher while maintaining a high
+titer of phage, it is unlikely that further improvements in POI ﬁtness will be achieved without
+changing selection stringency in ways other than increasing ﬂow rate. At this point, we recommend
+ending the PACE experiment.
+Characterization of evolved phage (Steps 98–105)
+Clonal phage from lagoon samples can be isolated using plaque assays. These assays can be performed
+in either a POI activity-independent (with S2208 cells, Steps 18–22) or POI activity-dependent
+manner (with host cells containing the APs used for evolution, Steps 37–41). The latter option can be
+advantageous as it selects for SP encoding POIs with robust activity on the selection circuit encoded
+by the AP.
+The POI can be directly ampliﬁed by PCR from plaques and the resulting PCR product can be
+used for Sanger DNA sequencing (Steps 26–29). We typically sequence at least eight plaques from the
+last PACE sample collected per lagoon, although we will often sequence plaques from earlier samples
+to arrive at a clearer picture of when speciﬁc mutations arose, if they arose simultaneously with other
+mutations or independently and if the solutions found are similar across different replicates (lagoons)
+of the same evolution.
+Although there are many ways to validate the activity of evolved POIs, the simplest way to
+compare between multiple phage clones is to perform luciferase assays (Steps 100–105). In most APs
+cloned in our laboratory, pIII is translationally coupled to bacterial luciferase, allowing POI activity to
+be estimated by infecting host cells with an excess of phage and using luminescence as an
+NATURE PROTOCOLS
+PROTOCOL
+NATURE PROTOCOLS |www.nature.com/nprot
+9
+
+
+--- Page 10 ---
+approximate readout for gIII expression (Supplementary Fig. 1b). An alternative approach is to
+subclone promising hits into an expression plasmid for use with this luciferase assay.
+PANCE (Steps 106–116)
+PANCE uses the same selection strategies as PACE but with iterative dilution of lagoons instead of
+continuous dilution (Supplementary Fig. 1a)18–20. PANCE might be a good alternative to PACE for
+POIs that have low or slow activity or when a higher throughput is desired. The lower-stringency
+nature of PANCE comes from the increased time allowed for phage propagation: whereas the lagoons
+in PACE are turned over every ~20 min to 2 h, PANCE allows phage to incubate with the same host
+cells for 6–18 h. As a result, evolution in PANCE is much slower than in PACE.
+Parallel evolution is more easily achieved using PANCE than PACE. Although PACE becomes
+prohibitive in space, equipment and cost once several chemostat/lagoon pairs are running simulta-
+neously, PANCE can be easily performed in 96-well deep-well plates18. PANCE in multi-well plates
+enables the parallel evolution toward many different targets or many replicates of the same evolution.
+Increasing the number of simultaneous evolutions can make determination of phage titers tedious
+b
+a
+pfu/mL
+Flow rate (V/h)
+105
+106
+107
+108
+pfu/mL
+105
+106
+107
+108
+0
+1
+2
+3
+4
+0
+48
+96
+144
+Flow rate
+Titer
+Titers recover,
+increase
+flow rate
+Titers drop
+after flow
+rate increase
+Titers recover,
+increase
+flow rate
+Titers remain
+stable, increase
+flow rate
+Titers remain stable,
+increase flow rate
+Titers remain stable,
+flow rate is 3+ V/h,
+end experiment
+Initial phage
+infection
+Time (h)
+∆gIII phage, ~2-kb insert
+Wild-type M13 phage
+∆gIII phage, ~4-kb insert
+Flow rate (V/h)
+[aTc] (ng/mL/h)
+0
+1
+2
+3
+4
+0
+48
+96
+144
+Time (h)
+Flow rate
+Titer
+Drift induced,
+titers remain high
+Titers may remain
+stable or fluctuate,
+increase flow rate
+Titers remain stable,
+flow rate is 3+ V/h,
+end experiment
+0
+25
+50
+75
+0
+48
+96
+144
+Time (h)
+[aTc]
+Titers drop after
+drift stops
+c
+Fig. 4 | Monitoring the PACE experiment. a, Simulated lagoon phage titers (pfu/ml) from a theoretical PACE
+experiment. In general, titers range from 105 to 108 pfu/ml. Flow rates can be increased when titers increase or
+remain stable to exert greater selection pressure. b, Simulated lagoon phage titers (pfu/ml) from a theoretical PACE
+experiment incorporating drift through use of a DP. c, Representative examples of plaque assays demonstrating the
+difference in plaque size for wild-type M13 phage or different size inserts within a ΔgIII selection phage. Wild-type
+M13 phage (top), ΔgIII selection phage5 containing a ∼2-kb gene encoding the POI (middle) and ΔgIII SP with a
+∼4-kb insert (bottom) are shown plaqued using S2208 cells. From the top left quadrant, movement clockwise along
+the plate represents a 100-fold dilution of phage relative to the previous quadrant, and the number of phage in the
+most dilute quadrant is used to quantify titer (Step 22).
+PROTOCOL
+NATURE PROTOCOLS
+10
+NATURE PROTOCOLS|www.nature.com/nprot
+
+
+--- Page 11 ---
+owing to the large number of plaque assays required. For this reason, we often use a qPCR method for
+phage titer determination when faced with a large number of samples (Steps 117–124).
+In place of lagoon ﬂow rate adjustments, stringency in PANCE can be modulated by changing the
+dilution factor of the phage or the incubation time. PANCE is also compatible with drift; however, we
+do not recommend performing drift for longer than 6–8 h as it might lead to an increase in gIII
+recombination.
+Materials
+Biological materials
+●E. coli S2060 (Addgene, cat. no. 105064), derived from DH10β, genotype F’ proA+B+ Δ(lacIZY) zzf::
+Tn10 lacIQ1 PN25-tetR luxCDE Ppsp(AR2) lacZ luxR Plux groESL / endA1 recA1 galE15 galK16
+nupG
+rpsL
+ΔlacIZYA
+araD139
+Δ(ara,leu)7697
+mcrA
+Δ(mrr-hsdRMS-mcrBC)
+proBA::pir116
+araE201 ΔrpoZ Δﬂu ΔcsgABCDEFG ΔpgaC λ–
+●E. coli S2208, deﬁned as strain S2060 transformed with plasmid pJC175e
+Plasmids and phage
+c
+CRITICAL The 2060 cell line and plasmids pJC175e, MPs, DP6 and various CPs and APs are
+available through Addgene. Speciﬁc phage are available upon request.
+●Mutagenesis plasmid MP6 (Addgene, cat. no. 69669)
+●Drift plasmid DP6 (Addgene, cat. no. 140446)
+●pJC175e (Addgene, cat. no. 79219)
+●Selection phage5, derived from bacteriophage M13 (V00604.2, ATCC 15669-B1) with the following
+modiﬁcations; see also Supplementary Data 1:
+Removal of gIII
+Substitution of gIII RBS with synthetic RBS36
+Insertion of gene of interest immediately after synthetic RBS
+Insertion of the following sequence, containing an artiﬁcial promoter and RBS for production of
+downstream gVI: tctagaaggagattttcaacatgggctagcacagccctaggtattatgctagcgtggtgtatttggaataaggagtcaaaa
+Primers
+●AB1396 (ACAGAGAGAATAACATAAAAACAGGGAAGC) (Integrated DNA Technologies)
+●AB1792 (TAATGGAAACTTCCTCATGAAAAAGTCTTTAG) (Integrated DNA Technologies)
+●M13fwd (CACCGTTCATCTGTCCTCTTT) (Integrated DNA Technologies)
+●M13rev (CGACCTGCTCCATGTTACTTAG) (Integrated DNA Technologies)
+Reagents
+●2× YT broth (United States Biological, cat. no. T9200)
+●LB broth (United States Biological, cat. no. L1505)
+●Davis Rich Media (DRM):
+Harvard Custom Media A (United States Biological, cat. no. CS050H-001)
+Harvard Custom Media C (United States Biological, cat. no. CS050H-003)
+TWEEN-20 (Sigma-Aldrich, cat. no. P1379) or TWEEN-80 (Sigma-Aldrich, cat. no. P4780)
+●Agar (United States Biological, cat. no. A0930)
+●SOC media (New England Biolabs, cat. no. B9020S)
+●Carbenicillin or ampicillin (Gold Biotechnology, cat. no. C-103)
+●Chloramphenicol (Gold Biotechnology, cat. no. C-105)
+●Tetracycline (Gold Biotechnology, cat. no. T-101)
+●Streptomycin (Gold Biotechnology, cat. no. S-150)
+●L-arabinose (Gold Biotechnology, cat. no. A-300)
+●Glucose (Sigma-Aldrich, cat. no. G7021)
+●Anhydrotetracycline (Sigma-Aldrich, cat. no. 27919)
+●Bluo-gal (Gold Biotechnology, cat. no. B-673-10)
+●Trace metals:
+(NH4)6Mo7O24 × 4H2O (Sigma-Aldrich, cat. no. 431346)
+H3BO3 (Sigma-Aldrich, cat. no. B6768)
+CoCl2 (Sigma-Aldrich, cat. no. 232696)
+NATURE PROTOCOLS
+PROTOCOL
+NATURE PROTOCOLS |www.nature.com/nprot
+11
+
+
+--- Page 12 ---
+CuSO4 (Sigma-Aldrich, cat. no. C1297)
+MnCl2 (Sigma-Aldrich, cat. no. 328146)
+ZnSO4 × 7H2O(Sigma-Aldrich, cat. no. Z0251)
+●Milli-Q ﬁltered water
+●Ethanol (Koptec, cat. no. V1016) ! CAUTION Ethanol is highly ﬂammable. Keep away from open
+ﬂames and work in a well-ventilated area.
+●N,N-Dimethylformamide (Sigma-Aldrich, cat. no. D4551) ! CAUTION N,N-Dimethylformamide is
+considered toxic. Wear the appropriate personal protective equipment when handling.
+●DNAseI with DNAseI buffer (New England Biolabs, cat. no. M0303)
+●Phusion HF (Thermo Fisher Scientiﬁc, cat. no. F530)
+●dNTPs (New England Biolabs, cat. no. N0447S)
+●SYBR Green (Invitrogen, cat. no. S7563)
+●Agarose (Lonza, cat. no. 50004)
+●QIAprep Spin Miniprep Kit (Qiagen, cat. no. 27106)
+●TempliPhi Ampliﬁcation kit (GE Healthcare, cat. no. 25640050)
+Equipment
+General
+●Incubator (Fisher Scientiﬁc isotemp incubator, similar: 15-103-0515)
+●Biological shaker (New Brunswick innova44, cat. no. M1282)
+●Benchtop centrifuge (Eppendorf centrifuge, cat. no. 5920R)
+●Water bath, 42 °C (Thermo microprocessor controlled 280 series, cat. no. 3166686)
+●PCR machine (Biorad C1000 Touch thermal cycler)
+●qPCR machine (Biorad CFX96 Real-Time system)
+●Plate reader (Tecan inﬁnite M1000 pro)
+●Culture tubes (Corning, cat. no. 352059)
+●96-well deep-well plate (Eppendorf 951033502)
+●50-ml Bioreactor (Corning, cat. no. 431720)
+●Petri dish (Corning, cat. no. 351029)
+●Petri X-plate (VWR, cat. no. 25384-308)
+●Eppendorf tubes (Eppendorf, cat. no. 022431021)
+●PCR strip tubes (Corning, cat. no. PCR-0208-C)
+●Clear 96-well plate seal (BioRad, cat. no. MSB1001)
+●White-well PCR plates (BioRad, cat. no. HSP9655)
+●Clear PCR strip tube cap (BioRad, cat. no. TCS0803)
+●White-well PCR strip tubes (BioRad, cat. no. TLS0851)
+●Library strips (VWR, cat. no. 83009-680)
+●Bottle-top vacuum ﬁlter system (0.22 µm; Corning, cat. no. 431097)
+●Syringe ﬁlter, PES, 30 mm (0.22 µm; Santa Cruz Biotechnology, cat. no. sc-395291)
+●Syringe ﬁlter, PVDF, 13 mm (0.22 µm; Santa Cruz Biotechnology, cat. no. sc-358811)
+PACE-speciﬁc
+●Warm room (temperature controlled to 37 °C)
+●Masterﬂex L/S Digital Drive, 100 RPM, 115/230 VAC (Cole-Parmer, cat. no. EW-07522-30)
+●Masterﬂex L/S 8-channel multichannel pump head for microbore tubing (Cole-Parmer, cat. no.
+EW-07534-08)
+●Six Channel Programmable Syringe Pump (New Era NE-1600)
+●Cimarec i Poly 15 and Multipoint Stirrers, 15 point (Thermo Scientiﬁc, cat. no. 50093538)
+●Microbore 2-stop, silicone (platinum cured) 0.89 mm i.d. (Cole-Parmer EW-06421-26); referred to in
+this protocol as ‘0.89 mm i.d. 2-stop line’
+●Microbore 2-stop, silicone (platinum cured) 1.42 mm i.d. (Cole-Parmer, cat. no. EW-06421-34);
+referred to in this protocol as ‘1.42 mm i.d. 2-stop line’
+●Microbore 2-stop, silicone (platinum cured) 2.06 mm i.d. (Cole-Parmer, cat. no. EW-06421-42);
+referred to in this protocol as ‘2.06 mm i.d. 2-stop line’
+●Cole-Parmer clear tubing, 1/16-in i.d. × 1/8-in o.d. (Cole-Parmer, cat. no. EW-06422-02); referred to in
+this protocol as ‘1/16-in i.d. PVC tubing’
+PROTOCOL
+NATURE PROTOCOLS
+12
+NATURE PROTOCOLS|www.nature.com/nprot
+
+
+--- Page 13 ---
+●Male Luer with lock ring × 1/16-in i.d. hose barb, PVDF (Cole-Parmer, cat. no. WU-45513-00);
+referred to in this protocol as ‘1/16-in i.d. male Luer adapter’
+●Male Luer with lock ring × 3/32-in i.d. hose barb, PVDF (Cole-Parmer, cat. no. WU-45513-02);
+referred to in this protocol as ‘3/32-in i.d. male Luer adapter’
+●Male Luer with lock ring × 1/8-in i.d. hose barb, PVDF (Cole-Parmer, cat. no. WU-45513-04);
+referred to in this protocol as ‘1/8-in i.d. male Luer adapter’
+●Male Luer with lock ring × 1/4-in i.d. hose barb, Nylon (Cole-Parmer, cat. no. EW-45505-19);
+referred to in this protocol as ‘1/4-in i.d. male Luer adapter’
+●Male Luer Cap, PVDF (Cole-Parmer, cat. no. EW-45513-56)
+●Female Luer × 1/16-in i.d. hose barb adapter, PVDF (Cole-Parmer, cat. no. WU-45512-00); referred to
+in this protocol as ‘1/16-in i.d. female Luer adapter’
+●Female Luer × 3/32-in i.d. hose barb adapter, PVDF (Cole-Parmer WU-45512-14); referred to in this
+protocol as ‘3/32-in i.d. female Luer adapter’
+●Female Luer × 1/8-in i.d. hose barb adapter, PVDF (Cole-Parmer, cat. no. WU-45512-04); referred to
+in this protocol as ‘1/8-in i.d. female Luer adapter’
+●Female Luer × 1/4-in i.d. hose barb adapter, Nylon (EW-45502-20); referred to in this protocol
+as ‘1/4-in i.d. female Luer adapter’
+●Female Luer Cap, PVDF (Cole-Parmer, cat. no. EW-45512-28)
+●Barbed Y-Connectors, Polypropylene, 1/16-in i.d. (Cole-Parmer, cat. no. EW-40727-41); referred to in
+this protocol as ‘Y-connector’
+●Sterile Luer-Lock syringes, 50-ml capacity (VWR, cat. no. 80076-428)
+●Blunt ﬁll needle, 18-G × 1.5-in (VWR, cat. no. BD305180); referred to in this protocol as
+’18-G × 1.5-in needle’
+●Air-Tite veterinary needle, 16-G × 4-in (VWR, cat. no. 89219-278); referred to in this protocol as
+’16-G × 4-in needle’
+●Air-Tite veterinary needle, 22-G × 4-in (VWR, cat. no. 89219-270); referred to in this protocol as
+’22-G × 4-in needle’
+●Media bottle, 100 ml w/out Cap (VWR, cat. no. 89012-114)
+●Mono-Mold Standard Stir Bar, 1.5- in length × 3/8-in (Cole-Parmer, cat. no. UX-04770-50); referred to
+in this protocol as ‘1.5-in stir bar’
+●Corning High-Temperature PBT Cap, Red, Open (VWR, cat. no. 11310-688)
+●PTFE-Faced Silicone Septa (Bellco Glass 5637-00030)
+●Glass vials, 22-ml volume with PTFE/silicone septa (Cole-Parmer, cat. no. EW-08922-48)
+●1/2-in × 1/8-in disposable stir bars (VWR 58947-140); referred to in this protocol as ‘1/2-in stir bar’
+●Nalgene heavy duty polypropylene carboy, 10 L with cap (Thermo Fisher, cat. no. 2226-0020)
+●Nalgene polypropylene 3-port ﬁlling/venting closure, cap size 83B, ﬁts tubing 6.4 mm (1/4 in) i.d.
+(VWR, cat. no. 16225-229)
+Reagent setup
+CaCl2 solution
+Dissolve CaCl2 to a ﬁnal concentration of 0.1 M in water and sterilize using a 0.22-µm syringe ﬁlter.
+Store at room temperature (~25 °C) indeﬁnitely.
+Trace metals solution
+Mix together equal volumes of the following six solutions. Store at room temperature indeﬁnitely.
+(NH4)6Mo7O24 × 4H2O solution: Dissolve (NH4)6Mo7O24 × 4H2O to a ﬁnal concentration of
+3.75 mg/ml in water. Store at room temperature indeﬁnitely.
+H3BO3 solution: Dissolve H3BO3 to a ﬁnal concentration of 25 mg/ml in water. Store at room
+temperature indeﬁnitely.
+CoCl2 solution: Dissolve CoCl2 to a ﬁnal concentration of 7.14 mg/ml in water. Store at room
+temperature indeﬁnitely.
+CuSO4 solution: Dissolve CuSO4 to a ﬁnal concentration of 2.6 mg/ml in water. Store at room
+temperature indeﬁnitely.
+MnCl2 solution: Dissolve MnCl2 to a ﬁnal concentration of 15.8 mg/ml in water. Store at room
+temperature indeﬁnitely.
+ZnSO4 × 7H2O solution: Dissolve ZnSO4 × 7H2O to a ﬁnal concentration of 2.88 mg/ml in water. Store
+at room temperature indeﬁnitely.
+NATURE PROTOCOLS
+PROTOCOL
+NATURE PROTOCOLS |www.nature.com/nprot
+13
+
+
+--- Page 14 ---
+DRM
+To 900 ml of water, add Harvard Custom Media A (18.1 g) and TWEEN-20 or TWEEN-80 (1 ml)
+and then autoclave to sterilize at 121.0 °C. Allow to cool completely. Separately, add Harvard Custom
+Media C (5.9 g), 5 µl of 0.1 M CaCl2 solution and 6 µl of Trace Metals solution to 100 ml of water and
+sterilize using a Corning bottle-top vacuum ﬁlter system. Add the Harvard Custom Media C solution
+to the cooled Harvard Custom Media A solution to make complete DRM. Store in the dark at 4 °C for
+up to 1 year.
+LB liquid media
+Add LB media powder to a ﬁnal concentration of 25 g/L in water. Mix to dissolve and then autoclave
+to sterilize at 121.0 °C. Store at room temperature indeﬁnitely.
+2× YT liquid media
+Add 2× YT media powder to a ﬁnal concentration of 31 g/L in water. Mix to dissolve and then
+autoclave to sterilize at 121.0 °C. Store at room temperature indeﬁnitely.
+2× YT agar
+Add 2× YT media powder and agar to a ﬁnal concentration of 31 g/L and 1.5% (wt/vol), respectively,
+in water. Autoclave to sterilize at 121.0 °C. Store at room temperature in the dark for up to 6 months.
+2× YT top agar
+Melt 2× YT agar using a microwave until completely liquid. Dilute hot 2× YT agar with room
+temperature 2× YT liquid media to a ﬁnal agar concentration of 0.6% (wt/vol) and mix thoroughly.
+Incubate in a water bath at 55 °C to keep top agar liquid until use. It can be kept in the 55 °C water
+bath for up to 1 d.
+Carbenicillin/ampicillin stock solution
+Dissolve carbenicillin or ampicillin to a ﬁnal concentration of 50 mg/ml in water. Store at −20 °C for
+up to 6 months.
+Chloramphenicol stock solution
+Dissolve chloramphenicol to a ﬁnal concentration of 25 mg/ml in ethanol. Store at −20 °C for
+up to 6 months.
+Tetracycline stock solution
+Dissolve tetracycline to a ﬁnal concentration of 10 mg/ml in 50% (vol/vol) ethanol in water. Store at
+−20 °C for up to 6 months.
+Streptomycin stock solution
+Dissolve streptomycin to a ﬁnal concentration of 50 mg/ml in water. Store at −20 °C for up to
+6 months.
+L-Arabinose stock solution
+Dissolve L-arabinose to a ﬁnal concentration of 1 M in water and sterilize using a Corning bottle-top
+vacuum ﬁlter system. Store at room temperature for up to 3 months.
+Glucose stock solution
+Dissolve glucose to a ﬁnal concentration of 1 M in water and sterilize using a Corning bottle-top
+vacuum ﬁlter system. Store at room temperature for up to 3 months.
+Anhydrotetracycline stock solution
+Dissolve anhydrotetracycline to a ﬁnal concentration of 1 mg/ml in ethanol. Store at −20 °C for up to
+6 months.
+Bluo-Gal stock solution
+Dissolve Bluo-Gal to a ﬁnal concentration of 2% (wt/vol) in DMF. Store in the dark at −20 °C for up
+to 6 months.
+PROTOCOL
+NATURE PROTOCOLS
+14
+NATURE PROTOCOLS|www.nature.com/nprot
+
+
+--- Page 15 ---
+2× TSS
+Add MgCl2, PEG 3350 and DMSO to LB media at ﬁnal concentrations of 20 mM, 10% wt/vol and 5%
+vol/vol, respectively, and sterilize using a Corning bottle-top vacuum ﬁlter system. Store at 4 °C
+indeﬁnitely.
+5× KCM solution
+Add KCl, CaCl2 and MgCl2 to water at ﬁnal concentrations of 100 mM, 30 mM and 50 mM,
+respectively. Store at room temperature indeﬁnitely.
+Procedure
+c
+CRITICAL Unless speciﬁed otherwise, all reactions and centrifugations are carried out at room
+temperature.
+TSS chemicompetent cell preparation ●Timing 6 h
+c
+CRITICAL This is a general protocol for any E. coli strain used in this protocol. Protocol can be scaled
+to any necessary volume.
+1
+Dilute a saturated culture of cells 1,000-fold into 50 ml of 2× YT liquid media supplemented with
+the appropriate antibiotics and grow at 37 °C in a biological shaker to OD600 ~0.4–0.6 (typically
+4–6 h).
+2
+Pellet cells by centrifugation at 4,000g for 10 min at 4 °C.
+3
+Discard supernatant and resuspend the pellet by gentle stirring in 2 ml of ice-cold LB media.
+4
+Add 2 ml of ice-cold 2× TSS and stir to mix the cell suspension completely.
+5
+Aliquot into 100-µl portions in microcentrifuge tubes and freeze either on dry ice or in liquid
+N2. Store at −80 °C until use.
+j
+PAUSE POINT Prepared chemicompetent cells can be stored for up to 6 months at −80 °C
+without freeze–thaw cycles.
+TSS chemicompetent cell transformation ●Timing 2 h
+c
+CRITICAL This is a general protocol for any E. coli strain used in this protocol. Protocol can be scaled
+to any necessary volume.
+6
+Thaw a 100-µl aliquot of competent cells on ice.
+7
+Prepare a mixture of plasmids (1–2 µl each (<100 ng); up to three plasmids per transformation) in a
+ﬁnal volume of 100 µl of 1× KCM solution. Chill on ice.
+8
+Add the thawed competent cells to the pre-chilled plasmid mixture on ice. Stir gently with a pipette
+tip to mix.
+9
+Incubate on ice for 10 min.
+10
+Heat shock at 42 °C in a water bath for 75 s.
+11
+Transfer cells back onto ice and then immediately add 500 µl of SOC media.
+12
+Recover cells at 37 °C in a biological shaker for 1–1.5 h. Note that cells transformed with plasmids
+containing ampicillin or carbenicillin resistance do not require this recovery step and can be plated
+directly after heat shock.
+13
+Plate on Petri dishes containing 2× YT/agar with the appropriate antibiotics and incubate at
+37 °C for 16–18 h.
+j
+PAUSE POINT Transformed cell colonies plated on 2× YT/agar media can be stored at 4 °C for
+up to 1 week.
+? TROUBLESHOOTING
+Phage cloning ●Timing 2 d
+14
+To prepare the SP, transform phage genomes assembled through any standard cloning method into
+S2208 cells by repeating Steps 1–10 using S2208 cells and substituting the plasmid used in Step 7
+with the entire yield of assembled phage genome.
+15
+Immediately after the heat shock step (Step 10), dilute the cell mixture into 10 ml of antibiotic-free
+2× YT liquid media in a culture tube.
+16
+Grow at 37 °C for 16–18 h in a biological shaker.
+17
+Pellet 1 ml of the resultant culture by centrifugation at 8,000g for 2 min. Collect and ﬁlter the
+supernatant using a 3-ml syringe ﬁtted with a 13-mm, 0.22-μm PVDF syringe ﬁlter to remove
+NATURE PROTOCOLS
+PROTOCOL
+NATURE PROTOCOLS |www.nature.com/nprot
+15
+
+
+--- Page 16 ---
+residual cells. Collected phage may be clonally isolated (Steps 23–25) using plaque assays
+(Steps 18–22) and sequenced (Steps 26–29).
+j
+PAUSE POINT Filtered phage can be stored at 4 °C or −20 °C indeﬁnitely; however, phage titers
+can gradually decrease over time.
+? TROUBLESHOOTING
+Activity-independent phage plaque assays ●Timing 2 d
+18
+Dilute a saturated culture of S2208 cells in 2× YT liquid media supplemented with 50 μg/ml of
+carbenicillin or ampicillin and grow to an OD600 of 0.6–0.9 at 37 °C in a biological shaker.
+j
+PAUSE POINT When cells reach the appropriate density, they may be kept at room temperature
+until use for up to 6 h.
+19
+Dilute phage (from Steps 17, 39 or 87) serially in water in three 100-fold increments to yield four
+total samples (undiluted and 102-, 104- and 106-fold diluted).
+20
+Transfer 10 μl of each dilution into one tube of a library strip (or other disposable tube that can
+hold up to 1.5 ml of liquid).
+21
+To each phage dilution, add 150 μl of S2208 cells from Step 18, followed by 1 ml of warm (~55 °C)
+2× YT top agar. (Optional: add Bluo-Gal to 2× YT top agar at a ﬁnal concentration of 0.04% (wt/
+vol) to produce more visually distinct plaques.)
+22
+Mix by pipetting up and down once and then plate each phage dilution onto one quadrant of a Petri
+X-plate containing 2 ml of solidiﬁed 2× YT agar in each quadrant. Incubate plates overnight
+(16–20 h) at 37 °C. The titer of the phage stock solution can be determined by the following
+formula: titer (in pfu/ml) = (# of plaques in quadrant) × (dilution factor of quadrant) × 100.
+? TROUBLESHOOTING
+Isolation of clonal phage ●Timing 2 d
+23
+Pick a single plaque from a plaque assay plate (Step 22; this corresponds to a single clonal phage) by
+gently touching a P10 or P20 pipette tip to the surface of the top agar. Place the pipette tip into
+2–3 ml of DRM and grow at 37 °C in a biological shaker for 16–20 h.
+24
+Pellet the cells by centrifuging at 8,000g for 2 min and then collect and ﬁlter the supernatant using a
+3-ml syringe ﬁtted with a 13-mm, 0.22-μm PVDF syringe ﬁlter to remove residual cells.
+j
+PAUSE POINT Filtered phage can be stored at 4 °C or −20 °C indeﬁnitely; however, phage titers
+can gradually decrease over time. Isolated clonal phage should be ampliﬁed (Steps 30–34) and
+puriﬁed (Steps 46–50) before use in PANCE or PACE.
+25
+Determine the phage titer using an activity-independent phage plaque assay (Steps 18–22).
+Sequencing clonal phage ●Timing 1 d
+26
+Pick a single plaque from a plaque assay plate (Step 22; this corresponds to a single clonal phage) by
+gently touching a P10 or P20 pipette tip to the surface of the top agar.
+27
+Amplify the phage DNA, using either option A to amplify the POI insert on the phage by PCR or
+option B to amplify the entire phage genome by rolling circle ampliﬁcation (RCA).
+(A) Amplify the POI insert on the phage by PCR.
+(i) Place the tip from Step 26 into a PCR reaction mixture containing the following:
+Component
+Amount
+Final concentration
+Nuclease-free water
+20 µl
+5× Phusion HF Buffer
+5 µl
+1×
+dNTPs
+0.5 µl
+0.2 mM each dNTP
+Phusion HF polymerase
+0.5 µl
+1 U
+AB1396
+0.125 µl
+1 µM
+AB1792
+0.125 µl
+1 µM
+Total
+26.25 µl
+(ii) Let the tip sit in the reaction for at least 30 s before removing.
+c
+CRITICAL STEP Do not discard the tip after removing; the remaining material will be
+used to inoculate a culture to amplify the phage clone in Step 28.
+PROTOCOL
+NATURE PROTOCOLS
+16
+NATURE PROTOCOLS|www.nature.com/nprot
+
+
+--- Page 17 ---
+(iii) Run the PCR reaction as follows, using an extension time that is appropriate for the size of
+the gene encoding the POI (~15 s per kb for Phusion HF polymerase):
+Cycle number
+Denature
+Anneal
+Extend
+Final
+1
+98 °C, 2 min
+2–41
+98 °C, 10 s
+60 °C, 20 s
+72 °C, 15 s per kb
+42
+72 °C, 2 min
+12 °C, 30 s
+(iv) Submit PCR product directly for Sanger sequencing.
+(B) Amplify the entire phage genome by RCA.
+(i) Using the TempliPhi Ampliﬁcation Kit, place the tip from Step 26 into the provided
+sample buffer and follow the provided directions for ampliﬁcation.
+c
+CRITICAL STEP Do not discard the tip after removing from the sample buffer; the
+remaining material will be used to inoculate a culture to amplify the phage clone in Step 28.
+(ii) Submit ampliﬁed DNA directly for Sanger sequencing.
+? TROUBLESHOOTING
+28
+Place the pipette tip saved from Step 27 in a culture tube containing 3 ml of DRM and incubate in a
+biological shaker at 37 °C for 16–20 h.
+29
+Pellet the cells by centrifuging at 8,000g for 2 min and then collect and ﬁlter the supernatant using a
+3-ml syringe ﬁtted with a 13-mm, 0.22-μm PVDF syringe ﬁlter to remove residual cells.
+j
+PAUSE POINT Filtered phage can be stored at 4 °C or −20 °C indeﬁnitely; however, phage titers
+can gradually decrease over time. Isolated clonal phage should be ampliﬁed (Steps 30–34) and
+puriﬁed (Steps 46–50) before use in PANCE or PACE.
+SP stock ampliﬁcation (activity-independent phage propagation) ●Timing 2 d
+30
+Dilute a saturated culture of S2208 cells 1,000-fold into DRM media supplemented with 50 μg/ml of
+carbenicillin or ampicillin and grow at 37 °C in a biological shaker to OD600 ~0.4–0.6.
+31
+Infect cells with the desired phage to be ampliﬁed at a starting titer of ~104 pfu/ml.
+32
+Grow at 37 °C in a biological shaker for 16–20 h.
+33
+Pellet the cells by centrifuging at 8,000g for 2 min and ﬁlter the supernatant using a 3-ml syringe
+ﬁtted with a 13-mm, 0.22-μm PVDF syringe ﬁlter to remove residual cells.
+j
+PAUSE POINT Filtered phage can be stored at 4 °C or −20 °C indeﬁnitely; however, phage titers
+can gradually decrease over time. Isolated clonal phage should be puriﬁed before use in PANCE
+or PACE.
+34
+Determine phage titer using an activity-independent phage plaque assay (Steps 18–22).
+Activity-dependent phage propagation ●Timing 2 d
+35
+Transform S2060 cells with the AP(s)/CP(s) of interest (Steps 1–13).
+36
+Dilute a saturated culture of the cells 1,000-fold into DRM media supplemented with the
+appropriate antibiotics and grow at 37 °C in a biological shaker to OD600 of 0.4–0.6.
+37
+Infect cells with phage at a starting titer of ~104 pfu/ml and then grow at 37 °C in a biological
+shaker for another 16–20 h.
+38
+Pellet the cells by centrifuging at 8,000g for 2 min and ﬁlter the supernatant using a 3-ml syringe
+ﬁtted with a 13-mm, 0.22-μm PVDF syringe ﬁlter to remove residual cells. Store the ﬁltered
+supernatant at 4 °C.
+j
+PAUSE POINT Filtered phage can be stored at 4 °C or −20 °C indeﬁnitely; however, phage titers
+can gradually decrease over time.
+39
+Determine phage titer using an activity-independent phage plaque assay (Steps 18–22). To calculate
+fold propagation, divide the ﬁnal phage titer by the starting titer.
+? TROUBLESHOOTING
+Preparation of host cells ●Timing 2 d
+40
+Transform either MP6 or DP6 into S2060 cells containing desired AP(s)/CP(s) (Steps 1–13) to
+obtain PACE host cells (Box 1).
+41
+Plate on Petri dishes containing 2× YT agar supplemented with 100 mM glucose and the
+appropriate antibiotics.
+NATURE PROTOCOLS
+PROTOCOL
+NATURE PROTOCOLS |www.nature.com/nprot
+17
+
+
+--- Page 18 ---
+c
+CRITICAL STEP Cells containing MP6 or DP6 should always be plated on and cultured in media
+containing glucose (i.e., DRM) to suppress mutagenesis of host strains. Cells containing MP6 or
+DP6 should be transformed immediately before a PACE experiment and should never be stored
+longer than 1 week at 4 °C.
+j
+PAUSE POINT Ideally, cells transformed with MP6 or DP6 should be used immediately but can
+be stored up to 1 week at 4 °C.
+42
+The day before starting a PACE experiment, pick a single colony of PACE host cells into 1 ml of
+DRM containing the appropriate antibiotics. Then, either in individual culture tubes or in the wells
+of a 96-well deep-well plate, create eight 1:10 serial dilutions of this resuspended colony. Incubate in
+a biological shaker at 37 °C for 16–20 h.
+43
+The next morning, select a serially diluted culture of PACE host cells that is in mid-log phase
+(OD600 of 0.2–0.8) and use this culture to inoculate 30–40 ml of DRM containing the appropriate
+antibiotics in either a 100-ml bafﬂe ﬂask or a Corning Mini Bioreactor Centrifuge Tube.
+44
+Grow this larger culture in a biological shaker at 37 °C until it reaches mid-log phase
+(OD600 ~0.2–0.8).
+45
+Use this culture to start chemostats (Step 72).
+c
+CRITICAL STEP To ensure maximum phage infectibility, host cells should never surpass
+OD600 = 0.8.
+Puriﬁcation of SP stocks ●Timing 2 d
+46
+Plaque sequence-veriﬁed, clonal SPs using an activity-independent plaque assay (Steps 18–22).
+47
+Using a P1000 pipette tip, punch out the section of agar containing a single plaque and resuspend
+the entire cross-section in 2 ml of DRM without antibiotics.
+48
+Incubate in a biological shaker for 6–8 h or until the culture reaches mid-log phase (OD600 of
+0.2–0.8).
+49
+Isolate phage by pelleting the cells by centrifuging at 8,000g for 2 min and then collecting and
+ﬁltering the supernatant using a 3-ml syringe ﬁtted with a 13-mm, 0.22-μm PVDF syringe ﬁlter to
+remove residual cells.
+j
+PAUSE POINT Filtered phage can be stored at 4 °C or −20 °C indeﬁnitely; however, phage titers
+can gradually decrease over time.
+50
+Determine the phage titer using an activity-independent phage plaque assay (Steps 18–22).
+c
+CRITICAL STEP This step prepares an SP stock that can be used to infect a PACE experiment (in
+Step 81) with reduced likelihood of producing wild-type recombinants (SPs whose genomes have
+re-acquired gIII through recombination with the gIII sequence present on either APs or pJC175e in
+S2208 cells), which will quickly poison a PACE experiment.
+Preparation of PACE tubing ●Timing 1–4 h
+c
+CRITICAL The numbers and lettering referred to in the following sections correspond to those shown
+in Fig. 3. Figure 3a lists the parts needed to set up the PACE equipment (which are numbered 1–16), and
+Fig. 3b,c illustrates the preparation of PACE tubing components (numbered 17–22 and then letters
+A–E). Figure 3e shows the ﬁnal assembly of the components.
+51
+For each chemostat and two lagoons, ﬁt the speciﬁed 2-stop silicone lines with the corresponding
+male Luer adapter as described below (Fig. 3a,b):
+17, Fig. 3b: Fit one 1.42-mm i.d. 2-stop line (1) with two 3/32-in i.d. male Luer adapters
+(6b)—for media to chemostat
+18, Fig. 3b: Fit two 0.89-mm i.d. 2-stop lines (2) with two 1/16-in i.d. male Luer adapters (6a)
+each—for chemostat to lagoons
+19, Fig. 3b: Fit three 2.06-mm i.d. 2-stop lines (3) with two 1/8-in i.d. male Luer adapters (6c)
+each—for chemostat and lagoons to waste
+52
+Assemble the connecting 1/16-in i.d. PVC tubing (Fig. 3a,b). Note: line lengths will vary depending
+on the positioning of your apparatus.
+20, Fig. 3b: Fit each of four 30-in segments of 1/16-in i.d. PVC tubing (4a) with one 1/16-in i.d.
+male Luer adapter (6a) on one end and one 1/16-in female Luer adapter (7a) on the other end.
+21, Fig. 3b: Fit each of eight 12-in segments of 1/16-in i.d. PVC tubing (4b) with one 1/16-in i.d.
+male Luer adapter (6a) on one end and one 1/16-in female Luer adapter (7a) on the other end.
+22, Fig. 3b: Connect one side of a Y-connector (8) to two 5-in segments of 1/16-in i.d. PVC
+tubing (4c). Fit two 1/16-in i.d. female Luer adapters (7a) to the other end of the tubing. Then,
+PROTOCOL
+NATURE PROTOCOLS
+18
+NATURE PROTOCOLS|www.nature.com/nprot
+
+
+--- Page 19 ---
+connect the other side of the Y-connector to a 12-in segment of 1/16-in i.d. PVC (4b) tubing. Fit a
+1/16-in i.d. male Luer adapter (6a) on the other end.
+53
+Attach assembled 2-stop silicone lines (numbered 17–19 on Fig. 3b) to the assembled 1/16-in i.d.
+PVC tubing segments (numbered 20–22 on Fig. 3b) by tightly connecting the male and female Luer
+adapters as shown in Fig. 3c and Supplementary Fig. 2a to make ﬁnal PACE tubing parts C–E.
+Speciﬁcally:
+C, Fig. 3c and Supplementary Fig. 2a: Connect 17 to 20 and 21.
+D, Fig. 3c and Supplementary Fig. 2a: Connect 2 × 18 to 4 × 21. Join the two lines with 22.
+E, Fig. 3c and Supplementary Fig. 2a: Connect 19 to 20 and 21. Repeat to make three total of
+this part.
+Inducer tubing: The remaining 2 × 21 are used to connect the lagoons with
+the syringes for inducer addition.
+54
+Wrap any open ends of the tubing with aluminum foil and autoclave to sterilize at 121.0 °C.
+j
+PAUSE POINT Assembled and sterilized PACE tubing can be stored indeﬁnitely provided the
+interior of the tubing is not exposed.
+Preparation of PACE apparatus ●Timing 1–4 h
+55
+Prepare the lagoons. For each lagoon, add one 1/2-in stir bar (16) to each 22-ml glass vial ﬁtted with
+PFTE/silicone septum (9). Make the cap (A, Fig. 3b) by placing the following four needles in the
+septum in the arrangement shown in Fig. 3b: one 18-G × 1.5-in needle (12), two 22-G × 4-in
+needles (13) and one 16-G × 4-in needle (14). Wrap the inlets of each needle with aluminum foil
+and autoclave to sterilize at 121.0 °C.
+56
+Prepare the chemostats. For each chemostat, add one 1.5-in stir bar (15) to a 100-ml media bottle
+and lid with PTFE septum (10). Make the cap (B, Fig. 3b) by placing the following four needles in
+the septum in the arrangement shown in Fig. 3b: two 18-G × 1.5-in needles (12) and two
+16-G × 4-in needles (14). Wrap the inlets of each needle with aluminum foil and autoclave to
+sterilize at 121.0 °C.
+57
+Attach a sterile 13-mm, 0.22-µm PVDF syringe ﬁlter to one 18-G × 1.5-in (12) needle in each
+sterilized lagoon and chemostat to allow for aeration.
+58
+Secure the lagoons to prevent them from toppling over (i.e., by placing inside a test tube rack), and
+place both the lagoons and the chemostat on the multi-point stirrer.
+59
+Attach the 2-stop segments of PACE tubing (C–E) to the Masterﬂex L/S 8-channel multi-channel
+pump heads as shown in Fig. 3e and Supplementary Fig. 2b. For simplicity, set both pumps to
+rotate in the same direction. To one Masterﬂex L/S Digital Drive pump with a Masterﬂex
+L/S 8-channel multi-channel pump head (pump 1), attach the 2-stop segments of 1×C and 1×E to
+the pump head with the short segment of PVC tubing on C and the long segment on E facing the
+direction of outgoing ﬂow. To a second Masterﬂex L/S Digital Drive pump with a Masterﬂex L/S 8-
+channel multi-channel pump head (pump 2), attach the two 2-stop segments of part D to the pump
+head with the non-Y-joint segments of PVC tubing facing the direction of outgoing ﬂow. Similarly,
+attach the 2-stop segment of 2×E to the pump head with the longer segments of PVC tubing facing
+the direction of outgoing ﬂow.
+60
+Connect the shorter (outgoing) segment of C attached to pump 1 to the remaining 18-G × 1.5-in
+needle (12) on the chemostat (B) (media to chemostat), as shown in Fig. 3e and Supplementary
+Fig. 2b. Leave the other (incoming) segment of C unconnected until PACE is started.
+61
+Connect the shorter (incoming) segment of part E attached to pump 1 to one 16-G × 4-in needle
+(14) on the chemostat (B) (chemostat to waste) as shown in Fig. 3e and Supplementary Fig. 2b.
+Leave the other (outgoing) segment of E unconnected until PACE is started.
+62
+Connect the shorter (incoming) segment of each part E attached to pump 2 to the 16-G × 4-in
+needle (14) in each lagoon (A) (lagoon to waste) as shown in Fig. 3e and Supplementary Fig. 2b.
+Leave the other (outgoing) segment of E unconnected until PACE is started.
+63
+Connect the Y-joint side segment (incoming) of part D attached to pump 2 to the other 16-G × 4-in
+needle (14) on the chemostat (B) (chemostat to lagoons) as shown in Fig. 3e and Supplementary Fig. 2b.
+64
+Connect the outgoing end of each part D attached to pump 2 to one 22-G × 4-in needle (13) in
+each of the lagoons (A) (chemostat to lagoons) as shown in Fig. 3e and Supplementary Fig. 2b.
+c
+CRITICAL STEP Make sure to avoid contamination while removing foil covers and connecting
+apparatus parts.
+c
+CRITICAL STEP The PACE apparatus should be set up either in a warm room set at 37 °C or in a
+NATURE PROTOCOLS
+PROTOCOL
+NATURE PROTOCOLS |www.nature.com/nprot
+19
+
+
+--- Page 20 ---
+biological incubator set at 37 °C large enough to contain the multi-point stirrer, chemostat
+and lagoons.
+j
+PAUSE POINT PACE apparatus can be left partially assembled provided that the chemostat,
+lagoons and tubing are kept sterile until the experiment begins.
+Preparation of DRM carboy ●Timing 2 h
+65
+To 9.75 L of water in a 10-L Nalgene heavy duty polypropylene carboy with a Nalgene
+polypropylene 3-port ﬁlling/venting closure cap, add 181 g of Harvard Custom Media A and 10 ml
+of TWEEN-20.
+66
+Attach three 5-in segments of 1/4-in i.d. Masterﬂex BPT tubing (5a) to the three ports on the top
+side of the cap. Insert one female (7b) and two male (6d) 1/4-in i.d. Luer adapters into the tubing
+(Fig. 3d). Cap one male Luer adapter, and place foil over the other ends for autoclaving.
+67
+Attach one 30-in segment of 1/4-in i.d. Masterﬂex BPT tubing (5b) to the underside of the cap so
+that it is attached to the other side of the 5-in segment containing the female Luer adapter (Fig. 3d).
+68
+Autoclave to sterilize at 121.0 °C.
+j
+PAUSE POINT Sterilized carboys containing Harvard Custom Media A can be stored at room
+temperature for up to 3 months.
+69
+Separately, add Harvard Custom Media C (59 g), 50 µl of 0.1 M CaCl2 solution, 120 µl of Trace
+Metals solution and any appropriate antibiotics to 250 ml of water. Mix to dissolve all solids and
+then sterilize using a Corning bottle-top vacuum ﬁlter system.
+70
+Add the ﬁltered Harvard Custom Media C solution to the cooled Harvard Custom Media A
+solution in the carboy and mix to combine.
+71
+Attach one 30-mm, 0.22-µm syringe ﬁlter to the remaining male Luer adapter.
+Setting up the PACE experiment ●Timing 1 d
+72
+Transfer 30 ml of the OD600 ~0.2–0.8 culture of host cells prepared in Step 45 to the chemostat.
+73
+Connect the media to the chemostat: connect the longer (incoming) segment of part C attached to
+pump 1 to the female Luer adapter on the media carboy (Fig. 3e and Supplementary Fig. 2b).
+74
+Connect the chemostat to waste: connect the outgoing segment of part E attached to pump 1 to the
+waste (Fig. 3e and Supplementary Fig. 2b).
+75
+Begin media ﬂow into the chemostat. Hold the rapid dispense button on pump 1 until media begins
+ﬂowing into the chemostat. Adjust the height of the waste needle (part 14 attached to part E) in the
+chemostat to maintain an approximate volume of 40 ml. The waste needle should never be lower
+than the needle for lagoon outﬂow (part 14 attached to part D). Set the ﬂow rate of pump 1 to 40
+ml/h (1 volume/h) and allow the chemostat to turn over at a ﬂow rate of 1 volume/h for at least 1 h
+to ensure that the chemostat OD600 is maintained at 0.4–0.6.
+? TROUBLESHOOTING
+76
+Connect the lagoons to waste: connect the outgoing end of each part E attached to pump 2 to the
+waste (Fig. 3e and Supplementary Fig. 2b).
+77
+Fill the lagoons. Hold the rapid dispense button on pump 2 until the chemostat cell culture begin to
+ﬂow into the lagoons. Adjust the height of the waste needle (part 14 attached to part E) in each
+lagoon to maintain an approximate volume of 15 ml. Set the ﬂow rate of pump 2 to 15 ml/h (1
+volume/h) and allow lagoons to turn over at a ﬂow rate of 1 volume/h for at least 1 h to ensure that
+the steady-state chemostat volume is unchanged.
+? TROUBLESHOOTING
+78
+Prepare induction syringes (Fig. 3e and Supplementary Fig. 2b). Add 50 ml of 250 mM arabinose to
+each 50-ml syringe (Note: both syringes must be ﬁlled with the same volume of solution). If
+inducing drift from DP6, add anhydrotetracycline concentration (aTc) to the arabinose solution to
+the desired ﬁnal concentration. The rate of aTc addition typically ranges between 0 and 50 ng/ml/h
+(Fig. 4b). Attach the female Luer adapters of the inducer lines (21) to the syringes. Place syringes in
+the syringe pump. Connect the male Luer adapters of the inducer lines (21) to the other part 13 in
+each lagoon (A).
+79
+Clear the air from the inducer lines by turning on the syringe pump and setting a high ﬂow rate
+(e.g., 10 ml/h). Allow the syringe pump to pump until the inducer lines are ﬁlled with inducer
+solution and ~0.6 ml of inducer solution has been added to each lagoon.
+80
+Continue induction of mutagenesis and drift, if using, by setting the syringe pump to a pump rate of
+PROTOCOL
+NATURE PROTOCOLS
+20
+NATURE PROTOCOLS|www.nature.com/nprot
+
+
+--- Page 21 ---
+0.6 ml/h. Allow the arabinose (or arabinose and aTc) solution to pump for at least 1 h before
+infecting the lagoons with phage.
+81
+Infect lagoons. Fill two 1-ml syringes with 1 ml of 107 pfu/ml puriﬁed SP in DRM (see Steps 46–50
+for phage puriﬁcation). Stop all pumps. Disconnect the lagoon waste lines (E) from the lagoon
+16-G × 4-in waste needles. Inject 1 ml of the 107 pfu/ml SP directly into each lagoon (A) through
+the 16-G × 4-in waste needles. Reconnect the male Luer adapters from the lagoon waste lines (E) to
+the lagoon 16-G × 4-in waste needles. Wait 10 min before collecting the ﬁrst sample from the
+lagoon or turning on the pumps.
+82
+Collect a sample from each lagoon (following Steps 84–87). This sample corresponds to the
+0-h timepoint.
+83
+Turn on pump 2 to begin the PACE experiment. We typically start at a lagoon ﬂow rate of
+0.5 volumes/h (pump 2: 7.5 ml/h; syringe pump: 0.3 ml/h) and increase ﬂow rates as the
+experiment continues (see Steps 88–90).
+Taking samples from lagoons ●Timing 10 min
+84
+Disconnect the lagoon waste lines (E) from the lagoon 16-G × 4-in waste needles.
+85
+Fit 3-ml syringes to each 16-G × 4-in waste needle and draw up ~1 ml from each lagoon.
+86
+Reconnect the male Luer adapters from the lagoon waste lines (E) to the lagoon 16-G × 4-in waste
+needles.
+87
+Transfer lagoon samples to Eppendorf tubes and isolate the phage (Step 24). Samples should be
+taken approximately every 12 or 24 h.
+Maintaining a PACE experiment ●Timing ~7 d
+88
+Lagoon titers are determined from all lagoon samples (Steps 84–87) by performing activity-
+independent plaque assays (Steps 18–22).
+89
+Increase the ﬂow rate by 0.5–1 volumes/h when titers either remain constant or increase over the
+span of ~24 h (Fig. 4a).
+90
+The experiment can be discontinued when titers remain constant (or fall below detection) for over
+12 h at a ﬂow rate exceeding 3 volumes/h.
+? TROUBLESHOOTING
+Dismantling the PACE apparatus ●Timing 3 h
+91
+Disconnect Part C from the media carboy and Part D from the chemostat and place them directly
+into a 1-L bottle containing a solution of 10% bleach in water.
+92
+Continue to run the peristaltic pumps to ﬂush the system with ~500 ml of the bleach solution.
+93
+Swap the bleach solution for a 1-L bottle containing water and continue to run the pumps to ﬂush
+~500 ml of water through the system.
+94
+Stop the pumps.
+95
+Detach all PACE tubing from pump heads and disconnect the chemostats and lagoons. Dispose of
+needles securely in a sharps container. Soak tubing and chemostat components in a solution of 10%
+bleach in water for 20 min.
+c
+CRITICAL STEP We have found that autoclaving or sterilization with ethanol is insufﬁcient to
+destroy phage particles. Therefore, to avoid contaminating between PACE runs, we strongly
+recommend disinfecting all reused parts thoroughly with 10% bleach in water solution.
+96
+Rinse tubing and chemostat components several times with water to remove all traces of bleach.
+97
+Air dry the PACE tubing.
+c
+CRITICAL STEP PACE tubing and chemostats may be reused but should be sterilized again ﬁrst
+(Steps 54–56).
+Isolating and sequencing single clones from lagoon samples ●Timing 1 d
+98
+Clonal phage from lagoon samples can be isolated using an activity-independent plaque assay
+(Steps 18–22) or, if the POI encoded on the phage is sufﬁciently active, using an activity-dependent
+plaque assay with host cells containing the appropriate AP(s) and CP(s), if applicable (Steps 35–39).
+Phage are grown as in Steps 23–25.
+99
+Sequence clonal phage as described in Steps 26–29.
+? TROUBLESHOOTING
+NATURE PROTOCOLS
+PROTOCOL
+NATURE PROTOCOLS |www.nature.com/nprot
+21
+
+
+--- Page 22 ---
+Characterization of evolved phage by bacterial luciferase assay (optional) ●Timing 3-4 d
+100 Transform S2060 host cells with the relevant AP(s)/CP(s) (Steps 1–13). The AP(s) should contain
+bacterial luciferase (luxAB) translationally coupled to gIII (Supplementary Fig. 1b).
+101 Pick a single colony of the host cells into DRM supplemented with the appropriate antibiotics and
+incubate in a biological shaker at 37 °C for 16–20 h.
+102 Make a 1:100 dilution of the resultant saturated culture of host cells into DRM supplemented with
+the appropriate antibiotics and incubate in a biological shaker at 37 °C until the diluted culture
+reaches an OD600 of 0.4–0.6.
+103 Infect the host cells with clonal phage isolated from PACE samples at a 10:1 phage:host cell ratio.
+104 Incubate cells in a biological shaker at 37 °C for 1–2 h.
+105 Read luminescence using a plate reader using the following settings:
+○Set temperature to 37 °C.
+○Shake (orbital) for 10 s with 1-mm amplitude and 582 r.p.m.
+○Read absorbance at 600 nm (number ﬂashes = 10, settle time = 0 ms).
+○Read luminescence (attenuation = none, settle time = 0 ms, integration time = 500 ms).
+PANCE (optional) ●Timing 1 d per passage
+106 To generate host cells for PANCE, transform either MP6 or DP6 into S2060 cells containing desired
+AP(s)/CP(s) as described in Steps 1–13.
+107 Plate on Petri dishes containing 2× YT agar supplemented with 100 mM glucose and the
+appropriate antibiotics.
+c
+CRITICAL STEP Cells containing MP6 or DP6 should always be plated on and cultured in media
+containing glucose (i.e., DRM) to suppress mutagenesis of host strains. Cells containing MP6 or
+DP6 should be transformed immediately before a PANCE experiment and should never be stored
+longer than 1 week at 4 °C.
+108 Pick a single colony of the host cells into DRM supplemented with the appropriate antibiotics and
+incubate in a biological shaker at 37 °C for 16–20 h.
+109 Make a 1:100 dilution of the resultant saturated culture of host cells into DRM supplemented with
+the appropriate antibiotics and incubate in a biological shaker at 37 °C until the diluted culture
+reaches an OD600 of 0.4–0.6 (Supplementary Fig. 1a).
+110 Induce mutagenesis and drift (if using DP6) by adding L-arabinose and aTc to a ﬁnal concentration
+of 10 mM and 50 ng/µl, respectively. The aTc concentration can be adjusted between 0 and 50 ng/µl
+to vary the amount of drift.
+111 Infect the culture with the desired SP at a ﬁnal titer of 106–107 pfu/ml. Infection at higher starting
+titers lowers the stringency of selection by reducing the fold propagation required for the SP to
+persist in PANCE.
+112 Incubate in a biological shaker for 6–18 h at 37 °C. Longer incubation times lower the stringency of
+selection by providing more time for phage propagation.
+113 Isolate phage by pelleting the cells by centrifuging at 8,000g for 2 min and then collecting and
+ﬁltering the supernatant using a 3-ml syringe ﬁtted with a 13-mm, 0.22-μm PVDF syringe ﬁlter to
+remove residual cells.
+114 Repeat Steps 108–112 by using the phage pool to infect the next passage of induced host cells
+(Supplementary Fig. 1a) and adjusting starting titer (in other words, the dilution factor of the phage
+pool from the previous passage), drift induction and incubation time as desired to increase selection
+stringency.
+115 The titers of the PANCE phage pools after each passage can be determined either by an activity-
+independent plaque assay (Steps 18–22) or by qPCR (Steps 117–124).
+116 If the phage pools resulting from PANCE exhibit high propagation in phage propagation assays
+using host cells transformed with the appropriate AP(s)/CP(s) (Steps 1–13; approximately >50-fold
+propagation is suggested in order to perform PACE without drift or >5-fold propagation with drift)
+or trigger high luciferase expression in luciferase assays (Steps 100–105, a less-quantitative proxy
+for gIII expression and phage propagation), they can be used to start a PACE experiment.
+Alternatively, clonal phage can be isolated from advanced PANCE pools (Step 113) and analyzed by
+Sanger sequencing (Steps 26–29).
+? TROUBLESHOOTING
+PROTOCOL
+NATURE PROTOCOLS
+22
+NATURE PROTOCOLS|www.nature.com/nprot
+
+
+--- Page 23 ---
+qPCR titer determination (optional) ●Timing 3-4 h
+117 Transfer 25–50 µl of phage stocks of unknown titer (from Steps 87 or 113) to PCR tubes.
+118 Create a titration curve using phage of known titer by making eight 1:10 serial dilutions starting
+from a phage stock of ~109 or 1010 pfu/ml. Transfer 25–50 µl of each dilution into a PCR tube.
+119 Heat at 80 °C for 30 min to disrupt polyphage.
+120 To digest polyphage genomes, dilute 5 µl of heat-treated phage into 45 µl of 1× DNaseI buffer
+containing 1 unit (0.5 µl) of DNaseI.
+121 Heat at 37 °C for 20 min and then at 95 °C for 20 min.
+122 Set up the qPCR reactions. Each reaction contains the following:
+Component
+Amount
+Final concentration
+Nuclease-free water
+20 µl
+5× Phusion HF Buffer
+5 µl
+1×
+dNTPs
+0.5 µl
+0.2 mM each dNTP
+Phusion HF Polymerase
+0.5 µl
+1 U
+100× SYBR Green
+0.25 µl
+1×
+M13fwd primer
+0.125 µl
+1 µM
+M13rev primer
+0.125 µl
+1 µM
+Treated phage
+1.5 µl
+Total
+28 µl
+123 Run the qPCR with the following program:
+Cycle number
+Denature
+Anneal
+Extend
+Final
+1
+98 °C, 2 min
+2–41
+98 °C, 10 s
+60 °C, 20 s
+72 °C, 15 s
+42
+12 °C, 30 s
+124 Calculate phage titers using the titration curve derived from the phage stock of known concentration
+Troubleshooting
+Troubleshooting advice can be found in Table 2.
+Table 2 | Troubleshooting table
+Step
+Problem
+Possible reason
+Solution
+13
+No colonies
+Poor quality plasmid prep
+Re-prep plasmid; verify by Sanger sequencing
+Wrong selection antibiotic
+Use correct antibiotic
+Cells have low competency
+Keep cells chilled on ice throughout procedure. Never
+vigorously pipette or vortex competent cells
+17
+No phage
+Cells used for propagation lack F pilus
+Use F+ E. coli
+Did not use gIII-producing cell line to propagate
+Use S2208s or S2060s containing an AP
+Cells were grown to improper densities
+Grow cells to OD600 ~0.4–0.6
+Fault in phage backbone
+Ensure that cloning method retains all essential
+phage genes besides gIII
+Incorrect phage insert
+Inefﬁcient cloning
+Choose a different cloning method or increase scale
+of assembly
+Insert is large (>3 kbp)
+Clone in an activity-dependent manner (transform
+into cells containing an AP)
+22
+No plaques
+Cells were grown to improper densities
+Grow cells to OD600 ~0.4–0.6
+Plaques are too small or difﬁcult to see
+Add Bluo-Gal to top agar at 0.04% wt/vol or
+decrease agar concentration of top agar
+Table continued
+NATURE PROTOCOLS
+PROTOCOL
+NATURE PROTOCOLS |www.nature.com/nprot
+23
+
+
+--- Page 24 ---
+Timing
+Preparation of cell lines
+Steps 1–5, TSS chemicompetent cell preparation: 6 h
+Steps 6–13, TSS chemicompetent cell transformation: 2 h
+Preparation and analysis of phage
+Steps 14–17, phage cloning: 2d
+Steps 18–22, activity-independent phage plaque assays: 2 d
+Steps 23–25, isolation of clonal phage: 2 d
+Table 2 (continued)
+Step
+Problem
+Possible reason
+Solution
+27
+No PCR product
+Incorrect primers
+Ensure that primers AB1396 and AB1792 anneal to
+phage backbone. If not, use different primers
+Too little phage in PCR reaction
+Add more template
+PCR protocol not optimized
+Ensure that annealing temperature, extension time
+and number of cycles are correct
+39
+No propagation
+POI in phage has minimal activity on selection circuit
+encoded by AP
+Decrease selection stringency; choose different
+circuit
+Cells were infected at improper densities
+Grow cells to OD600 ~0.4–0.6
+75, 77
+Host cells do not maintain
+correct OD600
+Flow rate is too low or high
+Adjust waste needle height or peristaltic pump rate
+Incorrect antibiotics in PACE media
+Ensure that the correct antibiotics have been added
+90
+SPs exhibit gIII
+recombination
+Phage stocks contaminated with wild-type
+recombinants
+Purify phage (Steps 46–50)
+Drift induced for too long
+Limit drift to ≤48 h
+Phage washout
+Stringency too high
+Run PACE at lower stringency—drift with DP6, lower
+stringency of selection circuit on AP, use lower
+ﬂow rates
+No change in phage titers
+over multiple ﬂow rate
+increases
+Stringency too low to select for improved POI activity Increase stringency of selection circuit on AP
+Lagoons contaminated with wild-type recombinants
+(verify by Sanger sequencing lagoon samples)
+Purify phage (Steps 46–50)
+Phage titer is decreasing in
+the absence of
+stringency change
+Ability of host cells in chemostat to be infected
+diminishes over long periods Ability of host cells in
+chemostat to be infected diminishes over long
+periods of continuous culture (>5 d)
+Replace chemostat cells with fresh host cells picked
+from a bacterial colony (Steps 42–45; re-transform
+MP/DP if plated cells are >1 week old)
+99, 116 No mutations
+observed in POI
+MP/DP not induced
+Ensure correct concentration of arabinose has been
+added to lagoons to induce mutagenesis from
+MP or DP
+MP/DP non-functional
+Verify MP/DP by Sanger sequencing. Alternatively,
+perform phenotypic veriﬁcation: transform MP/DP
+into cells and plate on 2× YT/agar supplemented
+with glucose or arabinose. Cells plated on arabinose
+should exhibit notable growth inhibition due to
+mutagenesis induction compared to cells plated on
+glucose. If the MP/DP is non-functional, re-prep the
+plasmid. Ensure that the media used to grow cells for
+plasmid prep are supplemented with the correct
+antibiotics and glucose to repress mutagenesis
+Stringency too low to select for improved POI activity Run PACE with higher stringency—remove drift,
+increase dilution rate, increase the stringency of the
+AP selection circuit
+PACE is optimizing SP backbone
+Changes in SP backbone to optimize SP propagation,
+POI expression levels, etc, often occur before
+mutations begin to accumulate in the POI. Their
+effects on SP ﬁtness can be conﬁrmed using
+propagation assays (Steps 35–39). If the SPs isolated
+from PACE exhibit drastically improved propagation
+on cells containing the AP, continue to evolve this
+population in PACE using higher selection stringency
+PROTOCOL
+NATURE PROTOCOLS
+24
+NATURE PROTOCOLS|www.nature.com/nprot
+
+
+--- Page 25 ---
+Steps 26–29, sequencing clonal phage: 1d
+Steps 30–34, SP stock ampliﬁcation (activity-independent phage propagation): 2 d
+Steps 35–39, activity-dependent phage propagation: 2 d
+Preparing and running a PACE experiment
+Steps 40–45, preparation of host cells, 2 d
+Steps 46–50, puriﬁcation of SP stocks: 2 d
+Steps 51–54, preparation of PACE tubing: 1–4 h
+Steps 55–64, preparation of PACE apparatus: 1–4 h
+Steps 65–71, preparation of DRM carboy: 2 h
+Steps 72–83, setting up the PACE experiment: 1 d
+Steps 84–87, taking samples from lagoons: 10 min
+Steps 88–90, maintaining a PACE experiment: ~7 d
+Steps 91–97, dismantling the PACE apparatus: 3 h
+Analysis of PACE experiments
+Steps 98–99, isolating and sequencing single clones from lagoon samples: 1 d
+Steps 100–105, characterization of evolved phage by bacterial luciferase assay (optional): 3–4 d
+PANCE
+Steps 106–116, PANCE (optional): 1 d per passage
+Steps 117–124, qPCR titer determination (optional): 3–4 h
+Anticipated results
+PACE experiments are typically performed for up to 7 d, although, with care, they can run for several
+weeks. During PACE, lagoon titers typically range between 105 and 108 pfu/ml. Titers will vary
+depending on ﬁtness, the selection circuit and POI size. During the experiment, titers should drop
+and recover as selection pressure is increased and the evolving phage pool discovers ﬁtness-increasing
+mutations in response to changing selection conditions. Drops in phage titer are often observed
+within 12–24 h of the initial phage infection, ﬂow rate increases or cessation of drift induction. If the
+SPs discover ﬁtness-increasing mutations, their titers should recover within an additional 12–24 h.
+Phage titers might also remain stable throughout a PACE experiment even if ﬂow rate is increased.
+This observation might indicate that the selection stringency is too low, given the properties of the
+current evolved genes, to support the additional evolution of improved activity.
+PACE experiments might fail in a variety of ways. For example, lagoon phage titers might drop
+below a limit (~102–103 pfu/ml) beyond which recovery is either extremely unlikely or impossible.
+This ‘phage washout’ can occur when the selection is too stringent or if the host cells are uninfectable.
+Another possible failure mode is recombination of gIII into the SP genome, which leads to phage that
+can short-circuit the selection and therefore rapidly take over the lagoon population. Recombination
+is frequently accompanied by the loss of the now-dispensable POI insert, which can be detected by a
+decrease in the size of the corresponding PCR ampliﬁcation product (Step 27). Strategies for
+addressing these failures are listed in the Troubleshooting (Table 2).
+After completion of a PACE or PANCE experiment, mutations that might have accumulated in
+the POI can be identiﬁed by sequencing clonal SPs isolated from lagoon samples at later timepoints
+(PACE) or passages (PANCE). We recommend sequencing the POI encoded by eight or more clonal
+phage to allow for identiﬁcation of consensus mutations. Mutations can accumulate in both the SP
+backbone and the POI gene insert. The number of mutations observed will vary from selection to
+selection and can be inﬂuenced by factors such as selection stringency, POI size, the duration of the
+PACE/PANCE experiment and the nature of the POI itself. Additionally, signiﬁcant increases in
+ﬁtness can occur simply because of mutations in the SP backbone that optimize replication efﬁciency.
+Observation of a low number of consensus mutations does not preclude a successful evolution, as POI
+activity can be increased by just a single mutation. However, a lack of any shared mutations altogether
+might indicate that the evolution lacked sufﬁcient stringency to enrich for POI variants with
+improved ﬁtness or that a large fraction of sequence space contains variants with sufﬁcient ﬁtness to
+survive the present selection conditions.
+The outcome of an evolution experiment can be quickly assessed using either bacterial luciferase
+(Steps 100–105) or activity-dependent phage propagation assays (Steps 35–39); activity in these
+assays should increase for both the evolved SP pool and isolated SP clones relative to SP encoding the
+wild-type or starting POI. Ultimately, individual POI variants isolated from a PACE or PANCE
+experiment should be assessed using appropriate and orthogonal activity assays.
+NATURE PROTOCOLS
+PROTOCOL
+NATURE PROTOCOLS |www.nature.com/nprot
+25
+
+
+--- Page 26 ---
+Reporting Summary
+Further information on research design is available in the Nature Research Reporting Summary
+linked to this article.
+Data availability
+The authors declare that any data discussed in this protocol are available in the supporting primary
+research papers.
+References
+1. Packer, M. S. & Liu, D. R. Methods for the directed evolution of proteins. Nat. Rev. Genet. 16,
+379–394 (2015).
+2. Badran, A. H. & Liu, D. R. In vivo continuous directed evolution. Curr. Opin. Chem. Biol. 24, 1–10 (2015).
+3. Mills, D. R., Peterson, R. L. & Spiegelman, S. An extracellular Darwinian experiment with a self-duplicating
+nucleic acid molecule. Proc. Natl Acad. Sci. USA 58, 217–224 (1967).
+4. Wright, M. C. & Joyce, G. F. Continuous in vitro evolution of catalytic function. Science 276, 614–617 (1997).
+5. Esvelt, K. M., Carlson, J. C. & Liu, D. R. A system for the continuous directed evolution of biomolecules.
+Nature 472, 499–503 (2011).
+6. Berman, C. M. et al. An adaptable platform for directed evolution in human cells. J. Am. Chem. Soc. 140,
+18093–18103 (2018).
+7. Badran, A. H. et al. Continuous evolution of Bacillus thuringiensis toxins overcomes insect resistance. Nature
+533, 58–63 (2016).
+8. Badran, A. H. & Liu, D. R. Development of potent in vivo mutagenesis plasmids with broad mutational
+spectra. Nat. Commun. 6, 8425 (2015).
+9. Barbas, C. F. Phage Display: A Laboratory Manual (Cold Spring Harbor Laboratory Press, 2001).
+10. Carlson, J. C., Badran, A. H., Guggiana-Nilo, D. A. & Liu, D. R. Negative selection and stringency modulation
+in phage-assisted continuous evolution. Nat. Chem. Biol. 10, 216–222 (2014).
+11. Bennett, N. J. & Rakonjac, J. Unlocking of the ﬁlamentous bacteriophage virion during infection is mediated
+by the C domain of pIII. J. Mol. Biol. 356, 266–273 (2006).
+12. Hubbard, B. P. et al. Continuous directed evolution of DNA-binding proteins to improve TALEN speciﬁcity.
+Nat. Methods 12, 939–942 (2015).
+13. Leconte, A. M. et al. A population-based experimental model for protein evolution: effects of mutation rate
+and selection stringency on evolutionary outcomes. Biochemistry 52, 1490–1499 (2013).
+14. Packer, M. S., Rees, H. A. & Liu, D. R. Phage-assisted continuous evolution of proteases with altered substrate
+speciﬁcity. Nat. Commun. 8, 956 (2017).
+15. Thuronyi, B. W. et al. Continuous evolution of base editors with expanded target compatibility and improved
+activity. Nat. Biotechnol. 37, 1070–1079 (2019).
+16. Wang, T., Badran, A. H., Huang, T. P. & Liu, D. R. Continuous directed evolution of proteins with improved
+soluble expression. Nat. Chem. Biol. 14, 972–980 (2018).
+17. Bryson, D. I. et al. Continuous directed evolution of aminoacyl-tRNA synthetases. Nat. Chem. Biol. 13,
+1253–1260 (2017).
+18. Roth, T. B., Woolston, B. M., Stephanopoulos, G. & Liu, D. R. Phage-assisted evolution of Bacillus
+methanolicus methanol dehydrogenase 2. ACS Synth. Biol. 8, 796–806 (2019).
+19. Hu, J. H. et al. Evolved Cas9 variants with broad PAM compatibility and high DNA speciﬁcity. Nature 556,
+57–63 (2018).
+20. Suzuki, T. et al. Crystal structures reveal an elusive functional domain of pyrrolysyl-tRNA synthetase. Nat.
+Chem. Biol. 13, 1261–1266 (2017).
+21. Miller, S. M. et al. Continuous evolution of SpCas9 variants compatible with non-G PAMs. Nat. Biotechnol.
+38, 471–481 (2020).
+22. Dickinson, B. C., Leconte, A. M., Allen, B., Esvelt, K. M. & Liu, D. R. Experimental interrogation of the path
+dependence and stochasticity of protein evolution using phage-assisted continuous evolution. Proc. Natl
+Acad. Sci. USA 110, 9007–9012 (2013).
+23. Brodel, A. K., Jaramillo, A. & Isalan, M. Engineering orthogonal dual transcription factors for multi-input
+synthetic promoters. Nat. Commun. 7, 13858 (2016).
+24. Pu, J., Zinkus-Boltz, J. & Dickinson, B. C. Evolution of a split RNA polymerase as a versatile biosensor
+platform. Nat. Chem. Biol. 13, 432–438 (2017).
+25. Zinkus-Boltz, J., DeValk, C. & Dickinson, B. C. A phage-assisted continuous selection approach for deep
+mutational scanning of protein–protein interactions. ACS Chem. Biol. 14, 2757–2767 (2019).
+26. Pu, J., Disare, M. & Dickinson, B. C. Evolution of C-terminal modiﬁcation tolerance in full-length and split
+T7 RNA polymerase biosensors. Chembiochem 20, 1547–1553 (2019).
+27. Dickinson, B. C., Packer, M. S., Badran, A. H. & Liu, D. R. A system for the continuous directed evolution of
+proteases rapidly reveals drug-resistance mutations. Nat. Commun. 5, 5352 (2014).
+28. Richter, M. F. Z. et al. Phage-assisted evolution of an adenine base editor with enhanced Cas domain
+compatibility and activity. Nat. Biotechnol. 38, 883–891 (2020).
+PROTOCOL
+NATURE PROTOCOLS
+26
+NATURE PROTOCOLS|www.nature.com/nprot
+
+
+--- Page 27 ---
+29. Brodel, A. K., Jaramillo, A. & Isalan, M. Intracellular directed evolution of proteins from combinatorial
+libraries based on conditional phage replication. Nat. Protoc. 12, 1830–1843 (2017).
+30. Javanpour, A. A. & Liu, C. C. Genetic compatibility and extensibility of orthogonal replication. ACS Synth.
+Biol. 8, 1249–1256 (2019).
+31. Ravikumar, A., Arzumanyan, G. A., Obadi, M. K. A., Javanpour, A. A. & Liu, C. C. Scalable, continuous
+evolution of genes at mutation rates above genomic error thresholds. Cell 175, 1946–1957 (2018).
+32. Zhong, Z., Ravikumar, A. & Liu, C. C. Tunable expression systems for orthogonal DNA replication. ACS
+Synth. Biol. 7, 2930–2934 (2018).
+33. Zhong, Z. et al. Automated continuous evolution of proteins in vivo. ACS Synth. Biol. 9, 1270–1276 (2020).
+34. English, J. G. et al. VEGAS as a platform for facile directed evolution in mammalian cells. Cell 178,
+1030 (2019).
+35. Barbas, C. F. 3rd Recent advances in phage display. Curr. Opin. Biotechnol. 4, 526–530 (1993).
+36. Ringquist, S. et al. Translation initiation in Escherichia coli: sequences within the ribosome-binding site. Mol.
+Microbiol. 6, 1219–1229 (1992).
+Acknowledgements
+We thank K. Esvelt, J. Carlson, B. Dickinson, A. Badran, B. Hubbard, M. Packer, D. Bryson, J. Hu, T. Roth, B. Thuronyi, M. Richter and
+K. Zhao for their contributions to the development of PACE and T. Blum for helpful discussion. S.M.M. was supported by a National
+Science Foundation Graduate Research Fellowship. T.W. was supported by a Ruth L. Kirchstein National Research Service Awards
+Postdoctoral Fellowship (F32GM119228). We are grateful for support from US NIH R01 EB027793, U01 AI142756, RM1 HG009490, R35
+GM118062, the Howard Hughes Medical Institute and the Bill & Melinda Gates Foundation.
+Author contributions
+S.M.M., T.W. and D.R.L wrote the manuscript.
+Competing interests
+S.M.M., T.W. and D.R.L. have ﬁled patent applications on PACE technologies and PACE-evolved proteins.
+Additional information
+Supplementary information is available for this paper at https://doi.org/10.1038/s41596-020-00410-3.
+Correspondence and requests for materials should be addressed to D.R.L.
+Peer review information Nature Protocols thanks Mark Isalan, Chang Liu and the other, anonymous, reviewer(s) for their contribution to
+the peer review of this work.
+Reprints and permissions information is available at www.nature.com/reprints.
+Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional afﬁliations.
+Received: 21 February 2020; Accepted: 10 September 2020;
+Related links
+Key references using this protocol
+Esvelt, K. M., Carlson, J. C. & Liu, D. R. Nature 472, 499−503 (2011): https://doi.org/10.1038/nature09929
+Carlson, J. C., Badran, A. H., Guggiana-Nilo, D. A. & Liu, D. R. Nat. Chem. Biol. 10, 216−222 (2014): https://doi.
+org/10.1038/nchembio.1453
+Badran, A. H. et al. Nature 533, 58−63 (2016): https://doi.org/10.1038/nature17938
+NATURE PROTOCOLS
+PROTOCOL
+NATURE PROTOCOLS |www.nature.com/nprot
+27
+
+
+--- Page 28 ---
+1
+nature research  |  reporting summary
+April 2020
+Corresponding author(s):
+David R. Liu
+Last updated by author(s): Aug 7, 2020
+Reporting Summary
+Nature Research wishes to improve the reproducibility of the work that we publish. This form provides structure for consistency and transparency 
+in reporting. For further information on Nature Research policies, see our Editorial Policies and the Editorial Policy Checklist.
+Statistics
+For all statistical analyses, confirm that the following items are present in the figure legend, table legend, main text, or Methods section.
+n/a Confirmed
+The exact sample size (n) for each experimental group/condition, given as a discrete number and unit of measurement
+A statement on whether measurements were taken from distinct samples or whether the same sample was measured repeatedly
+The statistical test(s) used AND whether they are one- or two-sided 
+Only common tests should be described solely by name; describe more complex techniques in the Methods section.
+A description of all covariates tested
+A description of any assumptions or corrections, such as tests of normality and adjustment for multiple comparisons
+A full description of the statistical parameters including central tendency (e.g. means) or other basic estimates (e.g. regression coefficient) 
+AND variation (e.g. standard deviation) or associated estimates of uncertainty (e.g. confidence intervals)
+For null hypothesis testing, the test statistic (e.g. F, t, r) with confidence intervals, effect sizes, degrees of freedom and P value noted 
+Give P values as exact values whenever suitable.
+For Bayesian analysis, information on the choice of priors and Markov chain Monte Carlo settings
+For hierarchical and complex designs, identification of the appropriate level for tests and full reporting of outcomes
+Estimates of effect sizes (e.g. Cohen's d, Pearson's r), indicating how they were calculated
+Our web collection on statistics for biologists contains articles on many of the points above.
+Software and code
+Policy information about availability of computer code
+Data collection
+No software was used
+Data analysis
+No software was used
+For manuscripts utilizing custom algorithms or software that are central to the research but not yet described in published literature, software must be made available to editors and 
+reviewers. We strongly encourage code deposition in a community repository (e.g. GitHub). See the Nature Research guidelines for submitting code & software for further information.
+Data
+Policy information about availability of data
+All manuscripts must include a data availability statement. This statement should provide the following information, where applicable: 
+- Accession codes, unique identifiers, or web links for publicly available datasets 
+- A list of figures that have associated raw data 
+- A description of any restrictions on data availability
+The 2060 cell line and plasmids pJC175e, MPs, DP6, and various CPs and APs are available through Addgene. Specific phage are available upon request. 
+
+
+--- Page 29 ---
+2
+nature research  |  reporting summary
+April 2020
+Field-specific reporting
+Please select the one below that is the best fit for your research. If you are not sure, read the appropriate sections before making your selection.
+Life sciences
+Behavioural & social sciences
+ Ecological, evolutionary & environmental sciences
+For a reference copy of the document with all sections, see nature.com/documents/nr-reporting-summary-flat.pdf
+Life sciences study design
+All studies must disclose on these points even when the disclosure is negative.
+Sample size
+n/a
+Data exclusions
+n/a
+Replication
+n/a
+Randomization
+n/a
+Blinding
+n/a
+Reporting for specific materials, systems and methods
+We require information from authors about some types of materials, experimental systems and methods used in many studies. Here, indicate whether each material, 
+system or method listed is relevant to your study. If you are not sure if a list item applies to your research, read the appropriate section before selecting a response. 
+Materials & experimental systems
+n/a Involved in the study
+Antibodies
+Eukaryotic cell lines
+Palaeontology and archaeology
+Animals and other organisms
+Human research participants
+Clinical data
+Dual use research of concern
+Methods
+n/a Involved in the study
+ChIP-seq
+Flow cytometry
+MRI-based neuroimaging

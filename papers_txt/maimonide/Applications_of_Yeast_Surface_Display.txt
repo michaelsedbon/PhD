@@ -1,0 +1,1318 @@
+--- Page 1 ---
+155
+Bin Liu (ed.), Yeast Surface Display: Methods, Protocols, and Applications, Methods in Molecular Biology, vol. 1319,
+DOI 10.1007/978-1-4939-2748-7_8, © Springer Science+Business Media New York 2015
+ Chapter 8 
+ Applications of Yeast Surface Display 
+for Protein Engineering 
+ Gerald  M.  Cherf and  Jennifer  R.  Cochran 
+ Abstract 
+ The method of displaying recombinant proteins on the surface of  Saccharomyces cerevisiae via genetic 
+fusion to an abundant cell wall protein, a technology known as yeast surface display, or simply, yeast dis-
+play, has become a valuable protein engineering tool for a broad spectrum of biotechnology and biomedi-
+cal applications. This review focuses on the use of yeast display for engineering protein afﬁ nity, stability, 
+and enzymatic activity. Strategies and examples for each protein engineering goal are discussed. Additional 
+applications of yeast display are also brieﬂ y presented, including protein epitope mapping, identiﬁ cation of 
+protein-protein interactions, and uses of displayed proteins in industry and medicine. 
+ Key words  Yeast surface display ,  Protein engineering ,  Random mutagenesis ,  DNA shufﬂ ing ,  Afﬁ nity 
+maturation ,  Protein stability engineering ,  Enzyme engineering 
+1  Introduction 
+ The ability to create engineered proteins with enhanced properties 
+including increased binding afﬁ nity, stability, and catalytic activity, 
+has had signiﬁ cant impact on biological research, medicine, and 
+biotechnology. Despite an improved understanding of protein 
+chemistry and folding, it remains challenging to design proteins 
+from ﬁ rst principles. Thus, most strategies rely on combinatorial 
+methods, such as directed evolution, to engineer optimized pro-
+teins, by applying random or site- directed mutagenesis techniques 
+to generate “libraries” of up to 10 14 variants of an individual pro-
+tein. These protein libraries are then screened in a high-through-
+put manner to identify amino acid mutations that confer the 
+desired phenotype. 
+ Numerous molecular display platforms have been speciﬁ cally 
+developed for protein engineering, including tethering libraries of 
+protein variants to ribosomes and mRNA [ 1 – 5 ], or to the surface 
+of phage [ 6 ,  7 ], bacteria [ 8 ], mammalian [ 9 ,  10 ], insect [ 11 ], or 
+yeast [ 12 ] cells. In the case of cell surface display, each individual 
+
+
+--- Page 2 ---
+156
+cell is transformed with a single vector encoding a protein variant 
+of interest that is genetically fused to a cell-surface anchor protein. 
+The anchor protein contains a signal sequence that directs efﬁ cient 
+transport of the fusion protein to the cell surface, where it is immo-
+bilized and accessible to the extracellular space. Yeast surface dis-
+play has become a leading platform for protein engineering due to 
+its collective advantages, including (1) a eukaryotic expression sys-
+tem capable of incorporating posttranslational modiﬁ cations such 
+as disulﬁ de bond formation; (2) low technical and time require-
+ments relative to other eukaryotic display systems; (3) inclusion of 
+epitope tags, which allows normalization of protein function (e.g., 
+ligand binding) to surface expression and, thus, identiﬁ cation of 
+proteins that both express at high levels and bind with high afﬁ nity 
+to a target protein; and (4) compatibility with ﬂ ow cytometric 
+analysis, which allows quantitative measurements of equilibrium 
+binding constants, dissociation kinetics, stability, and speciﬁ city of 
+the displayed proteins without the laborious requirements of solu-
+ble protein expression and puriﬁ cation. 
+ This review primarily focuses on the applications of yeast dis-
+play from a protein engineering perspective, including examples of 
+protein afﬁ nity maturation, stability engineering, and enzyme 
+engineering. Other applications of yeast display are brieﬂ y reviewed, 
+such as protein epitope mapping, identiﬁ cation of protein-protein 
+interactions, and display of proteins and enzymes on yeast cells for 
+biotechnology and biomedical applications. 
+2  Yeast Surface Display Platform 
+ Yeast offer multiple options for cell surface anchor proteins, includ-
+ing Agα1p, Aga2p, Cwp1p, Cwp2p, Tip1p, Flo1p, Sed1p, 
+YCR89w, and Tir1 [ 13 ]. Fusion of a protein of interest to the C- 
+or N-terminus of an anchor protein typically results in the display 
+of up to 100,000 copies of the fusion protein on the cell surface of 
+ Saccharomyces cerevisiae [ 14 ]. The choice of the anchor protein 
+and fusion terminus depends on the protein to be engineered; 
+generally the terminus farthest from the functional portion of the 
+protein should be tethered to the anchor protein to avoid disrupt-
+ing activity. The most common yeast display system employs fusion 
+of the protein of interest to the C-terminus of the  a - agglutinin 
+mating protein Aga2p subunit, a technology pioneered by Boder 
+and Wittrup [ 12 ] (Fig.  1 ). The yeast surface display construct 
+designed for this system includes two epitope tags: a hemaggluti-
+nin (HA) tag between Aga2p and the N-terminus of the protein of 
+interest, and a C-terminal  c - myc tag (Fig.  1a ). Induction of protein 
+expression results in surface display of the fusion protein through 
+disulﬁ de bond formation of Aga2p to the β1,6-glucan- anchored 
+Aga1p domain of  a -agglutinin [ 15 – 17 ] (Fig.  1b ). The epitope tags 
+allow quantiﬁ cation of fusion protein expression, and thus 
+Gerald M. Cherf and Jennifer R. Cochran
+
+
+--- Page 3 ---
+157
+normalization of protein function to expression level by ﬂ ow 
+cytometry using ﬂ uorescently labeled antibodies. However, detec-
+tion of epitope tags yields no information on the fold or function 
+of the protein of interest. Therefore, a ligand or antibody speciﬁ c 
+for the native fold of the displayed protein must be used to inter-
+rogate these properties. 
+ Protein engineering applications using yeast display involve 
+expression of a protein library, which is generated from the underly-
+ing genetic material that codes for the protein variants. This 
+ connection is known as a genotype-phenotype linkage and must be 
+maintained throughout the protein engineering process so that the 
+desired protein variants can be identiﬁ ed by sequencing following 
+library screening. To create a protein library, diverse genetic material, 
+ Fig. 1  Schematic representation of yeast surface display. ( a ) The protein of interest is ﬂ anked by two epitope 
+tags: a 9-amino acid hemagglutinin antigen (HA) tag and a 10-amino acid  c - myc tag, and is fused to the 
+C-terminus of the  a -agglutinin Aga2p subunit. ( b ) Protein display on the yeast cell surface. Following translation, 
+the 69-amino acid Aga2p subunit associates with 725-amino acid  a -agglutinin Aga1p subunit via two disulﬁ de 
+bonds. The fusion protein is subsequently secreted to the extracellular space where Aga1p is anchored to the 
+cell wall via a β1,6-glucan covalent linkage. As a result, the protein of interest is displayed on the cell surface 
+where it is accessible by soluble ligands. Functional display of the protein of interest (shown here as a scFv [ 129 ] 
+modiﬁ ed from PDB 1X9Q using the UCSF Chimera package [ 130 ]) can be detected by a ﬂ uorescently labeled 
+antibody or ligand ( red star ) speciﬁ c to the native fold. The epitope tags are used to normalize protein function 
+to surface expression level through either labeled anti-HA or anti- c - myc antibodies ( green stars ). These features 
+allow ﬂ ow cytometric sorting of a heterogeneous mixture of yeast cells, each displaying up to 100,000 copies 
+of a individual protein variant, based on the biophysical and biochemical properties of the displayed proteins 
+ 
+Applications of Yeast Surface Display for Protein Engineering
+
+
+--- Page 4 ---
+158
+which can be obtained directly from organisms or generated by 
+mutagenic PCR, is transformed into yeast cells and induction of 
+expression through a GAL promoter leads to surface display of the 
+protein variants. The resulting library can then be screened using 
+ﬂ ow cytometric sorting (also known as ﬂ uorescence-activated cell 
+sorting, or FACS) to isolate yeast displaying proteins with the desired 
+properties. For this purpose, yeast are incubated with ﬂ uorescent 
+probes that differentially label the cells based on the biochemical and 
+biophysical properties of their displayed protein (e.g., afﬁ nity, stabil-
+ity, speciﬁ city). The yeast cells are then passed single- ﬁ le through the 
+ﬂ uidics stream of a FACS instrument, which analyzes and sorts them 
+based on cell size, granularity, and/or ﬂ uorescence measurements. 
+Detailed protocols for library creation and screening have been well 
+described in the ﬁ eld [ 14 ,  18 – 21 ]. 
+ Phage display and ribosome display techniques take advantage 
+of panning-based methods to efﬁ ciently screen libraries as large as 
+10 12 –10 14 variants. In comparison, yeast display offers lower 
+throughput due to limitations in yeast transformation efﬁ ciency 
+and current cell screening technology. The upper limit of library 
+sizes that can currently be screened by FACS is ~10 8 –10 9 yeast 
+cells, determined by the maximum sampling rate (~50,000 cells/s) 
+of the leading ﬂ ow cytometry instruments. Moreover, libraries are 
+typically sampled by FACS at higher coverage (e.g., 10×) to increase 
+the probability of sampling each variant at least once. Thus, to 
+increase throughput, yeast-displayed libraries of greater than 10 8 
+variants can ﬁ rst be screened using bead-based magnetic activated 
+cell sorting (MACS) to reduce the library diversity before screen-
+ing with FACS [ 22 ,  23 ]. In this method, magnetic beads are coated 
+with a soluble target of interest, for example, an antibody or ligand. 
+The beads are then incubated with the yeast library, and yeast dis-
+playing non-binding protein variants are removed by washing, after 
+which the yeast binding the desired target are eluted and recov-
+ered. This method is advantageous for removing truncated, mis-
+folded, and weak afﬁ nity proteins from the library, thereby reducing 
+library diversity to a size that is amenable to quantitative screening 
+by FACS. Finally, while differences between human and yeast gly-
+cosylation patterns have typically not prevented functional display 
+of glycosylated human proteins, yeast strains that express human 
+glycosylation machinery have been engineered and similar technol-
+ogy could potentially be developed for yeast display applications if 
+human glycosylation is desired ( see refs.  24 – 26 for reviews). 
+3  Engineering Proteins for Increased Afﬁ nity 
+ The afﬁ nity a protein has for its binding partner is a key parameter 
+that often regulates the biological function of the bound complex. 
+High binding afﬁ nity is a desired characteristic of proteins used for 
+Gerald M. Cherf and Jennifer R. Cochran
+
+
+--- Page 5 ---
+159
+research, therapeutic, and diagnostic applications, and thus multiple 
+strategies for increasing protein afﬁ nity (termed “afﬁ nity matura-
+tion”) have been developed, with the most common involving 
+directed evolution and molecular display technologies. Over the last 
+decade, yeast display has become a leading platform for afﬁ nity mat-
+uration; in addition to the aforementioned advantages, yeast display 
+can discriminate between proteins with only twofold differences in 
+afﬁ nity [ 21 ,  27 ], further illustrating the sensitivity of this approach. 
+ A general strategy of afﬁ nity maturation using yeast display 
+involves creation of a library on the order of 10 7 –10 9 protein variants 
+by random mutagenesis, followed by display of these variants on the 
+surface of yeast as fusions to the Aga2p cell wall protein (Fig.  2 ). 
+ Fig. 2  Isolating high-afﬁ nity protein variants from a yeast-displayed library by FACS. Following transformation 
+of yeast cells with a gene library and induction of surface expression, two main strategies are used to differ-
+entially label the displayed library prior to screening: (1) an equilibrium binding strategy where the library is 
+incubated with a ligand concentration 5–10 times greater than the expected  K  D  value of the highest afﬁ nity 
+variant, resulting in near saturation of tight binding variants and partial labeling of weaker afﬁ nity variants at 
+equilibrium, and (2) a kinetic binding strategy where the library is incubated with ligand as described for the 
+equilibrium binding strategy, but unbound ligand is removed by washing and the library is then incubated 
+either with a 100-fold excess of unlabeled ligand or in a sufﬁ ciently large volume of buffer to prevent rebinding 
+of dissociated ligand. During this second incubation step, the excess unlabeled ligand or large incubation 
+volume prevents dissociated labeled ligands from rebinding. Proteins are thus differentiated based on their 
+dissociation rate constants ( k off ), with variants having the slowest  k off retaining the largest percentage of pre-
+bound labeled ligand. Addition of a ﬂ uorescently labeled anti-epitope tag antibody (not shown) permits normal-
+ization of yeast surface expression levels with binding, allowing the highest afﬁ nity variants to be isolated by 
+FACS. Sorted pools of yeast clones can be expanded in culture for either analysis or a subsequent round of 
+sorting, or DNA from these clones can be isolated, subjected to mutagenesis, and used to transform a new 
+batch of yeast for further directed protein evolution. Components of the yeast display platform, including 
+Aga1p, Aga2p, HA, and  c - myc epitope tags, and detection antibodies depicted in Fig.  1 , are omitted for clarity 
+ 
+Applications of Yeast Surface Display for Protein Engineering
+
+
+--- Page 6 ---
+160
+Subsequently, two main strategies are used to label the yeast- 
+displayed library prior to sorting by FACS. In the ﬁ rst approach, 
+library members are screened based on their equilibrium dissocia-
+tion constants ( K  D  ) [ 27 ,  28 ]. The yeast-displayed library is incu-
+bated with the soluble binding partner (ligand) at a concentration of 
+approximately ﬁ ve- to tenfold greater than the expected  K  D  of the 
+highest afﬁ nity variants (typically near the  K  D  of the wild- type inter-
+action), and binding is allowed to reach equilibrium. This method 
+requires at least a tenfold excess of ligand relative to the number of 
+yeast-displayed protein variants in the binding reaction. If a lower 
+ratio is used, binding may signiﬁ cantly alter the concentration of free 
+ligand in solution, which would result in ligand depletion and non-
+compliance with rules that govern equilibrium binding isotherms. 
+The second approach uses kinetic competition and screens yeast-
+displayed variants based on their dissociation rate constants ( k off ) 
+[ 12 ,  29 ,  30 ]. The library is incubated with a saturating concentra-
+tion of ﬂ uorescently labeled ligand, washed, and then either incu-
+bated with 100-fold excess of unlabeled ligand, if available, or 
+incubated in a sufﬁ ciently large volume of buffer to prevent rebind-
+ing of the labeled ligand after dissociation. This method is primarily 
+used when evolving variants of a protein with a strong starting afﬁ n-
+ity ( K  D  < 1 nM) that would require inconveniently large incubation 
+volumes to meet the tenfold excess ligand requirement of the former 
+method, or when the dissociation kinetics are the most important 
+functional characteristic of the desired protein. Regardless of which 
+labeling method is used, high-afﬁ nity variants are selected using 
+FACS to isolate cells that exhibit high levels of binding for a given 
+amount of cell surface expression, as measured by a ﬂ uorescent anti-
+body against the C-terminal epitope tag and a ﬂ uorescently labeled 
+soluble ligand, respectively (Fig.  1 ). 
+ Following each round of cell sorting, two paths can be taken: 
+(1) the selected cells can be ampliﬁ ed in culture and sorted again 
+to further reduce the library diversity to a smaller subset of clones 
+with the highest afﬁ nity, or (2) DNA from the selected cells can be 
+extracted and subjected to another round of mutagenesis (e.g., 
+random mutagenesis or DNA shufﬂ ing [ 31 ]) to introduce addi-
+tional diversity or combine potentially favorable mutations, 
+ followed by display of the new library and another round of cell 
+sorting. The latter approach is termed “directed evolution,” and 
+incorporates multiple rounds of mutagenesis and library screening 
+to iteratively evolve proteins with the desired binding characteris-
+tics. After the library size is reduced to a smaller pool of high- 
+afﬁ nity proteins, the concentration of soluble ligand can be lowered 
+(while still avoiding ligand depletion) to adjust the resolution 
+between the weaker and tighter binding proteins and further aid in 
+selection of variants with the highest afﬁ nity. Typically, multiple 
+rounds of mutagenesis and/or library sorting are applied to isolate 
+high-afﬁ nity variants with equilibrium dissociation constants in the 
+low nanomolar to picomolar range. 
+Gerald M. Cherf and Jennifer R. Cochran
+
+
+--- Page 7 ---
+161
+ Following library sorting, individual variants can be quantita-
+tively analyzed for their binding properties while still tethered to 
+the yeast cell surface [ 27 ,  28 ]. This is a major advantage of yeast 
+display technology as it allows fast, quantitative comparisons of 
+binding properties without the need for laborious soluble expres-
+sion and puriﬁ cation of each protein. For this purpose, the enriched 
+library pool is ampliﬁ ed by culturing and is then plated to isolate 
+individual yeast clones that each expresses a single variant. These 
+individual clones are induced for cell surface expression and tested 
+for binding to varying concentrations of ligand typically ranging 
+from tenfold above to tenfold below the expected  K  D  of the dis-
+played variant. Equilibrium binding constants or dissociation kinet-
+ics are then determined by ﬂ ow cytometry [ 27 ,  28 ]. Importantly, 
+many studies have demonstrated that the  K  D  of a protein- protein 
+binding interaction measured on the surface of yeast is essentially 
+equal to the  K  D  measured using soluble proteins [ 32 ]. 
+ Using the general strategies outlined above numerous proteins 
+have been engineered with enhanced afﬁ nities for their binding 
+partners, including T cell receptors with greater than 100-fold 
+enhanced afﬁ nity for a peptide/MHC ligand [ 33 ], epidermal 
+growth factor (EGF) with 30-fold enhanced afﬁ nity for the EGF 
+receptor [ 34 ], interleukin-2 (IL-2) with up to 30-fold enhanced 
+afﬁ nity for the IL-2 receptor alpha subunit [ 35 ,  36 ], leptins with up 
+to 60-fold enhanced afﬁ nity for the leptin receptor [ 37 ], an Axl 
+receptor variant with 12-fold enhanced afﬁ nity for its ligand Gas6 
+(ﬁ nal  K  D  = 2.7 pM) [ 38 ], and a signal-regulatory protein α (SIRPα) 
+variant with ~50,000-fold enhanced afﬁ nity for CD47 (ﬁ nal 
+ K  D  = 11.1 pM) [ 39 ,  40 ]. Yeast display has also been applied to engi-
+neer and afﬁ nity mature numerous antibodies, including antibodies 
+against cholera toxin [ 41 ], FITC [ 22 ], HIV-1 gp120 [ 42 ], hemag-
+glutinin surface glycoprotein of the H1N1 virus [ 43 ], HER2/neu 
+[ 44 ], T cell receptors [ 28 ], TNF-α [ 45 ], and a host of other targets 
+( see ref.  46 for a review). In a classical demonstration of the techno-
+logical capabilities afforded by yeast display, a ﬂ uorescein- binding 
+antibody was engineered with a  K  D  equal to 48 fM and a dissocia-
+tion rate greater than 1,000-fold lower than the parent antibody 
+[ 30 ], representing one of the strongest protein binding interac-
+tions ever engineered and among the strongest found in nature. 
+ Yeast display technology has also been used to engineer novel 
+non-antibody protein binders against targets of interest. These so- 
+called alternative scaffold proteins have been chosen for protein 
+engineering applications based on positive attributes including sta-
+bility, amenability to mutation, ease of expression and puriﬁ cation, 
+and binding epitope surface area. Typically, the amino acid sequence 
+of a contiguous solvent-exposed region of the scaffold is random-
+ized to generate a “naïve” library, and the library is displayed on the 
+surface of yeast and screened for binding to a target protein using 
+FACS [ 47 ,  48 ]. A number of novel ligands have been engineered 
+using this strategy, including cysteine knot peptides (knottins) that 
+Applications of Yeast Surface Display for Protein Engineering
+
+
+--- Page 8 ---
+162
+bind to various integrins with  K  D  values in the picomolar to nano-
+molar range [ 47 ,  49 – 53 ], or that inhibit human matriptase-1 with 
+picomolar to nanomolar inhibition constants ( K  i  ) [ 54 ]; human 
+ﬁ bronectin 10th type III domain scaffold [ 55 ] variants that bind to 
+a variety of protein targets [ 18 ,  56 ,  57 ], such as lysozyme, with  K  D  
+values in the nanomolar to picomolar range [ 29 ,  32 ]; green ﬂ uo-
+rescent protein variants that bind streptavidin-phycoerythrin, bio-
+tin-phycoerythrin, glyceraldehyde 3-phosphate dehydrogenase, 
+and a neurotrophin receptor with  K  D  values of 70 nM, 190 nM, 
+18 nM, and 3.2 nM, respectively [ 58 ]; human kringle domain vari-
+ants that bind death receptor 4 (DR4), DR5, or TNF-α with  K  D  
+values of 680 nM, 172 nM, and 29 nM, respectively [ 59 ]; and 
+Sso7d protein variants from the hyperthermophilic archaeon 
+ Sulfolobus solfataricus that bind ﬂ uorescein, a peptide fragment 
+from β-catenin, hen egg lysozyme, streptavidin, and chicken and 
+mouse immunoglobulins with  K  D  values in the nanomolar to 
+ micromolar range [ 60 ]. 
+ In many of the scaffold examples described above, the screen-
+ing strategy identiﬁ ed a number of high-afﬁ nity ligands that bound 
+to different epitopes of the target protein. Novel ligands have also 
+been engineered to bind to a speciﬁ c epitope of the target protein 
+by ﬁ rst selecting all library variants that bind to a wild-type target 
+protein, and then screening the selected pool of binders for vari-
+ants that do not bind to an epitope-altered form of the target pro-
+tein. As a recent example, a dengue virus-neutralizing antibody 
+was engineered using yeast display by selecting antibodies from a 
+library that bound to the wild-type viral envelope protein domain 
+III, but not to a form of the target protein with a speciﬁ c epitope 
+mutated [ 61 ]. Importantly, this strategy is contingent on proper 
+design of the mutant target epitope used for library screening. 
+First, the target epitope must be sufﬁ ciently mutated such that 
+ligands that bind to the wild-type epitope will not bind to the 
+mutated form. Second, the mutation(s) must only affect the 
+ structure of the protein at the site of the target epitope and must 
+not affect the global fold of the protein, as screening for epitope- 
+speciﬁ c binders using a completely misfolded mutant competitor 
+would be futile. 
+4  Engineering Proteins for Increased Stability 
+ The stability of a protein generally refers to its ability to resist ther-
+mal and chemical denaturation and proteolytic degradation. High 
+stability is a desired characteristic of proteins that are used for 
+research, industrial, and therapeutic applications, and translates to 
+longer shelf life, duration of activity, and in vivo activity. As with 
+binding afﬁ nity, thermal stability can be analyzed while a protein 
+variant is still tethered to the yeast cell surface, allowing for rapid, 
+quantitative measurement of half-maximal denaturation ( T  M  ) values. 
+Gerald M. Cherf and Jennifer R. Cochran
+
+
+--- Page 9 ---
+163
+Three general strategies have been applied to engineer proteins with 
+increased stability (Fig.  3 ). In each approach, a library on the order 
+of 10 7 to 10 9 protein variants is generated by random mutagenesis 
+and displayed on the surface of yeast as a fusion to the Aga2p cell 
+wall protein. 
+ Fig. 3  Isolating high-stability protein variants from a yeast-displayed library by FACS. ( a ) Screening of stable 
+protein variants based on their level of surface expression. Transformation of yeast with a mutant gene library 
+generally results in display of properly folded and truncated protein variants that range in expression level, 
+which can be used as a proxy for protein stability [ 62 – 64 ]. Cells are labeled with a ﬂ uorescent antibody ( green 
+star ) against the  c - myc epitope tag ( purple box ) and a ligand ( red star ) speciﬁ c to the native fold of the dis-
+played protein, and cells expressing the highest levels of properly folded variants are selected by FACS. ( b ) 
+Screening of stable protein variants based on their ability to resist irreversible thermal denaturation. Following 
+heat incubation and sorting of yeast displaying stable protein variants, viable cells can be expanded in culture 
+for additional screening and/or analysis, whereas DNA from nonviable cells must be isolated and ampliﬁ ed for 
+analysis or an additional round of yeast transformation and screening. Point mutations are shown as red cir-
+cles, and colors indicating protein identity match those shown in Fig.  1 . The displayed protein depicted here is 
+an scFv [ 129 ] modiﬁ ed from PDB 1X9Q using the UCSF Chimera package [ 130 ] 
+ 
+Applications of Yeast Surface Display for Protein Engineering
+
+
+--- Page 10 ---
+164
+ The ﬁ rst strategy for stability engineering exploits a correlation 
+between the yeast surface expression levels of properly folded pro-
+teins and their thermal stability [ 62 – 64 ] (Fig.  3a ). For example, a 
+library of single-chain T-cell receptor (scTCR) variants was 
+expressed on the yeast surface and enriched for cells displaying the 
+highest levels of properly folded protein as determined by binding 
+to a conformationally speciﬁ c antibody [ 65 ]. When individual pro-
+tein mutants from this enriched pool of yeast were recombinantly 
+expressed in soluble form and assayed, the most stable scTCR vari-
+ant retained 80 % activity after incubation at 50 °C for 30 min, 
+whereas the parent scTCR protein retained less than 10 % activity 
+under the same conditions. In another example, yeast surface dis-
+play and library screening were used to identify an epidermal 
+growth factor receptor (EGFR) mutant with a  T  M  of 61.0 ± 1.3 °C 
+compared to a  T  M  of 52.5 ± 0.7 °C for wild-type EGFR [ 66 ]. 
+Similarly, yeast display was used to identify a single-chain class II 
+major histocompatibility complex protein (scDR1αβ) with a  T  M  of 
+73.3 ± 1.8 °C, whereas display of the properly folded wild-type 
+scDR1αβ protein was barely detectable [ 67 ]. This general strategy 
+has been applied to enhance the stability of numerous other pro-
+teins and is reviewed in detail elsewhere [ 68 ]. 
+ Despite the successes described above, using surface expression 
+level as a proxy for protein stability may be better suited for proteins 
+with low inherent thermal stabilities. The correlation between 
+expression level and protein stability is due, in part, to the quality 
+control process that occurs in the endoplasmic reticulum (ER) dur-
+ing protein synthesis and posttranslational processing. The ER 
+quality control mechanism ensures efﬁ cient export of properly 
+folded proteins, whereas misfolded proteins are retro- translocated 
+across the ER membrane and degraded in the cytosol [ 69 ,  70 ]. This 
+process generally results in inefﬁ cient expression of unstable pro-
+teins that adopt a higher ratio of misfolded to native structures. 
+However, the observed correlation between yeast surface expres-
+sion level and stability is likely limited to proteins of low stability, as 
+proteins above a certain stability threshold are generally expected to 
+escape the ER quality control mechanism. In support of this assump-
+tion, variants of a highly thermostable three-helix bundle protein 
+α3D with varying  T  m  values all above 80 °C showed no correlation 
+between yeast surface expression level and thermal stability [ 71 ]. 
+ A second strategy for increasing protein stability involves appli-
+cation of heat stress (up to 85 °C for 10 min) directly to a yeast- 
+displayed library prior to cell sorting (Fig.  3b ) [ 65 ,  72 ,  73 ]. This 
+approach may be better suited for proteins with higher inherent 
+thermal stabilities, assuming that irreversible denaturation will occur 
+under these experimental conditions. Yeast-displayed variants that 
+resist thermal denaturation are discriminated by FACS, based on 
+their ability to bind to a ﬂ uorescently labeled antibody or ligand 
+speciﬁ c to the native protein fold [ 67 ]. As an example, a library of 
+Gerald M. Cherf and Jennifer R. Cochran
+
+
+--- Page 11 ---
+165
+IgG1-Fc scaffold variants was displayed on yeast and subjected to 
+heat stress (79 °C for 10 min) [ 21 ]. Stable IgG1-Fc variants that 
+bound to a conformationally speciﬁ c antibody or a soluble Fcγ 
+receptor after heat stress were enriched using multiple rounds of 
+FACS, and isolated variants were analyzed for thermal stability. 
+IgG1-Fc variants were identiﬁ ed with increased  T  M  values up to 
+91.0 ± 0.1 °C, compared to a  T  M  of 82.6 ± 0.0 °C for wild-type 
+IgG1-Fc. Using this general strategy, a Her2/neu-binding anti-
+body fragment variant was engineered with an increase in  T  M  from 
+~70 °C (parent IgG1-Fc) to ~75 °C and an increased resistance to 
+aggregation [ 74 ]. Similarly, variants of a monomeric yeast- enhanced 
+green ﬂ uorescent protein (GFPM) were engineered with three- to 
+sixfold increased resistance to thermal denaturation at 70 °C [ 72 ]. 
+Notably, increased thermal stability did not confer increased yeast-
+surface expression levels for the GFPM variants, which further sup-
+ports the addition of a heat stress step to the library screening 
+protocol when engineering proteins with high intrinsic thermosta-
+bilities. An important consideration is that although yeast cells 
+remain intact and can be efﬁ ciently sorted by FACS even after heat 
+stress (e.g., 72 °C for 90 min or 85 °C for 10 min) [ 73 ], their viabil-
+ity is compromised at temperatures above 42 °C [ 73 ]. Thus, after 
+each round of heat stress and sorting, plasmid DNA from yeast cells 
+should be isolated, ampliﬁ ed by PCR, and used to transform viable 
+cells for a subsequent round of screening [ 20 ,  21 ]. Additionally, this 
+strategy involving heat stress is only applicable to proteins/domains 
+that denature irreversibly; refolding after heat stress would prevent 
+discrimination between variants of different thermal stabilities. 
+ Alternatively, a third strategy exists for increasing protein sta-
+bility that harnesses both the advantages of increased temperature 
+and the quality control mechanisms of the ER to select stable vari-
+ants. In this method, expression of surface-displayed protein is 
+induced for 24 h at temperatures up to 37 °C (compared to 20 °C 
+or 30 °C which is typically used) to shift the equilibrium of protein 
+structures toward the misfolded state during protein synthesis and 
+posttranslational processing in the ER while maintaining yeast cell 
+viability. Generally, only proteins that are efﬁ ciently folded and 
+processed at the elevated induction temperatures will avoid the ER 
+quality control machinery and be efﬁ ciently exported to the cell 
+surface. The library can then be sorted as described in the ﬁ rst 
+strategy (Fig.  3a ) to select variants with increased stabilities. For 
+example, this strategy was applied to enhance the stability of an 
+scTCR [ 65 ], and to engineer a hepatocyte growth factor fragment 
+with a 15 °C increase in  T  M  and a 40-fold increase in expression 
+yield relative to the wild-type protein fragment [ 75 ]. In many 
+cases, increased thermal stability also correlates to increased recom-
+binant expression of the soluble form of the protein relative to the 
+wild-type protein [ 66 ,  67 ,  76 – 79 ], highlighting an additional ben-
+eﬁ t of these techniques for protein engineering. 
+Applications of Yeast Surface Display for Protein Engineering
+
+
+--- Page 12 ---
+166
+5  Enzyme Engineering 
+ Directed evolution is a powerful technique for enzyme engineering. 
+However, developing a strategy for linking the genotype of an 
+enzyme mutant to its phenotype (e.g., catalytic activity or substrate 
+speciﬁ city) poses a difﬁ cult challenge since in most cases substrate 
+turnover results in a product that is diffusible and not covalently 
+bound to the surface of a phage or cell. Thus, lower throughput 
+microtiter or colony-based screening methods (10 3 –10 4 variants) 
+have historically been used for enzyme engineering [ 80 – 82 ]. Several 
+alternate techniques have recently been developed to address these 
+challenges, including oil-water emulsion methods that encapsulate 
+genetic material, the translated enzyme, and its catalyzed product 
+into droplets that can be sorted by ﬂ ow cytometry [ 83 ,  84 ]. 
+ More recently, unique strategies incorporating yeast display 
+have allowed libraries of up to 10 8 enzyme variants to be screened 
+for increased activity and substrate speciﬁ city using FACS. In this 
+approach, yeast cells are ﬂ uorescently labeled as a result of enzy-
+matic activity, which allows discrimination of enzyme variants based 
+on their level of activity and/or speciﬁ city. In one example, a library 
+of horseradish peroxidase (HRP) enzyme variants was differentially 
+labeled based on substrate speciﬁ city [ 85 ]. The library was incu-
+bated with a ﬂ uorescently labeled substrate, which produced a 
+functionalized ﬂ uorophore by-product that covalently attached to 
+tyrosines on the yeast cell surface. As a result, cells displaying the 
+most active HRP variants were labeled with higher levels of ﬂ uoro-
+phore and subsequently selected by FACS. Using this strategy, an 
+HRP variant with eightfold altered enantioselectivity was evolved 
+using a combination of positive and negative selection [ 85 ]. A simi-
+lar strategy was applied to evolve HRP variants with increased selec-
+tivity toward either substrate enantiomer by up to 2 orders of 
+magnitude [ 86 ]. In another example, a general strategy for evolv-
+ing bond-forming enzymes was developed (Fig.  4 ) and applied to 
+identify a bacterial transpeptidase sortase A enzyme with a 140-fold 
+enhancement in catalytic activity [ 87 ]. Yeast display has been 
+applied to enhance the activity and/or substrate selectivity of a vari-
+ety of other enzymes, including ﬁ reﬂ y luciferase [ 88 ],  Rhizomucor 
+miehei lipase [ 89 ], the adenylation domain of a nonribosomal pep-
+tide synthetase [ 90 ],  E. coli lipoic acid ligase [ 91 ], and a tobacco 
+etch virus protease [ 92 ]. In general, the success of these strategies 
+was contingent on the enzyme substrate being labeled with an 
+afﬁ nity handle or ﬂ uorescent probe. Thus, yeast display methodol-
+ogy is currently limited to engineering a subset of enzymes, as not 
+all will be tolerant to such substrate modiﬁ cations. 
+ Finally, many enzyme engineering examples employ site- 
+directed saturation mutagenesis [ 93 ] rather than random 
+Gerald M. Cherf and Jennifer R. Cochran
+
+
+--- Page 13 ---
+167
+mutagenesis to generate protein libraries. This directed mutagen-
+esis restricts the amino acid search space to a particular region of 
+interest of the enzyme (typically proximal to the active site), and 
+allows the investigation of every possible combination of muta-
+tions at selected amino acid positions. However, the maximum 
+number of these positions one can exhaustively investigate is still 
+limited by the throughput of the FACS instrument used to screen 
+the library. For example, a library comprising every possible com-
+bination of amino acids at 6 or 7 sites in an enzyme (20 6 or 20 7 
+variants total) would require ~0.4 or 7 h to sort at 50,000 cells/s, 
+respectively. 
+ Fig. 4  A general strategy for selecting bond-forming enzyme variants with increased catalytic activity from a 
+yeast-displayed library [ 87 ]. A library of enzyme variants is generated and displayed as a fusion to Aga2p, and 
+a reactive peptide handle (s6) is fused to Aga1p. Sfp phosphopantetheinyl transferase covalently links CoA- 
+conjugated enzyme substrate A to the s6 peptide handle, where it is accessible by the displayed enzyme. 
+Subsequently, enzyme substrate B linked to an afﬁ nity handle (shown here as biotin) is incubated with the 
+library, resulting in A–B bond formation catalyzed by active enzyme variants. Addition of a ﬂ uorescently labeled 
+anti-epitope tag antibody ( green star ) and an afﬁ nity agent that binds to the handle on substrate B permits 
+discrimination of enzyme variants with increased catalytic activity by FACS. Next, selected pools of yeast can 
+be ampliﬁ ed for analysis or an additional round of screening, or their DNA can be extracted, subjected to 
+mutagenesis, and used to transform new cells for further directed evolution. Application of this strategy is 
+limited to bond-forming enzyme-substrate systems that remain functional when the substrates are tethered to 
+the s6 peptide and an afﬁ nity handle 
+ 
+Applications of Yeast Surface Display for Protein Engineering
+
+
+--- Page 14 ---
+168
+6  Additional Applications 
+ Yeast display has been used for other purposes besides protein 
+engineering, brieﬂ y described below, including protein epitope 
+mapping, identiﬁ cation of protein-protein interactions, and gen-
+eration of “armed” yeast cells for a variety of applications. 
+ Knowledge of the critical contact sites of a protein binding pair 
+that govern their afﬁ nity can be advantageous. Two methods for 
+identifying these contact sites, called domain-level [ 94 ] or ﬁ ne 
+[ 95 ] epitope mapping, have been developed using yeast display 
+and applied to a wide range of protein binding pairs. For domain-
+level epitope mapping, individual domains from one of the binding 
+proteins are displayed on yeast and screened for binding to a solu-
+ble version of the other binding partner [ 94 ]. In addition, the 
+competitive binding of two ligands has been tested to identify 
+ligands that share overlapping binding epitopes. In contrast, ﬁ ne 
+epitope mapping has been used to identify speciﬁ c amino acids at 
+the binding interface that directly contribute to the binding afﬁ nity 
+[ 95 ]. For this method, a protein library is generated using random 
+mutagenesis, displayed on the surface of yeast, and incubated with 
+its wild-type binding partner. Cells displaying weak-binding pro-
+teins are then selected and their encoding DNA is sequenced to 
+identify  consensus amino acid sites that substantially inﬂ uence the 
+afﬁ nity of the protein pair, and thus are suggestive of the binding 
+interface location. These strategies have been applied to map the 
+binding epitopes of EGFR-speciﬁ c antibodies [ 94 ,  95 ] and engi-
+neered EGFR-speciﬁ c scaffold proteins [ 96 ], antibodies against 
+H1N1 [ 43 ] and H5N1 [ 97 ], virus hemagglutinin surface glyco-
+protein, gp120-binding antibodies [ 98 ], and other binding pairs as 
+reviewed elsewhere [ 99 ,  100 ]. 
+ Yeast display has also been applied to identify new protein- 
+protein interactions. For example, an adult human testis cDNA 
+library was displayed on yeast and screened for binding to phos-
+phorylated peptides derived from autophosphorylation sites of 
+EGFR and focal adhesion kinase (FAK) [ 101 ]. As a result, binding 
+interactions were discovered between autophosphorylated EGFR 
+sites and the SH2 domains of adapter protein APS and phos-
+phoinositide 3-kinase regulatory subunit 3, as well as between 
+autophosphorylated FAK sites and the SH2 domains of SH2B, 
+tensin, and adapter protein APS [ 101 ]. Similarly, screening of a 
+yeast-displayed human proteome library for binding to a 
+mesothelioma- targeting single-chain variable antibody fragment 
+(scFv) identiﬁ ed the speciﬁ c cell surface antigen targeted by the 
+scFv [ 102 ]. Yeast display has also been applied to identify interac-
+tions between proteins and small molecules. For example, a human 
+Gerald M. Cherf and Jennifer R. Cochran
+
+
+--- Page 15 ---
+169
+cDNA library comprising 2 × 10 7 cDNA fragments from multiple 
+human tissue samples was displayed on yeast and screened for 
+binding to biotinylated phosphatidylinositides [ 103 ]. As a result, 
+known interactions with pleckstrin homology domains and a 
+phosphotyrosine- binding domain were identiﬁ ed, and a novel 
+interaction with a fragment of apolipoprotein H was discovered 
+[ 103 ]. These and other protein-protein interactions identiﬁ ed 
+using yeast display have been reviewed elsewhere [ 99 ,  100 ]. 
+ Divergent from protein engineering, yeast display technology 
+has been used to functionalize yeast cells for a variety of biotechnol-
+ogy and biomedical applications, including generation of whole-cell 
+biocatalysts, antimicrobial agents oral vaccines, and for biosorption 
+of various metals. In one prominent example, microbial conversion 
+of cellulosic biomass into fuels gained substantial interest as a means 
+of establishing a renewable energy source and an alternative to petro-
+leum-based fuel production. Yeast display is an attractive technology 
+for generating biofuel from cellulosic material, as it enables enzyme 
+production, cellulose hydrolysis, and fermentation all in one step by 
+localization of cellulolytic, amylolytic, and xylanolytic enzymes at the 
+yeast cell surface.  S. cerevisiae has been engineered using yeast display 
+technology to convert cellulosic material into bioethanol (for reviews, 
+ see refs.  104 ,  105 ). Speciﬁ cally, yeast cells were engineered to co-
+display endoglucanase II and β-glucosidase enzymes, and directly 
+fermented 45 g of β-glucan per liter of media to produce 16.5 g of 
+ethanol per liter in approximately 50 h [ 106 ]. The ratio of grams of 
+ethanol produced to grams of β-glucan utilized was 0.48 g/g (or 
+93.3 % of the theoretical yield). Yeast co-displaying xylanase and 
+β-xylosidase directly fermented xylan from sulfuric acid hydrolysate 
+of wood chips [ 107 ], and yeast co-displaying glucoamylase and 
+α-amylase directly fermented raw cornstarch [ 108 ]. Display of mini-
+cellulosomes on the surface of yeast for bioethanol production has 
+also been achieved by simultaneously binding dockerin-tagged endo-
+glucanase, exogluconase, and β-glucosidase enzymes to Aga2p-
+scaffoldin protein fusions [ 109 – 112 ]. Yeast cells have also been 
+engineered as whole-cell biocatalysts for various other applications. 
+For example, yeast displaying  Rhizopus oryzae lipase were used as 
+whole-cell biocatalysts to generate biodiesel from methanol and soy-
+bean oil [ 113 ]; yeast displaying  Geotrichum sp. lipase were used to 
+enrich docosahexaenoic acid (DHA) and eicosapentaenoic acid 
+(EPA) from ﬁ sh oil [ 114 ]; yeast displaying  Corynebacterium diphthe-
+riae sialidase were used to transfer sialic acids for glycoprotein remod-
+eling [ 115 ]; and yeast displaying glucose oxidase were used for 
+electrochemical glucose sensing [ 116 ]. Yeast have also been func-
+tionalized with antimicrobial peptides [ 117 ,  118 ], pathogenic pro-
+teins for oral vaccine delivery [ 119 – 121 ], and metal- binding proteins 
+for bioadsorption of various metals [ 122 – 128 ]. These and other 
+examples have recently been reviewed [ 69 ]. 
+Applications of Yeast Surface Display for Protein Engineering
+
+
+--- Page 16 ---
+170
+ 
+ 1.  He M, Taussig MJ (1997) Antibody-
+ribosome- mRNA (ARM) complexes as efﬁ -
+cient selection particles for in vitro display and 
+evolution of antibody combining sites. 
+Nucleic Acids Res 25:5132–5134 
+ 
+ 2.  Hanes J, Plückthun A (1997) In vitro selec-
+tion and evolution of functional proteins by 
+using ribosome display. Proc Natl Acad Sci U 
+S A 94:4937–4942 
+ 
+ 3.  Roberts RW, Szostak JW (1997) RNA- 
+peptide fusions for the in vitro selection of 
+peptides and proteins. Proc Natl Acad Sci U S 
+A 94:12297–12302 
+ 
+ 4.  Mattheakis LC, Bhatt RR, Dower WJ (1994) 
+An in vitro polysome display system for 
+ identifying ligands from very large peptide 
+libraries. Proc Natl Acad Sci U S A 91:
+9022–9026 
+7  Conclusion 
+ Yeast surface display is an effective tool for protein and cellular 
+engineering, and has facilitated countless applications in research, 
+biotechnology, and medicine. In contrast to other technologies 
+such as ribosome and phage display, yeast display offers compatibil-
+ity with ﬂ ow cytometric analysis, enabling quantitative on-cell 
+measurements of protein expression level, stability, afﬁ nity, and 
+speciﬁ city without the need for soluble protein expression and 
+puriﬁ cation steps. Additionally, unlike bacterial and phage display, 
+yeast display provides a eukaryotic expression system capable of 
+producing complex mammalian proteins containing multiple disul-
+ﬁ de bonds. This unique combination of advantages has established 
+yeast display as a leading technology for engineering protein stabil-
+ity, expression, and binding interactions, and as an emerging tech-
+nology for high-throughput enzyme engineering and yeast cell 
+engineering. Furthermore, other than requiring a FACS instru-
+ment for quantitative library screening and analysis, yeast display 
+employs standard laboratory equipment and materials for micro-
+bial transformation and culture, and libraries can be readily gener-
+ated and screened by users within a matter of weeks. As the use and 
+applications of yeast display continue to rapidly expand, it will be 
+exciting to see the advances this powerful technology delivers in 
+the years to come. 
+ Acknowledgements 
+ Gerald M. Cherf is supported by the National Cancer Institute of 
+the National Institutes of Health under Award Number 
+F31CA186478, and funding from the Stanford Bioengineering 
+Department. The content is solely the responsibility of the authors 
+and does not necessarily represent the ofﬁ cial views of the National 
+Institutes of Health. 
+ References 
+Gerald M. Cherf and Jennifer R. Cochran
+
+
+--- Page 17 ---
+171
+ 
+ 5.  Mattheakis LC, Dias JM, Dower WJ (1996) 
+Cell-free synthesis of peptide libraries dis-
+played on polysomes. Methods Enzymol 
+267:195–207 
+ 
+ 6.  Smith GP (1985) Filamentous fusion phage: 
+novel expression vectors that display cloned 
+antigens on the virion surface. Science 
+228:1315–1317 
+ 
+ 7.  McCafferty J, Grifﬁ ths AD, Winter G, 
+Chiswell DJ (1990) Phage antibodies: ﬁ la-
+mentous phage displaying antibody variable 
+domains. Nature 348:552–554 
+ 
+ 8.  Francisco JA, Campbell R, Iverson BL, 
+Georgiou G (1993) Production and ﬂ uores-
+cence-activated cell sorting of Escherichia coli 
+expressing a functional antibody fragment on 
+the external surface. Proc Natl Acad Sci U S A 
+90:10444–10448 
+ 
+ 9.  Ho M, Nagata S, Pastan I (2006) Isolation of 
+anti-CD22 Fv with high afﬁ nity by Fv display 
+on human cells. Proc Natl Acad Sci U S A 
+103:9637–9642 
+  10.  Beerli RR et al (2008) Isolation of human 
+monoclonal antibodies by mammalian cell 
+display. Proc Natl Acad Sci U S A 105:
+14336–14341 
+  11.  Ernst W et al (1998) Baculovirus surface dis-
+play: construction and screening of a eukary-
+otic epitope library. Nucleic Acids Res 
+26:1718–1723 
+  12.  Boder ET, Wittrup KD (1997) Yeast sur-
+face display for screening combinatorial 
+ polypeptide libraries. Nat Biotechnol 15:
+553–557 
+  13.  Kondo A, Ueda M (2004) Yeast cell-surface 
+display—applications of molecular display. 
+Appl Microbiol Biotechnol 64:28–40 
+  14.  Boder ET, Wittrup KD (2000) Yeast surface 
+display for directed evolution of protein 
+expression, afﬁ nity, and stability. Methods 
+Enzymol 328:430–444 
+  15.  Kapteyn JC, Van Den Ende H, Klis FM 
+(1999) The contribution of cell wall proteins 
+to the organization of the yeast cell wall. 
+Biochim Biophys Acta 1426:373–383 
+  16.  Roy A, Lu CF, Marykwas DL, Lipke PN, 
+Kurjan J (1991) The AGA1 product is involved 
+in cell surface attachment of the Saccharomyces 
+cerevisiae cell adhesion glycoprotein a-aggluti-
+nin. Mol Cell Biol 11:4196–4206 
+  17.  Lu CF et al (1995) Glycosyl phosphatidylinositol- 
+dependent cross-linking of alpha-agglutinin and 
+beta 1,6-glucan in the Saccharomyces cerevisiae 
+cell wall. J Cell Biol 128:333–340 
+  18.  Koide S, Koide A, Lipovšek D (2012) Target- 
+binding proteins based on the 10th human 
+ﬁ bronectin type III domain ( 10 Fn3). Methods 
+Enzymol 503:135–156 
+  19.  Scholler N (2012) Selection of antibody frag-
+ments by yeast display. Methods Mol Biol 
+907:259–280 
+  20.  Zhao Q, Zhu Z, Dimitrov DS (2012) Yeast 
+display of engineered antibody domains. 
+Methods Mol Biol 899:73–84 
+  21.  Chao G et al (2006) Isolating and engineer-
+ing human antibodies using yeast surface dis-
+play. Nat Protoc 1:755–768 
+  22.  Feldhaus MJ et al (2003) Flow-cytometric 
+isolation of human antibodies from a nonim-
+mune Saccharomyces cerevisiae surface dis-
+play library. Nat Biotechnol 21:163–170 
+  23.  Miller KD, Pefaur NB, Baird CL (2008) 
+Construction and screening of antigen targeted 
+immune yeast surface display antibody libraries. 
+Curr Protoc Cytom Chapter 4:Unit4.7 
+  24.  Wildt S, Gerngross TU (2005) The human-
+ization of N-glycosylation pathways in yeast. 
+Nat Rev Microbiol 3:119–128 
+  25.  De Pourcq K, De Schutter K, Callewaert 
+N (2010) Engineering of glycosylation in 
+yeast and other fungi: current state and 
+ perspectives. Appl Microbiol Biotechnol 87:
+1617–1631 
+  26.  Gerngross TU (2004) Advances in the pro-
+duction of human therapeutic proteins in 
+yeasts and ﬁ lamentous fungi. Nat Biotechnol 
+22:1409–1414 
+  27.  VanAntwerp JJ, Wittrup KD (2000) Fine 
+afﬁ nity discrimination by yeast surface display 
+and ﬂ ow cytometry. Biotechnol Prog 16:
+31–37 
+  28.  Kieke MC, Cho BK, Boder ET, Kranz DM, 
+Wittrup KD (1997) Isolation of anti-T cell 
+receptor scFv mutants by yeast surface display. 
+Protein Eng 10:1303–1310 
+  29.  Hackel BJ, Kapila A, Wittrup KD (2008) 
+Picomolar afﬁ nity ﬁ bronectin domains engi-
+neered utilizing loop length diversity, recursive 
+mutagenesis, and loop shufﬂ ing. J Mol Biol 
+381:1238–1252 
+  30.  Boder ET, Midelfort KS, Wittrup KD (2000) 
+Directed evolution of antibody fragments with 
+monovalent femtomolar antigen- binding afﬁ n-
+ity. Proc Natl Acad Sci U S A 97:10701–10705 
+  31.  Stemmer WP (1994) Rapid evolution of a 
+protein in vitro by DNA shufﬂ ing. Nature 
+370:389–391 
+  32.  Lipovsek D et al (2007) Evolution of an 
+interloop disulﬁ de bond in high-afﬁ nity anti-
+body mimics based on ﬁ bronectin type III 
+domain and selected by yeast surface display: 
+molecular convergence with single-domain 
+Applications of Yeast Surface Display for Protein Engineering
+
+
+--- Page 18 ---
+172
+camelid and shark antibodies. J Mol Biol 
+368:1024–1041 
+  33.  Holler PD et al (2000) In vitro evolution of a T 
+cell receptor with high afﬁ nity for peptide/MHC. 
+Proc Natl Acad Sci U S A 97:5387–5392 
+  34.  Cochran JR, Kim Y-S, Lippow SM, Rao B, 
+Wittrup KD (2006) Improved mutants from 
+directed evolution are biased to orthologous 
+substitutions. Protein Eng Des Sel 19:245–253 
+  35.  Rao BM, Girvin AT, Ciardelli T, Lauffenburger 
+DA, Wittrup KD (2003) Interleukin-2 
+mutants with enhanced alpha-receptor subunit 
+binding afﬁ nity. Protein Eng 16:1081–1087 
+  36.  Rao BM, Driver I, Lauffenburger DA, Wittrup 
+KD (2005) High-afﬁ nity CD25- binding IL-2 
+mutants potently stimulate persistent T cell 
+growth. Biochemistry 44:10696–10701 
+  37.  Shpilman M et al (2011) Development and 
+characterization of high afﬁ nity leptins and leptin 
+antagonists. J Biol Chem 286:4429–4442 
+  38.  Kariolis MS et al (2014) An engineered Axl 
+“decoy receptor” effectively silences the 
+Gas6-Axl signaling axis. Nat Chem Biol 
+10:977–983 
+  39.  Weiskopf K et al (2013) Engineered SIRPα 
+variants as immunotherapeutic adjuvants to 
+anticancer antibodies. Science 341:88–91 
+  40.  Weiskopf K et al (2013) Improving macro-
+phage responses to therapeutic antibodies by 
+molecular engineering of SIRPα variants. 
+Oncoimmunology 2:e25773 
+  41.  Tasumi S et al (2009) High-afﬁ nity lamprey 
+VLRA and VLRB monoclonal antibodies. 
+Proc Natl Acad Sci U S A 106:12891–12896 
+  42.  Walker LM, Bowley DR, Burton DR (2009) 
+Efﬁ cient recovery of high-afﬁ nity antibodies 
+from a single-chain Fab yeast display library. 
+J Mol Biol 389:365–375 
+  43.  Shembekar N et al (2013) Isolation of a high 
+afﬁ nity neutralizing monoclonal antibody 
+against 2009 pandemic H1N1 virus that 
+binds at the “Sa” antigenic site. PLoS One 
+8:e55516 
+  44.  Wozniak-Knopp G et al (2010) Introducing 
+antigen-binding sites in structural loops of 
+immunoglobulin constant domains: Fc frag-
+ments with engineered HER2/neu-binding 
+sites and antibody properties. Protein Eng 
+Des Sel 23:289–297 
+  45.  Rajpal A et al (2005) A general method for 
+greatly improving the afﬁ nity of antibodies by 
+using combinatorial libraries. Proc Natl Acad 
+Sci U S A 102:8466–8471 
+  46.  Boder ET, Raeeszadeh-Sarmazdeh M, Price 
+JV (2012) Engineering antibodies by yeast 
+display. Arch Biochem Biophys 526:99–106 
+  47.  Moore SJ, Cochran JR (2012) Engineering 
+knottins as novel binding agents. Methods 
+Enzymol 503:223–251 
+  48.  Gera N, Hussain M, Rao BM (2013) Protein 
+selection using yeast surface display. Methods 
+60:15–26 
+  49.  Silverman AP, Kariolis MS, Cochran JR (2011) 
+Cystine-knot peptides engineered with speci-
+ﬁ cities for α(IIb)β(3) or α(IIb)β(3) and α(v)
+β(3) integrins are potent inhibitors of platelet 
+aggregation. J Mol Recognit 24:127–135 
+  50.  Kimura RH, Levin AM, Cochran FV, Cochran 
+JR (2009) Engineered cystine knot peptides 
+that bind alphavbeta3, alphavbeta5, and 
+alpha5beta1 integrins with low-nanomolar 
+afﬁ nity. Proteins 77:359–369 
+  51.  Silverman AP, Levin AM, Lahti JL, Cochran JR 
+(2009) Engineered cystine-knot peptides that 
+bind alpha(v)beta(3) integrin with antibody-
+like afﬁ nities. J Mol Biol 385:1064–1075 
+  52.  Moore SJ, Leung CL, Norton HK, Cochran 
+JR (2013) Engineering agatoxin, a cystine- 
+knot peptide from spider venom, as a molecu-
+lar probe for in vivo tumor imaging. PLoS 
+One 8:e60498 
+  53.  Kimura RH et al (2011) Functional mutation 
+of multiple solvent-exposed loops in the 
+Ecballium elaterium trypsin inhibitor-II cys-
+tine knot miniprotein. PLoS One 6:e16112 
+  54.  Glotzbach B et al (2013) Combinatorial opti-
+mization of cystine-knot peptides towards 
+high-afﬁ nity inhibitors of human matriptase-
+ 1. PLoS One 8:e76956 
+  55.  Koide A, Bailey CW, Huang X, Koide S 
+(1998) The ﬁ bronectin type III domain as a 
+scaffold for novel binding proteins. J Mol Biol 
+284:1141–1151 
+  56.  Lipovsek D (2011) Adnectins: engineered 
+target-binding protein therapeutics. Protein 
+Eng Des Sel 24:3–9 
+  57.  Bloom L, Calabro V (2009) FN3: a new pro-
+tein scaffold reaches the clinic. Drug Discov 
+Today 14:949–955 
+  58.  Pavoor TV, Cho YK, Shusta EV (2009) 
+Development of GFP-based biosensors pos-
+sessing the binding properties of antibodies. 
+Proc Natl Acad Sci U S A 106:11895–11900 
+  59.  Lee C-H et al (2010) Engineering of a human 
+kringle domain into agonistic and antagonis-
+tic binding proteins functioning in vitro and 
+in vivo. Proc Natl Acad Sci U S A 
+107:9567–9571 
+  60.  Gera N, Hussain M, Wright RC, Rao BM 
+(2011) Highly stable binding proteins derived 
+from the hyperthermophilic Sso7d scaffold. 
+J Mol Biol 409:601–616 
+Gerald M. Cherf and Jennifer R. Cochran
+
+
+--- Page 19 ---
+173
+  61.  Puri V, Streaker E, Prabakaran P, Zhu Z, 
+Dimitrov DS (2013) Highly efﬁ cient selec-
+tion of epitope speciﬁ c antibody through 
+competitive yeast display library sorting. 
+MAbs 5:533–539 
+  62.  Shusta EV, Kieke MC, Parke E, Kranz DM, 
+Wittrup KD (1999) Yeast polypeptide fusion 
+surface display levels predict thermal stability 
+and soluble secretion efﬁ ciency. J Mol Biol 
+292:949–956 
+  63.  Kowalski JM, Parekh RN, Wittrup KD (1998) 
+Secretion efﬁ ciency in Saccharomyces cerevi-
+siae of bovine pancreatic trypsin inhibitor 
+mutants lacking disulﬁ de bonds is correlated 
+with thermodynamic stability. Biochemistry 
+37:1264–1273 
+  64.  Kowalski JM, Parekh RN, Mao J, Wittrup KD 
+(1998) Protein folding stability can deter-
+mine the efﬁ ciency of escape from endoplas-
+mic reticulum quality control. J Biol Chem 
+273:19453–19458 
+  65.  Shusta EV, Holler PD, Kieke MC, Kranz 
+DM, Wittrup KD (2000) Directed evolution 
+of a stable scaffold for T-cell receptor engi-
+neering. Nat Biotechnol 18:754–759 
+  66.  Kim Y-S, Bhandari R, Cochran JR, Kuriyan J, 
+Wittrup KD (2006) Directed evolution of the 
+epidermal growth factor receptor extracellular 
+domain for expression in yeast. Proteins 
+62:1026–1035 
+  67.  Esteban O, Zhao H (2004) Directed evolu-
+tion of soluble single-chain human class II 
+MHC molecules. J Mol Biol 340:81–95 
+  68.  Traxlmayr MW, Obinger C (2012) Directed 
+evolution of proteins for increased stability 
+and expression using yeast display. Arch 
+Biochem Biophys 526:174–180 
+  69.  Ellgaard L, Helenius A (2003) Quality con-
+trol in the endoplasmic reticulum. Nat Rev 
+Mol Cell Biol 4:181–191 
+  70.  Sitia R, Braakman I (2003) Quality control in 
+the endoplasmic reticulum protein factory. 
+Nature 426:891–894 
+  71.  Park S et al (2006) Limitations of yeast sur-
+face display in engineering proteins of high 
+thermostability. Protein Eng Des Sel 19:
+211–217 
+  72.  Pavoor TV, Wheasler JA, Kamat V, Shusta EV 
+(2012) An enhanced approach for engineer-
+ing thermally stable proteins using yeast dis-
+play. Protein Eng Des Sel 25:625–630 
+  73.  Traxlmayr MW et al (2012) Directed evolu-
+tion of stabilized IgG1-Fc scaffolds by appli-
+cation of strong heat shock to libraries 
+displayed on yeast. Biochim Biophys Acta 
+1824:542–549 
+  74.  Traxlmayr MW et al (2013) Directed evolu-
+tion of Her2/neu-binding IgG1-Fc for 
+improved stability and resistance to aggrega-
+tion by using yeast surface display. Protein 
+Eng Des Sel 26:255–265 
+  75.  Jones DS, Tsai P-C, Cochran JR (2011) 
+Engineering hepatocyte growth factor frag-
+ments with high stability and activity as Met 
+receptor agonists and antagonists. Proc Natl 
+Acad Sci U S A 108:13035–13040 
+  76.  Schweickhardt RL, Jiang X, Garone LM, 
+Brondyk WH (2003) Structure-expression 
+relationship of tumor necrosis factor receptor 
+mutants that increase expression. J Biol Chem 
+278:28961–28967 
+  77.  Buonpane RA, Moza B, Sundberg EJ, Kranz 
+DM (2005) Characterization of T cell receptors 
+engineered for high afﬁ nity against toxic shock 
+syndrome toxin-1. J Mol Biol 353:308–321 
+  78.  Jones LL et al (2006) Engineering and char-
+acterization of a stabilized alpha1/alpha2 
+module of the class I major histocompatibility 
+complex product Ld. J Biol Chem 281:
+25734–25744 
+  79.  Weber KS, Donermeyer DL, Allen PM, Kranz 
+DM (2005) Class II-restricted T cell receptor 
+engineered in vitro for higher afﬁ nity retains 
+peptide speciﬁ city and function. Proc Natl 
+Acad Sci U S A 102:19033–19038 
+  80.  Henke E, Bornscheuer UT (1999) Directed 
+evolution of an esterase from Pseudomonas ﬂ u-
+orescens. Random mutagenesis by error- prone 
+PCR or a mutator strain and identiﬁ cation of 
+mutants showing enhanced enantioselectivity by 
+a resoruﬁ n-based ﬂ uorescence assay. Biol Chem 
+380:1029–1033 
+  81.  Sroga GE, Dordick JS (2001) Generation of a 
+broad esterolytic subtilisin using combined 
+molecular evolution and periplasmic expres-
+sion. Protein Eng 14:929–937 
+  82.  Stevenson BJ, Yip SH-C, Ollis DL (2013) In 
+vitro directed evolution of enzymes expressed 
+by E. coli in microtiter plates. Methods Mol 
+Biol 978:237–249 
+  83.  Tawﬁ k DS, Grifﬁ ths AD (1998) Man-made 
+cell-like compartments for molecular evolu-
+tion. Nat Biotechnol 16:652–656 
+  84.  Grifﬁ ths AD, Tawﬁ k DS (2003) Directed 
+evolution of an extremely fast phosphotries-
+terase by in vitro compartmentalization. 
+EMBO J 22:24–35 
+  85.  Lipovsek D et al (2007) Selection of horse-
+radish peroxidase variants with enhanced 
+enantioselectivity by yeast surface display. 
+Chem Biol 14:1176–1185 
+  86.  Antipov E, Cho AE, Wittrup KD, Klibanov 
+AM (2008) Highly L and D enantioselective 
+variants of horseradish peroxidase discovered 
+by an ultrahigh-throughput selection method. 
+Proc Natl Acad Sci U S A 105:17694–17699 
+Applications of Yeast Surface Display for Protein Engineering
+
+
+--- Page 20 ---
+174
+  87.  Chen I, Dorr BM, Liu DR (2011) A general 
+strategy for the evolution of bond-forming 
+enzymes using yeast display. Proc Natl Acad 
+Sci U S A 108:11399–11404 
+  88.  Fushimi T et al (2013) Mutant ﬁ reﬂ y lucifer-
+ases with improved speciﬁ c activity and dATP 
+discrimination constructed by yeast cell sur-
+face engineering. Appl Microbiol Biotechnol 
+97:4003–4011 
+  89.  Han S, Zhang J, Han Z, Zheng S, Lin Y (2011) 
+Combination of site-directed mutagenesis and 
+yeast surface display enhances Rhizomucor 
+miehei lipase esteriﬁ cation activity in organic 
+solvent. Biotechnol Lett 33:2431–2438 
+  90.  Zhang K et al (2013) Engineering the sub-
+strate speciﬁ city of the DhbE adenylation 
+domain by yeast cell surface display. Chem 
+Biol 20:92–101 
+  91.  White KA, Zegelbone PM (2013) Directed 
+evolution of a probe ligase with activity in the 
+secretory pathway and application to imaging 
+intercellular 
+protein-protein 
+interactions. 
+Biochemistry. doi: 10.1021/bi400268m 
+  92.  Yi L et al (2013) Engineering of TEV prote-
+ase variants by yeast ER sequestration screen-
+ing (YESS) of combinatorial libraries. Proc 
+Natl Acad Sci U S A 110:7229–7234 
+  93.  Steffens DL, Williams JGK (2007) Efﬁ cient 
+site-directed saturation mutagenesis using 
+degenerate oligonucleotides. J Biomol Tech 
+18:147–149 
+  94.  Cochran JR, Kim Y-S, Olsen MJ, Bhandari R, 
+Wittrup KD (2004) Domain-level antibody 
+epitope mapping through yeast surface dis-
+play of epidermal growth factor receptor frag-
+ments. J Immunol Methods 287:147–158 
+  95.  Chao G, Cochran JR, Wittrup KD (2004) 
+Fine epitope mapping of anti-epidermal 
+growth factor receptor antibodies through 
+random mutagenesis and yeast surface display. 
+J Mol Biol 342:539–550 
+  96.  Boersma YL, Chao G, Steiner D, Wittrup 
+KD, Plückthun A (2011) Bispeciﬁ c designed 
+ankyrin repeat proteins (DARPins) targeting 
+epidermal growth factor receptor inhibit 
+A431 cell proliferation and receptor recy-
+cling. J Biol Chem 286:41273–41285 
+  97.  Han T et al (2011) Fine epitope mapping of 
+monoclonal antibodies against hemagglutinin 
+of a highly pathogenic H5N1 inﬂ uenza virus 
+using yeast surface display. Biochem Biophys 
+Res Commun 409:253–259 
+  98.  Mata-Fink J et al (2013) Rapid conforma-
+tional epitope mapping of anti-gp120 anti-
+bodies with a designed mutant panel displayed 
+on yeast. J Mol Biol 425:444–456 
+  99.  Pepper LR, Cho YK, Boder ET, Shusta EV 
+(2008) A decade of yeast surface display tech-
+nology: where are we now? Comb Chem 
+High Throughput Screen 11:127–134 
+ 100.  Gai SA, Wittrup KD (2007) Yeast surface dis-
+play for protein engineering and characteriza-
+tion. Curr Opin Struct Biol 17:467–473 
+ 101.  Bidlingmaier S, Liu B (2006) Construction 
+and application of a yeast surface-displayed 
+human cDNA library to identify post- 
+translational modiﬁ cation-dependent protein- 
+protein interactions. Mol Cell Proteomics 
+5:533–540 
+ 102.  Bidlingmaier S et al (2009) Identiﬁ cation of 
+MCAM/CD146 as the target antigen of a 
+human monoclonal antibody that recognizes 
+both epithelioid and sarcomatoid types of 
+mesothelioma. Cancer Res 69:1570–1577 
+ 103.  Bidlingmaier S, Liu B (2007) Interrogating 
+yeast surface-displayed human proteome to 
+identify small molecule-binding proteins. Mol 
+Cell Proteomics 6:2012–2020 
+ 104.  Kondo A, Tanaka T, Hasunuma T, Ogino C 
+(2010) Applications of yeast cell-surface dis-
+play in bio-reﬁ nery. Recent Pat Biotechnol 
+4:226–234 
+ 105.  Tanaka T, Yamada R, Ogino C, Kondo A 
+(2012) Recent developments in yeast cell sur-
+face display toward extended applications in 
+biotechnology. Appl Microbiol Biotechnol 
+95:577–591 
+ 106.  Fujita Y et al (2002) Direct and efﬁ cient pro-
+duction of ethanol from cellulosic material with 
+a yeast strain displaying cellulolytic enzymes. 
+Appl Environ Microbiol 68:5136–5141 
+ 107.  Katahira S, Mizuike A, Fukuda H, Kondo A 
+(2006) Ethanol fermentation from lignocellu-
+losic hydrolysate by a recombinant xylose- and 
+cellooligosaccharide-assimilating yeast strain. 
+Appl Microbiol Biotechnol 72:1136–1143 
+ 108.  Shigechi H et al (2004) Direct production of 
+ethanol from raw corn starch via fermentation 
+by use of a novel surface-engineered yeast strain 
+codisplaying glucoamylase and alpha- amylase. 
+Appl Environ Microbiol 70:5037–5040 
+ 109.  Tsai S-L, DaSilva NA, Chen W (2013) 
+Functional display of complex cellulosomes 
+on the yeast surface via adaptive assembly. 
+ACS Synth Biol 2:14–21 
+ 110.  Kim S, Baek S-H, Lee K, Hahn J-S (2013) 
+Cellulosic ethanol production using a yeast 
+consortium displaying a minicellulosome and 
+β-glucosidase. Microb Cell Fact 12:14 
+ 111.  Tsai S-L, Oh J, Singh S, Chen R, Chen W 
+(2009) Functional assembly of minicellulo-
+somes on the Saccharomyces cerevisiae cell 
+Gerald M. Cherf and Jennifer R. Cochran
+
+
+--- Page 21 ---
+175
+surface for cellulose hydrolysis and ethanol 
+production. 
+Appl 
+Environ 
+Microbiol 
+75:6087–6093 
+ 112.  Tsai S-L, Goyal G, Chen W (2010) Surface 
+display of a functional minicellulosome by 
+intracellular complementation using a syn-
+thetic yeast consortium and its application to 
+cellulose hydrolysis and ethanol production. 
+Appl Environ Microbiol 76:7514–7520 
+ 113.  Matsumoto T, Fukuda H, Ueda M, Tanaka 
+A, Kondo A (2002) Construction of yeast 
+strains with high cell surface lipase activity by 
+using novel display systems based on the 
+Flo1p ﬂ occulation functional domain. Appl 
+Environ Microbiol 68:4517–4522 
+ 114.  Pan X-X et al (2012) Efﬁ cient display of active 
+Geotrichum sp. lipase on Pichia pastoris cell 
+wall and its application as a whole-cell bio-
+catalyst to enrich EPA and DHA in ﬁ sh oil. 
+J Agric Food Chem 60:9673–9679 
+ 115.  Kim S, Oh D-B, Kwon O, Kang HA (2010) 
+Construction of an in vitro trans-sialylation 
+system: surface display of Corynebacterium 
+diphtheriae 
+sialidase 
+on 
+Saccharomyces 
+ cerevisiae. Appl Microbiol Biotechnol 88:
+893–903 
+ 116.  Wang H et al (2013) Yeast surface displaying 
+glucose oxidase as whole-cell biocatalyst: con-
+struction, characterization, and its electro-
+chemical glucose sensing application. Anal 
+Chem 85:6107–6112 
+ 117.  Ren R et al (2007) Display of adenoregulin 
+with a novel Pichia pastoris cell surface display 
+system. Mol Biotechnol 35:103–108 
+ 118.  Jo J-H, Im E-M, Kim S-H, Lee H-H (2011) 
+Surface display of human lactoferrin using a 
+glycosylphosphatidylinositol-anchored 
+pro-
+tein of Saccharomyces cerevisiae in Pichia pas-
+toris. Biotechnol Lett 33:1113–1120 
+ 119.  Shibasaki S et al (2013) An oral vaccine 
+against candidiasis generated by a yeast 
+molecular display system. Pathog Dis 69:
+262–268 
+ 120.  Tamaru Y et al (2006) Application of the 
+arming system for the expression of the 380R 
+antigen from red sea bream iridovirus (RSIV) 
+on the surface of yeast cells: a ﬁ rst step for the 
+development of an oral vaccine. Biotechnol 
+Prog 22:949–953 
+ 121.  Wasilenko JL, Sarmento L, Spatz S, Pantin- 
+Jackwood M (2010) Cell surface display of 
+highly pathogenic avian inﬂ uenza virus hem-
+agglutinin on the surface of Pichia pastoris 
+cells using alpha-agglutinin for production of 
+oral vaccines. Biotechnol Prog 26:542–547 
+ 122.  Kotrba P, Ruml T (2010) Surface display of 
+metal ﬁ xation motifs of bacterial P1-type 
+ATPases speciﬁ cally promotes biosorption of 
+Pb(2+) by Saccharomyces cerevisiae. Appl 
+Environ Microbiol 76:2615–2622 
+  123.  Kuroda K, Shibasaki S, Ueda M, Tanaka A 
+(2001) Cell surface-engineered yeast displaying a 
+histidine oligopeptide (hexa-His) has enhanced 
+adsorption of and tolerance to heavy metal ions. 
+Appl Microbiol Biotechnol 57:697–701 
+ 124.  Kuroda K, Ueda M (2003) Bioadsorption of 
+cadmium ion by cell surface-engineered yeasts 
+displaying metallothionein and hexa-His. 
+Appl Microbiol Biotechnol 63:182–186 
+ 125.  Kuroda K, Ueda M, Shibasaki S, Tanaka A 
+(2002) Cell surface-engineered yeast with 
+ability to bind, and self-aggregate in response 
+to, copper ion. Appl Microbiol Biotechnol 
+59:259–264 
+ 126.  Kuroda K, Nishitani T, Ueda M (2012) 
+Speciﬁ c adsorption of tungstate by cell surface 
+display of the newly designed ModE mutant. 
+Appl Microbiol Biotechnol 96:153–159 
+ 127.  Kuroda K, Ueda M (2006) Effective display 
+of metallothionein tandem repeats on the 
+bioadsorption 
+of 
+cadmium 
+ion. 
+Appl 
+Microbiol Biotechnol 70:458–463 
+ 128.  Nishitani T, Shimada M, Kuroda K, Ueda M 
+(2010) Molecular design of yeast cell surface 
+for adsorption and recovery of molybdenum, 
+one of rare metals. Appl Microbiol Biotechnol 
+86:641–648 
+ 129.  Midelfort KS et al (2004) Substantial ener-
+getic improvement with minimal structural 
+perturbation in a high afﬁ nity mutant anti-
+body. J Mol Biol 343:685–701 
+ 130.  Pettersen EF et al (2004) UCSF Chimera—a 
+visualization system for exploratory research 
+and analysis. J Comput Chem 25:1605–1612 
+Applications of Yeast Surface Display for Protein Engineering

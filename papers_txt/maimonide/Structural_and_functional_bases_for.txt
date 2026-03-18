@@ -1,0 +1,1490 @@
+--- Page 1 ---
+Structural and functional bases for broad-spectrum
+neutralization of avian and human inﬂuenza A viruses
+Jianhua Sui1,4, William C Hwang2,4, Sandra Perez3, Ge Wei2, Daniel Aird1, Li-mei Chen3, Eugenio Santelli2,
+Boguslaw Stec2, Greg Cadwell2, Maryam Ali1, Hongquan Wan3, Akikazu Murakami1, Anuradha Yammanuru1,
+Thomas Han1, Nancy J Cox3, Laurie A Bankston2, Ruben O Donis3, Robert C Liddington2
+& Wayne A Marasco1
+Inﬂuenza virus remains a serious health threat, owing to its ability to evade immune surveillance through rapid genetic drift and
+reassortment. Here we used a human non-immune antibody phage-display library and the H5 hemagglutinin ectodomain to select
+ten neutralizing antibodies (nAbs) that were effective against all group 1 inﬂuenza viruses tested, including H5N1 ‘bird ﬂu’ and
+the H1N1 ‘Spanish ﬂu’. The crystal structure of one such nAb bound to H5 shows that it blocks infection by inserting its heavy
+chain into a conserved pocket in the stem region, thus preventing membrane fusion. Nine of the nAbs employ the germline gene
+VH1-69, and all seem to use the same neutralizing mechanism. Our data further suggest that this region is recalcitrant to
+neutralization escape and that nAb-based immunotherapy is a promising strategy for broad-spectrum protection against seasonal
+and pandemic inﬂuenza viruses.
+Seasonal inﬂuenza A is a scourge of the young and old, killing more
+than 250,000 worldwide each year, while creating an economic burden
+for millions1. Pandemic inﬂuenza, which occurs when a new virus
+emerges and infects people globally that have little or no immunity,
+represents a grave threat to human health; for example, the 1918
+Spanish Flu pandemic caused an estimated 50 million deaths2,3.
+Vaccines have historically been the mainstay of infection control.
+However, owing to rapid antigenic drift, the vaccine antigen must
+be updated annually based on global inﬂuenza surveillance4,5, and it is
+not always fully successful. In addition, some recent H5N1 vaccines
+have shown promising results6–9, but none has been reported to elicit
+a broad neutralizing response in humans. Neuraminidase inhibitors,
+especially oseltamavir (Tamiﬂu), remain the primary treatment, but
+they have limited efﬁcacy if administered late in infection, and
+widespread use is likely to result in the emergence of resistant
+viral strains10,11.
+Inﬂuenza A is subclassiﬁed by its two major surface proteins:
+hemagglutinin, which mediates cell entry, ﬁrst by recognizing host
+proteins bearing sialic acid on their surface, and second by triggering
+the fusion of viral and host membranes following endocytosis,
+allowing viral RNA to enter the cytoplasm; and neuraminidase,
+which cleaves sialic acid from host and viral proteins, facilitating cell
+exit12. There are 16 hemagglutinin subtypes (H1–16) and 9 neurami-
+nidase subtypes (N1–9) that make up all known strains of inﬂuenza A
+viruses by various combinations of hemagglutinin and neuramini-
+dase12 (Supplementary Fig. 1 online).
+The recent spread of highly pathogenic avian inﬂuenza (HPAI),
+caused by the H5N1 strain, across Asia, Europe and Africa raises the
+specter of a new pandemic, should the virus mutate to become readily
+transmissible from person to person. The evolution of H5N1 into a
+pandemic threat could occur through a single reassortment of its
+segmented genome or through the slower process of genetic drift12,13.
+Nearly 400 human H5N1 infections have been reported since 1997
+from 14 countries, with a case mortality rate in the immunocompe-
+tent population above 60%4.
+New therapeutic strategies that provide potent and broadly cross-
+protective host immunity are therefore a global public health priority.
+Human mAb-based ‘passive’ immunotherapy is now being used to
+treat numerous human diseases, including respiratory syncytial virus
+infection, and we have proposed how immunotherapy could be used
+strategically in a viral outbreak setting14.
+In the present study, we ﬁrst used a phage-display antibody library
+and recombinant H5 trimeric ectodomain to isolate a group of high-
+afﬁnity nAbs that were potent inhibitors of H5N1 viral infection
+in vitro and in vivo. On the basis of crystallographic and functional
+studies, we showed that the nAbs bind to a common epitope—
+a highly conserved pocket in the stem region of hemagglutinin
+containing the ‘fusion peptide’—that rationalizes their ability to block
+Received 18 November 2008; accepted 22 January 2009; published online 22 February 2009; doi:10.1038/nsmb.1566
+1Department of Cancer Immunology & AIDS, Dana-Farber Cancer Institute; Department of Medicine, Harvard Medical School, 44 Binney Street JFB 826, Boston,
+Massachusetts 02115, USA. 2Infectious and Inﬂammatory Disease Center, Burnham Institute for Medical Research, 10901 North Torrey Pines Road, La Jolla,
+California 92037, USA. 3Inﬂuenza Division, Centers for Disease Control and Prevention, National Center for Immunization and Respiratory Diseases,
+1600 Clifton Road, Mail Stop G-16, Atlanta, Georgia 30333, USA. 4These authors contributed equally to this work. Correspondence should be addressed
+to J.S. (jianhua_sui@dfci.harvard.edu), R.O.D. (rvd6@cdc.gov), R.C.L. (rlidding@burnham.org) or W.A.M. (wayne_marasco@dfci.harvard.edu).
+NATURE STRUCTURAL & MOLECULAR BIOLOGY
+VOLUME 16
+NUMBER 3
+MARCH 2009
+265
+A R T I C L E S
+ 
+© 2009 Nature America, Inc.  All rights reserved.
+
+
+--- Page 2 ---
+membrane fusion rather than cell attachment. Sequence and structural
+analysis of all 16 hemagglutinin subtypes point to the existence of just
+two variants of this epitope, corresponding to the two classic phylo-
+genetic groupings of hemagglutinin (groups 1 and 2). We therefore
+tested eight more group 1 hemagglutinin subtypes and demonstrated
+an unprecedented cross-subtype binding and/or neutralization spec-
+trum. Because we had used a group 1 subtype (H5) for our panning,
+our nAbs, as expected, failed to neutralize group 2 subtypes H3 and
+H7. These results nevertheless raise the possibility that a cocktail
+comprising a small subset of nAbs raised against representatives of the
+two groups could provide broad protection against all seasonal and
+pandemic inﬂuenza A viruses.
+RESULTS
+Identiﬁcation of nAbs against H5N1
+The current H5N1 epidemics involve viruses derived from a single
+lineage of H5 hemagglutinin. Within this lineage, four distinct
+clades have been identiﬁed as major threats to public health15,16.
+We expressed recombinant trimeric ectodomain of H5 hemagglu-
+tinin from one of these viruses (strain A/Vietnam/1203/04
+(H5N1), ‘H5-VN04’, clade 1) in insect cells17 (Supplementary
+Fig. 2 online), immobilized it on a plastic surface and selected
+antibodies from a ‘non-immune’ human antibody phage-display
+library
+(using
+single-chain
+VH-VL
+fragments
+(‘scFv’))18.
+Two rounds of panning and the screening of 392 clones identiﬁed
+10 unique antibodies formed by six distinct VH (variable region of
+heavy chain) fragments in combination with ten different VL
+(variable
+region
+of
+light
+chain)
+fragments
+(Supplementary
+Table 1 online).
+We found that all ten nAbs bound trimeric H5-VN04 with similar
+avidity, but did not bind monomeric HA1 (Fig. 1a). Presented as
+scFv-Fc constructs, they potently neutralized the clade 1 H5 pseudo-
+virus, A/Thailand/2-SP-33/2004 (H5N1) (‘H5-TH04’) (Fig. 1b); and,
+in a stringent plaque-reduction assay, they all showed high levels of
+neutralization against H5-VN04, as well as the more divergent (clade
+2.1) A/Indonesia/5/2005 (‘H5-IN05’) (Fig. 1c,d). We further found
+that the nAbs cross-competed with each other in a competition
+enzyme-linked
+immunosorbent
+assay
+(ELISA;
+Supplementary
+Fig. 3 online), suggesting that they share a common epitope. On
+the basis of this ﬁnding, as well as VH sequence diversity
+and neutralization potency, we converted three of the nAbs (D8,
+F10 and A66) into full-length human IgG1s for further studies;
+all three IgG1s bound to recombinant H5-VN04 with high afﬁnity
+(Kd B100–200 pM) and slow dissociation rates (kd B104 s1)
+(Supplementary Fig. 4 online).
+Prophylactic and therapeutic efﬁcacy in mice
+We evaluated the protective efﬁcacy of the three IgG1s against H5N1
+virus infection in a BALB/c mouse model (Fig. 2). Mice were treated
+with IgG1s before (prophylactically) or after (therapeutically) lethal
+viral challenge. Prophylaxis using 10 mg kg1 of IgG1s effectively
+protected (80–100%) mice when challenged with a high lethal dose of
+H5-VN04 (clade 1) or A/HongKong/483/97 (‘H5-HK97’) (clade 0)
+(Fig. 2a,b). Therapeutic treatment with 15 mg kg1 (an achievable
+dose in humans) of IgG1 24 h post-inoculation (hpi) also protected
+80–100% of the mice challenged with either H5-VN04 or H5-HK97
+virus (Fig. 2c,d). Mice treated at later times (48 hpi or 72 hpi) with
+H5-VN04 showed similar or higher levels of protection (Fig. 2e,f).
+Furthermore,
+surviving
+mice
+remained
+healthy
+and
+showed
+minimal body weight loss over the 2-week observation period (data
+not shown).
+Whereas human inﬂuenza viruses are typically restricted to the
+upper respiratory tract, systemic spread is a typical outcome of H5N1
+infection in mice, and it has been reported in some humans. We found
+that the three IgG1s caused potent suppression of viral replication in
+the lungs (measured 4 d after viral challenge) of mice treated within
+48 h of viral challenge; and that two IgG1s, F10 and A66, were effective
+when given at 72 hpi. The strong impact of antibody therapy on
+systemic infection was demonstrated by Z1,000-fold suppression of
+virus spread to the spleen, even when given 72 hpi (Supplementary
+Fig. 5 online). We also observed suppression in the brain, but in
+this case, systemic spread was too low in control animals for
+accurate quantitation.
+nAbs inhibit cell fusion rather than receptor binding
+Two ways in which anti-hemagglutinin antibodies can neutralize
+infection is by blocking the initial binding of hemagglutinin to its
+cellular receptor (sialic acid) or by interfering with the subsequent step
+of hemagglutinin-mediated virus-host membrane fusion, which
+occurs in acidic endosomes19,20. We found that none of the nAbs
+inhibited virus binding to cells (Fig. 3a) or hemagglutination of red
+blood cells (data not shown). However, we were able to show, using a
+model system of cell fusion, that the nAbs potently inhibited mem-
+brane fusion (Fig. 3b).
+2A
+D7
+D8
+F10
+G17
+H40
+A66
+D80
+E88
+E90
+H98
+Ctrl.
+H5
+Binding of nAb to H5 and HA1
+H5-TH04
+(pseudotyped virus)
+0.8 µg ml–1
+12.5 µg ml–1
+1
+0.5
+1
+1.5
+A450
+D7
+D8
+F10
+G17
+H40
+A66
+D80
+E88
+E90
+H98
+Ctrl.
+0
+20
+40
+60
+80
+100
+120
+% Neutralization
+H5N1(H5-VN04)
+D7
+D8
+F10
+G17
+H40
+A66
+D80
+E88
+E90
+H98
+Ctrl.
+0
+20
+40
+60
+80
+100
+120
+% Neutralization
+H5N1(H5-IN05)
+1 µg ml–1
+10 µg ml–1
+100 µg ml–1
+D7
+D8
+F10
+G17
+H40
+A66
+D80
+E88
+E90
+H98
+Ctrl.
+0
+20
+40
+60
+80
+100
+120
+% Neutralization
+2
+2.5
+3
+3.5
+HA1
+a
+b
+c
+d
+Figure 1 In vitro binding and neutralization of
+anti-H5 antibodies. (a) The ten antibodies were
+converted to soluble scFv-Fcs (scFv linked to the
+hinge, CH2 and CH3 domains of human IgG1)
+and evaluated for binding to trimeric H5-TH04
+or monomeric HA1 of H5-TH04 coated on an
+ELISA plate. The H5 scFv-Fcs recognize trimeric
+H5 but not HA1. An antibody raised against
+HA1 (2A) recognized both. (b) Neutralization
+of H5-TH04–pseudotyped viruses (virus-like
+particles with HIV-1 only cores that display H5
+on their surface). Percentage of neutralization
+at two concentrations is shown with s.d. The
+mAb 80R18 was used as a negative control (Ctrl.).
+(c,d) Neutralization of wild-type H5-VN04
+and H5-IN05 by the ten scFv-Fcs at three
+concentrations using a plaque reduction assay.
+Results are consistent with those obtained from
+a microneutralization assay (data not shown).
+A R T I C L E S
+266
+VOLUME 16
+NUMBER 3
+MARCH 2009
+NATURE STRUCTURAL & MOLECULAR BIOLOGY
+ 
+© 2009 Nature America, Inc.  All rights reserved.
+
+
+--- Page 3 ---
+Structural characterization of the nAb epitope
+To provide a structural basis for neutralization and to explore the
+prospects for developing even broader-spectrum therapeutics, we
+determined the crystal structure of F10 (as the scFv fragment) in
+complex with the H5 (H5-VN04) ectodomain (Fig. 4 and Supple-
+mentary Table 2 online). We used H5 activated by cleavage of the
+single-chain precursor, HA0, into two polypeptides, HA1 and HA2.
+Cleavage leads to the partial burial of the fusion peptide (the ﬁrst B21
+residues of each HA2) into the stem19,21, which also contributes to the
+formation of each of three hydrophobic ‘pockets’ located below the
+large trimeric receptor binding head. In the complex, one F10 nAb
+binds into each pocket, burying B1,500 A˚ 2 of protein surface. Only
+the heavy chain (VH) participates directly in binding, using all three of
+its complementarity-determining regions (CDRs). The light chain
+(VL)
+points
+out
+into
+solution
+and
+makes
+only
+nonspeciﬁc
+contacts with the distal end of the oligosaccharide of glycosylated
+residue Asn331 from a neighboring monomer. The epitope on H5
+encompasses the entire pocket, which is formed by the HA2 fusion
+peptide ﬂanked by elements of HA1 on one side and helix aA of HA2
+on the other.
+The key interactions are as follows (Fig. 4b). (i) CDR-H2 adopts the
+‘type 2’ conformation22. Two hydrophobic residues, Met54 and Phe55,
+from the tip of H2 insert into the pocket. Phe55 lies across a ﬂat
+hydrophobic surface formed by the main chain of the fusion peptide,
+residues 182–212; it also makes favorable orthogonal aromatic inter-
+actions23 with the side chains of Trp212 at the back of the pocket and
+His181 at the front (subscripts 1 or 2 refer to HA1 or HA2, and the
+numbering scheme follows the structure of H3 (PDB 2HMG)17,24).
+The Met54 sulfur makes Paromatic inter-
+actions25 with the Trp212 ring, hydrophobic
+interactions with Ile452 from helix aA and a
+hydrogen bond between Met54 C¼O and the
+His381 side chain. (ii) Tyr102 from CDR-H3
+extends from the apex of the H3 loop to a
+location only B3 A˚ from Phe55, and it
+complements CDR-H2 by cementing together
+the fusion peptide (via a main chain hydro-
+gen bond to Asp192) and the aA helix of HA2
+(by intercalating between Thr412 and Ile452).
+A large hydrophobic residue at the neighbor-
+ing position 103 supports the side chain
+conformation of Tyr102. (iii) The CDR-H1
+loop is characterized by small hydrophobic or
+polar side chains (notably Val27, Thr28 and
+Ser31) such that CDR-H1 ﬁts snugly beneath
+the hemagglutinin head while packing against
+helix aA. A somatic mutation of conserved
+Gly26, G26E, generates a noncanonical con-
+formation for H1, with Thr27 pointing out-
+ward and making contact H5.
+An N-terminal hairpin (residues Ile292 and
+Met302) from HA2 of the counterclockwise
+neighbor packs against the other side of helix
+aA at this point, wrapping around its fusion
+peptide and further locking it into place
+(Fig. 4a,c). Thus, the F10 nAb may stabilize
+the fusion peptide of more than one subunit.
+One framework (FR3) residue, Gln74, seems
+to be especially important in stabilizing the
+CDR-H1 and CDR-H2 loop conformations,
+by forming hydrogen bonds to the main
+chain C ¼ O groups of Pro53 and Met54, as well as the side chain
+of Ser30. The FR3 residue at position 72 is the major determinant of
+the choice between two distinct conformations of the H2 loop22.
+Consistent with the structural data, mutations in three H5 residues
+on HA2 aA, Val522, Asn532 and Ile562, which make important
+interactions with F10, greatly reduce or ablate nAb binding, whereas
+the conservative mutation V52L has no effect (Fig. 4c,d). Mutations to
+other surfaces of the aA helix either have no effect (typically exposed
+residues) or lead to increased nAb binding, perhaps by subtly
+increasing the ﬂexibility of the epitope (Fig. 4d). Notably, the nine
+other nAbs show similar mutant binding proﬁles. Together with the
+cross-competition noted above, this strongly suggests that the epitopes
+for all ten nAbs overlap very closely indeed, and that the nAbs bind in
+a similar location and orientation.
+Structural basis of H5 neutralization by the nAb panel
+The broad neutralizing behavior against H5 may be attributed in part
+to the exclusive role of VH in antigen binding and the use of a
+common germline gene, VH1-69, in ﬁve out of the six VHs, although
+their CDR3 loops are variable in sequence and length (13–17 residues)
+(Supplementary Fig. 6 and Supplementary Table 1 online). In
+addition, free-energy calculations26 point to dominant binding con-
+tributions (B70% of the total favorable free energy) of the three
+conserved residues in the VH segment (Fig. 4b). In CDR-H2 derived
+from germline VH1-69, position 55 is always phenylalanine, and
+position 54 is always hydrophobic (methionine, isoleucine, leucine
+or valine). In our nAbs, CDR-H3 always has a tyrosine predicted to lie
+at the tip of the CDR3 loop (conserved at the position 6). The
+% Mouse survival
+120
+100
+80
+60
+40
+20
+0
+% Mouse survival
+120
+100
+80
+60
+40
+20
+0
+% Mouse survival
+120
+1 h before H5-VN04
+24 hpi, H5-VN04
+48 hpi, H5-VN04
+1 h before H5-HK97
+24 hpi, H5-HK97
+72 hpi, H5-VN04
+100
+80
+60
+40
+20
+0
+0
+2
+4
+6
+8
+Time after infection (d)
+10
+12
+14
+16
+0
+2
+4
+6
+8
+Time after infection (d)
+Ctrl.80R (15 mg kg–1)
+D8 (15 mg kg–1)
+A66 (15 mg kg–1)
+F10 (15 mg kg–1)
+Ctrl.80R (15 mg kg–1)
+D8 (15 mg kg–1)
+A66 (15 mg kg–1)
+F10 (15 mg kg–1)
+Ctrl.80R (15 mg kg–1)
+D8 (2.5 mg kg–1)
+D8 (10 mg kg–1)
+A66 (2.5 mg kg–1)
+A66 (10 mg kg–1)
+F10 (2.5 mg kg–1)
+F10 (10 mg kg–1)
+10 12 14 16
+a
+b
+c
+d
+e
+f
+Figure 2 Prophylactic and therapeutic efﬁcacy of anti-H5 nAbs in mice. (a,b) Prophylactic efﬁcacy.
+Percentage of survival of mice treated with anti-H5 nAbs or control mAb 1 h before lethal challenge
+by intranasal inoculation with H5-VN04 (a) or H5-HK97 (b) viruses. (c–f). Therapeutic efﬁcacy. Mice
+were inoculated with H5-VN04 and injected with nAbs at 24 h, 48 h of 72 hpi (c,e,f) or with
+H5-HK97 at 24 hpi (d).
+A R T I C L E S
+NATURE STRUCTURAL & MOLECULAR BIOLOGY
+VOLUME 16
+NUMBER 3
+MARCH 2009
+267
+ 
+© 2009 Nature America, Inc.  All rights reserved.
+
+
+--- Page 4 ---
+conformation and sequence of the CDR1 loop does not seem to be
+critical, because the other antibodies we isolated do not contain the
+somatic mutation (G26E) found in F10 and are predicted to have
+canonical structures. The sixth VH gene we isolated is derived from
+the germline gene VH1-2; its H2 loop has the same length as VH1-69,
+but by virtue of a change from alanine to arginine at position 72
+(ref. 22) it is predicted to adopt a distinct conformation (‘type 3’) that
+presents loop residues 3 and 4 to the antigen (rather than residues 4
+and 5 in type 2 loops). The speciﬁc somatic mutation at position 4,
+from asparagine to methionine, presumably promotes H5 binding. It
+is not possible to predict the structure of the larger H3 loop, but a
+tyrosine located at the center of the loop may play an analogous role to
+that in F10.
+Thus, the F10-H5 crystal structure suggests a common mechanism
+of H5 virus neutralization for our nAb panel. They make no contact
+with the receptor binding sites in the head and so do not inhibit cell
+attachment. Rather, they lock the fusion peptide and helix aA in place,
+thereby preventing the large structural reorganizations that are
+required for membrane fusion17,19,27–30. Our data point to this event
+occurring at an early step in infection, although we cannot rule out the
+possibility that the nAbs act at a later stage, given the close packing of
+molecules on the surface of the mature virion, which might restrict
+early access to the epitope. The only previously published crystal
+structure of a hemagglutinin-nAb complex that inhibits membrane
+fusion uses a different mechanism: it prevents conformational changes
+by cross-linking the upper surfaces of adjacent subunits in the head31.
+NAbs bind and neutralize a broad range of group 1 viruses
+Next we examined all of the available hemagglutinin sequences (total
+6,360) in the public inﬂuenza sequence database (Supplementary
+Table 3 online). Of note, the sequences of the F10 epitope are nearly
+always conserved within the H5 subtype. Indeed, many epitope
+residues, especially in HA2, are highly conserved across all 16
+hemagglutinin subtypes (Fig. 5). This high sequence conservation
+Figure 4 Structure of the H5–F10 complex.
+(a) Structure of the H5 trimer bound to F10
+(scFv). H5 is similar to the uncomplexed
+structure35 (pairwise r.m.s. deviation (Ca) ¼ 1.0
+and 0.63 A˚ for two independent trimers). HA1,
+HA2, the aA helix of HA2, the fusion peptide
+(FP) and F10 (VH and VL) are color coded. The
+third F10 molecule is hidden behind the stem.
+(b) Close-up of the epitope showing H5 as a
+molecular surface, with selected epitope residues
+labeled. The fusion peptide is in green. The tip of
+F10 (red ribbon) and selected CDR side chains
+are shown. Of 1,500 A˚ 2 buried surface at the
+interface, 43% involves hydrophobic interactions.
+(c) Surface of the central stem region, showing
+two H5 monomers. One monomer has HA1
+(yellow) and HA2 (blue) colored differently; the
+path of the FP through the epitope (red) is
+outlined, and mutations that do not affect
+binding are colored cyan (Fig. 4d). The fusion
+peptides (FP and FP¢) are labeled in both
+monomers. Epitope residues are labeled white (HA2) or yellow (HA1), and the position of buried residue H1112 is shown as a black ball labeled ‘H’.
+(d) Binding of the three nAbs to H5 mutants in the aA helix, transiently transfected into 293T cells. Note the similar response to all mutants tested.
+Mutations were made either to alanine or to the corresponding H7 residue; 24 h after transfection, nAbs or ferret anti-H5N1 serum was used to stain
+the transfected cells. Fluorescent intensity was normalized against ferret anti-serum (100%) to account for different expression levels.
+1 mg ml–1 or 1:4,000
+Ctrl. 80R-
+IgG1
+2A-Fc
+D8-IgG1
+F10-IgG1
+A66-IgG1
+17A.2.1.2
+Ferret
+anti-serum
+10 mg ml–1 or 1:400
+100 mg ml–1 or 1:40
+0
+20
+40
+60
+80
+100
+120
+% Binding
+Binding inhibition of H5-pseudotyped
+viruses to cells by anti-H5 nAbs
+140
+160
+180
+200
+a
+b
+No Ab
+2A-Fc
+Ctrl. 80R-IgG1
+D8-IgG1
+F10-IgG1
+A66-IgG1
+D8-IgG1
+F10-IgG1
+A66-IgG1
+Ferret
+anti-serum
+N50A
+V52A
+V52E
+V52L
+N53A
+S54A
+I56A
+D57A
+D57N
+N60A
+T61A
+T61Q
+Q62A
+Q62E
+WT
+0
+50
+100
+150
+% Binding to mutant H5
+200
+250
+a
+b
+d
+c
+Figure 3 Neutralization mechanism. (a) nAbs do not inhibit cell binding of
+full-length hemagglutinin from H5-TH04–pseudotyped HIV-1 viruses. None
+of the three nAb-treated viruses inhibited cell binding. Mouse anti-H5 mAb,
+17A2.1.2 and ferret anti-H5N1 serum, which inhibit hemagglutination, were
+used as positive controls. Anti-SARS spike protein (80R) and anti-HA1 (2A)
+were used as negative controls. Error bars represent s.d. (b) All three nAbs
+inhibit cell fusion. HeLa cells were transfected with H5-TH04–expressing
+plasmid and exposed to a pH 5.0 buffer for 4 min in the presence or
+absence of nAbs. Syncytia formation induced by the brief exposure to
+pH 5.0 was completely inhibited by D8, F10 and A66, at 20 mg ml1
+(B0.13 mM), whereas controls (80R and anti-HA1 mAb (2A) at the same
+concentration had no effect.
+A R T I C L E S
+268
+VOLUME 16
+NUMBER 3
+MARCH 2009
+NATURE STRUCTURAL & MOLECULAR BIOLOGY
+ 
+© 2009 Nature America, Inc.  All rights reserved.
+
+
+--- Page 5 ---
+provides a rationale for the cross-neutralization of the H5N1 virus
+clades described above, and this prompted us to test our antibodies
+against a broader range of hemagglutinin subtypes.
+Group 1 viruses, which contain 10 of the 16 subtypes, are further
+classiﬁed into three ‘clusters’: H1a, H1b and H9 (refs. 32,33; Fig. 5).
+We tested nAb binding to eight members of clusters H1a, H1b
+and H9, which include avian H5 and the most common human
+inﬂuenza subtypes (the major exception is the group 2 subtype, H3).
+In addition to H5, we found that all three IgG1s bound to cells
+expressing full-length H1 from three different
+strains of H1N1, including the 1918 Spanish
+ﬂu, H2 from H2N2 and H6 from H6N2, the
+Cluster 1b subtypes H11 from H11N9, H13
+from H13N6 and H16 from H16N3, and the
+Cluster H9 subtypes from three H9N2 strains. However, none of
+them bound to a group 2 subtype, H7 from H7N1 (Supplementary
+Fig. 7 online).
+The IgG1s also neutralized H5-, H1-, H2-, H6- and H11-pseudo-
+typed virus infections (Fig. 6a). In a microneutralization assay,
+F10-IgG1 also neutralized H5N1, H1N1, H2N2, H6N1, H6N2,
+H8N4 and H9N2 inﬂuenza viruses (Fig. 6b). However, none of the
+nAbs neutralized group 2 viruses, for example, H3N2 (Fig. 6b and
+Supplementary Fig. 8 online). Thus, these nAbs recognize an epitope
+on hemagglutinin that is conserved among H5 clades and in all
+members of group 1 viruses. Finally, we demonstrated the in vivo
+protective efﬁcacy of two of the IgG1s against two lethal H1N1 viral
+strains in a BALB/c mouse model, using the same protocol as for the
+H5N1 studies (Fig. 6c,d).
+17
+H2
+H5
+H1
+H9
+H3
+H7
+Interhelical contacts in
+the low pH (fusogenic)
+conformation
+Group 2
+Group 1
+H1
+H6
+H13
+H8
+H12
+H9
+H4
+H14
+H3
+H15
+H7
+H10
+H16
+H11
+HA1
+HA2
+18
+38
+291 292
+18
+21
+38
+41 42 45
+49
+52 53
+56
+111
+F10
++
++
++
++
++
++
++
++
++
+(–)
+(–)
+(–)
+(–)
+–
+–
+(+)
+a
+b
+Figure 5 Sequence conservation in hemagglutinin groups, clusters and
+subtypes at the F10 epitope. Circles below residue numbers indicate
+estimated contribution to the binding energy at each position: red, strong;
+yellow, intermediate; blue, neutral. Residues without a circle are not directly
+involved in the epitope but are discussed in the text. Colored highlighting on
+the sequences indicates conservation within clusters and groups, with
+orange indicating high conservation or invariance. Other colors (for example,
+yellow, cyan and pink) highlight residues that are cluster or subtype speciﬁc.
+The network of interhelical contacts that stabilize the fusogenic structure61
+are indicated below the HA2 sequences. Subtypes that can be recognized/
+neutralized by F10 are indicated with ‘+’ on the far right. (+) or ()
+indicates a predicted positive or negative binding, respectively.
+D8 25 mg kg–1
+D8 10 mg kg–1
+F10 10 mg kg–1
+F10 25 mg kg–1
+A66 25 mg kg–1
+A66 10 mg kg–1
+80R 25 mg kg–1
+F10-IgG1
+Ctrl.80R
+< 1
+1
+2
+3
+Neutralization titer (2χ dilution)
+4
+5
+6
+7
+H1-OH83
+(H1N1)
+H1-PR34
+(H1N1)
+H1-WSN33
+(H1N1)
+H2-AA60
+(H2N2)
+H5-VN04
+(H5N1)
+H5-HK97
+(H5N1)
+H6-HK99
+(H6N1)
+H6-NY98
+(H6N2)
+H8-ON68
+(H8N4)
+H9-HK(G9)97
+(H9N2)
+H9-HK99
+(H9N2)
+H3-SY97
+(H3N2)
+120
+100
+80
+60
+% Mouse survival
+40
+20
+0
+0
+2
+4
+6
+8
+Time after infection (d)
+10
+12
+14
+16
+120
+100
+80
+60
+% Mouse survival
+40
+20
+0
+0
+2
+4
+6
+8
+Time after infection (d)
+10
+12
+14
+16
+D8-IgG1
+F10-IgG1
+A66-IgG1
+Ctrl.-IgG1
+H5-TH04
+H2-JP57
+H6-NY98
+H1-WSN33
+H11-MP74
+1 h before H1-WSN33
+1 h before H1-PR34
+H1-SC1918
+H1-PR34
+120
+100
+80
+60
+40
+% Neutralization
+20
+0
+–20
+120
+100
+80
+60
+40
+% Neutralization
+20
+0
+–20
+0.37
+1.11
+3.33
+10
+30
+[Ab] µg ml–1
+0.37
+1.11
+3.33
+10
+30
+[Ab] µg ml–1
+1.11
+3.33
+10
+30
+90
+[Ab] µg ml–1
+1.11
+3.33
+10
+30
+90
+[Ab] µg ml–1
+a
+b
+c
+d
+Figure 6 Cross-subtype neutralization by nAbs.
+(a) nAbs D8, F10 and A66 all neutralized
+indicated pseudotyped viruses (strains
+described below). Error bars indicate s.d.
+(b) Microneutralization assay. Neutralization titers
+(0.1 mg ml1 antibody stock solution) of nAb
+F10 against wild-type H5N1, H1N1, H2N2,
+H6N1, H6N2, H8N4, H9N2 and H3N2 virus
+strains. 80R is the negative control. Vertical bars
+and whiskers represent the lowest and the
+highest neutralization titer (2w, values of w are
+shown on the y axis), respectively, of two or three
+independent experiments. (c,d) Prophylactic
+efﬁcacy against two H1N1 strains in mice.
+Percentage of survival of mice treated with
+anti-H5 nAbs or control mAb are shown before
+lethal challenge by intranasal inoculation with
+H1-WSN33 (c) or H1-PR34 (d) viruses. Complete
+viral strain designations are: H1-OH83 (A/Ohio/
+83 (H1N1)); H1-PR34 (A/Puerto Rico/8/34
+(H1N1)); H1-SC1918 (A/South Carolina/1/1918
+(H1N1)); H1-WSN33 (A/WSN/1933 (H1N1));
+H2-AA60 (A/Ann Arbor/6/60 (H2N2)); H2-JP57
+(A/Japan/305/57(H2N2)); H3-SY97 (A/Sydney/5/
+97(H3N2)); H6-HK99 (A/quail/Hong Kong/1721-
+30/99(H6N1)); H6-NY98 (A/chicken/New York/
+14677-13/1998 (H6N2)); H7-FP34 (A/FPV/
+Rostock/34 (H7N1)); H8-ON68 (A/turkey/Ontario/
+6118/68); H9-HK(G9)97 (A/chicken/HongKong/
+G9/97 (H9N2)); H9-HK99 (A/HongKong/1073/
+99 (H9N2)); H11-MP74 (A/duck/Memphis/546/
+74 (H11N9)).
+A R T I C L E S
+NATURE STRUCTURAL & MOLECULAR BIOLOGY
+VOLUME 16
+NUMBER 3
+MARCH 2009
+269
+ 
+© 2009 Nature America, Inc.  All rights reserved.
+
+
+--- Page 6 ---
+Basis of the group-speciﬁc broad-spectrum virus neutralization
+The ability of our nAbs to recognize all group 1 (cluster H1a/b and
+H9) viruses (H12 was not tested) can be attributed to the key
+conserved features of the nAbs described above in combination with
+the highly conserved pocket on hemagglutinin (Figs. 4 and 5). The
+epitope may be divided into three elements. (i) At its center, the
+sequence of the N-terminal segment of HA2—fusion peptide residues
+182–212—is conserved across all hemagglutinin subtypes (note that
+the side chain at position 192 does not participate in binding). (ii) A
+downstream segment of HA2 adopts part of the aA helix (residues
+392–562), which is nearly invariant; the only signiﬁcant difference is a
+threonine to glutamine change at position 492 in the untested H9
+cluster subtype, H12. Thr492 lies at the periphery of the epitope and
+makes one long hydrogen bond (3.5 A˚ ) to Ser31. Simple modeling
+suggests that there is plenty of space to accommodate the larger
+glutamine side chain and that it can make comparable hydrogen
+bonds. (iii) Smaller contributions from segments of the HA1 chain
+(residues 181 and 381) and a loop at the base of the head (residues
+2911 and 2921).
+Three-dimensional comparisons of the epitope in the ﬁve known
+crystal structure subtypes (three from group 1 (H1, H5 and H9) and
+two from group 2 (H3 and H7)21,32,34–36) show that they adopt two
+distinct structural classes consistent with the phylogenetic group-
+ings32,33 (Fig. 7). These differences arise from group-speciﬁc differ-
+ences in the location of buried residues, notably histidines (H1112 is
+unique to group 1; H171 is unique to group 2) that have been
+proposed to be the ‘triggers’ for pH-induced conformational
+changes29. The differences cause the side chain of Trp212 to turn
+through 901 in group 2 subtypes, eliminating favorable binding to
+Phe55 from our nAb panel. In addition, four out of six group 2
+subtypes are glycosylated at position 381, at the periphery of the F10
+epitope; our modeling studies predict steric clashes with the CDR-H1
+loop (data not shown). These structural differences rationalize the
+observed lack of binding and neutralization of group 2 hemagglutinin
+subtypes and viruses.
+Prospects for immune escape
+The remarkable transformation to the fusogenic state includes repack-
+ing of the central helices of three HA2 protomers to form a new triple-
+helical bundle, in which residues 34–37 form an N-terminal cap, and
+the creation of C-terminal arms that extend to the N terminus of the
+new bundle37. It is straightforward to model the locations of the F10
+epitope residues in this model of the fusogenic state (Supplementary
+Note 1 online). All eight epitope residues, which were fully exposed in
+the neutral pH structure, become either part of the new hydrophobic
+bundle core (Thr412, Ile452, Val522 and Ile562) or they make networks
+of hydrogen bonds with the C-terminal arms and other elements that
+stabilize the new bundle (Lys 382, Gln422, Thr492 and Asn532). The
+requirement for adopting two entirely different conformations, each
+with a distinct hydrophobic core and hydrogen-bonding network may
+place powerful evolutionary constraints on the sequence of the helix,
+as evidenced by the almost complete lack of genetic drift within helix
+aA among the 16 hemagglutinin subtypes.
+To test this hypothesis, we attempted to select neutralization-escape
+mutants. We propagated VN/04 (H5N1) virus in MDCK cells for 72 h
+in the presence of 40 mg ml1 of each of the 3 nAbs as well as a murine
+antibody, 22F, that targets the receptor binding head. Following three
+in vitro passages, we readily isolated a mutant VN04 virus (K193E)
+that was resistant to 22F. In contrast, we failed to identify any viruses
+resistant to any of our three IgG1s (D8, F10 or A66). Although these
+experiments cannot prove that escape mutants with unimpaired viral
+ﬁtness will never arise, they clearly support the notion that the pocket
+is more refractory than epitopes in the head. Notwithstanding, if such
+mutants should arise, we can use our in vitro approach to ﬁnd new
+reactive nAbs, or further engineer the existing nAbs to have even
+broader spectrum reactivity38.
+DISCUSSION
+Before the present study, the vast majority of nAbs isolated against
+inﬂuenza A virus have targeted the receptor binding head and
+lacked broad cross-neutralizing activity. However, a murine nAb,
+termed C179 (ref. 39), was positively selected on the basis of its
+cross-neutralization properties (of H1 and H2 subtypes) and was
+subsequently shown to neutralize H5, but not group 2, subtypes39,40
+(Supplementary Note 2 online). Moreover, C179 was shown to block
+membrane fusion rather than cell attachment and to protect mice
+against viral challenge41, although a detailed mechanism was not
+reported. We compared the activities of C179 and F10 and found
+that both showed similar binding toward H5. We also found that F10
+efﬁciently competed with C179 for binding to H5, but not vice versa
+(Supplementary Fig. 9 online). Furthermore, the point mutant V522E
+abrogated binding to both antibodies, whereas T3181K affected only
+C179 binding. These results suggest that F10 and C179 have partially
+overlapping epitopes and that their modes of action are similar.
+The manner in which hemagglutinin was presented to the antibody
+phage-display library in this study seems to have been crucial in our
+success, because similar attempts to isolate broadly nAbs using cell-
+surface expressed hemagglutinin showed only partial success against
+H5, and most antibodies recognized linear epitopes42. As noted above,
+we repeatedly isolated nAbs that use the same VH germline gene
+(IGHV1-69 or ‘VH1-69’). One published study pointed out that this is
+the only VH gene that consistently encodes two hydrophobic residues
+Figure 7 Three-dimensional comparison of the F10 epitope in group 1 and
+group 2 hemagglutinins. Stereo overlay of crystal structures of the ﬁve
+known hemagglutinin subtypes in the region of the F10 epitope, showing
+conservation and differences between the two phylogenetic groups. H1, H5
+and H9 (group 1) are in shades of red and yellow (PDB 1RU7, 2IBX and
+1JSD); H3 and H7 (group 2) are in shades of blue (PDB 1MQL and 1TI8).
+R.m.s. differences for pairwise overlays are 0.56 ± 0.11 A˚ (observed range,
+group 1), 0.75 A˚ (group 2) and 1.21 ± 0.12 A˚ between groups. Consistent
+differences between phylogenetic groups include the orientation of Trp212
+and alternative side chain directions at 181 and 381, which are linked to the
+packing of buried His1112 (the putative pH trigger in group 1; absent in
+group 2), and the burial of the larger tyrosine (group 1) versus histidine
+(the putative pH trigger in group 2) at 171. Of particular note, Asn381 is
+glycosylated in four members of the group 2 clusters. Other epitope residues
+are indicated by numbered light blue circles.
+A R T I C L E S
+270
+VOLUME 16
+NUMBER 3
+MARCH 2009
+NATURE STRUCTURAL & MOLECULAR BIOLOGY
+ 
+© 2009 Nature America, Inc.  All rights reserved.
+
+
+--- Page 7 ---
+at the tip of its CDR-H2 loop43; indeed, it is the only germline gene to
+encode a phenylalanine at this position, which makes several crucial
+interactions with H5. Moreover, the ‘type 2’ H2 loop, which is long
+and compact, is predicted to occur in only 4 out of the B50 human
+germline genes. These factors may explain at least in part the ability of
+nAbs derived from this germline gene to cross-react with viral epitopes
+through their unusual ability to bind to conserved hydrophobic
+pockets. Such pockets are likely to have an important function and
+for this reason they are often cryptic in the unactivated state of the
+antigen. For example, VH1-69 is the predominant gene used by a
+group of CD4-induced nAbs raised against the HIV-1 surface glyco-
+protein, gp120, where the pocket is part of a conserved co-receptor
+binding site that is exposed only transiently upon binding to its
+primary receptor, CD4 (ref. 43). Similarly, an antibody raised against
+the HIV gp41 trimeric ‘inner-core’ fusion protein intermediate uses
+the hydrophobic tip of its VH1-69 CDR-H2 loop to insert into a
+conserved hydrophobic pocket that blocks further assembly to the
+fusion-competent six-helix structure44. In vivo, B cells carrying the
+VH1-69 gene are the primary mediators of innate defense against
+HCV infection, generating antibodies against its membrane-fusion
+glycoprotein, E2 (ref. 45), although the epitope and mode of action
+have not been determined. Notably, as we found here, VH1-69 is not
+the only germline gene that is suitable for achieving neutralization in a
+similar manner. Another recent example is a nAb against the Ebola
+virus surface glycoprotein, KZ52, which uses the VH3-21 germline
+gene46. However, their common ability to lock viral envelope
+proteins into a nonfusogenic conformation suggests a general strategy
+for broad-spectrum and/or potent viral neutralization.
+Recent work using immune-based phage-display libraries generated
+from B cell populations of patients who survived H5N1 infection
+resulted in the isolation of three human nAbs that neutralized both H1
+and H5 viral strains. The authors postulated that the reason for
+survival was an effective humoral immune response mediated by such
+nAb-generating B cells in vivo47, although no control populations were
+studied. Analysis of their data (Supplementary Note 3 online)
+indicates that the antibodies are also derived from the VH1-69
+germline gene and share other key characteristics, including the
+methionine-phenylalanine pair in CDR-H2 and a tyrosine at the tip
+of CDR-H3. Thus it would seem, at least in this case, that our non-
+immune (H5-naive) donor library approach generated antibodies
+with characteristics similar to those found using immunized donor–
+based phage-display libraries derived from H5N1 survivors.
+Why broad-spectrum nAbs similar to those identiﬁed in our study
+are not similarly generated and expanded during successive rounds of
+inﬂuenza infection and repeated vaccination is not known (Supple-
+mentary Note 4 online), and this question warrants further investiga-
+tion. It is unlikely that the F10 epitope provokes self-tolerance
+mechanism(s) via auto-antigen mimicry48 (Supplementary Note 5
+online). Rather, we hypothesize that an immunodominant anti-
+body response to the highly exposed globular head may overwhelm
+the antibody response to the F10 epitope, although it remains
+possible that other immune exclusion mechanism(s) may preclude
+natural antibody responses against it. It is not surprising that many
+viruses are highly adept at keeping their most crucial (and conserved)
+determinants of pathogenesis cryptic, in which case subunit-based
+vaccines, using properly presented fragments of F10 or F10-like
+epitopes, may offer distinct advantages over whole virus–based
+approaches to induce broad spectrum nAbs in vivo49,50.
+In summary, we have used in vitro methodologies to isolate a family
+of high-afﬁnity broad-spectrum human nAbs against hemagglutinin
+that show potent in vitro and in vivo efﬁcacy against both highly
+pathogenic H5N1 and H1N1 viruses. We show that they inhibit the
+post-attachment fusion process by recognizing a highly conserved
+epitope within the stem region of hemagglutinin at a point where key
+elements of the conformational change are brought into close apposi-
+tion. Our initial experiments suggest that this region is recalcitrant to
+the generation of escape mutants. The prospects for their use
+for passive immunotherapy would therefore seem to be excellent,
+either alone or in combination with small-molecule inhibitors
+(Supplementary Note 6 online). Finally, our structural work pin-
+points the reasons why group 2 hemagglutinins do not bind the nAbs
+described here: despite surface sequence similarities, they form a
+structurally distinct group, but one that is also highly conserved and
+therefore may be amenable to a similar panning discovery approach.
+Note added in proof: Throsby et al.51 recently identiﬁed human nAbs
+that recognize a broad range of group 1 inﬂuenza A viruses with similar
+VH1-69 germline gene usage.
+METHODS
+Crystallization of the H5–F10 complex. We generated H5–F10 complexes by
+incubating the two puriﬁed components with an excess of F10 (Supplementary
+Methods online) and isolated them by Superdex 200 in Tris-buffered saline
+(TBS) buffer. Peak fractions were pooled and concentrated to B11 mg ml1.
+We examined the integrity of the H5 trimer using gel ﬁltration and SDS-PAGE.
+Crystals grew at 22 1C by equilibrating equal volumes of protein and reservoir
+solution (12.5% PEG 1K (w/v), 25% ethylene glycol (w/v), 100 mM Tris,
+pH 8.5) using the hanging drop vapor diffusion technique.
+Data collection, structure determination and reﬁnement. We collected
+diffraction data from crystals that were ﬂash frozen at 100 K in the reservoir
+Table 1 Data collection and reﬁnement statistics for H5–F10
+Native H5–F10
+Data collection
+Space group
+C2
+Cell dimensions
+a, b, c (A˚ )
+205, 119, 339
+a, b, g (1)
+90, 99.6, 90
+Resolution (A˚ )
+3.2 (3.28–3.20)*
+Rmerge
+0.13 (0.81)
+I / sI
+9.5 (2.0)
+Completeness (%)
+85 (68)
+Redundancy
+4.5 (4.5)
+Reﬁnement
+Resolution (A˚ )
+50–3.2 (3.28–3.20)
+No. reﬂections
+106,885
+Rwork / Rfree
+0.23 (0.32)/0.29 (0.38)
+No. atoms
+Protein
+34,573
+Carbohydrate
+402
+Water
+0
+B-factors
+Protein
+83.5
+Carbohydrate
+123.7
+r.m.s. deviations
+Bond lengths (A˚ )
+0.010
+Bond angles (1)
+1.31
+A single crystal was used for both structure determination at 3.2-A˚ resolution and reﬁnement.
+*Values in parentheses are for highest-resolution shell.
+A R T I C L E S
+NATURE STRUCTURAL & MOLECULAR BIOLOGY
+VOLUME 16
+NUMBER 3
+MARCH 2009
+271
+ 
+© 2009 Nature America, Inc.  All rights reserved.
+
+
+--- Page 8 ---
+buffer at the Stanford Synchrotron Radiation Laboratory beamline 9.2, set at a
+wavelength of 1.0 A˚ and processed with XDS52 and HKL2000 (ref. 53). The
+structure was solved at 3.2-A˚ resolution by molecular replacement with
+PHASER using the structures of H5 (A/Vietnam/1194/04; PDB 2IBX) and a
+homology model of F10 based on the structure of SARS nAb 80R (PDB
+2GHW)54,55 as starting models. The asymmetric unit contains two H5 trimers
+and three F10 molecules per trimer and was reﬁned using REFMAC5 (ref. 56)
+with simulated annealing in CNS and manual rebuilding with Coot57 and
+Xtalview58. The ﬁnal maps are of high quality, and key features such as
+the F10 CDR loops and interfacial residues are unambiguous and consistent
+in the six copies. The ﬁnal model includes 503, 503, 503, 497, 497 and
+497 residues for the six independent copies of H5; 235, 235, 236, 233, 234
+and 234 residues for the six F10scFvs; 24 N-acetyl-D-glucosamine and six
+b-D-mannose units, but no water molecules. The Rfree is 0.29 with excellent
+geometry as assessed with PROCHECK59 and Rampage (Table 1): residues
+in
+the
+favored,
+allowed
+and
+outlier
+regions
+are
+90.0%,
+9.5%
+and
+0.5%, respectively.
+Phage-display library selection. We produced recombinant trimeric H5-VN04
+ectodomain as for crystallization studies except that we did not use furin
+co-infection to ensure complete activation. Antibodies were identiﬁed by
+two rounds of selection of a 27 billion–membered human scFv phage-
+display library against recombinant trimeric H5 immobilized on Immunotube
+(Nunc), followed by ELISA screening. We identiﬁed ten unique anti-
+H5 antibodies by sequence analysis of 97 H5-positive clones out of 392
+clones screened.
+Plaque reduction assay. H5-VN04, H5-IN05 or A/Netherland/219/03 (H7N7)
+(H7-NL03) viruses (10,000 plaque forming units (p.f.u.)) were incubated with
+anti-H5 scFv-Fcs at three different concentrations (1 mg ml1, 10 mg ml1or
+100 mg ml1) at 37 1C for 30 min. We diluted the virus-antibody mixture
+logarithmically and transferred the dilutions onto MDCK cell monolayers in
+12-well plates, which we then incubated at 37 1C for 1 h. The cells were then
+washed and overlaid with agar. After 4 d of incubation, we discarded the
+overlay and the plaques were visualized by crystal violet staining.
+Microneutralization assay. We carried out the assay as described60. Brieﬂy, we
+mixed 100 TCID50 (median tissue culture infectious doses) of virus in equal
+volume with two-fold serial dilutions of antibody stock solution (0.1 mg ml1)
+in 96-well plates and incubated them for 1 h at 37 1C. Indicator MDCK cells
+(1.5  104 cells per well) were added to the plates, followed by incubation at
+37 1C for 20 h. To establish the endpoint, we washed the cell monolayers with
+PBS, ﬁxed the cells in acetone and detected viral antigen by indirect ELISA with
+a mAb against inﬂuenza A NP (A-3, Accurate).
+Viral binding inhibition assay. We incubated 0.5  106 293T cells with
+H5-TH04–pseudotyped HIV viruses (B500 ng of p24) in the presence of anti-
+H5 nAbs or control mAbs, or in the absence of antibodies, in PBS buffer
+containing 0.5% (w/v) BSA and 0.02% (w/v) NaN3 at 4 1C. After 1 h of
+incubation, cells were spun down, and the supernatants were tested for p24
+levels using an HIV-1 p24CA capture ELISA kit (National Cancer Institute,
+US National Institutes of Health) to quantify unbound virus. Cells were
+then washed once or twice and lysed to quantify the cell-bound virus using
+the same method.
+Cell fusion inhibition assay. We transfected HeLa cells, B90% conﬂuent in
+six-well plates, with pcDNA3.1-H5-TH04 plasmid (3 mg total DNA per well)
+using lipofectamine 2000 (Invitrogen). After B30 h of transfection, the culture
+medium was supplemented with 1 ml of anti-H5 or control mAbs for 1–2 h,
+and cells were then washed and incubated with low-pH fusion buffer (150 mM
+NaCl plus 10 mM HEPES, adjusted to pH 5.0) for 4–5 min. Cells were then
+returned to the standard culture medium for 2–3 h at 37 1C, and ﬁnally ﬁxed
+with 0.25% (v/v) glutaraldehyde and stained with 0.1% (w/v) crystal violet.
+Photomicrographs were taken at 10 magniﬁcation.
+Prophylactic and therapeutic efﬁcacy studies in mice. We used female 8–10
+weeks old BALB/c mice in all experiments. Mice were weighed on the day of
+virus challenge and then daily for 2 weeks. We used body weight as the clinical
+endpoint; mice with body weight loss Z25% of pre-infection values were
+euthanized. Animal studies were conducted as per the approved Institutional
+Animal Care and Use Committee protocols.
+For the prophylactic efﬁcacy study, three human nAbs (D8-IgG1, F10-IgG1
+and A66-IgG1) or control human mAb 80R-IgG1 (ref. 18) at 2.5 mg kg1 or
+10 mg kg1 were administered into four groups of ﬁve mice each by
+intraperitoneal injection in a 0.5 ml volume. At 1 h after mAb administration,
+two groups of mice were challenged with H5-VN04 and two groups with H5-
+HK97 intranasal inoculation with 10 MLD50 in 50 ml volumes per mouse. Mice
+were observed and weighed daily for 2 weeks after infection. Analogous studies
+were performed to evaluate the protective efﬁcacy of the nAbs against A/Puerto
+Rico/8/1934 (H1N1) or A/WSN/1933 (H1N1) viruses.
+For the post-exposure therapy efﬁcacy study, the experimental design
+recapitulates the prophylaxis study, with the following exceptions. We
+ﬁrst inoculated 12 groups of ten mice intranasally with 10 MLD50 of VN04.
+At 24 h, 48 h and 72 h after H5-VN04 infection, the mice received
+intraperitoneal injections of 15 mg kg1 body weight of one of the nAbs or
+control (80R).
+Accession codes. Protein Data Bank: Coordinates and structure factors for the
+H5–F10 complex have been deposited with accession code 3FKU.
+Note: Supplementary information is available on the Nature Structural & Molecular
+Biology website.
+ACKNOWLEDGMENTS
+We thank J. Appleton (Cornell University) for the gift of mouse mAbs
+against H5N1, 17A2.1.2 and 22F; A. Klimov (CDC) and A. Balish (CDC) for
+providing ferret antiserum and virus sequences; R. Webster (St. Jude Children’s
+Research Hospital) for H11N9, H13N6 and H16N3; L. Quynh Mai (National
+Institute of Hygiene and Epidemiology, Vietnam Ministry of Health) for H5N1;
+W. Lim (Hong Kong Department of Health) for H5N1 and H9N2, as well
+as E. Sedyaningsih, T. Soendoro (National Institute of Health Research
+and Development, Indonesian Ministry of Health) for H5N1 specimens;
+P. Palese (Mount Sinai School of Medicine) for pCAGGS-H1(SC) plasmid
+encoding the full-length hemagglutinin protein of H1-SC1918; M. Farzan
+(New England Primate Research Center, Harvard Medical School) for
+pCAGGS-H1 (PR) plasmid encoding the hemagglutinin protein of H1-PR34
+and X. Yang (Beth Israel Deaconess Medical Center, Harvard Medical School)
+for pCAGGS-H7 (FPV) encoding H7-FP34 hemagglutinin; and R. Fuller
+(University of Michigan) for furin cDNA. We thank W. Yuan and W. Li for
+helpful discussions and Y. Lin for assistance in crystallization and critical
+discussion. We thank the US National Institutes of Health (NIH) and the
+Department of Energy (DOE) for access to the Stanford Synchrotron Radiation
+Facility and the facility staff for assistance in X-ray data collection. Molecular
+graphics images were produced using the UCSF Chimera package from the
+Resource for Biocomputing, Visualization, and Informatics at the University
+of California, San Francisco (supported by NIH P41 RR-01081). This work
+was supported by NIH (U01-AI074518-01) to W.A.M. and in part by NIH
+(P01-AI055789) to R.C.L.
+AUTHOR CONTRIBUTIONS
+In the DFCI team, J.S. and A.M. constructed H5-TH04 hemagglutinin; J.S.
+and D.A. performed phage-display antibody library selections and screening for
+antibodies by ELISA, FACS and pseudovirus-neutralization assays; J.S., M.A. and
+T.H. carried out epitope mapping using mutagenesis and FACS analysis; J.S., D.A.
+and M.A. puriﬁed antibodies; J.S. and A.Y. analyzed kinetics of antibody binding
+with hemagglutinin protein; J.S. performed hemagglutinin subtype cross-binding
+and neutralization assays, pseudovirus binding and fusion inhibition assay; J.S.
+and W.A.M. designed the study, analyzed data and wrote the sections about these
+studies. In the BIMR team, R.C.L. supervised all of the work; G.W. and G.C.
+cloned and expressed recombinant H5 for antibody panning and crystallization.
+W.C.H. expressed F10 scFv and crystallized the F10–HA0 complex; W.C.H., E.S.
+and B.S. collected diffraction data and solved and reﬁned the structure; L.A.B.
+supervised cloning and expression; W.C.H., L.A.B. and R.C.L. wrote sections
+about these studies. In the CDC team, S.P., L.C., H.W., N.J.C. and R.O.D.
+designed the study and performed animal studies as well as virology studies
+with wild-type viruses; R.O.D wrote sections of these studies; J.S., R.O.D., R.C.L.
+and W.A.M. ﬁnalized the paper. All authors commented on the manuscript.
+The ﬁndings and conclusions in this report are those of the authors and do not
+necessarily represent the views of the Centers for Disease Control and Prevention
+or the Agency for Toxic Substances and Disease Registry.
+A R T I C L E S
+272
+VOLUME 16
+NUMBER 3
+MARCH 2009
+NATURE STRUCTURAL & MOLECULAR BIOLOGY
+ 
+© 2009 Nature America, Inc.  All rights reserved.
+
+
+--- Page 9 ---
+Published online at http://www.nature.com/nsmb/
+Reprints and permissions information is available online at http://npg.nature.com/
+reprintsandpermissions/
+1.
+WHO. Factsheet 211: inﬂuenza. World Health Organization /http://www.who.int/
+mediacentre/factsheets/2003/fs211/en/S (2003).
+2.
+Webster, R.G. 1918 Spanish inﬂuenza: the secrets remain elusive. Proc. Natl. Acad.
+Sci. USA 96, 1164–1166 (1999).
+3.
+de Wit, E. & Fouchier, R.A. Emerging inﬂuenza. J. Clin. Virol. 41, 1–6 (2008).
+4.
+WHO. Global inﬂuenza surveillance. World Health Organization /http://www.who.int/
+csr/disease/inﬂuenza/inﬂuenzanetwork/en/index.htmlS (2008).
+5.
+Carrat, F. & Flahault, A. Inﬂuenza vaccine: the challenge of antigenic drift. Vaccine 25,
+6852–6862 (2007).
+6.
+Cinatl, J. Jr, Michaelis, M. & Doerr, H.W. The threat of avian inﬂuenza A (H5N1).
+Part IV: development of vaccines. Med. Microbiol. Immunol. 196, 213–225 (2007).
+7.
+Subbarao, K. & Luke, C. H5N1 viruses and vaccines. PLoS Pathog. 3, e40 (2007).
+8.
+Leroux-Roels, I. et al. Broad clade 2 cross-reactive immunity induced by an adjuvanted
+clade 1 rH5N1 pandemic inﬂuenza vaccine. PLoS ONE 3, e1665 (2008).
+9.
+Baras, B. et al. Cross-Protection against lethal H5N1 challenge in ferrets with an
+adjuvanted pandemic inﬂuenza vaccine. PLoS ONE 3, e1401 (2008).
+10. de Jong, M.D. et al. Oseltamivir resistance during treatment of inﬂuenza A (H5N1)
+infection. N. Engl. J. Med. 353, 2667–2672 (2005).
+11. WHO. Clinical management of human infection with avian inﬂuenza A (H5N1)
+virus. World Health Organization /http://www.who.int/csr/disease/avian_inﬂuenza/
+guidelines/ClinicalManagement07.pdfS (2007).
+12. Wright, P., Neumann, G. & Kawaoka, Y. Orthomyxoviruses. in Fields Virology Vol. 2
+(eds. Knipe, D., Howley, P., Grifﬁn, D., Lamb, R. & Martin, M.) 1692–1740 (Lippincott
+Williams & Wilkins, Philadelphia, PA, 2006).
+13. Fauci, A.S. Pandemic inﬂuenza threat and preparedness. Emerg. Infect. Dis. 12,
+73–77 (2006).
+14. Marasco, W.A. & Sui, J. The growth and potential of human antiviral monoclonal
+antibody therapeutics. Nat. Biotechnol. 25, 1421–1434 (2007).
+15. WHO. Antigenic and genetic characteristics of H5N1 viruses and candidate H5N1
+vaccine viruses developed for potential use as pre-pandemic vaccines. World Health
+Organization
+/http://www.who.int/csr/disease/avian_inﬂuenza/guidelines/summary
+H520070403.pdfS (2007).
+16. World Health Organization Global Inﬂuenza Program Surveillance Network. Evolution
+of H5N1 avian inﬂuenza viruses in Asia. Emerg. Infect. Dis. 11, 1515–1521 (2005).
+17. Stevens, J. et al. Structure and receptor speciﬁcity of the hemagglutinin from an H5N1
+inﬂuenza virus. Science 312, 404–410 (2006).
+18. Sui, J. et al. Potent neutralization of severe acute respiratory syndrome (SARS)
+coronavirus by a human mAb to S1 protein that blocks receptor association. Proc.
+Natl. Acad. Sci. USA 101, 2536–2541 (2004).
+19. Skehel, J.J. & Wiley, D.C. Receptor binding and membrane fusion in virus entry: the
+inﬂuenza hemagglutinin. Annu. Rev. Biochem. 69, 531–569 (2000).
+20. Kida, H., Yoden, S., Kuwabara, M. & Yanagawa, R. Interference with a conformational
+change in the haemagglutinin molecule of inﬂuenza virus by antibodies as a possible
+neutralization mechanism. Vaccine 3, 219–222 (1985).
+21. Ha, Y., Stevens, D.J., Skehel, J.J. & Wiley, D.C. H5 avian and H9 swine inﬂuenza virus
+haemagglutinin structures: possible origin of inﬂuenza subtypes. EMBO J. 21,
+865–875 (2002).
+22. Chothia, C. et al. Structural repertoire of the human VH segments. J. Mol. Biol. 227,
+799–817 (1992).
+23. Samanta, U., Pal, D. & Chakrabarti, P. Packing of aromatic rings against tryptophan
+residues in proteins. Acta Crystallogr. D Biol. Crystallogr. 55, 1421–1427 (1999).
+24. Weis, W.I., Brunger, A.T., Skehel, J.J. & Wiley, D.C. Reﬁnement of the inﬂuenza virus
+hemagglutinin by simulated annealing. J. Mol. Biol. 212, 737–761 (1990).
+25. Pal, D. & Chakrabarti, P. Non-hydrogen bond interactions involving the methionine
+sulfur atom. J. Biomol. Struct. Dyn. 19, 115–128 (2001).
+26. Champ, P.C. & Camacho, C.J. FastContact: a free energy scoring tool for protein-protein
+complex structures. Nucleic Acids Res. 35, W556–W560 (2007).
+27. Stevens, J. et al. Structure of the uncleaved human H1 hemagglutinin from the extinct
+1918 inﬂuenza virus. Science 303, 1866–1870 (2004).
+28. Daniels, R.S. et al. Fusion mutants of the inﬂuenza virus hemagglutinin glycoprotein.
+Cell 40, 431–439 (1985).
+29. Thoennes, S. et al. Analysis of residues near the fusion peptide in the inﬂuenza
+hemagglutinin structure for roles in triggering membrane fusion. Virology 370,
+403–414 (2008).
+30. Earp, L.J., Delos, S.E., Park, H.E. & White, J.M. The many mechanisms of viral
+membrane fusion proteins. Curr. Top. Microbiol. Immunol. 285, 25–66 (2005).
+31. Barbey-Martin, C. et al. An antibody that prevents the hemagglutinin low pH fusogenic
+transition. Virology 294, 70–74 (2002).
+32. Russell, R.J. et al. H1 and H7 inﬂuenza haemagglutinin structures extend a structural
+classiﬁcation of haemagglutinin subtypes. Virology 325, 287–296 (2004).
+33. Fouchier, R.A. et al. Characterization of a novel inﬂuenza A virus hemagglutinin
+subtype (H16) obtained from black-headed gulls.
+J. Virol. 79,
+2814–2822
+(2005).
+34. Gamblin, S.J. et al. The structure and receptor binding properties of the 1918
+inﬂuenza hemagglutinin. Science 303, 1838–1842 (2004).
+35. Yamada, S. et al. Haemagglutinin mutations responsible for the binding of H5N1
+inﬂuenza A viruses to human-type receptors. Nature 444, 378–382 (2006).
+36. Ha, Y., Stevens, D.J., Skehel, J.J. & Wiley, D.C. X-ray structure of the hemagglutinin of
+a potential H3 avian progenitor of the 1968 Hong Kong pandemic inﬂuenza virus.
+Virology 309, 209–218 (2003).
+37. Chen, J., Skehel, J.J. & Wiley, D.C. N- and C-terminal residues combine in the fusion-
+pH inﬂuenza hemagglutinin HA2 subunit to form an N cap that terminates the triple-
+stranded coiled coil. Proc. Natl. Acad. Sci. USA 96, 8967–8972 (1999).
+38. Sui, J. et al. Broadening of neutralization activity to directly block a dominant
+antibody-driven SARS-coronavirus evolution pathway. PLoS Pathog. 4, e1000197
+(2008).
+39. Okuno, Y., Isegawa, Y., Sasao, F. & Ueda, S. A common neutralizing epitope conserved
+between the hemagglutinins of inﬂuenza A virus H1 and H2 strains. J. Virol. 67,
+2552–2558 (1993).
+40. Smirnov, Y.A. et al. An epitope shared by the hemagglutinins of H1, H2, H5, and H6
+subtypes of inﬂuenza A virus. Acta Virol. 43, 237–244 (1999).
+41. Smirnov, Y.A., Lipatov, A.S., Gitelman, A.K., Claas, E.C. & Osterhaus, A.D. Prevention
+and treatment of bronchopneumonia in mice caused by mouse-adapted variant of avian
+H5N2 inﬂuenza A virus using monoclonal antibody against conserved epitope in the
+HA stem region. Arch. Virol. 145, 1733–1741 (2000).
+42. Lim, A.P. et al. Neutralizing human monoclonal antibody against H5N1 inﬂuenza HA
+selected from a Fab-phage display library. Virol. J. 5, 130 (2008).
+43. Huang, C.C. et al. Structural basis of tyrosine sulfation and VH-gene usage in
+antibodies that recognize the HIV type 1 coreceptor-binding site on gp120. Proc.
+Natl. Acad. Sci. USA 101, 2706–2711 (2004).
+44. Luftig, M.A. et al. Structural basis for HIV-1 neutralization by a gp41 fusion
+intermediate-directed antibody. Nat. Struct. Mol. Biol. 13, 740–747 (2006).
+45. Chan, C.H., Hadlock, K.G., Foung, S.K. & Levy, S. VH1–69 gene is preferentially used
+by hepatitis C virus-associated B cell lymphomas and by normal B cells responding to
+the E2 viral antigen. Blood 97, 1023–1026 (2001).
+46. Lee, J.E. et al. Structure of the Ebola virus glycoprotein bound to an antibody from a
+human survivor. Nature 454, 177–182 (2008).
+47. Kashyap, A.K. et al. Combinatorial antibody libraries from survivors of the Turkish
+H5N1 avian inﬂuenza outbreak reveal virus neutralization strategies. Proc. Natl. Acad.
+Sci. USA 105, 5986–5991 (2008).
+48. Scherer, E.M., Zwick, M.B., Teyton, L. & Burton, D.R. Difﬁculties in eliciting broadly
+neutralizing anti-HIV antibodies are not explained by cardiolipin autoreactivity. AIDS
+21, 2131–2139 (2007).
+49. Selvarajah, S. et al. Focused dampening of antibody response to the immunodominant
+variable loops by engineered soluble gp140. AIDS Res. Hum. Retroviruses 24,
+301–314 (2008).
+50. Scheerlinck, J.P. et al. Redistribution of a murine humoral immune response following
+removal of an immunodominant B cell epitope from a recombinant fusion protein. Mol.
+Immunol. 30, 733–739 (1993).
+51. Throsby, M. et al. Heterosubtypic neutralizing monoclonal antibodies cross-protective
+against H5N1 and H1N1 recovered from human IgM+ memory B cells. PLoS ONE 3,
+e3942 (2008).
+52. Kabsch, W. Automatic processing of rotation diffraction data from crystals of initially
+unknown symmetry and cell constants. J. Appl. Cryst. 26, 795–800 (1993).
+53. Otwinowski, Z.O. & Minor, W. Processing of X-ray diffraction data collected in
+oscillation mode. Methods Enzymol. 276, 307–326 (1997).
+54. Hwang, W.C. et al. Structural basis of neutralization by a human anti-severe acute
+respiratory syndrome spike protein antibody, 80R. J. Biol. Chem. 281, 34610–34616
+(2006).
+55. Rodriguez, R., Chinea, G., Lopez, N., Pons, T. & Vriend, G. Homology modeling, model
+and software evaluation: three related resources. Bioinformatics 14, 523–528 (1998).
+56. Murshudov, G.N., Vagin, A.A. & Dodson, E.J. Reﬁnement of macromolecular structures
+by the maximum-likelihood method. Acta Crystallogr. D Biol. Crystallogr. 53, 240–255
+(1997).
+57. Emsley, P. & Cowtan, K. Coot: model-building tools for molecular graphics. Acta
+Crystallogr. D Biol. Crystallogr. 60, 2126–2132 (2004).
+58. McRee, D.E. A visual protein crystallographic software system for X11/Xview. J. Mol.
+Graph. 10, 44–46 (1992).
+59. Laskowski, R.A., MacArthur, M.W., Moss, D.S. & Thornton, J.M. PROCHECK: a
+program to check the stereochemical quality of protein structures. J. Appl. Cryst.
+26, 283–291 (1993).
+60. Rowe, T. et al. Detection of antibody to avian inﬂuenza A (H5N1) virus in human serum
+by using a combination of serologic assays. J. Clin. Microbiol. 37, 937–943 (1999).
+61. Bullough, P.A., Hughson, F.M., Skehel, J.J. & Wiley, D.C. Structure of inﬂuenza
+haemagglutinin at the pH of membrane fusion. Nature 371, 37–43 (1994).
+A R T I C L E S
+NATURE STRUCTURAL & MOLECULAR BIOLOGY
+VOLUME 16
+NUMBER 3
+MARCH 2009
+273
+ 
+© 2009 Nature America, Inc.  All rights reserved.

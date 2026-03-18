@@ -1,0 +1,2304 @@
+--- Page 1 ---
+mAbs
+ISSN: 1942-0862 (Print) 1942-0870 (Online) Journal homepage: www.tandfonline.com/journals/kmab20
+Evolution of phage display libraries for
+therapeutic antibody discovery
+Yang Zhang
+To cite this article: Yang Zhang (2023) Evolution of phage display libraries for therapeutic
+antibody discovery, mAbs, 15:1, 2213793, DOI: 10.1080/19420862.2023.2213793
+To link to this article:  https://doi.org/10.1080/19420862.2023.2213793
+© 2023 The Author(s). Published with
+license by Taylor & Francis Group, LLC.
+Published online: 24 May 2023.
+Submit your article to this journal 
+Article views: 17779
+View related articles 
+View Crossmark data
+Citing articles: 66 View citing articles 
+Full Terms & Conditions of access and use can be found at
+https://www.tandfonline.com/action/journalInformation?journalCode=kmab20
+
+
+--- Page 2 ---
+REVIEW
+Evolution of phage display libraries for therapeutic antibody discovery
+Yang Zhang
+Consultant for Biopharma Companies, New York, USA
+ABSTRACT
+Monoclonal antibodies (mAbs) and their derivatives have emerged as one of the most important classes 
+of biotherapeutics in recent decades. The success of mAb is due to their high versatility, high target 
+specificity, excellent clinical safety profile, and efficacy. Antibody discovery, the most upstream stage of 
+the antibody development pipeline, plays a pivotal role in determination of the clinical outcome of an 
+mAb product. Phage display technology, originally developed for peptide directed evolution, has been 
+extensively applied to discovery of fully human antibodies due to its unprecedented advantages. The 
+value of phage display technology has been proven by a number of approved mAbs, including several 
+top-selling mAb drugs, derived from the technology. Since antibody phage display was first established 
+over 30 years ago, phage display platforms have been developed to generate mAbs targeting difficult-to- 
+target antigens and tackle the drawbacks present in in vivo antibody discovery approaches. More 
+recently, the new generation of phage display libraries have been optimized for discovery of mAbs 
+with ”drug-like” properties. This review will summarize the principles of antibody phage display and 
+design of three generations of antibody phage display libraries.
+ARTICLE HISTORY 
+Received 28 November 2022  
+Revised 7 May 2023  
+Accepted 10 May 2023 
+KEYWORDS 
+Antibody developability; 
+antibody selection; library 
+design; phage display; 
+therapeutic antibody 
+discovery
+Introduction
+Monoclonal antibodies (mAbs) and their derivatives1 repre­
+sent a major class of therapeutics and have become the best- 
+selling drugs in United States in recent years.2,3 The global 
+mAb market size reached ~$150 billion in 2020 and is expected 
+to double in the next five years.2 To date, approved fully 
+human therapeutic antibodies were discovered from either 
+in vivo animal immunization (including humanized mice 
+and convalescent human donors) or in vitro phage display 
+technology. For in vivo animal immunization, antibodies are 
+generated through repeated immunization of target of interest. 
+Antibodies with high affinity and developability are selected 
+during the development of immune response. However, this 
+process is time intensive and requires the antigen to be immu­
+nogenic and nontoxic. In addition, because the selection is 
+entirely completed in vivo, there is limited control over prop­
+erties, such as specificity and epitope. As the other approach, 
+phage display technology has greatly advanced the therapeutic 
+mAb discovery process by providing a highly versatile 
+approach and overcoming many drawbacks present in 
+in vivo antibody generation technologies. Due to the comple­
+tely in vitro selection system, phage display surpasses in vivo 
+discovery approaches by enabling the discovery of antibodies 
+against virtually any targets or epitopes, including those that 
+are 
+either 
+toxic 
+or 
+nonimmunogenic 
+for 
+animal 
+immunization.4–6 Moreover, due to fully controlled selection 
+conditions, phage display can be tailored for selection for 
+desired properties that may not be achievable by in vivo 
+approaches, 
+e.g., 
+selection 
+for 
+a 
+specific 
+epitope 
+recognition,7,8 
+pH-dependent 
+binding,9,10 
+antibody 
+internalization,11,12 
+and 
+even 
+catalytic 
+activity.13 
+Furthermore, phage display libraries have successfully led to 
+antibody discovery against the most challenging targets or 
+epitopes, e.g., the stem region of influenza hemagglutinin,14 
+G-protein-coupled receptors (GPCRs),15 and specific confor­
+mations of ion channels.16–18 A recently developed new gen­
+eration of phage libraries with protein quality control steps in 
+the library construction will further close the developability 
+gap between antibodies derived in vivo and in vitro. Moreover, 
+there is an increasing consideration that development of anti­
+body-based affinity reagents and therapeutics should be mov­
+ing from animal-based to in vitro approaches due to animal 
+protection.19,20
+Although the majority of approved therapeutic mAbs were 
+discovered through animal immunization to date, the number 
+of phage-derived antibodies has increased in the recent years, 
+including some of the blockbuster drugs, Humira®, Lucentis®, 
+and Tecentriq® (Table 1). As of November of 2022, 17 phage- 
+derived mAbs have been granted approvals and a multitude of 
+them are actively being evaluated in clinical trials (Table 1).21– 
+23 Due to the continuous evolution of the technology, as well as 
+the expiration of related key patents,23 more and more phage- 
+derived mAbs are anticipated to enter clinical trial and the 
+market in the future.
+The success of phage display mainly relies on the quality of 
+library and the selection (a process also known as “panning”) 
+strategy. The two most widely used panning strategies are solid 
+phase and liquid phase panning. In solid phase panning, the 
+target is immobilized on a microtiter plate where specific 
+phage binders are captured. By elution and propagation in 
+CONTACT Yang Zhang 
+Yzhang_2016@outlook.com 
+Consultant for Biopharma Companies, New York, USA
+This article has been corrected with minor changes. These changes do not impact the academic content of the article.
+MABS                                                           
+2023, VOL. 15, NO. 1, 2213793 
+https://doi.org/10.1080/19420862.2023.2213793
+© 2023 The Author(s). Published with license by Taylor & Francis Group, LLC.  
+This is an Open Access article distributed under the terms of the Creative Commons Attribution-NonCommercial License (http://creativecommons.org/licenses/by-nc/4.0/), which permits 
+unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited. The terms on which this article has been published allow the 
+posting of the Accepted Manuscript in a repository by the author(s) or with their consent.
+
+
+--- Page 3 ---
+the E.coli host cells, specific phage hits are amplified. After 
+iterative panning cycles, target-specific phages are enriched 
+(Figure 1).24,25 In liquid phase panning, biotin-labeled targets 
+are incubated with the antibody phage libraries and briefly 
+pulled down by streptavidin-coated magnetic beads to capture 
+bound phage.26,27 Epitope-directed antibody selection can be 
+achieved by alternative panning strategies or incorporating 
+other technologies, e.g., competitive panning7,28–30 and site- 
+specific photocrosslinking.8 Some other panning strategies, 
+such as cell-based and nanodisc-based panning, have been 
+developed for challenging targets, e.g., multi-spanning mem­
+brane proteins.31–33 Moreover, functional selection can be 
+directly integrated in the selection process.34,35 Although var­
+ious panning strategies have been developed to meet different 
+antibody discovery goals, the selection procedures are gener­
+ally well-established and standardized.36 However, library 
+design is highly variable and plays a central role in phage 
+display-based antibody discovery. In this review, we will briefly 
+summarize the principle of antibody phage display and phage 
+engineering. This review will focus on the design principles of 
+three generations of phage display libraries, as well as several 
+specially designed libraries.
+Phage display
+Display of foreign peptide on the bacteriophage surface with­
+out affecting phage infection was first described by George 
+P. Smith in 1985.37 Since then, phage display technology has 
+been extensively applied to various applications, e.g., protein 
+evolution (also known as directed evolution), epitope 
+determination, identification of enzyme substrates, and drug 
+discovery.38 Since phenotype and genotype are physically 
+linked in a phage display system, protein variants with desired 
+properties can be rapidly selected through panning and the 
+genetic information can be readily extracted. In a phage dis­
+play system, a library in which diversified peptide or protein 
+variants are displayed on phage surface is constructed (typi­
+cally 1010 − 1012 diversity). Variants with favored properties 
+are enriched during iterative selection cycles. Unique 
+sequences can then be screened for further applications. 
+While the success of phage display has been demonstrated in 
+a wide variety of areas, this review will focus on its application 
+in therapeutic antibody discovery.
+Antibody phage display was originally developed in three 
+institutes: Institute of Cell and Tumor Biology at German 
+Cancer Research Center (Germany),39 MRC Laboratory of 
+Molecular Biology (United Kingdom),40,41 and Scripps 
+Research Institute (United States).42,43 Since then, various 
+antibody fragment formats have been commonly used for 
+phage display, such as single chain variable fragment 
+(scFv),44,45 antigen binding fragment (Fab),24,46 single-domain 
+antibody (VHH),47,48 and bispecific antibody fragment.49–51 
+Although display of full-length IgG on phage was also 
+reported,52,53 this platform was not widely used, likely due to 
+unstable display, low display level, and bias on phage propaga­
+tion, which resulted in limited functional diversity of the 
+library. However, strategies for functional screening in full- 
+length IgG format after phage panning have been reported, 
+e.g., dual host vector,54 donor-acceptor system,55 high- 
+throughput reformatting, and mammalian expression of  
+Table 1. Approved mAbs derived from phage display technology.
+Generic Name
+Product 
+Name
+Company
+Format
+Target
+First 
+Indication
+Approved 
+Year
+Phage display technology
+Adalimumab
+Humira
+Abbvie
+IgG1
+TNFα
+RA
+2002
+Humanization
+Ranibizumab
+Lucentis
+Novartis, Roche/Genentech
+Fab- 
+IgG1
+VEGFA
+nAMD
+2006
+Humanization, affinity 
+maturation
+Belimumab
+Benlysta
+Human genome Sciences (HGS), 
+GlaxoSmithKline (GSK)
+IgG1
+BLyS
+SLE
+2011
+Initial discovery
+Raxibacumab
+ABThrax
+HGS, GSK
+IgG1
+Bacillus 
+anthracis PA
+Anthrax
+2012
+Initial discovery
+Ramucirumab
+Cyramza
+Lilly/Imclone
+IgG1
+VEGFR2
+GC, NSCLC
+2014
+Initial discovery
+Necitumumab
+Portrazza
+Eli Lilly
+IgG1
+EGFR
+NSLCC
+2015
+Initial discovery
+Ixekizumab
+Taltz
+Eli Lilly
+IgG4
+IL-17a
+Psoriasis
+2016
+Humanization
+Atezolizumab
+Tencentriq
+Roche/Genentech
+IgG1
+PD-L1
+UC
+2016
+Initial discovery
+Avelumab
+Bavencio
+Merck Serono/Pfizer
+IgG1
+PD-L1
+MCC
+2017
+Initial discovery
+Guselkumab
+Tremfya
+Morphosys, Janssen,
+IgG1
+IL-23
+Psoriasis
+2017
+Initial discovery
+Lanadelumab
+Takhzyro
+Dyax, Shire
+IgG1
+pKal
+HAE
+2018
+Initial discovery
+Caplacizumab
+Cablivi
+Ablynx
+VHH
+vWF
+aTTP
+2018
+Initial discovery
+Moxetumomab 
+pasudotox
+Lumoxiti
+AstraZeneca/Medimmune
+dsFv- 
+PE38
+CD22
+HCL
+2018
+Affinity maturation
+Emapalumab
+Gamifant
+Novimmune
+IgG1
+INFγ
+HLH
+2018
+Initial discovery
+Inebilizumab
+Uplizna
+AstraZeneca/Medimmune, Viela Bio
+IgG1
+CD19
+NMOSD
+2020
+Affinity maturation
+Tralokinumab
+Adbry
+AstraZeneca/Medimmune, Leo Pharma
+IgG4
+IL-13
+Asthma
+2021
+Initial discovery
+Faricimab
+Vabysmo
+Roche
+Bi-Fab
+VEGFA, Ang2
+nAMD, DME
+2022
+Initial discovery and affinity 
+maturation
+Abbreviations: Ang2: angiopoietin 2; aTTP: acquired thrombotic thrombocytopenic purpura; Bacillus anthracis PA: Bacillus anthracis protective antigen; Bi-Fab: 
+bispecific Fab; BLyS: B-lymphocyte stimulator; DME: diabetic macular edema; EGFR: epidermal growth factor receptor; GC: gastric carcinoma; HAE: hereditary 
+angioedema; HCL: hairy cell leukemia; HLH, hemophagocytic lymphohistiocytosis; IFN: interferon-gamma; IL-13: interleukin-13; IL-17A: interleukin-17A; IL-23: 
+interleukin-23; MCC: Merkel cell carcinoma; nAMD: neovascular age-related macular degeneration; NMOSD: neuromyelitis optica spectrum disorder; NSCLC: non- 
+small cell lung carcinoma; PD-L1: programmed death-1 ligand-1; PE38: Pseudomonas exotoxin A; pKal: plasma kallikrein; RA: rheumatoid arthritis; SLE: systemic lupus 
+erythematosus; TNFα: tumor necrosis factor-alpha; UC: urothelial carcinoma; VEGFA: vascular endothelial growth factor A; VEGFR2: vascular endothelial growth factor 
+receptor 2; vWF: von Willebrand factor.
+2
+Y. ZHANG
+
+
+--- Page 4 ---
+phage-derived antibodies.56,57 Nevertheless, the display of full- 
+length antibody can be readily achieved by eukaryotic display 
+platforms, such as yeast and mammalian cell display.58–60 
+Choice of display format depends on the final format that 
+will be used in the application. Since reformatting sometimes 
+causes substantial changes of antibody properties, e.g., affinity 
+and stability, keeping format consistent from library to final 
+product is considered a ”rule of thumb.” As such, phage dis­
+play offers a highly versatile platform with regards to choice of 
+antibody format.
+Among several well-characterized filamentous bacterio­
+phages (Ff), including f1, M13, and fd, M13 is the most widely 
+used for phage display. Ff bacteriophages infect E. coli host 
+cells through a specific interaction between host F pilus and 
+phage minor coat protein pIII.61,62 The Ff phage genome 
+encodes 11 proteins, five of which are coat proteins (pIII, 
+pVI, pVII, pVIII, and pIX). Although all five coat proteins 
+have been demonstrated for protein display,63,64 pIII is the 
+most widely used as an antibody fusion partner in phage dis­
+play platforms, because it can accommodate large proteins 
+with minimal interference on phage function and is 
+compatible with monovalent phage display.65,66 Antibody- 
+pIII fusion is generally achieved through genetic fusion, but 
+can also be achieved through other conjugation approaches, 
+such as leucine zipper dimerization,67 synthetic Fc-binding ZZ 
+domains,52,68 etc.
+In the early display system, the peptide of interest was fused 
+to pIII in frame in the phage genome.69,70 Thus, the peptide is 
+displayed on all copies of pIII on the phage surface, which 
+results in a potential decrease in phage infectivity. Also, the 
+size of the peptide that can be efficiently displayed is limited to 
+12 amino acids.71 In a phagemid-based system, antibody-pIII 
+fusion is encoded in a separate plasmid (designated phagemid) 
+and coinfection with a helper phage is required to provide all 
+proteins for phage proliferation.66,72,73 As a result, each phage 
+particle contains both wild type and antibody-fusion pIII pro­
+teins. A key advantage of this system is that monoclonal dis­
+play can be achieved, which facilitates selection of high affinity 
+clones by avoiding the avidity effect during panning.63,66 
+Meanwhile, phage infectivity is maximally retained due to 
+the presence of wild type pIII. One drawback of the system is 
+that wild type pIII is more efficiently assembled in the phage 
+Figure 1. Types of antibody phage display libraries (upper left panel), library construction (lower left panel) and antibody selection (right panel). According to source of 
+diversity, antibody phage display libraries can be categorized into three types: natural library, synthetic library, and semisynthetic library. In a typical phagemid system, 
+variable regions of light and heavy chains, either cloned from a natural immunoglobulin repertoire or designed and synthesized in vitro, are cloned into a phage display 
+vector (phagemid), with one of the chains genetically fused to pIII of phage for display. The library pool is then transformed to E.Coli host cells. By infection with helper 
+phage, which provides all the components for phage production, a phage library is generated. Taking solid-phase panning as an example, the phage library is 
+incubated with immobilized antigen. After washing, nonspecific phages are removed and antigen-specific phages stay with the antigen. The bound phages are then 
+dissociated from the antigen by diverse methods, e.g., low-Ph elution, enzymatic cleavage. Lastly, eluted phages are subjected to propagation in E.Coli host cells. After 
+iterative rounds of panning, antigen-specific clones are enriched. Typically, output phages from middle and late rounds of panning are subjected to sequencing and 
+binding characterization for obtaining both sequence diversity and high affinity, respectively. Alt-text: Three types of antibody phage display libraries, including 
+natural, synthetic, and semisynthetic libraries. Construction of an antibody phage library includes generation of antibody variable region fragments, cloning, 
+transformation, and phage production. The antibody selection includes antigen immobilization, phage binding, washing, elution, and phage propagation.
+MABS
+3
+
+
+--- Page 5 ---
+particle, resulting in only a small percentage (<10%) of anti­
+body-displaying phage particles in the population.74 As 
+a consequence, either panning efficiency or sensitivity of any 
+phage-mediated binding assays can be greatly compromised 
+due to excessive wild type phage background. One strategy is 
+to increase multiplicity of display, which can be achieved by 
+different methods, such as the pVIII/pVII display system,75,76 
+the adapter-directed display,77 and using an inducible promo­
+ter for the antibody-pIII fusion gene. To maximize the display 
+valency, hyperphage was developed by generating a helper 
+phage featuring a pIII gene-deficient genotype and wild type 
+infectivity phenotype in a pIII-supplying E. coli host.78,79 
+Thereby, application of the hyperphage in a regular phagemid 
+system resulted in production of phage particles that exclu­
+sively display antibody-pIII fusion protein. This not only sub­
+stantially increased the sensitivity of phage ELISA, but also 
+significantly improved the panning efficiency.
+The pIII protein is comprised of N1 and N2 domains 
+required for phage infection and a C-terminal domain (CT) 
+for pIII assembly. In another effort, a mutant helper phage, 
+named CT helper phage, was generated by deletion of N1 and 
+N2 domains in the genome. Similar to the hyperphage system, 
+the infectivity of CT helper phage was restored by propagation 
+in a E. coli host that heterogeneously expresses an intact pIII 
+gene. Therefore, use of CT helper phage substantially 
+improved the panning efficiency since only phages incorpo­
+rated with antibody-pIII fusion are infective.80 Some other 
+pIII-deficient helper phage systems were also reported, e.g., 
+ex-phage,81 phaberge,82 and a helper phage engineered with 
+low N1 expression.71 Of note, since these variants of helper 
+phage adopt multivalent display, they result in either reduction 
+in phage production or decrease in phage infectivity. 
+Therefore, they may not be ideal for phage library construc­
+tion. In order to balance display level and phage functionality, 
+XP5 helper phage was developed to reduce WT pIII produc­
+tion by introducing multiple rare codons in the pIII gene and 
+an altered ribosome binding site spacing.83
+Three generations of antibody phage display libraries
+Universal antibody phage display libraries, typically consisting 
+of over ten billion unique sequences, have become a valuable 
+source for discovery of mAbs against any types of targets. 
+According to the source of diversity, antibody phage libraries 
+can be divided into natural, fully synthetic, and semisynthetic 
+libraries (Figure 1). In a natural library, diversity is derived 
+entirely from natural repertoires, which can be either healthy, 
+autoimmune, or immunized donors (named naïve, nonimmu­
+nized, and immunized libraries, respectively). In theory, a large 
+naïve library can be used to isolate antibodies against any 
+targets, but, if a library is constructed from immunized donors, 
+diversity will be highly biased toward a specific target. For an 
+immunized library constructed from human repertoires, it can 
+be constructed from either vaccinated donors or donors who 
+have recovered from infection or disease. In a fully synthetic 
+library, the antibody frameworks are usually chosen from 
+human antibody germlines that are well-represented and 
+have shown superior developability. Complementarity-deter­
+mining regions (CDRs) are designed based on antibody 
+structure and application purpose. The quality of the synthetic 
+DNA that are used to create CDR diversity plays a pivotal role 
+in determining the functional size of a synthetic library. By 
+using mono- or trinucleotide phosphoramidites (TRIM tech­
+nology) as building blocks,84,85 diversified CDRs can be 
+synthesized in a high-throughput manner, such as array- 
+based oligonucleotide synthesis and Slonomics.86,87 In the 
+TRIM technology, each amino acid is encoded by a defined 
+codon. Therefore, amino acid distribution at the desired posi­
+tion can be precisely defined. Moreover, because the codon for 
+each amino acid is selected for optimal antibody expression, 
+the functional library size is increased. In the natural antibody 
+repertoire, the diversity of CDRs, except CDRH3, is 
+a collection of defined sequences that exhibit canonical struc­
+tures. Compared with the traditional column-based DNA 
+synthesis approaches in which one single gene is produced 
+per column, the high-throughput DNA synthesis technologies 
+allow parallel synthesis of a large number of predetermined 
+sequences in the same footprint on a silicon-based chip.88,89 
+This enables not only removal of liability motifs that impact 
+developability, but also precise mimic of the natural antibody 
+diversity. Semisynthetic libraries, therefore, combine synthetic 
+CDRs (typically three light chain CDRs and heavy chain CDR1 
+and CDR2) and heavy chain CDR3 from natural repertoires. 
+Phage libraries can be designed for either antibody discovery 
+or engineering. The design of the latter is based on one par­
+ental antibody and tailored for one specific target. This review 
+will focus on design of three generations of universal antibody 
+phage display libraries for antibody discovery (Table 2).
+First-generation library
+Generation of a universal antibody phage library and its success­
+ful application for panning was first described in 1989.42 The 
+Fab library containing 2.5 × 107 plaque-forming units (PFUs) 
+was constructed by amplification of variable regions of light and 
+heavy chains from the mouse antibody repertoire. Soon after, an 
+immunized scFv phage library was created using a similar 
+procedure.41 Despite the small library size (2×105), the hit rate 
+was substantially improved (>90% after two rounds of panning). 
+The success of natural libraries for in vitro antibody discovery 
+has been proven at different institutions.103–106 A common fea­
+ture of these natural libraries is that light and heavy chains are 
+randomly combined, thus these are designated combinatorial 
+library. Due to the heavy and light chain rearrangement, the 
+library diversity is dramatically increased. For example, if 
+a natural antibody repertoire contains a diversity of 106 (i.e., 
+106 unique light and heavy chain pairs), the diversity would be 
+1012 after full light and heavy chain recombination. One signifi­
+cant advantage is that this approach generates specificities that 
+do not exist in natural repertoire, which enables discovery of 
+antibodies targeting any given antigen, including self-antigens.­
+107 In contrast, self-antigen targeting can be challenging for 
+natively paired antibodies due to immune tolerance (a protec­
+tion mechanism in which immune system does not respond to 
+self-antigen).108,109 In addition, a large naïve library comprises 
+most of the germline genes, which further increases the struc­
+tural complexity of the library due to diverse framework struc­
+tures. Although the germline gene distribution in a naïve library 
+4
+Y. ZHANG
+
+
+--- Page 6 ---
+Table 2. Selected examples of three generations of antibody phage display libraries.
+Library Name (year)
+Organization
+Format
+Library Type
+Framework
+Library Size
+Key Feature
+Highest 
+affinity 
+(nM) 
+(format)a
+Reference
+First generation 
+library
+N/A (1996)
+Cambridge Antibody 
+Technology
+ScFv
+Naïve
+Naïve
+1.4 × 1010
+●Repertoires from 43 healthy donors
+4.2 (scFv)
+90
+N/A (1994)
+MRC Centre for Protein 
+Engineering
+Fab
+Synthetic
+49 VH frameworks; 
+26 Vκ frameworks; 
+21 Vλ frameworks
+6.5 × 1010
+●Fully randomized CDR3
+●Heavy and light chains assembled using combi­
+natorial infection
+7 (Fab)
+91
+HAL (2015)
+Technical University of 
+Braunschweig
+ScFv
+Naïve
+Naïve
+1.5 × 1010
+●Repertoires from 98 healthy donors
+●Optimized Myc/His tag
+●Improved antibody production by removal of C- 
+terminal phenylalanine of Vκ light chain
+0.9 (IgG)
+92,110
+CAT2.0 (2009)
+MedImmune
+ScFv
+Naïve
+Naïve
+1.29 × 1011
+●Repertoires from 160 healthy donors
+N/A
+93
+n-CoDeR (2000)
+BioInvent
+ScFv
+Naïve
+Single VH framework; 
+single VL frameworks
+2 × 109
+●Rearranged 6 CDR segments from natural reper­
+toire in single light and heavy chain frameworks
+0.9 
+(scFv)b
+94
+Second generation 
+library
+ETH2-GOLD (2005)
+ETH Zurich
+ScFv
+Synthetic
+Single VH framework; 2  
+VL frameworks
+3 × 109
+●Fully randomized CDR3
+●CDR diversity concentrated in the center of anti­
+gen binding region
+23.6 
+(scFv)
+95
+PHILODiam ond 
+(2014)
+ETH Zurich
+ScFv
+Synthetic
+Single VH framework; 2  
+VL frameworks
+4 × 1010
+●Introduction of S52N in heavy chain CDR2
+27 (scFv)
+96
+Dyax (2005)
+Dyax
+Fab
+Semisynthetic Single VH framework; 
+naïve VL frameworks
+3.5 × 1010 
+(FAB-310) 
+1.0 × 1010 
+(FAB-410)
+●Randomization of selected antigen-contacting 
+residues in heavy chain CDR1 and CDR2
+●Diversity of light chain and CDRH3 derived from 
+autoimmune donors
+0.22 
+(Fab)c
+97
+HuCAL- GOLD (2008)
+MorphoSys
+Fab
+Synthetic
+7 VH framework; 
+4 Vκ frameworks; 
+3 Vλ frameworks
+1.6 × 1010
+●Natural amino acid distribution of six CDRs by 
+using trinucleotide mixtures
+●Elimination of frame-shifted clones by β-lacta­
+mase system
+●Antibody and pIII linked by disulfide bond
+0.04 (Fab)
+98
+HuCAL- PLATINUM 
+(2011)
+MorphoSys
+Fab
+Synthetic
+7 VH framework; 
+3 Vκ frameworks; 
+3 Vλ frameworks
+4.5 × 1010
+●Removal of post-translational modification hot 
+spots
+●Loop length dependent amino acid distribution 
+in CDRH3
+●Optimized sequence for high expression in both 
+prokaryotic and eukaryotic cells
+0.002 
+(Fab)d
+99
+Ylanthia (2013)
+MorphoSys
+Fab
+Synthetic
+21 VH/Vκ pairs; 15 VH/ 
+Vλ pairs
+1.3 × 1011
+●Selected VH/VL framework pairs with optimal 
+biophysical properties
+●CDRH3 length and amino acid composition 
+based on JH4 and JH6 sequences
+●CDR optimized to be devoid of PTM motifs
+●Optimized sequence for high expression in both 
+prokaryotic and eukaryotic cells
+0.7 (Fab)
+100
+(Continued)
+MABS
+5
+
+
+--- Page 7 ---
+Table 2. (Continued).
+Library Name (year)
+Organization
+Format
+Library Type
+Framework
+Library Size
+Key Feature
+Highest 
+affinity 
+(nM) 
+(format)a
+Reference
+Third generation 
+library
+ALTHEA  
+Gold libraries (2019)
+GlobalBio
+ScFv
+Semisynthetic Single VH framework; 2  
+VL frameworks
+2.5 × 1010
+●Natural CDRH3 from 200 donors
+●Removal of developability liability residues
+●Enhanced stability by heat shock and protein 
+A recovery during library construction
+3.3 (scFv)
+101
+N/A (2021)
+Specifica
+ScFv
+Semisynthetic 4 VH framework; 
+3 Vκ frameworks; 
+1 Vλ frameworks
+9 × 109
+●Selection of clinically validated VH/VL pairs as 
+library scaffolds
+●Synthetic CDRs except CDRH3 from replicated 
+natural diversity. Natural CDRH3 sequences 
+amplified from 10 donors
+●Removal 
+of 
+CDR 
+sequence 
+liabilities 
+informatically
+●Comprehensively 
+improved 
+developability, 
+including affinity, polyspecificity, stability, 
+aggregation, expression and display level by 
+yeast display filtration
+0.034 
+(IgG)
+102
+Abbreviations: HC, heavy chain; LC, light chain; VH, heavy chain variable region; VL, light chain variable region; Vκ, kappa light chain variable region; Vλ, lambda light chain variable region. 
+a. Affinity was measured by SPR unless specified 
+b. Affinity was measured by ELISA. 
+c. Method was not specified. 
+d. Affinity was measured by solution equilibrium titration. 
+by combining donor-derived and synthetic
+6
+Y. ZHANG
+
+
+--- Page 8 ---
+is usually consistent with that in natural repertoire, it has been 
+observed that germline gene usage post-selection is biased 
+toward certain families,93,110 e.g., VH1–69, VH1–46 (Kabat 
+nomenclature) and/or IGHV3–30 (IMGT nomenclature) for 
+heavy chain. For the light chain, Vλ1-c, Vλ2-2a (Kabat nomen­
+clature) and/or IGLV1–47, IGKV1–12, IGKV1-D33 (IMGT 
+nomenclature) were enriched after selection. Meanwhile, several 
+synthetic and semisynthetic antibody libraries were generated in 
+the early 1990s.111–113 Although only antibodies with low affi­
+nity (micromolar range) were isolated due to the small library 
+size (107-108), these libraries demonstrated that artificial anti­
+bodies can be generated in vitro. Later studies showed that, by 
+generating larger naïve libraries with library size of 1010-1012, 
+antibodies with low- to sub-nanomolar affinity can be directly 
+isolated.90,91,93,114–118 Of note, the large naïve library and related 
+phage display technology developed by Cambridge Antibody 
+Technology has led to approval of six mAbs: adalimumab,119 
+belimumab,120 
+moxetumomab 
+pasudotox,121,122 
+raxibacumab,123 
+emapalumab,124 
+and 
+tralokinumab.125 
+Another example is the n-CoDeR library in which heavy and 
+light chain CDR segments were separately amplified by using 
+primers specific to VH3–23 and VL1–47 germlines. The six 
+CDRs were then reassembled in a single light and heavy chain 
+framework that is well-presented in human repertoire and well- 
+expressed in bacterial host cells.94 This strategy overcomes the 
+drawback with conventional naïve antibody phage libraries in 
+which part of the diversity might be lost due to low expression 
+and/or display level of certain germline genes in prokaryotic 
+system. The n-CoDeR library was used to discover five mAbs 
+and their derivatives that entered clinical trials.126–130 In our 
+experience, high hit rate (>90%) can be readily achieved and 
+antibodies with high affinity (low nanomolar) can be routinely 
+isolated from a large naïve library (library size = 1012) con­
+structed in-house. Depending on the target, 10–20% of total 
+sequences screened are unique.
+Taken together, first-generation phage libraries demon­
+strated that antibody discovery can be performed completely 
+in vitro and antibodies with high affinity and sequence diver­
+sity can be isolated directly from phage libraries.
+Second-generation library
+In the design of the second-generation libraries, represented by 
+several semisynthetic and fully synthetic libraries, amino acid 
+distribution and positions to be diversified were carefully 
+selected based on knowledge of natural antibody structure 
+and antibody–antigen interaction. By leveraging TRIM tech­
+nology which uses pre-synthesized trinucleotides as building 
+blocks for oligonucleotides synthesis, the CDR amino acid 
+composition can be precisely tailored to meet specific design 
+criteria. Moreover, developability was taken into consideration 
+in the library design.
+In the design of several synthetic libraries, e.g., HelL-11, 
+HelL-13, and Library F, amino acids that are frequently used in 
+the antibody-antigen interaction dominate in CDRL3 and 
+CDRH3.131,132 More precisely, in the design of ETH2 and 
+ETH-2-Gold libraries, selected residues predicted to be in 
+direct contact with the antigen in silico were randomized, 
+while structure-supporting CDR residues were kept 
+constant.133,134 Based on ETH-2-Gold library, PHILO and 
+PHILODiamond libraries were designed to cover a broader 
+epitope landscape by incorporation of hydrophilic residues at 
+specific positions in the antigen contacting site.96,135 ETH 
+serial libraries led to two mAbs, Teleukin and Dekavil, being 
+investigated in clinical trials.136–140 Although CDRL3 and 
+CDRH3 play crucial roles in germline diversity, it has been 
+observed that CDR1 and CDR2 are preferentially selected for 
+affinity 
+maturation 
+during 
+the 
+course 
+of 
+somatic 
+hypermutation.141–143 In the design of the Dyax library, 
+a semisynthetic library, diversity of light chain and CDRH3 
+were derived from antibody repertoires of autoimmune donors 
+to increase the likelihood of discovery of antibodies targeting 
+self-antigens. CDRH1 and CDRH2, however, were fully syn­
+thetic, and residues that were predicted to be surface-exposed 
+were randomized using all amino acids except cysteine.97 
+Indeed, by panning against four selected antigens, the average 
+antibody affinities indicated by KD were below 20 nM for three 
+of the four targets. Of note, the moderate average affinity (131  
+nM) of the other one target is likely due to usage of a single 
+VH/VL framework pair in the library construction. The Dyax 
+library was used in the discovery of four approved mAbs: 
+ramucirumab,144 
+necitumumab,145 
+avelumab,146 
+and 
+lanadelumab.147 In a systematic analysis of antibody-protein 
+and antibody-peptide interaction propensity, machine learn­
+ing was leveraged to predict CDR hot spot residue 
+distributions.148 By densely enriching the hot spot residues 
+across all CDRs, GH libraries resulted in enhanced antibody– 
+antigen recognition indicated by high affinity and specificity. 
+In fact, by using minimalist libraries, it has been demonstrated 
+that only a small subset of amino acid types (a four-amino-acid 
+code (Tyr, Asp, Ser, and Ala) or a binary code (Tyr and Ser)) is 
+sufficient to mediate interactions with proteins.149,150
+In the HuCAL serial libraries, frameworks that cover major 
+types of CDR canonical structures were included to maximize 
+structural diversity. By leveraging TRIM technology, six CDRs 
+were designed to precisely mimic the amino acid distribution 
+that occurs in natural repertoire.98,99,151 Thus, the HuCAL 
+libraries are more likely to yield antibodies with nature-like 
+properties. Since TRIM technology allows precisely defined 
+nucleotide composition in the oligonucleotide synthesis, it 
+also enables stable and high expression of antibody in E.coli 
+host cells through optimized codon usage and avoidance of 
+stop codons, which are the drawbacks of using degenerate 
+codons. As a result, functional diversity of the synthetic library 
+can be greatly improved. It is notable that the percentage of 
+alanine at heavy chain H137 can be tuned to favor binding for 
+either protein or hapten/peptide. Another feature of the 
+HuCAL library is that restriction sites were introduced to 
+flank all six CDR loops. Thus, antibody engineering can be 
+facilitated by rapid CDR shuffling. In the design of the 
+HuCAL-PLATINUM library, post-translational modification 
+hot spots, e.g., N-glycosylation, were avoided in CDR design to 
+further improve the antibody’s developability. Moreover, 
+amino acid distribution in CDRH3 was tuned based on the 
+loop length to further mimic the natural repertoire.99 In 
+another effort to further improve the overall developability of 
+antibodies selected from a phage library, 36 of 400 VH/VL pairs 
+were identified for optimal biophysical properties and used for 
+MABS
+7
+
+
+--- Page 9 ---
+construction of the Ylanthia library.100 As a result, antibodies 
+directly selected from the library showed superior affinity, 
+protein expression level, thermal stability, and aggregation 
+propensity. Of note, the HuCAL-GOLD library yielded guselk­
+umab, which was approved in 2017.152
+In summary, in the design of the second-generation 
+libraries, antibody structure and developability properties 
+were taken into consideration through the removal of 
+sequence liability motifs, inclusion of natural amino acid dis­
+tributions in CDR, and selection of heavy and light chain 
+frameworks with superior biophysical properties.
+Third-generation library
+In general, the improvements of developability properties in 
+the second-generation libraries were achieved by sequence- 
+based optimization. While our knowledge regarding 
+sequence-based prediction of protein liabilities is still limited, 
+many biophysical properties, such as stability, solubility, and 
+expression, are closely related to higher order structure of 
+a protein. Although scaffolds with high stability and expres­
+sion can be selected for library construction, the overall bio­
+physical properties of antibodies in a phage library are also 
+highly determined by CDR sequence. Therefore, these devel­
+opability properties were experimentally improved during 
+construction of the third-generation libraries.
+In order to enhance the library solubility and thermostabil­
+ity, a heat shock step, followed by a protein A recovery, was 
+incorporated in the construction of the semisynthetic 
+ALTHEA Gold library.101 This is based on the observation 
+that heat denaturation selected stable and well-folded 
+antibodies.153 Validation of the library showed that the overall 
+frequency of hydrophobic residues at diversified CDR posi­
+tions decreased after heat shock and protein A selection. In 
+contrast, charged residues were positively selected by the fil­
+tration process. By panning the library against a diverse panel 
+of antigens, the scFvs selected exhibited high affinity (KD 
+ranges from single-digit nM to sub-nM), solubility (>50 mg/ 
+L), and thermal stability (Tm > 70°C), which agree with bio­
+physical parameters of therapeutic antibodies.101,154,155
+In another effort to create a semisynthetic phage library 
+with ”drug-like” properties, a yeast display filtration was 
+applied to select sequences with optimal developability proper­
+ties required for clinical development, including affinity, 
+aggregation, thermostability, polyspecificity, and expression 
+level.102 This step leverages the eukaryotic protein quality 
+control systems for selection of correctly behaving proteins 
+for secretion.156–158 In detail, five single-CDR yeast display 
+libraries, in each of which one CDR (except CDRH3) was 
+synthesized from replicated natural diversity, were individu­
+ally created. The antibody sequences that were displayed cor­
+rectly and in a high level were selected and subjected to next- 
+generation sequencing (NGS) analysis. CDRH3 sequences, 
+however, were sourced from human natural antibody reper­
+toires. This was done for two reasons: 1) depending on length 
+and amino acid usage, synthetic CDRH3 diversity typically far 
+exceeds the actual library size; and 2) the natural CDRH3 
+source can provide enough high diversity and the sequences 
+have also been filtered in vivo for optimal biophysical 
+properties, e.g., high stability and expression, low immuno­
+genicity. To validate the library, panning was conducted 
+against four antigens. Remarkably, from a total number of 81 
+antibodies isolated, around 80% showed single-digit to sub- 
+nM affinity. More strikingly, by determining developability 
+parameters, including thermostability, polyspecificity, and 
+self-interaction, 97% of the measurements of the antibodies 
+behaved similarly or better than that of the corresponding 
+approved parental antibodies. This study highlights the impor­
+tance of the eukaryotic quality control system in the selection 
+of high-quality antibodies.
+In summary, the third-generation libraries leverage in vitro 
+or in vivo experimental approaches to further improve the 
+overall library quality, which yield antibodies with properties 
+comparable to therapeutic antibody drugs.
+Library designed for specific applications
+Although the aforementioned universal phage libraries pro­
+vide valuable resources for antibody discovery, their perfor­
+mance may be compromised for challenging targets and 
+epitopes (e.g., GPCR, concave-shaped epitope) and specific 
+applications (e.g., pH-dependent antibodies). This is due to 
+inherent characteristics of conventional antibody libraries, 
+either natural libraries or synthetic libraries that mimic the 
+human antibody repertoire. An advantage of phage display 
+technology is that the library can be tailored to adapt to dis­
+tinct applications. Indeed, several specialized phage libraries 
+have been designed and created.
+GPCR library
+GPCR represents a class of seven transmembrane receptors. 
+GPCRs have been recognized as successful drug targets as 
+approximately one third of the US Food and Drug 
+Administration (FDA)-approved drugs target GPCRs.159,160 
+However, due to high hydrophobicity, conformational flexibil­
+ity, and limited accessibility of epitopes on the extracellular 
+portion, GPCRs are challenging targets for antibodies. To date, 
+there are only two FDA-approved antibodies drugs targeting 
+GPCRs: mogamulizumab and erenumab, which target CC 
+chemokine receptor 4 and calcitonin gene-related peptide 
+receptor, respectively.161 Phage display offers a valuable anti­
+body discovery platform for targeting challenging targets, 
+including ion channels, transporters, and GPCRs.162 For 
+example, one synthetic antibody phage display library was 
+designed by mining the sequences of all known GPCR ligand 
+interactions and incorporating the identified binding motifs 
+into CDRH3. As a result, this GPCR-focused library success­
+fully led to discovery of a panel of antagonistic antibodies 
+targeting glucagon-like peptide-1 receptor with high affinity.15
+Library for selection of pH dependent antibodies
+Elimination of soluble targets by conventional high affinity 
+antibodies usually requires a large dose. This is because an 
+antibody usually binds with an antigen with similar strength 
+at both neutral and slightly acidic pH (pH 5.5–6.0); therefore 
+the antigen bound with antibody in the extracellular 
+8
+Y. ZHANG
+
+
+--- Page 10 ---
+environment does not dissociate from the complex in the 
+endosome. As a result, the antigen can escape from lysoso­
+mal degradation and return to the circulation mediated by 
+the neonatal Fc receptor (FcRn).163,164 Thus, antibodies that 
+are capable of neutralizing the target at physiological pH and 
+releasing it at acidic endosomal pH would be expected to 
+enhance the therapeutic index. In the past, pH-dependent 
+binding has been achieved through antibody engineering, 
+e.g., histidine scanning.165,166 Alternatively, sweeping anti­
+body technology was developed to enhance binding with 
+FcRn at neutral pH for rapid uptake of antibody–antigen 
+complex for target clearance.167 While these technologies 
+proved successful, they are labor-intensive and all based on 
+preexisting antibodies. In another attempt, pH-dependent 
+antibodies were isolated de novo from a synthetic antibody 
+phage display library.9 In the library design, histidine residue 
+was enriched in CDRH3 for two reasons. First, histidine is 
+neutrally charged at physiological pH but becomes positively 
+charged at pH 6.0. Therefore, histidine residues within the 
+protein–protein interaction region can exert pH-dependent 
+binding. Second, histidine is less frequently found in natural 
+repertoires.168 Combined with a modified selection strategy, 
+several anti-CXCL10 antibodies with high binding affinity 
+and strong neutralizing activity at pH 7.4, but weak binding 
+at pH 6.0 were isolated.
+Library with elongated CDRH3
+One limitation of human or mouse antibodies is that tar­
+geting a concave epitope of a target, e.g., pore of ion 
+channels and pocket of enzymes, can be challenging. This 
+is largely due to the relatively short CDRH3 length, typi­
+cally 7–12 and 8–20 amino acids for mouse and human 
+respectively, which tend to form a cave or flat 
+paratope.169,170 Therefore, concave-shaped conformation 
+of a target is usually inaccessible for conventional antibo­
+dies. Although antihuman immunodeficiency virus (HIV) 
+broadly neutralizing antibodies with extended CDRH3 of 
+around 30 amino acids have been isolated, they were only 
+found in a minority of infected population and require 
+years of development.171,172 Interestingly, antibodies from 
+some species, such as cow and camelid, are unusual in 
+having a natural elongated CDRH3 (e.g., up to 70 amino 
+acids for cow), which provides extra diversity and paratope 
+complexity.173,174 The cow ultralong CDRH3 generally 
+adopts a ”stalk and knob” structure, in which a β strand 
+”stalk” supports a structurally complex ”knob” domain 
+stabilized with multiple disulfide bonds.175 The ”knob” 
+domain protrudes out from the antibody surface, making 
+it accessible to the concave epitope. In a proof-of-concept 
+study, a synthetic Fab phage display library carrying elon­
+gated CDRH3 (23–27 amino acids) was constructed.176 By 
+panning against the library, a number of antibodies that 
+potently inhibited matrix metalloproteinase-14 were identi­
+fied. Of note, one of the antibodies was indicated to bind 
+to the vicinity of the enzyme activity pocket. Libraries 
+displaying atypical antibodies with elongated CDRH3 
+further extend the application of phage display technology.
+Conclusions and prospects
+Phage display has proven to be an unequivocal success for 
+antibody discovery, evidenced by 17 approved mAbs and an 
+increasing number of phage-derived antibodies under clinical 
+investigation. As an entirely in vitro technology, phage display 
+not only compensates for many limitations inherited by in vivo 
+antibody discovery approaches, it also provides a highly versa­
+tile and customizable platform that continuously evolves to 
+meet distinct development goals.
+Affinity is a key factor used to evaluate the quality of 
+a phage library. It has been observed that affinity that can 
+be achieved is correlated with the library size. We investi­
+gated the correlation between highest affinity values obtained 
+from published universal phage libraries and library size 
+(data not shown). In agreement with previous observations, 
+there is a positive correlation between the two parameters. 
+This is because a universal library is designed for antibody 
+discovery against any given target. Therefore, a larger library 
+(higher diversity) offers a greater chance of identifying high 
+affinity antibodies. In the case of a synthetic library, although 
+a limited number of frameworks are used, the designed CDR 
+diversity usually far exceeds the natural CDR diversity. 
+Therefore, the chance to obtain high affinity antibodies 
+mainly depends on CDR sequence diversity. In the case of 
+a naïve library, the library diversity comes from not only the 
+sequence diversity, but also from light and heavy chain rear­
+rangement. Of note, the random heavy and light chain rear­
+rangement is a process highly resembling chain shuffling, 
+which is a routine strategy for in vitro antibody affinity 
+maturation. This may explain why antibodies with very 
+high affinity were isolated from naïve phage libraries, even 
+when the libraries were constructed from germline sequences 
+with no or very limited somatic hypermutations. While it was 
+expected that identification of library size is a key factor that 
+determines the affinity, a correlation with either library type 
+or library generation was not observed (data not shown). One 
+reason is that, except for a few early libraries, the library size 
+difference among three generations of phage libraries is mini­
+mal. Also, the advancements of three generations of phage 
+libraries mainly reflects improvements of overall developabil­
+ity properties.
+It has been reported that the presence of library clones that 
+do not display antibody fragments (bald phage) is partially due 
+to stop codons or frameshifts present in the antibody gene. 
+These clones often outgrow because of the decreased burden 
+on production of antibody fusion proteins and higher infectiv­
+ity due to all wild type pIII molecules on phage particle, 
+resulting in loss of library diversity. In efforts to increase 
+functional library size, several strategies have been developed. 
+For example, anti-tag antibody was used for proofreading 
+panning to select in-frame sequences due to the tag being in- 
+frame with the antibody sequence.177 In the design of the 
+MABS
+9
+
+
+--- Page 11 ---
+HuCAL GOLD library, the β-lactamase gene was used to 
+eliminate frame-shifted sequences.98
+Regarding framework usage in a phage display library, it is 
+generally accepted that a library using multiple frameworks 
+will perform better than one using a single pair of frameworks, 
+since multiple scaffolds provide more structural diversity.100 
+For selection of framework, parameters, such as frequency in 
+natural repertories, stability, expression, and display level, have 
+been taken into consideration. Moreover, it should be noted 
+that several heavy chain germline genes, e.g., certain IGVH4 
+family genes, have been found to be deselected during phage 
+panning.93,98 Also, VH4–34 has been found to be associated 
+with B cell cytotoxicity.178 Thus, these germlines should be 
+excluded from the library design. For the majority of the phage 
+display libraries, VH and VL are randomly rearranged, which 
+agrees with the observation that there is no obvious preference 
+of VH/VL pairing in natural repertories.179 However, in terms 
+of drug development, since different VH/VL pairings do exhibit 
+very distinct biophysical characteristics,100,180 attention should 
+be given to the choice of framework pairing.
+Compared to in vivo antibody discovery approaches, 
+another advantage of phage display is that the sequence infor­
+mation can be retrieved rapidly and readily. However, this 
+advantage is partially attenuated by the conventional screening 
+approach of characterization of individual clones, in which 
+only a small percentage of sequence information, i.e., the 
+most abundant sequences, from panning output is assessed. 
+This is partially due to intrinsic amplification bias of antibody- 
+displaying phages in E.coli host cells, which leads to some of 
+the sequences becoming rare over several cycles of 
+panning.181,182 To overcome the limitation, NGS, which allows 
+deep mining of sequence space in a sample, has recently been 
+applied to antibody phage display technology, especially for 
+identification of those rare sequences with potential interesting 
+features.183,184 Most recently, machine learning combined with 
+NGS has been applied to predict binding features (e.g., affinity, 
+epitope, developability) of sequences from phage panning, and 
+even generate new sequences with improved properties.185,186
+Despite many advantages of phage display, developability 
+has been a concern for mAbs derived in vitro due to lack of 
+in vivo protein quality control process.187–189 As aforemen­
+tioned, either in vitro or eukaryotic quality control steps were 
+integrated into the construction of the third-generation phage 
+display libraries. Thus, only library members with favorable 
+developability were selected. Indeed, it has been reported that 
+mAbs selected from the third-generation libraries showed 
+overall enhanced developability properties, including high affi­
+nity, improved stability and solubility, and less self-interaction. 
+Alternatively, mammalian display can be used to further 
+screen or optimize developability properties of mAbs, based 
+on a strong correlation between optimal biophysical properties 
+and display level.190 It is worthwhile to mention that the 
+emergence of in vivo delivery of nucleic acid-encoded biolo­
+gics, i.e., DNA and mRNA technologies, enables direct pro­
+duction of therapeutic mAbs in vivo. These delivery 
+technologies bypass the complex protein manufacturing, sto­
+rage, and transport processes, which require proteins with 
+excellent biophysical properties.191,192 Therefore, it would be 
+envisioned that, with the advancements of new drug delivery 
+technologies, many requirements on developability, particu­
+larly manufacturability, can be mitigated in the future.
+As phage display technology continues to evolve, and in 
+concert with other state-of-the-art technologies, such as NGS 
+and machine learning, phage display technology will continue 
+to make great contributions to innovative drug discovery in 
+the future.
+Abbreviations
+Ang2 
+angiopoietin 2
+aTTP
+acquired thrombotic thrombocytope­
+nic purpura
+Bacillus anthracis PA 
+Bacillus anthracis protective antigen
+Bi-Fab 
+bispecific Fab
+BLyS 
+B-lymphocyte stimulator
+CDR 
+complementarity-determining region
+DME 
+diabetic macular edema
+EGFR 
+epidermal growth factor receptor
+Fab 
+antigen binding fragment
+FcRn 
+neonatal Fc receptor
+FDA 
+US Food and Drug Administration
+GC 
+gastric carcinoma
+GPCR 
+G-protein-coupled receptor
+HAE 
+hereditary angioedema
+HC 
+heavy chain
+HCL 
+hairy cell leukemia
+HIV 
+human immunodeficiency virus
+HLH 
+hemophagocytic lymphohistiocytosis
+IFN 
+interferon-gamma
+IL-13 
+interleukin-13
+IL-17A 
+interleukin-17A
+IL-23 
+interleukin-23
+LC 
+light chain
+mAbs 
+monoclonal antibodies
+MCC 
+Merkel cell carcinoma
+nAMD 
+neovascular 
+age-related 
+macular 
+degeneration
+NGS 
+next-generation sequencing
+NMOSD 
+neuromyelitis 
+optica 
+spectrum 
+disorder
+NSCLC 
+non-small cell lung carcinoma
+PD-L1 
+programmed death-1 ligand-1
+PE38 
+Pseudomonas exotoxin A
+PFU 
+plaque-forming unit
+pKal 
+plasma kallikrein
+RA 
+rheumatoid arthritis
+scFv 
+single chain variable fragment
+SLE 
+systemic lupus erythematosus
+SPR 
+surface plasmon resonance
+TNFα 
+tumor necrosis factor-alpha
+TRIM 
+trinucleotide mutagenesis
+UC 
+urothelial carcinoma
+VEGFA 
+vascular endothelial growth factor A
+VEGFR2 
+vascular endothelial growth factor 
+receptor 2
+VH 
+heavy chain variable region
+VHH 
+single-domain antibody
+Vκ 
+kappa light chain variable region
+10
+Y. ZHANG
+
+
+--- Page 12 ---
+Vλ 
+lambda light chain variable region
+VL 
+light chain variable region
+vWF 
+von Willebrand factor
+Acknowledgments
+The author gratefully acknowledges Frederic Fellouse (Abtech 
+Therapeutics SAS, Marseille, France) who kindly proofread the manu­
+script and provided his insights, as well as useful comments and sugges­
+tions. The author also thanks Peter Meinke and Nora Kostow (Tri- 
+Institutional Therapeutics Discovery Institute, New York, United States) 
+for providing helpful comments.
+Disclosure statement
+No potential conflict of interest was reported by the author.
+Funding
+The author(s) reported there is no funding associated with the work 
+featured in this article.
+References
+1. Zhu Y, Wang SS, Zhou ZS, Ho M. The emergence of 
+AntibodyPlus: the future trend of antibody-based therapeutics. 
+Antib Ther. 2022;5:280–87. PMID: 36299417. doi:10.1093/abt/ 
+tbac024
+2. Lu RM, Hwang YC, Liu IJ, Lee CC, Tsai HZ, Li HJ, Wu HC. 
+Development of therapeutic antibodies for the treatment of 
+diseases. J Biomed Sci. 2020;27:1. PMID: 31894001. doi:10.1186/ 
+s12929-019-0592-z
+3. Strohl WR. Current progress in innovative engineered antibodies. 
+Protein Cell. 2018;9:86–120. PMID: 28822103. doi:10.1007/ 
+s13238-017-0457-8
+4. Roth KDR, Wenzel EV, Ruschig M, Steinke S, Langreder N, 
+Heine PA, Schneider KT, Ballmann R, Fuhner V, Kuhn P, et al. 
+Developing recombinant antibodies by phage display against 
+infectious diseases and toxins for diagnostics and therapy. Front 
+Cell Infect Microbiol. 2021;11:697876. PMID: 34307196. doi:10. 
+3389/fcimb.2021.697876.
+5. Nagano K, Tsutsumi Y. Phage display technology as a powerful 
+platform for antibody drug discovery. Viruses. 2021;13(2):178. 
+PMID: 33504115. doi:10.3390/v13020178.
+6. Zhang Y, Su J, Wu DH. Chaptor 10. Physiology and pathology of 
+multidrug-resistant bacteria: antibodies- and vaccines-based 
+pathogen-specific targeting. In: Nima Rezaei, editor. Physiology 
+and pathology of immunology. chaptor 10. physiology and pathol­
+ogy of multidrug-resistant bacteria: antibodies- and vaccines- 
+based pathogen-specific Targeting. London, United Kingdom: 
+Intech Open; 2017. p. 34.
+7. Parsons HL, Earnshaw JC, Wilton J, Johnson KS, Schueler PA, 
+Mahoney W, McCafferty J. Directing phage selections towards 
+specific epitopes. Protein Eng. 1996;9(11):1043–49. PMID: 
+8961357. doi:10.1093/protein/9.11.1043.
+8. Chen L, Zhu C, Guo H, Li R, Zhang L, Xing Z, Song Y, Zhang Z, 
+Wang F, Liu X, et al. Epitope-directed antibody selection by 
+site-specific photocrosslinking. Sci Adv. 2020;6(14):eaaz7825. 
+PMID: 32270046. doi:10.1126/sciadv.aaz7825.
+9. Bonvin P, Venet S, Fontaine G, Ravn U, Gueneau F, Kosco- 
+Vilbois M, Proudfoot AE, Fischer N. De Novo isolation of anti­
+bodies 
+with 
+Ph-dependent 
+binding 
+properties. 
+MAbs. 
+2015;7:294–302. PMID: 25608219. doi:10.1080/19420862.2015. 
+1006993
+10. Murtaugh ML, Fanning SW, Sharma TM, Terry AM, Horn JR. 
+A combinatorial histidine scanning library approach to engineer 
+highly 
+Ph-dependent 
+protein 
+switches. 
+Protein 
+Sci. 
+2011;20:1619–31. PMID: 21766385. doi:10.1002/pro.696
+11. Poul MA, Becerril B, Nielsen UB, Morisson P, Marks JD. Selection 
+of tumor-specific internalizing human antibodies from phage 
+libraries. J Mol Biol. 2000;301:1149–61. PMID: 10966812. doi:10. 
+1006/jmbi.2000.4026
+12. Becerril B, Poul MA, Marks JD. Toward selection of internalizing 
+antibodies from phage libraries. Biochem Biophys Res Commun. 
+1999;255:386–93. PMID: 10049718. doi:10.1006/bbrc.1999.0177
+13. Janda KD, Lo CH, Li T, Barbas CF 3rd, Wirsching P, Lerner RA. 
+Direct selection for a catalytic mechanism from combinatorial 
+antibody libraries. Proc Natl Acad Sci U S A. 1994;91:2532–36. 
+PMID: 8146149. doi:10.1073/pnas.91.7.2532
+14. Tung CP, Chen IC, Yu CM, Peng HP, Jian JW, Ma SH, Lee YC, 
+Jan JT, Yang AS. Discovering neutralizing antibodies targeting the 
+stem epitope of H1N1 influenza hemagglutinin with synthetic 
+phage-displayed antibody libraries. null. 2015;5:15053. PMID: 
+26456860. doi:10.1038/srep15053
+15. Liu Q, Garg P, Hasdemir B, Wang L, Tuscano E, Sever E, Keane E, 
+Hernandez AGL, Yuan TZ, Kwan E, et al. Functional GLP-1R 
+antibodies identified from a synthetic GPCR-focused library 
+demonstrate 
+potent 
+blood 
+glucose 
+control. 
+MAbs. 
+2021;13:1893425. PMID: 33706686. doi:10.1080/19420862.2021. 
+1893425.
+16. Dominik PK, Borowska MT, Dalmas O, Kim SS, Perozo E, 
+Keenan RJ, Kossiakoff AA. Conformational chaperones for struc­
+tural studies of membrane proteins using antibody phage display 
+with nanodiscs. Structure. 2016;24:300–09. PMID: 26749445. 
+doi:10.1016/j.str.2015.11.014
+17. Qiang M, Dong X, Zha Z, Zuo XK, Song XL, Zhao L, Yuan C, 
+Huang C, Tao P, Hu Q, et al. Selection of an ASIC1a-blocking 
+combinatorial antibody that protects cells from ischemic death. 
+Proc Natl Acad Sci U S A. 2018;115:E7469–77. PMID: 30042215. 
+doi:10.1073/pnas.1807233115.
+18. Williams WA, Linley JE, Jones CA, Shibata Y, Snijder A, Button J, 
+Hatcher JP, Huang L, Taddese B, Thornton P, et al. Antibodies 
+binding the head domain of P2X4 inhibit channel function and 
+reverse neuropathic pain. Pain. 2019;160(9):1989–2003. PMID: 
+31045747. doi:10.1097/j.pain.0000000000001587.
+19. Gray AC, Bradbury A, Dubel S, Knappik A, Pluckthun A, 
+Borrebaeck CAK. Reproducibility: bypass animals for antibody 
+production. Nature. 2020;581:262. PMID: 32415238. doi:10.1038/ 
+d41586-020-01474-7
+20. Gorovits B, Hays A, Jani D, Jones C, King C, Lundequist A, Mora J, 
+Partridge M, Pathania D, Ramaswamy SS, et al. AAPS perspective 
+on the EURL recommendation on the use of non-animal-derived 
+antibodies. Aaps J. 2021;23(2):34. PMID: 33649990. doi:10.1208/ 
+s12248-021-00567-z.
+21. Alfaleh MA, Alsaab HO, Mahmoud AB, Alkayyal AA, Jones ML, 
+Mahler SM, Hashem AM. Phage display derived monoclonal anti­
+bodies: from bench to bedside. Front Immunol. 2020;11:1986. 
+PMID: 32983137. doi:10.3389/fimmu.2020.01986
+22. Valldorf B, Hinz SC, Russo G, Pekar L, Mohr L, Klemm J, 
+Doerner A, Krah S, Hust M, Zielonka S. Antibody display tech­
+nologies: selecting the cream of the crop. Biol Chem. 2021;403(5– 
+6):455–77. PMID: 33759431. doi:10.1515/hsz-2020-0377.
+23. Frenzel A, Schirrmann T, Hust M. Phage display-derived human 
+antibodies in clinical development and therapy. MAbs. 
+2016;8:1177–94. PMID: 27416017. doi:10.1080/19420862.2016. 
+1212149
+24. Kang AS, Barbas CF, Janda KD, Benkovic SJ, Lerner RA. Linkage 
+of recognition and replication functions by assembling combina­
+torial antibody Fab libraries along phage surfaces. Proc Natl Acad 
+Sci U S A. 1991;88:4363–66. PMID: 1903540. doi:10.1073/pnas.88. 
+10.4363
+25. Sidhu SS, Lowman HB, Cunningham BC, Wells JA. Phage display 
+for selection of novel binding peptides. Methods Enzymol. 
+2000;328:333–63. PMID: 11075354. doi:10.1016/s0076-6879(00) 
+28406-1
+MABS
+11
+
+
+--- Page 13 ---
+26. Hawkins RE, Russell SJ, Winter G. Selection of phage antibodies by 
+binding affinity. Mimicking affinity maturation. J Mol Biol. 
+1992;226(3):889–96. PMID: 1507232. doi:10.1016/0022-2836(92) 
+90639-2.
+27. Schutte M, Thullier P, Pelat T, Wezler X, Rosenstock P, Hinz D, 
+Kirsch MI, Hasenberg M, Frank R, Schirrmann T, et al. 
+Identification of a putative Crf splice variant and generation of 
+recombinant antibodies for the specific detection of Aspergillus 
+fumigatus. PLos One. 2009;4(8):e6625. PMID: 19675673. doi:10. 
+1371/journal.pone.0006625.
+28. Zeng X, Li L, Lin J, Li X, Liu B, Kong Y, Zeng S, Du J, Xiao H, 
+Zhang T, et al. Isolation of a human monoclonal antibody specific 
+for the receptor binding domain of SARS-CoV-2 using 
+a competitive phage biopanning strategy. Antib Ther. 2020;3 
+(2):95–100. PMID: 33912790. doi:10.1093/abt/tbaa008.
+29. Eisenhardt SU, Schwarz M, Bassler N, Peter K. Subtractive 
+single-chain 
+antibody 
+(scFv) 
+phage-display: 
+tailoring 
+phage-display for high specificity against function-specific confor­
+mations of cell membrane molecules. Nat Protoc. 2007;2 
+(12):3063–73. PMID: 18079705. doi:10.1038/nprot.2007.455.
+30. Ditzel HJ, Binley JM, Moore JP, Sodroski J, Sullivan N, Sawyer LS, 
+Hendry RM, Yang WP, Barbas CF 3rd, Burton DR, et al. 
+Neutralizing recombinant human antibodies to a conformational 
+V2- and CD4-binding site-sensitive epitope of HIV-1 gp120 iso­
+lated by using an epitope-masking procedure. J Immunol. 
+1995;154(2):893–906. PMID: 7529290. https://www.ncbi.nlm.nih. 
+gov/pubmed/7529290 .
+31. Jones ML, Alfaleh MA, Kumble S, Zhang S, Osborne GW, Yeh M, 
+Arora N, Hou JJ, Howard CB, Chin DY, et al. Targeting membrane 
+proteins for antibody discovery using phage display. null. 2016;6 
+(1):26240. PMID: 27189586. doi:10.1038/srep26240.
+32. Dominik PK, Kossiakoff AA. Phage display selections for affi­
+nity reagents to membrane proteins in nanodiscs. Methods 
+Enzymol. 2015;557:219–45. PMID: 25950967. doi:10.1016/bs. 
+mie.2014.12.032
+33. Alfaleh MA, Jones ML, Howard CB, Mahler SM. Strategies for 
+selecting membrane protein-specific antibodies using phage dis­
+play with cell-based panning. Antibodies (Basel). 2017;6(3):10. 
+PMID: 31548525. doi:10.3390/antib6030010.
+34. Zhang H, Wilson IA, Lerner RA. Selection of antibodies that 
+regulate phenotype from intracellular combinatorial antibody 
+libraries. Proc Natl Acad Sci U S A. 2012;109(39):15728–33. 
+PMID: 23019357. doi:10.1073/pnas.1214275109.
+35. Merkouris S, Barde YA, Binley KE, Allen ND, Stepanov AV, 
+Wu NC, Grande G, Lin CW, Li M, Nan X, et al. Fully human 
+agonist antibodies to TrkB using autocrine cell-based selection 
+from a combinatorial antibody library. Proc Natl Acad Sci U S A. 
+2018;115(30):E7023–32. PMID: 29987039. doi:10.1073/pnas. 
+1806660115.
+36. Ledsgaard L, Ljungars A, Rimbault C, Sorensen CV, Tulika T, 
+Wade J, Wouters Y, McCafferty J, Laustsen AH. Advances in 
+antibody phage display technology. Drug Discov Today. 2022;27 
+(8):2151–69. PMID: 35550436. doi:10.1016/j.drudis.2022.05.002.
+37. Smith GP. Filamentous fusion phage: novel expression vectors that 
+display cloned antigens on the virion surface. Science. 
+1985;228:1315–17. PMID: 4001944. doi:10.1126/science.4001944
+38. Smith GP, Petrenko VA. Phage Display. Chem Rev. 
+1997;97:391–410. PMID: 11848876. doi:10.1021/cr960065d
+39. Breitling F, Dubel S, Seehaus T, Klewinghaus I, Little M. A surface 
+expression vector for antibody screening. Gene. 1991;104:147–53. 
+PMID: 1916287. doi:10.1016/0378-1119(91)90244-6
+40. McCafferty J, Griffiths AD, Winter G, Chiswell DJ. Phage anti­
+bodies: filamentous phage displaying antibody variable domains. 
+Nature. 1990;348:552–54. PMID: 2247164. doi:10.1038/348552a0
+41. Clackson T, Hoogenboom HR, Griffiths AD, Winter G. Making 
+antibody fragments using phage display libraries. Nature. 
+1991;352:624–28. PMID: 1907718. doi:10.1038/352624a0
+42. Huse WD, Sastry L, Iverson SA, Kang AS, Alting-Mees M, 
+Burton DR, Benkovic SJ, Lerner RA. Generation of a large combi­
+natorial library of the immunoglobulin repertoire in phage 
+lambda. Science. 1989;246:1275–81. PMID: 2531466. doi:10.1126/ 
+science.2531466
+43. Barbas CF 3rd, Kang AS, Lerner RA, Benkovic SJ. Assembly of 
+combinatorial antibody libraries on phage surfaces: the gene III 
+site. Proc Natl Acad Sci U S A. 1991;88:7978–82. PMID: 1896445. 
+doi:10.1073/pnas.88.18.7978
+44. Marks JD, Griffiths AD, Malmqvist M, Clackson TP, Bye JM, 
+Winter G. By-passing immunization: building high affinity 
+human antibodies by chain shuffling. Biotechnology (N Y). 
+1992;10:779–83. PMID: 1368267. doi:10.1038/nbt0792-779
+45. Noronha EJ, Wang X, Desai SA, Kageshita T, Ferrone S. Limited 
+diversity of human scFv fragments isolated by panning a synthetic 
+phage-display scFv library with cultured human melanoma cells. 
+J Immunol. 1998;161:2968–76. PMID: 9743360 https://www.ncbi. 
+nlm.nih.gov/pubmed/9743360 .
+46. Hoogenboom HR, Griffiths AD, Johnson KS, Chiswell DJ, 
+Hudson P, Winter G. Multi-subunit proteins on the surface of 
+filamentous phage: methodologies for displaying antibody (Fab) 
+heavy and light chains. Nucleic Acids Res. 1991;19:4133–37. 
+PMID: 1908075. doi:10.1093/nar/19.15.4133
+47. Arbabi Ghahroudi M, Desmyter A, Wyns L, Hamers R, 
+Muyldermans S. Selection and identification of single domain 
+antibody fragments from camel heavy-chain antibodies. FEBS 
+Lett. 1997;414:521–26. PMID: 9323027. doi:10.1016/s0014- 
+5793(97)01062-4
+48. Yan J, Li G, Hu Y, Ou W, Wan Y. Construction of a synthetic 
+phage-displayed Nanobody library with CDR3 regions rando­
+mized by trinucleotide cassettes for diagnostic applications. 
+J Transl Med. 2014;12:343. PMID: 25496223. doi:10.1186/s12967- 
+014-0343-6
+49. Beckmann R, Jensen K, Fenn S, Speck J, Krause K, Meier A, 
+Roth M, Fauser S, Kimbung R, Logan DT, et al. DutaFabs are 
+engineered therapeutic Fab fragments that can bind two targets 
+simultaneously. Nat Commun. 2021;12:708. PMID: 33514724. 
+doi:10.1038/s41467-021-20949-3.
+50. McGuinness BT, Walter G, FitzGerald K, Schuler P, Mahoney W, 
+Duncan AR, Hoogenboom HR. Phage diabody repertoires for 
+selection of large numbers of bispecific antibody fragments. Nat 
+Biotechnol. 1996;14:1149–54. PMID: 9631069. doi:10.1038/ 
+nbt0996-1149
+51. Fagete S, Botas-Perez L, Rossito-Borlat I, Adea K, Gueneau F, 
+Ravn U, Rousseau F, Kosco-Vilbois M, Fischer N, Hartley O. 
+Dual display: phage selection driven by co-engagement of two 
+targets by two different antibody fragments. Protein Eng Des Sel. 
+2017;30:575–82. PMID: 28444391. doi:10.1093/protein/gzx021
+52. Mazor Y, Van Blarcom T, Carroll S, Georgiou G. Selection of 
+full-length IgGs by tandem display on filamentous phage particles 
+and Escherichia coli fluorescence-activated cell sorting screening. 
+FEBS J. 2010;277:2291–303. PMID: 20423457. doi:10.1111/j.1742- 
+4658.2010.07645.x
+53. Zhang L, Cong Y, Li H, Chen L, Li B, Huang JX, Dong J. 
+Construction of a full-length antibody phage display vector. 
+J Immunol Methods. 2021;494:113052. PMID: 33838171. doi:10. 
+1016/j.jim.2021.113052
+54. Tesar D, Hotzel I. A dual host vector for Fab phage display and 
+expression of native IgG in mammalian cells. Protein Eng Des Sel. 
+2013;26:655–62. PMID: 24065833. doi:10.1093/protein/gzt050
+55. Batonick M, Kiss MM, Fuller EP, Magadan CM, Holland EG, 
+Zhao Q, Wang D, Kay BK, Weiner MP. pMINERVA: a 
+donor-acceptor system for the in vivo recombineering of scFv 
+into IgG molecules. J Immunol Methods. 2016;431:22–30. PMID: 
+26851519. doi:10.1016/j.jim.2016.02.003
+56. Xiao X, Douthwaite JA, Chen Y, Kemp B, Kidd S, Percival- 
+Alwyn J, Smith A, Goode K, Swerdlow B, Lowe D, et al. A 
+high-throughput platform for population reformatting and mam­
+malian expression of phage display libraries to enable functional 
+screening as full-length IgG. MAbs. 2017;9(6):996–1006. PMID: 
+28613102. doi:10.1080/19420862.2017.1337617.
+57. Liu Y, Gu M, Wu Y, Wang W, Wang R, Du M, Ma P, Zhou X, 
+Wang Y, Cao Y, et al. High-throughput reformatting of 
+12
+Y. ZHANG
+
+
+--- Page 14 ---
+phage-displayed antibody fragments to IgGs by one-step emulsion 
+PCR. Protein Eng Des Sel. 2018;31:427–36. PMID: 31096267. 
+doi:10.1093/protein/gzz004.
+58. Rhiel L, Krah S, Gunther R, Becker S, Kolmar H, Hock B, 
+Sturtevant J. REAL-Select: full-length antibody display and library 
+screening by surface capture on yeast cells. PLos One. 2014;9(12): 
+e114887. PMID: 25501029. doi:10.1371/journal.pone.0114887.
+59. Zhou C, Jacobsen FW, Cai L, Chen Q, Shen WD. Development of 
+a novel mammalian cell surface antibody display platform. MAbs. 
+2010;2:508–18. PMID: 20716968. doi:10.4161/mabs.2.5.12970
+60. Akamatsu Y, Pakabunto K, Xu Z, Zhang Y, Tsurushita N. Whole 
+IgG surface display on mammalian cells: application to isolation of 
+neutralizing chicken monoclonal anti-IL-12 antibodies. J Immunol 
+Methods. 2007;327:40–52. PMID: 17719061. doi:10.1016/j.jim. 
+2007.07.007
+61. O’Callaghan R, Bradley R, Paranchych W. The effect of M13 phage 
+infection upon the F pili of E. coli. Virology. 1973;54:220–29. 
+PMID: 4123460. doi:10.1016/0042-6822(73)90131-1
+62. Stengele I, Bross P, Garces X, Giray J, Rasched I. Dissection of 
+functional 
+domains 
+in 
+phage 
+fd 
+adsorption 
+protein. 
+Discrimination between attachment and penetration sites. J Mol 
+Biol. 1990;212:143–49. PMID: 2319594. doi:10.1016/0022- 
+2836(90)90311-9
+63. Sidhu SS. Engineering M13 for phage display. Biomol Eng. 
+2001;18:57–63. PMID: 11535417. doi:10.1016/s1389-0344(01) 
+00087-9
+64. Loset GA, Sandlie I. Next generation phage display by use of pVII 
+and pIX as display scaffolds. Methods. 2012;58:40–46. PMID: 
+22819858. doi:10.1016/j.ymeth.2012.07.005
+65. Kehoe JW, Kay BK. Filamentous phage display in the new 
+millennium. Chem Rev. 2005;105:4056–72. PMID: 16277371. 
+doi:10.1021/cr000261r
+66. Lowman HB, Bass SH, Simpson N, Wells JA. Selecting 
+high-affinity binding proteins by monovalent phage display. 
+Biochemistry. 1991;30:10832–38. PMID: 1932005. doi:10.1021/ 
+bi00109a004
+67. Lee CV, Sidhu SS, Fuh G. Bivalent antibody phage display mimics 
+natural immunoglobulin. J Immunol Methods. 2004;284:119–32. 
+PMID: 14736422. doi:10.1016/j.jim.2003.11.001
+68. Nilsson B, Moks T, Jansson B, Abrahmsen L, Elmblad A, 
+Holmgren E, Henrichson C, Jones TA, Uhlen M. A synthetic 
+IgG-binding domain based on staphylococcal protein a. Protein 
+Eng. 1987;1:107–13. PMID: 3507693. doi:10.1093/protein/1.2.107
+69. Rodi DJ, Makowski L. Phage-display technology–finding a needle 
+in a vast molecular haystack. Curr Opin Biotechnol. 
+1999;10:87–93. PMID: 10047512. doi:10.1016/s0958-1669(99) 
+80016-0
+70. Omidfar K, Daneshpour M. Advances in phage display technology 
+for drug discovery. Expert Opin Drug Discov. 2015;10:651–69. 
+PMID: 25910798. doi:10.1517/17460441.2015.1037738
+71. Chang A, Ting JP, Espada A, Broughton H, Molina-Martin M, 
+Afshar S. A novel phage display vector for selection of 
+target-specific peptides. Protein Eng Des Sel. 2020;33 PMID: 
+33009572. doi:10.1093/protein/gzaa023.
+72. Bass S, Greene R, Wells JA. Hormone phage: an enrichment 
+method for variant proteins with altered binding properties. 
+Proteins. 1990;8:309–14. PMID: 1708882. doi:10.1002/prot. 
+340080405
+73. Sidhu SS, Geyer CR. Phage display in biotechnology and drug 
+discovery. Boca Raton (FL): CRC Press; 2015.
+74. Azzazy HM, Highsmith WE Jr. Phage display technology: clinical 
+applications 
+and 
+recent 
+innovations. 
+Clin 
+Biochem. 
+2002;35:425–45. PMID: 12413604. doi:10.1016/s0009-9120(02) 
+00343-0
+75. Felici F, Castagnoli L, Musacchio A, Jappelli R, Cesareni G. 
+Selection of antibody ligands from a large library of oligopeptides 
+expressed on a multivalent exposition vector. J Mol Biol. 
+1991;222:301–10. PMID: 1720463. doi:10.1016/0022-2836(91) 
+90213-p
+76. Kwasnikowski P, Kristensen P, Markiewicz WT. Multivalent dis­
+play system on filamentous bacteriophage pVII minor coat 
+protein. J Immunol Methods. 2005;307:135–43. PMID: 16277988. 
+doi:10.1016/j.jim.2005.10.002
+77. Wang KC, Wang X, Zhong P, Luo PP. Adapter-directed display: 
+a modular design for shuttling display on phage surfaces. J Mol 
+Biol. 2010;395:1088–101. PMID: 19969002. doi:10.1016/j.jmb. 
+2009.11.068
+78. Rondot S, Koch J, Breitling F, Dubel S. A helper phage to improve 
+single-chain antibody presentation in phage display. Nat 
+Biotechnol. 2001;19:75–78. PMID: 11135557. doi:10.1038/83567
+79. Soltes G, Hust M, Ng KK, Bansal A, Field J, Stewart DI, Dubel S, 
+Cha S, Wiersma EJ. On the influence of vector design on antibody 
+phage display. J Biotechnol. 2007;127:626–37. PMID: 16996161. 
+doi:10.1016/j.jbiotec.2006.08.015
+80. Kramer RA, Cox F, van der Horst M, van der Oudenrijn S, Res PC, 
+Bia J, Logtenberg T, de Kruif J. A novel helper phage that improves 
+phage display selection efficiency by preventing the amplification 
+of phages without recombinant protein. Nucleic Acids Res. 
+2003;31(11):e59. PMID: 12771223. doi:10.1093/nar/gng058.
+81. Baek H, Suk KH, Kim YH, Cha S. An improved helper phage 
+system for efficient isolation of specific antibody molecules in 
+phage display. Nucleic Acids Res. 2002;30:e18. PMID: 11861923. 
+doi:10.1093/nar/30.5.e18
+82. Soltes G, Barker H, Marmai K, Pun E, Yuen A, Wiersma EJ. A new 
+helper phage and phagemid vector system improves viral display 
+of antibody Fab fragments and avoids propagation of insert-less 
+virions. J Immunol Methods. 2003;274:233–44. PMID: 12609549. 
+doi:10.1016/s0022-1759(02)00294-6
+83. Beaber JW, Tam EM, Lao LS, Rondon IJ. A new helper phage for 
+improved monovalent display of Fab molecules. J Immunol 
+Methods. 2012;376:46–54. PMID: 22119405. doi:10.1016/j.jim. 
+2011.11.006
+84. Shim H. Synthetic approach to the generation of antibody 
+diversity. BMB Rep. 2015;48:489–94. PMID: 26129672. doi:10. 
+5483/bmbrep.2015.48.9.120
+85. Virnekas B, Ge L, Pluckthun A, Schneider KC, Wellnhofer G, 
+Moroney SE. Trinucleotide phosphoramidites: ideal reagents for 
+the synthesis of mixed oligonucleotides for random mutagenesis. 
+Nucleic Acids Res. 1994;22:5600–07. PMID: 7838712. doi:10.1093/ 
+nar/22.25.5600
+86. Kosuri S, Church GM. Large-scale de novo DNA synthesis: tech­
+nologies and applications. Nat Methods. 2014;11:499–507. PMID: 
+24781323. doi:10.1038/nmeth.2918
+87. den Brulle J V, Fischer M, Langmann T, Horn G, Waldmann T, 
+Arnold S, Fuhrmann M, Schatz O, O’Connell T, O’Connell D, et al. 
+A novel solid phase technology for high-throughput gene 
+synthesis. Biotechniques. 2008;45:340–43. PMID: 18778261. 
+doi:10.2144/000112953.
+88. Cox A, Treusch S, Chen S, inventors; Twist bioscience corpora­
+tions assignees. Oligonucleic acid variant libraries and synthesis 
+thereof. United States patent US 2021/0040476A1. 2020 Oct 12.
+89. Indermuhle PF, Marsh EP, Fernandez A, Banyai W, Peck BJ, 
+inventors; Twist bioscience corporations assignees. Methods and 
+devices for de novo oligonucleic acid assembly. WIPO (PCT) 
+Patent WO2016/126882A1. 2016 Feb 03.
+90. Vaughan TJ, Williams AJ, Pritchard K, Osbourn JK, Pope AR, 
+Earnshaw JC, McCafferty J, Hodits RA, Wilton J, Johnson KS. 
+Human antibodies with sub-nanomolar affinities isolated from 
+a large non-immunized phage display library. Nat Biotechnol. 
+1996;14:309–14. PMID: 9630891. doi:10.1038/nbt0396-309
+91. Griffiths AD, Williams SC, Hartley O, Tomlinson IM, 
+Waterhouse P, Crosby WL, Kontermann RE, Jones PT, Low NM, 
+Allison TJ, et al. Isolation of high affinity human antibodies 
+directly 
+from 
+large 
+synthetic 
+repertoires. 
+Embo 
+J 
+. 
+1994;13:3245–60. PMID: 8045255. doi:10.1002/j.1460-2075.1994. 
+tb06626.x
+92. Bertoglio F, Meier D, Langreder N, Steinke S, Rand U, Simonelli L, 
+Heine PA, Ballmann R, Schneider KT, Roth KDR, et al. SARS- 
+CoV-2 neutralizing human recombinant antibodies selected from 
+MABS
+13
+
+
+--- Page 15 ---
+pre-pandemic healthy donors binding at RBD-ACE2 interface. Nat 
+Commun. 2021;12:1577. PMID: 33707427. doi:10.1038/s41467- 
+021-21609-2.
+93. Lloyd C, Lowe D, Edwards B, Welsh F, Dilks T, Hardman C, 
+Vaughan T. Modelling the human immune response: performance 
+of a 1011 human antibody repertoire against a broad panel of 
+therapeutically relevant antigens. Protein Eng Des Sel. 
+2009;22:159–68. PMID: 18974080. doi:10.1093/protein/gzn058
+94. Soderlind E, Strandberg L, Jirholt P, Kobayashi N, Alexeiva V, 
+Aberg AM, Nilsson A, Jansson B, Ohlin M, Wingren C, et al. 
+Recombining germline-derived CDR sequences for creating 
+diverse single-framework antibody libraries. Nat Biotechnol. 
+2000;18:852–56. PMID: 10932154. doi:10.1038/78458.
+95. Romani C, Comper F, Bandiera E, Ravaggi A, Bignotti E, Tassi RA, 
+Pecorelli S, Santin AD. Development and characterization of 
+a human single-chain antibody fragment against claudin-3: 
+a novel therapeutic target in ovarian and uterine carcinomas. Am 
+J Obstet Gynecol. 2009;201:70 e71–79. PMID: 19426958. doi:10. 
+1016/j.ajog.2009.02.010
+96. Weber M, Bujak E, Putelli A, Villa A, Matasci M, Gualandi L, 
+Hemmerle T, Wulhfard S, Neri D, Isalan M. A highly functional 
+synthetic phage display library containing over 40 billion human 
+antibody clones. PLos One. 2014;9:e100000. PMID: 24950200. 
+doi:10.1371/journal.pone.0100000.
+97. Hoet RM, Cohen EH, Kent RB, Rookey K, Schoonbroodt S, 
+Hogan S, Rem L, Frans N, Daukandt M, Pieters H, et al. 
+Generation of high-affinity human antibodies by combining 
+donor-derived and synthetic complementarity-determining- 
+region diversity. Nat Biotechnol. 2005;23(3):344–48. PMID: 
+15723048. doi:10.1038/nbt1067.
+98. Rothe C, Urlinger S, Lohning C, Prassler J, Stark Y, Jager U, 
+Hubner B, Bardroff M, Pradel I, Boss M, et al. The human combi­
+natorial antibody library HuCAL GOLD combines diversification 
+of all six CDRs according to the natural immune system with 
+a novel display method for efficient selection of high-affinity 
+antibodies. J Mol Biol. 2008;376:1182–200. PMID: 18191144. 
+doi:10.1016/j.jmb.2007.12.018.
+99. Prassler J, Thiel S, Pracht C, Polzer A, Peters S, Bauer M, 
+Norenberg S, Stark Y, Kolln J, Popp A, et al. HuCAL 
+PLATINUM, a synthetic Fab library optimized for sequence diver­
+sity and superior performance in mammalian expression systems. 
+J Mol Biol. 2011;413:261–78. PMID: 21856311. doi:10.1016/j.jmb. 
+2011.08.012.
+100. Tiller T, Schuster I, Deppe D, Siegers K, Strohner R, Herrmann T, 
+Berenguer M, Poujol D, Stehle J, Stark Y, et al. A fully synthetic 
+human Fab antibody library based on fixed VH/VL framework 
+pairings 
+with 
+favorable 
+biophysical 
+properties. 
+MAbs. 
+2013;5:445–70. PMID: 23571156. doi:10.4161/mabs.24218.
+101. Valadon P, Perez-Tapia SM, Nelson RS, Guzman-Bringas OU, 
+Arrieta-Oliva HI, Gomez-Castellano KM, Pohl MA, Almagro JC. 
+ALTHEA Gold Libraries: antibody libraries for therapeutic anti­
+body discovery. MAbs. 2019;11:516–31. PMID: 30663541. doi:10. 
+1080/19420862.2019.1571879
+102. Teixeira AA, Erasmus MF, D’Angelo S, Naranjo L, Ferrara F, Leal- 
+Lopes C, Durrant O, Galmiche C, Morelli A, Scott-Tucker A, et al. 
+Drug-like antibodies with high affinity, diversity and developabil­
+ity directly from next-generation antibody libraries. MAbs. 
+2021;13:1980942. PMID: 34850665. doi:10.1080/19420862.2021. 
+1980942.
+103. Marks JD, Hoogenboom HR, Bonnert TP, McCafferty J, 
+Griffiths AD, Winter G. By-passing immunization. Human anti­
+bodies from V-gene libraries displayed on phage. J Mol Biol. 
+1991;222:581–97. PMID: 1748994. doi:10.1016/0022-2836(91) 
+90498-u
+104. Persson MA, Caothien RH, Burton DR. Generation of diverse 
+high-affinity human monoclonal antibodies by repertoire 
+cloning. Proc Natl Acad Sci U S A. 1991;88:2432–36. PMID: 
+1826052. doi:10.1073/pnas.88.6.2432
+105. Wang L, Radic MZ, Siegel D, Chang T, Bracy J, Galili U. Cloning of 
+anti-Gal Fabs from combinatorial phage display libraries: 
+structural analysis and comparison of Fab expression in 
+pComb3h and pComb8 phage. Mol Immunol. 1997;34:609–18. 
+PMID: 9393964. doi:10.1016/s0161-5890(97)00082-5
+106. Siegel DL, Chang TY, Russell SL, Bunya VY. Isolation of cell 
+surface-specific human monoclonal antibodies using phage dis­
+play and magnetically-activated cell sorting: applications in 
+immunohematology. J Immunol Methods. 1997;206:73–85. 
+PMID: 9328570. doi:10.1016/s0022-1759(97)00087-2
+107. Griffiths AD, Malmqvist M, Marks JD, Bye JM, Embleton MJ, 
+McCafferty J, Baier M, Holliger KP, Gorick BD, Hughes- 
+Jones NC, et al. Human anti-self antibodies with high specificity 
+from phage display libraries. Embo J . 1993;12:725–34. PMID: 
+7679990. doi:10.1002/j.1460-2075.1993.tb05706.x
+108. Melchers F, ten Boekel E, Seidl T, Kong XC, Yamagami T, 
+Onishi K, Shimizu T, Rolink AG, Andersson J. Repertoire selection 
+by pre-B-cell receptors and B-cell receptors, and genetic control of 
+B-cell development from immature to mature B cells. Immunol 
+Rev. 2000;175:33–46. PMID: 10933589 https://www.ncbi.nlm.nih. 
+gov/pubmed/10933589 .
+109. Wardemann H, Yurasov S, Schaefer A, Young JW, Meffre E, 
+Nussenzweig MC. Predominant autoantibody production by 
+early human B cell precursors. Science. 2003;301:1374–77. PMID: 
+12920303. doi:10.1126/science.1086907
+110. Kugler J, Wilke S, Meier D, Tomszak F, Frenzel A, Schirrmann T, 
+Dubel S, Garritsen H, Hock B, Toleikis L, et al. Generation and 
+analysis of the improved human HAL9/10 antibody phage display 
+libraries. BMC Biotechnol. 2015;15:10. PMID: 25888378. doi:10. 
+1186/s12896-015-0125-0.
+111. Hoogenboom HR, Winter G. By-passing immunisation. Human 
+antibodies from synthetic repertoires of germline VH gene seg­
+ments rearranged in vitro. J Mol Biol. 1992;227:381–88. PMID: 
+1404359. doi:10.1016/0022-2836(92)90894-p
+112. Barbas CF 3rd, Bain JD, Hoekstra DM, Lerner RA. Semisynthetic 
+combinatorial antibody libraries: a chemical solution to the diver­
+sity problem. Proc Natl Acad Sci U S A. 1992;89:4457–61. PMID: 
+1584777. doi:10.1073/pnas.89.10.4457
+113. Garrard LJ, Henner DJ. Selection of an anti-IGF-1 Fab from a Fab 
+phage library created by mutagenesis of multiple CDR loops. 
+Gene. 1993;128:103–09. PMID: 8099557. doi:10.1016/0378- 
+1119(93)90160-5
+114. de Haard HJ, van Neer N, Reurs A, Hufton SE, Roovers RC, 
+Henderikx P, Arends J-W, de Bruine AP, de Haard JW, 
+Hoogenboom HR, et al. A large non-immunized human Fab frag­
+ment phage library that permits rapid isolation and kinetic analysis 
+of high affinity antibodies. J Biol Chem. 1999;274:18218–30. 
+PMID: 10373423. doi:10.1074/jbc.274.26.18218.
+115. Schwimmer LJ, Huang B, Giang H, Cotter RL, Chemla-Vogel DS, 
+Dy FV, Tam EM, Zhang F, Toy P, Bohmann DJ, et al. Discovery of 
+diverse and functional antibodies from large human repertoire 
+antibody libraries. J Immunol Methods. 2013;391:60–71. PMID: 
+23454004. doi:10.1016/j.jim.2013.02.010.
+116. Diebolder P, Keller A, Haase S, Schlegelmilch A, Kiefer JD, 
+Karimi T, Weber T, Moldenhauer G, Kehm R, Eis- 
+Hubinger AM, et al. Generation of “LYmph Node Derived 
+Antibody Libraries” (LYNDAL) for selecting fully human antibody 
+fragments with therapeutic potential. MAbs. 2014;6:130–42. 
+PMID: 24256717. doi:10.4161/mabs.27236.
+117. Lee CV, Liang WC, Dennis MS, Eigenbrot C, Sidhu SS, Fuh G. 
+High-affinity human antibodies from phage-displayed synthetic 
+Fab libraries with a single framework scaffold. J Mol Biol. 
+2004;340:1073–93. PMID: 15236968. doi:10.1016/j.jmb.2004. 
+05.051
+118. Kim S, Park I, Park SG, Cho S, Kim JH, Ipper NS, Choi SS, 
+Lee ES, Hong HJ. Generation, diversity determination, and 
+application to antibody selection of a human naive fab 
+library. Mol Cells. 2017;40:655–66. PMID: 28927259. doi:10. 
+14348/molcells.2017.0106
+119. Jespers 
+LS, 
+Roberts 
+A, 
+Mahler 
+SM, 
+Winter 
+G, 
+Hoogenboom HR. Guiding the selection of human antibodies 
+from phage display repertoires to a single epitope of an 
+14
+Y. ZHANG
+
+
+--- Page 16 ---
+antigen. Biotechnology (N Y). 1994;12:899–903. PMID: 
+7521646. doi:10.1038/nbt0994-899
+120. Baker KP, Edwards BM, Main SH, Choi GH, Wager RE, 
+Halpern WG, Lappin PB, Riccobene T, Abramian D, Sekut L, 
+et al. Generation and characterization of LymphoStat-B, 
+a human monoclonal antibody that antagonizes the bioactivities 
+of B lymphocyte stimulator. Arthritis Rheum. 2003;48:3253–65. 
+PMID: 14613291. doi:10.1002/art.11299.
+121. Ho M, Nagata S, Pastan I. Isolation of anti-CD22 Fv with high 
+affinity by Fv display on human cells. Proc Natl Acad Sci U S A. 
+2006;103:9637–42. 
+PMID: 
+16763048. 
+doi:10.1073/pnas. 
+0603653103
+122. Dhillon S. Moxetumomab pasudotox: first global approval. 
+Drugs. 2018;78:1763–67. PMID: 30357593. doi:10.1007/ 
+s40265-018-1000-9
+123. Mazumdar S. Raxibacumab. MAbs. 2009;1:531–38. PMID: 
+20068396. doi:10.4161/mabs.1.6.10195
+124. Al-Salama ZT. Emapalumab: first global approval. Drugs. 
+2019;79:99–103. PMID: 30623346. doi:10.1007/s40265-018-1046-8
+125. Duggan S. Tralokinumab: first approval. Drugs. 2021;81:1657–63. 
+PMID: 34406631. doi:10.1007/s40265-021-01583-1
+126. Sommer A, Kopitz C, Schatz CA, Nising CF, Mahlert C, 
+Lerchen HG, Stelte-Ludwig B, Hammer S, Greven S, 
+Schuhmacher J, et al. Preclinical efficacy of the auristatin-based 
+antibody–drug conjugate BAY 1187982 for the treatment of 
+FGFR2-positive solid tumors. Cancer Res. 2016;76:6331–39. 
+PMID: 27543601. doi:10.1158/0008-5472.CAN-16-0180.
+127. Jerkeman M, McAllister A, Roos C, Andersson ML, Karlsson I, 
+Borggren M, Abrisqueta P, Carneiro A, Cordoba R, Hagberg H, 
+et al. 17-BI-1206-02 phase 1/2a clinical trial of BI-1206, 
+a monoclonal antibody to fcgriib, in combination with rituximab 
+in subjects with indolent B-Cell non-hodgkin lymphoma that has 
+relapsed or is refractory to rituximab. Blood. 2020;136:2. doi:10. 
+1182/blood-2020-140219.
+128. Willuda J, Linden L, Lerchen HG, Kopitz C, Stelte-Ludwig B, 
+Pena C, Lange C, Golfier S, Kneip C, Carrigan PE, et al. 
+Preclinical antitumor efficacy of BAY 1129980—a novel aurista­
+tin-based anti-C4.4A (LYPD3) antibody–drug conjugate for the 
+treatment of non–small cell lung cancer. Mol Cancer Ther. 
+2017;16:893–904. PMID: 28292941. doi:10.1158/1535-7163.MCT- 
+16-0474.
+129. Wichert S, Juliusson G, Johansson A, Sonesson E, Teige I, 
+Wickenberg AT, Frendeus B, Korsgren M, Hansson M, Hills RK. 
+A single-arm, open-label, phase 2 clinical trial evaluating disease 
+response 
+following 
+treatment 
+with 
+BI-505, 
+a 
+human 
+anti-intercellular adhesion molecule-1 monoclonal antibody, in 
+patients with smoldering multiple myeloma. PLos One. 2017;12: 
+e0171205. PMID: 28158311. doi:10.1371/journal.pone.0171205.
+130. Lehrer-Graiwer J, Singh P, Abdelbaky A, Vucic E, Korsgren M, 
+Baruch A, Fredrickson J, van Bruggen N, Tang MT, Frendeus B, 
+et al. FDG-PET imaging for oxidized LDL in stable atherosclerotic 
+disease: a phase II study of safety, tolerability, and 
+anti-inflammatory 
+activity. 
+JACC 
+Cardiovasc 
+Imaging. 
+2015;8:493–94. PMID: 25457756. doi:10.1016/j.jcmg.2014.06.021.
+131. Sall A, Walle M, Wingren C, Muller S, Nyman T, Vala A, Ohlin M, 
+Borrebaeck CAK, Persson H. Generation and analyses of human 
+synthetic antibody libraries and their application for protein 
+microarrays. Protein Eng Des Sel. 2016;29(10):427–37. PMID: 
+27590051. doi:10.1093/protein/gzw042.
+132. Persson H, Ye W, Wernimont A, Adams JJ, Koide A, Koide S, 
+Lam R, Sidhu SS. CDR-H3 diversity is not required for antigen 
+recognition by synthetic antibodies. J Mol Biol. 2013;425 
+(4):803–11. PMID: 23219464. doi:10.1016/j.jmb.2012.11.037.
+133. Pini A, Viti F, Santucci A, Carnemolla B, Zardi L, Neri P, Neri D. 
+Design and use of a phage display library. Human antibodies with 
+subnanomolar affinity against a marker of angiogenesis eluted 
+from a two-dimensional gel. J Biol Chem. 1998;273:21769–76. 
+PMID: 9705314. doi:10.1074/jbc.273.34.21769
+134. Silacci M, Brack S, Schirru G, Marlind J, Ettorre A, Merlo A, Viti F, 
+Neri D. Design, construction, and characterization of a large 
+synthetic human antibody phage display library. Proteomics. 
+2005;5:2340–50. PMID: 15880779. doi:10.1002/pmic.200401273
+135. Villa A, Lovato V, Bujak E, Wulhfard S, Pasche N, Neri D. A novel 
+synthetic naive human antibody library allows the isolation of 
+antibodies against a new epitope of oncofetal fibronectin. MAbs. 
+2011;3:264–72. PMID: 21487243. doi:10.4161/mabs.3.3.15616
+136. Danielli R, Patuzzo R, Di Giacomo AM, Gallino G, Maurichi A, Di 
+Florio A, Cutaia O, Lazzeri A, Fazio C, Miracco C, et al. 
+Intralesional administration of L19-IL2/L19-TNF in stage III or 
+stage IVM1a melanoma patients: results of a phase II study. 
+Cancer Immunol Immunother. 2015;64:999–1009. PMID: 
+25971540. doi:10.1007/s00262-015-1704-6.
+137. Erba PA, Sollini M, Orciuolo E, Traino C, Petrini M, Paganelli G, 
+Bombardieri E, Grana C, Giovannoni L, Neri D, et al. 
+Radioimmunotherapy with radretumab in patients with relapsed 
+hematologic malignancies. J Nucl Med. 2012;53:922–27. PMID: 
+22577235. doi:10.2967/jnumed.111.101006.
+138. Schliemann C, Gutbrodt KL, Kerkhoff A, Pohlen M, Wiebe S, 
+Silling G, Angenendt L, Kessler T, Mesters RM, Giovannoni L, 
+et al. Targeting interleukin-2 to the bone marrow stroma for 
+therapy of acute myeloid leukemia relapsing after allogeneic hema­
+topoietic stem cell transplantation. Cancer Immunol Res. 
+2015;3:547–56. PMID: 25672398. doi:10.1158/2326-6066.CIR-14- 
+0179.
+139. Galeazzi M, Sebastiani G, Voll R, Viapiana O, Dudler J, Zufferey P, 
+Selvi E, Finzel S, Bootz FS, Neri D. Fri0118 dekavil (F8IL10) – 
+update on the results of clinical trials investigating the immuno­
+cytokine in patients with rheumatoid arthritis. Ann Rheum Dis. 
+2018;77. doi:10.1136/annrheumdis-2018-eular.5550.
+140. Villa A, Trachsel E, Kaspar M, Schliemann C, Sommavilla R, 
+Rybak JN, Rosli C, Borsi L, Neri D. A high-affinity human mono­
+clonal antibody specific to the alternatively spliced EDA domain of 
+fibronectin efficiently targets tumor neo-vasculature in vivo. 
+Int J Cancer. 2008;122:2405–13. PMID: 18271006. doi:10.1002/ 
+ijc.23408
+141. Ignatovich O, Tomlinson IM, Jones PT, Winter G. The creation of 
+diversity in the human immunoglobulin V(lambda) repertoire. 
+J Mol Biol. 1997;268:69–77. PMID: 9149142. doi:10.1006/jmbi. 
+1997.0956
+142. Detanico T, Phillips M, Wysocki LJ. Functional versatility of AGY 
+serine codons in immunoglobulin variable region genes. Front 
+Immunol. 2016;7:525. PMID: 27920779. doi:10.3389/fimmu.2016. 
+00525
+143. Glanville J, Zhai W, Berka J, Telman D, Huerta G, Mehta GR, Ni I, 
+Mei L, Sundar PD, Day GM, et al. Precise determination of the 
+diversity of a combinatorial antibody library gives insight into the 
+human immunoglobulin repertoire. Proc Natl Acad Sci U S A. 
+2009;106:20216–21. 
+PMID: 
+19875695. 
+doi:10.1073/pnas. 
+0909775106.
+144. Poole RM, Vaidya A. Ramucirumab: first global approval. Drugs. 
+2014;74:1047–58. PMID: 24916147. doi:10.1007/s40265-014-0244-2
+145. Garnock-Jones KP. Necitumumab: first global approval. Drugs. 
+2016;76:283–89. PMID: 26729188. doi:10.1007/s40265-015-0537-0
+146. ES K. Avelumab: first global approval. Drugs. 2017;77:929–37. 
+PMID: 28456944. doi:10.1007/s40265-017-0749-6
+147. Syed YY. Lanadelumab: first global approval. Drugs. 
+2018;78:1633–37. PMID: 30267321. doi:10.1007/s40265-018- 
+0987-2
+148. Jian JW, Chen HS, Chiu YK, Peng HP, Tung CP, Chen IC, Yu CM, 
+Tsou YL, Kuo WY, Hsu HJ, et al. Effective binding to protein 
+antigens by antibodies from antibody libraries designed with 
+enhanced 
+protein 
+recognition 
+propensities. 
+MAbs. 
+2019;11:373–87. PMID: 30526270. doi:10.1080/19420862.2018. 
+1550320.
+149. Fellouse FA, Wiesmann C, Sidhu SS. Synthetic antibodies from a 
+four-amino-acid code: a dominant role for tyrosine in antigen 
+recognition. Proc Natl Acad Sci U S A. 2004;101:12467–72. 
+PMID: 15306681. doi:10.1073/pnas.0401786101
+150. Fellouse FA, Esaki K, Birtalan S, Raptis D, Cancasci VJ, 
+Koide A, Jhurani P, Vasser M, Wiesmann C, Kossiakoff AA, 
+MABS
+15
+
+
+--- Page 17 ---
+et al. High-throughput generation of synthetic antibodies from 
+highly functional minimalist phage-displayed libraries. J Mol 
+Biol. 2007;373:924–40. PMID: 17825836. doi:10.1016/j.jmb.2007. 
+08.005.
+151. Knappik A, Ge L, Honegger A, Pack P, Fischer M, Wellnhofer G, 
+Hoess A, Wolle J, Pluckthun A, Virnekas B. Fully synthetic human 
+combinatorial antibody libraries (HuCAL) based on modular con­
+sensus frameworks and CDRs randomized with trinucleotides. J Mol 
+Biol. 2000;296:57–86. PMID: 10656818. doi:10.1006/jmbi.1999.3444
+152. Markham A. Guselkumab: first global approval. Drugs. 
+2017;77:1487–92. PMID: 28819723. doi:10.1007/s40265-017- 
+0800-7
+153. Jespers L, Schon O, Famm K, Winter G. Aggregation-resistant 
+domain antibodies selected on phage by heat denaturation. Nat 
+Biotechnol. 2004;22:1161–65. PMID: 15300256. doi:10.1038/ 
+nbt1000
+154. Mendoza-Salazar I, Gomez-Castellano KM, Gonzalez-Gonzalez E, 
+Gamboa-Suasnavart R, Rodriguez-Luna SD, Santiago-Casas G, 
+Cortes-Paniagua MI, Perez-Tapia SM, Almagro JC. Anti-SARS- 
+CoV-2 omicron antibodies isolated from a SARS-CoV-2 delta 
+semi-immune phage display library. Antibodies (Basel). 2022;11 
+(1):13. PMID: 35225871. doi:10.3390/antib11010013.
+155. Pedraza-Escalona M, Guzman-Bringas O, Arrieta-Oliva HI, 
+Gomez-Castellano K, Salinas-Trujano J, Torres-Flores J, Munoz- 
+Herrera JC, Camacho-Sandoval R, Contreras-Pineda P, Chacon- 
+Salinas R, et al. Isolation and characterization of high affinity and 
+highly stable anti-Chikungunya virus antibodies using ALTHEA 
+gold libraries™. BMC Infect Dis. 2021;21:1121. PMID: 34717584. 
+doi:10.1186/s12879-021-06717-0.
+156. Schwabl S, Teis D. Protein quality control at the Golgi. Curr Opin 
+Cell Biol. 2022;75:102074. PMID: 35364487. doi:10.1016/j.ceb. 
+2022.02.008
+157. Phillips BP, Gomez-Navarro N, Miller EA. Protein quality control 
+in 
+the endoplasmic 
+reticulum. Curr 
+Opin 
+Cell Biol. 
+2020;65:96–102. PMID: 32408120. doi:10.1016/j.ceb.2020.04.002
+158. Shusta EV, Kieke MC, Parke E, Kranz DM, Wittrup KD. Yeast 
+polypeptide fusion surface display levels predict thermal stability 
+and soluble secretion efficiency. J Mol Biol. 1999;292:949–56. 
+PMID: 10512694. doi:10.1006/jmbi.1999.3130
+159. Sriram K, Insel PA. G protein-coupled receptors as targets for 
+approved drugs: how many targets and how many drugs? Mol 
+Pharmacol. 2018;93:251–58. PMID: 29298813. doi:10.1124/mol. 
+117.111062
+160. Hauser AS, Attwood MM, Rask-Andersen M, Schioth HB, 
+Gloriam DE. Trends in GPCR drug discovery: new agents, targets 
+and indications. Nat Rev Drug Discov. 2017;16:829–42. PMID: 
+29075003. doi:10.1038/nrd.2017.178
+161. Mullard A. FDA approves second GPCR-targeted antibody. Nat 
+Rev Drug Discov. 2018;17:613. PMID: 30160256. doi:10.1038/nrd. 
+2018.153
+162. Dodd R, Schofield DJ, Wilkinson T, Britton ZT. Generating ther­
+apeutic monoclonal antibodies to complex multi-spanning mem­
+brane targets: overcoming the antigen challenge and enabling 
+discovery 
+strategies. 
+Methods. 
+2020;180:111–26. 
+PMID: 
+32422249. doi:10.1016/j.ymeth.2020.05.006.
+163. Devanaboyina SC, Lynch SM, Ober RJ, Ram S, Kim D, Puig- 
+Canto A, Breen S, Kasturirangan S, Fowler S, Peng L, et al. The 
+effect of pH dependence of antibody-antigen interactions on sub­
+cellular trafficking dynamics. MAbs. 2013;5:851–59. PMID: 
+24492341. doi:10.4161/mabs.26389.
+164. Roopenian DC, Akilesh S. FcRn: the neonatal Fc receptor comes of 
+age. Nat Rev Immunol. 2007;7:715–25. PMID: 17703228. doi:10. 
+1038/nri2155
+165. Igawa T, Ishii S, Tachibana T, Maeda A, Higuchi Y, Shimaoka S, 
+Moriyama C, Watanabe T, Takubo R, Doi Y, et al. Antibody 
+recycling by engineered Ph-dependent antigen binding improves 
+the duration of antigen neutralization. Nat Biotechnol. 
+2010;28:1203–07. PMID: 20953198. doi:10.1038/nbt.1691.
+166. Chaparro-Riggers J, Liang H, DeVay RM, Bai L, Sutton JE, 
+Chen W, Geng T, Lindquist K, Casas MG, Boustany LM, et al. 
+Increasing serum half-life and extending cholesterol lowering 
+in vivo by engineering antibody with Ph-sensitive binding to 
+PCSK9. J Biol Chem. 2012;287:11090–97. PMID: 22294692. 
+doi:10.1074/jbc.M111.319764.
+167. Igawa T, Maeda A, Haraya K, Tachibana T, Iwayanagi Y, 
+Mimoto F, Higuchi Y, Ishii S, Tamba S, Hironiwa N, et al. 
+Engineered monoclonal antibody with novel antigen-sweeping 
+activity in vivo. PLos One. 2013;8:e63236. PMID: 23667591. 
+doi:10.1371/journal.pone.0063236.
+168. Zemlin M, Klinger M, Link J, Zemlin C, Bauer K, Engler JA, 
+Schroeder HW Jr., Kirkham PM. Expressed murine and human 
+CDR-H3 intervals of equal length exhibit distinct repertoires that 
+differ in their amino acid composition and predicted range of 
+structures. J Mol Biol. 2003;334:733–49. PMID: 14636599. doi:10. 
+1016/j.jmb.2003.10.007
+169. Johnson G, Wu TT. Preferred CDRH3 lengths for antibodies with 
+defined specificities. Int Immunol. 1998;10:1801–05. PMID: 
+9885900. doi:10.1093/intimm/10.12.1801
+170. Collis AV, Brouwer AP, Martin AC. Analysis of the antigen com­
+bining site: correlations between length and sequence composition 
+of the hypervariable loops and the nature of the antigen. J Mol Biol. 
+2003;325:337–54. PMID: 12488099. doi:10.1016/s0022-2836(02) 
+01222-6
+171. Mascola JR, Haynes BF. HIV-1 neutralizing antibodies: under­
+standing nature’s pathways. Immunol Rev. 2013;254:225–44. 
+PMID: 23772623. doi:10.1111/imr.12075
+172. McLellan JS, Pancera M, Carrico C, Gorman J, Julien JP, Khayat R, 
+Louder R, Pejchal R, Sastry M, Dai K, et al. Structure of HIV-1 
+gp120 V1/V2 domain with broadly neutralizing antibody PG9. 
+Nature. 
+2011;480:336–43. PMID: 
+22113616. doi:10.1038/ 
+nature10696.
+173. Muyldermans S, Baral TN, Retamozzo VC, De Baetselier P, De 
+Genst E, Kinne J, Leonhardt H, Magez S, Nguyen VK, Revets H, 
+et al. Camelid immunoglobulins and nanobody technology. Vet 
+Immunol Immunopathol. 2009;128:178–83. PMID: 19026455. 
+doi:10.1016/j.vetimm.2008.10.299.
+174. Haakenson JK, Huang R, Smider VV. Diversity in the cow ultra­
+long CDR H3 antibody repertoire. Front Immunol. 2018;9:1262. 
+PMID: 29915599. doi:10.3389/fimmu.2018.01262.
+175. Wang F, Ekiert DC, Ahmad I, Yu W, Zhang Y, Bazirgan O, 
+Torkamani A, Raudsepp T, Mwangi W, Criscitiello MF, et al. 
+Reshaping antibody diversity. Cell. 2013;153:1379–93. PMID: 
+23746848. doi:10.1016/j.cell.2013.04.049.
+176. Nam DH, Rodriguez C, Remacle AG, Strongin AY, Ge X. Active- 
+site MMP-selective antibody inhibitors discovered from convex 
+paratope synthetic libraries. Proc Natl Acad Sci U S A. 2016;113 
+(52):14970–75. PMID: 27965386. doi:10.1073/pnas.1609375114.
+177. Bai X, Kim J, Kang S, Kim W, Shim H, Gill AC. A novel human 
+scFv library with non-combinatorial synthetic CDR diversity. PLos 
+One. 2015;10:e0141045. PMID: 26484868. doi:10.1371/journal. 
+pone.0141045.
+178. Bhat NM, Bieber MM, Stevenson FK, Teng NN. Rapid cytotoxicity 
+of human B lymphocytes induced by VH4-34 (VH4.21) 
+gene-encoded monoclonal antibodies. Clin Exp Immunol. 
+1996;105:183–90. PMID: 8697629. doi:10.1046/j.1365-2249.1996. 
+d01-733.x
+179. Jayaram N, Bhowmick P, Martin AC. Germline VH/VL pairing in 
+antibodies. Protein Eng Des Sel. 2012;25:523–29. PMID: 22802295. 
+doi:10.1093/protein/gzs043
+180. Ewert S, Huber T, Honegger A, Pluckthun A. Biophysical proper­
+ties of human antibody variable domains. J Mol Biol. 
+2003;325:531–53. PMID: 12498801. doi:10.1016/s0022-2836(02) 
+01237-8
+181. Derda R, Tang SK, Li SC, Ng S, Matochko W, Jafari MR. Diversity 
+of phage-displayed libraries of peptides during panning and 
+amplification. Molecules. 2011;16:1776–803. PMID: 21339712. 
+doi:10.3390/molecules16021776
+182. Matochko WL, Cory Li S, Tang SK, Derda R. Prospective identi­
+fication of parasitic sequences in phage display screens. Nucleic 
+16
+Y. ZHANG
+
+
+--- Page 18 ---
+Acids Res. 2014;42:1784–98. PMID: 24217917. doi:10.1093/nar/ 
+gkt1104
+183. Zambrano N, Froechlich G, Lazarevic D, Passariello M, Nicosia A, 
+De Lorenzo C, Morelli MJ, Sasso E. High-throughput monoclonal 
+antibody discovery from phage libraries: challenging the current 
+preclinical pipeline to keep the pace with the increasing mAb 
+demand. Cancers (Basel). 2022;14 PMID: 35267633. doi:10.3390/ 
+cancers14051325.
+184. Rouet R, Jackson KJL, Langley DB, Christ D. Next-generation sequen­
+cing of antibody display repertoires. Front Immunol. 2018;9:118. 
+PMID: 29472918. doi:10.3389/fimmu.2018.00118
+185. Wilman W, Wrobel S, Bielska W, Deszynski P, Dudzic P, 
+Jaszczyszyn I, Kaniewski J, Mlokosiewicz J, Rouyan A, Satlawa T, 
+et al. Machine-designed biotherapeutics: opportunities, feasibility 
+and advantages of deep learning in computational antibody 
+discovery. Brief Bioinform. 2022;23: PMID: 35830864. doi:10. 
+1093/bib/bbac267.
+186. Akbar R, Bashour H, Rawat P, Robert PA, Smorodina E, 
+Cotet TS, Flem-Karlsen K, Frank R, Mehta BB, Vu MH, 
+et al. Progress and challenges for the machine learning-based 
+design of fit-for-purpose monoclonal antibodies. MAbs. 
+2022;14:2008790. PMID: 35293269. doi:10.1080/19420862. 
+2021.2008790.
+187. Jain T, Sun T, Durand S, Hall A, Houston NR, Nett JH, 
+Sharkey B, Bobrowicz B, Caffry I, Yu Y, et al. Biophysical 
+properties of the clinical-stage antibody landscape. Proc Natl 
+Acad Sci U S A. 2017;114:944–49. PMID: 28096333. doi:10. 
+1073/pnas.1616408114.
+188. Spencer S, Bethea D, Raju TS, Giles-Komar J, Feng Y. Solubility 
+evaluation 
+of 
+murine 
+hybridoma 
+antibodies. 
+MAbs. 
+2012;4:319–25. PMID: 22531448. doi:10.4161/mabs.19869
+189. Bradbury AR, Sidhu S, Dubel S, McCafferty J. Beyond natural 
+antibodies: the power of in vitro display technologies. Nat 
+Biotechnol. 2011;29:245–54. PMID: 21390033. doi:10.1038/nbt.1791
+190. Dyson MR, Masters E, Pazeraitis D, Perera RL, Syrjanen JL, 
+Surade S, Thorsteinson N, Parthiban K, Jones PC, Sattar M, et al. 
+Beyond affinity: selection of antibody variants with optimal bio­
+physical properties and reduced immunogenicity from mamma­
+lian display libraries. MAbs. 2020;12:1829335. PMID: 33103593. 
+doi:10.1080/19420862.2020.1829335.
+191. Deal CE, Carfi A, Plante OJ. Advancements in mRNA encoded 
+antibodies for passive immunotherapy. Vaccines (Basel). 
+2021;9:108. PMID: 33572679. doi:10.3390/vaccines9020108.
+192. Patel A, Bah MA, Weiner DB. In Vivo delivery of nucleic 
+acid-encoded monoclonal antibodies. BioDrugs. 2020;34:273–93. 
+PMID: 32157600. doi:10.1007/s40259-020-00412-3
+MABS
+17

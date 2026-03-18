@@ -1,0 +1,1811 @@
+--- Page 1 ---
+ARTICLE
+Low-cost anti-mycobacterial drug discovery using
+engineered E. coli
+Nadine Bongaerts
+1,2, Zainab Edoo3, Ayan A. Abukar
+1,2, Xiaohu Song1,2, Sebastián Sosa-Carrillo1,4,
+Sarah Haggenmueller
+1,2, Juline Savigny1,2, Sophie Gontier
+1,2, Ariel B. Lindner
+1,2✉&
+Edwin H. Wintermute1,2✉
+Whole-cell screening for Mycobacterium tuberculosis (Mtb) inhibitors is complicated by the
+pathogen’s slow growth and biocontainment requirements. Here we present a synthetic
+biology framework for assaying Mtb drug targets in engineered E. coli. We construct Target
+Essential Surrogate E. coli (TESEC) in which an essential metabolic enzyme is deleted and
+replaced with an Mtb-derived functional analog, linking bacterial growth to the activity of the
+target enzyme. High throughput screening of a TESEC model for Mtb alanine racemase (Alr)
+revealed benazepril as a targeted inhibitor, a result validated in whole-cell Mtb. In vitro
+biochemical assays indicated a noncompetitive mechanism unlike that of clinical Alr inhibi-
+tors. We establish the scalability of TESEC for drug discovery by characterizing TESEC strains
+for four additional targets.
+https://doi.org/10.1038/s41467-022-31570-3
+OPEN
+1 Université Paris Cité, Inserm, System Engineering and Evolution Dynamics, Paris, France. 2 CRI, Paris, France. 3 Sorbonne Université, Université Paris Cité,
+Inserm, Centre de Recherche des Cordeliers (CRC), Paris, France. 4Present address: Institut Pasteur, Inria de Paris, Université Paris Cité, InBio, Paris, France.
+✉email: ariel.lindner@inserm.fr; jake.wintermute@cri-paris.org
+NATURE COMMUNICATIONS |  (2022) 13:3905 | https://doi.org/10.1038/s41467-022-31570-3 | www.nature.com/naturecommunications
+1
+1234567890():,;
+
+
+--- Page 2 ---
+C
+hemical genetics in the synthetic biology era offers new
+tools for long-standing challenges in antimicrobial drug
+discovery1. With genetic modiﬁcations to targeted func-
+tional pathways, microbial strains can be sensitized to drugs of a
+particular mechanism2. High-throughput screening of these
+strains may then reveal new drugs that act speciﬁcally on the
+modiﬁed pathway. Recent successful applications of chemical
+genetics have produced drug scaffolds and helped to identify drug
+mechanisms in a variety of microbial pathogens3–9.
+The chemical-genetic strategy seeks to combine the advantages
+of two classical approaches to drug discovery: whole-cell screens
+that test directly on live pathogenic bacteria10 and target-based
+screens that assay against puriﬁed cellular components11. Like
+whole-cell screening, it prioritizes molecules that can pass the
+membrane barrier and function in the rich intracellular context.
+Like target-based screening, it allows researchers to focus on
+speciﬁc biological functions of therapeutic interest and simpliﬁes
+the process of determining a hit’s mechanism of action.
+Unique technical challenges arise when using genetically engi-
+neered microbes for antimicrobial discovery. The relationship
+between a target’s activity and the host microbe’s sensitivity to a
+targeted
+inhibitor
+is
+quantitative
+and
+pathway-dependent12.
+Empirical ﬁne-tuning is required to maximize assay sensitivity while
+minimizing
+stress
+associated
+with
+gene
+over-
+or
+under-
+expression13. Precise expression control is difﬁcult to achieve in
+many pathogens, for which genetic tools are often limited14. Finally,
+the conventional challenges of pathogen microbiology still apply.
+Long incubation times, noisy measurements, and expensive safety
+practices limit the scale at which these tools can be deployed15.
+Here we perform chemical-genetic screens for targeted inhi-
+bitors of pathogen-derived enzymes in an E. coli host. We develop
+TESEC strains in which an essential E. coli enzyme is deleted and
+replaced with a functionally equivalent target enzyme of hetero-
+logous origin. The target’s induction is quantitatively controlled
+to determine the highest and lowest expression levels compatible
+with robust growth. Target-speciﬁc inhibitors are expected to be
+more effective against TESEC strains under low induction,
+forming the basis for a differential screen.
+As a proof of concept, we developed a TESEC strain for the
+enzyme Alr derived from the human pathogen Mtb. A screen of
+1280 approved drugs revealed benazepril as an expression-
+dependent inhibitor. Whole-cell antibacterial activity of benazepril
+was conﬁrmed in both Mycobacterium smegmatis and Mtb. Bio-
+chemical assays revealed a non-competitive mechanism of inhibi-
+tion unlike that of known Alr inhibitor D-cycloserine (DCS).
+Benazepril is an off-patent ACE inhibitor widely used to con-
+trol hypertension16. A retrospective study of the Taiwan national
+health insurance research database associated drugs of this class
+with a reduced risk of developing active tuberculosis17. Our
+results suggest that this outcome may be the result of an anti-
+mycobacterial activity of benazepril.
+The TESEC system is designed for maximum versatility and re-
+use with Golden Gate assembly18. In principle, over 100 known
+conditionally essential E. coli metabolic genes could be com-
+plemented with pathogen-derived analogs and screened with
+TESEC19. We characterize here four additional TESEC strains for
+diverse metabolic targets in Mtb. Low-cost and biosafe screening
+technologies may allow wider participation in antibiotic discovery
+efforts and unlock new economic models to incentivize work in
+this long-neglected domain20,21.
+Results
+Design and characterization of a TESEC strain for Mtb Alr.
+Our interest in Mtb was motivated by the scope of the public
+health challenge it presents and by a decades-long gap in the
+emergence of new treatments22. Alr is a well-known drug target
+required for cell wall biosynthesis in both Mtb23 and E. coli24. The
+enzyme catalyzes the reversible conversion of L-alanine to D-
+alanine, supplying an essential building block for peptidoglycan
+cross-linking25. DCS is a widely used Alr inhibitor that served as a
+positive control for our assays. Although an effective antibacterial,
+DCS is reserved as a second-line Mtb treatment due to serious
+neurological side effects26. DCS shows no cross-resistance with
+ﬁrst-line tuberculosis drugs, highlighting the value of targeting
+Alr by other means27.
+To produce the TESEC Host Alr- strain, endogenous E. coli
+alanine racemase activity was eliminated by deletion of the genes
+dadX and alr, conveying a growth requirement for supplemental
+D-alanine. To maximize host sensitivity to screened compounds,
+we further deleted the tolC efﬂux system and the entC
+enterobactin synthase, to rescue a growth defect associated with
+tolC deletion (Supplementary Fig. 1).
+Heterologous expression of Mtb-derived Alr was achieved with
+an arabinose-inducible, feedback-controlled circuit adapted from
+Daniel et al.28. Brieﬂy, the system consists of a low-copy plasmid
+expressing AraC and a high-copy plasmid expressing Mtb Alr
+(Fig. 1a). Flow cytometry using GFP-tagged Mtb Alr conﬁrmed
+that the circuit allowed uniform and unimodal protein expression
+over a wide dynamic range (Fig. 1b). Growth inhibition by DCS
+could be quantitatively controlled with half-maximal inhibitory
+concentrations (IC50) ranging from 2 μM to 1 mM (Fig. 1c).
+We chose low and high Alr induction levels by comparing
+resistance levels to DCS at 100 μM, a common working
+concentration for high-throughput drug screening (Fig. 1d).
+Low Alr induction (0.1 μM arabinose) was selected as the highest
+level that still supported complete growth repression under DCS
+treatment. High Alr induction (10 mM arabinose) was the highest
+level not associated with overexpression toxicity. The IC50 of DCS
+varied by 50 fold between high- and low-induction conditions,
+suggesting a strong differential sensitivity to Alr.
+Differential screening for Mtb Alr inhibitors. The TESEC Mtb
+Alr expression strain was screened against the Prestwick Che-
+mical Library, 1280 approved small molecules suitable for drug
+repurposing (Fig. 2). The screen was conducted in triplicate for
+both low and high Alr induction levels, using deﬁned media with
+compounds at 0.1 mM and 1% DMSO. Strain growth was mea-
+sured by optical density (OD) at 600 nm after 10 h. High- and
+low-induction treatments with the positive control compound
+DCS produced a differential Z-factor of 0.87, indicating a robust
+assay.
+Hits were determined to be drugs signiﬁcantly inhibiting the
+growth of low Alr strains (OD < 0.1) but not high Alr (OD > 0.2)
+(Fig. 2a). The statistical signiﬁcance of hits was assessed by strictly
+standardized mean difference (SSMD) to DMSO-only controls
+(Fig. 2b).
+Ten compounds met differential
+growth inhibition
+and
+signiﬁcance criteria (Fig. 2c). Of these, 7 belong to the β-lactam
+class of known antibiotics. Because both β-lactams and Alr act in
+the pathway of peptidoglycan synthesis29, under-expression of
+Alr may fragilize the cell wall and therefore sensitize cells to β-
+lactam treatment, an interaction observed in other microbes30.
+The hit compounds benazepril and amlexanox had no previously
+reported antibacterial properties and so were retained for closer
+analysis.
+We next repeated the screen for a range of Alr induction levels
+(Fig. 2d). The result is a detailed chemical-genetic sensitivity
+proﬁle for each of the 1280 screened compounds. Globally,
+increased Alr expression was associated with reduced growth.
+DCS and benazepril, but not amlexanox, produced distinct
+ARTICLE
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-022-31570-3
+2
+NATURE COMMUNICATIONS |  (2022) 13:3905 | https://doi.org/10.1038/s41467-022-31570-3 | www.nature.com/naturecommunications
+
+
+--- Page 3 ---
+chemical-genetic proﬁles with improved growth under high Alr
+induction (Fig. 2e). Therefore, benazepril was retained for further
+validation.
+Target abundance affects chemical-genetic sensitivity proﬁles.
+TESEC screening seeks to detect a phenotypic difference in drug
+sensitivity caused by changing the expression level of a drug’s
+protein target, a strategy common to many chemical-genetic
+assays3–8. However, previous work has shown that perturbations
+in protein expression can also induce systemic stress responses
+caused by protein misfolding, resource depletion, or metabolic
+imbalance13,31. This could result in the identiﬁcation of non-
+speciﬁc hit compounds with differential activity against stressed
+cells but not against the desired target. We therefore sought to
+better characterize the effect of Alr expression levels on the
+reliability of chemical-genetic drug discovery.
+We compared TESEC screening for a range of Alr expression
+levels to an Alr+ wild-type control strain with intact native Alr
+activity and carrying expression plasmids for GFP only (Fig. 3).
+At low induction levels, the TESEC strain grew nearly as well as
+the wild-type control and responded similarly to drug treatments
+(Fig. 3a). Increasing Alr induction resulted in decreased overall
+growth and decreased correlation between TESEC and wild-type
+chemical-genetic proﬁles.
+The Prestwick library includes 183 known antibiotics, many of
+which were effective against E. coli under our screening
+conditions. Higher Alr induction levels resulted in less statistical
+power for distinguishing growing from non-growing cells,
+therefore making antibiotic activities harder to detect (Fig. 3b).
+Interestingly, the antibiotic activity of DCS itself was not
+detectable in the wild-type strain because the effective concentra-
+tion of the drug exceeds the 0.1 mM level commonly used in
+high-throughput screening32. Only low-induction Alr TESEC
+strains could correctly re-discover this known antibiotic.
+Overexpression of Alr resulted in reduced screening sensitivity
+to known antibiotics (Fig. 3c). The whole-cell assay conducted on
+the Alr+ wild-type control strain identiﬁed 314 growth-inhibiting
+compounds of which 94 were described antibiotics, a true positive
+rate of 30%. Low-induction TESEC strains performed similarly
+while high-induction strains were nonspeciﬁcally inhibited by
+many compounds, resulting in false positive rates above 70%.
+Characterization of hits in TESEC. The TESEC system provides
+an in-line platform to characterize and validate hit compounds
+before advancing them to biochemical or live-pathogen assays
+(Fig. 4). We produced two-dimensional chemical-genetic proﬁles
+of TESEC growth under a range of drug treatments and Alr
+expression levels (Fig. 4a–c). As expected, the inhibitory dose of
+DCS varied quantitatively with Alr level, producing a character-
+istic diagonal line in the growth heatmap. Benazepril produced a
+similar diagonal proﬁle, consistent with a target-speciﬁc effect of
+benazepril, while amlexanox did not.
+At higher resolution, benazepril and DCS produced qualita-
+tively different chemical-genetic proﬁles. Treatment with DCS
+shifted the growth curve horizontally, altering primarily the Alr
+induction
+level
+required
+to
+produce
+resistance.
+Benazepril
+treatment shifted the growth curves vertically, reﬂecting similarly
+decreased growth across a range of Alr expression levels. Unlike
+DCS, the effect of benazepril treatment was only evident at low
+Alr induction. These results suggested different mechanisms of
+action for DCS and benazepril.
+Supplementation of the growth medium with 5 mM D-alanine,
+the metabolic product of Alr, was able to rescue TESEC strain
+growth under treatment with both 0.25 mM DCS and 1 mM
+benazepril (Fig. 4d). This is consistent with a target-speciﬁc
+activity for the drugs.
+Restoring
+activity
+of
+the
+efﬂux
+pump
+TolC
+eliminated
+benazepril sensitivity, indicating that the drug can be efﬂuxed
+10
+2 10
+3 10
+4 10
+5 10
+6 10
+7 10
+8
+Arabinose (nM)
+3
+8
+GFP (FITC)
+10
+2 10
+3 10
+4 10
+5 10
+6 10
+7 10
+8
+Arabinose (nM)
+0.2
+0.4
+Growth (OD)
+Low
+Arab.
+High
+Arab.
+No drug
+0.1 mM DCS
+0.02
+0.2
+2
+DCS (mM)
+0.0
+0.3
+0.6
+Growth (OD)
+10
+2
+10
+8
+10
+2
+10
+5
+10
+8
+Arabinose (nM)
+0.02
+0.2
+2
+DCS IC50 (mM)
+0.0
+0.3
+0.6
+Low arab. (OD)
+0.0
+0.3
+0.6
+High arab. (OD)
+0.02
+2
+Arabinose (nM)
+DCS (mM)
+b
+c
+d
+e
+f
+a
+Arabinose Induction
+Mtb-ALR
+inhibition
+Partial
+activity
+High
+Low
+ΔdadX Δalr
+ΔtolC, ΔentC
+ΔaraBADC
+Arabinose
+araC
+pBAD
+Mtb-alr
+pBAD
+Low-copy
+plasmid
+High-copy
+plasmid
+D-ala
+Mtb-
+ALR
+L-ala
+Essential 
+for growth
+Chromosome
+DCS
+Fig. 1 A TESEC strain for Mtb Alr shows differential sensitivity to targeted inhibitors. a The TESEC host carries deletions of native Alr enzymes, the TolC
+efﬂux system, and genes participating in the native arabinose response. Two plasmids carry an arabinose-inducible, feedback-controlled expression circuit
+for Mtb Alr that produces a smoothed, log-linear induction response28. b A violin plot of ﬂow cytometry data of Mtb Alr tagged with GFP. Expression was
+unimodal and log-linear for arabinose concentrations from 105 to 107 nM. c The effect of arabinose on TESEC growth in the presence or absence of 100 μM
+DCS. Shaded areas indicate the differential growth response to DCS. The indicated high and low arabinose concentrations were selected for use for
+screening. Data are presented as the mean and CI95 of 8 biological replicates. d TESEC Mtb Alr dose-response to DCS for a range of arabinose
+concentrations. Error bars are CI95 of 4 biological replicates. e The half-maximal effective dose of DCS varied by more than 50-fold as the arabinose
+induction level was varied. Error bars are CI95 of best-ﬁt parameter estimates. f A mock differential screen of high- and low- induction TESEC for a range of
+DCS concentrations. Simulated hits appear as off-diagonal points where growth inhibition is observed for only the low-induction strain. Source data are
+provided as a Source Data ﬁle.
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-022-31570-3
+ARTICLE
+NATURE COMMUNICATIONS |  (2022) 13:3905 | https://doi.org/10.1038/s41467-022-31570-3 | www.nature.com/naturecommunications
+3
+
+
+--- Page 4 ---
+0.0
+0.2
+0.4
+Low arabinose (OD)
+0.0
+0.2
+0.4
+High arabinose (OD)
+−0.4
+−0.2
+0.0
+0.2
+Growth difference
+(ODHIGH - ODLOW)
+0
+10
+20
+30
+40
+50
+|SSMD|
+ODHIGH - ODLOW
+DCS
+Cefotiam
+Aztreonam
+Ceforanide
+Loracarbef
+Cefuroxime
+Cefpodoxime
+Ceftibuten
+Amlexanox
+Benazepril
+0.0
+0.1
+0.2
+0.3
+Growth (OD)
+10
+3
+10
+4
+10
+5
+10
+6
+10
+7
+Arabinose (nM)
+0.0
+0.2
+0.4
+Growth (OD)
+10
+3
+10
+4
+10
+5
+10
+6
+10
+7
+Arabinose (nM)
+0.0
+0.2
+0.4
+Growth (OD)
+Amlexanox
+DCS
+Benazepril
+a
+b
+c
+d
+e
+Positive
+Control
+β-lactams
+Novel
+Hits
+Fig. 2 A screen for targeted Mtb Alr inhibitors identiﬁes benazepril. a The TESEC Mtb Alr expression strain was induced with arabinose at high (107 nM)
+or low (102 nM) levels and treated with the 1280-compound Prestwick library at 0.1 mM. Growth was measured by OD after 8 h and the median of three
+biological replicates is plotted for each drug. Hit compounds inhibit the growth of low-Alr strains but not high-Alr strains, occupying the upper-left
+quadrant. b SSMD scores were used to assess the statistical signiﬁcance of the high- and low-induction growth levels. Hits were selected with an OD
+differential of 0.2 and an SSMD greater than 5. c Growth measurements for selected hits in high Alr (colored bars) and low Alr (gray bars) expression. Data
+are presented as the mean and individual data points for three biological replicates. d Chemical-genetic growth proﬁles of the TESEC Mtb Alr expression
+strain treated with each drug of the Prestwick library at 0.1 mM and a range of arabinose induction levels. e Selected chemical-genetic growth proﬁles for
+candidate hit compounds. Both DCS and benazepril showed growth inhibition only at low induction levels. Amlexanox, in contrast, did not show
+reproducible induction-speciﬁc activity. Data are presented as the mean and the standard deviation of three replicates. Source data are provided as a
+Source Data ﬁle.
+0.0
+0.2
+0.4
+0.0
+0.2
+0.4
+TESEC ALR
+growth (OD)
+r
+2 0.87
+10
+3 nM
+arabinose
+0.0
+0.2
+0.4
+0.0
+0.2
+0.4 r
+2 0.75
+10
+4 nM
+arabinose
+0.0
+0.2
+0.4
+0.0
+0.2
+0.4 r
+2 0.75
+Wild-type control growth (OD)
+10
+5 nM
+arabinose
+0.0
+0.2
+0.4
+0.0
+0.2
+0.4 r
+2 0.75
+10
+6 nM
+arabinose
+0.0
+0.2
+0.4
+0.0
+0.2
+0.4 r
+2 0.64
+10
+7 nM
+arabinose
+WTC
+10
+3
+10
+4
+10
+5
+10
+6
+10
+7
+Arabinose (nM)
+−10
+0
+10
+SSMD
+DMSO - drug
+WTC
+10
+3
+10
+4
+10
+5
+10
+6
+10
+7
+Arabinose (nM)
+25%
+50%
+75%
+Rate
+True positive
+False positive
+a
+b
+c
+Fig. 3 Chemical-genetic drug sensitivity is signiﬁcantly altered by target overexpression. a The growth effects of 1280 drugs from the Prestwick library
+on the TESEC Mtb Alr expression strain induced with varying levels of arabinose and the TESEC Alr+ wild-type control. Points are colored to indicate point
+density and r2 is the Pearson correlation coefﬁcient. b A violin plot of SSMD values comparing triplicate measurements of growth inhibition under drug
+treatment with growth measured in DMSO-only controls. High induction levels were associated with lower growth signal and higher noise resulting in less
+robust differentiation between inhibiting and non-inhibiting compounds. c Sensitivity of the TESEC assay in detecting the 183 known antibiotics in the
+Prestwick library. Predicted antibiotics were compounds showing more than 50% growth inhibition relative to DMSO controls. High induction levels were
+associated with lower growth, weaker signal, and more false positives. Source data are provided as a Source Data ﬁle.
+ARTICLE
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-022-31570-3
+4
+NATURE COMMUNICATIONS |  (2022) 13:3905 | https://doi.org/10.1038/s41467-022-31570-3 | www.nature.com/naturecommunications
+
+
+--- Page 5 ---
+from live cells (Fig. 4e). The importance of efﬂux activity was
+anticipated in our original design concept for TESEC screening,
+in which efﬂux pumps were inactivated to expand the range of
+discoverable drugs.
+Whole-cell activity of benazepril in M. smegmatis and M.
+tuberculosis. We next sought to characterize the effect of bena-
+zepril as an anti-mycobacterial. Benazepril showed inhibitory
+activity against the non-pathogenic model mycobacterium M.
+smegmatis mc2155, producing an IC50 of 1 mM (Fig. 4f). The IC50
+for DCS was 0.1 mM under the same conditions. Spot plating
+assays conﬁrmed this activity to be bactericidal as well as growth
+inhibitory (Supplementary Fig. 2).
+Within the human body benazepril undergoes hydrolysis to
+produce the active ACE inhibitor benazeprilat33. This form did
+not show activity against either mycobacterial strain up to the
+limit
+of
+solubility,
+0.5 mM.
+Supplementation
+with
+5 mM
+D-alanine was able to rescue the growth of M. smegmatis in the
+presence of 0.25 mM DCS. The effect of 1 mM benazepril, in
+contrast, was not rescued (Fig. 4g). This may indicate that
+benazepril
+interacts
+with
+additional
+mycobacterial
+targets
+beyond Alr.
+The H37Rv strain of Mtb was growth-inhibited by benazepril
+at concentrations between 2.25 and 4.5 mM, as compared to
+125 μM for DCS (Table 1). As with M. smegmatis, D-alanine
+supplementation did not rescue this effect.
+Benazepril is a noncompetitive inhibitor of Alr. The in vitro
+kinetics of benazepril inhibition were examined with a two-step
+biochemical reaction (Fig. 5). Puriﬁed Alr converts D-alanine to
+L-alanine which, in turn, is used by L-alanine dehydrogenase to
+reduce NAD+ to ﬂuorescence-measurable NADH34. Control
+assays conﬁrmed that benazepril does not inhibit the L-alanine
+dehydrogenase reporter enzyme, making the assay suitable for
+characterizing the benazepril-Alr interaction (Supplementary
+Fig. 3).
+Half-maximal inhibition of Alr activity was achieved with 4 μM
+DCS or 300 μM benazepril when D-alanine was supplied at 3 mM
+(Fig. 5a). Varying the concentration of D-alanine yielded
+conventional Michaelis–Menten kinetics for Alr (Fig. 5b) with
+benazepril affecting the maximum enzyme velocity, VMAX, but
+not the D-alanine afﬁnity constant, KM (Fig. 5c). These results are
+consistent with a noncompetitive inhibition mechanism for
+benazepril, unlike the competitive action of DCS35,36.
+TESEC screening extends to other metabolic targets. In devel-
+oping TESEC, we sought to create a ﬂexible chemical-genetic
+assay able to accommodate many potential targets. We tested the
+10
+2
+10
+5
+10
+8
+Arabinose (nM)
+10
+−2
+10
+−1
+DCS (mM)
+10
+2
+10
+5
+10
+8
+Arabinose (nM)
+10
+−1
+10
+0
+Benazepril (mM)
+10
+2
+10
+5
+10
+8
+Arabinose (nM)
+10
+−1
+10
+0
+Amlexanox (mM)
+10
+2
+10
+5
+10
+8
+Arabinose (nM)
+0.2
+0.4
+Growth (OD)
+10
+2
+10
+5
+10
+8
+Arabinose (nM)
+0.2
+0.4
+Growth (OD)
+10
+2
+10
+5
+10
+8
+Arabinose (nM)
+0.2
+0.4
+Growth (OD)
+No Drug
+DCS
+Benazepril
+0.0
+0.2
+0.4
+TESEC
+growth (OD)
+10
+3
+10
+5
+10
+7
+Arabinose (mM)
+0.0
+0.2
+0.4
+10
+−1
+10
+0
+Concentration (mM or %)
+0.0
+0.5
+1.0
+M. smegmatis
+growth (OD)
+No Drug
+DCS
+Benazepril
+0.0
+0.5
+1.0
+0.0
+0.2
+0.4
+Growth (OD)
+0.0
+0.2
+0.4
+Growth (OD)
+0.0
+0.2
+0.4
+Growth (OD)
+10
+−2
+10
+−1
+DCS (mM)
+10
+−1
+10
+0
+Benazepril (mM)
+10
+−1
+10
+0
+Amlexanox (mM)
++ D-ala
+DCS
+Benaz.
+Δ Efflux
+Efflux +
+DMSO (%)
+Benazeprilat
+Benazepril
+DCS
++ D-ala
+a
+b
+c
+d
+e
+f
+g
+Fig. 4 Characterization of hits with TESEC chemical-genetic proﬁling and in M. smegmatis. a–c The TESEC Mtb Alr expression strain was induced at a
+range of arabinose concentration and exposed to the indicated drugs at a range of concentrations, producing a two-dimensional growth proﬁle for each
+drug. Heatmaps of growth under DCS and benazepril treatment revealed a characteristic interaction between drug activity and target expression, appearing
+as a diagonal line. Amlexanox did not show this interaction. Detailed dose-response proﬁles were qualitatively different for each drug. Data are presented
+as the man and CI95 for three biological replicates. d Supplementation of TESEC Mtb Alr with 5 mM D-alanine, the enzymatic product of Alr, eliminated the
+inhibitory activity of both 0.25 mM DCS and 1 mM benazepril. Data are presented as the mean and Individual data points for ﬁve biological replicates.
+e Restoring the activity of the TolC efﬂux system eliminated the inhibitory effect of 0.5 mM benazepril, but not of 0.1 mM DCS. Lines represent the mean
+and shaded areas the CI95 of six biological replicates. f M. smegmatis growth was inhibited by benazepril and DCS, but not benazeprilat or DMSO-only
+controls, in the millimolar range. Data are presented as the mean and CI95 of ﬁve biological replicates. g Supplementation with 5 mM D-alanine rescued
+growth of M. smegmatis treated with 0.25 mM DCS, but not cells treated with 1 mM benazepril. Data is presented as the mean and individual data points for
+ﬁve biological replicates. Source data are provided as a Source Data ﬁle.
+Table 1 Antibiotic activity of benazepril against Mtb. M.
+tuberculosis H37Rv was cultured in 7H9 medium with the
+indicated treatment.
+Compound
+Dilution range
+MIC
+DCS
+0–2.0 mM
+0.125 mM
+DCS + 5 mM D-ala
+0–2.0 mM
+>2 mM
+Benazepril
+0–4.5 mM
+2.25–4.5 mM
+Benazepril + 5 mM D-ala
+0–4.5 mM
+2.25 mM
+Benazeprilat
+0–0.5 mM
+>0.5 mM
+Isoniazid
+0–30 μM
+0.3 μM
+DMSO
+0–5%
+>5%
+Metabolic viability was measured with the resazurin reduction assay after 7–9 days. The activity
+of known Mtb-inhibitor DCS was rescued by the addition of D-alanine, consistent with targeted
+inhibition of Alr. The ﬁrst-line Mtb drug isoniazid served as a positive control. Observed values
+were consistent across ﬁve biological replicates.
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-022-31570-3
+ARTICLE
+NATURE COMMUNICATIONS |  (2022) 13:3905 | https://doi.org/10.1038/s41467-022-31570-3 | www.nature.com/naturecommunications
+5
+
+
+--- Page 6 ---
+modularity of our system by constructing and screening addi-
+tional TESEC strains (Fig. 6). We chose 4 enzymes required for
+amino acid biosynthesis and proposed as anti-mycobacterial drug
+targets: Asd37, CysH38, DapB39, and TrpD40.
+For each target, we deleted the E. coli homolog and expressed
+the codon-optimized enzyme from Mtb in the standard TESEC
+vector. The resulting strains showed diverse dose-responses to
+target induction and unique induction optima (Fig. 6a–d).
+Following the strategy used for Alr, we selected high and low
+arabinose induction levels for differential screening.
+We performed high-throughput screening of the Prestwick
+library in triplicate for all ﬁve targets (Fig. 6e–h) and selected hit
+compounds causing differential growth (ODHIGH −ODLOW >
+0.1) at signiﬁcant levels (SSMD > 5).
+Hits were identiﬁed for Asd and DapB (Fig. 6i, h). All hit
+compounds were small and hydrophilic relative to the set of
+known antibacterials annotated in the Prestwick library (Fig. 6k).
+This may reﬂect the role of the E. coli membrane as a selective
+barrier to activity in the TESEC assay. No hits were identiﬁed in
+the CysH and TrpD strains, which showed poor growth at all
+induction levels and high variance during screening. These results
+highlight the importance of precise control and low-burden
+heterologous
+expression
+for
+robust
+chemical-genetic
+drug
+discovery.
+As with benazepril, we validated the hit compounds by creating
+chemical-genetic growth proﬁles varying both drug concentration
+and arabinose induction. Four of the ﬁve hit compounds
+produced characteristically diagonal growth proﬁles, conﬁrming
+a relationship between target abundance and drug sensitivity
+(Fig. 6l–p). This relationship was also evident in single arabinose
+dose-response curves for selected drug levels in the micromolar
+range: arabinose induction of the TESEC strain, but not a wild-
+type
+control,
+signiﬁcantly
+increased
+resistance
+to
+the
+hit
+compound (Fig. 6q–u). A ﬁfth hit, diethylstilbestrol, showed no
+interaction with target expression in follow-up assays.
+Two of the four conﬁrmed hits have previously shown activity
+against
+whole-cell
+mycobacteria
+in
+the
+micromolar
+range:
+pentamidine41 and bromhexine42. Both drugs are administered
+through inhalation and show high bioavailability in the lungs43,44.
+Deoxycorticosterone has been shown to reduce mycobacterial
+growth
+within
+human
+macrophages45.
+For
+each
+of
+these
+compounds, our results suggest a previously unknown metabolic
+anti-microbial mechanism of action. Riluzole has no demonstrated
+anti-mycobacterial activity to our knowledge, although it contains a
+triﬂuoromethoxy group rare in medicinal chemistry and found in
+many recent anti-TB clinical candidates including delamanid,
+pretomanid and, telacebec46.
+Of the ﬁve hit compounds, only pentamidine showed activity
+against M. smegmatis in the micromolar range (Supplementary
+Fig. 4). In contrast bromhexine, deoxycorticosterone and riluzole
+showed reproducible activity in the TESEC strain but not against
+M. smegmatis. This discrepancy may be due, in part, to
+membrane efﬂux activities present in wild-type cells but deleted
+in TESEC strains.
+To better characterize the role of membrane efﬂux in TESEC
+screening, we tested our hit compounds against E. coli with wild-
+type efﬂux activity, as well as strains bearing deletions in the TolC
+system and ﬁve additional efﬂux deletion strains (Supplementary
+Fig. 5). For four compounds (Benazepril, bromhexine, diethyl-
+stilbestrol riluzole), the deletion of speciﬁcally tolC was necessary
+to reveal drug sensitivity. In contrast, varying the efﬂux
+phenotype had only modest effect on responses to the other
+two drugs, pentamidine and deoxycorticosterone, suggesting that
+their signal in our differential screen was produced mainly by the
+engineered variations in target abundance. These results are
+consistent with the original design motivations for the TESEC
+platform, in which efﬂux-deﬁcient E. coli were engineered to
+reveal target-speciﬁc interactions rather than whole-cell activities.
+Discussion
+This study demonstrates the use of TESEC screening to identify
+an anti-Mtb, anti-Alr activity of benazepril. The Prestwick drug
+library used here has been screened extensively for antibiotic
+activity, including in whole-cell assays against live Mtb41, and
+targeted assays against puriﬁed Alr47. The extraction of a lead
+from this well-explored resource suggests that TESEC screening
+passes compounds through a selective ﬁlter unlike that of other
+discovery technologies.
+The activity of benazepril against live mycobacteria appeared to
+differ mechanistically from that in the TESEC assay. In the E. coli
+model, the inhibitory effect of benazepril could be rescued by
+supplementation with D-ala, the enzymatic product of Alr, con-
+sistent with an activity speciﬁc to that enzyme. In M. smegmatis
+and Mtb, D-ala supplementation did not rescue benazepril inhi-
+bition, suggesting benazepril may act on other targets as has been
+10
+−1
+10
+0
+Benazepril (mM)
+0
+50
+100
+VF
+10
+−4
+10
+−2
+10
+0
+DCS (mM)
+0
+50
+100
+VF
+0
+5
+10
+15
+20
+Alanine (mM)
+0
+20
+40
+60
+80
+100
+VF
+0.0
+0.2
+0.4
+Benazepril (mM)
+50
+100
+VMAX
+0.0
+0.2
+0.4
+Benazepril (mM)
+0
+4
+8
+KM
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Benazepril (mM)
+a
+b
+c
+Fig. 5 Benazepril inhibits Mtb Alr in vitro. His-tagged Mtb Alr was puriﬁed and incubated with the indicated drug concentrations. Alr activity, VF, was
+assayed using a coupled reaction yielding NADH. a Inhibition curves for benazepril and DCS. Data is presented as the man and CI95 of three independent
+assays. b In vitro kinetics of Alr varying both inhibitor and substrate. At least three individual measurements are plotted for each pair of concentrations.
+Lines indicate best-ﬁt Michaelis–Menten curves for each tested benazepril concentration. c Best-ﬁt values of Michaelis–Menten parameters as a function of
+benazepril concentration. Data is presented as the mean and CI95 for best-ﬁt parameter values, as estimated using Student’s t-distribution. Source data are
+provided as a Source Data ﬁle.
+ARTICLE
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-022-31570-3
+6
+NATURE COMMUNICATIONS |  (2022) 13:3905 | https://doi.org/10.1038/s41467-022-31570-3 | www.nature.com/naturecommunications
+
+
+--- Page 7 ---
+shown for cycloserine48. Benazepril is also likely to be efﬂuxed, as
+indicated by its substantially higher MIC in mycobacteria
+(~2 mM) relative to the efﬂux-negative TESEC strain (~100 μM).
+This highlights a trade-off in TESEC similar to that in puriﬁed
+biochemical assays: bypassing the role of the membrane to reveal
+target-speciﬁc interactions in early-stage screening means the
+membrane may reappear as a point of failure at later stages.
+The notoriously impermeable mycobacterial envelope repre-
+sents a challenge for TESEC screening as it does for other anti-
+mycobacterial discoveries strategies. Target-based screens present
+no membrane challenge and often produce impermeant hits as a
+result49. Whole-cell screens against Mtb are plagued by redun-
+dant hits against promiscuous membrane targets that are inher-
+ently more accessible than cytosolic targets50,51. The TESEC assay
+0
+10
+5
+10
+7
+Arabinose (nM)
+0.1
+0.3
+0.5
+Growth (OD)
+L
+*
+H
+*
+//
+Asd
+0
+10
+5
+10
+7
+Arabinose (nM)
+0.1
+0.3
+0.5
+L
+*
+H
+*
+//
+DapB
+0
+10
+5
+10
+7
+Arabinose (nM)
+0.1
+0.3
+0.5
+L
+*
+H
+*
+//
+CysH
+0
+10
+5
+10
+7
+Arabinose (nM)
+0.1
+0.3
+0.5
+L
+*
+H
+*
+//
+TrpD
+−0.2
+0.0
+0.2
+ODHIGH - ODLOW)
+0
+20
+|SSMD|
+−0.2
+0.0
+0.2
+ODHIGH - ODLOW)
+0
+20
+−0.2
+0.0
+0.2
+ODHIGH - ODLOW)
+0
+20
+−0.2
+0.0
+0.2
+ODHIGH - ODLOW)
+0
+20
+Diethylstilbestrol
+Bromhexine
+Deoxycorticosterone
+Riluzole
+0.0
+0.2
+0.4
+Growth (OD)
+Pentamidine
+0.0
+0.2
+0.4
+−7.5
+−5.0
+−2.5
+0.0
+2.5
+5.0
+Hydrophobicity (logP)
+0
+500
+1000
+MW (Da)
+10
+5
+10
+6
+10
+7
+Arabinose (nM)
+10
+0
+10
+1
+10
+2
+Diethylstilbestrol (μM)
+10
+5
+10
+6
+10
+7
+Arabinose (nM)
+10
+0
+10
+2
+Bromhexine (μM)
+10
+5
+10
+6
+10
+7
+Arabinose (nM)
+10
+0
+10
+1
+10
+2
+Deoxy-
+corticosterone (μM)
+10
+5
+10
+6
+10
+7
+Arabinose (nM)
+10
+0
+10
+1
+10
+2
+Riluzole (μM)
+10
+5
+10
+6
+10
+7
+Arabinose (nM)
+10
+0
+10
+1
+10
+2
+Pentamidine (μM)
+10
+5
+10
+6
+10
+7
+Arabinose (nM)
+0.0
+0.2
+0.4
+Growth (OD)
+10
+5
+10
+6
+10
+7
+Arabinose (nM)
+0.0
+0.2
+0.4
+10
+5
+10
+6
+10
+7
+Arabinose (nM)
+0.0
+0.2
+0.4
+10
+5
+10
+6
+10
+7
+Arabinose (nM)
+0.0
+0.2
+0.4
+10
+5
+10
+6
+10
+7
+Arabinose (nM)
+0.0
+0.2
+0.4
+0.1
+0.2
+0.3
+Growth (OD)
+0.2
+0.4
+Growth (OD)
+0.1
+0.2
+0.3
+Growth (OD)
+0.1
+0.2
+0.3
+Growth (OD)
+0.1
+0.2
+0.3
+Growth (OD)
+Diethylstilbestrol
+89 μM
+Bromhexine
+9 μM
+Deoxycorticosterone
+18 μM
+Riluzole
+44 μM
+Pentamidine
+89 μM
+a
+b
+c
+d
+e
+f
+g
+h
+i
+j
+k
+l
+m
+n
+o
+p
+q
+r
+s
+t
+u
+Fig. 6 TESEC supports screening for diverse metabolic targets. a–d TESEC strains for the indicated metabolic targets grown on deﬁned medium with the
+essential enzyme induced with a range of arabinose concentrations. The indicated low (L) and high (H) arabinose concentrations were selected for
+differential screening. Data are presented as the mean and CI95 of six biological replicates. e–h Differential screening of the Prestwick library was performed
+at both low and high arabinose concentrations in triplicate. Hits were selected as compounds with median differential OD measurements of 0.1 and SSMD
+scores >5. i, j Hit compounds identiﬁed for targets Asd, and DapB. No signiﬁcant hits were identiﬁed for CysH or TrpD. Colored bars indicate mean growth
+under high induction, gray bars at low induction. Individual data points are shown for three biological replicates. k Molecular weight and hydrophobicity
+scores for identiﬁed hit compounds (Asd, blue; DapB, purple) and for all annotated antibacterials in the Prestwick library (beige). Hydrophobicity scores
+were estimated with the alvaMolecule software package. l–p Chemical-genetic validation proﬁles show TESEC grows as a function of both drug dose and
+TESEC target induction level. With the exception of diethylstilbestrol, hit compounds showed the characteristic diagonal pattern indicating that drug
+sensitivity depended on target expression level. q–u Individual dose–response curves extracted from the chemical-genetic proﬁles for a range of arabinose
+concentrations and the indicated drug dose. Except diethylstilbestrol, drug-treated TESEC strains showed improved growth at higher arabinose induction
+(green lines). Wild-type controls, in which target expression was not controlled by arabinose, did not show improved growth (gray lines). Data are
+presented as the mean and CI95 for three biological replicates. Source data are provided as a Source Data ﬁle.
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-022-31570-3
+ARTICLE
+NATURE COMMUNICATIONS |  (2022) 13:3905 | https://doi.org/10.1038/s41467-022-31570-3 | www.nature.com/naturecommunications
+7
+
+
+--- Page 8 ---
+includes a bacterial membrane but not a mycobacterial mem-
+brane. How might this substitution impact screening results?
+As with other Gram-negative bacteria, the E. coli outer mem-
+brane is coated with a stiff layer of lipopolysaccharides that
+excludes most large molecules52. Small molecules must be sufﬁ-
+ciently hydrophilic to pass through outer membrane porins, then
+sufﬁciently hydrophobic to cross the inner lipid bilayer by
+solubility-diffusion52. This triple ﬁltration means that most
+Gram-negative antibiotics occupy a narrow physico-chemical
+space53.
+Although mycobacteria are classiﬁed as Gram-positive, their
+envelope resembles that of Gram-negative strains in some
+respects, notably in the presence of an outer membrane bridged
+by porins25. The mycobacterial envelope is exceptionally rich in
+lipids and includes a layer of waxy long-chain mycolic acids54.
+These properties may explain why anti-Mtb actives tend to be
+smaller and more lipophilic than antibiotics in general55.
+Any compound identiﬁed by TESEC screening then conﬁrmed
+for anti-Mtb activity will need to pass through both bacterial
+membranes. Benazepril’s small size (MW 424) compares to that
+of many known antibiotics56. By hydrophobicity (clogP 1.3),
+benazepril is at the high end for Gram-negative penetration56 and
+the low end for Mtb55.
+Once entering the cell a would-be antibiotic must contend with
+a battery of efﬂux pumps that are numerous and diverse in both
+E. coli57 and Mtb58. We did not attempt to use E. coli as a model
+for efﬂux in Mtb. Instead, we eliminated major efﬂux activities by
+deleting tolC, making TESEC screening a mostly efﬂux-agnostic
+assay. This choice was motivated by the complexity and context-
+dependence of efﬂux in Mtb, which varies among natural
+isolates59 and during the course of an infection60. For example, a
+study of 21 clinical isolates of Mtb found 10 strains with increased
+expression of at least one putative efﬂux pump relative to the
+H37Rv reference strain, with 6 different pumps showing natural
+variation61. In this context, even a whole-cell screen with live Mtb
+cannot fully capture the clinical diversity of the Mtb membrane
+barrier. The lack of a good laboratory model for Mtb efﬂux
+remains a bottleneck for antibiotic development at all stages62.
+Why perform a drug screen using an E. coli model rather than
+directly in the pathogen of interest? The TESEC approach offers
+low material costs, technical simplicity and base-level biosafety
+requirements. Synthetic biology tools developed for E. coli allow
+precise gene expression control, which our results indicate is
+important to minimize non-speciﬁc physiological stress. Efforts to
+make non-model microbes more genetically tractable may enable
+TESEC-like screening in other hosts14. Alternately, genetic
+alterations of E. coli may allow it to more closely emulate the
+physiology or membrane structure of other microbes63, leading to
+the convergence of the two approaches.
+Beyond the scientiﬁc challenges, low-cost technologies like
+TESEC may help to alleviate the economic pressures that limit
+antibiotic development20. Early-stage screening represents a sig-
+niﬁcant fraction of total development costs due to high failure
+rates that require many screens to be launched for each advancing
+compound64. While traditional pharma companies are increas-
+ingly unwilling to assume all of the ﬁnancial risks65, emerging
+economic models propose to distribute the costs and risks among
+academic laboratories, small- and medium- sized enterprises,
+charitable organizations and national research institutes in high-
+burden countries21,66–68. TESEC strains can be freely replicated
+and exchanged, supporting highly multilateral projects char-
+acteristic of open science69 and open drug discovery70,71.
+Methods
+Construction of the TESEC host strain. The TESEC host was derived from
+BW2511372. Deletions of the genes araC, tolC, entC, alr, dadX, dapB, asd, cysH,
+and trpD were introduced by phage transduction of kanamycin resistance cassettes
+from the Keio collection73, with cassettes subsequently removed by transient
+expression of Flp recombinase72. A complete list of strains used in this study is
+provided in Supplementary Table 1.
+Construction of the TESEC expression system. The plasmids pRD123 and
+pRD13128 were modiﬁed for compatibility with Golden Gate assembly18. Type IIS
+restriction sites were removed and a lacZ cassette was introduced at the cloning site
+to facilitate blue/white screening.
+Coding sequences for expressed proteins were ordered as synthetic DNA
+(Integrated DNA Technologies) and codon-optimized for expression in E. coli. The
+Mtb Alr sequence was obtained from the Mtb H37Rv genome as gene ID
+Rv3423c23.
+Four additional Mtb target sequences of interest dapB (Rv2773c), asd
+(Rv3708c), cysH (Rv2392), trpD (Rv2192c) were taken from the same Mtb genome.
+A complete list of plasmids created for this study is provided in Supplementary
+Table 2. Plasmid DNA sequences are available as a Supplementary Data ﬁle.
+E. coli culture conditions. Conventional strain manipulations used standard Luria-
+Bertani (LB) media and 1.5% agar LB plates. Experiments were performed using
+deﬁned medium using an M9 base: 11.26 g/L M9 Minimal Salts (BD 248510),
+2 mM MgSO4, 0.1 mM CaCl2, and 4 g/L D-fructose as the primary carbon source.
+To support robust growth, the base media was supplemented with 1 g/L complete
+amino acids mix (USBiological D9516) and 30 mg/L vitamin B1.
+Plasmids carrying the KanR and AmpR markers were maintained with 50 μg/
+mL kanamycin and 100 μg/mL ampicillin, respectively. Growth media for strains
+bearing the alr and dadX deletions were supplemented with 100 μg/mL D-alanine
+except when performing Alr-dependent growth assays. All incubations were
+performed at 37 °C with shaking. All OD measurements were collected at 600 nm.
+Mycobacterial culture conditions. M. smegmatis mc2155 was grown at 37 °C in
+Tryptic Soy Broth (TSB, Sigma 22092) supplemented with 0.5% Tween 80 (Sigma
+P5188).
+M. tuberculosis H37Rv was grown at 37 °C in Middlebrook 7H9 broth (Sigma
+M0178) containing 0.2% glycerol and 10% OADC supplement (BD 211886).
+Fluorescence measurements of GFP-tagged Mtb Alr. The expression of GFP-
+tagged Alr was measured in deﬁned medium supplemented with D-alanine to
+eliminate the growth requirement of Alr expression.
+An arabinose dilution series was prepared beginning with 1 M arabinose and
+proceeded in 22 steps of two-fold dilution with a ﬁnal well receiving no arabinose.
+A Tecan Freedom Evo liquid-handling robot was used to dispense 30 μL of each
+solution into a 384-well deep-well plate (Corning 3342).
+The TESEC GFP-tagged Mtb Alr strain was grown overnight in deﬁned
+medium without arabinose. The following morning cells were resuspended in
+deﬁned medium at an OD of 0.05. 30 μL of cell suspension was added to each well
+of the arabinose dilution series. Cells were incubated for one hour. GFP
+ﬂuorescence was measured from a minimum of 10,000 cells using the FITC-A
+channel of a ﬂow cytometer (BD LSRFortessa).
+High-throughput screening. Drug screens were performed in two formats: 96-well
+and 384-well. The initial drug screen was performed in 96-well format using the
+TESEC Mtb Alr expression strain under high- and low-induction conditions.
+Subsequent screens were miniaturized to 384-well format and applied a wider
+range of induction conditions.
+For 96-well format screens, the 1280 compound Prestwick Chemical Library
+was prepared with each compound at 10 mM concentration in DMSO. 1.5 μL
+samples were aliquoted to microplates with clear ﬂat bottoms (Greiner 655090)
+using a Tecan Freedom Evo liquid-handling robot. The leftmost and rightmost
+columns of each plate were reserved for DMSO-only control wells.
+Cells were grown overnight in deﬁned medium supplemented with D-alanine.
+The next day cells were washed three times by centrifugation and resuspension in
+phosphate buffered saline (PBS), then diluted to an OD of 0.05 in deﬁned medium
+lacking D-alanine but supplemented with arabinose at 0.1 μM for low Alr
+induction or 10 mM for high Alr induction.
+Screening plates were ﬁlled with the dilute cell suspension at a volume of
+150 μL, producing ﬁnal drug concentrations of 0.1 mM and 1% DMSO. One OD
+reading was collected prior to incubation to establish the background absorbance of
+drugs alone. Plates were sealed with aluminum foil and incubated for 10 h.
+Aluminum foil was removed prior to taking post-incubation OD measurements
+with a microplate reader (Tecan Inﬁnite).
+384-well format screens were performed with small-volume microplates
+(Greiner 784101). An acoustic liquid handler (Labcyte Echo 500) was used to
+dispense 150 nL droplets of library drugs at 10 mM in DMSO. Cells were washed as
+above and diluted into deﬁned media at an OD of 0.05. The diluted cell suspension
+was dispensed to the screening plates at a 15 μL volume to produce a ﬁnal drug
+concentration of 0.1 mM and 1% DMSO. Plates were sealed with aluminum foil
+and incubated with shaking for 10 h. Foil was removed prior to ﬁnal OD
+measurements.
+ARTICLE
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-022-31570-3
+8
+NATURE COMMUNICATIONS |  (2022) 13:3905 | https://doi.org/10.1038/s41467-022-31570-3 | www.nature.com/naturecommunications
+
+
+--- Page 9 ---
+Screening hits were identiﬁed by comparing mean differential OD values and
+SSMD scores calculated in Python. A single compound, Chicago Sky Blue 6B, was
+excluded from statistical analysis because of high background absorbance.
+Chemical-genetic proﬁling of hit compounds. A two-dimensional dilution series
+of arabinose and the indicated drug were prepared in deﬁned media using a Tecan
+Freedom EVO liquid-handling robot. Overnight cultures of the TESEC Mtb Alr
+expression strain were grown in deﬁned media supplemented with D-alanine, then
+washed in PBS and diluted in D-alanine-free medium. 50 μL of washed cells were
+dispensed at a ﬁnal OD of 0.05 into clear, ﬂat-bottom, 384-well plates (Thermo-
+Fisher 242764) containing the two-dimensional dilution series. OD measurements
+were collected after 10 h of incubation.
+The effect of TolC-mediated efﬂux was investigated with TolC+ and EntC+
+control strains derived from the TESEC ancestor BW2511374. Overnight cultures
+were grown in deﬁned medium, washed in PBS, and resuspended at an OD of 0.05.
+50 μL of washed cells were dispensed at a ﬁnal OD6 of 0.05 into clear, ﬂat-bottom
+384-well plates (ThermoFisher 242764). The indicated drug concentrations were
+added from DMSO stock solutions with ﬁnal DMSO concentrations kept below
+1%. OD measurements were collected after 10 h of incubation.
+D-alanine rescue experiments were performed using the TESEC Mtb Alr
+expression strain cultured and washed as above then diluted to OD of 0.05 in a
+deﬁned medium supplemented with 5 mM D-alanine. OD measurements were
+collected after 10 h of incubation.
+Growth inhibition assays with M. smegmatis mc2155. A dilution series was
+prepared for each drug in TSB + 0.5% Tween 80. Drugs stocks for benazepril
+(Sigma B0935), benazeprilat (USP 1048641), and DCS (Sigma C6880) were pre-
+pared in DMSO, with ﬁnal DMSO concentrations kept constant at 1% across all
+assays.
+Single colonies of M. smegmatis mc2155 were grown to saturation for 48 h in
+TSB + 0.5% Tween 80. Drug treatments were prepared as 2 mL cultures in the
+same medium with cells diluted to OD 0.01, then incubated for 24 h with shaking.
+An additional 0.5% Tween 80 was used to solubilize cell aggregates prior to ﬁnal
+OD readings.
+Growth inhibition assays with M. tuberculosis H37Rv. Antibiotic activity against
+Mtb was determined using the microdilution method with ﬁve biological replicates.
+Two-fold serial dilutions of the tested drugs were prepared in a 96-well microplate.
+Live Mtb were inoculated with an initial density of 105 Colony-Forming Units
+(CFUs) in growth medium at a volume of 200 μL.
+The plates were incubated at 37 °C for 7–9 days, then 2.5 μg/mL resazurin
+(Sigma R7017) was added to each well before a further one-day incubation.
+Metabolic viability was determined visually by the color change of resazurin from
+blue to pink.
+The effect of D-alanine on drug treatments was determined by further
+supplementing growth medium with a two-fold dilution series of D-alanine
+(0–5 mM).
+Expression and puriﬁcation of Mtb Alr. The Mtb Alr enzyme was expressed as
+the short variant characterized by Strych et al. that features a 24-residue N-terminal
+truncation relative to the annotated Rv3423c gene23. The enzyme was His-tagged
+and expressed in the TESEC Alr- Host strain, which has no other source of Alr
+activity.
+The TESEC Alr Puriﬁcation strain was grown to saturation in 500 mL of LB
+supplemented with ampicillin, kanamycin, D-alanine, and 100 mM L-arabinose. A
+cell pellet of approximately 2 grams was harvested by centrifugation, cooled to 4 °C
+and lysed with 10 mL B-PER reagent (ThermoFisher 78248) and a standard EDTA-
+free protease inhibitor cocktail (Merck 11873580001).
+The lysate was cleared by centrifugation and passed over 3 mL HisPur spin
+columns (ThermoFisher 88226). Elution fractions were collected with increasing
+concentrations of imidazole (Sigma I2399) and checked for the presence of a single
+band using SDS-PAGE gels (Bio-Rad 4561081) and Coomassie staining. Successful
+elutions were combined and dialyzed (ThermoFisher 66380) against 20 mM Tris,
+100 mM NaCl pH 8.0 for 72 h at 4 °C. Finally, samples were concentrated by
+centrifugal ﬁltration in Amicon Ultra columns (Merck UFC9010). Total protein
+concentrations were determined using the Rapid Gold BCA Protein Assay
+(ThermoFisher A53226) calibrated to a standard curve following the
+manufacturer’s protocol.
+Mtb Alr inhibition assays. The enzymatic activity of Alr was measured using a
+standard assay34 in which L-alanine produced by Alr drives the stoichiometric
+production ﬂuorescence-readable NADH through the activity of the coupling
+enzyme L-alanine dehydrogenase (Merck A7189).
+Dilution series of benazepril (TCI Chemicals B3611) or DCS (Sigma C6880)
+were prepared in reaction buffer (20 mM Tris, 100 mM NaCl, pH 8.0) with 10%
+DMSO. 5 μL solutions of 90 nM puriﬁed Mtb Alr in reaction buffer were incubated
+with 5 μL drug treatments for 30 min at room temperature. After pre-incubation,
+35 μL reaction cocktails of 0.05 U/mL L-alanine dehydrogenase and 20 mM β-NAD
+(Sigma N8129) in sodium bicarbonate buffer (pH 10.5) were added to each well.
+The reactions were started with the addition of 5 μL of D-alanine solution
+(0–20 mM) and followed by the evolution of ﬂuorescence (340 nm excitation,
+460 nm emission) using a TECAN Spark plate reader. Final DMSO concentrations
+were kept constant at 1% for all reactions.
+Initial reaction rates were determined using the linear portion of the
+ﬂuorescence evolution curves. Alr activity is reported as a percentage relative to the
+initial velocity in 20 mM D-alanine and no inhibitor. Best-ﬁt kinetic parameters
+were determined by nonlinear regression in Python.
+Culture conditions for additional TESEC strains. TESEC strains for trpD and
+cysH were cultured in the same deﬁned M9-base medium used for TESEC Mtb Alr.
+To convey growth dependence on the Mtb enzymes, the complete amino acid
+supplement was replaced with tryptophan dropout powder (USBiological D9530)
+for trpD or cysteine and methionine dropout powder (USBiological D9537-08) for
+cysH.
+TESEC strains for asd and dapB were cultured in M9-base medium
+supplemented with 1 g/L D-fructose, 1 g/L cysteine and methionine dropout
+powder, and 20 μg/mL diaminopimelic acid (DAP, Sigma D1377). Screening was
+performed in LB medium supplemented with 1 g/L D-fructose and 1 g/L complete
+amino acid supplement (USBiological D9516). DAP was omitted during growth
+curves and drug screening to convey growth dependence on enzyme expression.
+Reporting summary. Further information on research design is available in the Nature
+Research Reporting Summary linked to this article.
+Data availability
+Source data are provided with this paper. The data generated in this study have also been
+deposited in the Zenodo database (https://doi.org/10.5281/zenodo.6597306).
+Received: 13 September 2021; Accepted: 23 June 2022;
+References
+1.
+Cacace, E., Kritikos, G. & Typas, A. Chemical genetics in drug discovery. Curr.
+Opin. Syst. Biol. 4, 35–42 (2017).
+2.
+Krishnamurthy, M., Moore, R. T., Rajamani, S. & Panchal, R. G. Bacterial
+genome engineering and synthetic biology: Combating pathogens. BMC
+Microbiol. 16, 258 (2016).
+3.
+Johnson, E. O. et al. Large-scale chemical-genetics yields new M. tuberculosis
+inhibitor classes. Nature 571, 72–78 (2019).
+4.
+Peters, J. M. et al. A comprehensive, CRISPR-based functional analysis of
+essential genes in bacteria. Cell 165, 1493–1506 (2016).
+5.
+DeVito, J. A. et al. An array of target-speciﬁc screening strains for antibacterial
+discovery. Nat. Biotechnol. 20, 478–483 (2002).
+6.
+Donald, R. G. K. et al. A staphylococcus aureus ﬁtness test platform for
+mechanism-based proﬁling of antibacterial compounds. Chem. Biol. 16,
+826–836 (2009).
+7.
+Soo, V. W. C., Hanson-Manful, P. & Patrick, W. M. Artiﬁcial gene
+ampliﬁcation reveals an abundance of promiscuous resistance determinants in
+Escherichia coli. Proc. Natl Acad. Sci. USA 108, 1484–1489 (2011).
+8.
+Melief, E. et al. Construction of an overexpression library for Mycobacterium
+tuberculosis. Biol. Methods Protoc. 3, bpy009 (2018).
+9.
+Abrahams, G. L. et al. Pathway-selective sensitization of Mycobacterium
+tuberculosis for target-based whole-cell screening. Chem. Biol. 19, 844–854
+(2012).
+10. Franzblau, S. G. et al. Comprehensive analysis of methods used for the
+evaluation of compounds against Mycobacterium tuberculosis. Tuberculosis 92,
+453–488 (2012).
+11. Alksne, L. E. & Dunman, P. M. Bacterial Pathogenesis (eds DeLeo, F. R. &
+Otto, M.) 271–283 (Humana Press, 2008).
+12. Palmer, A. C. & Kishony, R. Opposing effects of target overexpression reveal
+drug mechanisms. Nat. Commun. 5, 4296 (2014).
+13. Moriya, H. Quantitative nature of overexpression experiments. MBoC 26,
+3932–3939 (2015).
+14. Chhotaray, C. et al. Advances in the development of molecular genetic tools
+for Mycobacterium tuberculosis. J. Genet. Genomics 45, 281–297 (2018).
+15. Hänscheid, T. & Grobusch, M. P. Biosafety and tuberculosis laboratories in
+Africa. Lancet Infect. Dis. 10, 582–583 (2010).
+16. Balfour, J. A. & Goa, K. L. Benazepril. A review of its pharmacodynamic and
+pharmacokinetic properties, and therapeutic efﬁcacy in hypertension and
+congestive heart failure. Drugs 42, 511–539 (1991).
+17. Wu, J. Y. et al. Angiotensin-converting enzyme inhibitors and active
+tuberculosis: A population-based study. Medicine 95, e3579 (2016).
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-022-31570-3
+ARTICLE
+NATURE COMMUNICATIONS |  (2022) 13:3905 | https://doi.org/10.1038/s41467-022-31570-3 | www.nature.com/naturecommunications
+9
+
+
+--- Page 10 ---
+18. Engler, C., Kandzia, R. & Marillonnet, S. A one pot, one step, precision
+cloning method with high throughput capability. PLoS One 3, 7 (2008).
+19. Joyce, A. R. et al. Experimental and computational assessment of conditionally
+essential genes in Escherichia coli. J. Bacteriol. 188, 8259–8271 (2006).
+20. Årdal, C. et al. Antibiotic development—economic, regulatory and societal
+challenges. Nat. Rev. Microbiol. 18, 267–274 (2020).
+21. Miethke, M. et al. Towards the sustainable discovery and development of new
+antibiotics. Nat. Rev. Chem. 5, 726–749 (2021).
+22. Global tuberculosis report 2020 (Geneva: World Health Organization, 2020).
+23. Strych, U., Penland, R. L., Jimenez, M., Krause, K. L. & Benedik, M. J.
+Characterization of the alanine racemases from two mycobacteria. FEMS
+Microbiol. Lett. 196, 93–98 (2001).
+24. Wild, J., Hennig, J., Lobocka, M., Walczak, W. & Klopotowski, T.
+Identiﬁcation of the dadX gene coding for the predominant isozyme of alanine
+racemase in Escherichia coli K12. Molec. Gen. Genet. 198, 315–322 (1985).
+25. Maitra, A. et al. Cell wall peptidoglycan in Mycobacterium tuberculosis: An Achilles’
+heel for the TB-causing pathogen. FEMS Microbiol. Rev. 43, 548–575 (2019).
+26. Cycloserine. Tuberculosis 88, 100–101 https://doi.org/10.1016/S1472-9792(08)
+70007-6 (2008).
+27. Li, Y. et al. Cycloserine for treatment of multidrug-resistant tuberculosis: A
+retrospective cohort study in China. IDR 12, 721–731 (2019).
+28. Daniel, R., Rubens, J. R., Sarpeshkar, R. & Lu, T. K. Synthetic analog
+computation in living cells. Nature 497, 619–623 (2013).
+29. Cho, H., Uehara, T. & Bernhardt, T. G. Beta-lactam antibiotics induce a lethal
+malfunctioning of the bacterial cell wall synthesis machinery. Cell 159,
+1300–1311 (2014).
+30. Gallagher, L. A. et al. Impaired alanine transport or exposure to D-cycloserine
+increases the susceptibility of MRSA to beta-lactam antibiotics. J. Infect. Dis.
+https://doi.org/10.1093/infdis/jiz542 (2019).
+31. Borkowski, O., Ceroni, F., Stan, G.-B. & Ellis, T. Overloaded and stressed:
+Whole-cell considerations for bacterial synthetic biology. Curr. Opin.
+Microbiol. 33, 123–130 (2016).
+32. Raleigh, E. A., Elbing, K. & Brent, R. Selected topics from classical bacterial
+genetics. Curr. Protoc. Mol. Biol. 59 Chapter 1, Unit 1.4 https://doi.org/10.
+1002/0471142727.mb0104s59 (2002).
+33. Gengo, F. M. & Brady, E. The pharmacokinetics of benazepril relative to other
+ACE inhibitors. Clin. Cardiol. 14, 44–50 (1991).
+34. Bergmeyer, H. U., Williamson, D. H. & Gawehn, K. Methods of Enzymatic
+Analysis (Verlag Chemie, 1974).
+35. Lambert, M. P. & Neuhaus, F. C. Mechanism of D-cycloserine action:
+Aalanine racemase from Escherichia coli W. J. Bacteriol. 110, 978–987 (1972).
+36. Azam, M. A. & Jayaram, U. Inhibitors of alanine racemase enzyme: A review.
+J. Enzym. Inhibition Med. Chem. 31, 517–526 (2016).
+37. Meng, J. et al. Identiﬁcation and validation of aspartic acid semialdehyde
+dehydrogenase as a new anti-Mycobacterium tuberculosis target. Int. J. Mol.
+Sci. 16, 23572–23586 (2015).
+38. Paritala, H. & Carroll, K. New targets and inhibitors of mycobacterial sulfur.
+Metab. IDDT 13, 85–115 (2013).
+39. Paiva, A. M. et al. Inhibitors of dihydrodipicolinate reductase, a key enzyme of
+the diaminopimelate pathway of Mycobacterium tuberculosis. Biochim.
+Biophys. Acta (BBA) - Protein Struct. Mol. Enzymol. 1545, 67–77 (2001).
+40. Raman, K., Yeturu, K. & Chandra, N. targetTB: A target identiﬁcation pipeline
+for Mycobacterium tuberculosis through an interactome, reactome, and
+genome-scale structural analysis. BMC Syst. Biol. 2, 109 (2008).
+41. Kanvatirth, P., Jeeves, R. E., Bacon, J., Besra, G. S. & Alderwick, L. J. Utilisation
+of the Prestwick Chemical Library to identify drugs that inhibit the growth of
+mycobacteria. PLoS One 14, e0213713 (2019).
+42. Grange, J. M. & Snell, N. J. C. Activity of bromhexine and ambroxol, semi-
+synthetic derivatives of vasicine from the Indian shrub Adhatoda vasica,
+against Mycobacterium tuberculosis in vitro. J. Ethnopharmacol. 50, 49–53
+(1996).
+43. Monk, J. P. & Benﬁeld, P. Inhaled pentamidine: An overview of its
+pharmacological properties and a review of its therapeutic use in
+pneumocystis carinii Pneumonia. Drugs 39, 741–756 (1990).
+44. Deretic, V. & Timmins, G. S. Enhancement of lung levels of antibiotics by
+ambroxol and bromhexine. Expert Opin. Drug Metab. Toxicol. 15, 213–218
+(2019).
+45. Tükenmez, H. et al. Corticosteroids protect infected cells against mycobacterial
+killing in vitro. Biochem. Biophys. Res. Commun. 511, 117–121 (2019).
+46. Pieroni, M. Annual Reports in Medicinal Chemistry Vol. 52, 27–69 (Elsevier,
+2019).
+47. Anthony, K. G. et al. New classes of alanine racemase inhibitors identiﬁed by
+high-throughput screening show antimicrobial activity against Mycobacterium
+tuberculosis. PLoS One 6, e20374 (2011).
+48. Prosser, G. A. & de Carvalho, L. P. S. Metabolomics reveal d-alanine:
+d-alanine ligase as the target of d-cycloserine in Mycobacterium tuberculosis.
+ACS Med. Chem. Lett. 4, 1233–1237 (2013).
+49. Payne, D. J., Gwynn, M. N., Holmes, D. J. & Pompliano, D. L. Drugs for bad
+bugs: Confronting the challenges of antibacterial discovery. Nat. Rev. Drug
+Discov. 6, 29–40 (2007).
+50. Goldman, R. C. Why are membrane targets discovered by phenotypic screens
+and genome sequencing in Mycobacterium tuberculosis? Tuberculosis 93,
+569–588 (2013).
+51. Degiacomi, G. et al. Promiscuous targets for antitubercular drug discovery:
+The paradigm of DprE1 and MmpL3. Appl. Sci. 10, 623 (2020).
+52. Cama, J., Henney, A. M. & Winterhalter, M. Breaching the barrier:
+Quantifying antibiotic permeability across gram-negative bacterial
+membranes. J. Mol. Biol. 431, 3531–3546 (2019).
+53. Brown, D. G., May-Dracka, T. L., Gagnon, M. M. & Tommasi, R. Trends and
+exceptions of physical properties on antibacterial activity for gram-positive
+and gram-negative pathogens. J. Med. Chem. 57, 10144–10161 (2014).
+54. Dulberger, C. L., Rubin, E. J. & Boutte, C. C. The mycobacterial cell envelope
+—A moving target. Nat. Rev. Microbiol. 18, 47–59 (2020).
+55. Machado, D., Girardini, M., Viveiros, M. & Pieroni, M. Challenging the drug-
+Likeness dogma for new drug discovery in tuberculosis. Front. Microbiol. 9,
+1367 (2018).
+56. O’Shea, R. & Moser, H. E. Physicochemical properties of antibacterial
+compounds: Implications for drug discovery. J. Med. Chem. 51, 2871–2878
+(2008).
+57. Li, X.-Z. & Nikaido, H. Efﬂux-Mediated Antimicrobial Resistance in Bacteria:
+Mechanisms, Regulation and Clinical Implications (eds Li, X.-Z., Elkins, C. A.
+& Zgurskaya, H. I.) 219–259 (Springer International Publishing, 2016).
+58. Liu, H. & Xie, J. Comparative genomics of Mycobacterium tuberculosis drug
+efﬂux pumps and their transcriptional regulators. Crit. Rev. Eukaryot. Gene
+Expr. 24, 163–180 (2014).
+59. Oh, T. S. et al. RNA expression analysis of efﬂux pump genes in clinical
+isolates of multidrug-resistant and extensively drug-resistant Mycobacterium
+tuberculosis in South Korea. Infect., Genet. Evol. 49, 111–115 (2017).
+60. Adams, K. N. et al. Drug tolerance in replicating mycobacteria mediated by a
+macrophage-induced efﬂux mechanism. Cell 145, 39–53 (2011).
+61. Kardan-Yamchi, J. et al. Expression analysis of 10 efﬂux pump genes in
+multidrug-resistant and extensively drug-resistant Mycobacterium tuberculosis
+clinical isolates. J. Glob. Antimicrobial. Resistance 17, 201–208 (2019).
+62. Kanji, A., Hasan, R. & Hasan, Z. Efﬂux pump as alternate mechanism for drug
+resistance in Mycobacterium tuberculosis. Indian J. Tuberculosis 66, 20–25
+(2019).
+63. Caforio, A. et al. Converting Escherichia coli into an archaebacterium with a
+hybrid heterochiral membrane. Proc. Natl Acad. Sci. USA 115, 3704–3709
+(2018).
+64. Towse, A. et al. Time for a change in how new antibiotics are reimbursed:
+Development of an insurance framework for funding new antibiotics based on
+a policy of risk mitigation. Health Policy 121, 1025–1030 (2017).
+65. Projan, S. J. Why is big Pharma getting out of antibacterial drug discovery?
+Curr. Opin. Microbiol. 6, 427–430 (2003).
+66. Pai, M. Time for high-burden countries to lead the tuberculosis research
+agenda. PLoS Med. 15, e1002544 (2018).
+67. Bhardwaj, A. et al. Open source drug discovery—A new paradigm of
+collaborative research in tuberculosis drug development. Tuberculosis 91,
+479–486 (2011).
+68. Årdal, C. & Røttingen, J.-A. Open source drug discovery in practice: A case
+study. PLoS Negl. Trop. Dis. 6, e1827 (2012).
+69. Committee on Toward an Open Science Enterprise, Board on Research Data
+and Information, Policy and Global Affairs, & National Academies of
+Sciences, Engineering, and Medicine. Open Science by Design: Realizing a
+Vision for 21st Century Research (National Academies Press, 2018).
+70. Balasegaram, M. et al. An open source pharma roadmap. PLoS Med. 14,
+e1002276 (2017).
+71. Shaw, D. L. Is open science the future of drug development? Yale J. Biol. Med.
+90, 147–151 (2017).
+72. Datsenko, K. A. & Wanner, B. L. One-step inactivation of chromosomal genes
+in Escherichia coli K-12 using PCR products. Proc. Natl Acad. Sci. USA 97,
+6640–6645 (2000).
+73. Baba, T. et al. Construction of Escherichia coli K‐12 in‐frame, single‐gene
+knockout mutants: The Keio collection. Mol. Syst. Biol. 2, 2006.0008 (2006).
+74. Grenier, F., Matteau, D., Baby, V. & Rodrigue, S. Complete genome sequence
+of Escherichia coli BW25113. Genome Announcements 2, 6640 (2014).
+Acknowledgements
+We thank Jean-Emmanuel Hugonnet for advice on assays using live Mtb. Thanks to the
+Bettencourt Schueller Foundation long term partnership, this work was partly supported
+by the CRI Research Fellowship to EHW. Additional support was provided by MSDA-
+VENIR (DS-2018-0073).
+ARTICLE
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-022-31570-3
+10
+NATURE COMMUNICATIONS |  (2022) 13:3905 | https://doi.org/10.1038/s41467-022-31570-3 | www.nature.com/naturecommunications
+
+
+--- Page 11 ---
+Author contributions
+N.B., A.B.L., and E.H.W. conceived and planned the experiments. Z.E. performed the
+Mtb inhibition assays. A.A.A. and S.S.-C. contributed to strain development and high
+throughput screening for Alr. X.S. contributed to the data analysis. S.G., S.H., and J.S.
+developed and screened additional strains. N.B. performed the in vitro Alr biochemical
+assays. N.B., A.B.L., and E.H.W. developed the ﬁnal manuscript.
+Competing interests
+The authors declare no competing interests.
+Additional information
+Supplementary information The online version contains supplementary material
+available at https://doi.org/10.1038/s41467-022-31570-3.
+Correspondence and requests for materials should be addressed to Ariel B. Lindner or
+Edwin H. Wintermute.
+Peer review information Nature Communications thanks Cesar de la Fuente and the
+other, anonymous, reviewer(s) for their contribution to the peer review of this work. Peer
+reviewer reports are available.
+Reprints and permission information is available at http://www.nature.com/reprints
+Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims in
+published maps and institutional afﬁliations.
+Open Access This article is licensed under a Creative Commons
+Attribution 4.0 International License, which permits use, sharing,
+adaptation, distribution and reproduction in any medium or format, as long as you give
+appropriate credit to the original author(s) and the source, provide a link to the Creative
+Commons license, and indicate if changes were made. The images or other third party
+material in this article are included in the article’s Creative Commons license, unless
+indicated otherwise in a credit line to the material. If material is not included in the
+article’s Creative Commons license and your intended use is not permitted by statutory
+regulation or exceeds the permitted use, you will need to obtain permission directly from
+the copyright holder. To view a copy of this license, visit http://creativecommons.org/
+licenses/by/4.0/.
+© The Author(s) 2022
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-022-31570-3
+ARTICLE
+NATURE COMMUNICATIONS |  (2022) 13:3905 | https://doi.org/10.1038/s41467-022-31570-3 | www.nature.com/naturecommunications
+11

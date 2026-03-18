@@ -1,0 +1,1141 @@
+--- Page 1 ---
+Theory
+An Evolutionarily Conserved
+Mechanism for Controlling the
+Efﬁciency of Protein Translation
+Tamir Tuller,1,2,5 Asaf Carmi,1,5 Kalin Vestsigian,3 Sivan Navon,1 Yuval Dorfan,1 John Zaborske,4 Tao Pan,4
+Orna Dahan,1 Itay Furman,1 and Yitzhak Pilpel1,*
+1Department of Molecular Genetics
+2Faculty of Mathematics and Computer Science
+Weizmann Institute of Science, Rehovot 76100, Israel
+3Department of Systems Biology, Harvard Medical School, Boston, MA 02115, USA
+4Department of Biochemistry and Molecular Biology, University of Chicago, Chicago, IL 60637, USA
+5These authors contributed equally to this work
+*Correspondence: pilpel@weizmann.ac.il
+DOI 10.1016/j.cell.2010.03.031
+SUMMARY
+Recent years have
+seen
+intensive
+progress
+in
+measuring protein translation. However, the contri-
+butions of coding sequences to the efﬁciency of the
+process remain unclear. Here, we identify a univer-
+sally conserved proﬁle of translation efﬁciency along
+mRNAs computed based on adaptation between
+coding sequences and the tRNA pool. In this proﬁle,
+the ﬁrst 30–50 codons are, on average, translated
+with a low efﬁciency. Additionally, in eukaryotes,
+the last 50 codons show the highest efﬁciency
+over the full coding sequence. The proﬁle accurately
+predicts
+position-dependent
+ribosomal
+density
+along yeast genes. These data suggest that transla-
+tion speed and, as a consequence, ribosomal density
+are encoded by coding sequences and the tRNA
+pool. We suggest that the slow ‘‘ramp’’ at the begin-
+ning of mRNAs serves as a late stage of translation
+initiation, forming an optimal and robust means to
+reduce ribosomal trafﬁc jams, thus minimizing the
+cost of protein expression.
+INTRODUCTION
+mRNA translation is controlled at multiple stages and by diverse
+mechanisms. A major part of the control occurs at the stage of
+initiation, where ribosomes are recruited to and assembled on
+the mRNA, typically on the 50 untranslated region (UTR) (Ingolia
+et al., 2009). The elongation phase is governed by both the
+mRNA secondary structure (Gray and Hentze, 1994) and the
+extent of adaptation of the coding sequence to the cellular
+tRNA pool (dos Reis et al., 2004; Sharp and Li, 1987). The abun-
+dance of tRNAs that correspond to the different codons in a gene
+was suggested to determine the speed (Akashi, 2003; Man and
+Pilpel, 2007) and accuracy (Drummond and Wilke, 2008) of trans-
+lation. Thus, codons that are recognized by abundant or rare
+tRNAs will be respectively referred to here as codons with high
+and low efﬁciency (or as codons that are respectively highly or
+lowly adapted to the tRNA pool).
+Transcripts whose codons are biased toward the more abun-
+dant tRNAs were found to be more highly expressed (Man and
+Pilpel, 2007; Qin et al., 2004). Indeed protein expression levels
+can be artiﬁcially increased by designed mutations that increase
+their codon-tRNA adaptation (Arava et al., 2003; DeRisi et al.,
+1997; Percudani et al., 1997; Tuller et al., 2007), pointing to a
+causal relationship between codon usage and expression level.
+Accordingly, the extent of adaptation between genes and the
+tRNA pool in different species was found to vary in evolution
+according to organisms’ lifestyle needs (Man and Pilpel, 2007).
+So far, studies that gauge translation efﬁciency have mostly
+considered average codon usage over entire genes (dos Reis
+et al., 2004; Man and Pilpel, 2007; Sharp and Li, 1987; Tuller
+et al., 2007). Such studies typically do not consider the order in
+which codons with low and high translation efﬁciency appear
+along the transcript. Although it was shown previously that the
+extent of codon bias changes along transcripts (Qin et al.,
+2004), it is not known whether gene sequences are arranged
+so as to determine speciﬁc levels of speed and accuracy of
+translation at various positions along transcripts. The order of
+high-efﬁciency and low-efﬁciency codons along transcripts
+could govern the process of translation, especially given that
+multiple ribosomes are often simultaneously loaded on a given
+transcript (Arava et al., 2003). Such instructions could affect
+speed and processivity of translation as well as the overall cost
+of protein production in cells. Such ‘‘trafﬁc rules’’ of translation
+may thus be selected for during evolution.
+To investigate a role for codon selection in modulating transla-
+tion efﬁciency, we inspected open reading frame sequences and
+tRNA repertoires in dozens of fully sequenced genomes. The
+input to our computed proﬁle of translation efﬁciency consists
+of coding sequences and a measure of adaptation between
+codons and the various tRNAs (dos Reis et al., 2004), which
+was previously shown to represent translation efﬁciency (dos
+344
+Cell 141, 344–354, April 16, 2010 ª2010 Elsevier Inc.
+
+
+--- Page 2 ---
+Reis et al., 2004; Man and Pilpel, 2007; Tuller et al., 2007). We
+describe a universally conserved translation efﬁciency proﬁle
+that features low translation efﬁciency over the ﬁrst 30–50
+codons of mRNAs. This feature is conserved in species that
+represent the three domains of life. Translation efﬁciency proﬁles
+of individual genes are often very noisy, yet selected subsets of
+the genes in each genome display this pattern. The observed
+proﬁle in the yeast S. cerevisiae accurately predicts the recently
+measured ribosome density proﬁles of mRNAs in this species
+(Ingolia et al., 2009). This correlation provides an indication that
+codon-tRNA adaptation approximates well the speed of transla-
+tion at various positions along mRNAs. This result also indicates
+that ribosomal speed and hence density are encoded into genes’
+sequences and the tRNA pool. We propose that the conserved
+translation efﬁciency proﬁle may have been selected for in
+diverse species as it minimizes ribosome trafﬁc jams and abor-
+tive protein synthesis and, as a consequence, the cost of protein
+expression.
+RESULTS
+A Universally Conserved Translation Efﬁciency Proﬁle
+The translation efﬁciency proﬁle of a gene is deﬁned, for each
+codon position, as the estimated availability of the tRNAs that
+participate in translating that codon. The proﬁle is high at codons
+that correspond to abundant tRNAs and low at codons that
+correspond to rare tRNAs. In particular, we used the tRNA-adap-
+tation index (tAI) to evaluate translation efﬁciency (dos Reis et al.,
+2004 and Experimental Procedures) at each codon. The tAI
+measure of an entire gene, developed following the classical
+Codon Adaptation Index (Sharp and Li, 1987), is deﬁned as the
+(geometric) average of tRNA availability values over all the
+codons in the gene (see Experimental Procedures). For each
+codon, the tAI considers the availability of the tRNA with the
+perfectly matched anticodon along with weighted contributions
+from imperfect codon-anticodon pairs, reﬂecting wobble inter-
+actions. Whereas the original tAI measure is deﬁned as an
+averaged value over the entire gene (Experimental Procedures,
+Equation 2), here we consider separately each codon along the
+sequence in what we deﬁne as the ‘‘local tAI’’ of a codon (see
+Experimental Procedures, Equation 1). Table S1 (available
+online) contains the local tAI value of each of the 61 types of
+codons in a diversity of species.
+Typically, the tAI uses the copy number of tRNA genes in the
+genome as a proxy for their abundance in the cytoplasm.
+Although this is a common assumption (see Extended Experi-
+mental Procedures 1 and 2, Table S1, and Man and Pilpel,
+2007; Percudani et al., 1997; Tuller et al., 2007), we examined it
+in S. cerevisiae using a microarray dedicated to the tRNAs in
+this species (Dittmar et al., 2004, 2006; Pavon-Eternod et al.,
+2009; Zaborske et al., 2009). Speciﬁcally, we examined the corre-
+lation between tRNA abundance and their gene copy number in
+yeast cells growing on a rich medium. tRNA abundance measure-
+ments were based on the Cy3 and Cy5 ﬂuorescence values of
+each tRNA on the array and came from a labeling method that
+relies only on the single-stranded 30NCCA in every tRNA (demon-
+stration of the feasibility of the method was done by quantitative
+comparison to 2D PAGE analysis of tRNAs; Dittmar et al., 2004,
+2006; Pavon-Eternod et al., 2009; Zaborske et al., 2009).
+We found that tRNA gene copy numbers are relatively highly
+correlated with their expression levels in rich medium conditions
+(r = 0.76 over 39 tRNA species, see Figure 1 and Figure S1). We
+also found that this correlation remains relatively high even when
+yeast undergo a major metabolic shift, termed ‘‘diauxic shift’’
+(DeRisi et al., 1997), from fermenting to respiratory conditions
+(correlation between 0.65 and 0.71; see also Table S1). The array
+analysis indicates that the tRNA gene copy number provides
+a reasonable proxy for tRNA abundance, and we thus use it, in
+S. cerevisiae and in the rest of the species too, in all subsequent
+tAI calculations.
+We started by inspecting the averaged translation efﬁciency
+proﬁles of all the genes in a given genome. To accomplish this
+analysis, all genes were lined up according to their start codon,
+and an average local tAI value at each position was calculated
+(see Experimental Procedures). In parallel, we also lined up all
+the genes in each genome relative to the stop codon and
+computed the average across all genes in the last position, the
+penultimate position, etc. Altogether we analyzed genomes of
+27 organisms with representatives from all three domains of
+life (see Table S2).
+As seen in Figure 2 and Table S2 (see also Figure S1,
+Figure S2, and Figure S3), in almost all species examined, the
+averaged translation efﬁciency proﬁle reveals several remark-
+ably conserved features. Translation starts with relatively low-
+efﬁciency codons for about the ﬁrst 30–50 positions. We term
+this part the ‘‘low-efﬁciency ramp’’ or the ‘‘ramp’’ for short. The
+ramp region is then followed by a plateau with 5%–10% higher
+translation efﬁciency on a genome average. A clear outlier in the
+ramp is the second codon position, which follows the initiating
+methionine that shows high efﬁciency compared to its neigh-
+boring codons in the majority of the species (Figure S2). This
+Figure 1. The tRNA Gene Copy Correlates with Levels of tRNA
+Genes in S. cerevisiae
+tRNA gene copy numbers versus the expression levels of tRNA genes in
+S. cerevisiae measured by a microarray dedicated to the tRNAs in this species
+(Dittmar et al., 2004). tRNA levels were measured independently with two alter-
+native dyes (Cy5 and Cy3), each producing similar correlations with the gene
+copy numbers.
+See also Table S1 and Figure S1.
+Cell 141, 344–354, April 16, 2010 ª2010 Elsevier Inc.
+345
+
+
+--- Page 3 ---
+design might support a fast release and recycling of the initiating
+methionine tRNA. In most of the examined eukaryotic species,
+predominantly in fungi, the proﬁle shows an increase in efﬁciency
+toward the last 50 codons of the genes, which in fungi are
+higher by up to 5% more than the value at the plateau in the
+middle section of genes (Figure 2F). Properly randomized
+sequences (and also some particular gene sets, see below) do
+not give rise to such signals (Figure 2, Table S2).
+Although the averaged proﬁle over all genes in a genome is
+relatively smooth, the proﬁle of single genes is often noisy. Still
+A
+C
+E
+F
+D
+B
+Figure 2. Selected Genome-Averaged Translation
+Efﬁciency Proﬁles
+(A–D) Averaged translation efﬁciency proﬁle (for the start
+line-up, see Experimental Procedures) for the ﬁrst 200
+codons in D. melanogaster (A), C. elegans (B), S. cerevisiae
+(C), and E. coli (D). Note the different span of values in each
+subplot. Each ﬁgure contains the averaged tAI proﬁle
+(black) and the randomized proﬁle ±3 standard deviations
+(gray; see details in the Experimental Procedures).
+(E and F) The translation efﬁciency proﬁles in various
+organisms for the start/end codon line-up (see Experi-
+mental Procedures). Each row describes the translation
+efﬁciency proﬁle of a different organism and each pixel
+describes a codon. Green denotes lower tAI, whereas
+red denotes higher tAI (see color bar on the right). The
+blue vertical line (E) denotes the means of the length of
+the ramp (Figure S2, Experimental Procedures) in prokary-
+otes/eukaryotes; the ratio between the means of these
+regions in eukaryotes/prokaryotes (34.5/24 = 1.43) may
+correspond to a difference in the size of the footprinted
+region of the eukaryotic and prokaryotic ribosomes on
+transcripts.
+See also Table S2 and Figure S2.
+it was important to inspect single genes, identify
+those that contribute the most to the observed
+averaged signal, and examine the possibility
+that other weaker signals may have been
+missed at the genome-average level. We thus
+deﬁned and identiﬁed the ‘‘bottleneck’’ region
+in each individual gene—a sequence window
+of 15 codons in length (that represents the
+length of the ribosome footprint region on
+mRNAs (Alberts et al., 2002; Ingolia et al.,
+2009; Kaczanowska and Ryden-Aulin, 2007;
+Menetret et al., 2000; Milo et al., 2009; Zhang
+et al., 1994; Zhu et al., 1997); very similar results
+were observed for windows of 10–20 codons
+in length), with the highest averaged values of
+1/(local tAI) (i.e., 15 codons with the longest
+dwell time in a gene). Figure 3 shows the distri-
+bution of locations of the bottleneck regions
+along all genes in two distantly related yeast
+species, S. cerevisiae and S. pombe. Both distri-
+butions show a consistent picture—a clear
+tendency to have the bottleneck relatively early
+along the genes. Other than this region there
+are no other regions that show any pronounced
+preference to contain bottlenecks. This picture
+shows that the ramp is a superposition of the translation efﬁ-
+ciency proﬁle of a relatively high number of genes (e.g., the
+bottleneck of 1330 genes is within the ﬁrst 54 codons).
+The analyses presented so far have addressed individual
+genes on one hand and averages of entire genomes on the other.
+An intermediate level is that of sets of genes that share a biolog-
+ical function. We considered genes that share the same Gene
+Ontology (GO) slim categories (Hirschman et al., 2006). Figures
+4A and 4B and Table S3 show the averaged proﬁles of genes
+from representative categories. We found that the genes from
+346
+Cell 141, 344–354, April 16, 2010 ª2010 Elsevier Inc.
+
+
+--- Page 4 ---
+many of the GO slim categories show evidence of containing a
+ramp. For example, genes that share the GO categories ‘‘cellular
+carbohydrate metabolic process’’ and ‘‘transport’’ demonstrate
+a very clear ramp. However, other gene sets, including those
+that share the GO categories ‘‘transcription’’ and ‘‘nucleus
+organization’’ do not have a ramp (see more examples in Fig-
+ure 4B and Table S3). Interestingly, the presence of the ramp
+is seen even among categories with very different absolute
+translation efﬁciency levels. For example, Figure 4C shows the
+local translation efﬁciency proﬁle of cytosolic and mitochondrial
+ribosomal proteins in S. cerevisiae. Interestingly, although
+selection acted to enhance overall efﬁciency of the cytosolic
+ribosomal proteins, the initial region shows lower efﬁciency
+relative to the rest of the genes.
+Beyond inspection of single genes, gene sets, and genome
+average, the highest level of averaging is from multiple genomes.
+We averaged all the eukaryotic proﬁles and all the prokaryotic
+ones. Notably, the length of the ramp (see Figure S2 for an
+illustration of how the length of the ramp was computed) in
+eukaryotes and prokaryotes is around 1–3 ribosomes (depend-
+ing on the deﬁnition of the actual number of nucleotides that
+are covered by a single ribosme; Alberts et al., 2002; Ingolia
+et al., 2009; Kaczanowska and Ryden-Aulin, 2007; Menetret
+et al., 2000; Milo et al., 2009; Zhang et al., 1994; Zhu et al.,
+1997). The ratio between the length of the ramp in eukaryotes
+and prokaryotes (mean ramp length in eukaryotes is 34.5
+codons; mean ramp length in prokaryotes is 24 codons; the ratio
+between these lengths is 1.43) may correspond to a difference in
+the size of the footprinted region of the eukaryotic and prokary-
+otic ribosomes on transcripts.
+We next wanted to examine if the ramp is maintained
+during an environmental change. For that we returned to the
+diauxic shift experiment in which we found some changes in
+the relative representation of the various tRNAs in the tRNA
+pool (Figures S1 and S2). We computed the ramp for all
+A
+B
+Figure 3. Bottlenecks in Translation Efﬁciency
+Tend to Be Localized Close to mRNAs 50 Ends
+The distribution of the positions of the bottlenecks in
+S. cerevisiae (A) and S. pombe (B). For each bottleneck
+position, the number of genes with a bottleneck in that
+position was normalized by dividing it by the number of
+genes whose length extends beyond that position. The
+distribution is similar also when considering only genes
+with more than 200 codons (inset).
+genes but measured tRNA levels at each
+time point instead of the static gene copy
+numbers, and we found that the ramp is
+largely maintained genome-wide (Figures S1
+and S2).
+The Universal Translation Efﬁciency
+Proﬁle Is under Selection
+The
+translation
+efﬁciency
+proﬁle
+is
+highly
+conserved in evolution, but this fact by itself is
+not a guarantee that the proﬁle is under direct
+selection. An alternative might be that the proﬁle is conserved
+as a by-product of selection acting on other conserved
+features. We have examined and excluded several speciﬁc
+alternatives.
+We started by examining the possibility that the observed
+proﬁle is conserved merely because the tRNA pool and codon
+biases
+are
+sufﬁciently
+conserved.
+According
+to
+this
+null
+hypothesis, the interspecies differences in the tRNA pool
+and the coding sequences are small enough to maintain the
+translation efﬁciency even if the proﬁle is not under direct
+selection. We thus computed the translation efﬁciency proﬁle
+of all the genes from one species using the tRNA pool of
+another, repeating this procedure for various pairs of species.
+This is a simple computational resemblance of true species
+hybridization experiments that are used to tell apart the contri-
+bution of cis- and trans-acting factors used in transcription
+research (Tirosh et al., 2009; Wang et al., 2007; Wittkopp
+et al., 2004). In one such hybrid analysis, the S. cerevisiae
+genes were translated using the Y. lipolytica tRNA pool, and
+in a reciprocal analysis, the coding sequences of Y. lipolytica
+were translated using the tRNA pool from S. cerevisiae. We
+have chosen these two species because their tRNA pools
+and their codon biases have diverged quite signiﬁcantly
+(Man and Pilpel, 2007), yet both species display the conserved
+translation efﬁciency proﬁle. Figure 5 shows that in these
+hybrids the ramp region is much shorter and shallower.
+More generally, the ramp region becomes shorter and shal-
+lower when hybridizing S. cerevisiae with tRNA pools from
+organisms with increasing evolutionary distances, and also
+when examining additional pairs of species (see also Table
+S4). These results indicate that the tRNA pools and the codon
+preferences have sufﬁciently diverged between species so as
+to eliminate the translation efﬁciency proﬁle if it were not
+directly selected for. We thus conclude that coevolution of
+the tRNA pool and the coding sequences took place in each
+Cell 141, 344–354, April 16, 2010 ª2010 Elsevier Inc.
+347
+
+
+--- Page 5 ---
+species so as to conserve the translation efﬁciency proﬁle.
+This suggestion is in line with the general indications of the
+emergence of codon bias from coevolution (Vetsigian and
+Goldenfeld, 2009).
+The second null hypothesis relates to the possibility that the
+observed translation efﬁciency proﬁle results from selection
+acting at the amino-acid sequence level. In contrast to this
+possibility, we found that in the region of the initial ramp the
+actual codon chosen from all possible codons of the given
+amino acid is often the one with low efﬁciency (see the red plots
+corresponding to the AAtAI proﬁle in Table S2; see Experi-
+mental Procedures for explanations about the AAtAI proﬁle).
+Beyond the ramp region, codon choice does not show this
+bias. This result excludes the possibility that the observed
+proﬁle is a by-product of constraints at the protein sequence
+level.
+Likewise, we have excluded another potential alternative
+reason for the observed proﬁle, that it is a by-product of a puta-
+tive position-dependent variation in the GC content along genes
+(Figure S3).
+We thus conclude that the translation efﬁciency proﬁles are
+not only universally conserved but are also likely under direct
+selection, presumably due to direct effects on ﬁtness.
+A
+B
+C
+Figure 4. The Proﬁle of Local Translation
+Efﬁciency of Selected Gene Groups
+(A) The proﬁle of local translation efﬁciency of three
+GO slim categories that have a ramp.
+(B) The length of the ramp (L2P) of all the GO slim
+categories.
+(C) The proﬁle of local translation efﬁciency of
+cytosolic ribosomal proteins (left) and mitochon-
+drial ribosomal proteins (right).
+See also Table S3.
+Codon-tRNA Adaptation May
+Determine Translation Speed
+and Ribosome Density along
+Transcripts
+A central question thus is what actual
+physical or biochemical quantity is en-
+coded by the translation efﬁciency proﬁle.
+One interesting possibility is that the
+values of the local tAI determine the local
+speed of movement of the translating
+ribosome through each codon along
+mRNAs. According to this hypothesis,
+the ribosomes are moving on average
+more slowly at the ramp region. The
+hypothesis
+that
+the
+observed
+proﬁle
+determines the speed of the ribosome at
+each position generates a clear prediction
+about the density of ribosomes at any
+given position. Assuming that ribosome
+distributions on mRNAs are at steady
+state (e.g., assuming little or no prema-
+ture abortions of translation), the ﬂux of ribosomes through
+a codon position x is given by
+jðxÞ = vðxÞfðxÞ;
+where v(x) is the speed of translation at the position x, and f(x) is
+the density of ribosomes at that position. In other words, if the
+translation efﬁciency proﬁle is a speed proﬁle, we expect it to
+be inversely correlated with a ribosome density proﬁle along
+genes. In particular, our proﬁle predicts a high density of ribo-
+somes at the ﬁrst 30–50 codon positions.
+The averaged ribosome density on transcripts (number of ribo-
+somes divided by the length of the transcript) had been previ-
+ously measured for most of the genes in the S. cerevisiae
+genome (Arava et al., 2003). Recently, ribosome densities at
+a single base resolution were measured genome-wide for thou-
+sands of transcripts in the S. cerevisiae genome (Ingolia et al.,
+2009). The measured distribution features a high density of
+ribosome at the 50 most 50 codons and a plateau from that
+point on (Ingolia et al., 2009). Thus, the low-efﬁciency ramp
+that we observed computationally coincides well with the exper-
+imentally observed region of high ribosomal density. In general,
+comparing the experimentally measured ribosomal density
+348
+Cell 141, 344–354, April 16, 2010 ª2010 Elsevier Inc.
+
+
+--- Page 6 ---
+with
+the
+reciprocal
+of
+the
+translation
+efﬁciency
+proﬁle
+reveals relatively high similarity (Pearson correlation r = 0.5749;
+p < 1028).
+We further realized that imperfections in the correlation
+between density and the reciprocal of the translation efﬁciency
+proﬁle might reﬂect a discrepancy between the translation
+efﬁciency proﬁle and the actual speed of ribosomes, e.g., due
+to ribosome trafﬁc jams. We will term the local tAI-based speed
+proﬁle the ‘‘nominal speed proﬁle.’’ At low translation initiation
+rates, the ribosome may indeed move according to this speed
+proﬁle. Yet at higher initiation rates, ribosomes may start to
+jam and hence might move with a different local speed, which
+we term the ‘‘effective speed proﬁle.’’ To estimate the effective
+speed proﬁle and its deviation from the nominal speed proﬁle
+at each position, we simulated ribosome movement on tran-
+scripts (Zhang et al., 1994, Figure S4, Experimental Procedures,
+and Extended Experimental Procedures 3–5). The basic rule that
+governs the movement in the simulation is that a ribosome
+proceeds through a given codon position according to the
+nominal translation speed proﬁle unless it collides with the ribo-
+some in front of it, in which case it halts until that ribosome
+proceeds forward. We ran the simulation for each S. cerevisiae
+gene whose ribosome density proﬁle was measured experimen-
+tally by Ingolia et al. (2009) separately and inferred the effective
+speed proﬁles and the simulated proﬁles of ribosome densities.
+Strikingly, when we averaged the single-gene effective speed
+proﬁles (with the same averaging as done for the density proﬁles;
+Ingolia et al., 2009), we found that the reciprocal of the obtained
+effective speed proﬁle highly correlates (r = 0.93; p < 1075;
+Figure 6A) with the experimental density proﬁle. Similarly, when
+we averaged the proﬁles of ribosome densities we found that
+the computed density proﬁle highly resembles the experimental
+one (up to r = 0.96; Figure 6B). The main free parameter in the
+simulation is the translation initiation rate  the inverse of the
+time required for a ribosome to attach to, and assemble on, an
+mRNA (see Figure S4 and Experimental Procedures). We thus
+experimented with a range of feasible initiation rates. As can
+be seen in Figure 6B, the high correlation between the experi-
+mental and computed densities is maintained throughout a broad
+range of initiation rates. Only at very low initiation rates (i.e., long
+initiation times) where trafﬁc jams are less likely to form does the
+simulated density lose resemblance to the experimental one
+(Figure 6B).
+Together these results provide an indication that codon-tRNA
+adaptation may serve as a code that determines ribosomal
+translation speed. These results also suggest that translation
+speed, and hence ribosome density, may be encoded in gene
+sequences and the tRNA pool. The agreement between the
+computational and the experimental proﬁles also indirectly lends
+support to the assumptions of the codon-tRNA adaptation
+model, e.g., that tRNA gene copy numbers are a good predictor
+of the tRNA abundance (dos Reis et al., 2004). A corollary of this
+conclusion is that the computed proﬁle is a simple means to
+predict the shape of the ribosomal density function in other
+species, and that the density function seen in yeast is likely
+conserved. This result also suggests how potential changes in
+the relative amounts of particular tRNAs (Dittmar et al., 2006;
+Graslund et al., 2008) might modify the proﬁle of ribosome
+density in a given species or a given condition. For instance, if
+the concentration of a rare tRNA, whose matched codons mainly
+concentrate close to 50 ends of genes, is elevated at a given
+condition the result might be a more ﬂat density function.
+Finally, under conditions of amino-acid starvation, the ﬁrst 40–
+50 codons showed high ribosomal density (Ingolia et al., 2009).
+This increased ribosomal density seems more pronounced than
+the density that is observed in rich media. Based on the correla-
+tion we demonstrated between ribosome density and reciprocal
+of speed, we suggest that the speed of the ribosome is slower
+at the beginning of genes in this condition. That is, in
+S. cerevisiae, the ramp is maintained (and is probably more pro-
+nounced) under a starvation condition (note that the tRNA pool
+may change in starvation; see, for example, Dittmar et al., 2005).
+A
+C
+B
+D
+Figure
+5. Hybrid
+Analysis
+Indicates
+Selection for Coevolution of tRNA Pools
+and Genes Sequences to Preserve the Ramp
+Translation efﬁciency proﬁles with native and
+nonnative tRNA pools for start codon line-up.
+(A) The translation efﬁciency proﬁle of S. cerevi-
+siae.
+(B) The translation efﬁciency proﬁle of S. cerevisiae
+using Y. lipolytica tRNA pool.
+(C) The translation efﬁciency proﬁle of Y. lipolytica.
+(D) The translation efﬁciency proﬁle of Y. lipolytica
+using S. cerevisiae tRNA pool.
+The black bolded line represents the actual calcu-
+lated tAI proﬁle; the gray lines represent the
+mean ± 3 standard deviations of the tAI proﬁles
+of randomized sets of gene. See also Table S4
+and Figure S3.
+Cell 141, 344–354, April 16, 2010 ª2010 Elsevier Inc.
+349
+
+
+--- Page 7 ---
+We do note that additional factors are likely involved in setting
+the speed and density of translating ribosomes. In particular, the
+folding energy of the mRNA secondary structure appears to be
+highly relevant (Kudla et al., 2009; Tuller et al., 2010), and it
+remains to be investigated how tRNA availability and mRNA
+structure interact in determining the ﬁnal density proﬁle.
+The Potential Fitness Advantages of the Translation
+Efﬁciency Proﬁle
+The conclusion from the density and speed analysis is that the
+ramp limits the speed of ribosomes over the ﬁrst dozens of
+codons on transcripts and generates as a consequence a
+high-density area. The generation of a short high-density section
+at the 50 region of mRNAs may give rise to a jam-free region over
+the rest of the transcript because ribosomes that pass the bottle-
+neck are less likely to jam. Under this assumption, ramping
+would be needed mainly for genes with high overall ribosome
+density as these genes would be more prone to jamming. In
+addition, it is conceivable that a jam on a gene with high
+mRNA copy number is likely to be more detrimental than a
+comparable jam that occurs on a low mRNA copy number
+gene. We thus returned to the ribosomal density (Ingolia et al.,
+2009) and mRNA copy number data (Ghaemmaghami et al.,
+2003) and characterized each gene by its mRNA copy number
+or ribosome density or by multiplying its mRNA copy number
+by its ribosome density, and we looked separately on genes at
+the top and bottom 10% of the distribution of these features.
+We found that genes with highest ribosomal density, mRNA
+level, or the product of ribosome density and mRNA levels
+display a stronger ramp than genes with the lowest levels of
+these features (Figure 6C). We veriﬁed that this signal is not a
+result of difference in protein length between the two gene sets
+(not shown). We note that the length of the slow ramp is a mean-
+ingful parameter given that across the various species it is signif-
+icantly correlated with the extent of selection for translation
+efﬁciency (Figure S4). In addition, a similar analysis demon-
+strated that the ramp signal is stronger in genes with higher
+protein-to-mRNA abundance ratios (see Figure S4). In that
+respect, we note that the ramp is ‘‘universal’’ in that it is observed
+in all analyzed species, yet we expect that only a strategic
+portion of the genes in each genome will feature this design—
+primarily genes that need to operate at a high production level.
+A recent study (Kudla et al., 2009) looking at the inﬂuence of
+mRNA structure on translation initiation provides an opportunity
+to measure in a more direct way the effect of obeying the trans-
+lation efﬁciency proﬁle on the organism’s ﬁtness. In that study,
+154 versions of the gene encoding the green ﬂuorescent protein
+(GFP) were synthesized such that the 3rd codon positions were
+randomized. Each version was driven by a strong promoter,
+expressed in E. coli, and cells’ ﬁtness was measured for each
+A
+B
+C
+Figure 6. Experimentally Measured Ribosome Density Negatively
+Correlates with Computed Translation Efﬁciency
+(A) Correlation between experimentally measured ribosomal density (Ingolia
+et al., 2009) and the reciprocal of the simulated speed proﬁle when not
+considering the ﬁrst ﬁve codons (which are outliers) and when considering
+all the codons (the subﬁgure at the lower right corner). Dots are color coded
+according to codon location along genes, with the greenest dots representing
+codons that are close to the ATG, and codons that are farthest away in red. The
+density and speed proﬁles were obtained by averaging the proﬁles at each
+position of the genes in the S. cerevisiae genome. The speed proﬁle was
+obtained by simulating ribosomal scan of all the transcripts in this species.
+The Pearson correlation between density and 1/speed is 0.93 (p < 1075).
+The correlation between density and the reciprocal of original ‘‘nominal’’ trans-
+lation efﬁciency proﬁle is lower, r = 0.5749 (p < 1028).
+(B) The correlation between the mean proﬁle of ribosome density (Ingolia et al.,
+2009) and the mean proﬁle of simulated ribosome density (Experimental
+Procedures) at a resolution of single codons for different simulated ribosome
+binding initiation time (units of the translation time of the slowest codon; see
+Experimental Procedures for deﬁnition).
+(C) The translation efﬁciency proﬁle of genes with the top and the lowest
+ribosomal density distribution. As can be seen, the extent of ramping
+decreases at lowly dense genes.
+The results remain signiﬁcant also after controlling for the length of the genes
+(genes with higher ribosome density tend to be shorter). Speciﬁcally, the
+group of the 20% genes with the lowest ribosome density after removing the
+50% longest genes (the ﬁnal mean length is 1433; ramp length 30) have longer
+ramp than the group of the 20% genes with the highest ribosome density
+after removing the 50% shortest genes (the ﬁnal mean length is 1447;
+ramp length 89). See also Figure S4.
+350
+Cell 141, 344–354, April 16, 2010 ª2010 Elsevier Inc.
+
+
+--- Page 8 ---
+strain (Kudla et al., 2009). That study presented experimental
+evidence that average codon bias might minimize the burden
+of protein expression on the cell (Kudla et al., 2009). Although
+this GFP library was not designed for the purpose of testing
+the effects of the ramp, we still found that some of the GFP
+proteins have a proﬁle that somewhat resembles the ramp,
+whereas others do not show this feature. Consistently, we ﬁnd
+a modest, yet signiﬁcant correlation between the extent to which
+a GFP variant obeys the translation efﬁciency proﬁle and the
+ﬁtness of the strain that expresses it (r = 0.2; p value < 0.014;
+Figure 7A). Further, we partitioned the genes in the library
+according to their average tAI value and focused on 25% of
+the variants with the lowest tAI values. These genes could
+generate the highest burden on ﬁtness due to potential
+overall low translation efﬁciency (Kudla et al., 2009). Among
+those genes, there exists a higher correlation (r = 0.6, n = 37,
+p value < 1.26*104) between the extent of agreement with the
+translation efﬁciency proﬁle and bacterial ﬁtness (Figure 7A).
+Thus, especially among genes with lower translation efﬁciency
+(and hence higher ribosome density) obeying the translation efﬁ-
+ciency proﬁle is crucial for minimizing ﬁtness reduction. This
+observation thus suggests that the ramp in translation efﬁciency
+proﬁles found in endogenous genes may have been selected for
+minimizing the cost of protein expression due to translation.
+The data of Kudla et al. (2009) can be used for understanding
+the relation between ramp, ﬁtness, and the component of the
+initiation rate (relative to the elongation rate) that is determined
+by the properties of the 50UTRs. All the GFP variants have iden-
+tical 50UTR sequences and thus identical (absolute) initiation
+rates; however, as the coding sequences were randomized,
+the elongation rate (measured by the tAI) is different for different
+GFP variants. Thus, the different GFP variants have different
+relative initiation-to-elongation rates. The relative initiation rate
+is higher when the tAI is lower. Figure 7A (inset), thus, demon-
+strates that the ramp is more important when the relative initia-
+tion rate is higher.
+DISCUSSION
+The Potential Role of the Ramp in the Context
+of Initiation Control
+Translation initiation is a prime point of control as it governs the
+binding and assembly of the ribosome and the initiation
+machinery on a transcript. These processes mainly take place
+at the 50UTRs of genes. The ramp we describe here may repre-
+sent an important next stage of translational control that modu-
+lates the parameters set by the previous initiation stage. The
+ramp may thus couple between initiation and elongation and
+add unique regulatory features, stemming from the fact that it
+is ‘‘written’’ on a translated sequence.
+Robustness and Economy—Reduction
+of Expression Cost by Filtering out Randomness
+The 50UTR of each mRNA serves as a control region by modu-
+lating translation initiation through, for example, inﬂuence over
+ribosome binding rate. The secondary structure and the nucleo-
+tide sequence in this region affect both the average spacing
+between ribosomes (and hence the protein production rate at
+steady state) and the statistical deviations around that average.
+As we turn the initiation rate knob to increase the protein produc-
+tion rate, these ﬂuctuations become increasingly more likely to
+generate instances of too closely spaced ribosomes that can
+A
+B
+Figure 7. The Effect of Ramping on Fitness, Production, and
+Expression Cost
+(A) Growth rate (measured by OD) of each GFP variant (Kudla et al., 2009)
+versus similarity (measured by Spearman correlation) between the translation
+efﬁciency proﬁle of the variant and the averaged proﬁle of all endogenous
+genes in E. coli. Upper left corner: the above correlation computed separately
+for quadrants of the GFP library binned according to their tAI values. Main
+ﬁgure: dot plot of the growth rate versus similarity to the genomic translation
+efﬁciency proﬁle of E. coli for the different variants in the GFP library (correla-
+tion coefﬁcient r = 0.2; p < 0.014); points that are related to the lowest tAI
+quadrant bin in the subﬁgure are colored blue, other points are red.
+(B) A conceptual model depicting the value in selection for ramping in transcripts
+withhightranslationrates.Wecomparetherelationshipbetweentranslationiniti-
+ation rate and cost of translation per protein for transcripts with (red) and without
+(blue) ramp designs. At low translation initiation rates, the ribosomes move inde-
+pendently of one another, thus the cost of translation per protein is independent
+of the initiation rate. The ramp design incurs a cost because it slows down the
+ribosomes. At high translation initiation rates, however, ribosome trafﬁc jams
+increasingly dominate the cost of translation. In this regime, ramping reduces
+the cost of protein production at a given production level and increases the
+production capacity at a given cost. The translation initiation rate and the degree
+of ramping are two knobs that evolution can tune to maximize ﬁtness, which, in
+the case shown,favorthe ramp.Theiso-ﬁtness lines reﬂect an increase inﬁtness
+with protein production rate and decreases with the total cost of translation.
+See also Table S5.
+Cell 141, 344–354, April 16, 2010 ª2010 Elsevier Inc.
+351
+
+
+--- Page 9 ---
+jam and, potentially, also abort translation. Thus, ﬂuctuations
+become increasingly more costly. The ramp in the coding
+sequence, however, may provide a second and independent
+knob that can tune down the variance set by initiation rate in
+the spacing between ribosomes. The ramp consists of dozens
+of codons, each determining a separate random event of tRNA
+binding, and thus serves as a very effective noise ﬁlter; the prob-
+ability that with the passage of a given ribosome, all the codons
+in the ramp will allow fast movement of the ribosome, and poten-
+tially collision with the ribosome ahead of it, is practically zero. Of
+course such a design is not needed for proteins with a very low
+binding rate; these are unlikely to jam anyway, and indeed the
+extent of ramping decreases at lowly dense genes in the yeast
+genome (Figure 6C).
+Potential for Gene-Speciﬁc and Condition-Speciﬁc
+Control
+The ramp may encode an interesting sensing capability—the
+low-efﬁciency codons at the beginning of transcripts may allow
+high sensitivity to the abundance of amino acid-loaded tRNAs
+in the cell. As such, it may provide a simple mechanism for early,
+thus low-cost, abortion of translation in the case of a paucity of
+raw material. In more general terms, compared to control
+through the UTR, the ramp has a potential to control differentially
+individual genes under different conditions. Indeed we see that
+different functional gene sets may represent different designs
+of the ramp. We also predict that the shape of the ramp may
+change for particular genes across conditions (e.g., if the
+concentration of some of the tRNAs is modulated relative to
+others). The ramp may thus encode for gene-speciﬁc and condi-
+tion-speciﬁc dynamic control of early translation elongation.
+A Range of Potential Physiological Roles for the Ramp
+The ramp in translation efﬁciency has the potential of reducing
+trafﬁc jamming of ribosomes. Reduction in jamming is, in turn,
+desired for several reasons. First, it reduces the total amount
+of time that ribosomes are sequestered on a given transcript.
+Second, jammed ribosomes, which halt at slow codons (Li
+et al., 2006), spend more time on the transcript, increasing the
+probability of spontaneous fall off. Abortive protein synthesis
+may also occur due to collisions between jammed ribosomes;
+thus ramps may be advantageous in preventing spontaneous
+and collision-dependent abortions. On top of that, the ramp
+may limit most abortions that do occur to the beginning of the
+transcripts. This may be desired because in these regions fall
+off is least wasteful in terms of energy (ATPs) and raw materials
+(e.g., charged tRNAs). Thus low speed at the beginning may
+reﬂect reduced purifying pressure against early abortion, or
+a pressure to concentrate abortions at early stages if they reduce
+late, costly ones. In this respect, the elevation in translation speed
+toward the end of transcripts (seen mainly among the fungi) may
+reﬂect a deliberate selective pressure to avoid late abortions.
+We assume that at a given level of protein expression the cost
+of production increases with the total time ribosomes spend on
+mRNAs. Although the initial ramp may increase that time (and
+hence the cost) over the initial section of mRNA transcripts, it
+may result in an overall shorter duration of sequestering of trans-
+lating ribosomes. Thus if ramping decreases the probability of
+jamming it may reduce the cost of gene expression at a given
+production level and increase the production capacity at a given
+cost (Figure 7B; see also Table S5 and Extended Experimental
+Procedures 3–5). Note, however, that when initiation rate is
+low, jamming is less likely as matter of course and hence ramp-
+ing may only incur a slowing-down cost with no subsequent
+gain (Figure 7B), explaining why genes with low ribosome densi-
+ties have a shorter ramp (Figure 6C).
+A proﬁle of translation speed may also correspond to a posi-
+tion-speciﬁc proﬁle of translation errors—longer dwell times at
+slow codons may result not only in abortion but also in higher
+translation error probabilities (Drummond and Wilke, 2008;
+Kurland, 1992). According to this notion we predict that the
+beginnings of proteins may accumulate more translation muta-
+tions compared to other regions in proteins. The speed proﬁle
+may also constitute an essential code for proper protein folding
+(Kimchi-Sarfaty et al., 2007; Widmann et al., 2008).
+Some of these considerations may also apply to other
+biological processes. For example, it would be interesting if
+transcription, and the movement of motor proteins such as
+kinesin, implement a similar design of ‘‘slow start’’ to alleviate
+some of the ‘‘process costs’’ and the effects of stochasticity
+(Schnitzer and Block, 1995; Svoboda et al., 1994). Our work
+may have direct implications not only for understanding evolu-
+tionary processes underlying translational control but also for
+the technology of heterologous gene expression. This more
+applied area is another domain where the question ‘‘what is
+the optimal level of expression of genes?’’ must be asked. The
+science and art of expressing a gene from one species in another
+often amounts to modifying the codons of the gene and supple-
+menting the host with speciﬁc tRNAs (Graslund et al., 2008). Yet
+the full challenge of heterologous expression is not only to maxi-
+mize expression per host cell but also to minimize the burden on
+the host or maximize ﬁtness of the entire ‘‘factory.’’ We suggest
+that implementation of appropriate ramping in heterologous
+proteins, given the host’s tRNA pool, might improve the yield
+and success rate with this technology for the same reasons it
+was selected evolutionarily.
+EXPERIMENTAL PROCEDURES
+Data Sources of Information
+The tRNA copy numbers and the coding sequences of the nine yeasts were
+downloaded from the work of Man and Pilpel (Man and Pilpel, 2007). The
+tRNA copy numbers of the other organisms were downloaded from the
+Genomic tRNA Database (http://lowelab.ucsc.edu/GtRNAdb/) (Lowe and
+Eddy, 1997). The coding sequences of the ﬂy and the worm were downloaded
+from BioMart (Durinck et al., 2005) on August 2008; the coding sequences of
+other eukaryotes were downloaded from NCBI on May 2009. The coding
+regions of all the archaea and bacteria were downloaded from NCBI (http://
+www.ncbi.nlm.nih.gov/Ftp/) on August 2008. The mRNA levels and protein
+abundance were downloaded from the work of Ghaemmaghami (Ghaemma-
+ghami et al., 2003).
+Per nucleotide ribosome density of 1525 genes was obtained from the work
+of Ingolia et al. (2009); when we compared density to speed (tAI) or simulated
+density we used the same set of genes as was used in Ingolia et al. (2009).
+The version of the GFP protein with synthetic random codon bias and corre-
+sponding measurements of growth rate (optical density, OD) were obtained
+from the work of Kudla et al. (2009). Information about the length of the eukary-
+otic/prokaryotic ribosome footprinted mRNA segment was based on Alberts
+et al. (2002), Ingolia et al. (2009), Kaczanowska and Ryden-Aulin (2007),
+352
+Cell 141, 344–354, April 16, 2010 ª2010 Elsevier Inc.
+
+
+--- Page 10 ---
+Menetret et al. (2000), Milo et al. (2009), Zhang et al. (1994), and Zhu et al.
+(1997). The lists of ribosomal proteins were downloaded from Hirschman
+et al. (2006).
+Computing tAI, AAtAI
+In this subsection we will brieﬂy describe the different measures for translation
+efﬁciency used in this work. We used two measures for translation efﬁciency:
+tAI and AAtAI. As we explain later, the latter was used as a control for a potential
+amino-acid sequence bias.
+The tAI
+We computed the tAI similarly to the way it was computed in the work of dos
+Reis et al. (2004). This measure gauges the availability of tRNAs for each codon
+along an mRNA. As codon-anticodon coupling is not unique due to wobble
+interactions, several anticodons can recognize the same codon, with different
+efﬁciency weights (see dos Reis et al. for all the relations between codon-
+anticodons).
+Let ni be the number of tRNA isoacceptors recognizing codon i. Let tGCNij
+be the copy number of the jth tRNA that recognizes the ith codon, and let Sij be
+the selective constraint on the efﬁciency of the codon-anticodon coupling. We
+deﬁne the absolute adaptiveness, Wi, for each codon i as
+Wi =
+X
+ni
+j = 1
+ð1  SijÞtGCNij:
+(1a)
+From Wi we obtain wi, which is the relative adaptiveness value of codon i, by
+normalizing the Wi’s values (dividing them by the maximal of all 61Wi).
+wi = Wi=ðmax WiÞ:
+(1b)
+The ﬁnal tAI of a gene, g, is the following geometric mean:
+tAIg =
+ Y
+lg
+k = 1
+wikg
+1=lg
+;
+(2)
+where ikg is the codon deﬁned by the k’th triplet on gene g, and lg is the length
+of the gene (excluding stop codons).
+We made one change compared to the computations of dos Reis et al.; we
+re-inferred the Sij values by performing hill-climbing optimization of the
+Spearman correlation between protein abundance and translation efﬁciency
+in S. cerevisae. For this purpose we used the protein abundance measure-
+ments of Ghaemmaghami et al. (2003). The Sij values can be organized in
+a vector (S vector) as described in dos Reis et al. (2004); each component in
+this vector is related to one wobble nucleoside-nucleoside paring: I:U, G:U,
+G:C, I:C, U:A, I:A, etc. The ﬁnal S vector obtained by our optimization was
+½0 0 0 0 0:561 0:28 0:9999 0:68 0:89:
+The AAtAI
+The amino acid tAI (AAtAI) was computed similarly to the tAI. The only change
+is that each wi is obtained from Wi by dividing it by the maximal Wi of all codons
+coding the same amino acid that codon i codes for. Thus, the AAtAI reﬂects
+normalization by the maximal possible tAI of a given protein sequence.
+Computing Local tAI and AAtAI
+In the case of the tAI, the local proﬁle of a gene was deﬁned as the vector of the
+tAI values assigned to the gene’s codons (omitting the ﬁrst ATG), i.e.:
+Local tAIGenei =
+
+tAIc2; tAIc3; .; tAIcn
+
+;
+where ci is the codon at position i in the gene (cn is the codon before the stop
+codon). For a particular species, all the genes in the genome were lined up
+once according to their start codon, and once according to their stop codon,
+and averaged head and tail proﬁles were calculated as
+Local tAIstart =
+
+tAI2; tAI3; tAI4; .
+
+Local tAIend =
+
+tAIn; tAIn1; tAIn2; .
+
+where
+tAIi =
+X
+Genesi
+tAIci =jGenesij
+and Genesi is the number of genes with at least i+1 codons.
+The local values for AAtAI were computed in a similar way—we considered
+AAtAI of codons instead of codons’ tAI.
+Proﬁles of AAtAI describe tAI after controlling for amino-acid bias. Thus, we
+expect these proﬁles to be similar to the proﬁles of the tAI if indeed the
+observed tAI proﬁle is related to translation efﬁciency and not amino-acid bias.
+Randomized Proﬁles of Translation Efﬁciency
+To verify that the observed translation efﬁciency proﬁle is not an artiﬁcial result
+of the fact that we lined up the genes by the start/stop codon, we performed
+the following control. Each coding sequence was randomly shufﬂed, and the
+average genome proﬁle was calculated. This process was repeated 100 times.
+The mean and standard deviations of the 100 sets of proﬁle were then calcu-
+lated for each position. The randomized proﬁles were compared to the original
+proﬁle.
+Simulation of Ribosomal Movement
+To explore the movement of ribosomes along the mRNA sequences we used
+a simulation, based on the model of Zhang et al. (1994) (see Figure S4 and
+more details in Extended Experimental Procedures 3–5). By this model, a single
+codon translation time is determined per ribosome by the translation time of
+that codon (i.e., the tAI of the codon) and the potential presence of a ribosome
+in front of it: if there is no ribosome in front of the given ribosome its velocity is
+solely governed by the translation efﬁciency proﬁle, yet to maintain a required
+minimal distance between the subsequent ribosomes, if there is a ribosome
+in front of the given one, it is delayed until the ribosome in front of it has
+proceeded on. Other parameters of the simulations are as follows: the
+minimum distance between two consecutive ribosomes, the ribosome binding
+time, and the termination time—the time required for the ribosome to release
+the mRNA.
+Measurement of the tRNA Pool in S. cerevisiae
+Logarithmic culture (2.5 3 106 cells/ml) of S. cerevisae cells (Strain 4741:
+MATa; his3D1; leu2D0; met15D0; ura3D0) was grown on YPD medium (2%
+yeast extract, 1% peptone, 1% dextrose) at 30C until reaching stationary
+phase. During growth, glucose concentration in the media was measured
+using UV test kit (Boehringer Mannheim catalog number 716251) and the
+diauxic shift was identiﬁed. At 1.5 hr intervals during growth, samples were
+taken and frozen in liquid nitrogen. RNA was extracted using MasterPure
+(EPICENTER
+Biotechnologies)
+and
+hybridized
+to
+tRNA
+microarray
+as
+described in Dittmar et al. (2006), Pavon-Eternod et al. (2009), and Zaborske
+et al. (2009). Brieﬂy, the basic protocol consists of four steps starting from total
+RNA: (1) deacylation to remove remaining amino acids attached to the tRNA,
+(2) selective Cy3/Cy5 labeling of tRNA, (3) hybridization on commercially
+printed arrays, and (4) data analysis.
+SUPPLEMENTAL INFORMATION
+Supplemental Information includes Extended Experimental Procedures, four
+ﬁgures, and ﬁve tables and can be found with this article online at doi:10.
+1016/j.cell.2010.03.031.
+ACKNOWLEDGMENTS
+We thank the Pilpel lab and Chaim Kahana, Ran Kafri, Ron Milo, Uri Alon,
+Michael Springer, Jeremy Gunawardena, Eytan Ruppin, and Martin Kupiec
+for stimulating discussions and Orna Man for critically reading the manuscript.
+We thank the ‘‘Ideas’’ program of the European Research Council, EMBRACE
+Cell 141, 344–354, April 16, 2010 ª2010 Elsevier Inc.
+353
+
+
+--- Page 11 ---
+Network of Excellence grant of the European Commission within its FP6
+Programme, and the Ben May Charitable Trust for grant support. T.T. is a
+Koshland Scholar at the Weizmann Institute of Science.
+Received: July 7, 2009
+Revised: December 8, 2009
+Accepted: March 19, 2010
+Published: April 15, 2010
+REFERENCES
+Akashi, H. (2003). Translational selection and yeast proteome evolution.
+Genetics 164, 1291–1303.
+Alberts, B., Johnson, A., Lewis, J., Raff, M., Roberts, K., and Walter, P. (2002).
+Molecular Biology of the Cell (New York: Garland Publishing).
+Arava, Y., Wang, Y., Storey, J.D., Liu, C.L., Brown, P.O., and Herschlag, D.
+(2003). Genome-wide analysis of mRNA translation proﬁles in Saccharomyces
+cerevisiae. Proc. Natl. Acad. Sci. USA 100, 3889–3894.
+DeRisi, J.L., Iyer, V.R., and Brown, P.O. (1997). Exploring the metabolic and
+genetic control of gene expression on a genomic scale. Science 278, 680–686.
+Dittmar, K.A., Mobley, E.M., Radek, A.J., and Pan, T. (2004). Exploring the
+regulation of tRNA distribution on the genomic scale. J. Mol. Biol. 337, 31–47.
+Dittmar, K.A., Sorensen, M.A., Elf, J., Ehrenberg, M., and Pan, T. (2005).
+Selective charging of tRNA isoacceptors induced by amino-acid starvation.
+EMBO Rep. 6, 151–157.
+Dittmar, K.A., Goodenbour, J.M., and Pan, T. (2006). Tissue-speciﬁc differ-
+ences in human transfer RNA expression. PLoS Genet. 2, e221.
+dos Reis, M., Savva, R., and Wernisch, L. (2004). Solving the riddle of codon
+usage preferences: a test for translational selection. Nucleic Acids Res. 32,
+5036–5044.
+Drummond, D.A., and Wilke, C.O. (2008). Mistranslation-induced protein
+misfolding as a dominant constraint on coding-sequence evolution. Cell 134,
+341–352.
+Durinck, S., Moreau, Y., Kasprzyk, A., Davis, S., De Moor, B., Brazma, A., and
+Huber, W. (2005). BioMart and Bioconductor: a powerful link between biolog-
+ical databases and microarray data analysis. Bioinformatics 21, 3439–3440.
+Ghaemmaghami, S., Huh, W.K., Bower, K., Howson, R.W., Belle, A.,
+Dephoure, N., O’Shea, E.K., and Weissman, J.S. (2003). Global analysis of
+protein expression in yeast. Nature 425, 737–741.
+Graslund, S., Nordlund, P., Weigelt, J., Hallberg, B.M., Bray, J., Gileadi, O.,
+Knapp, S., Oppermann, U., Arrowsmith, C., Hui, R., et al. (2008). Protein
+production and puriﬁcation. Nat. Methods 5, 135–146.
+Gray, N.K., and Hentze, M.W. (1994). Regulation of protein synthesis by mRNA
+structure. Mol. Biol. Rep. 19, 195–200.
+Hirschman, J.E., Balakrishnan, R., Christie, K.R., Costanzo, M.C., Dwight,
+S.S., Engel, S.R., Fisk, D.G., Hong, E.L., Livstone, M.S., Nash, R., et al.
+(2006). Genome Snapshot: a new resource at the Saccharomyces Genome
+Database (SGD) presenting an overview of the Saccharomyces cerevisiae
+genome. Nucleic Acids Res. 34, D442–D445.
+Ingolia, N.T., Ghaemmaghami, S., Newman, J.R., and Weissman, J.S. (2009).
+Genome-wide analysis in vivo of translation with nucleotide resolution using
+ribosome proﬁling. Science 324, 218–223.
+Kaczanowska, M., and Ryden-Aulin, M. (2007). Ribosome biogenesis and the
+translation process in Escherichia coli. Microbiol. Mol. Biol. Rev. 71, 477–494.
+Kimchi-Sarfaty, C., Oh, J.M., Kim, I.-W., Sauna, Z.E., Calcagno, A.M., Ambud-
+kar, S.V., and Gottesman, M.M. (2007). A ‘‘Silent’’ polymorphism in the MDR1
+gene changes substrate speciﬁcity. Science 315, 525–528.
+Kudla, G., Murray, A.W., Tollervey, D., and Plotkin, J.B. (2009). Coding-
+sequence determinants of gene expression in Escherichia coli. Science 324,
+255–258.
+Kurland, C.G. (1992). Translational accuracy and the ﬁtness of bacteria. Annu.
+Rev. Genet. 26, 29–50.
+Li, X., Hirano, R., Tagami, H., and Aiba, H. (2006). Protein tagging at rare
+codons is caused by tmRNA action at the 30 end of nonstop mRNA generated
+in response to ribosome stalling. RNA 12, 248–255.
+Lowe, T.M., and Eddy, S.R. (1997). tRNAscan-SE: a program for improved
+detection of transfer RNA genes in genomic sequence. Nucleic Acids Res.
+25, 955–964.
+Man, O., and Pilpel, Y. (2007). Differential translation efﬁciency of orthologous
+genes is involved in phenotypic divergence of yeast species. Nat. Genet. 39,
+415–421.
+Menetret, J.F., Neuhof, A., Morgan, D.G., Plath, K., Radermacher, M.,
+Rapoport, T.A., and Akey, C.W. (2000). The structure of ribosome-channel
+complexes engaged in protein translocation. Mol. Cell 6, 1219–1232.
+Milo, R., Jorgensen, P., Moran, U., Weber, G., and Springer, M. (2009).
+BioNumbers–the database of key numbers in molecular and cell biology.
+Nucleic Acids Res. 23, 23.
+Pavon-Eternod, M., Wei, M., Pan, T., and Kleiman, L. (2009). Proﬁling non-lysyl
+tRNAs in HIV-1. RNA 16, 267–273.
+Percudani, R., Pavesi, A., and Ottonello, S. (1997). Transfer RNA gene
+redundancy and translational selection in Saccharomyces cerevisiae. J. Mol.
+Biol. 268, 322–330.
+Qin, H., Wu, W.B., Comeron, J.M., Kreitman, M., and Li, W.H. (2004).
+Intragenic spatial patterns of codon usage bias in prokaryotic and eukaryotic
+genomes. Genetics 168, 2245–2260.
+Schnitzer, M.J., and Block, S.M. (1995). Statistical kinetics of processive
+enzymes. Cold Spring Harb. Symp. Quant. Biol. 60, 793–802.
+Sharp, P.M., and Li, W.H. (1987). The codon Adaptation Index–a measure
+of directional synonymous codon usage bias, and its potential applications.
+Nucleic Acids Res. 15, 1281–1295.
+Svoboda, K., Mitra, P.P., and Block, S.M. (1994). Fluctuation analysis of motor
+protein movement and single enzyme kinetics. Proc. Natl. Acad. Sci. USA 91,
+11782–11786.
+Tirosh, I., Reikhav, S., Levy, A.A., and Barkai, N. (2009). A yeast hybrid
+provides insight into the evolution of gene expression regulation. Science
+324, 659–662.
+Tuller, T., Kupiec, M., and Ruppin, E. (2007). Determinants of protein
+abundance and translation efﬁciency in S. cerevisiae. PLoS Comput. Biol. 3,
+e248.
+Tuller, T., Waldman, Y.Y., Kupiec, M., and Ruppin, E. (2010). Translation
+efﬁciency is determined by both codon bias and folding energy. Proc. Natl.
+Acad. Sci. USA 107, 3645–3650.
+Vetsigian, K., and Goldenfeld, N. (2009). Genome rhetoric and the emergence
+of compositional bias. Proc. Natl. Acad. Sci. USA 106, 215–220.
+Wang, D., Sung, H.M., Wang, T.Y., Huang, C.J., Yang, P., Chang, T., Wang,
+Y.C., Tseng, D.L., Wu, J.P., Lee, T.C., et al. (2007). Expression evolution in
+yeast genes of single-input modules is mainly due to changes in trans-acting
+factors. Genome Res. 17, 1161–1169.
+Widmann, M., Clairo, M., Dippon, J., and Pleiss, J. (2008). Analysis of the
+distribution of functionally relevant rare codons. BMC Genomics 9, 207.
+Wittkopp, P.J., Haerum, B.K., and Clark, A.G. (2004). Evolutionary changes in
+cis and trans gene regulation. Nature 430, 85–88.
+Zaborske, J.M., Narasimhan, J., Jiang, L., Wek, S.A., Dittmar, K.A., Freimoser,
+F., Pan, T., and Wek, R.C. (2009). Genome-wide analysis of tRNA charging and
+activation of the eIF2 kinase Gcn2p. J. Biol. Chem. 284, 25254–25267.
+Zhang, S., Goldman, E., and Zubay, G. (1994). Clustering of low usage codons
+and ribosome movement. J. Theor. Biol. 170, 339–354.
+Zhu, J., Penczek, P.A., Schroder, R., and Frank, J. (1997). Three-dimensional
+reconstruction with contrast transfer function correction from energy-ﬁltered
+cryoelectron micrographs: procedure and application to the 70S Escherichia
+coli ribosome. J. Struct. Biol. 118, 197–219.
+354
+Cell 141, 344–354, April 16, 2010 ª2010 Elsevier Inc.

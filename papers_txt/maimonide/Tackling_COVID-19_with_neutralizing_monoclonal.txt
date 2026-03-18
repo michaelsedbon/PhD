@@ -1,0 +1,2495 @@
+--- Page 1 ---
+Leading Edge
+Review
+Tackling COVID-19 with neutralizing
+monoclonal antibodies
+Davide Corti,1,* Lisa A. Purcell,2 Gyorgy Snell,3 and David Veesler4
+1Humabs Biomed SA, a subsidiary of Vir Biotechnology, 6500 Bellinzona, Switzerland
+2Vir Biotechnology, St. Louis, MO 63110, USA
+3Vir Biotechnology, San Francisco, CA 94158, USA
+4Department of Biochemistry, University of Washington, Seattle, WA 98195, USA
+*Correspondence: dcorti@vir.bio
+https://doi.org/10.1016/j.cell.2021.05.005
+SUMMARY
+Monoclonal antibodies (mAbs) have revolutionized the treatment of several human diseases, including can-
+cer and autoimmunity and inﬂammatory conditions, and represent a new frontier for the treatment of infec-
+tious diseases. In the last 20 years, innovative methods have allowed the rapid isolation of mAbs from conva-
+lescent subjects, humanized mice, or libraries assembled in vitro and have proven that mAbs can be effective
+countermeasures against emerging pathogens. During the past year, an unprecedentedly large number of
+mAbs have been developed to ﬁght coronavirus disease 2019 (COVID-19). Lessons learned from this
+pandemic will pave the way for the development of more mAb-based therapeutics for other infectious dis-
+eases. Here, we provide an overview of SARS-CoV-2-neutralizing mAbs, including their origin, speciﬁcity,
+structure, antiviral and immunological mechanisms of action, and resistance to circulating variants, as well
+as a snapshot of the clinical trials of approved or late-stage mAb therapeutics.
+MONOCLONAL ANTIBODIES IN INFECTIOUS DISEASE
+Serotherapy of infectious diseases
+Serotherapy refers to the therapeutic transfusion of blood serum
+from either previous human survivors of a disease or animals that
+have been immunized against speciﬁc organisms in order to
+transfer passive immunity. The use of serotherapy in infectious
+disease medicine was pioneered in 1890 by von Behring and Ki-
+tasato to combat tetanus and diphtheria (Behring and Kitasato,
+2013) and led to the development of diphtheria antitoxin in
+1894. This product is still in use and contributed to the dramatic
+reduction of mortality due to diphtheria many years before the
+advent of the diphtheria vaccine in the late 1940s. Twenty years
+after the ﬁrst use of antitoxin, convalescent serum from survivors
+of the 1918 Spanish ﬂu was used to treat pneumonia, showing a
+modest level of efﬁcacy when administered early after symptom
+onset (Redden, 1919). In the following years until the present
+day, the efﬁcacy of convalescent plasma for the treatment of viral
+respiratory infections was probed in several studies that have
+shown some evidence for a reduction in mortality, especially
+when given early after symptom onset (Mair-Jenkins et al.,
+2015). However, these studies did not formally show efﬁcacy
+due to the moderate risk of bias and lack of control groups.
+The largest trial assessing the efﬁcacy of convalescent plasma
+was recently conducted in the United Kingdom (Randomized
+Evaluation of COVID-19 Therapy [RECOVERY] trial) in which a
+range of potential treatments for coronavirus disease 2019
+(COVID-19) are being tested side by side in hospitalized patients.
+In mid-January 2021, recruitment for the convalescent plasma
+arm of the trial was closed due to futility. The data monitoring
+committee reviewed all trial data, including 1,873 reported
+deaths among 10,406 randomized patients, and concluded no
+signiﬁcant difference in the primary endpoint of mortality. The
+analysis of the complete results will be important to understand
+whether convalescent plasma has any therapeutic role in partic-
+ular patient subgroups. Indeed, in two other recent studies,
+convalescent plasma was shown to be a valuable treatment op-
+tion for hospitalized patients if provided early in the course of dis-
+ease before patients require ventilation or are admitted to the
+intensive care unit (ICU) (Ma et al., 2021; Tworek et al., 2021).
+One important limitation of convalescent plasma therapy is the
+difﬁculty in standardizing the neutralizing potency of plasma
+doses and the overall modest-to-low titers of neutralizing anti-
+bodies that are administered, suggesting that monoclonal anti-
+body (mAb)-based approaches are better suited for patient
+treatment.
+Introduction to mAbs
+A mAb is deﬁned as an antibody derived from a single B cell
+clone and recognizes a single and unique epitope. Monoclonal
+antibodies were generated for the ﬁrst time in 1975 in mice using
+the hybridoma technology, leading to the ﬁrst licensed mAb in
+1986 (muronomab against human CD3) used primarily to prevent
+kidney transplant rejection. Upon binding to their cognate
+epitope on target antigens, mAbs can mediate multiple effects
+such as disruption of the function of the targeted antigen and
+elimination of cells or pathogens. In many cases, the function
+of mAbs is mediated not only by the binding to the target antigen
+ll
+3086
+Cell 184, June 10, 2021 ª 2021 Elsevier Inc.
+i
+An update to this article is included at the end
+
+
+--- Page 2 ---
+by the antigen-binding fragment (Fab) but also by the recruitment
+of immune cells or serum complement through the fragment
+crystallizable (Fc) portion, known as effector functions.
+These general concepts hold true for antiviral neutralizing
+mAbs that act through multiple mechanisms. Neutralizing anti-
+bodies can be effective in vivo by targeting free virus and virally
+infected cells through a range of mechanisms, including direct
+blocking of viral entry (neutralization), mAb-mediated effector
+functions, or indirect blocking of viral entry by cross-linking vi-
+rions, inactivating the viral entry glycoprotein (e.g., receptor
+mimicry) (Walls et al., 2019), preventing egress of virus from in-
+fected cells, or blocking cell-to-cell spread of virus (e.g., blocking
+the formation of cellular syncytia).
+The advent of neutralizing mAbs targeting RSV in infants
+The ﬁrst attempt to develop a prophylactic approach to prevent
+respiratory syncytial virus (RSV)-induced disease in children was
+in 1966 and relied on the use of a formalin-inactivated vaccine.
+This approach failed and was even detrimental to patients, re-
+sulting in vaccine-associated enhanced respiratory disease
+(Kim et al., 1969), possibly associated with the elicitation of
+high levels of non-neutralizing antibodies. Despite this vaccine
+failure, in 1998, an RSV-neutralizing mAb (palivizumab) was
+shown to protect at-risk infants from RSV-induced severe dis-
+ease (IMpact-RSV Study Group, 1998), demonstrating a beneﬁ-
+cial, rather than detrimental, effect by neutralizing antibodies,
+even in a vulnerable population like premature newborns. Palivi-
+zumab became the ﬁrst mAb approved to combat an infectious
+disease. The prophylactic use of palivizumab in at-risk adults
+was not explored due to the prohibitive cost of this mAb, as pric-
+ing was based on the body weight in infants (Georgescu and
+Chemaly, 2009). Palivizumab was also tested in therapeutic set-
+tings in at-risk adults, showing only modest efﬁcacy in some
+studies, in agreement with the concept that antibodies are rela-
+tively ineffective when administered late after establishment of
+infection. Palivizumab was developed as monotherapy and has
+been proven to work for more than 20 years despite the fact
+that viral escape is readily observed in vitro (Zhao et al., 2004;
+Zhu et al., 2011). However, use in a larger population could
+potentially play a role in driving the selection of viral resistance,
+as has been seen with oseltamivir for inﬂuenza A virus (IAV).
+The seasonality of viral infections such as RSV and inﬂuenza
+virus heralded mAb engineering strategies to extend half-life.
+This allows decreasing the frequency of dosing and potentially
+retaining
+effective
+antibody
+concentrations
+in
+patients
+throughout a season along with decreasing the cost of treat-
+ments. In the following years after palivizumab was approved,
+two additional RSV mAbs (motavizumab and suptavumab)
+were evaluated in phase 3 clinical trials but safety and resistance
+concerns halted further development in 2010 and 2018, respec-
+tively (Carbonell-Estrany et al., 2010; Simo˜ es et al., 2020).
+Another highly potent RSV mAb (nirsevimab) harboring an Fc
+fragment engineered for half-life extension recently showed a
+78% reduction in hospitalization in pre-term infants in a phase
+2b study (Grifﬁn et al., 2020; Zhu et al., 2017). Nirsevimab is
+now being tested as a single-injection regimen in a phase 3 study
+expanded to all-term infants. Its success may revolutionize the
+prophylactic use of mAbs to a very large population, possibly
+reducing RSV-associated mortality and hospitalization globally.
+The development of mAbs against RSV is a paradigm for the ﬁeld
+of anti-infective mAbs, with failures and successes highlighting
+the complexity of developing ﬁrst-generation and next-genera-
+tion mAbs against a given pathogen. In addition, this example il-
+lustrates how a successful product can pave the way for devel-
+oping better mAbs in terms of efﬁcacy, cost, and an expanded
+target population.
+The development of neutralizing mAbs against Ebola,
+IAV, and HIV-1
+Ebola and IAV are responsible for acute infections, for which
+mAbs have been developed clinically, with successes and fail-
+ures. Two mAb-based products to treat Ebola virus disease
+have been approved in 2020, and their efﬁcacy in reducing mor-
+tality in infected individuals represents a key medical milestone.
+These mAbs, along with a recently approved vaccine, will
+contribute to controlling the recurrent outbreaks of Ebola virus
+disease in Central and West Africa. These two products are
+based on a monotherapy (ansuvimab) and a cocktail of three
+mAbs (atoltivimab, maftivimab, and odesivimab). Both have
+shown similar efﬁcacy in a randomized control trial whereas
+two other products tested in parallel failed, including one prod-
+uct based on a cocktail of three mAbs (ZMapp) (Mulangu et al.,
+2019). These results provide important insights in the develop-
+ment of anti-infective mAbs, including that (1) mAbs can be
+used to treat severe disease and not just in a prevention setting,
+(2) monotherapy can be successful (i.e., the use of cocktails is
+not the only suitable approach), and (3) not all mAb-based prod-
+ucts are effective, even when cocktails are used.
+In the case of inﬂuenza, all mAbs that have been tested in clin-
+ical trials so far are directed to the stem region of IAV hemagglu-
+tinin (HA), except for one directed to matrix protein 2 (M2).
+Modest efﬁcacy was observed in clinical studies where partici-
+pants were intentionally infected with IAV (the so-called human
+challenge model), while no signs of efﬁcacy were observed
+when trials were run in outpatient settings with uncomplicated
+inﬂuenza A infection or in hospitalized patients (Ali et al., 2018;
+Corti et al., 2017; Hershberger et al., 2019; Lim et al., 2020).
+Peak viral load and symptoms onset typically occur 2–5 days af-
+ter inﬂuenza virus infection. In these studies, enrollment included
+individuals having experienced symptoms for %5 days, which
+would imply that individuals may have already been infected
+for R7 days before the mAbs were administered. Indeed, the
+only indication of modest efﬁcacy was observed in outpatients
+when a cocktail of two mAbs (CT-P27) was administered early af-
+ter symptom onset (%48 h), similarly to the recommended use of
+the approved antiviral oseltamivir (H. Yang et al., 2019, 29th
+ECCMID, abstract). There is not yet evidence of efﬁcacy of HA
+stem mAbs in a prophylactic setting. In this regard, the most
+advanced program is represented by VIR-2482, a half-life-
+extended version of the previously identiﬁed MEDI8852 mAb,
+which recognizes a conserved epitope on the HA stem shared
+by all 18 IAV subtypes (Kallewaard et al., 2016). This study will
+assess VIR-2482 for immune prophylaxis in outpatients and
+could be pivotal for the ﬁeld to investigate if stem-directed HA
+mAbs can be effective in prophylaxis, as indirectly suggested
+by a serological study in humans (Ng et al., 2019). The breadth
+ll
+Cell 184, June 10, 2021
+3087
+Review
+
+
+--- Page 3 ---
+of reactivity of HA stem mAbs toward all IAVs represents an op-
+portunity to develop an off-the-shelf approach to prepare for
+future inﬂuenza A pandemics.
+Finally, several mAbs are under investigation to prevent or
+treat human immunodeﬁciency virus 1 (HIV-1) infection. A
+comprehensive and updated overview is provided by Nussenz-
+weig and Barouch to reﬂect recent progress in the ﬁeld (Caskey
+et al., 2019; Julg and Barouch, 2021). These mAbs are broadly
+neutralizing and target a subset of vulnerability sites on the HIV-
+1 envelope (i.e., CD4-binding site, base of the V3 loop, mem-
+brane proximal external region, and V1/V2 region). Results in
+non-human primates suggest that broadly neutralizing mAbs
+can be effective in prophylaxis against highly diverse circulating
+HIV-1 strains. These data have prompted the development of
+some of these mAbs, such as VRC01, for prophylaxis in hu-
+mans. Corey and co-authors have recently shown in two trials
+that administration of VRC01 did not prevent HIV-1 infection
+(Corey et al., 2021). However, 75% protection was observed
+in subjects exposed to HIV-1 isolates that were potently
+neutralized in vitro by VRC01, suggesting that prophylaxis of
+HIV-1 could be achieved by using more potent mAbs with
+broader coverage of ﬁeld isolates. In a therapeutic setting, pre-
+clinical work showed that in contrast to monotherapy, a combi-
+nation of mAbs provided prolonged control of infection (using
+simian-HIV models in macaques), with no evidence of escape.
+It was hypothesized that this control was mediated by T cell im-
+munity (Barouch et al., 2013; Schoofs et al., 2016) and boosted
+by viral antigen presentation through immune complexes
+formed between HIV-1 envelope glycoprotein and the infused
+mAbs, through the so-called antibody vaccinal effect. Human
+trials showed that monotherapy only transiently controlled virus
+replication, with the rapid emergence of escape variants mirror-
+ing the results obtained with small-molecule drugs. Combina-
+tion therapy was far more effective than monotherapy in viremic
+individuals, but it did not completely suppress viremia in partic-
+ipants with high baseline viral loads. The combination of two
+broadly neutralizing mAbs was shown to be effective in main-
+taining prolonged suppression after antiretroviral therapy inter-
+ruption (Mendoza et al., 2018). Engineered mAbs with dual or
+triple speciﬁcities, as well as engineered Fc to modulate the
+adaptive immune response (i.e., vaccinal effect), are under
+development, and results in the coming years will inform on
+the potential of HIV-1 broadly neutralizing mAbs to provide sus-
+tained remission or represent an ultimate cure for HIV-1-in-
+fected patients. The lessons from HIV-1 trials may be relevant
+for the development of COVID-19 mAbs in that coverage of
+highly divergent co-circulating viruses is key in the long-term
+and that in therapeutic settings, a combination of mAbs, even
+if broadly reactive, might be required to prevent viral escape
+during treatment. However, this may not necessarily apply to
+acute viral infections and be a consideration in the treatment
+of prolonged infections in immunocompromised individuals,
+such as has been observed with COVID-19 (Avanzato et al.,
+2020; Choi et al., 2020; Kemp et al., 2021; McCarthy et al.,
+2021). Reciprocally, the HIV-1 ﬁeld might beneﬁt from the
+knowledge that will be gained from deployment of COVID-19
+mAbs,
+particularly
+from
+use
+of
+an
+antibody
+(VIR-7832,
+described below) that was Fc engineered to leverage the
+so-called vaccinal effect (i.e., the boost of T cell responses dur-
+ing infection), as shown for anti-IAV mAbs in transgenic human
+Fcg receptor mice (Bournazos et al., 2020a).
+A total of 14 mAbs are now available for use against infectious
+diseases, and 7 of them were approved or authorized for emer-
+gency use in 2020 and 2021 (Figure 1). This might be just the
+beginning of an even larger wave of approved mAbs, and it is
+likely that the lessons learned with COVID-19 mAbs will cross-
+fertilize the ﬁeld, driving an acceleration in the development of
+mAbs against various pathogens, including bacteria, viruses,
+fungi, and parasites, in both acute and chronic disease settings,
+along with exploration of alternative delivery platforms like viral-
+vectored mAbs.
+DEVELOPING mAbs TO FIGHT COVID-19
+As of May 2021, the COVID-19 pandemic counts more than 160
+million cases and over 3 million deaths worldwide. The rapid
+spread of the disease has prompted the development of several
+effective vaccines at an unprecedented pace (Jackson et al.,
+2020; Polack et al., 2020), as well as the intense research for po-
+tential novel treatments, including the reuse of existing drugs
+approved for other indications.
+The recognition of the urgent need for therapies available on a
+global scale has prompted the rapid development of a large
+number of severe acute respiratory syndrome coronavirus 2
+(SARS-CoV-2)-neutralizing mAbs. In only 16 months, six mAbs
+have been developed and received an Emergency Use Authori-
+zation (EUA) by the United States or South Korea regulatory
+agencies, and several additional ones are being evaluated in
+phase 3 clinical trials or currently seeking an EUA. Importantly,
+these mAbs are being tested in different clinical settings and
+target populations with different endpoints, in prophylaxis as
+well as early- or late-disease therapeutic settings. In addition,
+mAbs in development display a variety of mutations in the con-
+stant Fc region aimed to enhance or eliminate effector functions
+or improve mAb half-life and are being utilized as monothera-
+pies or cocktails. The successes and failures of these trials
+will be key for the development of additional anti-infective
+mAbs, at least for respiratory viral pathogens. Although steril-
+izing immunity may be required for viruses establishing chronic
+infection, for acute viral infections such as COVID-19, it might
+be sufﬁcient to blunt viral replication such that the passively
+administered mAb can act in concert with the host immune
+response to avoid the development of severe complications
+and limit onward transmission.
+Finally, the recent emergence of several SARS-CoV-2 variants
+of concern (VOCs) has shown limitation in the coverage by some
+of these mAbs that target epitopes mutating rapidly (Chen et al.,
+2021c; Collier et al., 2021; Davies et al., 2021a; McCallum et al.,
+2021a; Tegally et al., 2021; Wibmer et al., 2021). This review will
+provide an up-to-date overview on a selection of 14 clinical
+mAbs developed to tackle COVID-19.
+MOLECULAR TARGETS OF CLINICAL COVID-19 mAbs
+The SARS-CoV-2 spike (S) glycoprotein is a transmembrane ho-
+motrimer and the target of neutralizing antibodies, including all
+ll
+3088
+Cell 184, June 10, 2021
+Review
+
+
+--- Page 4 ---
+mAbs currently authorized or in early or late development. The S
+glycoprotein has two functional subunits that respectively
+mediate host cell attachment (S1 subunit, formed by four do-
+mains, the most relevant being the N-terminal domain [NTD]
+and receptor-binding domain [RBD]) and fusion of the viral and
+cellular membranes (S2 subunit) (Tortorici and Veesler, 2019;
+Walls et al., 2016, 2020b; Wrapp et al., 2020).
+Monoclonal antibodies in development for COVID-19 are all
+fully human and were discovered from SARS-CoV-2-immune
+donors (the majority), SARS-CoV-immune donors (VIR-7831
+and
+ADG2),
+immunized
+humanized
+immunoglobulin
+mice
+(REGN10933 and ABBV-47D11), or wild-type mice (ABBV-
+2B04). Only the ADG2 mAb has been afﬁnity matured in vitro
+(Rappazzo et al., 2021), while all others were developed in their
+native or semi-native forms.
+All mAbs authorized or in development are directed to the
+RBD, which interacts with the target receptor angiotensin-con-
+verting enzyme 2 (ACE2) (Hoffmann et al., 2020; Letko et al.,
+2020; Walls et al., 2020b; Zhou et al., 2020). The RBD, and
+also the NTD, have been proposed to also interact with other re-
+ceptors or co-receptors, including neuropilin-1 (NRP-1), den-
+dritic cell-speciﬁc intercellular adhesion molecule-3-grabbing
+non-integrin (DC-SIGN or CD209), and liver-/lymph-node-spe-
+ciﬁc intracellular adhesion molecules-3 grabbing non-integrin
+(L-SIGN or CD209L) (Cantuti-Castelvetri et al., 2020; Daly
+et al., 2020; Soh et al., 2020). We recently showed that trans-
+membrane lectins DC-SIGN, L-SIGN, and SIGLEC1 act as
+attachment receptors rather than entry receptors, thus facili-
+tating SARS-CoV-2 infection via the canonical ACE2 pathway
+(Lempp et al., 2021). The majority of mAbs (11 out of the 14) pre-
+sented in this review recognize different epitopes fully or partially
+overlapping with the receptor-binding motif (RBM) on the RBD.
+In the context of the S trimer, the RBDs exist in two conforma-
+tional states, described as open and closed, the former confor-
+mation exposing the RBM for ACE2 engagement (Barnes et al.,
+2020a; Piccoli et al., 2020; Walls et al., 2020b). Some mAbs
+directed to the RBM can bind their cognate epitope only in the
+open RBD state, and all recognize epitopes in the same RBD
+site (site Ia or class 1: REGN10933, LY-CoV016, AZD8895,
+Brii-196, ADG2, CT-P59, and likely ABBV-2B04). The site recog-
+nized by the ACE2-blocker cross-reactive mAb ADG2 is also
+only accessible in the open RBD state and appears to be located
+between site Ia/class 1 and the cryptic site II/class 4 site. The
+epitope recognized by REGN10987 mAb (located between sites
+Ia/class 1 and the cryptic site II/class 4) is mostly exposed at the
+surface of the RBD in the closed state but is not accessible to the
+mAb due to steric hindrance with a neighboring protomer. There-
+fore, REGN10987 requires RBD opening for mAb binding to
+occur. Conversely, other RBM mAbs can recognize both open
+and closed states of the RBD (site Ib or class 2; LY-CoV555,
+AZD1061, and BGB-DXP593) (Figures 2A and 2B). There are
+two exceptions of non-ACE2 blocker mAbs in early and late
+stages of development, VIR-7831 (alias for an engineered form
+of S309) and 47D11. The epitope of VIR-7831 is located in a
+site distal to the RBM and comprises a glycan bound to N343.
+Importantly, N343 is highly conserved within the sarbecovirus
+subgenus (known also as lineage B) of betacoronaviruses that
+comprises SARS-CoV-2, SARS-CoV, and other animal viruses,
+Figure 1. Timeline of approval of mAbs for all indications (black) and for infectious disease (blue)
+Sotrovimab received EUA at the time of publication.
+ll
+Cell 184, June 10, 2021
+3089
+Review
+
+
+--- Page 5 ---
+(legend on next page)
+ll
+3090
+Cell 184, June 10, 2021
+Review
+
+
+--- Page 6 ---
+predominantly of bat origin. The epitope of mAb 47D11 resides in
+a conserved hydrophobic pocket nearby glycan N343 (structural
+data not publicly available; Fedry et al., 2020). No mAbs directed
+to the cryptic site IIc/class 3 represented by the CR3022 or S304
+mAbs (poorly or not neutralizing) are currently under consider-
+ation for development (Piccoli et al., 2020; Yuan et al., 2020).
+The NTD is also a target of neutralizing mAbs (Cerutti et al.,
+2021; Chi et al., 2020; McCallum et al., 2021b; Suryadevara
+et al., 2021; Voss et al., 2020; Wu et al., 2021) that were shown
+to be potent in vitro and were all directed toward the same anti-
+genic site of vulnerability (designated site i). However, NTD-spe-
+ciﬁc neutralizing mAbs were shown to have a low barrier to resis-
+tance through the selection of a plethora of escape mutants
+in vitro and suffer from reduced activity against most of the
+currently circulating VOCs (Chen et al., 2021c; Collier et al.,
+2021; McCallum et al., 2021a; Wang et al., 2021b). To the best
+of our knowledge, there are no mAbs directed to this domain in
+clinical development.
+Another important characteristic of mAbs in development is
+the ability to broadly neutralize multiple coronaviruses of the
+same lineage (e.g., sarbecoviruses). The only clinical mAb with
+neutralization breadth is VIR-7831, which just received EUA in
+the US , while ADG2 and 47D11 are in early phases of develop-
+ment. The recognition of epitopes that are conserved across
+different viruses of the same lineage may be important to reduce
+the risk of viral escape during treatment (i.e., under drug selec-
+tion) as well as provide long-term coverage of circulating and
+emerging variants and strains.
+MECHANISMS OF ACTION OF COVID-19 CLINICAL mAbs
+All mAbs in development for COVID-19 are deﬁned as neutral-
+izing antibodies. However, as described above, the concept of
+viral neutralization in vivo is complex and widespread. This sec-
+tion describes in more detail what is currently known about the
+multiple mechanisms of action of COVID-19 clinical-stage mAbs.
+Blocking of infection of target cells
+Twelve out of the 14 mAbs presented in this review neutralize
+SARS-CoV-2 entry by blocking engagement of ACE2 by target-
+ing epitopes overlapping with the RBM. In some cases, mAbs
+binding to RBM can also prematurely trigger fusogenic S confor-
+mational changes that could result in the inactivation of the pro-
+tein (Lempp et al., 2021), as has also been previously shown for
+the SARS-CoV-speciﬁc neutralizing mAb S230 (Walls et al.,
+2019). It is therefore possible that RBM mAbs may act not only
+by blocking binding to the ACE2 entry receptor but also by inac-
+tivating S by acting as receptor mimics before viral encounter of
+a host cell. As described below, this mechanism may also alter
+the ability of these mAbs to promote effector functions. RBM
+mAbs can also lock the RBD conformation in the closed state,
+thus preventing the engagement of ACE2 on target cells. This
+class of mAbs is exempliﬁed by S2M11 and C144 mAbs, which
+lock RBDs in a closed state through the recognition of a quater-
+nary epitope on neighboring RBDs (Barnes et al., 2020a; Tortorici
+et al., 2020). S2M11 was not further developed, while C144 mAb
+is in early clinical development by Bristol Myers Squibb (phase 1,
+NCT04700163) in combination with another RBM mAb named
+C135 (both developed with LS mutations in Fc for half-life exten-
+sion) (Robbiani et al., 2020; Weisblum et al., 2020).
+An important concept is that virus neutralization assays pro-
+duce variable results depending on the cells used for virus prop-
+agation and infection. Determining the potency of neutralizing
+mAbs using target cells overexpressing ACE2 (to increase infec-
+tivity) was shown to alter the apparent potency and maximal
+neutralization achieved by non-RBM mAbs, such as S309
+(parent of VIR-7831) and NTD-speciﬁc mAbs, without neces-
+sarily reﬂecting the bona ﬁde potency and in vivo efﬁcacy of
+these mAbs (Lempp et al., 2021; McCallum et al., 2021a; Pinto
+et al., 2020; Rappazzo et al., 2021; Suryadevara et al., 2021).
+Therefore, cell-line selection and the level of ACE2 expression
+are important variables in assessing the potency of SARS-
+CoV-2-neutralizing mAbs (Chen et al., 2021c; Lempp et al.,
+2021). Overexpression of ACE2 was shown by in situ cryoelec-
+tron tomographic analysis to promote S structural changes to
+the post-fusion conformation when virions were released from
+cells overexpressing ACE2 (Klein et al., 2020).
+The different mAbs in development are expected to be able to
+achieve various levels of occupancy of binding to S. mAbs bind-
+ing to site Ia/class 1 or site II/class 3 have more constrained ac-
+cess to their cognate epitope, as 50% of S trimers have all
+three RBDs closed, whereas the remaining half possess a single
+open RBD (Ke et al., 2020; Walls et al., 2020b), and the proximity
+of the epitopes on neighboring RBDs might not be compatible
+with multiple immunoglobulin G (IgG) molecules binding to
+each trimer. These classes of mAbs was found to trigger S rear-
+rangement to the post-fusion state, likely due to conformational
+selection for open RBDs, and promote membrane fusion (Lempp
+et al., 2021). The access to site Ib/class 2 is not dependent on the
+opening state of the RBD, although the angle of mAb binding to
+the RBD may sterically prevent binding of other IgGs to neigh-
+boring RBDs in the same S trimer, thus reducing overall
+Figure 2. Fab-RBD complexes, epitopes, and Fc mutations of clinically relevant mAbs
+(A) Full spike (S) of SARS-CoV-2 (PDB: 6ZGG) is shown on the left, where ACE2 (pink cartoon) is modeled on the open-state RBD (gray space-ﬁlling model) (ACE-2
+PDB: 6M0J); the structures of eight Fab-RBD complexes were determined by a combination of X-ray crystallography and/or cryoelectron microscopy (cryo-EM)
+analysis (Fabs shown as light-blue cartoons and RBD orientation ﬁxed in the upward state shown on S trimer [left image]; see Table 1 for PDB accession
+numbers). ACE2 and mAb footprints are shown in blue and light green, respectively. Footprints on RBDs were deﬁned according to 5 A˚ distance from ACE2- or
+mAb-contacting residues. The stem of N343 glycan is shown as a black sphere. mAbs are labeled using both their original and generic (nonproprietary) names.
+(B) Antigenic sites nomenclature (Ia–IV versus classes 1–4) according to Barnes et al., 2020a, Cohen et al. (2021), and Piccoli et al. (2020) and colored as in (A).
+(C) Sequences of the full RBD of SARS-CoV-2 (Wuhan-1 strain), where ACE2 and mAb footprints are highlighted in blue and light green, respectively, as in (A) and
+(B). The key RBD mutations found in VOCs/VOIs are boxed in red.
+(D) Structural representation of human IgG1 Fc where amino acids changed in COVID-19 mAbs in late development are shown as red spheres. N297-bound
+glycans are shown as blue spheres. List of Fc abbreviations: LALA, L234A/L235A (Hezareh et al., 2001; Xu et al., 2000); GAALIE, G236A/A330L/I332E (Weit-
+zenfeld et al., 2019); YTE, M252Y/S254T/T256E (Dall’Acqua et al., 2002); LS: M428L/N434S (Zalevsky et al., 2010); TM, triple mutant in Fc, L234F/L235E/P331S
+(Oganesyan et al., 2008).
+ll
+Cell 184, June 10, 2021
+3091
+Review
+
+
+--- Page 7 ---
+occupancy. Conversely, non-ACE2-blocking mAbs target highly
+exposed and distal sites on the RBD and are expected to have
+access to all three epitopes on the S trimer, allowing full occu-
+pancy (i.e., three IgG molecules bound per S trimer) not only
+on virions but also on S displayed at the surface of infected cells.
+High-density IgG binding on the surface of virions may sterically
+shield the engagement of ACE2 on the surface of target cells
+(Figure 3), thus possibly explaining the blocking of infection by
+S309 and NTD-speciﬁc mAbs. A recent study showed that
+S309 effectively blocked the ACE2-dependent entry of SARS-
+CoV-2 in the presence of membrane lectins and inhibited the fu-
+sogenic rearrangement induced by receptor-mimicking RBM
+antibodies that leads to cell-to-cell fusion. Thus, non-RBM
+mAbs might block viral infection by sterically interfering with
+ACE2 engagement and by preventing structural rearrangement
+of the S glycoprotein that is required for viral fusion (Lempp
+et al., 2021).
+Whether occupancy is relevant to viral neutralization is un-
+clear, but it might affect the ability of mAbs to trigger effector
+functions, since the density of mAbs on virions or infected cells
+can inﬂuence the ability to engage and activate low-afﬁnity
+Fcg-receptors (Ortiz et al., 2016). Additional studies are needed
+to address the role of bivalent IgG binding within an S trimer, as
+well as the cross-linking of neighboring S proteins on virions or
+between virions (i.e., virus aggregation) as relevant mechanisms
+of SARS-CoV-2 neutralization.
+Finally, another important mechanistic aspect is whether com-
+bination of mAbs may beneﬁt from synergistic effects in vitro or
+in vivo. Most of the available data have indicated thus far a lack of
+clear synergy for cocktails of mAbs targeting noncompeting
+sites, with the exceptions of S309 and S304 (Pinto et al., 2020)
+or COV2-2195 and COV2-2130 mAbs (Zost et al., 2020), with
+the latter combination showing enhanced neutralization potency
+in vitro, but not in vivo.
+Role of Fc-dependent effector functions of SARS-CoV-
+2-neutralizing mAbs
+The relevance of effector functions for the efﬁcacy of SARS-
+CoV-2-neutralizing mAbs in humans is not well established.
+These could even be putatively detrimental, enhancing inﬂam-
+mation and therefore disease, at least under certain circum-
+stances. mAbs can recruit immune cells and complement,
+facilitate the elimination of infected cells that display S at their
+surface, and promote phagocytosis and elimination of opson-
+ized virions. In addition, the formation of immune complexes
+with mAbs can contribute to enhanced presentation of viral anti-
+gens to CD4+ and CD8+ T cells that may contribute to controlling
+viral infection. The relevance for antibody-dependent enhance-
+ment of disease (ADE) in the context of a range of different viral
+infections, including SARS-CoV and SARS-CoV-2, is reviewed
+elsewhere (Arvin et al., 2020; Bournazos et al., 2020b; Lee
+et al., 2020). Safety analysis in multiple mAb-based ongoing clin-
+ical trials for COVID-19 will reveal if ADE is an issue in any of the
+treatment modalities under investigation.
+Several factors may play a role in determining the ability of
+anti-RBD mAbs to exert Fc-dependent effector function: (1)
+epitope speciﬁcities of the mAbs, as previously shown for
+mAbs against IAV HA and NA (DiLillo et al., 2014, 2016); (2) orien-
+tation and distance of the Fc fragment relative to the plasma
+membrane (Dilillo et al., 2016; Pinto et al., 2020; Tang et al.,
+2019); (3) steric hindrance of effector cells; (4) high-density bind-
+ing of mAbs for efﬁcient Fcg receptor (FcgR) cross-linking and
+engagement of the hexameric C1q; and (5) the ability of some
+RBD-speciﬁc mAbs to trigger shedding of the S1 subunit and S
+conformational change, which limit their ability to trigger effector
+functions (Lempp et al., 2021; Tortorici et al., 2021). Indeed,
+mAbs that do not promote Fc-mediated effector functions
+seem to be those selecting for open RBD states and all are likely
+triggering S, leading to S1 (and mAb) shedding.
+Figure 3. Full occupancy of binding to S trimer by the non-RBM mAb S309
+Side (left) and top (right) views of a structural model of SARS-CoV-2 S trimer (gray) with two RBDs in the closed state (dark green) and one in the open state (light
+green monomer) based on PDB: 6WPT. S309 Fab bound to all three RBDs is modeled as full IgG1 (light blue), and ACE2 monomer (red) bound to the open RBD is
+shown as a ribbon diagram. This model illustrates how the non-RBM mAb S309 may shield S trimers to sterically prevent ACE2 binding on target cells. S309 is the
+precursor of VIR-7831, recently renamed sotrovimab.
+ll
+3092
+Cell 184, June 10, 2021
+Review
+
+
+--- Page 8 ---
+The study of antibody effector functions in vitro does not
+necessarily correlate with in vivo activity, due to the high
+complexity of the complement and FcgR biology. Protection
+by antiviral neutralizing antibodies in animal models of inﬂuenza
+A and HIV-1 was shown to require the contribution of effector
+functions mediated by Fc-FcgR interactions for optimal efﬁcacy
+(DiLillo et al., 2014; Hessell et al., 2007). Similarly, in a mouse
+model of COVID-19, the elimination of effector functions through
+the introduction of GRLR mutations (G236R/L328R) in the Fc
+fragment that abrogates binding to FcgRs and complement re-
+sulted in a reduced antiviral efﬁcacy in terms of viral load in lungs
+of infected mice (Scha¨ fer et al., 2021). In the same study, the au-
+thors also showed a lack of correlation between in vitro neutral-
+ization and in vivo potency, arguing that neutralization of viral en-
+try in vitro may not be the sole determinant of antiviral activity
+in vivo. Another study by Diamond and collaborators showed
+that in huACE2 mice (K18) and hamsters, Fc-dependent effector
+functions are dispensable in prophylactic settings but required
+for optimal protection under therapeutic settings. In particular,
+mAbs with wild-type Fc were shown to reduce SARS-CoV-2
+burden and lung disease in animals more efﬁciently than mAbs
+with Fc mutated to abrogate binding to FcgRs and required
+monocyte intervention for therapeutic efﬁcacy (Winkler et al.,
+2021). Of note, studies testing SARS-CoV-2-neutralizing mAbs
+at limiting doses to reach sub-neutralizing levels did not provide
+evidence for enhancement of disease, even when the Fc was
+modiﬁed to match the target host Fc receptors (e.g., hamster-
+ized in hamsters) (Baum et al., 2020a; Cathcart et al., 2021;
+Lempp et al., 2021; Rogers et al., 2020). Collectively, these
+data indicate that at least in the animal models and therapeutic
+modalities tested, the antibody Fc fragment can contribute to
+in vivo efﬁcacy.
+Due to the initial uncertainty around the beneﬁcial or detri-
+mental role of effector functions, different groups have adopted
+opposite strategies in the choice of Fc formats for the clinical
+development
+of
+human-IgG1-antibody-based
+products.
+In
+particular, 5 of the 14 mAbs analyzed here have been engi-
+neered to remove (e.g., LALA or TM [triple mutant] Fc mutations)
+or reduce (e.g., YTE) mAb effector functions, while the remain-
+ing were developed as wild-type IgG1 (REGN-COV2) or half-
+life-extended Fc versions (VIR-7831 and ADG2) (Figure 2C).
+VIR-7832, which is a derivative of VIR-7831, is an exception,
+as it was further Fc engineered to carry the GAALIE mutation
+that was previously shown to mediate enhanced dendritic cell
+maturation and the induction of protective CD8+ T cell re-
+sponses against IAV (Bournazos et al., 2020a). VIR-7832 is
+currently being tested in a phase 2 study in parallel with its
+parent, VIR-7831 (sotrovimab), to assess the potential beneﬁcial
+effect of the so-called antibody vaccinal effect in humans. The
+use of half-life-extending mutations such as LS or YTE may
+also contribute to an improved biodistribution in mucosal tis-
+sues, such as lungs, as previously observed in non-human pri-
+mates (Ko et al., 2014).
+In conclusion, this section illustrates how different classes of
+S-speciﬁc mAbs can provide in vivo efﬁcacy through multiple
+and different mechanisms of action beyond direct blocking of
+ACE2 binding and that the relevance of these mechanisms
+may differ in prophylactic or therapeutic settings.
+VIRUS EVOLUTION AND ESCAPE FROM mAbs
+RNA viruses, such as SARS-CoV-2, are evolving biological en-
+tities. During the ﬁrst few months of the COVID-19 pandemic, a
+modest rate of sequence divergence was observed, likely
+due to the coronavirus exonuclease ‘‘proofreading’’ activity
+enhancing replication ﬁdelity (Denison et al., 2011). This initial
+low level of mutations led the ﬁeld to underestimate the risk
+for the virus to escape the immunity elicited by infection, vacci-
+nation, or mAb administration. It was also assumed that target-
+ing the RBM with mAbs could offer the potential advantage of
+functional constrains for mutations in this region, possibly
+increasing the barrier to resistance for RBM-directed mAbs.
+However, the in vitro selection of resistant viral variants from
+RBM mAbs provided evidence for a high degree of plasticity
+in this region, leading to the clinical development of several
+cocktails of noncompeting RBM mAbs (Liu et al., 2021b; Weis-
+blum et al., 2020). Deep mutational scanning of all possible
+RBD mutations (Starr et al., 2020) highlighted the considerable
+mutational tolerance of this domain, although some substitu-
+tions are deleterious for RBD expression or ACE2 binding.
+These analyses were also extended to map the escape land-
+scape of polyclonal antibodies and several mAbs, including
+some that are in the clinic (imdevimab, casirivimab, sotrovimab,
+bamlanivimab, etesevimab, AZD8895, and AZD1061 mAbs; see
+Figure 2A or Table 1 for correspondence between initial and
+generic names of mAbs) (Dong et al., 2021; Greaney et al.,
+2021a, 2021b; Starr et al., 2021a, 2021b, 2021c). These
+in vitro experiments provided evidence that the RBM can
+accommodate a large set of mutations while retaining or even
+increasing ACE2 binding. The higher frequency of mutations
+in the RBM over the rest of the RBD (Starr et al., 2021a; Thom-
+son et al., 2021) may result from immune pressure, consistent
+with the observation that antibody responses to the RBD are
+dominated by anti-RBM antibodies (Piccoli et al., 2020). A
+similar phenomenon is observed with the highly immunogenic
+globular head domain of the inﬂuenza virus HA that evolves
+faster than the stem region, although it comprises the sialic-
+acid-receptor-binding site. This process is the basis for anti-
+genic drift and the continuous requirement to update inﬂuenza
+vaccines (Doud et al., 2018; Kirkpatrick et al., 2018).
+Overall, the emergence of resistant variants has at least three
+constraints. (1) The low rate of mutations of SARS-CoV-2 limits
+the frequency of random mutations to 1 nt per codon, restricting
+the spectrum of possible amino acid substitutions at each posi-
+tion. This is further limited by the fact that positive-sense single-
+stranded RNA viruses undergo more transitions in their genomes
+than transversions. Indeed, a three-times-higher frequency of
+transitions over transversions was observed in the SARS-CoV-
+2 genome (Roy et al., 2020; Sarkar et al., 2021). (2) High-afﬁnity
+binding to ACE2 and possibly other co-receptors or attachment
+receptors needs to be retained for viral ﬁtness. In a recent study,
+the mutation N501Y, found in multiple SARS-CoV-2 VOCs, was
+shown to increase by 6-fold the afﬁnity for human ACE2 (Collier
+et al., 2021) and was also associated to an increased interaction
+with murine ACE2 (Gu et al., 2020), raising the possibility that mu-
+tations in S may also emerge as a result of inter-species ex-
+change of SARS-CoV-2, like the two-way transmission of
+ll
+Cell 184, June 10, 2021
+3093
+Review
+
+
+--- Page 9 ---
+SARS-CoV-2 on mink farms observed in Denmark in late 2020
+(Oude Munnink et al., 2021). (3) Mutations shall not affect RBD
+folding and expression. As an example, the RBD N343 glycan,
+which is part of the S309 mAb epitope (Pinto et al., 2020), is high-
+ly conserved in all sarbecoviruses as well in 100% of the more
+than 1 million sequences of SARS-CoV-2 available to date. The
+removal of this glycosylation site by mutagenesis resulted in
+impaired RBD folding, decreased expression, and reduced
+infectivity (Li et al., 2020; Starr et al., 2020, 2021a), most likely ex-
+plaining its strict conservation.
+It is possible that the colossal number of infected patients,
+with very large estimated local seroprevalence at some loca-
+tions, has imposed an immune pressure on the virus. In the
+early phase of the pandemic, the only mutation in S that
+became prevalent was D614G and was associated with higher
+viral loads and younger patient age (Volz et al., 2021). Since
+November 2020, SARS-CoV-2 has started to mutate more
+drastically, with the accumulation of several mutations and de-
+letions in the RBD, NTD, and S2 subunit. This rapid evolution
+led to the simultaneous appearance of a plethora of SARS-
+CoV-2 VOCs or variants of interest (VOIs), such as B.1.1.7
+(United Kingdom), B.1.351 (South Africa), B.1.525 (Nigeria),
+B.1.526 (New York), P.1 (Brazil), B.1.427/B.1.429 (California),
+B.1.258 (Scotland), and A.23.1 (Liverpool), which collectively
+now account for more than 90% of sequenced viruses
+(Figure 4).
+Several mutations found in these VOCs/VOIs are found to
+reduce or abolish the neutralizing activity of several mAbs,
+including those already approved or in late stages of develop-
+ment (Figure 5). Some of these VOCs/VOIs have also been
+shown to reduce neutralizing titers of vaccine-elicited anti-
+bodies, possibly reducing vaccine effectiveness and the dura-
+tion of protection (Cele et al., 2021; Chen et al., 2021c; Collier
+et al., 2021; Kustin et al., 2021; Liu et al., 2021a; McCallum
+et al., 2021a; Muik et al., 2021; Wang et al., 2021b, 2021c; Wu
+et al., 2021). In this context, the resurgence of COVID-19 in Man-
+aus, Brazil is associated with the emergence of the P.1 SARS-
+CoV-2 VOC despite an estimated seroprevalence of 75% in
+this region (Buss et al., 2021; Sabino et al., 2021). Similarly, the
+recent surge of COVID-19 cases in India may be in part associ-
+ated with a new VOI, named B.1.617.1, that carries a combina-
+tion of two key RBD escape mutations (E484Q and L452R),
+found in other variants, in addition to several other mutations.
+Importantly, most of the RBD mutations found in current
+VOCs/VOIs were already previously identiﬁed as resistant vari-
+ants in vitro by using mAbs and convalescent or vaccine-elicited
+serum antibodies (Andreano et al., 2020; Baum et al., 2020b; Liu
+et al., 2021b; Weisblum et al., 2020), suggesting that the emer-
+gence of these VOCs/VOIs may result from immune selection.
+It was hypothesized that antibody-resistant variants may exhibit
+pathogenesis and transmission deﬁcits, but all recent ﬁndings
+have argued for the opposite. Indeed, the B.1.1.7 variant was
+found to be more transmissible and cause more severe infec-
+tions compared to the parental virus (Davies et al., 2021a,
+2021b; Munitz et al., 2021). However, two recent studies did
+not conﬁrm that the B.1.1.7 variant is associated with more se-
+vere disease (Frampton et al., 2021; Graham et al., 2021). Prelim-
+inary data have suggested increased transmissibility for the
+B.1.427/B.1.429 VOCs (Deng et al., 2021). Whether a similar
+trend would be observed for B.1.351, P.1, and other VOCs that
+showed a more marked effect on antibody escape remains to
+be established.
+Figure 4. Prevalence of VOCs over time
+Prevalence was calculated based on the cumulative counts of sequences retrieved from GISAID belonging to any of the listed VOCs over the total number of
+sequences deposited by month. GISAID sequences were ﬁltered based on the quality of the sequences (<10% Xs) and the coverage of most of the S sequence
+(>80% full length). The Phylogenetic Assignment of Named Global Outbreak (PANGO) lineage designation (Rambaut et al., 2020) of each variant, along with the
+location where they were ﬁrst identiﬁed, is indicated on the right.
+ll
+3094
+Cell 184, June 10, 2021
+Review
+
+
+--- Page 10 ---
+(legend on next page)
+ll
+Cell 184, June 10, 2021
+3095
+Review
+
+
+--- Page 11 ---
+Overall, immune-evading SARS-CoV-2 variants, which may
+mark the beginning of antigenic drift of SARS-CoV-2, may poten-
+tially continue to emerge and co-evolve when herd immunity is
+reached, with implications for reinfection, vaccines, and both
+mAb and polyclonal antibody therapeutics. Monitoring resis-
+tance of mAbs to circulating new variants will be key to deﬁne
+whether some of the developed mAbs should be discontinued
+or if different combinations of clinical-stage mAbs should be
+investigated, as recommended in a recent guideline developed
+by the US Food and Drug Administration (FDA) (FDA (US Food
+and Drug Administration), 2021). As a striking example of the ef-
+fect of the evolution of SARS-CoV-2, in mid-April 2021, Eli Lilly
+requested revocation of the EUA for bamlanivimab, citing an in-
+crease in variants resistant to the mAb monotherapy. However,
+some clinical mAbs are not sensitive in vitro and in vivo to the mu-
+tations present in the current VOCs/VOIs due to targeting of
+highly conserved epitopes, as is the case for VIR-7831, COV2-
+2196, and other mAbs (Chen et al., 2021b; Dong et al., 2021;
+McCallum et al., 2021a; Pinto et al., 2020; Starr et al., 2021a; Tor-
+torici et al., 2021). Monotherapy approaches are not necessarily
+inferior to mAb cocktails if they are based on mAbs with high bar-
+rier to resistance and optimal coverage of circulating variants.
+Monitoring the emergence of resistance may be important if sin-
+gle mAbs are used in the clinic, but it becomes equally
+important when one of the mAbs of a cocktail is found to be sen-
+sitive to the circulating variants. This is already the case for the
+REGN-COV2,
+bamlanivimab/etesevimab,
+and
+ABBV-2B04/
+ABBV-47D11 cocktails, which are sensitive to the E484K and/
+or K417N/T mutations found in the B.1.351, B.1.525, B.1.526,
+A.23.1, and P.1 VOCs (Figure 5C). Moreover, regdanvimab
+(CT-P59) and, to a smaller extent, etesevimab, showed a reduc-
+tion in neutralization potency against the B.1.427/B.1.429 VOCs,
+whereas bamlanivimab (LY-CoV555) entirely lost its neutralizing
+activity due to the central location of L452R in the epitopes
+recognized by these mAbs (McCallum et al., 2021a). If one
+mAb in a cocktail is inactive against a VOC, then the clinical
+dosing of the administered mAbs is reduced by half, and the
+cocktail becomes a monotherapy.
+OVERVIEW OF COVID-19 mAb CLINICAL TRIALS
+mAbs approved for early therapy of COVID-19
+The pandemic has revolutionized the design and speed of clin-
+ical trials, including phase 1/2/3 adaptive trials that have led to
+approvals of therapeutic mAbs for COVID-19 in record time. To
+date, four mAb products have been approved under an EUA or
+conditional marketing authorization based on phase 2 and/or
+phase 3 interim data for COVID-19 for the same indication (i.e.,
+early therapy in at-risk individuals) (Figure 6). An overview of
+the performed and ongoing clinical trials for all 14 mAbs
+described in this review is provided in Table 1.
+Bamlanivimab
+was
+the
+ﬁrst
+COVID-19-authorized
+mAb
+(November 9, 2020) and received from the FDA an EUA for the
+treatment of mild-to-moderate COVID-19 in adults and pediatric
+patients 12 years (over 40 kg) and older with a positive COVID-19
+test result who are at high risk for progressing to severe COVID-
+19 and/or hospitalization (Chen et al., 2021a). The EUA was
+based on interim data from the BLAZE-1 phase 3 study in pa-
+tients with recently diagnosed mild-to-moderate COVID-19 in
+the outpatient setting. The approved dose was 0.7 g to be
+administered by a single intravenous infusion within 10 days of
+symptom onset. Two weeks later, the REGN-COV2 cocktail (ca-
+sirivimab and imdevimab) also received an EUA for use in the
+same patient population for the treatment of mild-to-moderate
+COVID-19 in high-risk patients at a dose of 2.4 g (1.2 g casirivi-
+mab and 1.2 g imdevimab) administered as a single intravenous
+infusion (Weinreich et al., 2021). In March 2021, interim analysis
+showed a 70% reduction in hospitalization or death but no dose-
+dependent effect (1.2, 2.4, or 8 g). In February 2021, the FDA also
+granted an EUA for the combined use of bamlanivimab (0.7 mg)
+and etesevimab (1.4 g) for the same indication for which bamla-
+nivimab was approved (i.e., treatment of mild-to-moderate
+COVID-19 in at-risk patients) (Gottlieb et al., 2021). In addition,
+the EUA for this combination allowed for a much-reduced infu-
+sion time of 21 min compared to that authorized for bamlanivi-
+mab alone (60 min). The use of these mAbs is now authorized
+in multiple countries. A fourth approval for the same indication
+(i.e., early therapy in adults) occurred in early February 2021 for
+regdanvimab by Celltrion. Regdanvimab received a conditional
+marketing authorization by South Korea’s drug safety agency.
+This approval was based on the ﬁrst part of a global phase 2/3
+trial showing that progression rates to severe COVID-19 were
+reduced by 54% for patients with mild-to-moderate symptoms
+and 68% for patients aged 50 years and older. Currently, Cellt-
+rion is seeking conditional approvals by the European Medicines
+Agency (EMA) and FDA. Finally, the FDA granted an EUA also for
+the early-therapy use of VIR-7831 (sotrovimab) in late May 2021.
+VIR-7831 is a derivative of the cross-reactive S309 mAb that was
+engineered for half-life extension and potentially improved bio-
+distribution in the lungs by the introduction of the LS mutation
+in Fc. This mAb was investigated in a phase 3 study in patients
+with early-stage COVID-19 infection who are at high risk for hos-
+pitalization (i.e., patients R55 years with preexisting lung or car-
+diovascular disease) and administered as a 0.5-g dose via intra-
+venous infusion. This phase 3 study has been stopped early due
+to outstanding efﬁcacy (i.e., 85% reduction in hospitalization or
+death) (Gupta et al., 2021).
+The clinical studies that led to the approval of these mAbs
+have provided important insights inﬂuencing multiple aspects
+of the further development of these and other mAbs. A ﬁrst
+important point is that mAbs were likely overdosed, since
+no dose response was observed in any of the reported
+Figure 5. Mutations on the SARS-CoV-2 S in VOCs and resistance proﬁle of clinical mAbs
+(A) Ancestry tree of SARS-CoV-2 VOCs/VOIs.
+(B) Schematic of SARS-CoV-2 S and the mutation landscape in each VOC/VOI. Del, deletion; ins, insertion.
+(C) Neutralization of a selection of VOCs/VOIs by clinical-stage mAbs as reported previously (Baum et al., 2020b; Chen et al., 2021b, 2021c; Copin et al., 2021;
+Dejnirattisai et al., 2021; Dong et al., 2021; FDA (US Food and Drug Administration), 2020a, 2020b; Hoffmann et al., 2021; Liu et al., 2021b; McCallum et al., 2021a;
+Ryu et al., 2021; Starr et al., 2021b, 2021c; Thomson et al., 2021; Wang et al., 2021a, 2021b). Prediction of neutralization coverage is based on the presence of
+mutations in the available epitope of each mAb. mAbs developed clinically as cocktails are grouped.
+ll
+3096
+Cell 184, June 10, 2021
+Review
+
+
+--- Page 12 ---
+studies (REGN-COV2 dosed at 1.2, 2.4, and 8 g; bamlanivi-
+mab dosed at 0.7, 2.8, and 7 g; and regdanvimab dosed at
+40 and 80 mg/kg). The broad range of doses tested forced
+the initial use of intravenous administration due to the high
+volume that would be required for the highest doses that
+would not be compatible with intramuscular or subcutaneous
+routes. Dose sparing is also key to increase the overall num-
+ber of available doses for each lot of produced drug product.
+So far, intravenous administration has limited the use of these
+approved mAbs, since this route requires a hospital setting or
+access to infusion centers. The shift to different routes, such
+as intramuscular or subcutaneous (Table 1), is underway and
+will possibly contribute to a facilitated and larger access to
+these mAbs.
+Another important ﬁnding relates to primary endpoints used to
+measure the success of these clinical trials. Virological endpoints
+did not always reﬂect clinical endpoints, and the latter were ulti-
+mately the key drivers for approval. For instance, combination of
+bamlanivimab with etesevimab or bamlanivimab monotherapy
+showed similar efﬁcacy on clinical endpoints, while combination
+therapy appeared to be more efﬁcacious on virological end-
+points. It is unclear whether measuring viral replication in the up-
+per airways with molecular-based methods (i.e., RT-PCR) is an
+accurate measure of viral neutralization, since viral RNA may
+persist even in the absence of replication-competent virus. In
+addition, viral load in the lower respiratory tract would better
+reﬂect the injury response than the viral load in nasopharyngeal
+secretions, but this type of sampling is highly invasive and overall
+unpractical. Two factors were shown to inﬂuence the level of
+beneﬁt of the mAb in the early therapy setting, the immune status
+at baseline (i.e., seropositive versus seronegative) and the viral
+titer at baseline (i.e., high versus low). The greatest beneﬁt
+from mAbs (particularly for REGN-COV2 mAbs) was observed
+for seronegative patients with a high viral load at baseline, sug-
+gesting that the early development of endogenous antibodies
+may contribute to reduced disease severity and that high viral
+replication is associated with higher probability of severe dis-
+ease outcome.
+It is remarkable that approval was obtained in only 9–
+10 months from the initial discovery of these mAbs. This rapid
+process was made possible thanks to several factors, including
+a rapid isolation of the mAbs, an accelerated manufacturing pro-
+cess to generate clinical grade mAbs in only 3–4 months (Kelley,
+2020), all-in-one clinical studies assessing both safety and efﬁ-
+cacy, and a rapid analysis and approval by regulatory agencies.
+An inherent limitation of this rapid development process was that
+these mAbs could not be characterized for their resistance pro-
+ﬁle against variants that did not exist at that time. Indeed, all
+these four mAbs (etesevimab, bamlanivimab, casirivimab, and
+regdanvimab) are sensitive to one or more of the mutations found
+in RBD residues at positions 417, 452, or 484 that are carried by
+multiple circulating VOCs, including the recently emerging
+B.1.617 (Hoffmann et al., 2021; McCallum et al., 2021a; Starr
+et al., 2021b; Wang et al., 2021b) (Figure 5C).
+Figure 6. Prophylactic and therapeutic approaches to COVID-19
+Vaccines are listed in purple, and mAb-based prophylactic or therapeutic modalities completed successfully or in progress are shown in blue. Other therapeutic
+modalities are not shown.
+ll
+Cell 184, June 10, 2021
+3097
+Review
+
+
+--- Page 13 ---
+Table 1. mAbs under investigation for prophylaxis or therapy of SARS-CoV-2/COVID-19
+Name
+Alternate
+name(s)
+Company
+Phase
+Clinical trial
+identiﬁer (disease
+indication)
+Target population
+Route
+Dose (g)
+Study name
+Fc
+PDB ID
+Source and
+VH germline
+(% identity)
+RBD site
+Reference
+VIR-7831
+VIR-7832
+S309
+GSK4182136
+sotrovimab
+Vir
+Biotechnology
+GSK
+2/3 EUA
+NCT04545060
+(early treatment)
+at-risk adults
+IV
+0.5
+COMET-ICE
+LS
+7JX3
+SARS-CoV-
+immune donor
+VH3–23 (96.5%)
+IV/class 3
+Cathcart et al.,
+2021; Gupta
+et al., 2021;
+Lempp et al.,
+2021;
+Pinto et al.,
+2020; Tortorici
+et al., 2021
+2
+NCT04634409,
+VIR-7831+
+bamlanivimab
+(early treatment)
+adults
+IV
+0.5 + 0.7
+BLAZE-4
+LS
+3
+NCT04501978
+(late treatment)
+hospitalized
+IV
+0.5
+ACTIV-3
+LS
+1b/2a
+(UK) (1b–2a)
+(early treatment)
+(VIR-7831 versus
+VIR-7832)
+at-risk adults
+IV
+0.5
+AGILE
+LS-GAALIE
+versus LS
+2
+NCT04779879
+(safety and
+pharmacokinetics)
+adults
+IV/IM
+0.5
+COMET-PEAK
+LS
+REGN-COV2
+(REGN10933,
+REGN10987
+not co-
+formulated)
+casirivimab
+imdevimab
+Regeneron
+1/2/3
+NCT04426695
+(late treatment)
+hospitalized
+IV
+2.4
+Study 2066
+WT
+6XDG
+SARS-CoV-2-
+immunized
+huIg mice
+(REGN10987)
+and SARS-
+CoV-2 donor
+(REGN10987)
+VH3–11 (98.6%)
+VH3–30 (98.6%)
+Ia/class 1
+Baum et al.,
+2020a, 2020b;
+Copin et al.,
+2021; Hansen
+et al., 2020;
+Weinreich
+et al., 2021
+8
+3
+NCT04452318
+(household
+contact
+prevention)
+adults/
+pediatrics
+SC/IM
+1.2
+Study 2069
+3
+NCT04381936
+(late treatment)
+12 years and
+older
+(hospitalized)
+IV
+8
+RECOVERY
+1/2/3 EUA
+NCT04425629
+(early treatment)
+adult/pediatrics
+and pregnant
+IV
+2.4
+Study 2067
+8
+2
+NCT04666441
+(early treatment
+dose ranging
+study)
+adults
+IV/SC
+1
+NCT04519437
+(safety repeat
+dosing)
+adults
+SC
+Study 2093
+(Continued on next page)
+ll
+3098
+Cell 184, June 10, 2021
+Review
+
+
+--- Page 14 ---
+Table 1.
+Continued
+Name
+Alternate
+name(s)
+Company
+Phase
+Clinical trial
+identiﬁer (disease
+indication)
+Target population
+Route
+Dose (g)
+Study name
+Fc
+PDB ID
+Source and
+VH germline
+(% identity)
+RBD site
+Reference
+LY-CoV016
+CB6, JS016,
+LY3832479,
+etesevimab
+AbCellera
+Eli Lilly
+N/A
+N/A
+N/A
+N/A
+N/A
+N/A
+LALA
+7C01
+SARS-CoV-2-
+immune donor
+VH3–66 (99.7%)
+Ia/class 1
+Shi et al., 2020
+LY-CoV555
+Ab169
+LY3819253
+bamlanivimab
+1
+NCT04411628
+(healthy
+volunteer)
+adults
+IV
+BLAZE-5
+WT
+7KMG
+SARS-CoV-2-
+immune donor
+VH1–69 (99.7%)
+Ib/class 2
+Chen et al.,
+2021a; Gottlieb
+et al., 2021;
+ACTIV-3/TICO
+LY-CoV555
+Study Group
+et al., 2021;
+Jones et al.,
+2021
+2
+NCT04701658
+(early treatment)
+12 years and
+older
+IV
+BLAZE-5
+2/3
+NCT04518410
+(early treatment)
+adults
+IV
+ACTIV-2
+4
+NCT04656691
+(early treatment,
+at-home infusion)
+older adults
+IV
+UNITED
+NCT04603651
+(expanded
+access)
+12 years and
+older
+IV
+ACTIV-2
+LY-CoV555
+and LY-
+CoV016
+CB6, JS016,
+LY3832479,
+etesevimab
+and Ab169
+LY3819253
+bamlanivimab
+3
+NCT04497987
+prevention in
+nursing home
+residents and
+staff (post-
+exposure
+prophylaxis?)
+adults
+IV
+BLAZE-2
+EUA
+NCT04427501
+(early treatment)
+12 years and
+older
+IV
+BLAZE-1
+AZD7442
+(cocktail of
+AZD8895 and
+AZD1061)
+COV2-2196
+AstraZeneca
+3
+NCT04625725
+(pre-exposure
+prophylaxis)
+adults
+IM
+0.15+0.15
+PROVENT
+TM/YTE
+N/A
+SARS-CoV-2-
+immune donor
+VH1–58, VH3–15
+Ia/class 1
+Ib/class 2
+Dong et al.,
+2021;
+Suryadevara
+et al., 2021;
+Zost et al., 2020
+COV2-2130
+3
+NCT04625972
+(post-exposure
+prophylaxis)
+adults
+IM
+0.15+0.15
+STORM CHASER
+3
+NCT04723394
+(early treatment)
+adults
+IM
+0.6
+TACKLE
+3
+NCT04501978
+(late treatment)
+hospitalized
+IM
+ACTIV-3
+(Continued on next page)
+ll
+Cell 184, June 10, 2021
+3099
+Review
+
+
+--- Page 15 ---
+Table 1.
+Continued
+Name
+Alternate
+name(s)
+Company
+Phase
+Clinical trial
+identiﬁer (disease
+indication)
+Target population
+Route
+Dose (g)
+Study name
+Fc
+PDB ID
+Source and
+VH germline
+(% identity)
+RBD site
+Reference
+BRII-196
+1F11
+Brii
+Biosciences
+1
+NCT04479631
+(safety)
+healthy
+volunteers
+IV
+1
+?
+7CDI
+SARS-CoV-2-
+immune donor
+VH3–53 (?)
+Ia/class 1
+Ju et al., 2020
+BRII-198
+1
+NCT04479644
+(safety)
+healthy
+volunteers
+IV
+1
+?
+N/A
+?
+BRII-196
+and BRII-198
+combination
+2
+NCT04770467
+(early treatment)
+adults
+IV
+3
+NCT04501978
+(late treatment)
+hospitalized
+IV
+1+1
+ACTIV-3
+CT-P59
+regdanvimab
+Celltrion
+2/3 EUA
+in South
+Korea
+NCT04602000
+(early treatment)
+at-risk adults
+IV
+40 mg/kg
+?
+7CM4
+SARS-CoV-2-
+immune donor
+VH-70 (?)
+Ia/class 1
+Du et al., 2020;
+Kim et al., 2021;
+Ryu et al., 2021
+ADG20
+ADG-2 parent
+ADI-55688
+Adagio
+1/2/3
+NCT04805671
+(early treatment)
+adults
+IM/IV
+1 dose
+WT/half-
+life ext. (?)
+N/A
+SARS-CoV-
+immune donor
+VH1–69?
+Ia/class 1
+Dejnirattisai et al.,
+2021; Rappazzo
+et al., 2021; Wec
+et al., 2020
+IIa/class 4
+BGB-DXP593
+BD-368-2
+BeiGene
+Singlomics
+2
+NCT04551898
+(early treatment)
+adults
+IV
+3 doses
+?
+7CHH
+SARS-CoV-2-
+immune donor
+VH3–23 (?)
+Ib/class 2
+Cao et al., 2020
+ABBV-47D11
+47D11
+AbbVie
+1
+NCT04644120
+(safety and
+late treatment)
+hospitalized
+IV
+3 doses
+?
+N/A
+SARS-CoV-
+immunized
+huIg mice, N/A
+?
+Wang et al., 2020
+ABBV-2B04
+2B04
+?
+N/A
+RBD-immunized
+mice (B6),
+humanized?
+Ia/class 1
+Alsoussi et al.,
+2020; Chen et al.,
+2021b; Liu
+et al., 2021b
+huIg, humanized immunoglobulin; IV, intravenous; IM, intramuscular; N/A, not available; SC, subcutaneous; WT, wild type.
+ll
+3100
+Cell 184, June 10, 2021
+Review
+
+
+--- Page 16 ---
+Large-scale manufacturing for these approved mAbs is under-
+way, and hundreds of thousands of doses have already been de-
+ployed in multiple countries. It is worth noting that each batch of
+production derived from the largest bioreactors (15,000 L) de-
+livers 100–200,000 doses. Historically, the typical yearly supply
+of doses required for mAbs in oncology and inﬂammation is
+generally lower and fully covered by existing production plants,
+while the need for millions of doses that might be needed for
+COVID-19 is unprecedented in the ﬁeld. Thus, if the global de-
+mand of mAbs exceeds the current production capacity of indi-
+vidual companies in the near future, then a cooperation between
+multiple private and public sectors will be needed for the simul-
+taneous access to multiple very-large-scale bioreactors (Kelley,
+2020; Kelley et al., 2021).
+Importantly, these are the ﬁrst antiviral mAbs authorized for
+use in a therapeutic setting for respiratory pathogens, proving
+the concept that established respiratory infections can be cured
+with mAbs, at least when mAbs are administered at an early
+stage of the disease. These same approved mAbs are also under
+investigation in multiple clinical trials (see below) to assess their
+efﬁcacy in prophylaxis, post-exposure prophylaxis in residents
+and staff of long-term care facilities, and late therapy, where
+mAbs are tested in hospitalized patients with different degrees
+of disease severity (Table 1).
+mAbs tested for early therapy of COVID-19 in advanced
+clinical stages
+The success of early therapy of mild-to-moderate COVID-19 in
+high-risk patients by the mAbs presented above represents an
+important proof of concept that
+similar mAbs or
+mAbs
+that may provide an optimal coverage of evolving VOCs are-
+warranted.
+VIR-7831 is also tested in a phase 2 early therapy study in
+adults in combination with bamlanivimab (BLAZE-4). A derivative
+of VIR-7831, VIR-7832, in which the GAALIE mutation was added
+to provide a potential vaccinal effect is currently being tested in
+the United Kingdom in parallel with VIR-7831 in an early-therapy
+phase 2 study (Agile study) to assess in humans the potential ef-
+fect of the so-called vaccinal effect introduced by the Fc GAALIE
+mutation.
+Three other studies are testing the efﬁcacy of early therapy
+by mAbs: (1) a phase 3 study testing the cocktail of AZD7442
+mAbs (YTE-TM) administered intramuscularly at a dose of
+0.6 g (Zost et al., 2020), (2) a phase 2 study of the single
+RBM mAb BGB-DXP593 tested at three undisclosed doses
+administered intravenously (Cao et al., 2020), and (3) a phase
+1/2/3
+study
+of
+the
+single
+mAb
+ADG20
+recognizing
+a
+conserved site on RBD tested as a single undisclosed dose
+administered either intravenously or intramuscularly (Rap-
+pazzo et al., 2021).
+mAbs tested for late therapy of COVID-19 in advanced
+clinical stages
+Late therapy with antiviral mAbs have historically shown
+limited success, but this is changing with the discovery of an-
+tibodies with remarkable neutralization breadth and potency,
+as exempliﬁed by the successful use of mAbs to treat Ebola
+virus disease. mAbs might not be effective late in the course
+of
+COVID-19
+disease,
+when
+viral
+replication
+is
+already
+decreasing and the disease course is mainly driven by host re-
+sponses, leading to immune dysregulation, immunopathology,
+and exacerbation of underlying comorbid conditions. On the
+other hand, the successful use of convalescent plasma in hos-
+pitalized patients when provided before patients require venti-
+lation (Ma et al., 2021; Tworek et al., 2021) argues for a careful
+assessment of the potential for mAb therapy in hospitalized
+patients.
+An early study testing bamlanivimab in hospitalized patients
+(ACTIV-3 study organized by the NIH) was halted due to the
+lack of efﬁcacy and unspeciﬁed safety concerns, suggesting
+that bamlanivimab is unlikely to help hospitalized COVID-19 pa-
+tients recover from this advanced stage of disease (ACTIV-3/
+TICO LY-CoV555 Study Group et al., 2021). In the same trial
+(i.e., ACTIV-3), three more mAb products, in combination with
+standard of care, are under investigation (VIR-7831, Brii-196 +
+Brii-198, and AZD8895 + AZD1061). Both the VIR-7831 and
+Brii mAbs sub-studies were recently halted by the trial sponsor,
+the National Institute of Allergy and Infectious Diseases (NIAID),
+following an interim review and recommendation from the inde-
+pendent Data and Safety Monitoring Board (DSMB). There were
+no safety concerns with VIR-7831 or Brii-196 + Brii-198, and it
+was noted that VIR-7831, upon initial analysis, did meet the pre-
+speciﬁed conditions for continuation (NIH (National Institutes of
+Health, 2021). Data continue to be collected, and publication is
+expected shortly. AbbVie is also testing ABBV-47D11 and
+ABBV-2B04 mAbs (Alsoussi et al., 2020; Wang et al., 2020)
+alone and in combination for treating adults hospitalized with
+COVID-19 in a phase 1 study. The treatment with REGN-
+COV2 mAbs is part of another comparative trial, the RECOVERY
+trial, in which multiple therapeutic modalities are being tested
+(hydroxychloroquine, aspirin, baricitinib, azithromycin, lopina-
+vir-ritonavir convalescent plasma, dexamethasone, colchicine
+,and tocilizumab). This study has so far shown a lack of efﬁcacy
+for azithromycin, convalescent plasma, and lopinavir-ritonavir.
+The testing of REGN-COV2 in hospitalized patients receiving
+mechanical ventilation or high-ﬂow oxygen was halted after
+the observation of a potential safety signal and an unfavorable
+risk/beneﬁt
+proﬁle.
+However,
+the
+testing
+of
+REGN-COV2
+continued for hospitalized patients with less serious cases.
+The overall lack of efﬁcacy of antiviral mAbs observed in hospi-
+talized patients in late stages of disease is reminiscent of what
+was observed with the inﬂuenza HA stem mAb MHAA4549A
+that did not improve clinical outcomes over the standard of
+care (i.e., oseltamivir) alone when tested as late therapy in hos-
+pitalized patients (Lim et al., 2020).
+The efﬁcacy of mAbs in hospitalized patients, and the under-
+standing of which disease stage would be compatible with the
+beneﬁcial effect of mAbs, are key to add more therapeutic op-
+tions to the current armamentarium of drugs to reduce severity
+and mortality in the advanced stages of COVID-19. Importantly,
+the use of anti-inﬂammatory drugs, which can limit the local
+damage triggered by SARS-CoV-2 infection, has also involved
+the use of mAbs. Two approved mAbs, sarilumab and tolicizu-
+mab, directed to the receptor of the pro-inﬂammatory cytokine
+interleukin-6 (IL-6) and approved for the treatment of rheumatoid
+arthritis, have also been tested in COVID-19. Over 350 studies
+ll
+Cell 184, June 10, 2021
+3101
+Review
+
+
+--- Page 17 ---
+have been initiated to study the effect of inhibition of IL-6 recep-
+tor (IL-6R) or IL-6 for COVID-19. Three major studies (REMAC-
+CAP, COVACTA, and RECOVERY) have published the validity
+of this approach in COVID-19 hospitalized patients, with con-
+trasting results (Horby et al., 2021; REMAP-CAP Investigators
+et al., 2021; Rosas et al., 2021). In two of these studies (RECOV-
+ERY and REMAC-CAP), a reduced risk of death and an overall
+improvement of medical conditions was observed, while the
+third study did not observe a beneﬁcial effect over placebo.
+Several variables may have inﬂuenced the disparate outcomes
+of these trials, including the deﬁnition of the patient population
+eligible for enrollment. The most notable is that in the two suc-
+cessful studies most of the patients received glucocorticoid ther-
+apy as standard of care, while only a minority of patients of the
+COVACTA study did. These results may suggest a possible ad-
+ditive or synergistic effect in using anti-inﬂammatory drugs (i.e.,
+IL-6 and glucocorticoids) acting with different modalities. These
+results may call for combination therapies utilizing antiviral mAbs
+(or small-molecule drugs) with anti-inﬂammatories designed to
+address immune dysregulation (e.g., tolicizumab, sarilumab,
+and glucocorticoids), with the goal to improve efﬁcacy in hospi-
+talized patients and possibly expand the therapeutic window of
+intervention.
+mAbs tested for prophylaxis of COVID-19 in advanced
+clinical development
+In the setting of prophylaxis, mAbs could potentially be used
+alone or as a complement to vaccines. mAbs could also be
+used to provide an additional layer of protection for individuals
+at high risk of developing severe complications of COVID-19,
+such as the elderly and individuals with comorbidities or in
+those who are immunocompromised, and also to complement
+vaccine efﬁcacy in case of signiﬁcant SARS-CoV-2 anti-
+genic drift.
+Two mAbs have so far shown efﬁcacy in interim analyses of
+phase 3 data in a prophylactic setting, bamlanivimab (BLAZE-
+2) and the REGN-COV2 cocktail (Study 2069), although publica-
+tion of data from either trial is still pending, and data from these
+trials were only available via press releases. Bamlanivimab was
+reported to prevent COVID-19 in nursing homes where both res-
+idents and staff who tested negative for SARS-CoV-2 were
+enrolled. The subjects were followed for 8 weeks, and treatment
+with mAb was reported to signiﬁcantly lower the frequency of
+symptomatic COVID-19, suggesting that subjects had up to an
+80% lower risk of COVID-19. Results for the REGN-COV2 cock-
+tail was reported from 400 subjects who were seronegative
+and did not have COVID-19 at baseline but who had a household
+member who had COVID-19. Here, prophylaxis with the cocktail
+was reported to prevent 100% of the symptomatic infections and
+had 50% lower rates of infection. Although viral loads were not
+reported for the bamlanivimab study, the peak viral loads in the
+placebo group of the REGN-COV2 household contact study
+were reported to be more than 100-fold higher than those treated
+with mAb, and treatment with REGN-COV2 was shown to reduce
+the duration of viral shedding. Both bamlanivimab and REGN-
+COV2 are IgG1 mAbs without Fc modiﬁcations, and data re-
+ported for these trials only looked at subjects soon after mAb
+administration (i.e., %2 months). Taken together, these data indi-
+cate a high potential for mAb-based immune prophylaxis of
+COVID-19 and support the hypothesis that protection from
+infection and disease can be mediated by neutralizing mAbs,
+furthermore indicating that vaccine-elicited antibodies are likely
+the major correlate of protection, as observed in non-human pri-
+mates (Arunachalam et al., 2021; McMahan et al., 2021; Walls
+et al., 2020a).
+These preliminary ﬁndings represent an important proof of
+concept for the development of mAbs with half-life extension
+to enable safe and reliable protection for up to 6–12 months
+that could be used as a vaccine alternative for individuals
+who respond poorly to or are not eligible for vaccination. The
+combination of RBM mAbs AZD8895 and AZD1061 was engi-
+neered for half-life extension with the YTE mutation and to
+abrogate effector functions with the addition of the TM muta-
+tion in the Fc. This mAb cocktail is being tested in an early-ther-
+apy study and in a large pre-exposure prophylactic study
+enrolling up to 5,000 participants administered with a low
+dose of the AZD8895/AZD1061 cocktail (0.15 + 0.15 g of
+each mAb) that is compatible with intramuscular delivery. A pri-
+mary completion date of the prophylactic trial is expected in
+August 2021 and will assess the incidence of SARS-CoV-2
+PCR-positive symptomatic illness against placebo for a period
+up to 6 months. The lack of effector functions of the AZD8895/
+AZD1061 cocktail and the results of its efﬁcacy may be impor-
+tant to determine the contribution of effector functions to efﬁ-
+cacy in prophylactic or therapeutic settings. The use of low
+doses such as the one used for the AZD8895/AZD1061 cocktail
+is key for a low-volume intramuscular or subcutaneous injection
+of a high-concentration product. As mentioned above, the shift
+from intravenous to these routes of administration is required
+for a larger access to these mAbs.
+CONCLUDING REMARKS AND FUTURE PERSPECTIVES
+This review provides a comprehensive and up-to-date report on
+a selection of neutralizing mAbs against SARS-CoV-2 that have
+been or are being developed clinically. These mAbs target mul-
+tiple sites on the SARS-CoV-2 S RDB and have shown different
+degrees of vulnerability to circulating VOCs/VOIs. Collectively,
+the data published to date suggest that their efﬁcacy in prevent-
+ing or controlling SARS-CoV-2 infection in animal models relies
+not only on viral neutralization but also on other indirect mecha-
+nisms, such as effector functions. The rapid successes obtained
+with these mAbs in both prophylactic and therapeutic clinical tri-
+als has been made possible thanks to the extensive experience
+accumulated in the past several years on the swift isolation of
+human mAbs, the availability of multiple Fc-engineering ap-
+proaches aimed to ﬁne-tune effector functions and improve
+half-life, and the great advances made in the manufacturing pro-
+cess. In a single year, the ﬁeld of anti-infective mAbs has gained
+more knowledge regarding the clinical use of these molecules
+than what has been accumulated in the past 20 years. Several
+factors still limit the successful contribution of approved mAbs
+to the control of the COVID-19 pandemic, including the need
+for very-large-scale manufacturing (which could beneﬁt from
+cooperation among public and private sectors), the awareness
+that these are now available treatments among both patients
+ll
+3102
+Cell 184, June 10, 2021
+Review
+
+
+--- Page 18 ---
+and providers, and the need to rapidly shift to routes of adminis-
+tration not requiring hospital settings. The partial or complete
+success in ﬁlling these gaps may ultimately foster the global ac-
+cess to mAbs to reduce the overall COVID-19 morbidity and
+mortality.
+ACKNOWLEDGMENTS
+We would like to thank Siro Bianchi for the help in the preparation of the ﬁgures
+and Julia Di Julio for the analysis of prevalence of VOCs. Thanks to Christy
+Hebner, Bolyn Hubby, and Herbert W. Virgin for their insightful comments.
+This study was supported by the National Institute of General Medical Sci-
+ences (R01GM120553 to D.V.), a Pew Biomedical Scholars Award (to D.V.),
+and an Investigators in the Pathogenesis of Infectious Disease Awards from
+the Burroughs Wellcome Fund (to D.V.).
+DECLARATION OF INTERESTS
+D.C., L.A.P., and G.S. are employees of Vir Biotechnology and may hold
+shares in Vir Biotechnology. L.A.P. is a former employee and may hold shares
+in Regeneron Pharmaceuticals. D.V. is a consultant for Vir Biotechnology. The
+Veesler laboratory has received a sponsored research agreement from Vir
+Biotechnology, Inc.
+REFERENCES
+ACTIV-3/TICO LY-CoV555 Study Group, Lundgren, J.D., Grund, B., Barkaus-
+kas, C.E., Holland, T.L., Gottlieb, R.L., Sandkovsky, U., Brown, S.M., Knowl-
+ton, K.U., Self, W.H., et al. (2021). A Neutralizing Monoclonal Antibody for Hos-
+pitalized Patients with Covid-19. N. Engl. J. Med. 384, 905–914.
+Ali, S.O., Takas, T., Nyborg, A., Shoemaker, K., Kallewaard, N.L., Chiong, R.,
+Dubovsky, F., and Mallory, R.M. (2018). Evaluation of MEDI8852, an Anti-Inﬂu-
+enza A Monoclonal Antibody, in Treating Acute Uncomplicated Inﬂuenza. Anti-
+microb. Agents Chemother. 62, 1–47.
+Alsoussi, W.B., Turner, J.S., Case, J.B., Zhao, H., Schmitz, A.J., Zhou, J.Q.,
+Chen, R.E., Lei, T., Rizk, A.A., McIntire, K.M., et al. (2020). A Potently Neutral-
+izing Antibody Protects Mice against SARS-CoV-2 Infection. J. Immunol. 205,
+915–922.
+Andreano, E., Piccini, G., Licastro, D., Casalino, L., Johnson, N.V., Paciello, I.,
+Monego, S.D., Pantano, E., Manganaro, N., Manenti, A., et al. (2020). SARS-
+CoV-2 escape in vitro from a highly neutralizing COVID-19 convalescent
+plasma. bioRxiv.
+Arunachalam, P.S., Walls, A.C., Golden, N., Atyeo, C., Fischinger, S., Li, C.,
+Aye, P., Navarro, M.J., Lai, L., Edara, V.V., et al. (2021). Adjuvanting a subunit
+COVID-19 vaccine to induce protective immunity. Nature.
+Arvin, A.M., Fink, K., Schmid, M.A., Cathcart, A., Spreaﬁco, R., Havenar-
+Daughton, C., Lanzavecchia, A., Corti, D., and Virgin, H.W. (2020). A perspec-
+tive on potential antibody-dependent enhancement of SARS-CoV-2. Nature
+584, 353–363.
+Avanzato, V.A., Matson, M.J., Seifert, S.N., Pryce, R., Williamson, B.N., An-
+zick, S.L., Barbian, K., Judson, S.D., Fischer, E.R., Martens, C., et al. (2020).
+Case Study: Prolonged Infectious SARS-CoV-2 Shedding from an Asymptom-
+atic Immunocompromised Individual with Cancer. Cell 183, 1901–1912.e1909.
+Barnes, C.O., Jette, C.A., Abernathy, M.E., Dam, K.A., Esswein, S.R., Gristick,
+H.B., Malyutin, A.G., Sharaf, N.G., Huey-Tubman, K.E., Lee, Y.E., et al.
+(2020a). SARS-CoV-2 neutralizing antibody structures inform therapeutic stra-
+tegies. Nature 588, 682–687.
+Barouch, D.H., Whitney, J.B., Moldt, B., Klein, F., Oliveira, T.Y., Liu, J., Ste-
+phenson, K.E., Chang, H.W., Shekhar, K., Gupta, S., et al. (2013). Therapeutic
+efﬁcacy of potent neutralizing HIV-1-speciﬁc monoclonal antibodies in SHIV-
+infected rhesus monkeys. Nature 503, 224–228.
+Baum, A., Ajithdoss, D., Copin, R., Zhou, A., Lanza, K., Negron, N., Ni, M., Wei,
+Y., Mohammadi, K., Musser, B., et al. (2020a). REGN-COV2 antibodies pre-
+vent and treat SARS-CoV-2 infection in rhesus macaques and hamsters. Sci-
+ence 370, 1110–1115.
+Baum, A., Fulton, B.O., Wloga, E., Copin, R., Pascal, K.E., Russo, V., Giordano,
+S., Lanza, K., Negron, N., Ni, M., et al. (2020b). Antibody cocktail to SARS-
+CoV-2 spike protein prevents rapid mutational escape seen with individual an-
+tibodies. Science 369, 1014–1018.
+Behring, E.v., and Kitasato, S. (2013). Ueber das Zustandekommen der
+Diphtherie-Immunita¨ t und der Tetanus-Immunita¨ t bei Thieren (Philipps-Univer-
+sita¨ t Marburg).
+Bournazos, S., Corti, D., Virgin, H.W., and Ravetch, J.V. (2020a). Fc-optimized
+antibodies elicit CD8 immunity to viral respiratory infection. Nature 588,
+485–490.
+Bournazos, S., Gupta, A., and Ravetch, J.V. (2020b). The role of IgG Fc recep-
+tors in antibody-dependent enhancement. Nat. Rev. Immunol. 20, 633–643.
+Buss, L.F., Prete, C.A., Jr., Abrahim, C.M.M., Mendrone, A., Jr., Salomon, T.,
+de Almeida-Neto, C., Franc¸ a, R.F.O., Belotti, M.C., Carvalho, M.P.S.S., Costa,
+A.G., et al. (2021). Three-quarters attack rate of SARS-CoV-2 in the Brazilian
+Amazon during a largely unmitigated epidemic. Science 371, 288–292.
+Cantuti-Castelvetri, L., Ojha, R., Pedro, L.D., Djannatian, M., Franz, J., Kuiva-
+nen, S., van der Meer, F., Kallio, K., Kaya, T., Anastasina, M., et al. (2020). Neu-
+ropilin-1 facilitates SARS-CoV-2 cell entry and infectivity. Science 370,
+856–860.
+Cao, Y., Su, B., Guo, X., Sun, W., Deng, Y., Bao, L., Zhu, Q., Zhang, X., Zheng,
+Y., Geng, C., et al. (2020). Potent Neutralizing Antibodies against SARS-CoV-2
+Identiﬁed by High-Throughput Single-Cell Sequencing of Convalescent Pa-
+tients’ B Cells. Cell 182, 73–84.e16.
+Carbonell-Estrany, X., Simo˜ es, E.A.F., Dagan, R., Hall, C.B., Harris, B., Hult-
+quist, M., Connor, E.M., and Losonsky, G.A.; Motavizumab Study Group
+(2010). Motavizumab for prophylaxis of respiratory syncytial virus in high-risk
+children: a noninferiority trial. Pediatrics 125, e35–e51.
+Caskey, M., Klein, F., and Nussenzweig, M.C. (2019). Broadly neutralizing anti-
+HIV-1 monoclonal antibodies in the clinic. Nat. Med. 25, 547–553.
+Cathcart, A.L., Havenar-Daughton, C., Lempp, F.A., Ma, D., Schmid, M.,
+Agostini, M.L., Guarino, B., Di Iulio, J., Rosen, L., Tucker, H., et al. (2021).
+The dual function monoclonal antibodies VIR-7831 and VIR-7832 demonstrate
+potent in vitro and in vivo activity against SARS-CoV-2. bioRxiv. https://doi.
+org/10.1101/2021.03.09.434607.
+Cele, S., Gazy, I., Jackson, L., Hwa, S.H., Tegally, H., Lustig, G., Giandhari, J.,
+Pillay, S., Wilkinson, E., Naidoo, Y., et al.; Network for Genomic Surveillance in
+South Africa; COMMIT-KZN Team (2021). Escape of SARS-CoV-2 501Y.V2
+from neutralization by convalescent plasma. Nature 593, 142–146.
+Cerutti, G., Guo, Y., Zhou, T., Gorman, J., Lee, M., Rapp, M., Reddem, E.R.,
+Yu, J., Bahna, F., Bimela, J., et al. (2021). Potent SARS-CoV-2 neutralizing an-
+tibodies directed against spike N-terminal domain target a single supersite.
+Cell Host Microbe 29, 819–833.e7.
+Chen, P., Nirula, A., Heller, B., Gottlieb, R.L., Boscia, J., Morris, J., Huhn, G.,
+Cardona, J., Mocherla, B., Stosor, V., et al.; BLAZE-1 Investigators (2021a).
+SARS-CoV-2 Neutralizing Antibody LY-CoV555 in Outpatients with Covid-
+19. N. Engl. J. Med. 384, 229–237.
+Chen, R., Winkler, E., Case, J., Aziati, I., Bricker, T., Joshi, A., Darling, T., Ying,
+B., Errico, J., Shrihari, S., et al. (2021b). In vivo monoclonal antibody efﬁcacy
+against SARS-CoV-2 variant strains. Research Square.
+Chen, R.E., Zhang, X., Case, J.B., Winkler, E.S., Liu, Y., VanBlargan, L.A., Liu,
+J., Errico, J.M., Xie, X., Suryadevara, N., et al. (2021c). Resistance of SARS-
+CoV-2 variants to neutralization by monoclonal and serum-derived polyclonal
+antibodies. Nat. Med. 27, 717–726.
+Chi, X., Yan, R., Zhang, J., Zhang, G., Zhang, Y., Hao, M., Zhang, Z., Fan, P.,
+Dong, Y., Yang, Y., et al. (2020). A neutralizing human antibody binds to the
+N-terminal domain of the Spike protein of SARS-CoV-2. Science 369,
+650–655.
+Choi, B., Choudhary, M.C., Regan, J., Sparks, J.A., Padera, R.F., Qiu, X., Sol-
+omon, I.H., Kuo, H.H., Boucau, J., Bowman, K., et al. (2020). Persistence and
+ll
+Cell 184, June 10, 2021
+3103
+Review
+
+
+--- Page 19 ---
+Evolution of SARS-CoV-2 in an Immunocompromised Host. N. Engl. J. Med.
+383, 2291–2293.
+Cohen, A.A., Gnanapragasam, P.N.P., Lee, Y.E., Hoffman, P.R., Ou, S., Kaku-
+tani, L.M., Keeffe, J.R., Wu, H.J., Howarth, M., West, A.P., et al. (2021). Mosaic
+nanoparticles elicit cross-reactive immune responses to zoonotic coronavi-
+ruses in mice. Science 371, 735–741.
+Collier, D.A., De Marco, A., Ferreira, I.A.T.M., Meng, B., Datir, R.P., Walls, A.C.,
+Kemp, S.A., Bassi, J., Pinto, D., Silacci-Fregni, C., et al.; CITIID-NIHR Bio-
+Resource COVID-19 Collaboration; COVID-19 Genomics UK (COG-UK) Con-
+sortium (2021). Sensitivity of SARS-CoV-2 B.1.1.7 to mRNA vaccine-elicited
+antibodies. Nature 593, 136–141.
+Copin, R., Baum, A., Wloga, E., Pascal, K.E., Giordano, S., Fulton, B.O., Zhou,
+A., Negron, N., Lanza, K., Chan, N., et al. (2021). In vitro and in vivo preclinical
+studies predict REGEN-COV protection against emergence of viral escape in
+humans. bioRxiv. https://doi.org/10.1101/2021.03.10.434834.
+Corey, L., Gilbert, P.B., Juraska, M., Monteﬁori, D.C., Morris, L., Karuna, S.T.,
+Edupuganti, S., Mgodi, N.M., deCamp, A.C., Rudnicki, E., et al.; HVTN 704/
+HPTN 085 and HVTN 703/HPTN 081 Study Teams (2021). Two Randomized
+Trials of Neutralizing Antibodies to Prevent HIV-1 Acquisition. N. Engl. J.
+Med. 384, 1003–1014.
+Corti, D., Cameroni, E., Guarino, B., Kallewaard, N.L., Zhu, Q., and Lanzavec-
+chia, A. (2017). Tackling inﬂuenza with broadly neutralizing antibodies. Curr.
+Opin. Virol. 24, 60–69.
+Dall’Acqua, W.F., Woods, R.M., Ward, E.S., Palaszynski, S.R., Patel, N.K.,
+Brewah, Y.A., Wu, H., Kiener, P.A., and Langermann, S. (2002). Increasing
+the afﬁnity of a human IgG1 for the neonatal Fc receptor: biological conse-
+quences. J. Immunol. 169, 5171–5180.
+Daly, J.L., Simonetti, B., Anto´ n-Pla´ garo, C., Kavanagh Williamson, M., Shoe-
+mark, D.K., Simo´ n-Gracia, L., Klein, K., Bauer, M., Hollandi, R., Greber, U.F.,
+et al. (2020). Neuropilin-1 is a host factor for SARS-CoV-2 infection. Science
+370, 861–865.
+Davies, N.G., Jarvis, C.I., CMMID COVID-19 Working Group, Edmunds, W.J.,
+Jewell, N.P., Diaz-Ordaz, K., and Keogh, R.H. (2021b). Increased mortality in
+community-tested cases of SARS-CoV-2 lineage B.1.1.7. Nature 593,
+270–274.
+Davies, N.G., Abbott, S., Barnard, R.C., Jarvis, C.I., Kucharski, A.J., Munday,
+J.D., Pearson, C.A.B., Russell, T.W., Tully, D.C., Washburne, A.D., et al.;
+CMMID COVID-19 Working Group; COVID-19 Genomics UK (COG-UK) Con-
+sortium (2021a). Estimated transmissibility and impact of SARS-CoV-2 lineage
+B.1.1.7 in England. Science 372, 372.
+Dejnirattisai, W., Zhou, D., Supasa, P., Liu, C., Mentzer, A.J., Ginn, H.M., Zhao,
+Y., Duyvesteyn, H.M.E., Tuekprakhon, A., Nutalai, R., et al. (2021). Antibody
+evasion by the P.1 strain of SARS-CoV-2. Cell. Published online March 30,
+2021. https://doi.org/10.1016/j.cell.2021.03.055.
+Deng, X., Garcia-Knight, M.A., Khalid, M.M., Servellita, V., Wang, C., Morris,
+M.K., Sotomayor-Gonza´ lez, A., Glasner, D.R., Reyes, K.R., Gliwa, A.S., et al.
+(2021). Transmission, infectivity, and neutralization of a spike L452R SARS-
+CoV-2 variant. Cell. Published online April 20, 2021. https://doi.org/10.1016/
+j.cell.2021.04.025.
+Denison, M.R., Graham, R.L., Donaldson, E.F., Eckerle, L.D., and Baric, R.S.
+(2011). Coronaviruses: an RNA proofreading machine regulates replication ﬁ-
+delity and diversity. RNA Biol. 8, 270–279.
+DiLillo, D.J., Tan, G.S., Palese, P., and Ravetch, J.V. (2014). Broadly neutral-
+izing hemagglutinin stalk-speciﬁc antibodies require FcgR interactions for pro-
+tection against inﬂuenza virus in vivo. Nat. Med. 20, 143–151.
+Dilillo, D.J., Palese, P., Wilson, P.C., and Ravetch, J.V. (2016). Broadly neutral-
+izing anti-inﬂuenza antibodies require Fc receptor engagement for in vivo pro-
+tection. J. Clin. Invest. 126, 605–610.
+Dong, J., Zost, S., Greaney, A., Starr, T.N., Dingens, A.S., Chen, E.C., Chen, R.,
+Case, B., Sutton, R., Gilchuk, P., et al. (2021). Genetic and structural basis for
+recognition of SARS-CoV-2 spike protein by a two-antibody cocktail. bioRxiv.
+https://doi.org/10.1101/2021.01.27.428529.
+Doud, M.B., Lee, J.M., and Bloom, J.D. (2018). How single mutations affect
+viral escape from broad and narrow antibodies to H1 inﬂuenza hemagglutinin.
+Nat. Commun. 9, 1386.
+Du, S., Cao, Y., Zhu, Q., Yu, P., Qi, F., Wang, G., Du, X., Bao, L., Deng, W., Zhu,
+H., et al. (2020). Structurally Resolved SARS-CoV-2 Antibody Shows High Ef-
+ﬁcacy in Severely Infected Hamsters and Provides a Potent Cocktail Pairing
+Strategy. Cell 183, 1013–1023.e13.
+FDA (US Food and Drug Administration) (2020a). Emergency Use Authoriza-
+tion (EUA) for bamlanivimab. Center for Drug Evaluation and Research
+(CDER). https://www.fda.gov/media/144118/download.
+FDA (US Food and Drug Administration) (2020b). FACT SHEET FOR HEALTH
+CARE PROVIDERS EMERGENCY USE AUTHORIZATION (EUA) OF CASIRIVI-
+MAB AND IMDEVIMAB. Emergency Use Authorization. https://www.fda.gov/
+media/143892/download.
+FDA (US Food and Drug Administration) (2021). Development of Monoclonal
+Antibody Products Targeting SARS-CoV-2, Including Addressing the Impact
+of Emerging Variants, During the COVID 19 Public Health Emergency.
+https://www.fda.gov/regulatory-information/search-fda-guidance-documents/
+development-monoclonal-antibody-products-targeting-sars-cov-2-including-
+addressing-impact-emerging.
+Fedry, J., Hurdiss, D.L., Wang, C., Li, W., Obal, G., Drulyte, I., Howes, S.C., van
+Kuppeveld, F.J.M., Fo¨ rster, F., and Bosch, B.-J. (2020). A human monoclonal
+antibody targeting a conserved pocket in the SARS-CoV-2 receptor-binding
+domain core. bioRxiv. https://doi.org/10.1101/2020.09.30.318261.
+Frampton, D., Rampling, T., Cross, A., Bailey, H., Heaney, J., Byott, M., Scott,
+R., Sconza, R., Price, J., Margaritis, M., et al. (2021). Genomic characteristics
+and clinical effect of the emergent SARS-CoV-2 B.1.1.7 lineage in London, UK:
+a whole-genome sequencing and hospital-based cohort study. Lancet Infect.
+Dis. Published online April 12, 2021. https://doi.org/10.1016/S1473-3099(21)
+00170-5.
+Georgescu, G., and Chemaly, R.F. (2009). Palivizumab: where to from here?
+Expert Opin. Biol. Ther. 9, 139–147.
+Gottlieb, R.L., Nirula, A., Chen, P., Boscia, J., Heller, B., Morris, J., Huhn, G.,
+Cardona, J., Mocherla, B., Stosor, V., et al. (2021). Effect of Bamlanivimab
+as Monotherapy or in Combination With Etesevimab on Viral Load in Patients
+With Mild to Moderate COVID-19: A Randomized Clinical Trial. JAMA 325,
+632–644.
+Graham, M.S., Sudre, C.H., May, A., Antonelli, M., Murray, B., Varsavsky, T.,
+Kla¨ ser, K., Canas, L.S., Molteni, E., Modat, M., et al.; COVID-19 Genomics
+UK (COG-UK) Consortium (2021). Changes in symptomatology, reinfection,
+and transmissibility associated with the SARS-CoV-2 variant B.1.1.7: an
+ecological study. Lancet Public Health 6, e335–e345.
+Greaney, A.J., Loes, A.N., Crawford, K.H.D., Starr, T.N., Malone, K.D., Chu,
+H.Y., and Bloom, J.D. (2021a). Comprehensive mapping of mutations in the
+SARS-CoV-2 receptor-binding domain that affect recognition by polyclonal
+human plasma antibodies. Cell Host Microbe 29, 463–476.e6.
+Greaney, A.J., Starr, T.N., Gilchuk, P., Zost, S.J., Binshtein, E., Loes, A.N., Hil-
+ton, S.K., Huddleston, J., Eguia, R., Crawford, K.H.D., et al. (2021b). Complete
+Mapping of Mutations to the SARS-CoV-2 Spike Receptor-Binding Domain
+that Escape Antibody Recognition. Cell Host Microbe 29, 44–57.e9.
+Grifﬁn, M.P., Yuan, Y., Takas, T., Domachowske, J.B., Madhi, S.A., Manzoni,
+P., Simo˜ es, E.A.F., Esser, M.T., Khan, A.A., Dubovsky, F., et al.; Nirsevimab
+Study Group (2020). Single-Dose Nirsevimab for Prevention of RSV in Preterm
+Infants. N. Engl. J. Med. 383, 415–425.
+Gu, H., Chen, Q., Yang, G., He, L., Fan, H., Deng, Y.Q., Wang, Y., Teng, Y.,
+Zhao, Z., Cui, Y., et al. (2020). Adaptation of SARS-CoV-2 in BALB/c mice
+for testing vaccine efﬁcacy. Science 369, 1603–1607.
+Gupta, A., Gonzales-Rojas, Y., Juarez, E., Casal, M.C., Moya, J., Falci, D.R.,
+Sarkis, E., Solis, J., Zheng, H., Scott, N., et al. (2021). Early Covid-19 Treatment
+With SARS-CoV-2 Neutralizing Antibody Sotrovimab. medRxiv. https://doi.
+org/10.1101/2021.05.27.21257096.
+Hansen, J., Baum, A., Pascal, K.E., Russo, V., Giordano, S., Wloga, E., Fulton,
+B.O., Yan, Y., Koon, K., Patel, K., et al. (2020). Studies in humanized mice and
+ll
+3104
+Cell 184, June 10, 2021
+Review
+
+
+--- Page 20 ---
+convalescent humans yield a SARS-CoV-2 antibody cocktail. Science 369,
+1010–1014.
+Hershberger, E., Sloan, S., Narayan, K., Hay, C.A., Smith, P., Engler, F., Jee-
+ninga, R., Smits, S., Trevejo, J., Shriver, Z., and Oldach, D. (2019). Safety
+and efﬁcacy of monoclonal antibody VIS410 in adults with uncomplicated
+inﬂuenza A infection: Results from a randomized, double-blind, phase-2, pla-
+cebo-controlled study. EBioMedicine 40, 574–582.
+Hessell, A.J., Hangartner, L., Hunter, M., Havenith, C.E., Beurskens, F.J., Bak-
+ker, J.M., Lanigan, C.M., Landucci, G., Forthal, D.N., Parren, P.W., et al. (2007).
+Fc receptor but not complement binding is important in antibody protection
+against HIV. Nature 449, 101–104.
+Hezareh, M., Hessell, A.J., Jensen, R.C., van de Winkel, J.G., and Parren, P.W.
+(2001). Effector function activities of a panel of mutants of a broadly neutral-
+izing antibody against human immunodeﬁciency virus type 1. J. Virol. 75,
+12161–12168.
+Hoffmann, M., Hofmann-Winkler, H., Kru¨ ger, N., Kempf, A., Nehlmeier, I., Grai-
+chen, L., Sidarovich, A., Moldenhauer, A., Winkler, M., S., Schulz, S., et al.
+(2021). SARS-CoV-2 variant B.1.617 is resistant to Bamlanivimab and evades
+antibodies induced by infection and vaccination. bioRxiv. https://doi.org/10.
+1101/2021.05.04.442663.
+Hoffmann, M., Kleine-Weber, H., Schroeder, S., Kru¨ ger, N., Herrler, T., Erich-
+sen, S., Schiergens, T.S., Herrler, G., Wu, N.H., Nitsche, A., et al. (2020). SARS-
+CoV-2 Cell Entry Depends on ACE2 and TMPRSS2 and Is Blocked by a Clin-
+ically Proven Protease Inhibitor. Cell 181, 271–280.e8.
+Hoffmann, M.A.P., Gross, R., Seidel, A., Hornich, B., Hahn, A., Kruger, N., Grai-
+chen, L., and Pohlmann, S. (2021). SARS-CoV-2 variants B.1.351 and
+B.1.1.248: Escape from therapeutic antibodies and antibodies induced by
+infection
+and
+vaccination.
+bioRxiv.
+https://doi.org/10.1101/2021.02.11.
+430787.
+Horby, P.W., Pessoa-Amorim, G., Peto, L., Brightling, C.E., Sarkar, R.,
+Thomas, K., Jeebun, V., Ashish, A., Tully, R., Chadwick, D., et al. (2021). Toci-
+lizumab in patients admitted to hospital with COVID-19 (RECOVERY): prelim-
+inary results of a randomised, controlled, open-label, platform trial. medRxiv.
+https://doi.org/10.1101/2021.02.11.21249258.
+IMpact-RSV Study Group (1998). Palivizumab, a Humanized Respiratory Syn-
+cytial Virus Monoclonal Antibody, Reduces Hospitalization From Respiratory
+Syncytial Virus Infection in High-risk Infants. Pediatrics 102, 531–537.
+Jackson, L.A., Anderson, E.J., Rouphael, N.G., Roberts, P.C., Makhene, M.,
+Coler, R.N., McCullough, M.P., Chappell, J.D., Denison, M.R., Stevens, L.J.,
+et al.; mRNA-1273 Study Group (2020). An mRNA Vaccine against SARS-
+CoV-2 - Preliminary Report. N. Engl. J. Med. 383, 1920–1931.
+Jones, B.E., Brown-Augsburger, P.L., Corbett, K.S., Westendorf, K., Davies,
+J., Cujec, T.P., Wiethoff, C.M., Blackbourne, J.L., Heinz, B.A., Foster, D.,
+et al. (2021). The neutralizing antibody, LY-CoV555, protects against SARS-
+CoV-2 infection in nonhuman primates. Sci. Transl. Med. 13, eabf1906.
+Ju, B., Zhang, Q., Ge, J., Wang, R., Sun, J., Ge, X., Yu, J., Shan, S., Zhou, B.,
+Song, S., et al. (2020). Human neutralizing antibodies elicited by SARS-CoV-2
+infection. Nature 584, 115–119.
+Julg, B., and Barouch, D. (2021). Broadly neutralizing antibodies for HIV-1 pre-
+vention and therapy. Semin. Immunol. Published online April 12, 2021. https://
+doi.org/10.1016/j.smim.2021.101475.
+Kallewaard, N.L., Corti, D., Collins, P.J., Neu, U., McAuliffe, J.M., Benjamin, E.,
+Wachter-Rosati, L., Palmer-Hill, F.J., Yuan, A.Q., Walker, P.A., et al. (2016).
+Structure and Function Analysis of an Antibody Recognizing All Inﬂuenza A
+Subtypes. Cell 166, 596–608.
+Ke, Z., Oton, J., Qu, K., Cortese, M., Zila, V., McKeane, L., Nakane, T., Zivanov,
+J., Neufeldt, C.J., Cerikan, B., et al. (2020). Structures and distributions of
+SARS-CoV-2 spike proteins on intact virions. Nature 588, 498–502.
+Kelley, B. (2020). Developing therapeutic monoclonal antibodies at pandemic
+pace. Nat. Biotechnol. 38, 540–545.
+Kelley, B., Renshaw, T., and Kamarck, M. (2021). Process and operations stra-
+tegies to enable global access to antibody therapies. Biotechnol. Prog. Pub-
+lished online March 8, 2021. https://doi.org/10.1002/btpr.3139.
+Kemp, S.A., Collier, D.A., Datir, R.P., Ferreira, I.A.T.M., Gayed, S., Jahun, A.,
+Hosmillo, M., Rees-Spear, C., Mlcochova, P., Lumb, I.U., et al.; CITIID-NIHR
+BioResource COVID-19 Collaboration; COVID-19 Genomics UK (COG-UK)
+Consortium (2021). SARS-CoV-2 evolution during treatment of chronic infec-
+tion. Nature 592, 277–282.
+Kim, H.W., Canchola, J.G., Brandt, C.D., Pyles, G., Chanock, R.M., Jensen, K.,
+and Parrott, R.H. (1969). Respiratory syncytial virus disease in infants despite
+prior administration of antigenic inactivated vaccine. Am. J. Epidemiol. 89,
+422–434.
+Kim, C., Ryu, D.K., Lee, J., Kim, Y.I., Seo, J.M., Kim, Y.G., Jeong, J.H., Kim, M.,
+Kim, J.I., Kim, P., et al. (2021). A therapeutic neutralizing antibody targeting re-
+ceptor binding domain of SARS-CoV-2 spike protein. Nat. Commun. 12, 288.
+Kirkpatrick, E., Qiu, X., Wilson, P.C., Bahl, J., and Krammer, F. (2018). The
+inﬂuenza virus hemagglutinin head evolves faster than the stalk domain. Sci.
+Rep. 8, 10432.
+Klein, S., Cortese, M., Winter, S.L., Wachsmuth-Melm, M., Neufeldt, C.J., Ceri-
+kan, B., Stanifer, M.L., Boulant, S., Bartenschlager, R., and Chlanda, P. (2020).
+SARS-CoV-2 structure and replication characterized by in situcryo-electron
+tomography. Nat. Commun. 3, 237–238.
+Ko, S.-Y., Pegu, A., Rudicell, R.S., Yang, Z.-Y., Joyce, M.G., Chen, X., Wang,
+K., Bao, S., Kraemer, T.D., Rath, T., et al. (2014). Enhanced neonatal Fc recep-
+tor function improves protection against primate SHIV infection. Nature 514,
+642–645.
+Kustin, T., Harel, N., Finkel, U., Perchik, S., Harari, S., Tahor, M., Caspi, I., Levy,
+R., Leschinsky, M., Dror, S.K., et al. (2021). Evidence for increased break-
+through rates of SARS-CoV-2 variants of concern in BNT162b2 mRNA vacci-
+nated individuals. medRxiv. https://doi.org/10.1101/2021.04.06.21254882.
+Lee, W.S., Wheatley, A.K., Kent, S.J., and DeKosky, B.J. (2020). Antibody-
+dependent enhancement and SARS-CoV-2 vaccines and therapies. Nat. Mi-
+crobiol. 5, 1185–1191.
+Lempp, F.A., Soriaga, L., Montiel-Ruiz, M., Benigni, F., Noack, J., Park, Y.-J.,
+Bianchi, S., Walls, A.C., Bowen, J.E., Zhou, J., et al. (2021). Membrane lectins
+enhance SARS-CoV-2 infection and inﬂuence the neutralizing activity of
+different classes of antibodies. bioRxiv. https://doi.org/10.1101/2021.04.03.
+438258.
+Letko, M., Marzi, A., and Munster, V. (2020). Functional assessment of cell en-
+try and receptor usage for SARS-CoV-2 and other lineage B betacoronavi-
+ruses. Nat. Microbiol. 5, 562–569.
+Li, Q., Wu, J., Nie, J., Zhang, L., Hao, H., Liu, S., Zhao, C., Zhang, Q., Liu, H.,
+Nie, L., et al. (2020). The Impact of Mutations in SARS-CoV-2 Spike on Viral
+Infectivity and Antigenicity. Cell 182, 1284–1294.e9.
+Lim, J.J., Nilsson, A.C., Silverman, M., Assy, N., Kulkarni, P., McBride, J.M.,
+Deng, R., Li, C., Yang, X., Nguyen, A., et al. (2020). A Phase 2 Randomized,
+Double-Blind, Placebo-Controlled Trial of MHAA4549A, a Monoclonal Anti-
+body, plus Oseltamivir in Patients Hospitalized with Severe Inﬂuenza A Virus
+Infection. Antimicrob. Agents Chemother. 64, 1285–1210.
+Liu, Y., Liu, J., Xia, H., Zhang, X., Fontes-Garﬁas, C.R., Swanson, K.A., Cai, H.,
+Sarkar, R., Chen, W., Cutler, M., et al. (2021a). Neutralizing Activity of
+BNT162b2-Elicited Serum. N. Engl. J. Med. 384, 1466–1468.
+Liu, Z., VanBlargan, L.A., Bloyet, L.M., Rothlauf, P.W., Chen, R.E., Stumpf, S.,
+Zhao, H., Errico, J.M., Theel, E.S., Liebeskind, M.J., et al. (2021b). Identiﬁca-
+tion of SARS-CoV-2 spike mutations that attenuate monoclonal and serum
+antibody neutralization. Cell Host Microbe 29, 477–488.e4.
+Ma, T., Wiggins, C.C., Kornatowski, B.M., Hailat, R.S., Clayburn, A.C., Guo,
+W., Johnson, P.W., Senefeld, J.W., Klassen, S.A., Baker, S.E., et al. (2021).
+The Role of Disease Severity and Demographics in the Clinical Course of
+COVID-19 Patients Treated with Convalescent Plasma. medRxiv.
+Mair-Jenkins, J., Saavedra-Campos, M., Baillie, J.K., Cleary, P., Khaw, F.-M.,
+Lim, W.S., Makki, S., Rooney, K.D., Nguyen-Van-Tam, J.S., and Beck, C.R.;
+Convalescent Plasma Study Group (2015). The effectiveness of convalescent
+plasma and hyperimmune immunoglobulin for the treatment of severe acute
+respiratory infections of viral etiology: a systematic review and exploratory
+meta-analysis. J. Infect. Dis. 211, 80–90.
+ll
+Cell 184, June 10, 2021
+3105
+Review
+
+
+--- Page 21 ---
+McCallum, M., Bassi, J., Marco, A., Chen, A., Walls, A.C., Iulio, J.D., Tortorici,
+M.A., Navarro, M.J., Silacci-Fregni, C., Saliba, C., et al. (2021a). SARS-CoV-2
+immune evasion by variant B.1.427/B.1.429. bioRxiv.
+McCallum, M., De Marco, A., Lempp, F.A., Tortorici, M.A., Pinto, D., Walls,
+A.C., Beltramello, M., Chen, A., Liu, Z., Zatta, F., et al. (2021b). N-terminal
+domain antigenic mapping reveals a site of vulnerability for SARS-CoV-2.
+Cell 184, 2332–2347.e16.
+McCarthy, K.R., Rennick, L.J., Nambulli, S., Robinson-McCarthy, L.R., Bain,
+W.G., Haidar, G., and Duprex, W.P. (2021). Recurrent deletions in the SARS-
+CoV-2 spike glycoprotein drive antibody escape. Science 371, 1139–1142.
+McMahan, K., Yu, J., Mercado, N.B., Loos, C., Tostanoski, L.H., Chandrashe-
+kar, A., Liu, J., Peter, L., Atyeo, C., Zhu, A., et al. (2021). Correlates of protec-
+tion against SARS-CoV-2 in rhesus macaques. Nature 590, 630–634.
+Mendoza, P., Gruell, H., Nogueira, L., Pai, J.A., Butler, A.L., Millard, K., Leh-
+mann, C., Sua´ rez, I., Oliveira, T.Y., Lorenzi, J.C.C., et al. (2018). Combination
+therapy with anti-HIV-1 antibodies maintains viral suppression. Nature 561,
+479–484.
+Muik, A., Wallisch, A.K., Sa¨ nger, B., Swanson, K.A., Mu¨ hl, J., Chen, W., Cai, H.,
+Maurus, D., Sarkar, R., Tu¨ reci, O¨ ., et al. (2021). Neutralization of SARS-CoV-2
+lineage B.1.1.7 pseudovirus by BNT162b2 vaccine-elicited human sera. Sci-
+ence 371, 1152–1153.
+Mulangu, S., Dodd, L.E., Davey, R.T., Jr., Tshiani Mbaya, O., Proschan, M.,
+Mukadi, D., Lusakibanza Manzo, M., Nzolo, D., Tshomba Oloma, A., Ibanda,
+A., et al.; PALM Writing Group; PALM Consortium Study Team (2019). A Ran-
+domized, Controlled Trial of Ebola Virus Disease Therapeutics. N. Engl. J. Med.
+381, 2293–2303.
+Munitz, A., Yechezkel, M., Dickstein, Y., Yamin, D., and Gerlic, M. (2021).
+BNT162b2 Vaccination Effectively Prevents the Rapid Rise of SARS-CoV-2
+Variant B.1.1.7 in high risk populations in Israel. Cell Rep. Med. 2, 100264.
+Ng, S., Nachbagauer, R., Balmaseda, A., Stadlbauer, D., Ojeda, S., Patel, M.,
+Rajabhathor, A., Lopez, R., Guglia, A.F., Sanchez, N., et al. (2019). Novel cor-
+relates of protection against pandemic H1N1 inﬂuenza A virus infection. Nat.
+Med. 25, 962–967.
+NIH (National Institutes of Health (2021). Statement—NIH-Sponsored ACTIV-3
+Clinical Trial Closes Enrollment into Two Sub-Studies. https://www.nih.
+gov/news-events/news-releases/nih-sponsored-activ-3-clinical-trial-closes-
+enrollment-into-two-sub-studies.
+Oganesyan, V., Gao, C., Shirinian, L., Wu, H., and Dall’Acqua, W.F. (2008).
+Structural characterization of a human Fc fragment engineered for lack of
+effector functions. Acta Crystallogr. D Biol. Crystallogr. 64, 700–704.
+Ortiz, D.F., Lansing, J.C., Rutitzky, L., Kurtagic, E., Prod’homme, T., Choud-
+hury, A., Washburn, N., Bhatnagar, N., Beneduce, C., Holte, K., et al. (2016).
+Elucidating the interplay between IgG-Fc valency and FcgR activation for
+the design of immune complex inhibitors. Sci. Transl. Med. 8, 365ra158.
+Oude Munnink, B.B., Sikkema, R.S., Nieuwenhuijse, D.F., Molenaar, R.J.,
+Munger, E., Molenkamp, R., van der Spek, A., Tolsma, P., Rietveld, A.,
+Brouwer, M., et al. (2021). Transmission of SARS-CoV-2 on mink farms be-
+tween humans and mink and back to humans. Science 371, 172–177.
+Piccoli, L., Park, Y.J., Tortorici, M.A., Czudnochowski, N., Walls, A.C., Beltra-
+mello, M., Silacci-Fregni, C., Pinto, D., Rosen, L.E., Bowen, J.E., et al. (2020).
+Mapping Neutralizing and Immunodominant Sites on the SARS-CoV-2 Spike
+Receptor-Binding Domain by Structure-Guided High-Resolution Serology.
+Cell 183, 1024–1042.e21.
+Pinto, D., Park, Y.J., Beltramello, M., Walls, A.C., Tortorici, M.A., Bianchi, S.,
+Jaconi, S., Culap, K., Zatta, F., De Marco, A., et al. (2020). Cross-neutralization
+of SARS-CoV-2 by a human monoclonal SARS-CoV antibody. Nature 583,
+290–295.
+Polack, F.P., Thomas, S.J., Kitchin, N., Absalon, J., Gurtman, A., Lockhart, S.,
+Perez, J.L., Pe´ rez Marc, G., Moreira, E.D., Zerbini, C., et al.; C4591001 Clinical
+Trial Group (2020). Safety and Efﬁcacy of the BNT162b2 mRNA Covid-19 Vac-
+cine. N. Engl. J. Med. 383, 2603–2615.
+Rambaut, A., Holmes, E.C., O’Toole, A´ ., Hill, V., McCrone, J.T., Ruis, C., du
+Plessis, L., and Pybus, O.G. (2020). A dynamic nomenclature proposal for
+SARS-CoV-2 lineages to assist genomic epidemiology. Nat. Microbiol. 5,
+1403–1407.
+Rappazzo, C.G., Tse, L.V., Kaku, C.I., Wrapp, D., Sakharkar, M., Huang, D.,
+Deveau, L.M., Yockachonis, T.J., Herbert, A.S., Battles, M.B., et al. (2021).
+Broad and potent activity against SARS-like viruses by an engineered human
+monoclonal antibody. Science 371, 823–829.
+Redden, W.R. (1919). Treatment of Inﬂuenza-Pneumonia by Use of Convales-
+cent Human Serum. Boston Med. Surg. J. 181, 688–691.
+REMAP-CAP Investigators, Gordon, A.C., Mouncey, P.R., Al-Beidh, F.,
+Rowan, K.M., Nichol, A.D., Arabi, Y.M., Annane, D., Beane, A., van Bentum-
+Puijk, W., et al. (2021). Interleukin-6 Receptor Antagonists in Critically Ill Pa-
+tients with Covid-19. N. Engl. J. Med. 384, 1491–1502.
+Robbiani, D.F., Gaebler, C., Muecksch, F., Lorenzi, J.C.C., Wang, Z., Cho, A.,
+Agudelo, M., Barnes, C.O., Gazumyan, A., Finkin, S., et al. (2020). Convergent
+antibody responses to SARS-CoV-2 in convalescent individuals. Nature 584,
+437–442.
+Rogers, T.F., Zhao, F., Huang, D., Beutler, N., Burns, A., He, W.T., Limbo, O.,
+Smith, C., Song, G., Woehl, J., et al. (2020). Isolation of potent SARS-CoV-2
+neutralizing antibodies and protection from disease in a small animal model.
+Science 369, 956–963.
+Rosas, I.O., Bra¨ u, N., Waters, M., Go, R.C., Hunter, B.D., Bhagani, S., Skiest,
+D., Aziz, M.S., Cooper, N., Douglas, I.S., et al. (2021). Tocilizumab in Hospital-
+ized Patients with Severe Covid-19 Pneumonia. N. Engl. J. Med. 384,
+1503–1516.
+Roy, C., Mandal, S.M., Mondal, S.K., Mukherjee, S., Mapder, T., Ghosh, W.,
+and Chakraborty, R. (2020). Trends of mutation accumulation across global
+SARS-CoV-2 genomes: Implications for the evolution of the novel coronavirus.
+Genomics 112, 5331–5342.
+Ryu, D.-K., Song, R., Kim, M., Kim, Y.-I., Kim, C., Kim, J.-I., Kwon, K.-S.,
+Tijsma, A.S.L., Nuijten, P.M., van Baalen, C.A., et al. (2021). Therapeutic effect
+of CT-P59 against SARS-CoV-2 South African variant. bioRxiv. https://doi.org/
+10.1101/2021.04.27.441707.
+Sabino, E.C., Buss, L.F., Carvalho, M.P.S., Prete, C.A., Jr., Crispim, M.A.E.,
+Fraiji, N.A., Pereira, R.H.M., Parag, K.V., da Silva Peixoto, P., Kraemer,
+M.U.G., et al. (2021). Resurgence of COVID-19 in Manaus, Brazil, despite
+high seroprevalence. Lancet 397, 452–455.
+Sarkar, R., Mitra, S., Chandra, P., Saha, P., Banerjee, A., Dutta, S., and
+Chawla-Sarkar, M. (2021). Comprehensive analysis of genomic diversity of
+SARS-CoV-2 in different geographic regions of India: an endeavour to classify
+Indian SARS-CoV-2 strains on the basis of co-existing mutations. Arch. Virol.
+166, 801–812.
+Scha¨ fer, A., Muecksch, F., Lorenzi, J.C.C., Leist, S.R., Cipolla, M., Bournazos,
+S., Schmidt, F., Maison, R.M., Gazumyan, A., Martinez, D.R., et al. (2021). Anti-
+body potency, effector function, and combinations in protection and therapy
+for SARS-CoV-2 infection in vivo. J. Exp. Med. 218, 218.
+Schoofs, T., Klein, F., Braunschweig, M., Kreider, E.F., Feldmann, A., No-
+gueira, L., Oliveira, T., Lorenzi, J.C.C., Parrish, E.H., Learn, G.H., et al.
+(2016). HIV-1 therapy with monoclonal antibody 3BNC117 elicits host immune
+responses against HIV-1. Science 352, 997–1001.
+Shi, R., Shan, C., Duan, X., Chen, Z., Liu, P., Song, J., Song, T., Bi, X., Han, C.,
+Wu, L., et al. (2020). A human neutralizing antibody targets the receptor-bind-
+ing site of SARS-CoV-2. Nature 584, 120–124.
+Simo˜ es, E.A.F., Forleo-Neto, E., Geba, G.P., Kamal, M., Yang, F., Cicirello, H.,
+Houghton, M.R., Rideman, R., Zhao, Q., Benvin, S.L., et al. (2020). Suptavu-
+mab for the Prevention of Medically Attended Respiratory Syncytial Virus
+Infection in Preterm Infants. Clin. Infect. Dis. 390, 946–949.
+Soh, W.T., Liu, Y., Nakayama, E.E., Ono, C., Torii, S., Nakagami, H., Matsuura,
+Y., Shioda, T., and Arase, H. (2020). The N-terminal domain of spike glycopro-
+tein mediates SARS-CoV-2 infection by associating with L-SIGN and DC-
+SIGN. bioRxiv.
+Starr, T.N., Greaney, A.J., Hilton, S.K., Ellis, D., Crawford, K.H.D., Dingens,
+A.S., Navarro, M.J., Bowen, J.E., Tortorici, M.A., Walls, A.C., et al. (2020).
+ll
+3106
+Cell 184, June 10, 2021
+Review
+
+
+--- Page 22 ---
+Deep Mutational Scanning of SARS-CoV-2 Receptor Binding Domain Reveals
+Constraints on Folding and ACE2 Binding. Cell 182, 1295–1310.e20.
+Starr, T.N., Czudnochowski, N., Zatta, F., Park, Y.J., Liu, Z., Addetia, A., Pinto,
+D., Beltramello, M., Hernandez, P., Greaney, A.J., et al. (2021a). Antibodies to
+the SARS-CoV-2 receptor-binding domain that maximize breadth and resis-
+tance to viral escape. bioRxiv.
+Starr, T.N., Greaney, A.J., Addetia, A., Hannon, W.W., Choudhary, M.C., Din-
+gens, A.S., Li, J.Z., and Bloom, J.D. (2021b). Prospective mapping of viral mu-
+tations that escape antibodies used to treat COVID-19. Science 371, 850–854.
+Starr, T.N., Greaney, A.J., Dingens, A.S., and Bloom, J.D. (2021c). Complete
+map of SARS-CoV-2 RBD mutations that escape the monoclonal antibody
+LY-CoV555 and its cocktail with LY-CoV016. Cell Rep Med 2, 100255.
+Suryadevara, N., Shrihari, S., Gilchuk, P., VanBlargan, L.A., Binshtein, E., Zost,
+S.J., Nargi, R.S., Sutton, R.E., Winkler, E.S., Chen, E.C., et al. (2021). Neutral-
+izing and protective human monoclonal antibodies recognizing the N-terminal
+domain of the SARS-CoV-2 spike protein. Cell 184, 2316–2331.e15.
+Tang, A., Chen, Z., Cox, K.S., Su, H.-P., Callahan, C., Fridman, A., Zhang, L.,
+Patel, S.B., Cejas, P.J., Swoyer, R., et al. (2019). A potent broadly neutralizing
+human RSV antibody targets conserved site IV of the fusion glycoprotein. Nat.
+Commun. 10, 4153.
+Tegally, H., Wilkinson, E., Lessells, R.J., Giandhari, J., Pillay, S., Msomi, N.,
+Mlisana, K., Bhiman, J.N., von Gottberg, A., Walaza, S., et al. (2021). Sixteen
+novel lineages of SARS-CoV-2 in South Africa. Nat. Med. 27, 440–446.
+Thomson, E.C., Rosen, L.E., Shepherd, J.G., Spreaﬁco, R., da Silva Filipe, A.,
+Wojcechowskyj, J.A., Davis, C., Piccoli, L., Pascall, D.J., Dillen, J., et al.; ISAR-
+IC4C Investigators; COVID-19 Genomics UK (COG-UK) Consortium (2021).
+Circulating SARS-CoV-2 spike N439K variants maintain ﬁtness while evading
+antibody-mediated immunity. Cell 184, 1171–1187.e20.
+Tortorici, M.A., and Veesler, D. (2019). Structural insights into coronavirus en-
+try. Adv. Virus Res. 105, 93–116.
+Tortorici, M.A., Beltramello, M., Lempp, F.A., Pinto, D., Dang, H.V., Rosen,
+L.E., McCallum, M., Bowen, J., Minola, A., Jaconi, S., et al. (2020). Ultrapotent
+human antibodies protect against SARS-CoV-2 challenge via multiple mecha-
+nisms. Science 370, 950–957.
+Tortorici, M.A., Czudnochowski, N., Starr, T.N., Marzi, R., Walls, A.C., Zatta, F.,
+Bowen, J.E., Jaconi, S., Iulio, J.D., Wang, Z., et al. (2021). Structural basis for
+broad sarbecovirus neutralization by a human monoclonal antibody. bioRxiv.
+Tworek, A., Jaron, K., Uszynska-Ka1u_za, B., Rydzewski, A., Gil, R., Depta1a, A.,
+Franek, E., Wo´ jtowicz, R., _Zycinska, K., Walecka, I., et al. (2021). Convalescent
+plasma treatment is associated with lower mortality and better outcomes in
+high-risk COVID-19 patients: propensity-score matched case-control study.
+Int. J. Infect. Dis. 105, 209–215.
+Volz, E., Hill, V., McCrone, J.T., Price, A., Jorgensen, D., O’Toole, A´ ., South-
+gate, J., Johnson, R., Jackson, B., Nascimento, F.F., et al.; COG-UK Con-
+sortium (2021). Evaluating the Effects of SARS-CoV-2 Spike Mutation
+D614G on Transmissibility and Pathogenicity. Cell 184, 64–75.e11.
+Voss, W.N., Hou, Y.J., Johnson, N.V., Kim, J.E., Delidakis, G., Horton, A.P.,
+Bartzoka, F., Paresi, C.J., Tanno, Y., Abbasi, S.A., et al. (2020). Prevalent, pro-
+tective, and convergent IgG recognition of SARS-CoV-2 non-RBD spike epi-
+topes in COVID-19 convalescent plasma. bioRxiv.
+Walls, A.C., Tortorici, M.A., Bosch, B.J., Frenz, B., Rottier, P.J.M., DiMaio, F.,
+Rey, F.A., and Veesler, D. (2016). Cryo-electron microscopy structure of a co-
+ronavirus spike glycoprotein trimer. Nature 531, 114–117.
+Walls, A.C., Xiong, X., Park, Y.J., Tortorici, M.A., Snijder, J., Quispe, J., Camer-
+oni, E., Gopal, R., Dai, M., Lanzavecchia, A., et al. (2019). Unexpected Recep-
+tor Functional Mimicry Elucidates Activation of Coronavirus Fusion. Cell 176,
+1026–1039.e15.
+Walls, A.C., Fiala, B., Scha¨ fer, A., Wrenn, S., Pham, M.N., Murphy, M., Tse,
+L.V., Shehata, L., O’Connor, M.A., Chen, C., et al. (2020a). Elicitation of Potent
+Neutralizing Antibody Responses by Designed Protein Nanoparticle Vaccines
+for SARS-CoV-2. Cell 183, 1367–1382.e17.
+Walls, A.C., Park, Y.J., Tortorici, M.A., Wall, A., McGuire, A.T., and Veesler, D.
+(2020b). Structure, Function, and Antigenicity of the SARS-CoV-2 Spike
+Glycoprotein. Cell 181, 281–292.e6.
+Wang, C., Li, W., Drabek, D., Okba, N.M.A., van Haperen, R., Osterhaus,
+A.D.M.E., van Kuppeveld, F.J.M., Haagmans, B.L., Grosveld, F., and Bosch,
+B.J. (2020). A human monoclonal antibody blocking SARS-CoV-2 infection.
+Nat. Commun. 11, 2251.
+Wang, P., Casner, R.G., Nair, M.S., Wang, M., Yu, J., Cerutti, G., Liu, L.,
+Kwong, P.D., Huang, Y., Shapiro, L., et al. (2021a). Increased Resistance of
+SARS-CoV-2 Variant P.1 to Antibody Neutralization. bioRxiv. https://doi.org/
+10.1101/2021.03.01.433466.
+Wang, P., Nair, M.S., Liu, L., Iketani, S., Luo, Y., Guo, Y., Wang, M., Yu, J.,
+Zhang, B., Kwong, P.D., et al. (2021b). Antibody resistance of SARS-CoV-2
+variants B.1.351 and B.1.1.7. Nature 593, 130–135.
+Wang, Z., Schmidt, F., Weisblum, Y., Muecksch, F., Barnes, C.O., Finkin, S.,
+Schaefer-Babajew, D., Cipolla, M., Gaebler, C., Lieberman, J.A., et al.
+(2021c). mRNA vaccine-elicited antibodies to SARS-CoV-2 and circulating
+variants. Nature 592, 616–622.
+Wec, A.Z., Wrapp, D., Herbert, A.S., Maurer, D.P., Haslwanter, D., Sakharkar,
+M., Jangra, R.K., Dieterle, M.E., Lilov, A., Huang, D., et al. (2020). Broad
+neutralization of SARS-related viruses by human monoclonal antibodies. Sci-
+ence 369, 731–736.
+Weinreich, D.M., Sivapalasingam, S., Norton, T., Ali, S., Gao, H., Bhore, R.,
+Musser, B.J., Soo, Y., Rofail, D., Im, J., et al.; Trial Investigators (2021).
+REGN-COV2, a Neutralizing Antibody Cocktail, in Outpatients with Covid-
+19. N. Engl. J. Med. 384, 238–251.
+Weisblum, Y., Schmidt, F., Zhang, F., DaSilva, J., Poston, D., Lorenzi, J.C.,
+Muecksch, F., Rutkowska, M., Hoffmann, H.H., Michailidis, E., et al. (2020).
+Escape from neutralizing antibodies by SARS-CoV-2 spike protein variants.
+eLife 9, e61312.
+Weitzenfeld, P., Bournazos, S., and Ravetch, J.V. (2019). Antibodies targeting
+sialyl Lewis A mediate tumor clearance through distinct effector pathways.
+J. Clin. Invest. 129, 3952–3962.
+Wibmer, C.K., Ayres, F., Hermanus, T., Madzivhandila, M., Kgagudi, P., Oos-
+thuysen, B., Lambson, B.E., de Oliveira, T., Vermeulen, M., van der Berg, K.,
+et al. (2021). SARS-CoV-2 501Y.V2 escapes neutralization by South African
+COVID-19 donor plasma. Nat. Med. 27, 622–625.
+Winkler, E.S., Gilchuk, P., Yu, J., Bailey, A.L., Chen, R.E., Chong, Z., Zost, S.J.,
+Jang, H., Huang, Y., Allen, J.D., et al. (2021). Human neutralizing antibodies
+against SARS-CoV-2 require intact Fc effector functions for optimal therapeu-
+tic protection. Cell 184, 1804–1820.e1816.
+Wrapp, D., Wang, N., Corbett, K.S., Goldsmith, J.A., Hsieh, C.L., Abiona, O.,
+Graham, B.S., and McLellan, J.S. (2020). Cryo-EM structure of the 2019-
+nCoV spike in the prefusion conformation. Science 367, 1260–1263.
+Wu, K., Werner, A.P., Koch, M., Choi, A., Narayanan, E., Stewart-Jones,
+G.B.E., Colpitts, T., Bennett, H., Boyoglu-Barnum, S., Shi, W., et al. (2021).
+Serum Neutralizing Activity Elicited by mRNA-1273 Vaccine. N. Engl. J.
+Med. 384, 1468–1470.
+Xu, D., Alegre, M.L., Varga, S.S., Rothermel, A.L., Collins, A.M., Pulito, V.L.,
+Hanna, L.S., Dolan, K.P., Parren, P.W., Bluestone, J.A., et al. (2000). In vitro
+characterization of ﬁve humanized OKT3 effector function variant antibodies.
+Cell. Immunol. 200, 16–26.
+Yuan, M., Wu, N.C., Zhu, X., Lee, C.D., So, R.T.Y., Lv, H., Mok, C.K.P., and Wil-
+son, I.A. (2020). A highly conserved cryptic epitope in the receptor binding do-
+mains of SARS-CoV-2 and SARS-CoV. Science 368, 630–633.
+Zalevsky, J., Chamberlain, A.K., Horton, H.M., Karki, S., Leung, I.W., Sproule,
+T.J., Lazar, G.A., Roopenian, D.C., and Desjarlais, J.R. (2010). Enhanced anti-
+body half-life improves in vivo activity. Nat. Biotechnol. 28, 157–159.
+Zhao, X., Chen, F.P., and Sullender, W.M. (2004). Respiratory syncytial virus
+escape mutant derived in vitro resists palivizumab prophylaxis in cotton rats.
+Virology 318, 608–612.
+ll
+Cell 184, June 10, 2021
+3107
+Review
+
+
+--- Page 23 ---
+Zhou, P., Yang, X.L., Wang, X.G., Hu, B., Zhang, L., Zhang, W., Si, H.R., Zhu,
+Y., Li, B., Huang, C.L., et al. (2020). A pneumonia outbreak associated with a
+new coronavirus of probable bat origin. Nature 579, 270–273.
+Zhu, Q., McAuliffe, J.M., Patel, N.K., Palmer-Hill, F.J., Yang, C.-F., Liang, B.,
+Su, L., Zhu, W., Wachter, L., Wilson, S., et al. (2011). Analysis of respiratory
+syncytial virus preclinical and clinical variants resistant to neutralization by
+monoclonal antibodies palivizumab and/or motavizumab. J. Infect. Dis. 203,
+674–682.
+Zhu, Q., McLellan, J.S., Kallewaard, N.L., Ulbrandt, N.D., Palaszynski, S.,
+Zhang, J., Moldt, B., Khan, A., Svabek, C., McAuliffe, J.M., et al. (2017). A high-
+ly potent extended half-life antibody as a potential RSV vaccine surrogate for
+all infants. Sci. Transl. Med. 9, eaaj1928.
+Zost, S.J., Gilchuk, P., Case, J.B., Binshtein, E., Chen, R.E., Nkolola, J.P.,
+Scha¨ fer, A., Reidy, J.X., Trivette, A., Nargi, R.S., et al. (2020). Potently neutral-
+izing and protective human antibodies against SARS-CoV-2. Nature 584,
+443–449.
+ll
+3108
+Cell 184, June 10, 2021
+Review
+
+
+--- Page 24 ---
+Update
+Cell
+Volume 184, Issue 17, 19 August 2021, Page 4593–4595
+ https://doi.org/10.1016/j.cell.2021.07.027
+DOI:
+
+
+--- Page 25 ---
+Correction
+Tackling COVID-19 with neutralizing
+monoclonal antibodies
+Davide Corti,* Lisa A. Purcell, Gyorgy Snell, and David Veesler
+*Correspondence: dcorti@vir.bio
+https://doi.org/10.1016/j.cell.2021.07.027
+(Cell 184, 3086–3108; June 10, 2021)
+During the preparation of the ﬁgures for this review, ‘‘etesevimab’’ was mistakenly written as ‘‘etesvimab’’ in Figure 1, and Figure 5C
+inadvertently indicated the solid red box meant <10-fold loss of neutralization when it should have indicated >10-fold loss. In addition,
+in Table 1, EUA for VIR-7831/VIR-7832 was indicated for trial NCT04501978 (late treatment), but it should have been indicated for trial
+NCT04545060 (early treatment). These errors do not affect any results or conclusions described in the review and have been cor-
+rected online, and we apologize for any confusion they may have caused.
+Figure 1. Timeline of approval of mAbs for all indications (black) and for infectious disease (blue) (corrected)
+ll
+Cell 184, 4593–4595, August 19, 2021 ª 2021 Elsevier Inc.
+4593
+
+
+--- Page 26 ---
+Figure 1. Timeline of approval of mAbs for all indications (black) and for infectious disease (blue) (original)
+Figure 5C. Mutations on the SARS-CoV-2 S in VOCs and resistance proﬁle of clinical mAbs (corrected)
+ll
+4594
+Cell 184, 4593–4595, August 19, 2021
+Correction
+
+
+--- Page 27 ---
+Figure 5C. Mutations on the SARS-CoV-2 S in VOCs and resistance proﬁle of clinical mAbs (original)
+ll
+Cell 184, 4593–4595, August 19, 2021
+4595
+Correction

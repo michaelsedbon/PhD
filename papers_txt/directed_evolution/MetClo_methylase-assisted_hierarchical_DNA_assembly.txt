@@ -1,0 +1,1674 @@
+--- Page 1 ---
+Published online 9 July 2018
+Nucleic Acids Research, 2018, Vol. 46, No. 19
+e113
+doi: 10.1093/nar/gky596
+MetClo: methylase-assisted hierarchical DNA
+assembly using a single type IIS restriction enzyme
+Da Lin and Christopher A. O’Callaghan
+*
+Wellcome Trust Centre for Human Genetics, Nufﬁeld Department of Medicine, University of Oxford, Roosevelt Drive,
+Oxford OX3 7BN, UK
+Received July 06, 2017; Revised June 19, 2018; Editorial Decision June 20, 2018; Accepted June 27, 2018
+ABSTRACT
+Efﬁcient DNA assembly is of great value in biologi-
+cal research and biotechnology. Type IIS restriction
+enzyme-based assembly systems allow assembly of
+multiple DNA fragments in a one-pot reaction. How-
+ever, large DNA fragments can only be assembled
+by alternating use of two or more type IIS restric-
+tion enzymes in a multi-step approach. Here, we
+present MetClo, a DNA assembly method that uses
+only a single type IIS restriction enzyme for hierarchi-
+cal DNA assembly. The method is based on in vivo
+methylation-mediated on/off switching of type IIS re-
+striction enzyme recognition sites that overlap with
+site-speciﬁc methylase recognition sequences. We
+have developed practical MetClo systems for the type
+IIS enzymes BsaI, BpiI and LguI, and demonstrated
+hierarchical assembly of large DNA fragments up to
+218 kb. The MetClo approach substantially reduces
+the need to remove internal restriction sites from
+components to be assembled. The use of a single
+type IIS enzyme throughout the different stages of
+DNA assembly allows novel and powerful design
+schemes for rapid large-scale hierarchical DNA as-
+sembly. The BsaI-based MetClo system is backward-
+compatible with component libraries of most of the
+existing type IIS restriction enzyme-based assembly
+systems, and has potential to become a standard for
+modular DNA assembly.
+INTRODUCTION
+Advances in biology and biotechnology have led to de-
+velopment of a variety of methods for assembly of large
+DNA constructs (1,2). Existing methods can be largely di-
+vided into two groups. Firstly, homology-based methods,
+which use long sections of overlapping sequence between
+fragments to specify the order of assembly, such as Gib-
+son assembly and yeast- or Bacillus subtilis-based in vivo
+homologous recombination approaches (3–5). Secondly, re-
+striction enzyme- or recombinase-based methods, which
+use defined enzyme-specific sequences to specify the or-
+der of assembly, such as Biobrick and Golden gate assem-
+bly (6–8). There are significant disadvantages to these ap-
+proaches. The homology-based methods rely on long over-
+lapping stretches of sequence between DNA fragments,
+which results in long sections of scar sequence being left be-
+tween the fragments for a modular DNA assembly system.
+The enzyme-based methods generally leave shorter scar se-
+quences defined by the enzyme recognition sequence (re-
+combinase or Biobrick methods) or the adhesive end gen-
+erated by the enzyme (type IIS restriction enzyme-based
+methods), but the DNA fragment to be assembled needs to
+be free of the recognition sequence of the enzymes used. An
+ongoing challenge is to achieve a balance between reduc-
+ing sequence design constraints, such as the need to avoid
+forbidden enzyme recognition sequences in the DNA to be
+assembled, and reducing the unwanted scar sequence dur-
+ing a modular assembly process. Improving the flexibility
+of the assembly process to allow reusability of component
+parts is also a key objective.
+Among the existing assembly methods, the type IIS re-
+striction enzyme-based DNA assembly approach, such as
+Golden Gate assembly, is attractive for modular DNA as-
+sembly because circular double stranded DNA can be used
+as an input, it is a simple one-pot reaction, and it leaves a rel-
+atively small 3–4 bp scar between assembled fragments (8).
+The Golden Gate assembly method relies on the ability of
+type IIS restriction enzymes to cut DNA at a position out-
+side their recognition sequence. DNA fragments to be as-
+sembled can be provided in plasmids and flanked by type IIS
+restriction sites facing the fragments, so that once released
+from the plasmid, the fragments no longer contain the re-
+striction site. This enables one-pot assembly of DNA from
+plasmids using a mixture of a DNA ligase and a type IIS
+restriction enzyme. The order of assembly is determined by
+the user-defined sequences of the adhesive ends generated
+by the chosen type IIS restriction enzyme, and the minimal
+scar size between fragments depends on the length of the
+adhesive end.
+MoClo-based systems were developed from the Golden
+Gate assembly system to provide hierarchical multi-stage
+*To whom correspondence should be addressed. Tel: +44 1865 287794; Email: chris.ocallaghan@ndm.ox.ac.uk
+C⃝The Author(s) 2018. Published by Oxford University Press on behalf of Nucleic Acids Research.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution License (http://creativecommons.org/licenses/by/4.0/), which
+permits unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited.
+Downloaded from https://academic.oup.com/nar/article/46/19/e113/5050631 by guest on 09 February 2026
+
+
+--- Page 2 ---
+e113 Nucleic Acids Research, 2018, Vol. 46, No. 19
+PAGE 2 OF 12
+assembly of DNA (9,10). With the MoClo approach, the as-
+sembly vector contains a second pair of type IIS restriction
+sites for an enzyme that is different from the enzyme used
+for assembly. This allows the second enzyme to be used to
+release the correctly assembled DNA, which can in turn be
+used as an insert in the next stage of the assembly. Alternat-
+ing sequential use of two different type IIS restriction en-
+zymes and antibiotic selection markers enables hierarchical
+assembly of large DNA fragments.
+A major drawback of the type IIS enzyme-based DNA
+assembly method is the necessity to remove internal type IIS
+restriction sites from within the DNA fragments to be as-
+sembled. A minimum of two enzymes are required for basic
+hierarchical assembly, and three enzymes are required for
+other schemes such as multi-step linear addition of DNA
+parts (9).
+Here we report the design of a fast and powerful hierar-
+chical assembly method named MetClo which uses only one
+type IIS restriction enzyme in the assembly process. We built
+proof-of-principle MetClo systems for three commercially
+available type IIS enzymes BsaI, BpiI and LguI, and assem-
+bled multiple fragments in each system. We demonstrated
+the utility of the MetClo approach for rapid hierarchical as-
+sembly of large DNA fragments using the BsaI-based Met-
+Clo system to assemble a 218 kb DNA fragment from 28 ×
+7.7 kb fragments in two stages. In addition, we constructed a
+set of standard BsaI-based MetClo vectors for flexible DNA
+assembly that is backward compatible with existing part li-
+braries.
+MATERIALS AND METHODS
+Plasmid construction
+Plasmids
+were
+constructed
+by
+standard
+restriction
+enzyme/ligation-based cloning techniques. DNA frag-
+ments for cloning were generated by gene synthesis
+(Integrated DNA Technologies or Invitrogen), or by PCR
+with Q5 polymerase (NEB). For proof-of-principle modu-
+lar assembly of ∼1 kb DNA from 4 fragments, the acceptor
+vector backbone is based on the ampicillin-resistant MoClo
+vector pICH47732 (9), and the donor plasmid backbone is
+based on a kanamycin-resistant vector built by replacing the
+ampicillin-resistant gene in pICH47732 with a kanamycin-
+resistant gene. For hierarchical assembly of a 218 kb DNA
+from 28 fragments, the acceptor vectors are based on
+gentamicin or kanamycin-resistant low copy BAC vector
+backbones with an F replication origin, and the donor
+plasmids are based on kanamycin-resistant low copy vector
+backbones with a p15a or F replication origin. For MoClo
+assembly of four different 54 kb fragments, the acceptor
+vectors are based on gentamicin-resistant low copy BAC
+vector backbone with an F replication origin. Plasmids
+for methylase overexpression were built on a kanamycin-
+resistant low copy BAC vector backbone. The methylase
+gene sequences were codon optimized for expression in E.
+coli based on the protein sequences from the REBASE (11):
+M.Osp807II (GenPept ID WP 083443746.1), M.Rsp7740I
+(AJW38159.1), M2.NmeMC58II (AAF41140.1), M.SacI
+(AAC97118.1) and M.XmnI (AAC44403.1). The methy-
+lase genes were under the control of the J23100 synthetic
+promoter (iGEM BBa J23100), and flanked by a zeocin
+selection cassette and sequences homologous to the E. coli
+arsB locus to facilitate stable integration into the E. coli
+genome by recombineering. Template plasmids for methy-
+lase assays are based on ampicillin-resistant pICH47732.
+Plasmids in the standard MetClo vector set for BsaI-based
+modular assembly were built on ampicillin, kanamycin or
+chloramphenicol-resistant low copy vector backbones with
+a p15a or F replication origin. Plasmids constructed are
+listed in Supplementary Table S1, and plasmid sequences
+in Supplementary Data in genbank format.
+Generation of methylase expressing strains
+E. coli strains with stable expression of specific methy-
+lases were generated by lambda-red recombineering. Briefly,
+DNA fragments containing the methylase transcription
+unit, zeocin selection marker and flanking sequences ho-
+mologous to the arsB locus were generated by PCR us-
+ing the corresponding methylase-expressing BAC plasmid
+as template. The fragments were used for recombineering
+in DH10B cells followed by zeocin selection to insert the
+methylase expression cassette into the arsB locus. Clones
+with correct chromosomal insertions were verified by PCR
+and sequencing. The methylase expressing strains can be
+stably maintained without zeocin selection. Linear con-
+struct sequences for recombineering (MOsp807II-zeo-arsb,
+M2NmeMC58II-zeo-arsb and MXmnI-zeo-arsb) are listed
+as supplementary data.
+Modular assembly
+For proof of principle modular assembly of ∼1 kb DNA
+from 4 fragments by MetClo, assembly reactions were set
+up using 60 fmol of each donor plasmid prepared from
+normal DH10B cells, 60 fmol of assembly vector prepared
+from DH10B strains stably expressing compatible methy-
+lase, 1,000 U T4 DNA ligase (NEB), and 5 U BsaI (NEB)
+or BpiI (Thermo Fisher Scientific) or 2.5 U LguI (Thermo
+Fisher Scientific) in 20 l 1× T4 ligase buffer (NEB). The
+reaction condition was: 37◦C 15 min, followed by 45 cycles
+of 37◦C 2 min plus 16◦C 5 min, then 37◦C 20 min, and 80◦C
+5 min. Assembly reactions were transformed into normal
+DH10B chemical competent cells, and plated on LB plates
+with AIX selection (ampicillin 100 g/ml, IPTG 100 M,
+X-gal 50 g/ml) at 37◦C overnight. White colonies were ex-
+panded and screened by restriction digestion using the cor-
+responding restriction enzyme and by DNA sequencing.
+For hierarchical assembly of a 218 kb DNA from 28
+fragments by MetClo, the assembly was carried out in two
+stages. In stage one, the fragments were assembled, seven
+per group, using 15 fmol of each donor plasmid prepared
+from DH10B cells, 15 fmol assembly vector prepared from
+DH10B-M.Osp807II cells, 1000 U T4 ligase (NEB), and 5
+U BsaI (NEB) in 20 l 1× T4 ligase buffer (NEB). The reac-
+tion condition was the same as described above. The assem-
+bled samples were then drop-dialyzed against 50 ml dH2O
+using 0.05 m mixed cellulose esters membrane discs (Milli-
+pore) at room temperature for 1 h. 5 l of the dialyzed sam-
+ple was transformed into 25 l NEB 10-beta electrocom-
+petent cells (NEB) by electroporation at 0.9 kV 100  25
+F using a Gene Pulser and 1 mm electroporation cuvettes
+Downloaded from https://academic.oup.com/nar/article/46/19/e113/5050631 by guest on 09 February 2026
+
+
+--- Page 3 ---
+PAGE 3 OF 12
+Nucleic Acids Research, 2018, Vol. 46, No. 19 e113
+(Bio-Rad). Following electroporation, 1 ml LB medium was
+added to the cells and incubated at 37◦C 220 rpm for 1 h.
+Cells were plated on LB plates with GIX selection (gentam-
+icin 2.5 g/ml, IPTG 100 M, X-gal 50 g/ml) at 37◦C
+overnight. Four white colonies were expanded and screened
+by restriction digestion using XhoI (NEB).
+In stage two, the 218 kb DNA was assembled using pro-
+tocols similar to stage one with the following modifica-
+tions. 30 fmol of each donor plasmid and 15 fmol assem-
+bly vector were used in the assembly reaction. Following
+modular assembly and before the drop dialysis step, 10
+U BsaI was added to the assembly reaction for incuba-
+tion at 37◦C for 45 min followed by heat inactivation at
+80◦C for 5 min. Transformed cells were plated on LB plates
+with KIX selection (kanamycin 30 g/ml, IPTG 100 M,
+X-gal 50 g/ml). A total of 27 white colonies from two
+transformations were screened by PCR using primers de-
+tecting the junction between the second and the third 54
+kb fragments (TACCCACGTGATTCACGCTG and AT
+CCTACAGACTCGCTGTGG). A subset of PCR-positive
+clones were screened by restriction digest using XhoI with
+standard agarose gel electrophoresis, and BsaI with pulsed-
+field electrophoresis using the CHEF II system (Bio-Rad).
+The same set of 28 insert plasmids from the stage one
+MetClo assembly were assembled in sets of seven per group
+using MoClo vectors to compare the performance of Met-
+Clo with MoClo. The MoClo assembly was undertaken
+using a protocol analogous to the MetClo protocol de-
+scribed above, but with 15 fmol MoClo assembly vector pre-
+pared from DH10B cells in the one-pot assembly reaction.
+Six white colonies from each assembly were expanded and
+screened by restriction digest using XhoI.
+RESULT
+Principle of MetClo
+When a type IIS restriction enzyme recognition site partially
+overlaps the recognition site of a specific methylase, then the
+methylase may methylate bases within the type IIS restric-
+tion site, and this methylation may block the restriction en-
+zyme activity at this site and so switch the site off. We term
+the methylase that can switch off a type IIS restriction site
+that partially overlaps its own recognition site as a ‘switch
+methylase’ for the given restriction enzyme. The overlapping
+site we term a ‘methylation-switchable’ restriction site, and
+the whole process ‘methylation-switching’.
+MetClo uses methylation-switching to deliver a type
+IIS restriction enzyme-based one-pot DNA assembly sys-
+tem which allows the use of a single type IIS restriction en-
+zyme throughout a hierarchical assembly process (Figure
+1). Within the assembly vector there are a total of four type
+IIS restriction sites for the restriction enzyme used for as-
+sembly, with two sites arranged head-to-head on each flank
+of the negative selection marker. Of these four sites, the
+outer pair are methylation-switchable and the inner pair are
+non-switchable. Methylation of the assembly vector plas-
+mid using the switch methylase selectively blocks the outer
+pair of methylation-switchable type IIS restriction sites, but
+leaves the inner pair unmethylated and so free to release the
+negative selection marker when cut by the type IIS enzyme.
+The one-pot assembly process favors replacing the negative
+selection marker with the correctly assembled insert frag-
+ments to generate a plasmid in which the assembled insert
+fragment is flanked by the outer switchable methylated type
+IIS restriction sites, because this plasmid is the only circu-
+lar product that is not cut by the type IIS restriction enzyme.
+Transformation of the assembled plasmid into a standard E.
+coli strain that lacks the switch methylase results in plasmid
+that is not methylated at the insert-flanking methylation-
+switchable type IIS restriction sites. As a result, the assem-
+bled fragments can be released using the same type IIS re-
+striction enzyme for the next stage of hierarchical DNA as-
+sembly (Figure 1).
+Identification
+of
+suitable
+methylase
+for
+methylation-
+switching
+The key to the development of a practical MetClo sys-
+tem is identification of a site-specific methylase suitable for
+methylation-switching of the restriction site for the given
+type IIS restriction enzyme. This switch methylase must ful-
+fill three essential criteria. Firstly, methylation of the over-
+lapping methylation/restriction site must block the action
+of the type IIS restriction enzyme. Methylation could be
+achieved in vitro using purified methylase and vector plas-
+mid, or by propagating the vector plasmid in a bacterial
+strain that expresses the methylase in vivo. Secondly, the
+methylase recognition sequence must not be identical to
+or entirely enclosed by the type IIS restriction site. This
+requirement arises because there are two sets of type IIS
+restriction sites for the same enzyme in the assembly vec-
+tor: methylation-switchable and non-switchable (Figure 1).
+If the methylase recognition sequence is identical to, or en-
+closed by the type IIS restriction site, all the sites in the as-
+sembly vector for this restriction enzyme will be blocked by
+methylation; the resulting methylated assembly vector could
+not be cut by the restriction enzyme at all and so could not
+be used for DNA assembly. Thirdly, additional bases which
+specify the site of action of the methylase should not over-
+lap with the adhesive end sequence generated by the type
+IIS restriction enzyme. This ensures maximum flexibility in
+the design of adapter sequences for DNA assembly.
+We undertook a systematic search of REBASE for
+methylases with predicted ability to block restriction sites
+for the type IIS restriction enzymes BsaI, BpiI and LguI
+(11), which are common type IIS restriction enzymes used
+in hierarchical type IIS-based assembly systems (Table 1)
+(9,10,12–18). Desirable criteria were added to the essential
+criteria listed above to identify suitable candidates for exper-
+imental testing. To simplify vector preparation, we favored
+methylases that are active at the growth temperature of E.
+coli to allow in vivo methylation in strains constitutively ex-
+pressing the methylase. We also preferred methylases that
+recognize longer sequences (≥5 bp), to reduce the number
+of bases within the bacterial host genome or assembly vec-
+tor that would be collaterally methylated. This reduces the
+chance of an adverse effect on host gene function from in
+vivo methylation at other sites and could increase the effi-
+ciency of methylation by lowering the number of sites com-
+peting for the enzyme. In addition, we favored single sub-
+unit methylases that lack restriction activity for simplicity
+of transgene expression, and to avoid potential problems
+Downloaded from https://academic.oup.com/nar/article/46/19/e113/5050631 by guest on 09 February 2026
+
+
+--- Page 4 ---
+e113 Nucleic Acids Research, 2018, Vol. 46, No. 19
+PAGE 4 OF 12
+Stage 1
+Stage 2
+Restriction
+enzyme
+Ori
+M2
+A
+B
+Transformation
+Ori
+M2
+LacZα
+Ori
+M1
+B
+Ori
+M1
+A
++
++
+Me
+Me
+Ori
+M2
+A
+B
+Me
+Me
+Ori
+M2
+LacZα
+Ori
+M1
+B
+Ori
+M1
+A
++
++
+Me
+Me
+DNA ligase
+Restriction 
+enzyme
+Ori
+M2
+C
+D
+Transformation
+Ori
+M2
+LacZα
+Ori
+M1
+C
+Ori
+M1
+D
++
++
+Me
+Me
+Ori
+M2
+C
+D
+Me
+Me
+Ori
+M2
+LacZα
+Ori
+M1
+C
+Ori
+M1
+D
++
++
+Me
+Me
+DNA ligase
+Restriction
+enzyme
+Transformation
+Ori
+M1
+A
+B
+C
+D
+Ori
+M2
+A
+B
+Ori
+M2
+C
+D
++
++
+Ori
+M1
+LacZα
+Me
+Me
+Ori
+M1
+A
+B
+C
+D
+Me
+Me
+Ori
+M1
+LacZα
+Ori
+M2
+A
+B
+Ori
+M2
+C
+D
++
++
+Me
+Me
+DNA ligase
+Ori
+Replication origin
+Antibiotic selection markers
+Negative selection marker
+LacZα
+M1
+M2
+Unmethylated switchable
+Type IIS restriction sites
+Methylated switchable 
+Type IIS restriction sites
+DNA fragments to assemble
+Me
+Me
+A
+B
+Compatible adhesive ends
+Type IIS restriction enzyme
+recognition sites
+Me
+Unmethylated non-switchable
+Type IIS restriction sites
+Stage 1
+Figure 1. DNA assembly using MetClo. The figure illustrates the assembly of four DNA fragments (Fragments A, B, C and D, shown in yellow) into
+a single DNA fragment (Fragment ABCD) through two stages of MetClo using a single type IIS restriction enzyme. Stage 1 and Stage 2 are effectively
+the same process with progressively larger inserts. In Stage 1, the insert donor plasmids contain insert fragments (Fragments A, B, C or D) flanked by
+methylation-switchable type IIS restriction sites that generate compatible adhesive ends. Preparation of insert plasmids in normal E. coli strains, which
+lack the appropriate switch methylase, results in insert fragments that can be cut out by the type IIS restriction enzyme. The assembly vector contains the
+negative selection marker LacZ flanked by a purposely designed head-to-head configuration of type IIS restriction sites. The inner pair of restriction sites
+are designed to be non-switchable, but the outer pair are methylation-switchable, because the restriction enzyme recognition site overlaps with a recognition
+site for the switch methylase. Preparation of the assembly vector in E. coli strains expressing the switch methylase leads to selective methylation of the outer
+methylation-switchable restriction sites, and subsequent digestion with the type IIS restriction enzyme generates a vector backbone that retains the outer
+pair of methylated type IIS restriction sites. Ligation of the insert fragments into the vector backbone generates the correctly assembled plasmid, which is
+not cut by the type IIS restriction enzyme because these sites are still methylated. All of the other unwanted fragments including the vector backbone of the
+insert plasmid and the LacZ fragment from the assembly vector contain unmethylated type IIS restriction sites, which are cut by the restriction enzyme.
+This design allows a one-pot assembly reaction that combines the restriction and ligation step because the reaction favors generation of the correctly
+assembled plasmid. Transformation of the assembly reaction into a normal E. coli strain, which lacks the appropriate switch methylase, effectively results
+in demethylation of the methylated type IIS restriction sites flanking the assembled fragment in the assembled plasmid. In Stage 2, the assembled inserts
+(Fragments AB and CD) can then be used for a subsequent round of MetClo assembly into a larger fragment (Fragment ABCD).
+of restriction of plasmid DNA during vector transforma-
+tion. Lastly, to increase the chance of methylation blocking
+the overlapping methylation/restriction sites, we preferred
+methylases that modify bases close to the middle of the re-
+striction site.
+Based on these criteria, we selected the following
+methylases
+for
+testing
+of
+methylation-switching
+ac-
+tivity:
+M.Osp807II
+for
+BsaI;
+M.Rsp7740I
+(19)
+and
+M2.NmeMC58II (20) for BpiI; M.SacI (21), M.AspJHL3I
+(22) and M.XmnI (23) for LguI (Figure 2A). We screened
+methylase
+activity
+by
+preparing
+ColE1-based
+high
+copy number template plasmids carrying overlapping
+methylation/restriction sites in DH10B cells expressing the
+corresponding methylase under the J23100 constitutive
+synthetic promoter from a low copy number BAC vector.
+This identified M.Osp807II (for BsaI), M2.NmeMC58II
+(for BpiI) and M.XmnI (for LguI) as suitable candidates
+for further analysis (Figure 2A). For each of these methy-
+Downloaded from https://academic.oup.com/nar/article/46/19/e113/5050631 by guest on 09 February 2026
+
+
+--- Page 5 ---
+PAGE 5 OF 12
+Nucleic Acids Research, 2018, Vol. 46, No. 19 e113
+BsaI
+GACNNGGTCTCNNNNN
+GTCNNCCAGAGNNNNN
+M.Osp807II
+LguI
+GAAGCTCTTCNNNN
+CTTCGAGAAGNNNN
+M.XmnI
+GAGCTCTTCNNNN
+CTCGAGAAGNNNN
+M.SacI / M.AspJHL3I
+BpiI
+GAAGACGCNNNN
+CTTCTGCGNNNN
+M2.NmeMC58II
+TTCGAAGACNNNNNN
+AAGCTTCTGNNNNNN
+M.Rsp7740I
+A
+B
+C
+In vivo methylation
+-
++
+-
++
+-
++
+M.Osp807II
+BsaI
+BpiI
+LguI
+M2.NmeMC58II
+M.XmnI
+3kb
+1kb
+500bp
+Methylase
+Restriction enzyme
+Restriction enzyme
+Methylase
+Blocking
+BsaI
+M.Osp807II
++
+BpiI
+M2.NmeMC58II
++
+BpiI
+M.Rsp7740I
+-
+LguI
+M.XmnI
++
+LguI
+M.SacI
+-
+LguI
+M.AspJHL3I
+-
+Methylation-switchable
+restriction site
+Non-switchable
+restriction site
+Restriction
+digest
+Methylation-switchable restriction site
+Non-switchable restriction site
+GACTTGGTCTCATGCCTGAGACCAAGTC
+CTGAACCAGAGTACGGACTCTGGTTCAG
+CTTCAGGTCTCAGAAG
+GAAGTCCAGAGTCTTC
+BsaI
+M.Osp807II
+GAAGACGCTGCCGCGTCTTC
+CTTCTGCGACGGCGCAGAAG
+GAAGACAAGTCA
+CTTCTGTTCAGT
+BpiI
+M2.NmeMC58II
+GAAGCTCTTCAGCCTGAAGAGCTTC
+CTTCGAGAAGTCGGACTTCTCGAAG
+CGTGCTCTTCAGGT
+GCACGAGAAGTCCT
+LguI
+M.XmnI
++
+600bp
+Unmethylated 
+plasmid
+4.3kb
+Methylated
+plasmid
+4.9kb
+Figure 2. Identification of suitable methylases for methylation-switching. (A) Initial screening of functional methylases for selective blocking of overlapping
+methylation/restriction sites. The diagrams show the design of overlapping sites for screening of methylase activity. The table shows the screening result
+using methylases expressed in vivo from an F-ori based low copy number vector. Restriction enzyme recognition sites are boxed in solid lines. The adhesive
+ends generated by the restriction enzyme are shown by solid lines. Methylase recognition sites are boxed in dashed lines, and methylated bases are in
+bold font. All the listed methylases modify N6-adenine, except M.SacI and M.AspJHL3I, which modify C5-cytosine and N4-cytosine respectively. (B)
+Experimental designs to test blocking of methylation-switchable type IIS restriction enzyme sites by in vivo methylation. For each methylase/restriction
+enzyme combination tested, the test plasmid contains a head-to-head potentially methylation-switchable restriction site and a non-methylatable restriction
+site. Restriction digestion of test plasmid prepared from a normal E. coli strain would result in cutting at both sites and the release of a 600 bp fragment from
+the 4.3 kb vector backbone. Restriction digestion of test plasmid prepared from a strain expressing the switch methylase would result in a single 4.9 kb band,
+due to blocking of the methylation-switchable restriction sites by in vivo methylation. The restriction sites of the test plasmids for each restriction enzyme
+are shown, with the restriction site boxed in solid line, the methylase recognition site boxed in dashed line, and the methylated bases in bold. The head-
+to-head arrangement of overlapping methylation/restriction site allows the same assay to be used to detect any residual single strand nicking activity of
+the restriction enzyme towards the methylated restriction site. (C) Agarose gel electrophoresis analysis of the test plasmids for each methylation-switchable
+restriction site after preparation of the plasmids in a normal strain (–) or in a strain expressing the appropriate DNA methylase (+) and digested with the
+corresponding type IIS restriction enzymes. The combinations tested were BsaI with M.Osp807II methylase using test plasmid pMOP BsaINC, BpiI with
+M2.NmeMC58II methylase using test plasmid pMOP BpiINC, and LguI with M.XmnI methylase using test plasmid pMOP LguINC. Test conditions
+were 60 fmol test plasmid digested using 5 U BsaI or BpiI, or 2.5 U LguI in 10 l reactions at 37◦C for 1 h. The results show that in vivo methylation
+by each of the methylases successfully blocked the restriction site for the corresponding type IIS restriction enzyme when the methylase recognition site
+overlapped the restriction enzyme site. The data shown represents results from three independent experiments.
+Downloaded from https://academic.oup.com/nar/article/46/19/e113/5050631 by guest on 09 February 2026
+
+
+--- Page 6 ---
+e113 Nucleic Acids Research, 2018, Vol. 46, No. 19
+PAGE 6 OF 12
+Table 1. Type IIS restriction enzyme-based hierarchical assembly systems
+Assembly system
+Enzyme
+Forbidden site
+frequency
+Mode of assembly
+MoClo (9,12)
+BsaI, BpiI
+1 in 1 kb
+Multiplicative or iterative linear addition assemblya
+GoldenBraid (10)
+BsaI, BsmBI
+1 in 1 kb
+Multiplicative assembly
+EcoFlex (13)
+BsaI, BsmBI
+1 in 1 kb
+Multiplicative assembly
+CIDAR (14)
+BsaI, BpiI
+1 in 1 kb
+Multiplicative assembly
+Yeast Toolkit (15)
+BsaI, BsmBI
+1 in 1 kb
+Multiplicative assembly
+TNT (16)
+LguI, EarI
+1 in 2 kb
+Multiplicative assemblyb
+GreenGate (17)
+BsaI
+1 in 2 kb
+Iterative linear addition assembly
+PODAC (18)
+BsaI
+1 in 2 kb
+Iterative linear addition assembly
+MetClo-BsaI
+BsaI
+1 in 2 kb
+Multiplicative or iterative linear addition assembly
+MetClo-BpiI
+BpiI
+1 in 2 kb
+Multiplicative or iterative linear addition assembly
+MetClo-LguI
+LguI
+1 in 8 kb
+Multiplicative or iterative linear addition assembly
+aThree enzymes required for linear addition assembly.
+bMaximum three parts per reaction with constraints in design of adaptor sequence.
+lases, we integrated the methylase expression cassette
+with a zeocin selection marker into the arsB locus (24)
+using lambda-red recombineering to generate E. coli
+strains that constitutively overexpress the methylase from a
+chromosomal copy.
+We tested the methylation-switching activity of these
+methylases in vivo using these strains. Test vectors were con-
+structed that carry one restriction site that does not over-
+lap with the methylase recognition sequence and so is non-
+switchable. In addition, these vectors include an element
+∼600 bp away with two type IIS restriction sites in a head-
+to-head arrangement, both of which overlap with the corre-
+sponding methylation sequence and so may be methylation-
+switchable. The non-switchable site should be cut by the
+type IIS restriction enzyme regardless of methylase activ-
+ity. The methylation-switchable sites should be blocked if
+the plasmid is generated in the strain expressing the switch
+methylase (Figure 2B). The head-to-head arrangement of
+these methylation-switchable sites also allows for assess-
+ment of any residual single-strand nicking activity by the
+type IIS restriction enzyme when the site is methylated; be-
+cause these sites share a common cutting site, single-strand
+nicking activity at these sites will result in double-stranded
+cleavage similar to that seen with full restriction activity in
+the absence of any methylation. Restriction digest of test
+vectors prepared in normal strains or in strains expressing
+the switch methylase shows that in vivo expression of each of
+three switch methylases selectively blocks restriction diges-
+tion of the corresponding overlapping sites. This suggests
+that these methylases can be used for methylation-switching
+of sites for the corresponding type IIS restriction enzymes
+in vivo (Figure 2C).
+MetClo-based DNA assembly
+We developed proof-of-principle one-pot MetClo DNA as-
+sembly systems for each of these three methylase/type IIS
+restriction enzyme combinations. As an example, Figure 3
+illustrates the assembly of four DNA fragments by the BsaI-
+based MetClo system using in vivo methylation-switching by
+the M.Osp807II switch methylase. The assembly is designed
+so that the insert fragments to be assembled and the final
+assembled fragment are flanked by the same methylation-
+switchable BsaI sites. The insert plasmids are prepared in
+a standard E. coli strain that lacks the M.Osp807II switch
+methylase, so that the BsaI sites are not methylated and this
+allows BsaI to be used to cut the insert DNA out of the
+plasmid. The assembly vector is prepared in an E. coli strain
+that does express the M.Osp807II switch methylase, so that
+the switchable outer pair of BsaI sites are methylated and
+so cannot be cut by BsaI; they are switched ‘off’. Follow-
+ing one-pot assembly and transformation into a standard
+E. coli strain that does not express the switch methylase,
+the assembled plasmid is not methylated at the methylation-
+switchable BsaI sites that flank the assembled fragment, so
+this plasmid can then be cut by BsaI at these sites to release
+the assembled fragment for a further round of DNA assem-
+bly.
+We tested the assembly of four fragments using the
+MetClo approach with each of the three enzymes BsaI,
+BpiI and LguI and the corresponding methylases (Table
+2). The donor plasmids were kanamycin-resistant, and the
+assembly vectors were ampicillin-resistant. Assembly vec-
+tors were prepared in the corresponding switch methylase-
+expressing strains. Following selection, over 99% of the
+colonies were white (LacZ-negative). For each assembly,
+eight white colonies were analyzed by restriction digest and
+Sanger sequencing. These analyses established that 100%
+of the white clones were correct for each of the three Met-
+Clo systems (Table 2 and Supplementary Figure S1). This
+demonstrates that the MetClo approach can be used to as-
+semble multiple DNA fragments using a single type IIS re-
+striction enzyme in a one-pot reaction, resulting in a plas-
+mid from which the assembled insert can be released using
+the same type IIS restriction enzyme.
+To explore the utility of MetClo for hierarchical assem-
+bly of large DNA constructs, we assembled a 218 kb non-
+repetitive DNA fragment from 28 × 7.7 kb fragments using
+BsaI-based MetClo in two stages. In stage one, four sets of
+seven fragments were assembled into four intermediate frag-
+ments of ∼54 kb each using BsaI-based MetClo. In stage
+two, the 4 × 54 kb intermediate fragments were assembled
+into a single 218 kb fragment, again using BsaI-based Met-
+Clo. Following antibiotic selection, the percentage of clones
+that are LacZ-negative white clones was ∼5% for the stage
+one assembly, and ∼0.2% for the stage two assembly. The
+reduced percentage for stage two reflects the reduced trans-
+formation efficiency of the large assembled plasmid com-
+Downloaded from https://academic.oup.com/nar/article/46/19/e113/5050631 by guest on 09 February 2026
+
+
+--- Page 7 ---
+PAGE 7 OF 12
+Nucleic Acids Research, 2018, Vol. 46, No. 19 e113
+GACTTGGTCTCA aaaa TGAGACCGCAGC
+CTGAACCAGAGT aaaa ACTCTGGCGTCG
+GTGACGGTCTCA eeee TGAGACCAAGTC
+CACTGCCAGAGT eeee ACTCTGGTTCAG
+LacZα
+Assembly vector
+prepared from
+DH10B-M.Osp807II
+GACTTGGTCTCA aaaa
+CTGAACCAGAGT aaaa
+eeee TGAGACCAAGTC
+eeee ACTCTGGTTCAG
+bbbb
+bbbb
+cccc
+cccc
+dddd
+dddd
+Frag A
+Frag B
+Frag C
+Frag D
+Assembled plasmid
+GACTTGGTCTCA aaaa
+CTGAACCAGAGT aaaa
+eeee TGAGACCAAGTC
+eeee ACTCTGGTTCAG
+bbbb
+bbbb
+cccc
+cccc
+dddd
+dddd
+Frag A
+Frag B
+Frag C
+Frag D
+Assembled plasmid
+after transformation
+into normal strain
+GACTTGGTCTCA aaaa
+CTGAACCAGAGT aaaa
+bbbb TGAGACCAAGTC
+bbbb ACTCTGGTTCAG
+Frag A
+GACTTGGTCTCA bbbb
+CTGAACCAGAGT bbbb
+cccc TGAGACCAAGTC
+cccc ACTCTGGTTCAG
+Frag B
+GACTTGGTCTCA cccc
+CTGAACCAGAGT cccc
+dddd TGAGACCAAGTC
+dddd ACTCTGGTTCAG
+Frag C
+GACTTGGTCTCA dddd
+CTGAACCAGAGT dddd
+eeee TGAGACCAAGTC
+eeee ACTCTGGTTCAG
+Frag D
+Donor plasmid
+prepared from
+normal strain
++
++
++
++
+BsaI + T4 DNA ligase
+Transformation
+Figure 3. BsaI-M.Osp807II based MetClo system. The donor plasmids contain DNA fragments to be assembled (Fragments A–D) flanked by BsaI sites that
+generate compatible adhesive ends (schematically labelled aaaa-eeee). The BsaI sites overlap with the M.Osp807II methylase recognition sequence. Donor
+plasmids were prepared from a normal strain that does not express the M.Osp807II switch methylase. As a result, the BsaI sites are not methylated and so
+the insert DNA fragments can be released by BsaI digestion. The recipient assembly vector contains a LacZ selection marker flanked by head-to-head
+BsaI sites. The outer pair of BsaI sites closer to the vector backbone overlap with an M.Osp807II methylation sequence and so are methylation-switchable,
+whereas the inner pair of BsaI sites are not. Preparation of the assembly vector in the M.Osp807II switch methylase-expressing DH10B strain results in
+selective blocking of the outer pair of BsaI sites. The LacZ fragment can be released by BsaI through cutting at inner pair of BsaI sites. Following a one-pot
+reaction using BsaI and T4 DNA ligase, ligation among compatible adhesive ends results in ordered assembly of DNA fragments into the assembly vector
+backbone. The assembled fragment in the assembled plasmid is flanked by methylated BsaI sites, which are not cut by BsaI. Following transformation into
+a normal strain that does not express the M.Osp807II switch methylase, methylation of the flanking restriction sites is lost, and the assembled fragment
+can be released by BsaI for the next stage assembly.
+Table 2. Proof-of-principle DNA assembly using BsaI, BpiI or Lgui-based MetClo systems
+Plasmid
+Vector
+Inserts
+Methylase
+Enzyme
+Size
+Success rate
+pMXP test
+pMXP A4E
+pMXK2 FragA
+pMXK2 FragB
+pMXK2 FragC
+pMXK2 FragD
+M.Osp807II
+BsaI
+908 bp
+100% (8/8)
+pMYP test
+pMYP A5E
+pMYK2 FragA
+pMYK2 FragB
+pMYK2 FragC
+pMYK2 FragD
+M2.NmeMC58II
+BpiI
+1152 bp
+100% (8/8)
+pMZP test
+pMZP P6T
+pMZK2 FragA
+pMZK2 FragB
+pMZK2 FragC
+pMZK2 FragD
+M.XmnI
+LguI
+1149 bp
+100% (8/8)
+pared to that of the smaller uncut assembly vector. Of the
+white colonies screened, restriction digestion demonstrated
+a ∼50% success rate for stage one assembly, and ∼20% for
+stage two assembly (Table 3 and Supplementary Figure S2).
+To assess MetClo in comparison to standard MoClo, the
+same fragments were assembled using one-pot MoClo. The
+percentage of white clones for MoClo assembly was ∼5%,
+similar to MetClo. The success rate of MoClo assembly as
+assessed by restriction digestion of white clones was also
+similar to stage one assembly by MetClo (Supplementary
+Table S2). This demonstrates that the performance of Met-
+Clo is comparable to that of MoClo. These data confirm
+that the MetClo system can be used for hierarchical multi-
+step assembly of a large DNA construct using a single type
+IIS restriction enzyme.
+Downloaded from https://academic.oup.com/nar/article/46/19/e113/5050631 by guest on 09 February 2026
+
+
+--- Page 8 ---
+e113 Nucleic Acids Research, 2018, Vol. 46, No. 19
+PAGE 8 OF 12
+Table 3. Hierarchical assembly of a 218 kb DNA fragment using a BsaI-based MetClo system
+Plasmid
+Vector
+Inserts
+Size
+Success ratea
+pMXBG 3A1
+pMXBG A7I
+pMOLK 2A1
+pMOLK 2B1
+pMOLK 2C1
+pMOLK 2D1
+pMOLK 2E1
+pMOLK 2F1
+pMOLK 2G1
+54 kb
+75% (3/4)
+pMXBG 3I1
+pMXBG I7G
+pMOLK 2I1
+pMOLK 2A2
+pMOLK 2B2
+pMOLK 2C2
+pMOLK 2D2
+pMOBK 2E2
+pMOLK 2F2
+55 kb
+50% (2/4)
+pMXBG 3G1
+pMXBG G7F
+pMOLK 2G2
+pMOLK 2I2
+pMOLK 2A3
+pMOLK 2B3
+pMOLK 2C3
+pMOBK 2D3
+pMOLK 2E3
+54 kb
+50% (2/4)
+pMXBG 3F1
+pMXBG F7E
+pMOLK 2F3
+pMOLK 2G3
+pMOLK 2I3
+pMOLK 2A4
+pMOLK 2B4
+pMOLK 2C4
+pMOLK 2D4
+54 kb
+50% (2/4)
+pMXBK 4A1
+pMXBK A7E
+pMXBG 3A1
+pMXBG 3I1
+pMXBG 3G1
+pMXBG 3F1
+218 kb
+20%b
+aCalculated based on the white colonies selected following blue-white screening.
+b14/27 verified by PCR screening, of which 3/8 verified by restriction digest.
+A standard MetClo modular assembly vector set
+Because MetClo uses a single type IIS restriction enzyme
+throughout DNA assembly, DNA parts with compatible
+adhesive ends from different stages of the assembly can
+be assembled with suitable assembly vectors. This provides
+great flexibility in assembly design. To exploit this feature,
+we designed and built a set of standardized MetClo assem-
+bly vectors for flexible modular DNA assembly (Figure 4
+and Supplementary Figure S3). Each of these vectors can
+accept any DNA fragment which carries compatible adhe-
+sive ends, such that the first component fragment in the as-
+sembled sequence starts with adhesive end ‘p’, and the last
+component fragment in the assembled sequence ends with
+adhesive end ‘q’ (Figures 4 and 5A). The adhesive ends car-
+ried by the assembled DNA fragment depend on the choice
+of assembly vectors in the assembly process. Three types of
+assembly vectors were designed: Firstly, an assembly vec-
+tor of type ‘Start’ generates assembled fragments that start
+with adhesive end ‘p’, and end with adhesive end ‘a’. Sec-
+ondly, an assembly vector of type ‘Middle’ generates assem-
+bled fragments that start and end with adhesive ends ‘a-b’,
+‘b-c’, ‘c-d’ or ‘d-e’. Thirdly, an assembly vector of type ‘End’
+generates assembled fragments that start with adhesive end
+‘a’, ‘b’, ‘c’, ‘d’ or ‘e’, and end with adhesive end ‘q’ (Figure
+4). The adhesive ends designed for orderly multi-fragment
+DNA assembly were chosen based on a previous design to
+minimize cross-reactivity between non-compatible adhesive
+ends (25). We have designed the adhesive ends ‘p’ and ‘q’
+such that the vector set is compatible with several existing
+part libraries for mammalian and plant synthetic biology
+(10,12,26), as well as the OpenPlant synthetic biology stan-
+dard (27). The design of further adhesive ends would allow
+the assembly of more fragments in a single reaction if re-
+quired.
+DNA fragments assembled into type ‘Start’ assembly
+vectors can be used as the first fragment, fragments assem-
+bled into type ‘Middle’ as middle fragments, and fragments
+assembled into type ‘End’ as the last fragment for subse-
+quent stages of DNA assembly (Figure 5A–E). Appropri-
+ate use of type ‘Middle’ and type ‘End’ vectors enables the
+assembly of between 2 and 6 fragments in each assembly re-
+action. Vector backbones with two different replication ori-
+gins were designed to assemble both small and large frag-
+ments, and three different antibiotic selection markers were
+used for assembly of DNA fragments encoded in vectors
+that carry any two different selection markers (Supplemen-
+tary Figure S3, Figure 5D and E). The resulting standard as-
+sembly vector set can be used to assemble an arbitrary num-
+ber of standard DNA blocks (such as transcription units)
+in any order in the same orientation, as long as the stan-
+dard blocks carry the same antibiotic selection marker and
+start and end with the same adhesive end ‘p’ and ‘q’. Up to
+5 standard blocks can be added to any intermediate frag-
+ments that have been assembled in type ‘Start’ vectors. The
+vector set thus supports both multiplicative (Figure 5B and
+C) and linear additive (Figure 5D and E) assembly topolo-
+gies.
+DISCUSSION
+We have developed and tested a system for one-pot assem-
+bly of a DNA fragment from multiple donor plasmids using
+a single type IIS restriction enzyme. The assembled frag-
+ment can be released from the recipient plasmid by the
+same restriction enzyme, so allowing hierarchical assem-
+bly of large DNA constructs using this restriction enzyme
+again. This reuse of the same enzyme is possible because
+the system uses a site-specific switch methylase to regu-
+late the activity of the restriction enzyme at a methylation-
+switchable restriction site. A strain expressing the switch
+methylase is used to prepare the assembly vector to pro-
+vide in vivo methylation of methylation-switchable restric-
+tion sites within the vector. The one-pot assembly process is
+straightforward and preserves the simplicity of the existing
+type IIS restriction enzyme-based assembly systems, which
+do not use methylation-switching (Table 1). Standard un-
+modified E. coli cloning strains are used for transformation
+of the assembly reaction and preparation of donor plas-
+mids containing the inserts to be assembled. The MetClo
+approach has a number of advantages over existing hierar-
+chical DNA assembly systems.
+Firstly, the need to remove internal restriction sites from
+component DNA fragments and plasmids is reduced by the
+use of a single enzyme. Compared with the standard Mo-
+Clo system using two or more enzymes, the BsaI- and BpiI-
+based single enzyme MetClo systems each use one restric-
+tion enzyme that recognizes 6 bp and so reduces the fre-
+quency of forbidden restriction sites from 1 per 1 kb to 1
+per 2 kb for random DNA with 50% GC content, and the
+LguI-based MetClo system uses a 7 bp cutter that reduces
+the frequency further to 1 per 8 kb (Table 1). The consid-
+erable improvement brought about by the LguI-based Met-
+Clo system potentially allows semi-synthetic construction
+of DNA component fragments by PCR with relatively min-
+imal need for modification; this approach might be suitable
+for large-scale construction and characterization of libraries
+of native DNA elements such as promoters and enhancers.
+Further improvements to reduce the need for internal re-
+striction site removal may depend on the discovery or de-
+velopment of new type IIS restriction enzyme with added
+specificity.
+Downloaded from https://academic.oup.com/nar/article/46/19/e113/5050631 by guest on 09 February 2026
+
+
+--- Page 9 ---
+PAGE 9 OF 12
+Nucleic Acids Research, 2018, Vol. 46, No. 19 e113
+LacZα
+GACTTGGTCTCA GGAG TGAGACCGGCCT
+CTGAACCAGAGT CCTC ACTCTGGCCGGA
+LacZα
+GACTTGGTCTCA AGGT GGAG TGAGACCGGCCT
+CTGAACCAGAGT TCCA CCTC ACTCTGGCCGGA
+CCAAAGGTCTCA CGCT TGCC TGAGACCAAGTC
+GGTTTCCAGAGT GCGA ACGG ACTCTGGTTCAG
+GACTTGGTCTCA TGCC GGAG TGAGACCGGCCT
+CTGAACCAGAGT ACGG CCTC ACTCTGGCCGGA
+GACTTGGTCTCA ACAG GGAG TGAGACCGGCCT
+CTGAACCAGAGT TGTC CCTC ACTCTGGCCGGA
+GACTTGGTCTCA ACGA GGAG TGAGACCGGCCT
+CTGAACCAGAGT TGCT CCTC ACTCTGGCCGGA
+CCAAAGGTCTCA CGCT ACAG TGAGACCAAGTC
+GGTTTCCAGAGT GCGA TGTC ACTCTGGTTCAG
+CCAAAGGTCTCA CGCT ACGA TGAGACCAAGTC
+GGTTTCCAGAGT GCGA TGCT ACTCTGGTTCAG
+CCAAAGGTCTCA CGCT CAAC TGAGACCAAGTC
+GGTTTCCAGAGT GCGA GTTG ACTCTGGTTCAG
+GACTTGGTCTCA AGGT GGAG TGAGACCGGCCT
+CTGAACCAGAGT TCCA CCTC ACTCTGGCCGGA
+GACTTGGTCTCA TGCC GGAG TGAGACCGGCCT
+CTGAACCAGAGT ACGG CCTC ACTCTGGCCGGA
+GACTTGGTCTCA ACAG GGAG TGAGACCGGCCT
+CTGAACCAGAGT TGTC CCTC ACTCTGGCCGGA
+GACTTGGTCTCA ACGA GGAG TGAGACCGGCCT
+CTGAACCAGAGT TGCT CCTC ACTCTGGCCGGA
+GACTTGGTCTCA CAAC GGAG TGAGACCGGCCT
+CTGAACCAGAGT GTTG CCTC ACTCTGGCCGGA
+CCAAAGGTCTCA CGCT TGAGACCAAGTC
+GGTTTCCAGAGT GCGA ACTCTGGTTCAG
+CCAAAGGTCTCA CGCT TGAGACCAAGTC
+GGTTTCCAGAGT GCGA ACTCTGGTTCAG
+CCAAAGGTCTCA CGCT TGAGACCAAGTC
+GGTTTCCAGAGT GCGA ACTCTGGTTCAG
+CCAAAGGTCTCA CGCT TGAGACCAAGTC
+GGTTTCCAGAGT GCGA ACTCTGGTTCAG
+CCAAAGGTCTCA CGCT TGAGACCAAGTC
+GGTTTCCAGAGT GCGA ACTCTGGTTCAG
+CCAAAGGTCTCA CGCT AGGT TGAGACCAAGTC
+GGTTTCCAGAGT GCGA TCCA ACTCTGGTTCAG
+LacZα
+LacZα
+LacZα
+LacZα
+LacZα
+LacZα
+LacZα
+LacZα
+p-a
+a-b
+b-c
+c-d
+d-e
+a-q
+b-q
+c-q
+d-q
+e-q
+p
+q
+a
+p
+q
+b
+a
+p
+q
+c
+b
+p
+q
+d
+c
+p
+q
+e
+d
+p
+q
+a
+p
+q
+b
+p
+q
+c
+p
+q
+d
+p
+q
+e
+Type Start
+Type Middle
+Type End
+Figure 4. Design of a standard MetClo vector set. Three types of adaptor sequences were designed for the standard MetClo vector set. The vectors contain
+two head-to-head BsaI sites (boxed) flanking the negative selection marker LacZ. The pair of unmethylated BsaI sites closest to the negative selection
+marker can be used to release LacZ and generates adhesive ends ‘p’ and ‘q’. This allows any fragments that start with adhesive end ‘p’ and end with
+adhesive end ‘q’ to be cloned into any of the three types of adaptor sequences (types ‘Start’, ‘Middle’, ‘End’). The outer pair of BsaI sites closest to the
+vector backbone overlap with the M.Osp807II recognition sequence and are both methylated at the adenine bases highlighted in bold when the vector is
+prepared in M.Osp807II-expressing E. coli strain. A DNA fragment assembled into these vectors, following transformation into a normal E. coli strain
+which lacks this switch methylase activity, can be released from the assembled plasmid using BsaI, which can now recognize this unmethylated BsaI site.
+The released fragment will carry different adhesive ends depending on the type of the vector used. Assembly into a type ‘Start’ vector will generate a
+fragment flanked by adaptors ‘p-a’; assembly into a type ‘Middle’ vector will generate a fragment flanked by ‘a-b’, ‘b-c’, ‘c-d’ or ‘d-e’; assembly into a type
+‘End’ vector will generate a fragment flanked by ‘a-q’, ‘b-q’, ‘c-q’, ‘d-q’ or ‘e-q’. The design of these LacZ selection cassettes flanked by unique adaptors
+are represented in the figure by the letter codes for the outside adaptor sequences.
+Secondly, MetClo increases the design flexibility of hier-
+archical assembly. The use of a single enzyme allows the
+assembly of DNA fragments that have been produced dur-
+ing different stages of a hierarchical DNA assembly. This
+enables the simple design of a vector set that is capable of
+both multiplicative and linear additive DNA assembly (Fig-
+ure 5). The linear addition capability of the MetClo vector
+set is superior to existing systems such as MoClo. In MoClo,
+linear addition requires the use of three type IIS restriction
+enzymes and two different negative selection markers, and
+added DNA fragments form part of the vector backbone
+of the assembly vector for next stage assembly. This may
+pose problems for linear addition of DNA to existing large
+fragments in very low copy number vectors, because the low
+copy replication origin is necessary for maintenance of the
+large fragment in the vector backbone, but may also result
+in low and potentially inadequate expression of the selec-
+tion marker carried by the assembly vector. With the Met-
+Clo vector set, however, the linear addition step is the same
+as multiplicative assembly in that a single negative selection
+marker is required and the marker always lies in a standard-
+ized vector backbone. Assembly vectors with a very low
+copy number vector backbone can be prepared as high copy
+number vectors using a high copy replication origin located
+close to the negative selection marker. These features there-
+fore ensure robustness and simplicity for the negative selec-
+tion step during linear additive assembly using the MetClo
+vector set. In addition, there are many possible permuta-
+Downloaded from https://academic.oup.com/nar/article/46/19/e113/5050631 by guest on 09 February 2026
+
+
+--- Page 10 ---
+e113 Nucleic Acids Research, 2018, Vol. 46, No. 19
+PAGE 10 OF 12
+p15a Amp
+a
+p
+A
+p15a Amp
+b
+a
+B
+p15a Amp
+q
+b
+C
+p15a Amp
+a
+p
+D
+p15a Amp
+b
+a
+E
+p15a Amp
+q
+b
+F
+p15a Amp
+a
+p
+G
+p15a Amp
+b
+a
+H
+p15a Amp
+q
+b
+I
+p-a
+p15a Cam
+a-b
+p15a Cam
+b-q
+p15a Cam
+p15a Cam
+A
+B
+C a
+p
+p15a Cam
+D
+E
+F b
+a
+p15a Cam
+G
+H
+I
+q
+b
+p15a Cam
+A
+B
+C a
+p
+p15a Cam
+D
+E
+F b
+a
+p15a Cam
+G
+H
+I
+q
+b
+p-a
+p15a Amp
+p15a Amp
+A B C
+a
+p
+D E
+F G H
+I
+p15a Cam
+A
+B
+C a
+p
+p15a Amp
+q
+a
+D
+p15a Kan
+A
+B
+C
+a
+p
+D
+p15a Kan
+A
+B
+C
+a
+p
+D
+p15a Amp
+b
+a
+E
+p15a Amp
+q
+b
+F
+p15a Cam
+A B C
+a
+p
+D E
+F
+p-a
+p15a Kan
+p-a
+p15a Cam
+p15a Amp
+a
+p
+A
+p-a
+p15a Amp
+ori
+Cam
+x
+p
+A1
+ori
+Cam
+y
+x
+A1
+ori
+Cam
+q
+y
+A3
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
+D
+E
+A
+B
+C
+Figure 5. Schemes for DNA assembly using standard MetClo vector set. The MetClo vector set supports both multiplicative and linear additive topology
+for DNA assembly. (A) As an example, a hypothetical transcription unit ‘A’ can be assembled from a promoter fragment ‘A1’ that starts with adaptor
+sequence ‘p’ and ends with adaptor sequence ‘x’, a coding region fragment ‘A2’ that starts and ends with adaptor sequences ‘x’ and ‘y’, and a transcription
+terminator fragment ‘A3’ that starts and ends with adaptor sequences ‘y’ and ‘q’. The internal adaptor sequences ‘x’ and ‘y’ used to link the DNA parts in
+order at this stage are arbitrary adaptor sequences not specified by the MetClo vector set. Any compatible DNA parts can be assembled into the vector as
+long as the first part start with adaptor sequence ‘p’ and the last part end with adaptor sequence ‘q’. MetClo assembly of these parts into MetClo vector
+‘p-a’ generates assembled transcription unit ‘A’ flanked by adaptor sequence ‘p’ and ‘a’. (B) With a multiplicative assembly scheme, assembled transcription
+units can be assembled three per group in different MetClo vectors into larger fragments that contain three transcription units ‘ABC’, ‘DEF’ or ‘GHI’.
+(C) These three fragments, ‘ABC’, ‘DEF’ and ‘GHI’, can then be assembled into a single fragment containing 9 transcription units. (D) Alternatively,
+additional transcription units can be added to an existing fragment containing multiple transcription units using a linear addition assembly scheme.
+Addition of transcription unit ‘D’ flanked by adaptors ‘a’ and ‘q’ to fragment ‘ABC’ flanked by adaptors ‘p’ and ‘a’ using assembly vector ‘p-a’ generates
+an assembled fragment ‘ABCD’ which is still flanked by adaptors ‘p’ and ‘a’. (E) Further addition of fragments ‘E’ and ‘F’ can be undertaken to generate
+a larger fragment ‘ABCDEF’.
+tions based on the MetClo system that could be added to
+expand the functionality of the standard vector set. This in-
+cludes the option to assemble DNA fragments through an
+intermediate assembly stage, which is useful for subassem-
+bly of complex parts, such as multi-domain open reading
+frames, for added reusability of intermediate parts (Supple-
+mentary Figure S4). Another option is a standard method
+to incorporate methylation-switchable BsaI sites into exist-
+ing vector backbones, which is useful for modular construc-
+tion of common assembly vectors carrying functional ele-
+ments within the vector backbones from existing functional
+modules (Supplementary Figure S5).
+Thirdly, MetClo improves the exchangeability of com-
+ponent parts between different type IIS-restriction enzyme
+based part libraries. Two major barriers impede the ex-
+change of DNA component parts between different li-
+braries: the choice of different adaptor sequences for com-
+mon classes of genetic elements, and the choice of differ-
+ent restriction enzymes for hierarchical DNA assembly. The
+former can be addressed by the use of common sequences or
+‘syntax’ for equivalent classes of functional genetic elements
+as done in plant synthetic biology (27), but the latter results
+in significant sequence constraint to avoid unwanted cleav-
+age at unintended restriction sites in component fragments.
+The independent development of component libraries and
+assembly standards has led to assembly systems that use dif-
+ferent restriction enzymes (Table 1). It is difficult to develop
+common exchangeable DNA components that use differ-
+ent type IIS restriction enzymes, because this requires the
+removal of internal restriction sites for at least three en-
+Downloaded from https://academic.oup.com/nar/article/46/19/e113/5050631 by guest on 09 February 2026
+
+
+--- Page 11 ---
+PAGE 11 OF 12
+Nucleic Acids Research, 2018, Vol. 46, No. 19 e113
+zymes, which together occur at a frequency of 1 in ∼700 bp.
+The MetClo system uses a single type IIS restriction enzyme
+and is compatible with any system that uses that restriction
+enzyme. In particular, the BsaI-based system is compatible
+with existing systems that use BsaI, which include most of
+the type IIS restriction enzyme-based assembly systems de-
+veloped to date. The adaptor sequence design of the stan-
+dard MetClo vector set we developed is compatible with ex-
+isting part libraries for mammalian and plant synthetic bi-
+ology (10,12,26), and BsaI-based part libraries for E. coli
+and yeast synthetic biology (13–15) can be assembled us-
+ing the MetClo method by designing assembly vectors with
+suitable adaptor sequences. Therefore, the BsaI-based Met-
+Clo system has potential to be adopted as a standard for
+modular assembly that would be compatible with most ex-
+isting component part libraries across different species.
+There are existing DNA assembly systems that use
+DNA methylation to block internal type IIS restriction
+sites during the assembly process. The TNT assembly
+system uses two type IIS restriction enzymes, the 7 bp
+cutter LguI (GCTCTTCN∧NNN) and the 6 bp cutter
+EarI (CTCTTCN∧NNN) (16). Both enzymes generate 3bp
+sticky ends, and there is a requirement to remove the 6
+bp sequence (CTCTTC) from DNA parts. The system
+uses the M.TaqI methylase to methylate an overlapping
+EarI recognition site within the assembly vector during
+assembly stages with EarI. However, because the M.TaqI
+recognition sequence (TCGA) that overlaps with the EarI
+restriction site intrudes into the adhesive end sequence
+(CTCTTCG∧ANN), the system placed substantial con-
+straints on the adaptor sequences that can be used and so
+can only assemble three fragments at a time. Other exam-
+ples include Greengate and PODAC, which both use methy-
+lated linker DNA as components during the DNA assembly
+process to introduce new BsaI sites for subsequent rounds
+of assembly (17,18). However, the resulting systems could
+only be used for iterative linear addition of DNA parts, thus
+limiting the speed of DNA assembly. Compared to these
+systems, the MetClo approach using in vivo methylation of
+methylation-switchable restriction sites outside the adap-
+tor sequence, provides the advantages of rapid hierarchical
+multi-step assembly, and maintains freedom of choice for
+the adaptor sequences used in the assembly. In principle,
+similar results could be achieved by adding short methy-
+lated linker DNA as the first and last parts during the as-
+sembly process. However, this would increase the number of
+parts in the assembly by two, which could reduce the success
+rate of assembly compared to the in vivo vector methylation
+approach we have tested.
+In summary, the MetClo system enables hierarchical
+multi-step assembly of large DNA fragments using a sin-
+gle type IIS restriction enzyme. This is made possible by
+the use of a site-specific methylase, which methylates and so
+blocks a methylation-switchable site for a type IIS restric-
+tion enzyme within the recipient vector. The system pro-
+vides a simple restriction enzyme-based assembly method
+and increases the flexibility of design of assembly schemes.
+The BsaI-based MetClo system in particular is compatible
+with the existing part libraries that uses BsaI, and could be
+adopted as a standard assembly system.
+DATA AVAILABILITY
+The plasmids have been deposited to Addgene.
+SUPPLEMENTARY DATA
+Supplementary Data are available at NAR Online.
+ACKNOWLEDGEMENTS
+We would like to thank Dr Ben Davies at the Transgenics
+core facility of the Wellcome Trust Centre for Human Ge-
+netics for assistance with pulsed field electrophoresis. The
+MoClo Toolkit was a gift from Sylvestre Marillonnet (Ad-
+dgene # 1000000044).
+FUNDING
+University of Oxford. Funding for open access charge: Uni-
+versity of Oxford.
+Conflict of interest statement. The University of Oxford has
+filed a patent application for the MetClo cloning strategy
+with D.L. and C.A.O’C. as inventors.
+REFERENCES
+1. Casini,A., Storch,M., Baldwin,G.S. and Ellis,T. (2015) Bricks and
+blueprints: methods and standards for DNA assembly. Nat. Rev.
+Mol. Cell Biol., 16, 568–576.
+2. Juhas,M. and Ajioka,J.W. (2017) High molecular weight DNA
+assembly in vivo for synthetic biology applications. Crit. Rev.
+Biotechnol., 37, 277–286.
+3. Gibson,D.G., Young,L., Chuang,R.Y., Venter,J.C., Hutchison,C.A.
+3rd and Smith,H.O. (2009) Enzymatic assembly of DNA molecules
+up to several hundred kilobases. Nat. Methods, 6, 343–345.
+4. Shao,Z., Zhao,H. and Zhao,H. (2009) DNA assembler, an in vivo
+genetic method for rapid construction of biochemical pathways.
+Nucleic Acids Res., 37, e16.
+5. Itaya,M., Fujita,K., Kuroki,A. and Tsuge,K. (2008) Bottom-up
+genome assembly using the Bacillus subtilis genome vector. Nat.
+Methods, 5, 41–43.
+6. Shetty,R.P., Endy,D. and Knight,T.F. Jr (2008) Engineering BioBrick
+vectors from BioBrick parts. J. Biol. Eng., 2, 5.
+7. Colloms,S.D., Merrick,C.A., Olorunniji,F.J., Stark,W.M.,
+Smith,M.C., Osbourn,A., Keasling,J.D. and Rosser,S.J. (2014) Rapid
+metabolic pathway assembly and modification using serine integrase
+site-specific recombination. Nucleic Acids Res., 42, e23.
+8. Engler,C., Kandzia,R. and Marillonnet,S. (2008) A one-pot, one
+step, precision cloning method with high throughput capability.
+PLoS One, 3, e3647.
+9. Weber,E., Engler,C., Gruetzner,R., Werner,S. and Marillonnet,S.
+(2011) A modular cloning system for standardized assembly of
+multigene constructs. PLoS One, 6, e16765.
+10. Sarrion-Perdigones,A., Vazquez-Vilar,M., Palaci,J., Castelijns,B.,
+Forment,J., Ziarsolo,P., Blanca,J., Granell,A. and Orzaez,D. (2013)
+GoldenBraid 2.0: a comprehensive DNA assembly framework for
+plant synthetic biology. Plant Physiol., 162, 1618–1631.
+11. Roberts,R.J., Vincze,T., Posfai,J. and Macelis,D. (2015) REBASE–a
+database for DNA restriction and modification: enzymes, genes and
+genomes. Nucleic Acids Res., 43, D298–D299.
+12. Engler,C., Youles,M., Gruetzner,R., Ehnert,T.M., Werner,S.,
+Jones,J.D., Patron,N.J. and Marillonnet,S. (2014) A golden gate
+modular cloning toolbox for plants. ACS Synth. Biol., 3, 839–843.
+13. Moore,S.J., Lai,H.E., Kelwick,R.J., Chee,S.M., Bell,D.J.,
+Polizzi,K.M. and Freemont,P.S. (2016) EcoFlex: a multifunctional
+MoClo kit for E. coli synthetic biology. ACS Synth. Biol., 5,
+1059–1069.
+14. Iverson,S.V., Haddock,T.L., Beal,J. and Densmore,D.M. (2016)
+CIDAR MoClo: Improved MoClo assembly standard and new E. coli
+part library enable rapid combinatorial design for synthetic and
+traditional biology. ACS Synth. Biol., 5, 99–103.
+Downloaded from https://academic.oup.com/nar/article/46/19/e113/5050631 by guest on 09 February 2026
+
+
+--- Page 12 ---
+e113 Nucleic Acids Research, 2018, Vol. 46, No. 19
+PAGE 12 OF 12
+15. Lee,M.E., DeLoache,W.C., Cervantes,B. and Dueber,J.E. (2015) A
+highly characterized yeast toolkit for modular, multipart assembly.
+ACS Synth. Biol., 4, 975–986.
+16. De Paoli,H.C., Tuskan,G.A. and Yang,X. (2016) An innovative
+platform for quick and flexible joining of assorted DNA fragments.
+Sci. Rep., 6, 19278.
+17. Lampropoulos,A., Sutikovic,Z., Wenzl,C., Maegele,I., Lohmann,J.U.
+and Forner,J. (2013) GreenGate––a novel, versatile, and efficient
+cloning system for plant transgenesis. PLoS One, 8, e83043.
+18. Van Hove,B., Guidi,C., De Wannemaeker,L., Maertens,J. and De
+Mey,M. (2017) Recursive DNA assembly using protected
+oligonucleotide duplex assisted cloning (PODAC). ACS Synth. Biol.,
+6, 943–949.
+19. Zhang,D., Li,L., Zhu,S., Zhang,N., Yang,J., Ma,X. and Chen,J.
+(2015) Complete genome sequence of Rhodococcus sp. B7740, a
+Carotenoid-Producing bacterium isolated from the arctic sea.
+Genome Announc., 3, e00333-15.
+20. Tettelin,H., Saunders,N.J., Heidelberg,J., Jeffries,A.C., Nelson,K.E.,
+Eisen,J.A., Ketchum,K.A., Hood,D.W., Peden,J.F., Dodson,R.J. et al.
+(2000) Complete genome sequence of Neisseria meningitidis
+serogroup B strain MC58. Science, 287, 1809–1815.
+21. Xu,S.Y., Xiao,J.P., Ettwiller,L., Holden,M., Aliotta,J., Poh,C.L.,
+Dalton,M., Robinson,D.P., Petronzio,T.R., Moran,L. et al. (1998)
+Cloning and expression of the ApaLI, NspI, NspHI, SacI, ScaI, and
+SapI restriction-modification systems in Escherichia coli. Mol. Gen.
+Genet., 260, 226–231.
+22. Blow,M.J., Clark,T.A., Daum,C.G., Deutschbauer,A.M.,
+Fomenkov,A., Fries,R., Froula,J., Kang,D.D., Malmstrom,R.R.,
+Morgan,R.D. et al. (2016) The epigenomic landscape of prokaryotes.
+PLoS Genet., 12, e1005854.
+23. Nwankwo,D.O., Lynch,J.J., Moran,L.S., Fomenkov,A. and
+Slatko,B.E. (1996) The XmnI restriction-modification system:
+cloning, expression, sequence organization and similarity between the
+R and M genes. Gene, 173, 121–127.
+24. Sabri,S., Steen,J.A., Bongers,M., Nielsen,L.K. and Vickers,C.E.
+(2013) Knock-in/Knock-out (KIKO) vectors for rapid integration of
+large DNA sequences, including whole metabolic pathways, onto the
+Escherichia coli chromosome at well-characterised loci. Microb. Cell
+Fact, 12, 60.
+25. Woodruff,L.B.A., Gorochowski,T.E., Roehner,N., Mikkelsen,T.S.,
+Densmore,D., Gordon,D.B., Nicol,R. and Voigt,C.A. (2017) Registry
+in a tube: multiplexed pools of retrievable parts for genetic design
+space exploration. Nucleic Acids Res., 45, 1553–1565.
+26. Duportet,X., Wroblewska,L., Guye,P., Li,Y., Eyquem,J., Rieders,J.,
+Rimchala,T., Batt,G. and Weiss,R. (2014) A platform for rapid
+prototyping of synthetic gene networks in mammalian cells. Nucleic
+Acids Res., 42, 13440–13451.
+27. Patron,N.J., Orzaez,D., Marillonnet,S., Warzecha,H.,
+Matthewman,C., Youles,M., Raitskin,O., Leveau,A., Farre,G.,
+Rogers,C. et al. (2015) Standards for plant synthetic biology: a
+common syntax for exchange of DNA parts. New Phytol., 208, 13–19.
+Downloaded from https://academic.oup.com/nar/article/46/19/e113/5050631 by guest on 09 February 2026

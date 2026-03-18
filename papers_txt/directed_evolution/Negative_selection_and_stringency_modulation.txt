@@ -1,0 +1,1196 @@
+--- Page 1 ---
+© 2014 Nature America, Inc.  All rights reserved.
+nature CHEMICAL BIOLOGY | Advance online publication | www.nature.com/naturechemicalbiology	
+1
+article
+published online: 2 February 2014 | doi: 10.1038/nchembio.1453
+D
+uring PACE, a population of bacteriophage, each encoding a 
+library member of an evolving gene, selectively replicates in a 
+‘lagoon’ of continuously replenished Escherichia coli host cells 
+in a manner that depends on an activity of interest (Fig. 1)1. These 
+selection phage (SP) lack gene III, which has been moved from the 
+phage genome to an accessory plasmid (AP) carried by the host cells. 
+Gene III encodes the phage protein pIII, which is essential for infec­
+tious phage production2. Expression of pIII from the AP is made 
+dependent on the activity of interest, such that only SP encoding 
+active library members induce expression of pIII and the production 
+of infectious progeny phage. A mutagenesis plasmid (MP) enables 
+small-molecule control over the mutation rate during phage repli­
+cation. Infectious progeny phage can infect fresh host cells flowing 
+into the lagoon and thereby continue to undergo additional cycles of 
+selection, replication and mutation. Because one complete cycle of 
+phage replication can be as brief as 10 min3, PACE enables hundreds 
+of rounds of directed evolution to take place in less than a week with 
+minimal researcher intervention, representing a ~100-fold increase 
+in speed over traditional protein evolution methods4,5. We previ­
+ously used PACE to evolve T7 RNA polymerase (RNAP) mutants 
+that initiate transcription at the T3 promoter (PT3), which differs 
+from the T7 promoter (PT7) at 6 of 17 base positions1,6,7. Though 
+successful, our early PACE efforts highlighted two major needs.
+First, when we challenged wild-type T7 RNAP to evolve activity 
+directly on PT3, active mutants did not emerge, and the phage in 
+the lagoon washed out, indicating that the stringency of this initial 
+selection was too high1,6,7. The successful evolution of activity on 
+PT3 instead required initial selection on a hybrid T7/T3 promoter 
+(PT7/T3) that served as an evolutionary stepping stone toward PT3 
+selection. For many potential applications of PACE, suitable inter­
+mediate substrates may not be obvious or accessible. To address this 
+limitation, we sought to develop a general modulator of selection 
+stringency that can be tuned simply by adding a small molecule 
+to a lagoon. Initiating PACE under reduced selection stringency, 
+in principle, can allow weakly active or inactive variants to access 
+favorable mutations that enable propagation under subsequent 
+higher-stringency selection conditions.
+Second, the T7 RNAPs evolved to recognize PT3 retained most 
+or all of their activity on PT7. In the absence of explicit negative 
+selection against undesired activity, the evolution of new substrate 
+recognition often results in enzymes with broadened rather than 
+truly altered specificity8,9. For many potential targets of PACE, 
+including proteases, binding proteins and genome engineering 
+enzymes, evolved proteins will require exceptional substrate speci­
+ficity to function in complex cellular environments containing 
+many potential off-target substrates. We therefore sought to develop 
+a general negative selection for PACE in which SPs encoding 
+variants with undesired activities, such as off-target substrate 
+recognition, incur a replicative penalty.
+In this study, we developed robust and general solutions that 
+address both of these needs. Integrating these advances, we directly 
+evolved in a single PACE experiment T7 RNAP mutants that have 
+wild type–like activity on PT3 and remarkable specificity for PT3 over 
+PT7. This evolved degree of specificity exceeds that of wild-type T7 
+RNAP for PT7 over PT3 as well as that of wild-type T3 RNAP for PT3 
+over PT7. The combination of stringency modulation and negative 
+selection enabled the evolution of polymerases with ~10,000-fold 
+changes in specificity in a total time of only three days. Together, 
+these developments bring to PACE two capabilities recognized 
+to be highly enabling for laboratory evolution efforts and expand 
+the scope of PACE to include the evolution of biomolecules that 
+have radically altered and highly specific new activities.
+RESULTS
+Small molecule–controlled selection stringency modulation
+We hypothesized that selection stringency during PACE can be 
+varied by providing host cells with carefully regulated amounts of 
+pIII in a manner independent of the desired evolving activity. To 
+create this capability, we placed expression of gene III on an AP 
+under the control of the small molecule–inducible TetA promoter 
+(Ptet) and observed anhydrotetracycline (ATc) concentration–
+dependent gene III expression and phage production in a discrete 
+host cell culture (Supplementary Results, Supplementary Fig. 1). 
+To test propagation in a streamlined PACE format, we modified 
+our original host cell culture system to operate as a chemostat. 
+Compared to host cell cultures maintained at constant turbidity 
+(turbidostats), cultures maintained at a constant nutrient flow rate 
+(chemostats) are simpler to set up and do not require constant 
+1Department of Chemistry and Chemical Biology, Harvard University, Cambridge, Massachusetts, USA. 2Howard Hughes Medical Institute, Harvard 
+University, Cambridge, Massachusetts, USA. 3Harvard Medical School, Boston, Massachusetts, USA. *e-mail: drliu@fas.harvard.edu
+Negative selection and stringency modulation in 
+phage-assisted continuous evolution
+Jacob C Carlson1,2, Ahmed H Badran1,2, Drago A Guggiana-Nilo3 & David R Liu1,2*
+Phage-assisted continuous evolution (PACE) uses a modified filamentous bacteriophage life cycle to substantially accelerate 
+laboratory evolution experiments. In this work, we expand the scope and capabilities of the PACE method with two key advances 
+that enable the evolution of biomolecules with radically altered or highly specific new activities. First, we implemented small 
+molecule–controlled modulation of selection stringency that enables otherwise inaccessible activities to be evolved directly 
+from inactive starting libraries through a period of evolutionary drift. Second, we developed a general negative selection that 
+enables continuous counterselection against undesired activities. We integrated these developments to continuously evolve 
+mutant T7 RNA polymerase enzymes with ~10,000-fold altered, rather than merely broadened, substrate specificities during 
+a single three-day PACE experiment. The evolved enzymes exhibit specificity for their target substrate that exceeds that of 
+wild-type RNA polymerases for their cognate substrates while maintaining wild type–like levels of activity. 
+
+
+--- Page 2 ---
+© 2014 Nature America, Inc.  All rights reserved.
+2	
+nature chemical biology | Advance online publication | www.nature.com/naturechemicalbiology
+article
+Nature chemical biology doi: 10.1038/nchembio.1453
+turbidity monitoring. We found that chemostats using E. coli S1030 
+cells support PACE comparably to turbidostat cultures (data not 
+shown) and therefore used chemostats for the PACE experiments 
+in this study. Although an AP containing Ptet–gene III supported 
+ATc-dependent phage production in a discrete host cell culture, this 
+AP did not support robust phage propagation in a PACE format 
+when ATc was added to a lagoon (Fig. 2a). Because even low levels 
+of pIII render cells resistant to filamentous phage infection10, we 
+hypothesized that these host cells, which begin producing pIII 
+soon after entering a lagoon, become resistant to phage infection 
+before encountering phage, thereby preventing phage propagation 
+(Supplementary Fig. 1).
+To create a system in which activity-independent pIII expression 
+requires both ATc and prior phage infection, we used the previously 
+described E. coli phage shock promoter (Ppsp), which is induced by 
+infection with filamentous phage via a pIV-dependent signaling 
+cascade11. Transcription from Ppsp can also be induced by over­
+expression of a plasmid-encoded phage pIV gene12. Phage lacking 
+gene III are known to form plaques on cells containing a Ppsp–gene 
+III cassette13. We confirmed and extended this observation by 
+showing that an AP with this cassette supports robust propagation 
+in a PACE format (Fig. 2b).
+To make phage propagation ATc dependent, we examined 
+the gene expression properties of Ppsp variants with TetR opera­
+tors installed at positions intended to disrupt either PspF or 
+E. coli RNA polymerase binding (Supplementary Fig. 1). We 
+found that placing an operator adjacent to the +1 transcription ini­
+tiation site creates a promoter (Ppsp-tet) that is induced only with the 
+combination of phage infection and ATc (Supplementary Fig. 1). 
+Notably, this AP supported robust ATc-dependent propagation of 
+a SP without any activity-dependent gene III expression (Fig. 2c). 
+High Ppsp-tet–gene III induction (200 ng/ml ATc) supported propa­
+gation with dilution rates of 2.5 vol/h, corresponding to an average 
+of 30 phage generations per 24 h. These results collectively dem­
+onstrate that SPs can propagate in an ATc-dependent, activity-
+independent manner using the Ppsp-tet–gene III AP, thus enabling 
+selection stringency to be altered during PACE in a small molecule–
+regulated manner.
+Tuning selection stringency during PACE
+Next we examined how the Ppsp-tet–gene III cassette influences the 
+enrichment of active library members over inactive library members 
+in the context of an actual PACE selection in which an additional 
+copy of gene III is controlled by an activity-dependent promoter. At 
+saturating concentrations of ATc, the Ppsp-tet–gene III cassette should 
+provide sufficient pIII to maximize phage propagation regardless 
+of SP-encoded activity, enabling genetic drift of the SP. At interme­
+diate concentrations of ATc, SPs encoding active library members 
+should enjoy a replicative advantage over a SP encoding an inactive 
+variant by inducing additional pIII expression from an activity-
+dependent promoter. This advantage, and therefore selection 
+stringency, should be inversely proportional to the concentration of 
+ATc provided. In the absence of any added ATc, selection stringency 
+should be fully determined by the activity-dependent AP compo­
+nents with no assistance from the Ppsp-tet–gene III cassette.
+To characterize the relationship between ATc concentration and 
+selection stringency, we combined the Ppsp-tet–gene III cassette with 
+the arabinose-inducible mutagenesis cassette1 onto a single ‘drift 
+plasmid’ (DP) that is compatible with activity-dependent APs. We 
+set up lagoons with continuously flowing host cells that contained 
+both this DP and an AP with a PT7–gene III cassette (Fig. 2d). We 
+then seeded lagoons with a mixture of two SPs encoding either 
+the highly active wild-type T7 RNAP (SP-T7WT) or the catalytically 
+inactive mutant D812G (SP-T7Dead)14. These phage were added in a 
+ratio of 1:100 SP-T7WT/SP-T7Dead to each of three lagoons receiving 
+either 0 ng/ml, 150 ng/ml or 400 ng/ml ATc. The phage populations 
+were followed over time using a combination of restriction 
+endonuclease digests and real-time measurements of luminescence 
+monitoring of PT7 transcriptional activity.
+As expected, under the highest stringency conditions (0 ng/ml 
+ATc), SP-T7Dead washed out of the lagoon, and the highly active 
+SP-T7WT was quickly enriched (Fig. 2e). At an intermediate con­
+centration of ATc (150 ng/ml), SP-T7Dead again washed out in favor 
+of SP-T7WT but at a slower rate than in the absence of ATc (Fig. 2f). 
+At the highest concentration of ATc (400 ng/ml), SP-T7Dead was able to 
+propagate, and no substantial enrichment of the active SP-T7WT was 
+observed (Fig. 2g). When we stopped ATc supplementation to this 
+Selection phage:
+encodes library
+member
+Infection
+SP
+AP
+MP
+If SP encodes
+nonfunctional
+library member
+No pIII is produced
+SP
+AP
+MP
+x
+If SP encodes
+functional library
+member
+pIII is produced
+SP
+AP
+MP
+Constant inﬂow
+Mutagenesis
+(continuous)
+Infectious
+progeny
+SP
+AP
+MP
+Host cells with
+accessory plasmid and
+mutagenesis plasmid
+AP
+Gene III
+MP
+Noninfectious
+progeny
+SP
+AP
+MP
+x
+Constant outﬂow
+Sterile medium
+Waste
+MP
+AP
+Host cells
+(chemostat)
+Luminescence
+monitor
+Figure 1 | Overview of PACE with real-time monitoring. During PACE, host E. coli cells flow continuously into a fixed-volume vessel (a lagoon) containing 
+a population of filamentous bacteriophages that encode a library of evolving proteins. The lagoon is continuously drained to a waste container after 
+passing through an in-line luminescence monitor that measures expression from a gene III–luciferase cassette on the AP. Dilution occurs faster than cell 
+division but slower than phage replication. Each phage carries a protein-encoding gene to be evolved instead of a phage gene (gene III) that is required for 
+infection. Phage encoding active library members trigger expression of gene III on the AP in proportion to the desired activity and consequently produce 
+infectious progeny. Phage encoding less active library members produce fewer infectious progeny and are lost by dilution.
+
+
+--- Page 3 ---
+© 2014 Nature America, Inc.  All rights reserved.
+nature CHEMICAL BIOLOGY | Advance online publication | www.nature.com/naturechemicalbiology	
+3
+article
+Nature chemical biology doi: 10.1038/nchembio.1453
+lagoon, we observed very rapid enrichment of SP-T7WT, consistent 
+with the expected increase in stringency (Fig. 2e). Taken together, 
+these results establish that Ppsp-tet–gene III supports propagation of 
+inactive starting libraries in the presence of high ATc concentra­
+tions and supports the selective enrichment of active mutants at 
+a rate inversely proportional to the concentration of ATc added to 
+the lagoon.
+Development of PACE negative selection
+An ideal PACE negative selection inhibits infectious phage 
+production in a manner that is tunable and proportional to the 
+ratio of undesired (off-target) to desired (on-target) activity rather 
+than simply reflecting the absolute level of undesired activity. 
+We therefore sought to develop a negative selection in which unde­
+sired activity induces expression of a protein that antagonizes the 
+wild-type pIII induced in a positive selection.
+The pIII protein consists of three domains, N1, N2 and C, that 
+mediate initial attachment of the phage to the E. coli F-pilus (N2 
+domain), subsequent docking with the E. coli TolA cell-surface 
+receptor (N1 domain) and unlocking of the particle for genome 
+entry (C domain)15,16. During progeny phage synthesis, five pIII 
+molecules are attached by the C domain to the end of each nascent 
+phage particle17,18. A presumed conformational change in this 
+C domain then catalyzes detachment of the nascent phage from the 
+inner membrane, thereby releasing the phage from the host cell16.
+One pIII mutant described in ref. 16, N-C83, contains intact 
+N1 and N2 domains but has a mutant C domain with an internal 
+deletion of 70 amino acids. The residual C domain is sufficient to 
+mediate attachment to a phage particle but cannot catalyze detach­
+ment of nascent phage from the host cell membrane16. When 
+expressed together with a pIII variant containing only the intact 
+C domain (which can mediate nascent phage detachment), phage 
+particle production was found to be normal, but the infectivity of 
+these particles was markedly reduced16. These observations raised 
+the possibility that N-C83 may function as a dominant-negative 
+mutant of wild-type pIII.
+To test the suitability of N-C83 as the basis for a PACE 
+negative selection, we created a host cell line containing an AP with 
+a Ptet–gene III cassette induced by ATc, a second accessory plasmid 
+(APneg) with N-C83 driven by an IPTG-inducible promoter (Plac). 
+Discrete host cell cultures were grown in the presence or absence 
+of ATc and IPTG, and culture broths were assayed for infectious 
+phage titer. As expected, the addition of ATc induced expression of 
+wild-type pIII and stimulated phage production (Supplementary 
+Fig. 2). The simultaneous addition of IPTG, which induces N-C83 
+expression, substantially reduced the titer of infectious phage. This 
+result suggests that N-C83 can act as a dominant-negative form 
+of pIII. Alternative truncation candidates of pIII did not diminish 
+infectious phage titer to the same degree as N-C83 (Supplementary 
+Fig. 2). We also observed evidence to suggest that N-C83 may inhibit 
+infectious phage production by blocking the release of phage from 
+the host cell rather than by reducing the infectivity of the released 
+phage particles (Supplementary Fig. 3). These results reveal that 
+expression of N-C83, hereafter referred to as pIII-neg, can form the 
+basis of a potent negative selection.
+PACE negative selection enriches substrate-specific RNAPs
+Next we tested whether this negative selection could enrich a 
+substrate-specific T7 RNAP over a promiscuous RNAP in the 
+PACE format. For this competition experiment, we used SPs encod­
+ing two RNAP variants that we recently described: L2-48.3 (specific 
+for PT7, expressed from SP-T7Spec) and L1-192.2 (active on both PT7 
+and PT3, expressed from SP-T7Prom)1. We prepared a host cell strain 
+containing both a positive selection AP (PT7–gene III AP) and a 
+negative selection AP (PT3–gene III–neg APneg) in which pIII-neg 
+translation is controlled by a theophylline-activated riboswitch 
+(Fig. 3a)19. During PACE with this host cell strain, the propagation 
+of SP-T7Prom should be impaired, relative to SP-T7Spec, in the 
+presence of theophylline.
+f
+150 ng/ml ATc
+0
+4
+8
+12
+16
+Time (h)
+10
+100
+Luciferase expression
+(a.l.u.)
+2
+4
+6
+8
+16
+Time (h)
+WT D Mix
+g
+400 ng/ml ATc
+Stopped
+ATc
+0
+4
+8
+12
+16
+Time (h)
+10
+100
+Stopped
+ATc
+Luciferase expression
+(a.l.u.)
+2
+4
+6
+8
+16
+Time (h)
+WT D Mix
+e
+2
+4
+6
+8
+16
+0 ng/ml ATc
+Time (h)
+WT D Mix
+0
+4
+8
+12
+16
+Time (h)
+10
+100
+Luciferase expression
+(a.l.u.)
+1 × 107
+1 × 108
+1 × 109
+0
+2
+4
+6
+8 10 12
+Concentration (p.f.u. /ml)
+Time (h)
+Ptet
+Gene III
+luxAB
+ATc 200 ng/ml
+a
+ATc 0 ng/ml
+1 × 105
+1 × 104
+1 × 103
+1 × 102
+1 × 106
+0
+2
+4
+6
+8
+Time (h)
+Concentration (p.f.u. /ml)
+Ppsp
+Gene III
+luxAB
+b
+ATc 0 ng/ml
+1 × 107
+1 × 108
+1 × 109
+1 × 105
+1 × 104
+1 × 103
+1 × 102
+1 × 106
+ATc 200 ng/ml
+ATc 0 ng/ml
+0
+2
+4
+6
+8 10 12
+Concentration (p.f.u. /ml)
+Time (h)
+Ppsp-tet
+Gene III
+luxAB
+c
+1 × 107
+1 × 108
+1 × 109
+1 × 105
+1 × 104
+1 × 103
+1 × 102
+1 × 106
+d
+Para
+Ppsp-tet
+CloDF origin
+Term
+luxAB
+PT7
+SP-T7WT
+SP-T7Dead
+T7WT:T7Dead
+PACE
+S1030 host cells
+1:102
+Gene III
+Mut
+Gene III
+SC101
+Figure 2 | Drift cassette enables ATc-dependent, activity-independent 
+phage propagation. (a–c) Cells harboring APs with the indicated gene III–
+luxAB expression cassettes served as recipients for phage propagation 
+experiments using SP-T7WT. Data show representative single measurements 
+of phage concentrations (n = 1). (a) Using Ptet to induce gene III expression 
+with ATc before phage infection inhibits infection and results in minimal 
+phage propagation and low phage titers. (b) Using Ppsp to express gene III 
+only after infection takes place results in robust activity-independent phage 
+propagation and high phage titers. (c) Infection- and ATc-dependent gene III 
+expression using Ppsp-tet enables robust, activity-independent propagation. 
+(d) Recipient cells carrying a DP and a PT7–gene III AP were used to propagate 
+a mixture of SP-T7WT (wild-type T7 RNAP, high activity) and SP-T7Dead 
+(D812G mutant T7 RNAP14, no activity) at a ratio of 1:102 (‘Mix’ in e). 
+(e) In the absence of ATc, SP-T7WT (WT) is rapidly enriched over the inactive 
+D812G mutant polymerase (D), and a rapid increase in luciferase signal is 
+observed. (f) At an intermediate ATc concentration (150 ng/ml), SP-T7WT is 
+enriched at a slower rate, concurrent with a slower rise in luciferase signal. 
+(g) At the highest ATc concentration (400 ng/ml), SP-T7WT is not enriched, 
+and baseline luciferase signal is observed. After ending ATc supplementation 
+at t = 8 h, SP-T7WT is rapidly enriched, and the luciferase signal rapidly rises. 
+a.l.u., arbitrary luminescence units; p.f.u., plaque-forming units. For e–g, EcoRV 
+and HindIII restriction digestion results in two bands for SP-T7WT (of 1071 and 
+831 base pairs) and two bands for SP-T7Dead (of 1399 and 503 base pairs).
+
+
+--- Page 4 ---
+© 2014 Nature America, Inc.  All rights reserved.
+4	
+nature chemical biology | Advance online publication | www.nature.com/naturechemicalbiology
+article
+Nature chemical biology doi: 10.1038/nchembio.1453
+Three lagoons containing these host cells were each seeded with a 
+106:1 ratio of SP-T7Prom/SP-T7Spec and allowed to equilibrate for 4.5 h.
+We treated the lagoons with 0 μM, 75 μM or 1,000 μM theophylline 
+and followed the concentrations of the two SP species over time. 
+In the presence of 1,000 μM theophylline, SP-T7Prom was rapidly 
+depleted from the lagoon, and the SP-T7Spec population expanded 
+markedly into the predominant species after only 6 h of PACE 
+(Fig. 3b). Furthermore, the rate of enrichment was dependent on 
+the concentration of theophylline added to the lagoon, where lower 
+concentrations of theophylline resulted in slower enrichment rates 
+(Fig. 3c,d). These results demonstrate that pIII-neg can serve as 
+the basis of a potent and dose-dependent negative selection that 
+can effect the rapid enrichment of substrate-selective enzymes in a 
+PACE format.
+PACE of RNAPs with altered promoter specificities
+We integrated both the tunable selection stringency and the 
+negative selection developments described above to rapidly evolve 
+enzymes with markedly altered substrate specificity without the 
+use of intermediate substrates. We prepared two lagoons with 
+host cells containing a PT3–gene III AP and the DP containing the 
+Ppsp-tet–gene III cassette and seeded these lagoons with SP-T7WT, 
+which has negligible starting activity on PT3. To one lagoon, we 
+added no ATc and observed that phage quickly washed out (data not 
+shown), as expected1. To the second lagoon, we added 200 ng/ml 
+ATc, which allowed even inactive phage to propagate. After 12 h 
+(t = 12 h), the phage in this lagoon substantially increased in concen­
+tration but still encoded RNAPs with negligible activity on PT3. We 
+then reduced the concentration of ATc to 20 ng/ml, thus increasing 
+the selection stringency for recognition of PT3 (Fig. 4).
+After an additional 6 h of propagation in 20 ng/ml ATc (t = 18 h), 
+a PT3-active population overtook the lagoon, as indicated by an 
+increase in signal from the in-line luminescence monitor. This sig­
+nal continued to increase over the next 10 h. RNAP clones isolated 
+from the 28-h time point evolved an ~100-fold increase in activity 
+on PT3 (Fig. 4) and converged on two mutations, E222K and N748D, 
+that we1 and others20 previously found to broaden the substrate 
+scope of T7 RNAP (Supplementary Fig. 4). These results demon­
+strate that selection stringency modulation can be used to directly 
+evolve a new activity from an inactive starting gene without the use 
+of intermediate substrates as evolutionary stepping stones, as was 
+previously necessary to evolve T3 promoter recognition without 
+selection stringency modulation1.
+As expected, the RNAPs recovered from this stage of the selection 
+still retained high activity on PT7 (Fig. 4). To initiate negative 
+selection against recognition of PT7, we used host cells containing 
+the same PT3–gene III AP, the MP (lacking the drift cassette) and 
+a PT7–gene III–neg APneg in which pIII-neg expression is driven 
+by PT7 transcription and controlled by a theophylline-dependent 
+riboswitch (Fig. 4). The 28-h lagoon described above was divided 
+into two new lagoons, each of which received these host cells for 4 h. 
+Theophylline was added to the first lagoon to activate the negative 
+selection (t = 32 h), whereas the second lagoon did not receive any 
+theophylline. After 24 h (t = 52 h), several RNAPs isolated from the 
+first lagoon showed clear improvements in specificity for PT3 (Fig. 4) 
+and contained a variety of mutations (Supplementary Fig. 4) at 
+residues proximal to the promoter in the initiation complex and 
+known to be relevant to substrate selectivity. In contrast, clones 
+isolated from the second lagoon, which did not receive theophyl­
+line, did not show clear changes in specificity.
+In an effort to further enhance the specificity of the evolving 
+RNAPs, we increased the stringency of the negative selection in 
+two ways. First, we weakened the ribosome binding site driving 
+translation of pIII from the AP, with the expectation that evolved 
+RNAPs would compensate with increased (but still PT3-selective) 
+transcriptional activity. Second, we installed a high-copy pUC 
+origin into APneg and replaced the theophylline riboswitch with a 
+very strong ribosome-binding site driving pIII-neg translation 
+(Fig. 4). Together, these modifications should increase the strin­
+gency of the negative selection by increasing the ratio of pIII-neg to 
+pIII produced for a given ratio of PT7/PT3 activity.
+The phage population from the previous stage (t = 52 h) 
+was transferred to lagoons fed by these high-stringency host 
+cells, and we observed a substantial decline and rebound of the 
+phage population (Fig. 4). Evolved RNAPs isolated following 
+this recovery (t = 70 h) exhibited markedly improved specificity 
+for PT3 over PT7 of up to 100-fold and strongly converged on 
+mutations observed in the previous stage (R96L, K98R, E207K 
+and P759S or P759L) (Fig. 4 and Supplementary Fig. 4). 
+A forward mutational analysis of these mutations in the 
+E222K N748D background highlighted the role of each of 
+Figure 3 | Dominant-negative pIII-neg is a potent inhibitor of phage 
+propagation. (a) Recipient cells carrying a PT7–gene III AP and a PT3–gene 
+III–neg APneg in which the theophylline riboswitch controls gene III–neg 
+expression were used to propagate a 1:106 mixture (‘mix’ in b) of SP-T7Spec 
+(specific (spec) for PT7) and SP-T7Prom (promiscuous (prom) on both PT7 
+and PT3), respectively. (b) At a high theophylline concentration 
+(1,000 μM), the promiscuous T7 RNAP SP is rapidly depleted, and the 
+specific T7 RNAP SP quickly takes over the lagoon, concomitant with a 
+sharp rise in luciferase signal from PT7. (c) At an intermediate theophylline 
+concentration (75 μm), the promiscuous T7 RNAP SP slowly washes 
+out and is gradually replaced by the specific T7 RNAP SP. (d) In the 
+absence of theophylline, the promiscuous T7 RNAP SP propagates 
+unhindered, and the lagoon maintains the starting ratio of the inoculated 
+phage. Upon addition of high concentrations of theophylline to this 
+lagoon at t = 12 h, a rapid washout of the promiscuous T7 RNAP SP 
+takes place, with a rebound in luciferase signal consistent with specific 
+T7 RNAP SP enrichment. In b–d, data show representative single 
+measurements (n = 1). For b–d, AvaII restriction digestion results in 
+two bands for SP-T7Prom (of 399 and 322 base pairs) and one band for 
+SP-T7Spec (of 721 base pairs).
+a
+SP-T7Spec
+SP-T7Prom
+T7Spec:T7Prom
+PACE
+PT7
+PT3
+S1030 host cells
+1:106
+colE1 origin
+SC101 origin
+Gene III
+IuxAB
+Gene III–neg
+c
+0
+4
+8
+12
+16
+Time (h)
+10
+100
+20
+Luciferase expression
+(a.l.u.)
+Time (h)
+0
+4
+6
+8
+20
+2
+10
+12
+Spec
+Prom
+Mix
+75 µM theophylline
+b
+0
+4
+8
+12
+16
+Time (h)
+10
+100
+20
+Luciferase expression
+(a.l.u.)
+Time (h)
+0
+4
+6
+8
+20
+2
+10
+12
+Spec
+Prom
+Mix
+1,000 µM theophylline
+d
+0
+4
+8
+12
+16
+Time (h)
+10
+100
+20
+Luciferase expression
+(a.l.u.)
+Added
+theophylline
+Time (h)
+0 µM theophylline
+0
+4
+6
+8
+20
+2
+10
+12
+Spec
+Prom
+Mix
+Added 1,000 µM
+theophylline
+
+
+--- Page 5 ---
+© 2014 Nature America, Inc.  All rights reserved.
+nature CHEMICAL BIOLOGY | Advance online publication | www.nature.com/naturechemicalbiology	
+5
+article
+Nature chemical biology doi: 10.1038/nchembio.1453
+these changes in conferring strong specificity for PT3 (Fig. 5). 
+The degree of specificity evolved using stringency control and 
+negative selection PACE rivals or exceeds that of naturally 
+occurring wild-type T7 or T3 RNA polymerase enzymes; for 
+example, wild-type T7 RNAP exhibits a PT7/PT3 activity ratio of 
+~100-fold, and wild-type T3 RNAP exhibits a PT3/PT7 activity 
+ratio of ~20-fold (Fig. 5). Compared to the wild-type T7 RNAP 
+enzyme, the most PT3-specific evolved RNAP clones exhibited 
+a net ~10,000-fold change in specificity for PT3. Notably, this 
+remarkable degree of specificity did not evolve at the expense 
+of activity, and all of the assayed clones retained levels of tran­
+scriptional activity on PT3 that are comparable to or higher 
+than that of wild-type T7 RNAP on its cognate T7 promoter 
+(Fig. 4). Collectively, these results establish that PACE negative 
+selection can be used to explicitly evolve enzymes with truly 
+altered, rather than broadened, specificity.
+Figure 4 | Continuous evolution of T3-specific RNAP variants. PACE of T7 RNAP variants that recognize PT3 and reject PT7 was performed in three 
+contiguous stages of differing stringency (top). The PT3 and PT7 bars conceptually represent amounts of gene III (red) or gene III–neg (blue) expressed for 
+a given amount of polymerase activity. At t = 0, host cells were E. coli cells containing the DP and a PT3–gene III AP. For the first 12 h, 200 ng/ml ATc was 
+added to the lagoon to reduce selection stringency to zero, enabling drift. At t = 12 h, the concentration of ATc was reduced to 20 ng/ml to increase the 
+stringency of positive selection. At t = 28 h, host cells were switched to E. coli harboring an MP, a PT3–gene III AP and a riboswitch-controlled PT7–gene III–neg 
+APneg. At t = 32 h, 1 mM theophylline was added to increase negative selection stringency. At t = 52 h, host cells were switched to E. coli containing an 
+MP, a PT3–gene III AP with a weaker ribosome-binding site (RBS) and a PT7–gene III–neg APneg with an enhanced RBS and higher origin of replication copy 
+number to further increase negative and positive selection stringency. The in-line luminescence monitor was used throughout to infer population fitness 
+(center). Gene expression activities on the T7 and T3 promoters of randomly chosen clones from each stage were measured (bottom). Gene expression 
+data show mean values ± s.e.m. for two replicates. A list of mutations present in each clone is in Supplementary Figure 4. N, no RNAP; T7, wild-type T7 
+RNAP; mut, the arabinose-induced mutagenesis-enhancing genes. 
+
+
+--- Page 6 ---
+© 2014 Nature America, Inc.  All rights reserved.
+6	
+nature chemical biology | Advance online publication | www.nature.com/naturechemicalbiology
+article
+Nature chemical biology doi: 10.1038/nchembio.1453
+DISCUSSION
+Traditional directed evolution techniques, though valuable and 
+successful, require frequent researcher intervention throughout 
+each round of mutation, screening or selection and replication to 
+access biomolecules with desired properties. By mapping the essential 
+components of the directed evolution cycle onto the very rapid M13 
+filamentous bacteriophage lifecycle, PACE can markedly accelerate 
+laboratory evolution. In this work, we have substantially expanded 
+the capabilities of PACE by developing a general strategy to modulate 
+selection stringency—to zero if needed—with a small molecule and 
+by developing a negative selection that links undesired activities to 
+the inhibition of phage propagation. Together, these capabilities were 
+used to evolve RNA polymerase variants with ~10,000-fold altered 
+promoter specificity in a PACE experiment lasting only three days.
+RNAPs that evolved the ability to accept the T3 promoter and 
+reject the T7 promoter acquired a suite of highly conserved muta­
+tions, including R96L, K98R, E207K, E222K, N748D and P759S or 
+P759L. The mutations at positions 98 and 748 change each residue to 
+the amino acid found in wild-type T3 RNAP, and the R96L mutation 
+is at a position that also differs between wild-type T7 and T3 RNAPs 
+(although it is K96 in T3 RNAP). These residues are predicted to be 
+proximal to the promoter bases (Fig. 5b), and their role in promoter 
+recognition has been previously appreciated21. The occurrence of 
+these mutations in our selections suggests that the evolved mutants 
+may use a mode of PT3-selective promoter recognition similar to 
+that of wild-type T3 RNAP at these positions. In contrast, residues 
+207, 222 and 759 are conserved between T7 and T3 RNAPs, and 
+the major role of mutations at these residues in conferring selectiv­
+ity (particularly P759S or P759L; Fig. 5a) suggests the evolution of 
+some new determinants of promoter recognition that may not be 
+used by the native enzymes. E207K modestly increases selectivity 
+for PT3 (Fig. 5a) and is within 4 Å of the RNAP specificity loop (resi­
+dues 739–770), a major determinant of promoter specificity22 that 
+includes P759.
+The negative selection uses a dominant-negative variant of pIII, 
+the protein that is the basis of the positive selection of PACE, and 
+does not rely on any property of the gene or gene product being 
+evolved. Therefore, we anticipate that the negative selection will be 
+general in its compatibility with a variety of activities that can be 
+evolved using PACE, provided that the selection scheme can link 
+undesired activity to expression of pIII-neg (and not pIII). For 
+many potential proteins that can be evolved with PACE, including 
+DNA-binding proteins, recombinases, protein-protein interfaces, 
+proteases and other enzymes, a suitable dual selection scheme 
+can be created by localizing undesired substrates upstream of 
+gene III–neg1. In most cases, such a negative selection can operate 
+simultaneously with pIII-mediated positive selection. Likewise, as 
+the method to modulate selection stringency developed here relies 
+on providing pIII in a regulated manner that is also independent of 
+the evolving gene, this stringency modulation capability should also 
+be applicable to other PACE experiments. 
+Received 19 August 2013; accepted 30 December 2013; 
+published online 2 February 2014
+Methods
+Methods and any associated references are available in the online 
+version of the paper.
+References
+1.	 Esvelt, K.M., Carlson, J.C. & Liu, D.R. A system for the continuous directed 
+evolution of biomolecules. Nature 472, 499–503 (2011).
+2.	 Nelson, F.K., Friedman, S.M. & Smith, G.P. Filamentous phage DNA cloning 
+vectors: a noninfective mutant with a nonpolar deletion in gene III. Virology 
+108, 338–350 (1981).
+3.	 Calendar, R. The Bacteriophages 1st edn., 376–455 (Oxford Univ. Press, 
+2006).
+4.	 Sergeeva, A., Kolonin, M.G., Molldrem, J.J., Pasqualini, R. & Arap, W. Display 
+technologies: application for the discovery of drug and gene delivery agents. 
+Adv. Drug Deliv. Rev. 58, 1622–1654 (2006).
+5.	 Yuan, L., Kurek, I., English, J. & Keenan, R. Laboratory-directed protein 
+evolution. Microbiol. Mol. Biol. Rev. 69, 373–392 (2005).
+6.	 Leconte, A.M. et al. A population-based experimental model for protein 
+evolution: effects of mutation rate and selection stringency on evolutionary 
+outcomes. Biochemistry 52, 1490–1499 (2013).
+7.	 Dickinson, B.C., Leconte, A.M., Allen, B., Esvelt, K.M. & Liu, D.R. 
+Experimental interrogation of the path dependence and stochasticity of 
+protein evolution using phage-assisted continuous evolution. Proc. Natl. Acad. 
+Sci. USA 110, 9007–9012 (2013).
+8.	 Doyon, J.B., Pattanayak, V., Meyer, C.B. & Liu, D.R. Directed evolution and 
+substrate specificity profile of homing endonuclease I-SceI. J. Am. Chem. Soc. 
+128, 2477–2484 (2006).
+9.	 Tracewell, C.A. & Arnold, F.H. Directed enzyme evolution: climbing fitness 
+peaks one amino acid at a time. Curr. Opin. Chem. Biol. 13, 3–9 (2009).
+10.	Boeke, J.D., Model, P. & Zinder, N.D. Effects of bacteriophage f1 gene III 
+protein on the host cell membrane. Mol. Gen. Genet. 186, 185–192 (1982).
+11.	Brissette, J.L., Weiner, L., Ripmaster, T.L. & Model, P. Characterization and 
+sequence of the Escherichia coli stress-induced psp operon. J. Mol. Biol. 220, 
+35–48 (1991).
+R96
+K98
+E207
+P759
+E222
+N748
+C540
+G555
+A558
+R96
+K98
+E207
+P759
+E222
+N748
+C540
+G555
+A558
+Rotate 90°
+PT7
+PT3
+b
+a
+100
+10
+1
+0.1
+PT7 activity
+PT3 activity
+None
+WT T7
+RNAP
+WT T3
+RNAP
+Relative gene expression activity in cells
+(100 = WT T7 RNAP on PT7)
+N748D
+E222K
+N748D
+E207K
+E222K
+N748D
+R96L
+K98R
+E207K
+E222K
+N748D
+R96L
+K98R
+E207K
+E222K
+N748D
+P759L
+R96L
+K98R
+E207K
+E222K
+N748D
+P759S
+Figure 5 | Analysis of evolved T7 RNAP mutations that confer PT3 specificity. (a) The gene expression activity in cells of T7 RNAP variants containing 
+subsets of mutations found in evolved clones is shown on the T7 promoter (blue bars) and the T3 promoter (red bars). Gene expression data represent 
+mean values ± s.e.m. for two replicates. WT, wild type. (b) Location of evolved mutations21. The T7 promoter DNA is rendered as dark blue and light purple 
+surfaces, with light purple denoting nucleotide differences between the T7 and T3 promoters. Cyan spheres identify evolved mutations that enable PT3 
+recognition. Red spheres identify mutations that evolved during negative selection that contribute to specific recognition of PT3 over PT7. Magenta spheres 
+represent a conserved cluster of mutually exclusive mutations evolved in clones following negative selection. The sequences of the T7 and T3 promoters 
+are shown at the bottom, with the differences in red.
+
+
+--- Page 7 ---
+© 2014 Nature America, Inc.  All rights reserved.
+nature CHEMICAL BIOLOGY | Advance online publication | www.nature.com/naturechemicalbiology	
+7
+article
+Nature chemical biology doi: 10.1038/nchembio.1453
+Acknowledgments
+The authors thank K. Esvelt, D. Thompson, B. Dorr and K. Davis for helpful 
+discussions. This research was supported by DARPA HR0011-11-2-0003, 
+DARPA N66001-12-C-4207 and the Howard Hughes Medical Institute. J.C.C. was 
+supported by the Harvard Chemical Biology Graduate Program. A.H.B. was 
+supported by a National Science Foundation Graduate Research Fellowship. 
+D.A.G.-N. was supported by the Harvard Biophysics Graduate Program.
+Author contributions
+J.C.C. designed the research, prepared materials and performed experiments. 
+A.H.B. prepared materials and performed experiments. D.A.G.-N. designed and 
+constructed the real-time luminescence monitor. D.R.L. designed and supervised 
+the research. All of the authors contributed to the manuscript.
+Competing financial interests
+The authors declare competing financial interests: details accompany the  online version 
+of the paper.
+Additional information
+Supplementary information is available in the online version of the paper. Reprints and 
+permissions information is available online at http://www.nature.com/reprints/index.
+html. Correspondence and requests for materials should be addressed to D.R.L.
+12.	Brissette, J.L., Russel, M., Weiner, L. & Model, P. Phage shock protein, 
+a stress protein of Escherichia coli. Proc. Natl. Acad. Sci. USA 87, 862–866 
+(1990).
+13.	Rakonjac, J., Jovanovic, G. & Model, P. Filamentous phage infection-mediated 
+gene expression: construction and propagation of the gIII deletion mutant 
+helper phage R408d3. Gene 198, 99–103 (1997).
+14.	Bonner, G., Lafer, E.M. & Sousa, R. Characterization of a set of T7 RNA 
+polymerase active site mutants. J. Biol. Chem. 269, 25120–25128 (1994).
+15.	Rakonjac, J., Feng, J. & Model, P. Filamentous phage are released from the 
+bacterial membrane by a two-step mechanism involving a short C-terminal 
+fragment of pIII. J. Mol. Biol. 289, 1253–1265 (1999).
+16.	Bennett, N.J. & Rakonjac, J. Unlocking of the filamentous bacteriophage 
+virion during infection is mediated by the C domain of pIII. J. Mol. Biol. 356, 
+266–273 (2006).
+17.	Grant, R.A., Lin, T.C., Konigsberg, W. & Webster, R.E. Structure of the 
+filamentous bacteriophage fl. Location of the A, C, and D minor coat 
+proteins. J. Biol. Chem. 256, 539–546 (1981).
+18.	Lopez, J. & Webster, R.E. Minor coat protein composition and location of the 
+A protein in bacteriophage f1 spheroids and I-forms. J. Virol. 42, 1099–1107 
+(1982).
+19.	Lynch, S.A. & Gallivan, J.P. A flow cytometry–based screen for synthetic 
+riboswitches. Nucleic Acids Res. 37, 184–192 (2009).
+20.	Raskin, C.A., Diaz, G., Joho, K. & McAllister, W.T. Substitution of a 
+single bacteriophage T3 residue in bacteriophage T7 RNA polymerase at 
+position 748 results in a switch in promoter specificity. J. Mol. Biol. 228, 
+506–515 (1992).
+21.	Cheetham, G.M., Jeruzalmi, D. & Steitz, T.A. Structural basis for initiation of 
+transcription from an RNA polymerase–promoter complex. Nature 399, 
+80–83 (1999).
+22.	Imburgio, D., Rong, M., Ma, K. & McAllister, W.T. Studies of promoter 
+recognition and start site selection by T7 RNA polymerase using a comprehensive 
+collection of promoter variants. Biochemistry 39, 10419–10430 (2000).
+
+
+--- Page 8 ---
+© 2014 Nature America, Inc.  All rights reserved.
+nature chemical biology
+doi:10.1038/nchembio.1453
+ONLINE METHODS
+Bacterial strains. All of the DNA cloning was performed with Mach1 cells 
+(Invitrogen) or NEB Turbo cells (New England Biolabs). All of the discrete 
+infection assays, plaque assays and PACE experiments were performed with 
+E. coli S1030. This strain was derived from E. coli S109 (ref. 1) and was modi­
+fied using the Lambda Red method23 as follows: (i) scarless mutation to rpoZ to 
+introduce a frameshift mutation to enable n-hybrid schemes24; (ii) integration 
+of lacI and tetR overexpression cassettes onto the F plasmid to enable small 
+molecule–regulated transcription of various genes; (iii) integration of luxCDE 
+onto the F plasmid for the production of decanal to facilitate luciferase-
+monitoring experiments25; (iv) deletion of flu, pgaC and csgABCDEFG to 
+markedly reduce biofilm formation in chemostat PACE experiments26–28; and 
+(v) mutation of the chromosomal, low-affinity high-capacity AraE promoter to a 
+constitutive promoter for titratable arabinose induction of the PBAD promoter on 
+the MP29. The complete genotype of the resulting strain is F’proA+B+ Δ(lacIZY) 
+zzf<Tn10(TetR) lacIQ1PN25-tetR luxCDE/endA1 recA1 galE15 galK16 nupG 
+rpsL(StrR) ΔlacIZYA araD139 Δ(ara,leu)7697 mcrA Δ(mrr-hsdRMS-mcrBC) 
+proBA<pir116 araE201 ΔrpoZ Δflu ΔcsgABCDEFG ΔpgaC λ−.
+Chemostat growth media. Media for all of the chemostat PACE experiments 
+was prepared by autoclaving a 20-l carboy of MilliQ water containing a custom 
+Davis rich medium formulation: anhydrous K2HPO4 (140 g), KH2PO4 (40 g), 
+(NH4)2SO4 (20 g), NaCl (58 g), casamino acids (100 g), Tween-80 (20 ml), 
+l-cysteine (1 g), l-tryptophan (0.5 g), adenine (0.5 g), guanine (0.5 g), cytosine 
+(0.5 g), uracil (0.5 g) and CaCl2 (0.5 μM final). This was allowed to cool over­
+night and supplemented with a 500 ml filter-sterilized solution of MilliQ water 
+containing NaHCO3 (16.8g), glucose (90 g), sodium citrate (10 g), MgSO4 (1 
+g), FeSO4 (56 mg), thiamine (134 mg), calcium pantothenate (94 mg), para-
+aminobenzoic acid (54 mg), para-hydroxybenzoic acid (54 mg), 2,3-dihydroxy­
+benzoic acid (62 mg), (NH4)6Mo7 (3 nM final), H3BO3 (400 nM final), CoCl2 
+(30 nM), CuSO4 (10 nM final), MnCl2 (80 nM final) and ZnSO4 (10 nM final). 
+Cultures were supplemented with the appropriate antibiotics in the follow­
+ing final concentrations: carbenicillin (AP; 50 μg/ml), spectinomycin (APneg; 
+50 μg/ml) and chloramphenicol (MP; 40 μg/ml). Streptomycin (for selection 
+of S1030 cells carrying the rpsL marker) and tetracycline (for selection of the 
+F plasmid) were not routinely included in culture media.
+Real-time luminescence monitor. The in-line bioluminescence measure­
+ments were made by a modified luminometer. A TD-20e luminometer (Turner 
+Designs) was installed inside a dark box in continuous reading mode. While 
+in this mode, the luminometer outputs a DC voltage that varies between 0 V 
+and 4 V depending on the light level received by the photomultiplier fitted 
+in the instrument (the range was set to the most sensitive one). This signal 
+was sent to an Arduino Mega (Arduino) prototyping board through the analog 
+input port. The Arduino board was controlled via Matlab (Mathworks) using 
+a custom Graphical User Interface (GUI). Measurements were taken at around 
+100 Hz and then integrated to 1 s before being written by the software into a 
+text file. To allow for multichannel recordings, the system was fitted with a cus­
+tom tube holder that could hold up to four flow-through tubes with minimal 
+cross-talk between channels. Because the holder allows for only one tube to be 
+observed at a time, it is mounted on a stepper motor that is in turn controlled 
+using the Matlab GUI via the Arduino board and a Pololu A4988 stepper motor 
+driver (Pololu R&E). The system waits until a measurement is complete before 
+rotating the sample holder until the next tube is in position. The cycle repeats 
+until all of the channels are covered and then unwinds to start a new cycle. 
+The time between measurements of a particular channel is ~30 s. Data analysis 
+comprised temporal binning and low-pass Fourier filtering of the raw traces.
+Assay for infection-competence of recipient cells. Recipient cultures were 
+grown to mid-log phase, and 100 μl of culture was mixed by pipetting with 
+2 μl of pJC126b phagemid prep (encodes R6K origin, f1 origin, pLac-YFP) 
+totaling ~109 c.f.u. Reactions were incubated for 2 min, and then 1 μl of the 
+reaction was diluted into 1 ml of fresh 2xYT media. Cells were pelleted and 
+resuspended in 1 ml fresh 2xYT, and an aliquot was diluted tenfold into fresh 
+medium. Twenty microliters of the resulting medium was plated on 2xYT-agar 
+plates with 1 mM IPTG and grown overnight. Colonies were scanned on a 
+Typhoon laser imager (488 nm laser, 520/40 filter).
+Discrete assay for phage production. Cultures with candidate drift plas­
+mids contained pT7 (pJC173b), pTet (pJC148i2), psp (pJC175e), psp-tet 
+(pJC175g/h/k/m/n), psp-tet on MP (pJC184d5) and psp-tet on colE1-spect 
+plasmid (pJC184d-Sp). Cultures were grown to mid-log phase in Davis rich 
+medium and infected with an excess of SP-T7 for 10 min at 37 °C. Cells were 
+pelleted and washed to remove residual excess phage. Cells were reinoculated 
+into fresh Davis rich medium and grown to OD600 ~0.8 and pelleted, and 
+supernatants were saved for titering by plaque assay on S1030 E. coli cells 
+carrying a PT7–gene III AP (pJC173b). OD600 values were measured to normal­
+ize phage titers.
+Cultures with candidate negative selection plasmids contained PTet–gene III 
+(pJC148i2) and either Plac-C-domain (pJC156a2), Plac-C83 (pJC156c2), Plac-N1-
+N2-C83 (pJC156j2), Plac-N2-C83 (pJC156m2) or Plac-N1*-N2-C83 (pJC156o2). 
+Cells were treated with SP-T7 phage as described above and then cultured 
+in 2xYT medium with either 4 ng/ml or 20 ng/ml ATc and in the presence 
+or absence of 2 mM IPTG. Phage titers were assayed as described above.
+Cultures for theophylline-dependent negative selection contained PT7–gene 
+III (pJC173c) and PT3-theophylline riboswitch–gene III–neg (pJC174c-R5). 
+Cells were treated with either SP-T7192.2 or SP-T748.3 and then cultured 
+with varying concentrations of theophylline. Phage titers were assayed as 
+described above.
+Continuous-flow experiment of PTet–gene III drift cassette. A chemostat 
+culture of S1030 cells carrying an AP encoding PTet–gene III (pJC148i2) was 
+prepared, and growth was equilibrated overnight at a flow rate of 400 ml/h in 
+a chemostat volume of 250 ml. The next morning, two lagoons (40 ml each, 
+flow rate from the chemostat of 100 ml/h) were seeded with 107 p.f.u. of SP-T7. 
+Lagoons received supplements delivered by syringe pump (flow rate 1 ml/h) 
+consisting of either 20 μg/ml ATc (resulting in 200 ng/ml final concentration) 
+or water only. At 4-h intervals, 0.6-ml samples were taken from lagoons, meas­
+ured discretely for luminescence and centrifuged to remove cells. Supernatants 
+were combined with an equal volume of 50% glycerol and stored in the freezer. 
+Phage titers of supernatants were measured on S1030 cells containing an AP 
+encoding PT7–gene III (pJC173b).
+Continuous-flow experiment of Ppsp–gene III drift cassette. A chemostat 
+culture of S1030 cells carrying an AP encoding Ppsp–gene III (pJC175e) was 
+prepared and equilibrated overnight. The flow rate was 400 ml/h in a chemostat 
+volume of 250 ml. The next morning, a lagoon (40 ml each, flow rate 100 ml/h) 
+was started and seeded with 107 p.f.u. of SP-T7WT. At 4-h intervals, samples 
+were taken and processed as described above.
+Continuous-flow experiment of Ppsp-tet–gene III drift cassette. A chemostat 
+culture of S1030 cells carrying plasmid Ppsp-tet–gene III (pJC175h) was prepared 
+and equilibrated overnight. The flow rate was 400 ml/h in a chemostat volume 
+of 250 ml. The next morning, two lagoons (40 ml each, flow rate 100 ml/h) were 
+started and seeded with 107 p.f.u. of SP-T7WT. Lagoons received supplements 
+delivered by syringe pump (flow rate 1 ml/h) consisting of either 20 μg/ml 
+ATc (resulting in 200 ng/ml final concentration) or water only. At 4-h intervals, 
+samples were taken and processed as described above.
+Continuous-flow experiment of Ppsp-tet–gene III drift cassette with ATc dose-
+dependent stringency. A chemostat culture of S1030 cells carrying a DP 
+encoding Ppsp-tet–gene III with a mutagenesis cassette (pJC184d5) and an 
+AP encoding PT7-6xHisTag–gene III (pJC173c) was prepared and equilibrated 
+overnight. The flow rate was 400 ml/h in a chemostat volume of 250 ml. The 
+next morning, three lagoons (40 ml each, flow rate 100 ml/h) were started, with 
+their waste lines diverted through the in-line luminescence monitor. Lagoons 
+were seeded with a mixture containing 109 p.f.u. SP-T7Dead (D812G) and 107 
+p.f.u. SP-T7WT, along with ATc in an amount that brought the 40-ml lagoon 
+to the target final ATc concentration for each lagoon. Lagoons received sup­
+plements delivered by syringe pump (flow rate 1 ml/h) consisting of either 
+15 μg/ml ATc (to make 150 ng/ml final concentration), 40 μg/ml ATc (to make 
+400 ng/ml final concentration) or no ATc (water only). At t = 8 h, the lagoon 
+receiving 40 μg/ml ATc was switched to receive water only. At time points 
+t = 2 h, 4 h, 6 h, 8 h and 16 h, 0.6-ml samples were taken from the lagoon, 
+measured individually for luminescence and centrifuged to remove cells. 
+Supernatants were combined with an equal volume of 50% glycerol and stored 
+in the freezer.
+Supernatants were analyzed for relative phage ratios using a PCR and 
+analytical restriction digestion. One microliter of each supernatant was 
+added to a 20-μL qPCR reaction (iQ SYBR Green Mastermix, Bio-Rad) with 
+
+
+--- Page 9 ---
+© 2014 Nature America, Inc.  All rights reserved.
+nature CHEMICAL BIOLOGY
+doi:10.1038/nchembio.1453
+primers JC1163 (5′-GGAGTACGCTGCATCGAGATGCTCA-3′) and JC1488 
+(5′-GTAGAAATCAGCCAGTACATCACAAGACTC-3′) and amplified 
+by PCR with SYBR Green fluorescence monitored following each amplification 
+cycle. Samples were removed individually from the PCR block after exceeding 
+a predetermined fluorescence threshold and placed on ice. Samples were 
+then quantified again by SYBR Green fluorescence in a plate reader, and 
+approximately equal amounts of DNA from the reactions (normalized on 
+the basis of the fluorescence readings) were added to restriction digestion 
+reactions. The digestion reactions used enzymes EcoRV and HindIII in buffer 
+NEB2 with BSA and were performed following the manufacturer’s instructions 
+in 20-μL total volumes. Digestions were inactivated with heat, combined with 
+0.2 volumes of 5× loading dye containing Orange G and xylene cyanol and 
+analyzed by agarose gel electrophoresis (1% agarose, 0.5× TBE, 120 V, 80 min). 
+The electrophoresed gel was stained with SYBR Gold (Invitrogen) and imaged 
+on a Typhoon laser scanner (excitation 488, emission 520/40 nm).
+Continuous-flow experiment of dose-dependent negative selection. A chem­
+ostat of S1030 host cells containing an AP encoding PT7–gene III (pJC173c) and 
+an APneg encoding PT3-theophylline riboswitch–gene III–neg (pJC174c-R5) was 
+prepared and equilibrated overnight at a flow rate of 400 ml/h in a chemostat 
+volume of 250 ml. The next morning, three lagoons (40 ml each, flow rate 
+100 ml/h) were started, with their waste lines diverted through the in-line lumi­
+nescence monitor. Lagoons were seeded with a mixture containing 1010 p.f.u. 
+SP-T7Prom and 104 p.f.u. SP-T7Spec and allowed to equilibrate for 4.5 h; during this 
+time, the lagoons received 0.1 M NaOH at 0.5 ml/h by syringe pump to equilibrate 
+the lagoons to the pH of the theophylline vehicle. After equilibration (t = 0 h), 
+lagoons received supplements delivered by syringe pump (flow rate 0.5 ml/h) 
+consisting of either 200 mM theophylline (to make 1 mM final concentra­
+tion), 15 mM theophylline (to make 75 μM final concentration) or vehicle 
+only (0.1 M NaOH). After 16 h, the lagoon receiving vehicle only was switched 
+to receive 200 mM theophylline (1 mM final concentration). At time points
+ t = 0 h, 2 h, 4 h, 6 h, 8 h, 10 h, 12 h and 20 h, 0.6-ml samples were taken from 
+the lagoon, measured discretely for luminescence and centrifuged to remove 
+cells. Supernatants were combined with an equal volume of 50% glycerol and 
+stored in the freezer.
+Relative phage ratios in supernatant samples were assayed using a PCR 
+and analytical restriction digestion. One microliter of each supernatant was 
+added to a 20-μL qPCR reaction (iQ SYBR Green Mastermix, Bio-Rad) with 
+primers JC1480 (5′-TCCAGCACTTCTCCGCGATGCTC-3′) and JC1481 
+(5′-GAAGTCCGACTCTAAGATGT CACGGAGGTTCAAG-3′) and ampli­
+fied by PCR with SYBR Green fluorescence monitored following each ampli­
+fication cycle. Samples were removed individually from the PCR block after 
+exceeding a predetermined fluorescence threshold and then placed on ice. 
+Samples were quantified again by SYBR Green fluorescence in a plate reader, 
+and approximately equal amounts of DNA from the reactions (normalized 
+based on the fluorescence readings) were added to restriction digestion reac­
+tions. The digestion reactions used AvaII in buffer NEB4 and were performed 
+according to manufacturer instructions in 20-μL total volumes. Digestions 
+were combined with 0.2 volumes of 5× loading dye containing Orange G and 
+xylene cyanol and analyzed by agarose gel electrophoresis (1% agarose, 0.5× 
+TBE, 120 V, 80 min). The electrophoresed gel was stained with SYBR Gold 
+(Invitrogen) and imaged on a Typhoon laser scanner (excitation 488, emis­
+sion 520/40 nm).
+Continuous evolution of T3-selective RNA polymerases. A chemostat culture 
+of S1030 cells carrying a DP encoding Ppsp-tet–gene III with a mutagenesis cas­
+sette (pJC184d5) and an AP encoding PT3–gene III (pJC174f) was prepared and 
+equilibrated overnight at a flow rate of 400 ml/h in a chemostat volume of 250 ml. 
+The next morning, two lagoons (50 ml each, flow rate 100 ml/h) were started, 
+with their waste lines diverted through the in-line luminescence monitor.
+Lagoons were seeded with 105 p.f.u. of SP-T7WT. Lagoons received sup­
+plements delivered by syringe pump (flow rate 1 ml/h) consisting of either 
+20 μM ATc (in 500 mM l-arabinose) for lagoon 1 or vehicle alone (500 mM 
+l-arabinose) for lagoon 2. At t = 2 h, lagoon 1’s supplement was changed to 
+2 μM ATc (in 500 mM l-arabinose). At t = 28 h, the first chemostat was dis­
+continued, and both lagoons began receiving cells from a second chemostat 
+containing S1030 cells harboring an MP (pJC184), a PT3–gene III AP (pJC174f) 
+and a PT7-theophylline riboswitch–gene III–neg APneg (pJC173f-R5). Both 
+lagoons received 500 mM l-arabinose. At t = 32 h, half of lagoon 1 was trans­
+ferred to a new lagoon, lagoon 3. Lagoons 1 and 3 were brought to 40-ml total 
+volumes with culture from the chemostat, and lagoons were equilibrated for 
+40 min. Lagoons 1 and 2 then received 100 mM theophylline (dissolved in 0.1 M 
+NaOH, flow rate 1 ml/h), whereas lagoon 3 received vehicle only (0.1 M 
+NaOH). At t = 52 h, the second chemostat was discontinued, and all of the 
+lagoons began receiving cells from a third chemostat containing S1030 cells 
+harboring an MP (pJC184), a reduced RBS PT3–gene III (pJC174k) and an 
+enhanced RBS/copy number PT7–gene III–neg APneg (pJC173g-SD8). All of 
+the lagoon volumes were reduced to 40 ml each (flow rate maintained at 
+100 ml/h) and were supplemented with 500 mM l-arabinose. At t = 70.5 h, 
+lagoon volumes were reduced to 30 ml each, whereas the flow rate was 
+maintained at 100 ml/h.
+Periodically, 0.6-ml samples were taken from the lagoon, measured dis­
+cretely for luminescence and centrifuged to remove cells. Supernatants were 
+combined with an equal volume of 50% glycerol and stored in the freezer.
+In vivo gene expression measurements on evolved RNA polymerases. Cells 
+for luminescence assays were S1030 cells described above containing APs 
+encoding Ppsp–gene III (pJC184c-rrnB) and either PT7-luxAB (pJC173e4) or 
+PT3-luxAB (pJC174e4). Cells were grown to mid-log phase, and 20-μL aliquots 
+were distributed into a deep-well plate. Ten microliters of clonal phage aliquots 
+were added to these wells, and plates were incubated at 37 °C for 15 min. Wells 
+were supplemented with 500 μL medium and grown to mid-log phase, and 
+cells were transferred to a 96-well plate for luminescence measurement.
+In vivo gene expression measurements on RNA polymerase forward mutants. 
+Cells for luminescence assays were S1030 cells described above containing an 
+expression plasmid (EP) expressing a subcloned forward mutant T7 RNAP and 
+APs encoding either PT7-luxAB (pJC173e4) or PT3-luxAB (pJC174e4). Cultures 
+were grown overnight and used to seed 500-μL cultures in 96-well blocks that 
+were grown to mid-log phase, after which cells were transferred to a 96-well 
+plate for luminescence measurement.
+23.	Datsenko, K.A. & Wanner, B.L. One-step inactivation of chromosomal genes 
+in Escherichia coli K-12 using PCR products. Proc. Natl. Acad. Sci. USA 97, 
+6640–6645 (2000).
+24.	Dove, S.L. & Hochschild, A. Conversion of the ω subunit of Escherichia coli 
+RNA polymerase into a transcriptional activator or an activation target. Genes 
+Dev. 12, 745–754 (1998).
+25.	Xi, L., Cho, K.W. & Tu, S.C. Cloning and nucleotide sequences of lux genes 
+and characterization of luciferase of Xenorhabdus luminescens from a human 
+wound. J. Bacteriol. 173, 1399–1405 (1991).
+26.	Hammar, M., Arnqvist, A., Bian, Z., Olsen, A. & Normark, S. Expression of 
+two csg operons is required for production of fibronectin- and Congo 
+Red–binding curli polymers in Escherichia coli K-12. Mol. Microbiol. 18, 
+661–670 (1995).
+27.	Danese, P.N., Pratt, L.A., Dove, S.L. & Kolter, R. The outer membrane protein, 
+antigen 43, mediates cell-to-cell interactions within Escherichia coli biofilms. 
+Mol. Microbiol. 37, 424–432 (2000).
+28.	Wang, X., Preston, J.F. III & Romeo, T. The pgaABCD locus of Escherichia coli 
+promotes the synthesis of a polysaccharide adhesin required for biofilm 
+formation. J. Bacteriol. 186, 2724–2734 (2004).
+29.	Khlebnikov, A., Datsenko, K.A., Skaug, T., Wanner, B.L. & Keasling, J.D. 
+Homogeneous expression of the PBAD promoter in Escherichia coli by 
+constitutive expression of the low-affinity high-capacity AraE transporter. 
+Microbiology 147, 3241–3247 (2001).

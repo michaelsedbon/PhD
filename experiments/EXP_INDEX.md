@@ -53,3 +53,26 @@ This file is auto-maintained by the sync scripts and AI assistant.
 | [pipeline_v2.py](EXP_001/scripts/pipeline_v2.py) | V2 pipeline (standardized overhangs) |
 
 ---
+
+## EXP_002 — GPU Simulation of Synthetic Germinal Center
+
+| Field | Value |
+|-------|-------|
+| **Objective** | Build a GPU-ready simulation (Python+JAX) of the synthetic germinal center: reproduce the hyphasma paper, then adapt to bacterial system with bead-based selection |
+| **Status** | 🔄 In progress (planning complete, coding Phase 0) |
+| **Started** | 2026-03-16 |
+| **GPU** | RTX 2080 Ti (11 GB VRAM) on `172.16.1.80` |
+| **Project** | [The Synthetic Germinal Center](../projects/synthetic_germinal_center/summary.md) |
+
+### Key Documents
+
+| Document | Description |
+|----------|-------------|
+| [summary.md](EXP_002/summary.md) | Experiment overview |
+| [Flow Diagram A](EXP_002/simulation/docs/flow_diagram_A_natural_GC.md) | 3D lattice GC (paper reproduction) |
+| [Flow Diagram B](EXP_002/simulation/docs/flow_diagram_B_bacterial_GC.md) | Bacterial synthetic GC |
+| [Handoff Checklist](EXP_002/simulation/docs/handoff_checklist.md) | Master checklist (Phases 0-4) |
+| [Implementation Plan](EXP_002/simulation/docs/implementation_plan.md) | Phase 0 plan |
+| [LOG.md](EXP_002/LOG.md) | Experiment log |
+
+---

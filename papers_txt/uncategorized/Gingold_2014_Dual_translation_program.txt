@@ -1,0 +1,1102 @@
+--- Page 1 ---
+Resource
+Generation of Functional Human
+Pancreatic b Cells In Vitro
+Felicia W. Pagliuca,1,3 Jeffrey R. Millman,1,3 Mads Gu¨ rtler,1,3 Michael Segel,1 Alana Van Dervort,1 Jennifer Hyoje Ryu,1
+Quinn P. Peterson,1 Dale Greiner,2 and Douglas A. Melton1,*
+1Department of Stem Cell and Regenerative Biology, Harvard Stem Cell Institute, Harvard University, 7 Divinity Avenue, Cambridge,
+MA 02138, USA
+2Diabetes Center of Excellence, University of Massachusetts Medical School, 368 Plantation Street, AS7-2051, Worcester, MA 01605, USA
+3Co-ﬁrst author
+*Correspondence: dmelton@harvard.edu
+http://dx.doi.org/10.1016/j.cell.2014.09.040
+SUMMARY
+The generation of insulin-producing pancreatic b
+cells from stem cells in vitro would provide an un-
+precedented cell source for drug discovery and cell
+transplantation therapy in diabetes. However, insu-
+lin-producing cells previously generated from human
+pluripotent stem cells (hPSC) lack many functional
+characteristics of bona ﬁde b cells. Here, we report
+a scalable differentiation protocol that can generate
+hundreds of millions of glucose-responsive b cells
+from hPSC in vitro. These stem-cell-derived b cells
+(SC-b) express markers found in mature b cells, ﬂux
+Ca2+ in response to glucose, package insulin into
+secretory granules, and secrete quantities of insulin
+comparable to adult b cells in response to multiple
+sequential glucose challenges in vitro. Furthermore,
+these cells secrete human insulin into the serum of
+mice shortly after transplantation in a glucose-regu-
+lated manner, and transplantation of these cells ame-
+liorates hyperglycemia in diabetic mice.
+INTRODUCTION
+The discovery of human pluripotent stem cells (hPSC) opened
+the possibility of generating replacement cells and tissues
+in the laboratory that could be used for disease treatment and
+drug screening. Recent research has moved the stem cell ﬁeld
+closer to that goal through development of strategies to generate
+cells that would otherwise be difﬁcult to obtain, like neurons or
+cardiomyocytes (Kriks et al., 2011; Shiba et al., 2012; Son
+et al., 2011). These cells have also been transplanted into animal
+models, in some cases with a beneﬁcial effect like suppression of
+arrhythmias with stem-cell-derived cardiomyocytes (Shiba et al.,
+2012), restoration of locomotion after spinal injury with oligoden-
+drocyte progenitors (Keirstead et al., 2005), or improved vision
+after transplantation of retinal epithelial cells into rodent models
+of blindness (Lu et al., 2009).
+One of the rapidly growing diseases that may be treatable by
+stem-cell-derived tissues is diabetes, affecting >300 million peo-
+ple worldwide, according to the International Diabetes Federa-
+tion. Type 1 diabetes results from autoimmune destruction of b
+cells in the pancreatic islet, whereas the more common type 2 dia-
+betes results from peripheral tissue insulin resistance and b cell
+dysfunction. Diabetic patients, particularly those suffering from
+type 1 diabetes, could potentially be cured through transplanta-
+tion of new b cells. Patients transplanted with cadaveric human is-
+lets can be made insulin independent for 5 years or longer via this
+strategy, but this approach is limited because of the scarcity and
+quality of donor islets (Bellin et al., 2012). The generation of an
+unlimited supply of human b cells from stem cells could extend
+this therapy to millions of new patients and could be an important
+test case for translating stem cell biology into the clinic. This is
+because only a single cell type, the b cell, likely needs to be gener-
+ated, and the mode of delivery is understood: transplantation to a
+vascularized location within the body with immunoprotection.
+Pharmaceutical screening to identify new drugs that improve b
+cell function, survival, or proliferation is also hindered by limited
+supplies of islets and high variability due to differential causes
+of death, donor genetic background, and other factors in their
+isolation. A consistent, uniform supply of stem-cell-derived b cells
+would provide a unique and valuable drug discovery platform for
+diabetes. Additionally, genetically diverse stem-cell-derived b
+cells could be used for disease modeling in vitro or in vivo.
+Studies on pancreatic development in model organisms
+(Gamer and Wright, 1995; Henry and Melton, 1998; Ninomiya
+et al., 1999; Apelqvist et al., 1999; Kim et al., 2000; Hebrok
+et al., 2000; Murtaugh et al., 2003) identiﬁed genes and signals
+important for the pancreatic lineage, and these have been effec-
+tively used to form cells in the b cell lineage in vitro from hPSC.
+Deﬁnitive endoderm and subsequent pancreatic progenitors
+can now be differentiated with high efﬁciencies (Kroon et al.,
+2008; D’Amour et al., 2005, 2006; Rezania et al., 2012). These
+cells can differentiate into functional b cells within 3–4 months
+following transplantation into rodents (Kroon et al., 2008; Rezania
+et al., 2012), indicating that some cells in the preparation contain
+the developmental potential to develop into b cells if provided
+enough time and appropriate cues. Unfortunately, the months-
+long process the cells undergo in vivo is not understood, and it
+is unclear whether this process of in vivo differentiation would
+also occur in human patients. Attempts to date at generating
+insulin-producing (INS+) cells from human pancreatic progeni-
+tors in vitro have generated cells with immature or abnormal
+phenotypes. These cells either fail to perform glucose-stimulated
+428
+Cell 159, 428–439, October 9, 2014 ª2014 Elsevier Inc.
+
+
+--- Page 2 ---
+insulin secretion in vitro, fail to express appropriate b cell markers
+such as NKX6-1 or PDX1, abnormally coexpress other hormones
+like glucagon (GCG), fail to function after transplantation in vivo,
+or display a combination of these abnormal features (D’Amour
+et al., 2006; Cheng et al., 2012; Hrvatin et al., 2014; Narayanan
+et al., 2014; Xie et al., 2013; Nostro et al., 2011).
+Herein, we report the discovery of a strategy for large-scale
+production of functional human b cells from hPSC in vitro. By
+using sequential modulation of multiple signaling pathways in a
+three-dimensional cell culture system, without any transgenes
+or
+genetic modiﬁcation,
+we
+generate
+glucose-responsive,
+monohormonal insulin-producing cells that show key features
+of a bona ﬁde b cell, including coexpression of key b cell markers
+and b cell ultrastructure. Furthermore, these cells mimic the
+function of human islets both in vitro and in vivo. Finally, we
+demonstrate the potential utility of these cells for in vivo trans-
+plantation therapy for diabetes.
+RESULTS
+Generation of Glucose-Sensing Insulin-Secreting
+b Cells In Vitro
+Our strategy to generate functional b cells from hPSC in vitro is
+outlined in Figure 1A. To produce large numbers, we used a scal-
+able suspension-based culture system that can generate >108
+hPSCs and later differentiated cell types (modiﬁed from Schulz
+et al., 2012). Clusters of cells (100–200 mm in diameter, each
+cluster containing several hundred cells) from a human embry-
+onic stem cell (hESC) line (HUES8) or two human-induced plurip-
+otent stem cell (hiPSC) lines (hiPSC-1 and hiPSC-2) were
+induced into deﬁnitive endoderm (>95% SOX17+ cells, DE cells
+in Figure 1A) and subsequently early pancreatic progenitors
+(>85% PDX1+ cells, PP1 cells in Figure 1A).
+Transplantation of pancreatic progenitors expressing PDX1+/
+NKX6-1+ (PP2 in Figure 1A) into mice gives rise to functional b
+cells in vivo after 3–4 months (Kroon et al., 2008; Rezania et al.,
+2012). And previous studies had shown that these PDX1+/
+NKX6-1+ pancreatic progenitors (PP2) could be further differen-
+tiated in vitro into some INS+ cells along with INS+/GCG+ or
+INS+/SST+ polyhormonal (PH) cells (Nostro et al., 2011; Rezania
+et al., 2012; Thowfeequ et al., 2007; Aguayo-Mazzucato et al.,
+2013; D’Amour et al., 2006; Hrvatin et al., 2014). We use the
+nomenclature PH (polyhormonal, Figure 1A) to refer to this cell
+population of in-vitro-differentiated hPSCs. Transcriptional anal-
+ysis of in-vitro-differentiated PH cells showed that these cells
+resemble human fetal and not adult b cells (Hrvatin et al.,
+2014). Because these PH cells show neither glucose-stimulated
+insulin secretion (GSIS) nor other key properties of bona ﬁde b
+Figure 1. SC-b Cells Generated In Vitro
+Secrete Insulin in Response to Multiple
+Sequential High-Glucose Challenges like
+Primary Human b Cells
+(A) Schematic of directed differentiation from
+hPSC into INS+ cells via new or previously pub-
+lished control differentiations.
+(B–D) Representative ELISA measurements of
+secreted human insulin from HUES8 SC-b cells
+(B), PH cells (C), and primary b (1b) cells (D)
+challenged sequentially with 2, 20, 2, 20, 2, and
+20 mM glucose, with a 30 min incubation for each
+concentration (see Experimental Procedures). Af-
+ter sequential low/high-glucose challenges, cells
+were depolarized with 30 mM KCl.
+(E–G) Box and whisker plots of secreted human
+insulin from different biological batches of HUES8
+(open circles) and hiPSC SC-b (black circles) cells
+(E; n = 12), biological batches of PH cells (F; n = 5),
+and primary b cells (G; n = 4). Each circle is the
+average value for all sequential challenges with
+2 mM or 20 mM glucose in a batch. Insulin
+secretion at 20 mM ranged 0.23–2.7 mIU/103 cells
+for SC-b cells and 1.5–4.5 mIU/103 cells for human
+islets, and the stimulation index ranged 0.4–4.1 for
+SC-b cells and 0.6–4.8 for primary adult. The thick
+horizontal line indicates the median.
+See alsoFiguresS1and S2A and Table S1. *p< 0.05
+when comparing insulin secretion at 20 mM versus
+2 mM with paired t test. Act A, activin A; CHIR,
+CHIR99021, a GSK3a/b inhibitor; KGF, keratinocyte
+growth factor or FGF family member 7; RA, retinoic
+acid; SANT1, sonic hedgehog pathway antagonist;
+LDN, LDN193189, a BMP type 1 receptor inhibitor;
+PdbU, Phorbol 12,13-dibutyrate, a protein kinase C
+activator; Alk5i, Alk5 receptor inhibitor II; T3, triio-
+dothyronine, a thyroid hormone; XXI, g-secretase
+inhibitor; Betacellulin, EGF family member.
+Cell 159, 428–439, October 9, 2014 ª2014 Elsevier Inc.
+429
+
+
+--- Page 3 ---
+cells, we returned to the earlier pancreatic progenitor step (PP2)
+to investigate ways to make NKX6-1+/C-peptide+ (EN cells in
+Figure 1A) and functional b cells (SC-b cells in Figure 1A).
+We ﬁrst extended the time in culture with the FGF family mem-
+ber KGF, hedgehog inhibitor SANT1, and a low concentration of
+retinoic acid to generate high levels of NKX6-1+/PDX1+ coex-
+pressing pancreatic progenitor clusters (>55% NKX6-1+/PDX1+
+cells, PP2 cells in Figure 1A). These PP2 cells were the starting
+point to make differentiated cells that would respond to glucose
+and mimic natural b cells. Systematic testing of the concentra-
+tion and exposure time of numerous factors (small-molecule ago-
+nists and antagonists and assorted growth factors) on pancreatic
+progenitors (PP2 cells in Figure 1A) led to the development of a
+new differentiation protocol. This protocol takes 4–5 weeks and
+involves a unique combination of sequential culture steps using
+factors that affect signaling in numerous pathways, including
+signaling by wnt, activin, hedgehog, EGF, TGFb, thyroid hormone,
+and retinoic acid, as well as g-secretase inhibition (see Experi-
+mental Procedures). In all, we tested >150 combinations involving
+>70 compounds, many of which had been described in the litera-
+ture as playing a role in pancreatic biology. Most factors and com-
+binations had little appreciable effect on cell function and gene
+expression, but we were able to develop a protocol using 11
+different factors that provided a signiﬁcant improvement in func-
+tion and b-cell-like gene expression (Table S1 available online).
+A key functional feature of a b cell is its ability to repeatedly
+perform GSIS. Nearly all existing directed differentiation proto-
+cols generate insulin-expressing cells from hPSC (see PH in Fig-
+ure 1A) that are defective in GSIS in vitro; these cells fail to
+respond to even a single glucose challenge. In contrast, the
+SC-b cells generated from both hESC and hiPSC cells with the
+new protocol respond to multiple sequential high-glucose chal-
+lenges and depolarization with KCl (Figures 1B, S1, and S2A).
+This data contrasts with the response of PH cells (Figures 1C),
+which secrete very low amounts of insulin and are not glucose
+responsive. SC-b cell clusters and primary adult (cadaveric) is-
+lets show a similar response to sequential glucose challenges
+(compare Figures 1B and 1D).
+Twelve independent differentiation batches of SC-b cells
+(eight hESC and four hiPSC) were tested with three sequential
+high-glucose challenges (three to four replicates of each) and
+compared to ﬁve batches of PH cell clusters and four sets of
+cadaveric islets (Figures 1E–1G). Because the SC-b cells outper-
+formed PH cells, we compared SC-b cell clusters to primary islet
+cells. The stimulation index, as calculated by the ratio of insulin
+secreted in high glucose (20 mM) to low glucose (2 mM), was
+similar for SC-b cells and primary adult islets, 2.2 ± 0.3 and 2.1
+± 0.9, respectively.
+Some
+batch-to-batch
+and
+donor-to-donor
+variation
+is
+observed for both primary adult b cells and SC-b cells. This vari-
+ation is not unexpected for islets from cadavers nor for cells
+taken through a 35 day protocol involving ﬁve basal media and
+11 combinatorially added factors (Figures 1E and 1G). Some
+batches of SC-b cells and primary human islets fail to respond
+to individual glucose challenges (see Figures S1A and S1C).
+But overall, SC-b cell clusters and primary islets responded to
+high glucose challenges at a similar frequency: 75% ± 8% and
+72% ± 17%, respectively.
+The amount of insulin secreted per cell in response to 20 mM
+glucose by SC-b cells was similar to that secreted by primary
+adult b cells, averaging 1.6 ± 0.2 and 3.6 ± 0.7 mIU/103 cells,
+respectively. Notably, some SC-b cell batches secreted as
+much insulin as cadaveric islets (see Figures 1E and 1G). Total
+insulin content per cell was 240 ± 50 mIU/103 cell for SC-b clus-
+ters (two batches) and 200 ± 40 mIU/103 for primary islets (one
+batch). The proinsulin-to-insulin ratio was 0.030 ± 0.001 and
+0.029 ± 0.006 for SC-b and primary adult b cells, respectively.
+Taken together, these data highlight the difference between
+SC-b and PH cell clusters and suggest that the in vitro function
+of SC-b cells is similar to their bona ﬁde adult b cell counterparts.
+Calcium Flux in SC-b Cells
+We sought to further conﬁrm the in vitro function of SC-b cells by
+measuring changes in intracellular Ca2+. b cells sense changing
+glucose levels through calcium signaling; increasing glucose
+levels leads to membrane depolarization, causing an inﬂux of cal-
+cium ions, which triggers insulin exocytosis (Mohammed et al.,
+2009). Calcium inﬂux depends onglucose transport and metabolic
+enzymes as well as functioning potassium ion channels (Rutter
+and Hodson, 2013). We monitored calcium inﬂux in cell clusters
+stained with Fluo-4 AM, a cell-permeable ﬂuorescent calcium indi-
+cator dye, in real time, using ﬂuorescent microscopy (Figure 2A).
+This method allowed us to analyze calcium ﬂux at both the popu-
+lation and single-cell level. The population analysis shows that
+cells in both SC-b cell clusters and primary adult islets respond
+to sequential glucose challenges by repeatedly increasing intra-
+cellular Ca2+ in a similar manner, consistent with normal glucose
+responsiveness. In contrast, PH cell clusters displayed an
+abnormal calcium response (Figure 2B). Single-cell analysis re-
+veals that most individual cells in SC-b cell clusters and primary
+adult islets respond to two to three sequential glucose challenges
+by ﬂuxing calcium, whereas most cells from PH cell clusters do not
+(Figures 2C–2E). These data show that both the entire population
+as well as individual cells within the SC-b cell clusters ﬂux calcium
+similarly to primary human islet cells and further support the
+conclusion that these SC-b cells function in vitro.
+Stem-Cell-Derived b Cells Resemble Primary
+Human b Cells
+The results in Figures 1 and 2 show that SC-b cells display the
+physiological function in vitro of secreting insulin in response to
+glucose. We next analyzed protein expression, RNA expression,
+and ultrastructure of SC-b cells. As with many previously re-
+ported hPSC-derived insulin-producing cells, our PH protocol
+C-peptide+ cells fail to coexpress the b cell transcription factor
+NKX6-1. Conversely, SC-b cells, like islet b cells, stained positive
+for cytoplasmic C-peptide and the nuclear protein NKX6-1 (Fig-
+ures 3A and S2B). SC-b cells stain positive for both insulin and
+C-peptide, a stoichiometric byproduct of proinsulin processing,
+indicating that the insulin produced comes from cell-endoge-
+nous insulin synthesis (data not shown).
+Nuclear expression of the transcription factor PDX1 is charac-
+teristic of human b cells, and most PH cells do not coexpress
+PDX1 in C-peptide+ cells (Figure 3B). Both cadaveric islet b cells
+and SC-b cells coexpress this key protein in C-peptide+ cells
+(Figures 3B and S2C).
+430
+Cell 159, 428–439, October 9, 2014 ª2014 Elsevier Inc.
+
+
+--- Page 4 ---
+Others have noted previously (Bruin et al., 2014; Hrvatin
+et al., 2014) that most protocols for pancreatic differentiation
+generate many cells that coexpress glucagon and insulin/C-
+peptide+, and we observed polyhormonal cells in the control
+PH differentiations. In contrast, the majority of C-peptide+ cells
+in SC-b differentiations are monohormonal by IHC (Figures 3C
+and S2D) and by ﬂow cytometry (Figure S3). We also observed
+a minor population of monohormonal SST+ d cells and GCG+ a
+cells (Figures 3C, S2D, and S3). There are also a few polyhor-
+monal cells—on average, 7.7% ± 0.7% of C-peptide+ cells co-
+express glucagon and 4.7% ± 0.1% coexpress somatostatin
+(Figure S3).
+The most parsimonious explanation is that the SC-b cells can
+be found within the NKX6-1+/C-peptide+ monohormonal popu-
+lation. Flow cytometry reveals that the new protocol produces an
+average of 33% ± 2% (n = 12) NKX6-1+/C-peptide+ cells, similar
+to the 26% ± 3% (n = 3) average observed in cadaveric islets
+Figure 2. SC-b Cells Flux Cytosolic Ca2+ in
+Response
+to
+Multiple
+Sequential
+High-
+Glucose Challenges like Primary Human b
+Cells
+(A) Schematic of population level and single-cell
+level detection of cytosolic Ca2+ using Fluo-4 AM
+staining. Population level measurements were
+taken on individual whole clusters (marked by
+large red circle in the schematic), and individual
+cells within intact clusters (marked by small red
+circles) were analyzed for single-cell analysis.
+(B) Representative population measurements of
+dynamic normalized Fluo-4 ﬂuorescence intensity
+for HUES8 SC-b cells, primary b cells, and PH cells
+challenged sequentially with 2, 20, 2, 20, 2, and
+20 mM glucose and 30 mM KCl. The x axis rep-
+resents time (s).
+(C) Fluorescence images of Fluo-4 AM staining
+used in single cell analysis.
+(D) Representative images showing single cells
+that responded to three (yellow), two (orange), one
+(blue), and zero (red) glucose challenges.
+(E) Quantiﬁcation of the frequency of SC-b cells
+(n = 156), primary b cells (n = 114), and PH cells (n =
+138) that responded to 20 mM glucose.
+Scale bar, 100 mm.
+(Figures 3D and S2E). The remainder of
+cells in the SC-b clusters are either endo-
+crine cells (a or d cells that express the-
+hormones
+GCG
+or
+SST)
+or
+PDX1+
+pancreatic progenitors that have not
+differentiated into endocrine cells. We
+did not observe any residual cells ex-
+pressing pluripotency markers such as
+OCT4. The non-b cells within a human
+islet differ from SC-b cell clusters, having
+higher proportions of a and d cells.
+The improved protein expression of
+several key b cell markers indicates that
+the transcriptional network of SC-b cells
+better matches that of human islet b cells.
+Recent work had demonstrated that INS+ PH cells, generated by
+previous protocols, do not resemble adult islet INS+ b cells (Hrva-
+tin et al., 2014; Xie et al., 2013). Microarray analysis of sorted INS+
+cells generated with previous protocols showed that they cluster
+with fetal b cells rather than functional adult human b cells.
+To compare SC-b cells to adult human islets, we sorted
+out INS+/NKX6-1+ cells from SC-b cell differentiations and
+performed global gene expression analysis. The SC-b cells clus-
+tered with adult b cells, unlike fetal b cells or INS+ PH cells (Hrva-
+tin et al., 2014) (Figure 3E and 3F). Furthermore, expression of
+many canonical b cell genes, such as PDX1, MNX1, and
+SLC30A8 (ZNT8), were more similar between SC-b cells and
+adult b cells than PH cells, whereas others, such as KLF9,
+PCSK1, and PCSK2, are still differentially expressed (Figure S4).
+We conclude that SC-b cells made ex vivo are most similar, but
+not completely identical, to cadaveric b cells by transcriptional
+analysis.
+Cell 159, 428–439, October 9, 2014 ª2014 Elsevier Inc.
+431
+
+
+--- Page 5 ---
+Figure 3. SC-b Cells Express Human b Cell Markers at Protein and Gene Expression Level
+(A) Representative immunohistochemistry (IHC) of HUES8 SC-b cells, primary b cells, and PH cells stained for C-peptide (green) and NKX6-1 (red).
+(B) Representative IHC of cells stained for C-peptide (green) and PDX1 (red).
+(C) Representative IHC of cells stained for C-peptide (green) and glucagon (red) with the corresponding DAPI stain (blue).
+Enlarged insets in (A–C) show that staining for transcription factors (NKX6-1 and PDX1) is nuclear and cytoplasmic for C-peptide, except for the PH cells.
+(D) Representative ﬂow cytometry dot plots and population percentages of cells stained for C-peptide and NKX6-1. AU, arbitrary units.
+(legend continued on next page)
+432
+Cell 159, 428–439, October 9, 2014 ª2014 Elsevier Inc.
+
+
+--- Page 6 ---
+SC-b Cell Ultrastructure
+In light of the observation that SC-b cells secrete insulin in a
+physiological manner in vitro, we hypothesized that SC-b cells
+might also package insulin protein into secretory granules, as
+do primary b cells. b cells package insulin into secretory granules
+that initially appear as pale gray cores surrounded by a small
+electron-lucent area or light halo, and these condense into gran-
+ules with dark polygonal crystalline cores surrounded by a light
+halo (Deconinck et al., 1971; Like and Orci, 1972). Previous
+studies of INS+ cells showed abnormal granules that resemble
+a-like granules with round cores surrounded by a dark gray
+halo (PH cells; D’Amour et al., 2006; Deconinck et al., 1971;
+Like and Orci, 1972) and/or abnormal granules of indistinct hor-
+monal character. We recapitulated these results with our control
+protocol, producing INS+ cells that had abnormal and a-like
+granules and few, if any, b cell granules (Figures 4A and 4B). In
+contrast, our new differentiation strategy generates SC-b cells
+that package and crystallize insulin protein into granules that
+are structurally similar to primary b cell insulin granules. Both
+developing insulin granules and mature, crystallized insulin gran-
+ules are observed in SC-b cells and primary human b cells. SC-b
+cells and primary b cells averaged 66 ± 11 and 77 ± 8 insulin
+granules per cell, respectively (Figure 4C). Immunogold labeling
+with particles against insulin and glucagon showed that granules
+in the PH cells contained both insulin and glucagon protein,
+whereas primary human b cell and SC-b cell granules contained
+only insulin (Figure 4D). Thus, this key ultrastructural feature of
+adult human b cells is mirrored in SC-b cells.
+Stem-Cell-Derived b Cells Function In Vivo after
+Transplantation
+To test their capacity to function in vivo, we transplanted SC-b
+cells under the kidney capsule of immunocompromised mice
+(Figure 5 and Tables S2 and S3). When primary human islets
+(500 ieq, or islet equivalents) are transplanted, human insulin is
+detected in the serum of glucose-challenged mice within 2 weeks
+(Figure 5A). Conversely, when 5 million pancreatic progenitor
+cells are transplanted into mice, no insulin is detected at 2 weeks
+posttransplant (data not shown) (Kroon et al., 2008; Schulz et al.,
+2012; Rezania et al., 2012). A portion of the cells in this pancre-
+atic progenitor population will differentiate further and secrete in-
+sulin, but only after a 3–4 month long ill-understood maturation
+phase in vivo.
+We tested whether insulin is detectable in serum of animals
+transplanted with 5 million SC-b cells sooner than 3–4 months.
+After a brief surgical recovery period (2 weeks), mice trans-
+planted with SC-b cells were injected with glucose and serum
+was collected 30 min later. ELISA measurement of human insulin
+in the serum revealed that SC-b cells from both hESC and hiPSC
+secrete insulin into the host bloodstream within 2 weeks, the
+earliest posttransplantation time point tested (Figure 5A). As a
+control, we also transplanted the same number of PH cells and
+pancreatic progenitors, neither of which secreted signiﬁcant
+levels of insulin in vivo within 2 weeks, as has been previously
+published (Kroon et al., 2008) (data not shown and Figure 5A).
+To test whether the SC-b cells secrete insulin in response to
+glucose, we measured human insulin in the bloodstream of a
+subset of mice both before (0 min) and after (30 min) an acute
+glucose challenge. 73% of SC-b-cell-transplanted mice (27/37
+animals) showed increased human insulin in the bloodstream af-
+ter a glucose challenge, 2 weeks posttransplant (Figure 5A and
+Tables S2 and S3). By comparison, 75% of mice transplanted
+with human islets (9 out of 12 animals) showed increased human
+insulin secretion after the glucose challenge. This increase in hu-
+man insulin with transplanted SC-b cells is statistically signiﬁcant
+(p = 0.0008). As another measure of in vivo GSIS, the average ra-
+tio of insulin secreted after the glucose challenge compared to
+before it was 1.9 ± 0.3 for islet transplants and 1.7 ± 0.2 for
+SC-b cell transplants. These in vivo stimulation indices ranged
+from 0.4 to 4.3 for islet transplants and from 0.5 to 3.8 for SC-b
+cell transplants (Tables S2 and S3).
+After 2 weeks posttransplantation, animals were sacriﬁced and
+the engrafted kidneys were removed for histology. IHC showed
+that both SC-b cell and human islet grafts contain C-peptide+
+cells adjacent to the mouse kidney (Figures 5B and S5). Analysis
+of C-peptide and glucagon staining further revealed that the SC-
+b cells remained monohormonal after transplantation (Figures 5B
+and S5). A minor population of GCG+ cells, which was observed
+before transplantation (Figures 3C, S2D, and S3), was also
+observed in the grafts (Figures 5B and S5).
+Utility of Stem-Cell-Derived b Cells for
+Treating Diabetes
+A major challenge for the stem cell ﬁeld has been to generate
+differentiated cells that mimic their normal, in vivo counterparts.
+We examined how useful SC-b cells would be as a cell therapy in
+a diabetic animal model. One useful diabetes model is the Akita
+mouse (Yoshioka et al., 1997), which has a mutation in the insulin
+gene, leading to protein misfolding, irreversible b cell failure, and
+progressively severe hyperglycemia. Immunodeﬁcient NOD-
+Rag1null IL2rgnull Ins2Akita (NRG-Akita) mice can be restored to
+normoglycemia via mouse or human islet transplantation (Brehm
+et al., 2010).
+We tested whether SC-b cells could also function to control
+diabetic hyperglycemia. Transplantation of SC-b cells, but not
+PH cells, into the kidney capsule of NRG-Akita mice rapidly
+reversed the progressively worsening hyperglycemia observed
+in these animals (Figure 6A). Fasting blood glucose measu-
+rements
+of
+mice
+transplanted
+with
+SC-b
+cells
+averaged
+<200 mg/dl, whereas those transplanted with control PH cells
+showed progressively higher blood glucose levels that ap-
+proached 600 mg/dl, as has been observed for nontransplanted
+NRG-Akita mice (Figure 6A) (Brehm et al., 2010). Mice that
+received SC-b cells also rapidly cleared glucose from the blood
+(E) Hierarchal clustering based on all genes measured by transcriptional microarray of undifferentiated HUES8, PH cells, fetal b cells, and adult primary b cells
+sorted for INS (data from Hrvatin et al., 2014) and SC-b cells sorted for INS and NKX6-1.
+(F) Heatmap of the 100 genes with the most variance across all samples.
+All images were taken with a Zeiss LSM 710 confocal microscope. See also Figures S2B, S2C, S3, and S4. CP, C-peptide; SST, somatostatin; GCG, glucagon.
+Scale bar = 100 mm.
+Cell 159, 428–439, October 9, 2014 ª2014 Elsevier Inc.
+433
+
+
+--- Page 7 ---
+after a glucose injection, similar to the glucose clearance found
+in a separate independent cohort of NRG-Akita mice trans-
+planted with 4000 IEQ of human islets (Figures 6B). We
+measured human insulin in the bloodstream 18 weeks after
+transplantation and found mice that received SC-b cells main-
+tained human insulin secretion (Figure 6C).
+Mice transplanted with SC-b cells also survived better than
+control mice: two out of six mice that received PH cells died
+Figure 4. SC-b Cell Insulin Granules Are Structurally Similar to Primary Human b Cell Granules
+(A) Electron microscopy images of granules within sectioned cells, highlighting representative crystallized insulin granules (red), early insulin granules (yellow), and
+mixed endocrine granules (blue) found in HUES8 SC-b cells, primary b cells, and PH cells. Scale bar, 500 nm.
+(B) Higher-magniﬁcation images of granules highlighted in (A). Scale bar, 500 nm.
+(C) Box and whisker plot of the number of insulin and early insulin granules per cell. The cross indicates mean, and the thick horizontal line indicates median. n = 24
+cells from two batches of differentiation for HUES8 SC-b cells, and n = 30 cells from two donors of primary human b cells. PH cells are not shown because no
+mature insulin or early insulin granules were observed.
+(D) Electron microscopy images of cells labeled with immunogold staining showing granules that contain insulin (smaller 5 nm black dots) and/or glucagon (larger
+15 nm black dots). Representative immunogold particles are highlighted with red arrows (insulin) and blue arrows (glucagon). Scale bar, 100 nm.
+434
+Cell 159, 428–439, October 9, 2014 ª2014 Elsevier Inc.
+
+
+--- Page 8 ---
+within 8 weeks of transplantation, compared to zero out of six
+mice that received SC-b cells. By the end of >4 months of obser-
+vation posttransplantation, ﬁve out of six mice that received PH
+cells died, compared to one out of six mice that received SC-b
+cells. Thus, SC-b cells are capable of secreting insulin and
+rapidly ameliorating progressive hyperglycemia in a diabetic
+mouse model.
+DISCUSSION
+Here, we show that functional human SC-b cells can be directly
+generated from human pluripotent stem cells in vitro. The data
+presented demonstrate that these cells function similarly to pri-
+mary human b cells both in vitro and in vivo posttransplantation.
+These cells can be generated without genetic modiﬁcation and
+in large numbers (billions of cells). Though not all of the cells pre-
+sent at the end of the protocol are SC-b cells, the percentage of
+NKX6-1+/C-peptide+ cells in the clusters is similar to that found
+in human islets, and the size of the clusters is comparable,
+though slightly larger on average than human islets (200–
+250 mm diameter versus 100–150 mm diameter). This is all
+accomplished ex vivo by the addition of deﬁned factors, without
+the addition of mesenchymal or endothelial cells that normally
+accompany b cell development.
+Figure 5. Transplanted SC-b Cells Function
+Rapidly In Vivo
+(A) ELISA measurements of human insulin from the
+serum of individual mice transplanted with com-
+parable numbers of HUES8 SC-b cells (5 3 106
+cells), primary human b cells (500–1,000 IEQ), or
+PH cells (5 3 106 cells). Measurements were taken
+before (white bars) and 30 min after (black bars)
+a
+glucose
+injection
+of
+mice
+2
+weeks
+post-
+transplantation.
+(B) Representative IHC of cells 2 weeks post-
+transplantation
+in
+(A)
+stained
+with
+C-peptide
+(green) and glucagon (GCG; red) to conﬁrm pres-
+ence of graft.
+All images were taken with a Olympus IX51 mi-
+croscope. See also Figure S5 and Tables S2 and
+S3. Scale bar, 100 mm.
+Although we observed that the global
+gene expression patterns of SC-b cells
+are more similar to adult human b cells
+than to fetal b cells, or previously pro-
+duced INS+ cells, gene expression differ-
+ences still remain. One possibility is that
+additional modiﬁcations to the culture
+media or added factors could shift the
+cells even closer to primary b cells.
+Another possibility is that gene expres-
+sion patterns in cadaveric b cells result
+from varied causes of death of the donors,
+the isolation and recovery process, or
+shipping
+or arise
+from the
+inﬂuence
+of adjacent nonendocrine cells. Future
+studies will include a more detailed anal-
+ysis of the gene expression differences between SC-b and
+primary b cells. Two differentiated b cell markers, UCN3 (Blum
+et al., 2012) and MAFA (Aguayo-Mazzucato et al., 2013), were
+not investigated because of the low sensitivity of the probes on
+the DNA microarray. Looking ahead, it may be possible to use
+the approach developed here to improve the number of SC-b
+cells formed, as well as alter the differentiation of pancreatic
+endocrine progenitors to produce all the other endocrine hor-
+mone cell types (a, g, d, ε) and reconstruct the proportions found
+in human islets.
+A preparation of monohormonal cells that respond to a single
+glucose challenge has been previously reported, but those cells
+were not shown to express the key b cell identity marker NKX6-1
+nor function in vivo (Cheng et al., 2012). Recent work has shown
+that differentiation protocols that generate higher levels of
+NKX6-1 lead to better outcomes for the pancreatic progenitor
+transplants (Rezania et al., 2013). Conditional knockout studies
+have shown that NKX6-1 is necessary for b cell function in adult
+mouse islets, suggesting that coexpression of these factors in
+SC-b cells may be part of the reason for their functional abilities
+(Taylor et al., 2013). Despite the potential malleability of gene
+expression levels, we consider the key feature of b cells to be
+their function, i.e., their ability to repeatedly respond to glucose
+by secreting insulin in a way that can be quantiﬁed and observed
+Cell 159, 428–439, October 9, 2014 ª2014 Elsevier Inc.
+435
+
+
+--- Page 9 ---
+in vivo and in vitro. The characterization of SC-b cell physiology
+can be extended in future studies by performing a time course of
+insulin synthesis and secretion and determining how long these
+cells maintain this phenotype in vitro and in vivo.
+We note that the insulin detected in serum of transplanted
+SC-b cells was generally lower than that of animals transplanted
+with cadaveric donor islets on a per cell basis (Tables S2 and S3).
+One possibility is that the other cell types in islets, mesenchyme,
+endothelial cells, or other endocrine cell types may help engraft-
+ment or the vascularization necessary for glucose and insulin
+exchange from the mouse vasculature. Another possibility is
+that the slightly larger size of the SC-b clusters compared to
+the human islets that we received may inﬂuence relative insulin
+amounts secreted, as it has been observed that smaller islets
+secrete more insulin per cell than larger islets (Fujita et al.,
+2011). Nonetheless, the fact that transplantation of SC-b cells
+consistently results in rapid and glucose-responsive insulin pro-
+duction and that these cells function to treat diabetes in a mouse
+model is encouraging.
+The results described here suggest that SC-b cells present an
+opportunity for cell therapy. Limited supplies of donated cadav-
+eric islets and the very small amount of human b cell replication
+achieved in vitro have severely limited human b cell supplies to
+date. This limitation has restricted transplantation options for pa-
+tients as well as high-throughput drug screening and disease
+modeling. A single 68 kg (150 lb) patient requires roughly 340–
+750 million transplanted islet cells to effectively resolve type 1
+diabetes via islet transplantation (McCall and Shapiro, 2012;
+Shapiro et al., 2006). The strategy that we describe here may
+address this limitation, as it utilizes a renewable cell source
+and a scalable method, with cells grown 300 million at a time
+in suspension in a single 500 ml ﬂask. Thus, one or two ﬂasks
+may be sufﬁcient for treatment of a patient. An additional clinical
+advantage of SC-b cells compared to previously proposed ther-
+apies using pancreatic progenitors is that these cells do not
+require an extended posttransplantation period before obser-
+ving insulin production. Immediate insulin production makes it
+theoretically possible to reduce patient exogenous insulin re-
+quirements from the ﬁrst few days posttransplantation.
+These cells also present new opportunities for b cell studies. A
+single ﬂask could provide enough cells for screening 30,000
+compounds in a 384-well format seeded with 10,000 cells per
+well. Unlike primary human b cells, SC-b cells can also be gener-
+ated from pluripotent cells of any desired genetic background.
+hiPSC, which function like hESC, can be generated from any ﬁ-
+broblasts or other somatic cell types through introduction of a
+small set of pluripotency genes (Takahashi and Yamanaka,
+2006). hiPSC cells from patients with diabetes or other metabolic
+syndromes have been derived. Work in progress in our labora-
+tory has demonstrated that this protocol can be applied to differ-
+entiate SC-b cells from diabetic hiPSC lines, which could be
+used for disease modeling and the study of b cell function or sus-
+ceptibility to stress or immune attack. Furthermore, technologies
+like TALEN and CRISPR enable genome editing of hESC or
+hiPSC cells to test variants identiﬁed by genome-wide asso-
+ciation studies (GWAS). SC-b cell drug responses could be
+compared between genetically matched pairs of mutant and
+nonmutant b cells (Ding et al., 2013). Identiﬁcation and testing
+of novel biomarkers for b cell function or pharmacogenetics is
+also enabled by the combination of these technologies. Thus
+SC-b cells provide a new platform for in vitro drug discovery
+and characterization for human metabolism and diabetes.
+The generation of SC-b cells provides a potentially useful step
+toward the generation of islets and pancreatic organs. Incorpo-
+rating pancreatic niche cells, such as mesenchymal or endothe-
+lial cells, into cultures of stem-cell-derived pancreatic cells may
+be beneﬁcial (Sneddon et al., 2012; Lammert et al., 2001). Other
+evidence suggests that the presence of a and g cells may be
+important for precise tuning of normal b cell function (Rodri-
+guez-Diaz et al., 2011). Tissue engineering of a pancreatic organ
+will require incorporation of exocrine and ductal tissue, possibly
+Figure 6. Transplanted SC-b Cells Rapidly Ameliorate Hyperglyce-
+mia in Diabetic Mice
+(A) Fasting blood glucose measurements of progressively diabetic NRG-Akita
+mice transplanted with HUES8 SC-b cells (5 3 106 cells; open circles; n = 6) or
+PH cells (5 3 106 cells; closed square; n = 6 for 0, 18, and 28 days and n = 4 for
+53, 84, and 112 days). Glucose measurements were saturated at 600 mg/dl.
+*p < 0.05 comparing the two cell groups on the same day with unpaired t test.
+Data presented as mean ± SEM.
+(B) Blood glucose measurements of mice that have been transplanted
+137 days prior with HUES8 SC-b cells (n = 5) or PH cells (n = 1) and a separate
+independent cohort of mice transplanted 34 days prior with human islets
+(4,000 IEQ; closed triangle; n = 6). Note: It was not possible to coordinate
+receipt of human cadaveric islets and the production of SC-b cells. So the data
+in Figure 6B come from a different animal cohort. One mouse that received
+HUES8 SC-b cells died after a blood draw taken in (C), and ﬁve mice that
+received PH cells died over the duration of the observation period. Data pre-
+sented as mean ± SEM.
+(C) ELISA measurements of human insulin from the serum of individual mice
+transplanted with HUES8 SC-b cells (n = 6) or PH cells (n = 2). Mice were fasted
+for 16 hr, and then blood glucose was measured before (white bars) and 30 min
+after (black bars) a glucose injection of mice, 126 days posttransplantation. p <
+0.05 for transplanted HUES8 SC-b cells insulin concentration 30 min versus
+0 min after glucose injection with paired t test.
+436
+Cell 159, 428–439, October 9, 2014 ª2014 Elsevier Inc.
+
+
+--- Page 10 ---
+in a speciﬁed architecture. Much work remains to be done to
+achieve any of these therapeutic, disease modeling, drug dis-
+covery, or tissue engineering goals, but the generation of SC-b
+cells represents a step toward making a clinical impact with
+stem cell biology.
+EXPERIMENTAL PROCEDURES
+Cell Culture
+Undifferentiated hPSC lines were maintained in mTeSR1 (StemCell Technolo-
+gies) in 500 ml spinner ﬂasks (Corning, VWR) placed on a 9-Position stir plate
+(Chemglass) set at rotation rate of 70 rpm in a 37C incubator, 5% CO2, and
+100% humidity. The human embryonic stem cell line HUES8 and two hiPSC
+cell lines (hiPSC-1 and hiPSC-2) were utilized for all experiments shown.
+HUES8 cells are part of the NIH human embryonic stem cell registry eligible
+for NIH funding and differentiate well into multiple lineages (Chetty et al., 2013).
+Using signiﬁcant modiﬁcations of previously published protocols (Schulz
+et al., 2012; Rezania et al., 2012; Hrvatin et al., 2014), populations of DE,
+PGT, and PP1 cells were generated as described below. For initiation of SC-
+b cell differentiation, HUES8, hiPSC-1, or hiPSC-2 cells were seeded at 6 3
+105 cells/ml in mTeSR1 media+10mM Y27632. The differentiation was started
+48 hr later for HUES8 and 72 hr later for hiPSC-1 and hiPSC-2 by changing me-
+dia to Day media. Media changes were as follows. Day 1: S1 + 100 ng/ml Ac-
+tivinA (R&D Systems) + 3 mM Chir99021 (Stemgent). Day 2: S1 + 100 ng/ml Ac-
+tivinA. Days 4, 6: S2 + 50 ng/ml KGF (Peprotech). Days 7, 8: S3 + 50 ng/ml
+KGF + 0.25 mM Sant1 (Sigma) + 2 mM RA (Sigma) + 200 nM LDN193189
+(only Day 7) (Sigma) + 500 nM PdBU (EMD Millipore). Days 9, 11, 13: S3 +
+50 ng/ml KGF + 0.25 mM Sant1 + 100 nM RA. Days 14, 16: S5 + 0.25 mM
+Sant1 + 100 nM RA + 1 mM XXI (EMD Millipore) + 10 mM Alk5i II (Axxora) +
+1 mM T3 (EMD Millipore) + 20 ng/ml Betacellulin (Thermo Fisher Scientiﬁc).
+Days 18, 20: S5 + 25 nM RA + 1 mM XXI + 10 mM Alk5i II + 1 mM T3 + 20 ng/
+ml Betacellulin. Days 21–35 (change every second day): S6 + 10 mM Alk5i
+II + 1 mM T3. In the ﬁnal stage, cells were analyzed between 28 and 33 days
+of the protocol.
+For generation of PH protocol cells, HUES8 was used, and the same differen-
+tiation protocol was followed until day 14. On days 14 and 16, cells were fed with
+S3 + 1 mM Alk5i II, 200 nM LDN193189, and 100 nM RA (Rezania et al., 2012). On
+day 18 and onward, cells were fed every other day with S3 + 100 nM RA. Cells
+were maintained in this media until experimental analysis. Cells were main-
+tained in culture and tested after the same number of days in differentiation me-
+dia as the SC-b cells to control for the impact of time in culture.
+Glucose-Stimulated Insulin Secretion
+Human islets (500 IEQ, Prodo Laboratories) or differentiated PH or SC-b cells
+(5 3 105 cells between 28 and 35 days of differentiation) were sampled. Clus-
+ters were washed with Krebs (Krb) buffer and were then preincubated in low
+(2 mM) glucose Krb for 2 hr to remove residual insulin. Clusters were washed
+two times in Krb, incubated in low-glucose Krb for 30 min, and supernatant
+collected. Then clusters were washed two times in Krb, incubated in high
+glucose Krb for 30 min, and supernatant collected. This sequence was
+repeated two additional times. Finally, clusters were incubated in Krb contain-
+ing 2 mM glucose and 30 mM KCl (depolarization challenge) for 30 min and
+then supernatant collected. Clusters were then dispersed into single cells us-
+ing TrypLE Express (Life Technologies), and cell number was counted auto-
+matically by a Vi-Cell (Beckman Coulter). Supernatant samples containing
+secreted insulin were processed using the Human Ultrasensitive Insulin ELISA
+(ALPCO Diagnostics).
+Proinsulin and Insulin Content Measurements
+Acid-ethanol extraction was used to extract protein, and proinsulin and insulin
+contact was measured using intact human proinsulin (BioVendor) and human
+Ultrasensitive Insulin ELISA kits.
+Calcium Imaging
+Clusters were attached to plates coated with hESC-qualiﬁed Matrigel (BD Bio-
+sciences). After incubation and attachment, the wells were washed with Krb
+buffer, incubated with Fluo4-AM (Life Technologies) for 45 min, washed with
+Krb buffer, and then incubated further in 37C incubator for an additional
+15 min without the dye. Clusters were then immediately staged on an Axio-
+Zoom V16 microscope (Carl Zeiss) for acquisition of high-resolution time series
+imaging.
+Time series images were acquired at single-cell resolution of 803 magniﬁca-
+tion, every 17 s. Progression of glucose challenges and time of the stimulation
+during imaging was as follows: 5 min in low (2 mM) glucose Krb, wash, 5 min
+high (20 mM) glucose Krb, and wash. This sequential treatment was repeated
+two more times, and then a ﬁnal 5 min incubation 2 mM glucose Krb containing
+30 mM KCl was performed. Images were analyzed using ImageJ /Fiji. Analysis
+of the cluster was done by the measurement of the average ﬂuorescence
+intensity of the whole cluster (population analysis) or average ﬂuorescence in-
+tensity of the individual cells within the cluster (single cell analysis).
+Immunohistochemistry
+Differentiated cell clusters or islets were ﬁxed with 4% PFA for 1 hr at room
+temperature (RT), washed, embedded in Histogel (Thermo), and sectioned
+for histological analysis. Before staining, parafﬁn was removed from sections
+using Histoclear (Thermoscientiﬁc), rehydrated, and underwent antigen
+retrieval by treatment with 0.1M EDTA (Ambion) in pressure cooker (Proteoge-
+nix) for 2 hr. For staining, slides were blocked with PBS+0.1% Triton X-100
+(VWR)+5% donkey serum (Jackson Immunoresearch) for 1 hr at RT, incubated
+with primary antibodies overnight at 4C, washed, incubated with secondary
+antibody incubation for 2 hr at RT, and washed. For imaging, samples were
+mounted in Vectashield (Vector Laboratories), covered with coverslips, and
+sealed with nail polish. Representative images were taken using an Olympus
+IX51 Microscope or Zeiss LSM 510 or 710 confocal microscope.
+Flow Cytometry
+Differentiated cell clusters or islets were dispersed into single-cell suspension
+by incubation in TrypLE Express at 37C, ﬁxed with 4% PFA on ice for 30 min,
+washed once in PBS, and incubated in blocking buffer (PBS+0.1% Triton
+X-100+5% donkey serum) on ice for 1 hr. Cells were then resuspended in
+blocking buffer with primary antibodies and incubated at 4C overnight. Cells
+were washed twice in blocking buffer and were then incubated in blocking
+buffer with secondary antibodies on ice for 2 hr. Cells were then washed thrice
+and analyzed using the LSR-II ﬂow cytometer (BD Biosciences). Analysis of the
+results was performed using FlowJo software.
+Gene Expression Analysis of Sorted Cells
+To analyze global gene expression of SC-b cells, we used a recently described
+ﬁxation and sorting strategy to isolate NKX6-1+/INS+ SC-b cells from the
+heterogenous cell clusters (Hrvatin et al., 2014). In brief, dispersed and ﬁxed
+cells were incubated with primary antibodies for 30 min in buffer containing
+RNasin, washed twice, and then incubated with secondary antibodies in buffer
+containing RNasin for 30 min each. After antibody staining, cells were sorted
+by ﬂuorescence-activated cell sorting. RNA was extracted with the RecoverAll
+Total Nucleic Acid Isolation Kit (Ambion). The Illumina TotalPrep RNA Ampliﬁ-
+cation Kit (Life Technologies) was used to make cRNA, which was run on Hu-
+man HT-12 Expression BeadChips (Illumina) using the Whole-Genome
+Expression Direct Hybridization kit (Illumina). Chips were scanned on the Illu-
+mina Beadstation 500. These SC-b cell microarray data and the previously
+published hPSC, PH, fetal b, and adult b cell data (Hrvatin et al., 2014) were im-
+ported into the R statistical computing platform using the programming pack-
+ages lumi and EMA. Samples were analyzed by hierarchical clustering using
+Pearson’s correlation and Ward linkage. The pattern of clustering was robust
+to other distance and linkage metrics.
+Electron Microscopy
+To analyze granular ultrastructure, cadaveric pancreatic islets or differentiated
+hPSC were ﬁxed at RT for 2 hr with a mixture containing 1.25% PFA, 2.5%
+glutaraldehyde, and 0.03% picric acid in 0.1 M sodium cocodylate buffer
+(pH 7.4). Samples were then washed in 0.1 M cacodylate buffer and postﬁxed
+at RT with a mixture of 1% OsO4/1.5% KFeCN6 once for 2 hr then once for
+1 hr. After washing with water, samples were stained in 1% aqueous uranyl
+acetate for 1 hr, washed, and subsequently dehydrated. A 1 hr incubation in
+Cell 159, 428–439, October 9, 2014 ª2014 Elsevier Inc.
+437
+
+
+--- Page 11 ---
+propyleneoxide was followed by inﬁltration overnight in a 1:1 mixture of propy-
+leneoxide and TAAB Epon (Marivac Canada, St. Laurent, Canada), after which
+samples were embedded in TAAB Epon. Cut sections were then stained with
+0.2% lead citrate. A JEOL 1200EX Transmission electron microscope or a Tec-
+naiG2 Spirit BioTWIN was used to analyze the samples. For determination of
+granular protein composition, immunogold labeling was performed on cadav-
+eric pancreatic islets or differentiated clusters.
+Transplantation Studies
+Immunodeﬁcient SCID-Beige mice, aged 8–10 weeks, were procured from Ta-
+conic or The Jackson Laboratory, and NOD.Cg-Rag1tm1Mom IL2rgtm1Wjl Ins2A-
+kita (NRG-Akita), aged 8–12 weeks, were generously provided by Dr. Leonard
+D. Shultz of The Jackson Laboratory, Bar Harbor, ME. Human islets (500–
+1000 IEQ per animal for SCID-Beige or 4,000 IEQ per animal for NRG-Akita
+mice) or hPSC-derived cell clusters (5 million cells per animal) were loaded
+into catheter for cell delivery below the kidney capsule of mice.
+At select times, mice were analyzed by performing a glucose challenge,
+measuring blood glucose, and collecting serum to measure human insulin. Af-
+ter fasting the mice for 16 hr overnight, mice were injected intraperitoneal (IP)
+with 2 g D-(+)-glucose/1 kg body weight and blood glucose measured and
+serum collected at 0 and 30 min post glucose injection. Serum human insulin
+levels were quantiﬁed using the Human Ultrasensitive Insulin ELISA. Kidneys
+containing the grafts were dissected from the mice, ﬁxed in 4% PFA overnight,
+embedded in parafﬁn, and sectioned for histological analysis. IHC analysis
+was performed as described above. All experiments were in accordance
+with the guidelines of the appropriate committee.
+Statistical Analysis
+Statistical analysis was performed by using unpaired and paired t tests. Box
+and whisker plots were generated with BoxPlorR (http://boxplot.tyerslab.
+com/) using default settings for box and whisker length.
+ACCESSION NUMBERS
+The GEO accession number for the microarray data reported in this paper is
+GSE61714.
+SUPPLEMENTAL INFORMATION
+Supplemental Information includes Extended Experimental Procedures, ﬁve
+ﬁgures, and three tables and can be found with this article online at http://
+dx.doi.org/10.1016/j.cell.2014.09.040.
+AUTHOR CONTRIBUTIONS
+All authors contributed to conception and design of experiments. Individual
+experimental contributions are as follows: F.W.P., J.R.M., M.G., and M.S.
+were primarily responsible for the experiments shown in Figures 1, 3, 5, and
+S1–S5 and Tables S1–S3; J.H.R. for Figure 2; A.V.D. for Figure 4; and D.G.
+for Figure 6. F.W.P., J.R.M., M.G., and D.A.M. wrote the manuscript. All au-
+thors reviewed, edited, and approved the manuscript.
+ACKNOWLEDGMENTS
+We thank Chunhui Xie, Eliza Scadden, and Isaac Alter for excellent technical
+assistance; Maria Ericsson, Elizabeth Benecchi, and Louise Trakimas from
+the HMS Conventional Electron Microscopy Facility for assistance with elec-
+tron microscopy; and Dena Cohen, Jeffrey Davis, Adam Roose, Barak Blum,
+and the Greiner and BetaLogics laboratories for helpful discussions. We also
+thank the members of the Harvard Stem Cell Institute Histology Core and
+Flow Cytometry Core facilities for invaluable assistance. The NRG-Akita
+mice were generously provided by Dr. Leonard Shultz. J.R.M. was supported
+by a fellowship from the Harvard Stem Cell Institute. Q.P.P. was supported by
+a fellowship from the Juvenile Diabetes Research Foundation. D.A.M. is an
+Investigator of the Howard Hughes Medical Institute. This work was supported
+by grants from the Harvard Stem Cell Institute, NIH, Helmsley Charitable Trust,
+the JPB Foundation and the generosity of M. and A. Barry. D.G. is a consultant
+for The Jackson Laboratory.
+Received: April 7, 2014
+Revised: August 4, 2014
+Accepted: September 23, 2014
+Published: October 9, 2014
+REFERENCES
+Aguayo-Mazzucato, C., Zavacki, A.M., Marinelarena, A., Hollister-Lock, J., El
+Khattabi, I., Marsili, A., Weir, G.C., Sharma, A., Larsen, P.R., and Bonner-Weir,
+S. (2013). Thyroid hormone promotes postnatal rat pancreatic b-cell develop-
+ment and glucose-responsive insulin secretion through MAFA. Diabetes 62,
+1569–1580.
+Apelqvist, A., Li, H., Sommer, L., Beatus, P., Anderson, D.J., Honjo, T., Hrabe
+de Angelis, M., Lendahl, U., and Edlund, H. (1999). Notch signalling controls
+pancreatic cell differentiation. Nature 400, 877–881.
+Bellin, M.D., Barton, F.B., Heitman, A., Harmon, J.V., Kandaswamy, R., Bala-
+murugan, A.N., Sutherland, D.E., Alejandro, R., and Hering, B.J. (2012). Potent
+induction immunotherapy promotes long-term insulin independence after islet
+transplantation in type 1 diabetes. Am. J. Transplant. 12, 1576–1583.
+Blum, B., Hrvatin, S.S., Schuetz, C., Bonal, C., Rezania, A., and Melton, D.A.
+(2012). Functional beta-cell maturation is marked by an increased glucose
+threshold and by expression of urocortin 3. Nat. Biotechnol. 30, 261–264.
+Brehm, M.A., Bortell, R., Diiorio, P., Leif, J., Laning, J., Cuthbert, A., Yang, C.,
+Herlihy, M., Burzenski, L., Gott, B., et al. (2010). Human immune system devel-
+opment and rejection of human islet allografts in spontaneously diabetic NOD-
+Rag1null IL2rgammanull Ins2Akita mice. Diabetes 59, 2265–2270.
+Bruin, J.E., Erener, S., Vela, J., Hu, X., Johnson, J.D., Kurata, H.T., Lynn, F.C.,
+Piret, J.M., Asadi, A., Rezania, A., and Kieffer, T.J. (2014). Characterization of
+polyhormonal insulin-producing cells derived in vitro from human embryonic
+stem cells. Stem Cell Res. (Amst.) 12, 194–208.
+Cheng, X., Ying, L., Lu, L., Galva˜ o, A.M., Mills, J.A., Lin, H.C., Kotton, D.N.,
+Shen, S.S., Nostro, M.C., Choi, J.K., et al. (2012). Self-renewing endodermal
+progenitor lines generated from human pluripotent stem cells. Cell Stem Cell
+10, 371–384.
+Chetty, S., Pagliuca, F.W., Honore, C., Kweudjeu, A., Rezania, A., and Melton,
+D.A. (2013). A simple tool to improve pluripotent stem cell differentiation. Nat.
+Methods 10, 553–556.
+D’Amour, K.A., Agulnick, A.D., Eliazer, S., Kelly, O.G., Kroon, E., and Baetge,
+E.E. (2005). Efﬁcient differentiation of human embryonic stem cells to deﬁnitive
+endoderm. Nat. Biotechnol. 23, 1534–1541.
+D’Amour, K.A., Bang, A.G., Eliazer, S., Kelly, O.G., Agulnick, A.D., Smart, N.G.,
+Moorman, M.A., Kroon, E., Carpenter, M.K., and Baetge, E.E. (2006). Produc-
+tion of pancreatic hormone-expressing endocrine cells from human embryonic
+stem cells. Nat. Biotechnol. 24, 1392–1401.
+Deconinck, J.F., Potvliege, P.R., and Gepts, W. (1971). The ultrasturcture of
+the human pancreatic islets. I. The islets of adults. Diabetologia 7, 266–282.
+Ding, Q., Lee, Y.-K., Schaefer, E.A., Peters, D.T., Veres, A., Kim, K., Kuper-
+wasser, N., Motola, D.L., Meissner, T.B., Hendriks, W.T., et al. (2013). A TALEN
+genome-editing system for generating human stem cell-based disease
+models. Cell Stem Cell 12, 238–251.
+Fujita, Y., Takita, M., Shimoda, M., Itoh, T., Sugimoto, K., Noguchi, H., Nazir-
+uddin, B., Levy, M.F., and Matsumoto, S. (2011). Large human islets secrete
+less insulin per islet equivalent than smaller islets in vitro. Islets 3, 1–5.
+Gamer, L.W., and Wright, C.V. (1995). Autonomous endodermal determination
+in Xenopus: regulation of expression of the pancreatic gene XlHbox 8. Dev.
+Biol. 171, 240–251.
+Hebrok, M., Kim, S.K., St Jacques, B., McMahon, A.P., and Melton, D.A.
+(2000). Regulation of pancreas development by hedgehog signaling. Develop-
+ment 127, 4905–4913.
+Henry, G.L., and Melton, D.A. (1998). Mixer, a homeobox gene required for
+endoderm development. Science 281, 91–96.
+438
+Cell 159, 428–439, October 9, 2014 ª2014 Elsevier Inc.
+
+
+--- Page 12 ---
+Hrvatin, S., O’Donnell, C.W., Deng, F., Millman, J.R., Pagliuca, F.W., DiIorio,
+P., Rezania, A., Gifford, D.K., and Melton, D.A. (2014). Differentiated human
+stem cells resemble fetal, not adult, b cells. Proc. Natl. Acad. Sci. USA 111,
+3038–3043.
+Keirstead, H.S., Nistor, G., Bernal, G., Totoiu, M., Cloutier, F., Sharp, K., and
+Steward, O. (2005). Human embryonic stem cell-derived oligodendrocyte pro-
+genitor cell transplants remyelinate and restore locomotion after spinal cord
+injury. J. Neurosci. 25, 4694–4705.
+Kim, S.K., Hebrok, M., Li, E., Oh, S.P., Schrewe, H., Harmon, E.B., Lee, J.S.,
+and Melton, D.A. (2000). Activin receptor patterning of foregut organogenesis.
+Genes Dev. 14, 1866–1871.
+Kriks, S., Shim, J.-W., Piao, J., Ganat, Y.M., Wakeman, D.R., Xie, Z., Carrillo-
+Reid, L., Auyeung, G., Antonacci, C., Buch, A., et al. (2011). Dopamine neurons
+derived from human ES cells efﬁciently engraft in animal models of Parkinson’s
+disease. Nature 480, 547–551.
+Kroon, E., Martinson, L.A., Kadoya, K., Bang, A.G., Kelly, O.G., Eliazer, S.,
+Young, H., Richardson, M., Smart, N.G., Cunningham, J., et al. (2008). Pancre-
+atic endoderm derived from human embryonic stem cells generates glucose-
+responsive insulin-secreting cells in vivo. Nat. Biotechnol. 26, 443–452.
+Lammert, E., Cleaver, O., and Melton, D. (2001). Induction of pancreatic differ-
+entiation by signals from blood vessels. Science 294, 564–567.
+Like, A.A., and Orci, L. (1972). Embryogenesis of the human pancreatic islets: a
+light and electron microscopic study. Diabetes Suppl. 21, 511–534.
+Lu, B., Malcuit, C., Wang, S., Girman, S., Francis, P., Lemieux, L., Lanza, R.,
+and Lund, R. (2009). Long-term safety and function of RPE from human embry-
+onic stem cells in preclinical models of macular degeneration. Stem Cells 27,
+2126–2135.
+McCall, M., and Shapiro, A.M.J. (2012). Update on islet transplantation. Cold
+Spring Harb. Perspect. Med. 2, a007823.
+Mohammed, J.S., Wang, Y., Harvat, T.A., Oberholzer, J., and Eddington, D.T.
+(2009). Microﬂuidic device for multimodal characterization of pancreatic islets.
+Lab Chip 9, 97–106.
+Murtaugh, L.C., Stanger, B.Z., Kwan, K.M., and Melton, D.A. (2003). Notch
+signaling controls multiple steps of pancreatic differentiation. Proc. Natl.
+Acad. Sci. USA 100, 14920–14925.
+Narayanan, K., Lim, V.Y., Shen, J., Tan, Z.W., Rajendran, D., Luo, S.C., Gao,
+S., Wan, A.C., and Ying, J.Y. (2014). Extracellular matrix-mediated differentia-
+tion of human embryonic stem cells: differentiation to insulin-secreting beta
+cells. Tissue Eng. Part A 20, 424–433.
+Ninomiya, H., Takahashi, S., Tanegashima, K., Yokota, C., and Asashima, M.
+(1999). Endoderm differentiation and inductive effect of activin-treated ecto-
+derm in Xenopus. Dev. Growth Differ. 41, 391–400.
+Nostro, M.C., Sarangi, F., Ogawa, S., Holtzinger, A., Corneo, B., Li, X., Micallef,
+S.J., Park, I.H., Basford, C., Wheeler, M.B., et al. (2011). Stage-speciﬁc
+signaling through TGFb family members and WNT regulates patterning and
+pancreatic speciﬁcation of human pluripotent stem cells. Development 138,
+861–871.
+Rezania, A., Bruin, J.E., Riedel, M.J., Mojibian, M., Asadi, A., Xu, J., Gauvin, R.,
+Narayan, K., Karanu, F., O’Neil, J.J., et al. (2012). Maturation of human embry-
+onic stem cell-derived pancreatic progenitors into functional islets capable of
+treating pre-existing diabetes in mice. Diabetes 61, 2016–2029.
+Rezania, A., Bruin, J.E., Xu, J., Narayan, K., Fox, J.K., O’Neil, J.J., and Kieffer,
+T.J. (2013). Enrichment of human embryonic stem cell-derived NKX6.1-ex-
+pressing pancreatic progenitor cells accelerates the maturation of insulin-
+secreting cells in vivo. Stem Cells 31, 2432–2442.
+Rodriguez-Diaz, R., Dando, R., Jacques-Silva, M.C., Fachado, A., Molina, J.,
+Abdulreda, M.H., Ricordi, C., Roper, S.D., Berggren, P.O., and Caicedo, A.
+(2011). Alpha cells secrete acetylcholine as a non-neuronal paracrine signal
+priming beta cell function in humans. Nat. Med. 17, 888–892.
+Rutter, G.A., and Hodson, D.J. (2013). Minireview: intraislet regulation of insu-
+lin secretion in humans. Mol. Endocrinol. 27, 1984–1995.
+Schulz, T.C., Young, H.Y., Agulnick, A.D., Babin, M.J., Baetge, E.E., Bang,
+A.G., Bhoumik, A., Cepa, I., Cesario, R.M., Haakmeester, C., et al. (2012). A
+scalable system for production of functional pancreatic progenitors from hu-
+man embryonic stem cells. PLoS ONE 7, e37004.
+Shapiro, A.M., Ricordi, C., Hering, B.J., Auchincloss, H., Lindblad, R., Robert-
+son, R.P., Secchi, A., Brendel, M.D., Berney, T., Brennan, D.C., et al. (2006).
+International trial of the Edmonton protocol for islet transplantation. N. Engl.
+J. Med. 355, 1318–1330.
+Shiba, Y., Fernandes, S., Zhu, W.Z., Filice, D., Muskheli, V., Kim, J., Palpant,
+N.J., Gantz, J., Moyes, K.W., Reinecke, H., et al. (2012). Human ES-cell-
+derived cardiomyocytes electrically couple and suppress arrhythmias in
+injured hearts. Nature 489, 322–325.
+Sneddon, J.B., Borowiak, M., and Melton, D.A. (2012). Self-renewal of embry-
+onic-stem-cell-derived progenitors by organ-matched mesenchyme. Nature
+491, 765–768.
+Son, E.Y., Ichida, J.K., Wainger, B.J., Toma, J.S., Rafuse, V.F., Woolf, C.J.,
+and Eggan, K. (2011). Conversion of mouse and human ﬁbroblasts into func-
+tional spinal motor neurons. Cell Stem Cell 9, 205–218.
+Takahashi, K., and Yamanaka, S. (2006). Induction of pluripotent stem cells
+from mouse embryonic and adult ﬁbroblast cultures by deﬁned factors. Cell
+126, 663–676.
+Taylor, B.L., Liu, F.F., and Sander, M. (2013). Nkx6.1 is essential for maintain-
+ing the functional state of pancreatic beta cells. Cell Rep. 4, 1262–1275.
+Thowfeequ, S., Ralphs, K.L., Yu, W.Y., Slack, J.M., and Tosh, D. (2007). Beta-
+cellulin inhibits amylase and glucagon production and promotes beta cell dif-
+ferentiation in mouse embryonic pancreas. Diabetologia 50, 1688–1697.
+Xie, R., Everett, L.J., Lim, H.W., Patel, N.A., Schug, J., Kroon, E., Kelly, O.G.,
+Wang, A., D’Amour, K.A., Robins, A.J., et al. (2013). Dynamic chromatin re-
+modeling mediated by polycomb proteins orchestrates pancreatic differentia-
+tion of human embryonic stem cells. Cell Stem Cell 12, 224–237.
+Yoshioka, M., Kayo, T., Ikeda, T., and Koizumi, A. (1997). A novel locus,
+Mody4, distal to D7Mit189 on chromosome 7 determines early-onset NIDDM
+in nonobese C57BL/6 (Akita) mutant mice. Diabetes 46, 887–894.
+Cell 159, 428–439, October 9, 2014 ª2014 Elsevier Inc.
+439

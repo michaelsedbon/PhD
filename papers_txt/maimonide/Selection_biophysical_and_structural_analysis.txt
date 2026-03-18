@@ -1,0 +1,1749 @@
+--- Page 1 ---
+ARTICLE
+Selection, biophysical and structural analysis of
+synthetic nanobodies that effectively neutralize
+SARS-CoV-2
+Tânia F. Custódio1, Hrishikesh Das
+2, Daniel J. Sheward3,4, Leo Hanke
+3, Samuel Pazicky
+1,
+Joanna Pieprzyk1, Michèle Sorgenfrei5, Martin A. Schroer
+6, Andrey Yu. Gruzinov6, Cy M. Jeffries6,
+Melissa A. Graewert
+6, Dmitri I. Svergun6, Nikolay Dobrev7, Kim Remans7, Markus A. Seeger
+5,
+Gerald M. McInerney
+3, Ben Murrell
+3✉, B. Martin Hällberg
+2,8✉& Christian Löw
+1✉
+The coronavirus SARS-CoV-2 is the cause of the ongoing COVID-19 pandemic. Therapeutic
+neutralizing antibodies constitute a key short-to-medium term approach to tackle COVID-19.
+However, traditional antibody production is hampered by long development times and costly
+production. Here, we report the rapid isolation and characterization of nanobodies from a
+synthetic library, known as sybodies (Sb), that target the receptor-binding domain (RBD) of
+the SARS-CoV-2 spike protein. Several binders with low nanomolar afﬁnities and efﬁcient
+neutralization activity were identiﬁed of which Sb23 displayed high afﬁnity and neutralized
+pseudovirus with an IC50 of 0.6 µg/ml. A cryo-EM structure of the spike bound to
+Sb23 showed that Sb23 binds competitively in the ACE2 binding site. Furthermore, the cryo-
+EM reconstruction revealed an unusual conformation of the spike where two RBDs are in the
+‘up’ ACE2-binding conformation. The combined approach represents an alternative, fast
+workﬂow to select binders with neutralizing activity against newly emerging viruses.
+https://doi.org/10.1038/s41467-020-19204-y
+OPEN
+1 Centre for Structural Systems Biology (CSSB), DESY and European Molecular Biology Laboratory Hamburg, Notkestrasse 85, D-22607
+Hamburg, Germany. 2 Centre for Structural Systems Biology (CSSB) and Karolinska Institutet VR-RÅC, Notkestrasse 85, D-22607 Hamburg, Germany.
+3 Department of Microbiology, Tumor and Cell Biology, Karolinska Institutet, Stockholm 17177, Sweden. 4 Division of Virology, Institute of Infectious
+Diseases and Molecular Medicine, Faculty of Health Sciences, University of Cape Town, Cape Town, South Africa. 5 Institute of Medical Microbiology,
+University of Zurich, Zurich, Switzerland. 6 European Molecular Biology Laboratory (EMBL), Hamburg Outstation c/o Deutsches Elektronen Synchrotron
+(DESY), Notkestrasse 85, D-22607 Hamburg, Germany. 7 European Molecular Biology Laboratory (EMBL) Heidelberg, Protein Expression and
+Puriﬁcation Core Facility, 69117 Heidelberg, Germany. 8 Department of Cell and Molecular Biology, Karolinska Institutet, 17177 Stockholm, Sweden.
+✉email: benjamin.murrell@ki.se; martin.hallberg@ki.se; christian.loew@embl-hamburg.de
+NATURE COMMUNICATIONS |  (2020) 11:5588 | https://doi.org/10.1038/s41467-020-19204-y | www.nature.com/naturecommunications
+1
+1234567890():,;
+
+
+--- Page 2 ---
+T
+he emerging COVID-19 pandemic imposes a substantial
+social and economic burden worldwide. The causative
+agent of COVID-19 that causes, among other symptoms,
+severe atypical pneumonia in humans was quickly identiﬁed as a
+novel coronavirus and designated as SARS-CoV-21–4. Similar to
+its closest homolog SARS-CoV-1, SARS-CoV-2 exploits the
+ACE2 (angiotensin converting enzyme 2) receptor to enter host
+cells5–7. Host cell entry is orchestrated by the viral spike protein
+that, upon binding to ACE2, mediates fusion of the viral mem-
+brane with the host membrane. The ectodomain of the heavily
+glycosylated spike protein forms a trimer where each protomer
+consists of a core S2 subunit and a distal S1 subunit. Each
+S1 subunit comprises a receptor-binding domain (RBD) that can
+switch between an exposed “up” conformation and a “down”
+conformation, where the latter is inaccessible for ACE2 bind-
+ing8–10. A number of antibodies against various viral surface
+proteins are currently in clinical trials11. Exposed on the surface
+of SARS-CoV-2, the spike protein is the major antigenic deter-
+minant of the host immune response and one of the main cor-
+onavirus drug targets12,13. Indeed, plasma from convalescent
+SARS-CoV-2 patients was suggested to improve the clinical
+outcome of patients with severe COVID-1914–16. Several groups
+have isolated human antibodies that showed promising neu-
+tralization activity against SARS-CoV-2 in vitro and improved
+the clinical outcome of tested animals in vivo17–20. As an alter-
+native to human antibodies, nanobodies (single-domain anti-
+bodies) can also be used as therapeutics with the advantage of
+their small size, increased stability, and superior simplicity in
+production21,22. Recently, several groups showed that nano-
+bodies can inhibit the binding of the spike protein to ACE2
+and neutralize the virus23–25. Nanobodies are traditionally iso-
+lated from immunized camelids; however, the development of
+libraries of synthetic nanobodies (sybodies) enables a faster and
+cheaper selection of binders against therapeutic targets26.
+Here, we report the selection of sybodies directed against the
+RBD of SARS-CoV-2 and demonstrate that they can compete
+with ACE2 binding and neutralize SARS-CoV-2 spike pseudo-
+virus. In particular, sybody 23 (Sb23) binds to recombinant RBD
+as well as to the prefusion spike glycoprotein with high afﬁnity
+and shows very potent neutralization activity. A small angle X-ray
+scattering (SAXS) model of a RBD–Sb23 complex indicated that
+Sb23 binds in the vicinity of the ACE2-binding site on the RBD.
+Lastly, a cryo-EM structure of Sb23 bound to the spike reveals
+that Sb23 binds in the ACE2-binding site on the RBD in both its
+“up” and “down” conformation and thereby effectively blocks
+ACE2 binding. Interestingly, the cryo-EM reconstruction also
+reveals that the spike bound to Sb23 displays an unusual con-
+formation where two RBDs are in the “up” ACE2-binding
+conformation.
+Results
+Sybody selection, ELISA and sequencing. Sybody selections on
+biotinylated RBD were carried out with the three sybody libraries
+(concave, loop and convex) following established procedures26,27.
+The enrichment of binders against RBD was closely followed by
+qPCR with enrichment factors of 100–9000 in the last selection
+round, indicating strong speciﬁc enrichment (Fig. 1a). In general,
+sybodies that gave rise to a positive ELISA signal for the RBD, did
+so also for the prefusion spike protein. ELISA signals for the spike
+protein were on average higher compared to the RBD, which
+could be due to avidity effects caused by the trimeric nature of the
+spike protein or an increased biotin density on the surface of the
+protein. No binding to the negative control protein MBP was
+observed for any of the binders, indicating RBD-speciﬁcity of the
+selected sybodies (Supplementary Fig. 1). Next, we sequenced 100
+clones which were positive in ELISA against RBD and spike
+covering the three libraries equally well. We obtained 85 unique
+sybody sequences (Supplementary Data 1). In total, 33 sybodies
+were derived from the concave, 32 from the loop, and 20 from the
+convex library. Based on sequence alignment and phylogenetic
+tree analysis (Fig. 1b), it becomes clear that selected binders cover
+a large sequence space.
+Sybody puriﬁcation and afﬁnity analysis. 62 unique sybodies
+were expressed in E. coli, puriﬁed via metal-afﬁnity chromato-
+graphy to high purity and characterized by analytical gel ﬁltration
+(Supplementary Fig. 2). We employed a biolayer interferometry
+(BLI) assay to kinetically characterize the interaction of sybodies
+with RBD. Biotinylated RBD was immobilized on a streptavidin
+sensor and on- and off-rates for all puriﬁed sybodies were
+determined at a single concentration (500 nM) yielding afﬁnities
+(KD) in a range of 5 nM–10 µM (Supplementary Fig. 3). Most
+sybodies displayed strong binding signals, but many of them
+exhibited fast off-rates, which is disadvantageous for neutraliza-
+tion activity.
+To obtain more accurate afﬁnity data for RBD binding, we
+selected sybodies 12, 23, 42, 76, 95, and 100 and determined their
+binding constants by analyzing the on- and off-rates over a large
+range of sybody concentrations. Resulting afﬁnities are listed in
+Fig. 2a–f. Tight binding of the selected binders to RBD was
+further conﬁrmed by thermal shift assays (Fig. 2g, h). In
+particular, the interaction of Sb23 with RBD increases the
+melting temperature of RBD by almost ten degrees, which is
+considerably more than for other binders.
+Sybodies neutralize SARS-CoV-2 spike pseudotyped viruses.
+To test whether the selected sybodies can neutralize SARS-CoV-2,
+we performed a neutralization assay with lentiviral particles
+pseudotyped with the SARS-CoV-2 spike protein28. Thirty-six
+sybodies were screened for neutralization, identifying eleven
+capable of neutralizing SARS-CoV-2 at an IC50 < 20 µg/ml,
+including six with an IC50 < 5 µg/ml (Supplementary Fig. 4a–c).
+No neutralization of VSV-G pseudotyped viruses was evident for
+any sybody preparation, and a control sybody targeting the
+human peptide transporter 2 (PepT2) did not show any neu-
+tralizing activity. Sybody 23 (Sb23) represented the most potent
+sybody identiﬁed, with an IC50 of 0.6 µg/ml (Fig. 3a). The neu-
+tralization efﬁciency of Sb23 was signiﬁcantly increased by fusing
+it to an antibody-derived Fc domain. The bivalent Sb23-Fc con-
+structs, displays ~100-fold improved neutralization potential,
+compared to its monovalent counterpart, with an IC50 of 0.007
+µg/ml and an afﬁnity towards the RBD in the pM range (Fig. 3a,
+b). A similar effect was observed for Sb42-Fc (Supplementary
+Fig. 4d, e).
+Sb23 competes with ACE2 for RBD binding of the SARS-CoV-
+2 spike protein. To obtain a deeper understanding of the neu-
+tralizing activity of the identiﬁed binders, we performed BLI
+assays to monitor ACE2 binding to immobilized RBD in the
+presence or absence of Sb23. ACE2 bound RBD with an afﬁnity of
+33.4 nM under the stated experimental conditions, but no ACE2-
+RBD binding was detected in the presence of 150 nM Sb23 over
+the tested concentration range (Fig. 3c). This could be attributed
+to either a direct competition for the receptor-binding motif, a
+steric hindrance, or conformation induced changes upon Sb23
+binding.
+To conﬁrm this observation in the context of the trimeric spike
+protein, we developed a competition assay under equilibrium
+conditions to screen binding of Sb23 to the spike protein in the
+presence or absence of ACE2 using microscale thermophoresis.
+ARTICLE
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-020-19204-y
+2
+NATURE COMMUNICATIONS |  (2020) 11:5588 | https://doi.org/10.1038/s41467-020-19204-y | www.nature.com/naturecommunications
+
+
+--- Page 3 ---
+This method is sensitive to changes in size, charge state, and
+hydration shell, and requires one binding partner to be
+ﬂuorescently labeled. We monitored binding of the ﬂuorescently
+labeled Sb23 to the spike protein in the presence of a constant
+concentration of ACE2. In case the sybody targets a different
+epitope on the RBD of the spike protein than ACE2, the resulting
+afﬁnity is expected to be independent of the presence of ACE2.
+However, our data show that with increasing concentrations of
+ACE2, the afﬁnity of Sb23 to the spike protein drops 10-fold in
+the presence of 200 nM ACE2 (Fig. 3d). In conclusion, these data
+indicate that Sb23 and ACE2 compete for the same or
+overlapping binding sites on SARS-CoV-2-RBD. At the same
+time the data also highlight that Sb23 has a signiﬁcantly higher
+afﬁnity to the RBD than ACE2 since Sb23 can efﬁciently replace
+ACE2 from a preformed complex.
+Characterization of Sb23 and RBD interaction by SAXS. To
+shed light on the structural basis of the neutralization activity of
+Sb23 against SARS-CoV-2, we collected SAXS on the RBD–Sb23
+complex (Fig. 4a, b and Table 1). Complex formation is con-
+ﬁrmed as judged by the shift of the position of the maximum in p
+(r) and the increase of the particle size Dmax upon Sb23 binding.
+The ab initio low-resolution shape depicts the Sb23 and RBD
+moieties in the complex (Fig. 4c) and indicates that Sb23 is bound
+at the extremity of the RBD.
+56
+48
+61
+58
+66
+40
+45
+54
+37
+42
+52
+51
+64
+53
+63
+35
+46
+76
+88
+44
+41
+50
+57
+62
+36
+43
+49
+47
+67
+39
+60
+32
+18
+29
+15
+13
+6
+12
+8
+33
+17
+7
+24
+28
+4
+34
+30
+22
+1
+21
+14
+27
+3
+25
+10
+31
+5
+16
+2
+23
+11
+9
+100
+71
+83
+95
+78
+85
+86
+77
+69
+82
+84
+81
+93
+97
+90
+73
+68
+75
+94
+79
+56
+48
+61
+58
+66
+40
+45
+54
+37
+42
+52
+51
+64
+53
+63
+35
+46
+76
+88
+44
+41
+50
+57
+62
+36
+43
+49
+47
+67
+38
+60
+32
+18
+29
+15
+13
+6
+12
+8
+33
+17
+7
+24
+28
+4
+34
+30
+22
+1
+21
+14
+27
+3
+25
+10
+31
+5
+16
+2
+19
+23
+11
+26
+9
+100
+71
+83
+95
+78
+85
+86
+77
+69
+82
+84
+81
+93
+97
+90
+73
+68
+75
+94
+79
+0.00
+0.10
+0.20
+0.30
+0.40
+Concave
+Loop
+Convex
+a
+b
+Enrichment Phage 
+display 1
+Enrichment Phage 
+display 2
+Number of ELISA hits RBD/SPIKE  
+(total analysed)
+Number of unique 
+binders (total 
+sequenced)
+Number of well
+ behaved binders 
+(total analysed)
+Concave
+)
+3
+2
+(
+0
+2
+)
+4
+3
+(
+3
+3
+)
+4
+9
+(
+9
+8
+/
+2
+6
+7
+9
+2
+9
+9
+.
+2
+Loop
+)
+4
+2
+(
+0
+2
+)
+3
+3
+(
+2
+3
+)
+4
+9
+(
+7
+8
+/
+1
+6
+0
+1
+3
+2
+.
+1
+Convex
+)
+5
+1
+(
+3
+1
+)
+3
+3
+(
+0
+2
+)
+4
+9
+(
+7
+8
+/
+0
+5
+8
+1
+1
+7
+.
+0
+Fig. 1 Selection of sybodies against SARS-CoV-2 RBD. a Sybody selection statistics for the three different libraries. b Radial phylogenetic tree of all unique
+binders identiﬁed in this study. Sequence alignment was performed using PROMAL3D and the phylogenetic tree was construct using the maximum
+likelihood (ML) analysis in MEGA. Two sybodies (76 and 88), expected to stem from the convex library, were found to belong to the loop library,
+presumably due to a spill-over during the selection procedure.
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-020-19204-y
+ARTICLE
+NATURE COMMUNICATIONS |  (2020) 11:5588 | https://doi.org/10.1038/s41467-020-19204-y | www.nature.com/naturecommunications
+3
+
+
+--- Page 4 ---
+To obtain a more detailed understanding, we performed SAXS-
+based rigid body modeling of the complex between Sb23 and
+RBD (Fig. 4d). The resulting hybrid rigid body model agrees well
+with the ab initio shape of the complex (Fig. 4c) and, importantly,
+in all resulting models, Sb23 is placed next to the ACE2-binding
+site and binds sidewise to the RBD as expected for a binder from
+the concave designed library.
+Cryo-EM structure of the SARS-CoV-2 prefusion spike bound
+to Sb23. To understand how Sb23 neutralizes SARS-CoV-2, we
+determined the cryo-EM structure of spike bound to Sb23
+(Fig. 5a, b). In the pool of particles that enabled a high-resolution
+reconstruction, approximately half of the particles had one RBD
+“up” (1-up) and the other half a conformation with two RBDs
+“up” (2-up) (Fig. 6a and Supplementary Fig. 5). To the best of our
+knowledge, the latter conformation has rarely been observed for
+the SARS-CoV-2 prefusion spike but is commonly observed for
+the MERS and SARS-1 spikes29,30.
+In both main conformations and for both “up” and “down”
+spike protomers, Sb23 binds in the inner edge of the ACE2
+interaction interface of the RBD thereby effectively hindering
+ACE2 binding (Fig. 6b). Modeling the ACE2-spike interaction
+based on the ACE2-RBD crystal structure (6LZG31) of the soluble
+part of ACE2 bound to SARS-CoV-2 RBD shows that Sb23
+hinders binding of ACE2 in both the “1-up” and the “2-up”
+conformation (Fig. 6b). Interestingly, ACE2 binding to the “up”
+protomer is hindered in the “1-up” conformation also from Sb23
+binding the neighboring “down” protomer (Fig. 6b). This
+interprotomer-mediated blockage is true also for the correspond-
+ing “up” protomer in the “2-up” conformation but not for the
+2nd “up” protomer in this conformation. Hence, even if the
+blockage of ACE2 binding in the “1-up” conformation from two
+independent sites may contribute signiﬁcantly to the efﬁcacy in
+neutralization by Sb23, the interprotomer-medicated blockage is
+reduced in the “2-up” conformation.
+Discussion
+Currently there are no clinically validated vaccines or drugs
+against SARS-CoV-2 available. Developing therapeutics is cur-
+rently an ongoing worldwide effort and the identiﬁcation of
+neutralizing antibodies constitutes a key approach to that. Given
+the fast spreading of the disease among the population, the
+RBD-Sb23
+a
+RBD-Sb42
+c
+RBD-Sb76
+d
+KD = 10.6 ± 2.0 nM
+Ka = 3.4 ± 0.8 E5 M-1s-1
+Kd = 3.4 ± 0.4 E-3 s-1
+f
+RBD-Sb95
+KD = 43.9 ± 11.9 nM
+Ka = 6.8 ± 1.3 E5 M-1s-1
+Kd = 2.8 ± 0.3 E-2 s-1
+KD = 5.0 ± 0.9 nM
+Ka = 6.8 ± 0.8 E5 M-1s-1
+Kd = 3.5 ± 0.3 E-3 s-1
+KD = 58.1 ± 11.4 nM
+Ka = 4.9 ± 1.2 E5 M-1s-1
+Kd = 2.3 ± 0.3 E-2 s-1
+e
+b
+RBD-Sb100
+KD = 38.7 ± 5.6 nM
+Ka = 1.3 ± 0.2 E5 M-1s-1
+Kd = 4.8 ± 0.4 E-3 s-1
+KD = 24.2 ± 4.5 nM
+Ka = 1.1 ± 0.1 E5 M-1s-1
+Kd = 2.6 ± 0.4 E-3 s-1
+RBD-Sb12
+500
+1000
+1500
+0.00
+0.05
+0.10
+0.15
+0.20
+Time (s)
+Response (nm)
+500
+1000
+1500
+0.0
+0.2
+0.4
+0.6
+0.8
+Time (s)
+Response (nm)
+500
+1000
+1500
+0.00
+0.05
+0.10
+0.15
+0.20
+Time (s)
+Response (nm)
+500
+1000
+1500
+0.0
+0.1
+0.2
+0.3
+Time (s)
+Response nm)
+500
+1000
+1500
+0.0
+0.1
+0.2
+0.3
+Time (s)
+Response (nm)
+500
+1000
+1500
+0.0
+0.2
+0.4
+0.6
+0.8
+Time (s)
+Response (nm)
+h
+Thermal stability
+RBD-Sb23
+RBD
+RBD+Sb23
+RBD+Sb76
+RBD+Sb95
+RBD+NC
+50
+52
+54
+56
+58
+60
+62
+TM (° C)
+g
+20
+40
+60
+0.6
+0.7
+0.8
+0.9
+1.0
+Temperature (° C)
+Fluorescence (350/330)
+RBD+Sb23
+RBD
+Fig. 2 Biophysical characterization of identiﬁed sybodies. BLI sensorgrams of immobilized SARS-CoV-2 RBD with 2-fold serial dilution of 75 nM Sb23 (a),
+188 nM Sb12 (b), 50 nM Sb42 (c), 250 nM Sb76 (d), 250 nM Sb95 (e), and 188 nM Sb100 (f). Binding curves are colored black and the global ﬁt of the
+data to a 1:1 binding model is red. Resulting afﬁnities are indicated. g Thermal unfolding data of isolated RBD and in complex with Sb23. h Resulting melting
+temperatures of RBD alone and in complex with Sb23, Sb76, Sb95, and a control sybody (NC), selected against the human peptide transporter (hPepT2).
+Data represent the mean ± SD of three replicate experiments.
+ARTICLE
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-020-19204-y
+4
+NATURE COMMUNICATIONS |  (2020) 11:5588 | https://doi.org/10.1038/s41467-020-19204-y | www.nature.com/naturecommunications
+
+
+--- Page 5 ---
+research community has been trying to exploit innovative
+methods and platforms for the development of vaccines or neu-
+tralizing agents in the shortest possible time32. This methodology
+is an attempt to minimize the overwhelming impact that SARS-
+CoV-2 is having on the healthcare systems and to prepare for
+future pandemics. Thus, the R&D community can act in a
+prompter way for the development of efﬁcient medication. Here
+we demonstrate that it is possible to select highly speciﬁc binders
+with neutralizing activity against SARS-CoV-2 from a synthetic
+nanobody library in a timeframe of only 2–3 weeks. The tradi-
+tional generation of nanobodies requires at least 6 weeks for the
+Llama immunization and a total of 3–4 months for the entire
+selection approach33. The sybody platform does not require any
+immunization steps, has a large and diverse binder repertory in
+order to account for the antibody maturation that naturally
+occurs in vivo and only requires a fraction of the puriﬁed antigen
+for the entire selection procedure27. The use of nanobodies as
+therapeutic agents has been validated by the ﬁrst nanobody drug
+approved in 201934. Synthetic libraries could boost this new
+technology in the establishment of platforms for the development
+of nanobody-based drugs, with special importance in times that
+fast methodologies are necessary.
+In this work, we were able to identify 85 unique binders from a
+single selection round. None of the unique sybodies identiﬁed in
+this work were identical among two independent selections using
+the same libraries35,36 thus highlighting the high diversity of the
+three libraries and their potential for selecting several different
+high-afﬁnity binders. It should be noted that different constructs
+of RBD and selection approaches were used for the independent
+studies.
+Six of our analyzed sybodies (Sb12, Sb23, Sb42, Sb76, Sb95, and
+Sb100) bound RBD with afﬁnities of 24.2, 10.6, 5.0, 58.1, 43.9, and
+38.7 nM, respectively. The neutralization activity of the sybodies
+was tested using lentiviral particles pseudotyped with the SARS-
+CoV-2 spike protein. Sb23 was identiﬁed as the most potent
+neutralizer with an IC50 of 0.6 µg/ml and 0.007 µg/ml for Sb23
+and Sb23-Fc, respectively (Supplementary Table 1). Sb23 displays
+higher afﬁnity for SARS-CoV-2 RBD than the human receptor
+ACE2 and competition assays suggest that Sb23 and ACE2
+compete for the same or overlapping binding site. Based on initial
+models for the RBD–Sb23 complex derived from SAXS data it
+became clear that Sb23 binds next to the ACE2-binding site
+causing a steric hindrance for ACE2 to bind.
+A cryo-EM reconstruction of the spike revealed that Sb23
+bound two conformations of the spike, one “1-up” and one “2-
+up” conformation. The “2-up” conformation of the spike natu-
+rally confers extra avidity with its two binding sites for ACE2.
+We can at this stage only speculate if the binding of Sb23 itself
+induces a conformational change that results in the “2-up” con-
+formation or if Sb23 promotes a conformational stabilization of
+Spike-Sb23
+RBD-ACE2
+150 nM Sb23
+0 nM Sb23
+KD= 33.4 ± 0.2 nM  
+500
+1000
+1500
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Time (s)
+Response (nm)
+b
+d
+RBD-Sb23-Fc
+0.0001
+0.001
+0.01
+0.1
+1
+10
+100
+0
+20
+40
+60
+80
+100
+Concentration (µg/ml)
+Inhibition (%)
+Sb23-Fc + SARS-CoV-2
+IC50 = 0.007 µg/ml
+Sb23 + VSV-G
+SbNC + SARS-CoV-2
+Sb23 + SARS-CoV-2
+IC50 = 0.6 µg/ml
+500
+1000
+1500
+0.0
+0.1
+0.2
+Time (s)
+Response (nm)
+a
+c
+KD = 225 ± 0.1 pM
+Ka = 3.2 ± 0.2 E5 M-1s-1
+Kd = 7.1 ± 0.3 E-5 s-1
+10-11
+10-10
+10-9
+10-8
+10-7
+10-6
+10-5
+870
+880
+890
+900
+910
+920
+[Spike] (M)
+Fnorm (%)
+200 nM ACE2
+KD= 64.6 ± 6.6 nM
+0 nM ACE2
+KD= 4.9 ± 2.6 nM
+Fig. 3 Sb23 neutralizes SARS-CoV-2 pseudoviruses and competes with ACE2. a SARS-CoV-2 or VSV-G spike pseudotyped lentivirus was incubated with
+a dilution series of Sb23, Sb23-Fc, or a control sybody (speciﬁc for hPepT2). Neutralization by Sb23 is a representative of two independent experiments.
+Data are mean ± SD of six replicate experiments. Neutralization by Sb23-Fc represents two independent assays, performed in duplicates. Data are mean ±
+SD of two or four replicate experiments. b BLI sensorgrams of immobilized SARS-CoV-2 RBD with 2-fold serial dilution of 20 nM Sb23-Fc. Binding curves
+are colored black and the global ﬁt of the data to a 1:1 binding model is red. c BLI sensorgrams of immobilized SARS-CoV-2 RBD with ACE2 in the presence
+(blue) or absence (black) of 150 nM Sb23. The assay was performed in a concentration range of 200-12.5 nM ACE2 and ﬁt of the data to a 1:1 binding
+model is shown in red. d Microscale thermophoresis (MST) binding data of spike with ﬂuorescently labeled Sb23, in the presence or absence of 200 nM
+ACE2. One representative measurement is shown. Three independent measurements were performed and afﬁnities of spike to Sb23 in the absence of
+ACE2 ranged from 0.6 to 10 nM, while they were signiﬁcantly lower in the presence of ACE2 (KD = 58–200 nM).
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-020-19204-y
+ARTICLE
+NATURE COMMUNICATIONS |  (2020) 11:5588 | https://doi.org/10.1038/s41467-020-19204-y | www.nature.com/naturecommunications
+5
+
+
+--- Page 6 ---
+the “2-up” in the spike’s dynamical landscape. Clearly, this con-
+formation makes epitopes accessible for the development of
+therapeutic binders in the central cavity of the spike, this includes
+the lower portion of the RBD and possibly also the central helical
+region. Hence, the use of Sb23-bound spike protein preparations
+may be an excellent avenue to develop novel binders in these
+regions. Furthermore, the cryo-EM reconstruction of Sb23-bound
+spike will be crucial to develop either multimeric preparations of
+Sb2337 with even increased afﬁnity and neutralization ability or
+structurally based combination therapy using Sb23 in combina-
+tion with other neutralizing binders of different origin.
+A cryo-EM complex, which became available while this work
+was under review, between a traditional monoclonal FAB
+(FAB_C105) and SARS-CoV2-Spike shows binding to both a “2-
+up” and a “3-up” conformation38. Interestingly, FAB_C105 and
+Sb23 bind at two different but partially overlapping regions on
+the RBD (Supplementary Fig. 6). Sb23 binds on the outer RBD
+surface that is opposite to the FAB_C105 RBD-binding site.
+Thereby, Sb23 can bind the RBD in both “up” and “down”
+conformation. On the other hand, FAB_C105 can only bind to
+RBD in the “up” conformation since its binding site is not
+available in the RBD down conformation as FAB_C105 is steri-
+cally blocked by a neighboring FAB_C105 variable heavy chain
+binding an RBD in the up conformation (Supplementary Fig. 6).
+Arguably, this shows the strength of small high-afﬁnity and
+strongly neutralizing SARS-CoV-2 Spike binders such as the Sb23
+in that they are not as often sterically occluded in the same
+fashion as traditional much larger binders such as FABs.
+Furthermore, among the sybodies that displayed IC50 values
+below 20 µg/ml, we have identiﬁed a group of sybodies (Sb12, 76,
+and 100) that can bind simultaneously with Sb23 to RBD and
+were also able to abolish or decrease the binding afﬁnity of ACE2
+(Supplementary Fig. 7). For the development of therapeutic
+agents, it would be advantageous to further increase the avidity
+and afﬁnity of these binders. Heterobivalent ligands are well
+known in the pharmacology area, for their distinctly increased
+avidity and residence time over the individual ligands39. By
+combining the neutralization potential of Sb23 with a non-
+overlapping sybody, we could potentially increase the overall
+avidity towards the spike protein. Indeed, the bispeciﬁc chimeric
+protein created by fusing Sb23 with Sb12 (Sb23/Sb12) displays
+neutralization potential and afﬁnity to RBD in the same range as
+found for Sb23-Fc or Sb42-Fc (Supplementary Fig. 7g, h), high-
+lighting the strength of such heterobivalent ligands.
+The COVID-19 pandemic illustrates how previously unknown
+viral strains can emerge and quickly spread across continents,
+causing hundreds of thousands of fatalities in a very short time
+period. The rapid fabrication of treatments against new viral
+strains is a key component to prevent such fatality rates in the
+future. Synthetic libraries are an alternative approach to rapid
+drug development, quickly generating highly speciﬁc binders with
+neutralization potential.
+Methods
+Construct design, expression, and puriﬁcation of SARS-CoV-2 proteins. The
+plasmid for the expression of the SARS-Cov2 prefusion-stabilized spike protein was
+obtained by10. In short, the gene encodes residues 1–1208 of 2019-nCoV S
+(GenBank: MN908947) with proline substitutions at residues 986 and 987, a
+“GSAS” substitution at the furin cleavage site (residues 682–685), a C-terminal T4
+ﬁbritin trimerization motif, a HRV3C protease cleavage site, a Twin-Strep tag, an
+8 × Histidine tag and a secretion signal. The gene for RBD expression comprises
+s (nm
+–1)
+100
+I (s) (arb. unit)
+RBD
+Sb23
+Complex
+Fit
+10
+2
+104
+a
+b
+c
+RBD
+Sb23
+RBD
+Sb23
+Complex
+0
+1
+2
+3
+4
+5
+0
+5
+10
+15
+r (nm)
+0
+0.2
+0.4
+0.6
+0.8
+1
+p (r) (arb. unit)
+RBD
+Sb23
+Complex
+Sb23
+RBD
+RBM
+90°
+90°
+90°
+90°
+d
+Fig. 4 SAXS analysis of the Sb23–RBD complexes. a Experimental SAXS data from Sb23, RBD, and its complex. b Distance distribution functions of Sb23,
+RBD, and their complex. c Two-phase MONSA shape of Sb23 (red beads) and RBD (blue beads). d Hybrid model of Sb23 in complex with RBD.
+ARTICLE
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-020-19204-y
+6
+NATURE COMMUNICATIONS |  (2020) 11:5588 | https://doi.org/10.1038/s41467-020-19204-y | www.nature.com/naturecommunications
+
+
+--- Page 7 ---
+residues (319–566) of 2019-nCoV RBD-SD1 and was cloned into a pαH mam-
+malian expression vector containing a secretion signal, a C-terminal Sortase
+recognition motif, and a non-cleavable Histidine tag25. Residues 1–616 of human
+ACE2 including the native N-terminal secretion sequence (residues 1–17) were
+cloned in a pXLG vector with a C-terminal HRV3C protease cleavage site and 2x
+FLAG Flag tag for puriﬁcation.
+Suspension adapted HEK293-F cells were grown in 600-ml Bioreactors in
+250 ml of serum-free FreeStyle medium in an incubator at 37 °C with humidiﬁed
+atmosphere at 8% CO2 on an orbital shaker platform rotating at 220 rpm. Cells
+were grown to a density of 0.4–3 × 106 cells/ml. Cell counts and viabilities were
+determined by using standard Trypan blue exclusion methods in cell counter
+(BioRad).
+The spike and RBD constructs were transfected and expressed according to the
+following protocol40. One day before transfection, cells were seeded in culture
+medium at a density of 2 × 106 cells/ml. On the day of transfection, cells were
+centrifuged (5 min, RT, 100 × g) and resuspended in fresh FreeStyle medium to a
+ﬁnal density of 20 × 106 cells/ml. DNA was added to a ﬁnal concentration of 1.5
+mg/l, mixed and followed by addition of MAX PEI in 1:2 ratio (w/w). Transfected
+cells were incubated at 37 °C with agitation at 220 rpm in an 8% CO2 atmosphere
+for 45 min. After this incubation time, fresh FreeStyle medium was added to reach
+a ﬁnal cell density of 1 × 106 cells/ml. Media with secreted proteins were harvested
+4 days post-transfection (10,000 × g, 20 min, 4 °C) and ﬁltered (pore size of
+0.22 µm) prior puriﬁcation.
+For the ACE2 transfection, DNA was added to a ﬁnal concentration of 0.75 µg/
+106 cells, mixed and followed by the addition of Linear PEI 25 K in a 1:2 ratio (w/w).
+The expression was conducted in glass ﬂasks with an initial cell concentration of 2 ×
+106 cells/ml in the presence of 2 mM sodium butyrate. Media containing the
+secreted ACE2 protein was harvested 2 days post-transfection (1000 × g,
+20 min, 4 °C).
+SARS-CoV-2 prefusion spike for sybody selection, biophysical characterization,
+and cryo-EM was expressed and puriﬁed as previously described25. For the
+puriﬁcation of the RBD domain, IMAC afﬁnity chromatography was used41. To 1 l
+of ﬁltered medium imidazole was added to a ﬁnal concentration of 15 mM.
+Medium was loaded onto two 5 ml HisTrap™High-performance columns
+equilibrated with wash buffer (20 mM Na-P pH 7.4, 300 mM NaCl, 15 mM
+imidazole), connected in tandem to the ÄKTAPure chromatography system using
+a sample pump at a ﬂow rate of 2 ml/min. Columns were washed with wash buffer
+(20 mM Na-P pH 7.4, 300 mM NaCl, 15 mM imidazole) until the absorbance
+reached a steady baseline. RBD was eluted in one-step with elution buffer (20 mM
+Na-P pH 7.4, 150 mM NaCl, 300 mM imidazole). Eluted protein was concentrated
+by ultraﬁltration using Corning® Spin-X® UF concentrators with a cut-off limit of
+10 kDa prior gel ﬁltration. The concentrated protein sample was loaded on a
+Superdex 200 Increase 10/300 GL column (GE Healthcare) equilibrated with GF
+buffer (50 mM TRIS pH 7.4, 150 mM NaCl) using an ÄKTAPure chromatography
+system. The elution proﬁle was monitored at 280 nm and collected fractions
+containing the target protein were concentrated to approximately 10 mg/ml, ﬂash
+frozen in liquid nitrogen and stored at −80 °C until further use.
+For the ACE2 puriﬁcation, the cell culture medium was mixed with 10×
+washing buffer (500 mM TRIS pH 8.0, 1.5 M NaCl) and loaded onto M2 FLAG
+beads. The beads were extensively washed with wash buffer (50 mM TRIS pH 8.0,
+150 mM NaCl) and eluted with 3xFLAG peptide. The protein was further polished
+by gel ﬁltration on a Superdex 200 10/300 GL column in 50 mM HEPES pH 7.2,
+150 mM NaCl, 10% glycerol, concentrated and ﬂash frozen in liquid nitrogen until
+further use.
+All proteins were subject to quality control and initial biophysical
+characterization (Supplementary Fig. 8).
+Chemical biotinylation. The RBD and spike proteins were chemically biotinylated
+using the EZ-Link NHS-PEG4-Biotin kit (Sigma). For the RBD, the sample was
+ﬁrst desalted using a PD-10 gravity ﬂow column (GE Healthcare) in 20 mM Na-P
+pH 7.4 and 150 mM NaCl. Subsequently, the sample was chemically biotinylated
+for 2 h on ice, using a 20-fold molar excess of biotin over the target protein. The
+spike sample was chemically biotinylated in a similar manner, using a 10-fold
+molar excess of biotin for 1 h on ice. Both samples were further run on gel ﬁl-
+tration, following the protocol described above to remove non-reacted NHS-PEG4-
+Biotin. The fractions containing the target protein were collected and concentrated
+to approximately 1 mg/ml. 5% glycerol was added before ﬂash-freezing, and the
+samples were stored at −80 °C until further use.
+Sybody selections, and ELISA. Sybody selections and ELISA were performed as
+described in detail26,27. Sybody selections against biotinylated RBD were carried
+out using three synthetic libraries diverging in the length of CDR3 loop, dubbed
+concave, loop, and convex26. One round of ribosome display followed by two
+rounds of phage display were performed. All rounds were monitored using qPCR.
+To obtain binders with increased afﬁnities, one off-rate selection was performed
+during the second round of phage display, using 5 µM of non-biotinylated RBD
+with a 5 min incubation time. Biotinylated maltose-binding protein (MBP) was
+used as a negative control to determine the enrichment factor for each phage
+display round. 94 individual colonies were randomly selected from each library and
+cultured in TB medium for ELISA. The sybodies were expressed by inducing with
+0.02% (w/v) L-Arabinose and the positive clones expressing RBD-speciﬁc sybodies
+were identiﬁed by performing a periplasmic extraction and analyzed against the
+two target proteins, biotinylated RBD and biotinylated spike. The same procedure
+was performed for the MBP, used as background control signal.
+Periplasmic extracts were transferred to microtiter plates, previously coated
+with Protein A (Sigma), blocked in TBS-BSA buffer, and subsequently incubated
+with anti-myc antibody (Sigma). After capturing the individual sybodies,
+biotinylated target and control proteins were added at 50 nM concentration. The
+last incubation step was performed by adding streptavidin-HRP (Sigma). Between
+incubation steps, the plates were washed three times in TBS-BSA containing 0.05%
+Tween-20. ELISA signals were developed by adding TMB (Sigma) in 50 mM
+Na2HPO4, 25 mM citric acid and 0.006% H2O2. ELISA signals were measured at an
+absorbance of 650 nm.
+Cloning, expression, and puriﬁcation of sybodies. The identiﬁed sybody genes of
+positive clones were chemically transformed into Escherichia coli MC1061 F-
+(Lucigen) cells. The cells were cultured in TB medium supplemented with chlor-
+amphenicol (34 μg/mL) at 37 °C shaking at 200 rpm. Once the optical density
+reached 0.4–0.8 (at 600 nm), the cultures were induced with the addition of 0.02%
+(w/v) L-Arabinose and incubated at 22 °C, 200 rpm overnight. The proteins in the
+periplasmic extract were released by osmotic shock and puriﬁed by immobilized
+metal afﬁnity chromatography (IMAC) using Ni-NTA resin (Invitrogen) in TBS
+buffer (20 mM Tris, 150 mM NaCl, pH 7.4). The puriﬁed sybodies were desalted in
+PBS (10 mM phosphate, 2.7 mM KCl and 137 M NaCl, pH 7.4) buffer, analyzed by
+SDS-PAGE and gel ﬁltration using a SRT SEC-100 (Sepax Technologies) column.
+For heterobivalent binding, Sb23 was fused with Sb12 via a G-S linker with a length
+of 12 residues. The chimeric construct was expressed and puriﬁed in the same
+manner as the other sybodies.
+Sb23 or Sb42 were cloned into pCMVExt-Fc42 for mammalian expression, just
+before the Fc domain from Human IgG. Transfection and expression of the Sb-Fc
+constructs were performed as described before. The protein was puriﬁed from the
+ﬁltered media by immobilized metal afﬁnity chromatography (IMAC) using Ni-
+NTA resin (Invitrogen) in TBS buffer and desalted in PBS buffer. All primer
+sequences used for preparation of the Sb or Fc fusion constructs can be found in
+Supplementary Table 2.
+Table 1 Data collection and structure statistics for SAXS
+analysis.
+Data collection parameters
+Sb23
+RBD
+Sb23+RBD
+Data collection parameters
+Instrument
+EMBL P12 (PETRA III, DESY,
+Hamburg)
+Beam geometry (mm2)
+0.2 × 0.12
+Wavelength (nm)
+0.124
+s range (nm−1)
+0.03–5.0
+Exposure time (s)
+4 (20 × 0.2 s)
+Temperature (K)
+293
+Concentration range (mg ml−1)
+0.37–4.0
+Structural parameters
+Rg (nm) (from P(r))
+2.2 ± 0.1
+3.2 ± 0.2
+3.7 ± 0.2
+Rg (nm) (from Guinier plot)
+2.1 ± 0.1
+3.1 ± 0.2
+3.5 ± 0.2
+Dmax (nm)
+8.0 ± 0.5
+13 ± 1
+15 ± 1
+Porod volume estimate, Vp
+(nm3)
+20 ± 2
+66 ± 2
+86 ± 5
+Molecular weight determination (kDa)
+From Porod volume (Vp/~1.6)
+13 ± 1
+37 ± 5
+54 ± 3
+From consensus Bayesian
+assessment
+15 ± 3
+41 ± 1
+53 ± 6
+From I(0)
+21 ± 2
+33 ± 9
+62 ± 9
+Calculated monomeric MW
+from sequence
+15.7
+32.2
+47.9
+Software employed
+Primary data reduction
+SASFLOW
+SASFLOW
+SASFLOW
+Data processing
+PRIMUS
+PRIMUS
+PRIMUS
+Rigid body modeling
+CORAL
+CORAL
+SASREF
+Computation of model
+intensities
+CRYSOL
+CRYSOL
+CRYSOL
+3D graphics representations
+PYMOL
+PYMOL
+PYMOL
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-020-19204-y
+ARTICLE
+NATURE COMMUNICATIONS |  (2020) 11:5588 | https://doi.org/10.1038/s41467-020-19204-y | www.nature.com/naturecommunications
+7
+
+
+--- Page 8 ---
+Neutralization assay. Pseudotyped neutralization assays were adapted from
+protocols previously validated to characterize the neutralization of HIV43, but with
+the use of HEK293T-ACE2 cells as previously described25. Brieﬂy, pseudotyped
+lentiviruses displaying the SARS-CoV-2 spike protein (harboring an 18 amino acid
+truncation of the cytoplasmic tail44) and packaging a luciferase reporter gene were
+generated by the co-transfection of HEK293T cells. Media was changed 12–16 h
+after transfection, and pseudotyped viruses were harvested at 48- and 72-h post-
+transfection, ﬁltered through a 0.45 µm ﬁlter, and stored at −80 °C until use.
+Pseudotyped viruses sufﬁcient to generate ~100,000 RLUs were incubated with
+serial dilutions of sybodies for 60 min at 37 °C, and then ~15,000 HEK293T-ACE2
+cells were added to each well. Plates were incubated at 37 °C for 48 h, and lumi-
+nescence was measured using Bright-Glo (Promega) on a GM-2000 luminometer
+(Promega).
+Thermal stability assays. The thermal stability of RBD, ACE2, and spike was
+monitored by nanoDSF (NanoTemper Technologies) at a concentration of
+0.25 mg/ml in PBS (10 mM phosphate, 2.7 mM KCl and 137 M NaCl, pH 7.4)
+buffer. To monitor binding-induced thermal shift changes of the RBD with dif-
+ferent sybodies, RBD at 0.25 mg/ml was incubated with 0.15 mg/ml of different
+sybodies (Sb23, Sb76, Sb95, control Sb) and incubated for at least 10 min at RT
+prior analysis. Standard grade nanoDSF capillaries (NanoTemper Technologies)
+were loaded into a Prometheus NT.48 device (NanoTemper Technologies) con-
+trolled by PR. ThermControl (version 2.1.2). Excitation power was adjusted to 30%
+and samples were heated from 20 °C to 90 °C with a slope of 1 °C/min. All samples
+were run in triplicates and error bars represent standard deviations. The stability of
+the different sybodies was analyzed in independent experiments and they all dis-
+play transition temperatures in the range of 70–95 °C.
+Far-UV CD spectroscopy. RBD, spike protein, and ACE2 were dialyzed or diluted
+by the buffer containing 10 mM Na-P (pH 7.5) and 20 mM NaCl to 0.11, 0.13, and
+0.08 mg/ml, respectively. The CD spectrum was measured on a Chirascan CD
+spectrometer (Applied Photophysics) in a 0.1 mm cuvette between 195 and 260 nm
+with 1 nm steps ten times. The resulting spectra were averaged, buffer-subtracted
+and the secondary structure was estimated by the K2D algorithm using
+Dichroweb45.
+Biolayer interferometry (BLI). The binding of selected sybodies to RBD or
+binding of RBD to ACE2 proteins was measured by biolayer interferometry (BLI)
+using the Octet RED96 system (FortéBio).
+For the RBD-binding screening assay, biotinylated RBD was loaded on
+streptavidin biosensors (FortéBio), pre-equilibrated in assay buffer (PBS-buffer
+supplemented with 0.5% (w/v) BSA and 0.05% (v/v) Tween-20) for 20 min. Prior to
+association, a baseline step of 60 s was performed. Subsequently, sensors were
+dipped in a well containing 500 nM target sybody (association step) for 10 min
+followed by 15 min of dissociation time in the same buffer.
+Concentration-dependent kinetic assays were performed in a similar manner,
+by dipping RBD-captured streptavidin biosensors in different concentrations of
+target protein (sybodies 23, 42, 76, and 95 or ACE2) ranging from 5 to 250 nM for
+8 min followed by a 12 min dissociation step. Competition assays of RBD-ACE2
+with Sb23 were performed in an identical manner, containing 150 nM ﬁnal
+concentration of Sb23 in all wells. All experiments were carried out at 22 °C.
+Sb23-1
+Sb23-1
+Sb23-2
+Sb23-3
+Sb23-3
+Sb23-2
+Sb23-1
+Sb23-2
+Sb23-3
+Sb23-1
+Sb23-2
+Sb23-3
+Sb23-1
+Sb23-3
+Sb23-2
+Sb23-1
+Sb23-2
+Sb23-3
+Sb23-1
+Sb23-2
+Sb23-3
+Sb23-2
+Sb23-3
+Sb23-1
+RBD-down
+RBD-up
+RBD-down
+RBD-down
+RBD-down
+RBD-down
+RBD-up
+RBD-up
+RBD-up
+RBD-down
+RBD-up
+90o
+a
+b
+Side view
+Side view
+Top view
+Side view
+Side view
+Top view
+Viral membrane
+Viral membrane
+Viral membrane
+Viral membrane
+180o
+180o
+RBD-up
+90o
+Fig. 5 Cryo-EM reconstruction of SARS-CoV-2 spike bound to Sb23. a Locally sharpened Coulomb potential map and cartoon model of Sb23 bound to the
+spike protein in the “1-up” conformation and cartoon model of Sb23-bound spike. b Locally sharpened Coulomb potential map and cartoon model of Sb23
+bound to the spike protein in the “2-up” conformation.
+ARTICLE
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-020-19204-y
+8
+NATURE COMMUNICATIONS |  (2020) 11:5588 | https://doi.org/10.1038/s41467-020-19204-y | www.nature.com/naturecommunications
+
+
+--- Page 9 ---
+Data were reference-subtracted and aligned with each other in the Octet Data
+Analysis software v10.0 (FortéBio), using a 1:1 binding model. All ﬁgures were
+prepared using Prism 8 (GraphPad).
+Microscale thermophoresis (MST). The binding afﬁnity of spike to Sb23 was
+measured by microscale thermophoresis using the MST NT.115 device (NanoTemper
+Technologies). Sb23 was labeled via the His6-tag with RED-tris-NTA dye (Nano-
+Temper Technologies) in PBS-T (10 mM phosphate, 2.7 mM KCl and 137 M NaCl,
+pH 7.4 supplemented with 0.05% (v/v) Tween-20), following the manufacturer’s
+instructions. A 2-fold dilution series of spike protein was prepared in PBS-T with the
+highest concentration in the assay being 1250 nM. A 50 nM ﬁnal concentration of
+labeled Sb23 was mixed with the substrate dilution series and incubated for 10 min at
+room temperature before loading the samples in standard capillaries. For the com-
+petition assay, the same procedure was used but the spike dilution series were pre-
+pared in PBS-T buffer containing 800 nM of ACE2 (200 nM ﬁnal concentration in the
+assay) and incubation of 10 min prior to mixing with labeled Sb23. All measurements
+were performed in triplicate using 35% LED and medium MST power. The data were
+analyzed using the MO. Afﬁnity Analysis software (NanoTemper Technologies).
+Figures were prepared using Prism 8 (GraphPad).
+Small angle X-ray scattering measurements (SAXS). The SAXS data were
+collected at the EMBL P12 beamline of the storage ring PETRA III (DESY,
+Hamburg, Germany) using a robotic sample changer46. The scattering from the
+protein solutions and respective solvents was recorded on a Pilatus-6M pixel
+detector, radially averaged and processed using standard procedures. For all con-
+structs, a concentration series was measured in the range of about 0.3–4 mg/ml and
+the data were extrapolated to inﬁnite dilution as needed. The radial average was
+performed and solvent scattering was subtracted using the SASFLOW pipeline47.
+The distance distributions were computed by GNOM48 and the overall parameters
+were determined from the reduced data using relevant programs from the ATSAS
+suite47. The ab initio low-resolution shapes were restored using the program
+MONSA49. Scattering from the high-resolution models was computed by CRY-
+SOL50. Hybrid models of the sybodies and of the RBD were constructed by
+CORAL51 using the available high-resolution portions as rigid bodies and
+amending them by chains of dummy residues to represent the fragments not
+present in the crystal. For RBD, three glycans were added to the most frequent
+relative abundance of glycan species, the C-terminal portion was modeled as a coil,
+and the structure was reﬁned using SREFLEX52. The model of Sb23–RBD complex
+was constructed using the rigid body modeling program SASREF53.
+Cryo-EM sample preparation and Imaging. Spike trimer (0.7 mg/ml) and Sb23
+(1.3 mg/ml) were mixed in a 1:3 molar ratio and incubated on ice for 5 min. A 3-μl
+aliquot of the sample solution was applied to glow-discharged CryoMatrix holey
+grids with amorphous alloy ﬁlm (Zhenjiang Lehua Technology) in a Vitrobot Mk
+IV (Thermo Fisher Scientiﬁc) at 4 °C and 100% humidity (blot 10 s, blot force 3).
+Cryo-EM data collection was performed with EPU 2.7 (Thermo Fisher Scientiﬁc)
+using a Krios G3i transmission-electron microscope (Thermo Fisher Scientiﬁc)
+operated at 300 kV in the Karolinska Institutet 3D-EM facility. Images were
+acquired in nanoprobe EFTEM mode with a slit width of 10 eV using a Bio-
+Quantum K3 (Ametek) during 1.5 s with a ﬂux of 8.7 e−/px/s resulting in a ﬂuence
+of 50 e−/Å2 equally fractionated into 60 frames. Motion correction, CTF-estima-
+tion, Fourier binning (to 1.02 Å/px), particle picking, and extraction were per-
+formed on the ﬂy using Warp54. A total of 8,236 micrographs that fulﬁlled the
+required criteria (defocus less than 2 microns and estimated resolution better than
+4 Å) were selected and 387,116 particles were picked by Warp. Extracted particles
+were imported into cryoSPARC v2.15.055 for 2D classiﬁcation, heterogenous
+reﬁnement, and non-uniform 3D reﬁnement56. The particles were processed with
+C1 symmetry throughout. After 2D classiﬁcation (300 classes) 199,501 particles
+were retained and used to build three ab initio 3D reconstructions. These were
+further processed for heterogeneous reﬁnement that resulted in one reconstruction
+showing high-resolution structural features in the core of the spike. After one
+round of homogenous reﬁnement we performed 3D variability analysis using three
+orthogonal principle modes. In the ensuing analysis, we separated out four dif-
+ferent clusters of which two gave clusters that showed clearly contrasting recon-
+structions after separate homogenous reconstructions (“1-up” and “2-up”). These
+two reconstructions were then used together with two “crap” classes in high-
+resolution heterogeneous reﬁnement of the original particle set selected from 2D
+classiﬁcation. The overall resolution of the “1-up” and “2-up” conformations using
+non-uniform reﬁnement56 is 3.1 Å and 2.9 Å (0.143 FSC) using 70,854 and 69,567
+particles, respectively. The local resolution of the density in the very top of the
+spike is lower (Supplementary Fig. 5). All processing and local resolution plotted
+on the electron density surface are shown in Supplementary Fig. 5 and recon-
+struction and reﬁnement details are found in Table 2.
+Model building and structure reﬁnement. A Cryo-EM structure of the SARS-
+CoV-2 spike protein trimer10 (PDB: 6VSB) was used as a starting model for model
+building. The model was extended and manually adjusted in COOT57. The sybody
+structure was homology modeled using Phyre258 with PDB: 4PFE59 as a template.
+The missing regions of the RBD domains were built based on the RBD-spike crystal
+structure (PDB: 6LZG)31. Structure reﬁnement and manual model building were
+2
+e
+c
+A
+2
+e
+c
+A
+1
+-
+3
+2
+b
+S
+1
+-
+3
+2
+b
+S
+Sb23-2
+Sb23-3
+Sb23-2
+Clash
+Clash
+p
+u
+-
+D
+B
+R
+p
+u
+-
+D
+B
+R
+RBD-up
+RBD-down
+RBD-down
+RBD-down
+a
+b
+p
+u
+-
+D
+B
+R
+p
+u
+-
+D
+B
+R
+RBD-down
+RBD-down
+RBD-down
+RBD-up
+Sb23-3
+Clash
+Sb23-3
+Sb23-3
+Sb23-1
+Sb23-2
+Sb23-2
+Sb23-1
+w
+e
+iv
+p
+o
+t'p
+u
+-
+2'
+w
+e
+iv
+p
+o
+t'p
+u
+-
+1'
+Clash
+Fig. 6 Top view of cryo-EM reconstruction of SARS-CoV-2 spike bound to Sb23 and modeling of the structural basis for Sb23-based blockage of SARS-
+CoV-2 spike binding to ACE2. a Top view of locally sharpened Coulomb potential map and cartoon model of Sb23 bound to the spike protein in the “1-up”
+conformation b Top view of locally sharpened Coulomb potential map and cartoon model of Sb23 bound to the spike protein in the “2-up” conformation.
+c Cartoon model of Sb23-bound Spike in the “1-up” (left) “2-up” (right) conformation showing how ACE2 binding is blocked by Sb23 bound to the RBD in
+the “up” conformation as well as Sb23 bound to the neighboring RBD in the down conformation.
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-020-19204-y
+ARTICLE
+NATURE COMMUNICATIONS |  (2020) 11:5588 | https://doi.org/10.1038/s41467-020-19204-y | www.nature.com/naturecommunications
+9
+
+
+--- Page 10 ---
+performed using COOT and PHENIX60 in interspersed cycles with secondary
+structure and geometry restrained. All structure ﬁgures and all EM density-map
+ﬁgures were generated with UCSF ChimeraX61.
+Reporting summary. Further information on research design is available in the Nature
+Research Reporting Summary linked to this article.
+Data availability
+The scattering data and models of Sb23, RBD and their complex are deposited into
+SASBDB (www.sasbdb.org), entries SASDJF4, SASDJG4 and SASDJH4 respectively. The
+MST and BLI data are available under https://github.com/tania-custodio/Sb23. The cryo-
+EM density maps of SARS-CoV-2 spike glycoprotein with Sb23 bound were deposited in
+the Electron Microscopy Data Bank (EMDB) with accession codes EMD-11616 (1-up)
+and EMD-11617 (2-up). The corresponding models were deposited in the Protein Data
+Bank (PDB) with accession codes 7A25 (1-up) and 7A29 (2-up). The sequences of all the
+selected sybodies from this study are provided in Supplementary Data 1. Any other
+experimental data that support the ﬁndings of this study are available from the
+corresponding authors upon request. Source data are provided with this paper.
+Received: 16 June 2020; Accepted: 1 October 2020;
+References
+1.
+Tan, W. et al. A novel coronavirus genome identiﬁed in a cluster of
+pneumonia cases. China CDC Wkly 2, 61–62 (2020).
+2.
+Wu, F. et al. A new coronavirus associated with human respiratory disease in
+China. Nature 579, 265–269 (2020).
+3.
+Zhou, P. et al. A pneumonia outbreak associated with a new coronavirus of
+probable bat origin. Nature 579, 270–273 (2020).
+4.
+Zhu, N. et al. A novel coronavirus from patients with pneumonia in China,
+2019. N. Engl. J. Med. 382, 727–733 (2020).
+5.
+Hoffmann, M. et al. The novel coronavirus 2019 (2019-nCoV) uses the SARS-
+coronavirus receptor ACE2 and the cellular protease TMPRSS2 for entry into
+target cells. bioRxiv https://doi.org/10.1101/2020.01.31.929042 (2020).
+6.
+Walls, A. C. et al. Structure, function, and antigenicity of the SARS-CoV-2
+spike glycoprotein. Cell https://doi.org/10.1016/j.cell.2020.02.058 (2020).
+7.
+Lan, J. et al. Structure of the SARS-CoV-2 spike receptor-binding domain
+bound to the ACE2 receptor. Nature 581, 215–220 (2020).
+8.
+Walls, A. C. et al. Unexpected receptor functional mimicry elucidates
+activation of coronavirus fusion. Cell 176, 1026–1039 (2019).
+9.
+Gui, M. et al. Cryo-electron microscopy structures of the SARS-CoV spike
+glycoprotein reveal a prerequisite conformational state for receptor binding.
+Cell Res. https://doi.org/10.1038/cr.2016.152 (2017).
+10. Wrapp, D. et al. Cryo-EM structure of the 2019-nCoV spike in the prefusion
+conformation. Science 367, 1260–1263 (2020).
+11. Salazar, G., Zhang, N., Fu, T.-M. & An, Z. Antibody therapies for the
+prevention and treatment of viral infections. npj Vaccines 2, 19 (2017).
+12. He, Y., Lu, H., Siddiqui, P., Zhou, Y. & Jiang, S. Receptor-binding domain of
+severe acute respiratory syndrome coronavirus spike protein contains multiple
+conformation-dependent epitopes that induce highly potent neutralizing
+antibodies. J. Immunol. https://doi.org/10.4049/jimmunol.174.8.4908 (2005).
+13. Zheng, M. & Song, L. Novel antibody epitopes dominate the antigenicity of
+spike glycoprotein in SARS-CoV-2 compared to SARS-CoV. Cell. Mol.
+Immunol. https://doi.org/10.1038/s41423-020-0385-z (2020).
+14. Zhang, B. et al. Treatment With convalescent plasma for critically ill patients
+with severe acute respiratory syndrome coronavirus 2 infection. Chest https://
+doi.org/10.1016/j.chest.2020.03.039 (2020).
+15. Shen, C. et al. Treatment of 5 critically Ill patients with COVID-19 with
+convalescent plasma. JAMA—J. Am. Med. Assoc. https://doi.org/10.1001/
+jama.2020.4783 (2020).
+16. Ye, M. et al. Treatment with convalescent plasma for COVID-19 patients in
+Wuhan, China. J. Med. Virol. https://doi.org/10.1002/jmv.25882 (2020).
+17. Cao, Y. et al. Potent neutralizing antibodies against SARS-CoV-2 identiﬁed by
+high-throughput single-cell sequencing of convalescent patients’ B cells. Cell
+1–12, https://doi.org/10.1016/j.cell.2020.05.025 (2020).
+18. Shi, R. et al. A human neutralizing antibody targets the receptor binding site of
+SARS-CoV-2. Nature https://doi.org/10.1038/s41586-020-2381-y (2020).
+19. Ju, B. et al. Potent human neutralizing antibodies elicited by SARS-CoV-2
+infection. bioRxiv https://doi.org/10.1101/2020.03.21.990770 (2020).
+20. Wang, C. et al. A human monoclonal antibody blocking SARS-CoV-2
+infection. Nat. Commun. 11, 1–6 (2020).
+21. Jovčevska, I. & Muyldermans, S. The therapeutic potential of nanobodies.
+BioDrugs https://doi.org/10.1007/s40259-019-00392-z (2020).
+22. Scully, M. et al. Caplacizumab treatment for acquired thrombotic
+thrombocytopenic purpura. N. Engl. J. Med. https://doi.org/10.1056/
+NEJMoa1806311 (2019).
+23. Wrapp, D. et al. Structural basis for potent neutralization of betacoronaviruses
+by single-domain camelid antibodies. Cell 181, 1004–1015.e15 (2020).
+24. Huo, J. et al. Structural characterisation of a nanobody derived from a naïve
+library that neutralises SARS-CoV-2. Mol. Biol. 1–30, https://doi.org/
+10.21203/rs.3.rs-32948/v1 (2020).
+25. Hanke, L. et al. An alpaca nanobody neutralizes SARS-CoV-2 by blocking
+receptor interaction. bioRxiv 1–13, https://doi.org/10.1101/2020.06.02.130161
+(2020).
+26. Zimmermann, I. et al. Synthetic single domain antibodies for the
+conformational trapping of membrane proteins. Elife https://doi.org/10.7554/
+eLife.34317 (2018).
+27. Zimmermann, I. et al. Generation of synthetic nanobodies against delicate
+proteins. Nat. Protoc. 15, 1707–1741 (2020).
+28. Nie, J. et al. Establishment and validation of a pseudovirus neutralization assay
+for SARS-CoV-2. Emerg. Microbes Infect. 9, 680–686 (2020).
+29. Yuan, Y. et al. Cryo-EM structures of MERS-CoV and SARS-CoV spike
+glycoproteins reveal the dynamic receptor binding domains. Nat. Commun. 8,
+1–9 (2017).
+Table 2 Cryo-EM data collection, reﬁnement, and validation
+statistics.
+#1 SPike-SB23 1-up
+(EMDB-11616)
+(PDB 7A25)
+#2 SPIKE-SB23 2-UP
+(EMDB-11617)
+(PDB 7A29)
+Data collection and processing
+Magniﬁcation
+165,000x
+–
+Voltage (kV)
+300 kV
+–
+Electron exposure
+(e−/Å2)
+50
+–
+Defocus range (μm).
+0.3–1.1
+–
+Pixel size (Å).
+0.51 Å
+–
+Symmetry imposed
+C1
+–
+Initial particle
+images (no.)
+387,116
+–
+Final particle
+images (no.)
+70,854
+69,567
+Map resolution (Å)
+3.1
+2.9
+FSC threshold
+0.143
+0.143
+Map resolution
+range (Å)
+2.1–7.5 Å (FSC 0.143)
+2.1–7.2 Å (FSC 0.143)
+Reﬁnement
+Initial model used
+(PDB code)
+6VSB, 6LZG, 4PFE
+6VSB, 6LZG, 4PFE
+Model resolution (Å)
+3.1 Å
+2.9 Å
+FSC threshold
+0.5
+0.5
+Model resolution
+range (Å)
+230–3.1
+250–2.9
+Map sharpening B
+factor (Å2)
+−57
+−62
+Model composition
+Non-
+hydrogen atoms
+28266
+28286
+Protein residues
+3504
+3510
+Ligands
+63 (NAG)
+61 (NAG)
+B factors (Å2)
+Protein
+82
+115
+Ligand
+107
+125
+R.m.s. deviations
+Bond lengths (Å)
+0.003
+0.002
+Bond angles (°)
+0.672
+0.531
+Validation
+MolProbity score
+1.96
+1.68
+Clashscore
+7.85
+7.95
+Poor rotamers (%)
+2.08
+0.03
+Ramachandran plot
+Favored (%)
+95.76
+96.29
+Allowed (%)
+4.24
+3.71
+Disallowed (%)
+0.00
+0.00
+ARTICLE
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-020-19204-y
+10
+NATURE COMMUNICATIONS |  (2020) 11:5588 | https://doi.org/10.1038/s41467-020-19204-y | www.nature.com/naturecommunications
+
+
+--- Page 11 ---
+30. Gui, M. et al. Cryo-electron microscopy structures of the SARS-CoV spike
+glycoprotein reveal a prerequisite conformational state for receptor binding.
+Cell Res 27, 119–129 (2017).
+31. Wang, Q. et al. Structural and Functional Basis of SARS-CoV-2 Entry by
+Using Human ACE2. Cell 181, 894–904.e9 (2020).
+32. Khuroo, M. S., Khuroo, M., Khuroo, M. S., Soﬁ, A. A. & Khuroo, N. S. COVID-
+19 vaccines: a race against time in the middle of death and devastation! J. Clin.
+Exp. Hepatol. https://doi.org/10.1016/j.jceh.2020.06.003 (2020).
+33. Pardon, E. et al. A general protocol for the generation of nanobodies for
+structural biology. Nat. Protoc. 9, 674–693 (2015).
+34. Morrison, C. Nanobody approval gives domain antibodies a boost. Nat. Rev.
+Drug Discov. 18, 485–487 (2019).
+35. Li, T. et al. Potent synthetic nanobodies against SARS-CoV-2 and molecular
+basis for neutralization. bioRxiv 1–18, https://doi.org/10.1101/
+2020.06.09.143438 (2020).
+36. Walter, J. D. et al. Sybodies targeting the SARS-CoV-2 receptor-binding
+domain. bioRxiv https://doi.org/10.1101/2020.04.16.045419 (2020).
+37. Wu, Y. et al. A noncompeting pair of human neutralizing antibodies block
+COVID-19 virus binding to its receptor ACE2. Science 368, 1274–1278 (2020).
+38. Barnes, C. O. et al. Structures of human antibodies bound to SARS-CoV-2
+spike reveal common epitopes and recurrent features of antibodies. Cell 182,
+1–15 (2020).
+39. Vauquelin, G. & Charlton, S. J. Exploring avidity: understanding the potential
+gains in functional afﬁnity and target residence time of bivalent and
+heterobivalent ligands. Br. J. Pharmacol. 168, 1771–1785 (2013).
+40. Pieprzyk, J., Pazicky, S. & Löw, C. Transient expression of recombinant
+membrane-eGFP fusion proteins in HEK293 cells. Methods Mol. Biol. 1850,
+17–31 (2018).
+41. Porath, J., Carlsson, J., Olsson, I. & Belfrage, G. Metal chelate afﬁnity
+chromatography, a new approach to protein fractionation. Nature 258,
+598–599 (1975).
+42. Ortega, C., Prieto, D., Abreu, C., Oppezzo, P. & Correa, A. Multi-
+compartment and multi-host vector suite for recombinant protein expression
+and puriﬁcation. Front. Microbiol. 9, 1–13 (2018).
+43. Sarzotti-Kelsoe, M. et al. Optimization and validation of the TZM-bl assay for
+standardized assessments of neutralizing antibodies against HIV-1. J.
+Immunol. Methods 409, 131–146 (2014).
+44. Rogers, T. F. et al. Rapid isolation of potent SARS-CoV-2 neutralizing
+antibodies and protection in a small animal model. bioRxiv https://doi.org/
+10.1101/2020.05.11.088674 (2020).
+45. Whitmore, L. & Wallace, B. A. Protein secondary structure analyses from
+circular dichroism spectroscopy: Methods and reference databases.
+Biopolymers 89, 392–400 (2008).
+46. Blanchet, C. E. et al. Versatile sample environments and automation for
+biological solution X-ray scattering experiments at the P12 beamline (PETRA
+III, DESY). J. Appl. Crystallogr. 48, 431–443 (2015).
+47. Franke, D. et al. ATSAS 2.8: A comprehensive data analysis suite for small-
+angle scattering from macromolecular solutions. J. Appl. Crystallogr. 50,
+1212–1225 (2017).
+48. Svergun, D. I. Determination of the regularization parameter in indirect-
+transform methods using perceptual criteria. J. Appl. Crystallogr. 25, 495–503
+(1992).
+49. Svergun, D. I. & Nierhaus, K. H. A map of protein-rRNA distribution in the
+70 S Escherichia coli ribosome. J. Biol. Chem. 275, 14432–14439 (2000).
+50. Svergun, D., Barberato, C. & Koch, M. H. CRYSOL—a program to evaluate X-
+ray solution scattering of biological macromolecules from atomic coordinates.
+J. Appl. Crystallogr. 28, 768–773 (1995).
+51. Petoukhov, M. V. et al. New developments in the ATSAS program package for
+small-angle scattering data analysis. J. Appl. Crystallogr. 45, 342–350 (2012).
+52. Panjkovich, A. & Svergun, D. I. Deciphering conformational transitions of
+proteins by small angle X-ray scattering and normal mode analysis. Phys.
+Chem. Chem. Phys. 18, 5707–5719 (2016).
+53. Petoukhov, M. V. & Svergun, D. I. Global rigid body modeling of
+macromolecular complexes against small-angle scattering data. Biophys. J. 89,
+1237–1250 (2005).
+54. Tegunov, D. & Cramer, P. Real-time cryo—EM data pre-processing with
+Warp. Nat. Methods 16, 1146–1152 (2020).
+55. Punjani, A., Rubinstein, J. L., Fleet, D. J. & Brubaker, M. A. CryoSPARC:
+algorithms for rapid unsupervised cryo-EM structure determination. Nat.
+Methods 14, 290–296 (2017).
+56. Punjani, A., Zhang, H. & Fleet, D. J. Non-uniform reﬁnement: adaptive
+regularization improves single particle cryo-EM reconstruction. bioRxiv
+https://doi.org/10.1101/2019.12.15.877092 (2019).
+57. Emsley, P., Lohkamp, B., Scott, W. G. & Cowtan, K. & IUCr. Features and
+development of Coot. Acta Crystallogr. D: Biol. Crystallogr. 66, 486–501 (2010).
+58. Kelley, L. A., Mezulis, S., Yates, C. M., Wass, M. N. & Sternberg, M. J. E. The
+Phyre2 web portal for protein modeling, prediction and analysis. Nat. Protoc.
+10, 845–858 (2016).
+59. Eshaghi, M. et al. Rational structure-based design of bright GFP-based
+complexes with tunable dimerization. Angew. Chem. 127, 14158–14162
+(2015).
+60. Adams, P. D. et al. PHENIX: a comprehensive Python-based system for
+macromolecular structure solution. Acta Crystallogr. D: Biol. Crystallogr. 66,
+213–221 (2010).
+61. Goddard, T. D. et al. UCSF ChimeraX: Meeting modern challenges in
+visualization and analysis. Protein Sci. 27, 14–25 (2018).
+Acknowledgements
+The authors thank the Sample Preparation and Characterization facility at EMBL
+(Hamburg, Germany) for their support with nanoDSF, MST, and biolayer interferometry
+measurements. We thank Stephan Niebling for fruitful advice with biolayer inter-
+ferometry analysis, Jason McLellan for prefusion spike plasmid and all group members
+for discussions. The authors thank James Voss and Deli Huang for neutralization assay
+reagents. All cryo-EM data were collected at the Karolinska Institutet’s 3D-EM facility.
+This work was supported in part by an EU H2020 grant (CoroNAb) to BM and GM, by
+project grants from the Swedish Research Council to BM (2018-02381), BMH (2017-
+6702 and 2018-3808), GM (2018-03843) and the Knut and Alice Wallenberg Foundation
+to BMH.
+Author contributions
+T.F.C. and J.P. selected sybodies under the supervision of M.S. and M.A.S., M.S. and M.A.S.
+contributed reagents to the project. T.F.C., L.H., S.P., J.P., N.D., and K.R. expressed and
+puriﬁed SARS-CoV-2 proteins and sybodies. T.F.C., J.P., S.P., and C.L. characterized pro-
+teins and their interactions in vitro. D.J.S. performed neutralization assays under the
+supervision of B.M., M.S., A.G., C.J., M.G., and D.S. collected and analyzed SAXS data. H.D.
+and B.M.H. developed vitriﬁcation conditions, collected cryo-EM data and determined the
+structure. The project was conceived and supervised by G.M.M., B.M., B.M.H. and C.L. C.L.,
+T.F.C., S.P., and B.M.H. wrote the ﬁrst draft of the manuscript and received input from all
+other authors.
+Funding
+Open Access funding enabled and organized by Projekt DEAL.
+Competing interests
+The authors declare no competing interests.
+Additional information
+Supplementary information is available for this paper at https://doi.org/10.1038/s41467-
+020-19204-y.
+Correspondence and requests for materials should be addressed to B.M., B.M.H. or C.L.
+Peer review information Nature Communications thanks Serge Muyldermans and the
+other, anonymous, reviewer(s) for their contribution to the peer review of this work. Peer
+reviewer reports are available.
+Reprints and permission information is available at http://www.nature.com/reprints
+Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims in
+published maps and institutional afﬁliations.
+Open Access This article is licensed under a Creative Commons
+Attribution 4.0 International License, which permits use, sharing,
+adaptation, distribution and reproduction in any medium or format, as long as you give
+appropriate credit to the original author(s) and the source, provide a link to the Creative
+Commons license, and indicate if changes were made. The images or other third party
+material in this article are included in the article’s Creative Commons license, unless
+indicated otherwise in a credit line to the material. If material is not included in the
+article’s Creative Commons license and your intended use is not permitted by statutory
+regulation or exceeds the permitted use, you will need to obtain permission directly from
+the copyright holder. To view a copy of this license, visit http://creativecommons.org/
+licenses/by/4.0/.
+© The Author(s) 2020
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-020-19204-y
+ARTICLE
+NATURE COMMUNICATIONS |  (2020) 11:5588 | https://doi.org/10.1038/s41467-020-19204-y | www.nature.com/naturecommunications
+11

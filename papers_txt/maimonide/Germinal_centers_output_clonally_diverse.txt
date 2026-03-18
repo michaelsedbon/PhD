@@ -1,0 +1,2618 @@
+--- Page 1 ---
+Article
+Germinal centers output clonally diverse plasma cell
+populations expressing high- and low-afﬁnity
+antibodies
+Graphical abstract
+Highlights
+d Germinal center B cells are fate-mapped to study plasma cell
+selection during infection
+d Antibody afﬁnities of PCs simultaneously exiting GCs span
+several orders of magnitude
+d Substantial GC clonal diversity is retained through PC
+selection
+d GC PC output after protein immunization is much reduced
+but remains afﬁnity permissive
+Authors
+Adrien Sprumont, Ana Rodrigues,
+Simon J. McGowan, Colin Bannard,
+Oliver Bannard
+Correspondence
+oliver.bannard@ndm.ox.ac.uk
+In brief
+B cells are known to undergo sequential
+rounds of mutation and afﬁnity-based
+selection, in sites known as germinal
+centers, to produce higher-afﬁnity
+antibodies over time. This study ﬁnds that
+germinal centers formed in response to
+complex immune challenges support the
+differentiation of clonally diverse plasma
+cells, including some of low-antibody
+afﬁnity, suggesting that high afﬁnity is not
+the only factor driving the maturation of
+the antibody repertoire.
+Sprumont et al., 2023, Cell 186, 5486–5499
+December 7, 2023 ª 2023 The Author(s). Published by Elsevier Inc.
+https://doi.org/10.1016/j.cell.2023.10.022
+ll
+
+
+--- Page 2 ---
+Article
+Germinal centers output clonally diverse
+plasma cell populations expressing
+high- and low-afﬁnity antibodies
+Adrien Sprumont,1 Ana Rodrigues,1 Simon J. McGowan,2 Colin Bannard,3 and Oliver Bannard1,4,*
+1MRC Human Immunology Unit, MRC Weatherall Institute of Molecular Medicine, University of Oxford, Oxford OX3 9DS, UK
+2Computational Biology Research Group, MRC Weatherall Institute of Molecular Medicine, University of Oxford, Oxford OX3 9DS, UK
+3Department of Linguistics and English Language, University of Manchester, Manchester M13 9PL, UK
+4Lead contact
+*Correspondence: oliver.bannard@ndm.ox.ac.uk
+https://doi.org/10.1016/j.cell.2023.10.022
+SUMMARY
+Germinal centers (GCs) form in lymph nodes after immunization or infection to facilitate antibody afﬁnity matu-
+ration andmemory and plasma cell(PC)development. PCdifferentiationis thought toinvolvestringent selection
+for GC B cells expressing the highest-afﬁnity antigen receptors, but how this plays out during complex poly-
+clonal responses is unclear. Wecombine temporallineagetracing withantibody characterizationtogaina snap-
+shot of PCs developing during inﬂuenza infection. GCs co-mature B cell clones with antibody afﬁnities spanning
+multiple orders of magnitude; however, each generates PCs with similar efﬁciencies, including weak binders.
+Within lineages, PC selection is not restricted to variants with the highest-afﬁnity antibodies. Differentiation is
+commonly associated with proliferative expansion to produce ‘‘nodes’’ of identical PCs. Immunization-induced
+GCs generate fewer PCs but still of low- and high-antibody afﬁnities. We propose that generating low-afﬁnity
+antibody PCs reﬂects an evolutionary compromise to facilitate diverse serum antibody responses.
+INTRODUCTION
+The generation of antigen-speciﬁc antibody responses is a central
+function of the adaptive immune system that is essential for infec-
+tion control and long-term immunity. The binding afﬁnity of anti-
+bodies improves over the course of immune responses as
+a consequence of activated B cells collaborating with follicular
+helper T cells to establish, in secondary lymphoid tissues, special-
+ized structures known as germinal centers (GCs). There, antibody
+afﬁnity maturation occurs by GC B cells engaging in iterative
+cycles of somatic hypermutation (SHM) and selection—a form
+of directed molecular evolution.1,2 GC B cells do not themselves
+secrete antibodies; however, rare differentiation events ensure a
+continuous low-level output of antibody-secreting plasma cells
+(PCs).3 Seminal studies utilizing clonally restricted B cell models,
+tracking B cell receptor (BCR, membrane antibody) knockin and
+hapten-speciﬁc cells provided evidence that PC selection is
+strongly (or almost exclusively) restricted to GC B cells expressing
+the highest afﬁnity BCRs.4,5 This contrasts with memory B cell se-
+lection, which preferentially favors cells expressing low-afﬁnity
+BCRs, thereby supporting diversity.6,7
+The clonally restricted settings used to study PC differentiation
+differ substantially from typical immune challenges such as
+vaccination and infection. GC responses against complex path-
+ogen antigens typically involve hundreds of B cell clones recog-
+nizing multiple overlapping and unique epitopes.8 Each lineage
+diversiﬁes as GC B cells acquire somatic mutations that change
+the steric interactions and molecular bonds supporting anti-
+body-antigen binding.1,9 GCs are considered highly competitive
+environments, however polyclonal GC responses concurrently
+support cells with a broad spread of antibody afﬁnities/avidities,
+including some that are too weak to measure using standard
+biochemical and ﬂuorescence-activated cell sorting (FACS) as-
+says.7,8,10 How afﬁnity-based PC selection plays out in these
+more complex settings is not clear. Possible scenarios include
+that only B cells from clonal lineages with the highest-afﬁnity
+BCRs differentiate, that differentiation occurs across lineages
+but only for the best somatic variants, or that additional immuno-
+dominance factors strongly favor certain clones. The outcome
+will impact the repertoire breadth of serum antibody responses.
+Here, we combine genetic fate-mapping6 and single B cell
+immunoglobulin gene sequencing/cloning8,11 to dissect the
+development of PCs in polyclonal GCs during inﬂuenza infection
+and after subunit immunization. We compare the afﬁnities of PC-
+derived antibodies with those from concurrent GC responses,
+thereby providing a detailed account of how PC selection plays
+out in complex polyclonal responses. Our experiments conﬁrm
+that GCs support the side-by-side maturation of B cells with
+very different BCR afﬁnities and reveal that cells from across a
+wide antibody afﬁnity spectrum generate PCs. We propose
+that this outcome reﬂects imprecise discrimination for antibody
+afﬁnity by GC B cells in such settings, with the result being PC
+ll
+OPEN ACCESS
+5486
+Cell 186, 5486–5499, December 7, 2023 ª 2023 The Author(s). Published by Elsevier Inc.
+This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).
+
+
+--- Page 3 ---
+populations that approximately mirror the maturation pathways
+from which they develop. This provides the evolutionary beneﬁt
+of seeding diverse serum antibody responses.
+RESULTS
+Clonally restricted GC B cells expressing high-afﬁnity
+antigen receptors preferentially generate PCs
+We optimized an approach to identify and characterize newly
+matured PCs using tamoxifen-controlled GC fate-mapping mice
+(S1pr2-CreERT2,
+Rosa26-LoxP-Stop-LoxP
+[LSL]-tdTomato
+[tdTom] mice, hereafter termed S1pr2tdTom).6 Earlier studies
+examined the association between antibody afﬁnity and acquisi-
+tion of a Blimp1+ phenotype in clonally restricted responses5;
+however, GC lineage tracing was not possible then, and Blimp1
+expression alone may not always mark full PC commitment.3,12,13
+We therefore revisited this issue using B cells from S1pr2tdTom
+SWHEL mice to identify newly minted GC-derived PCs.14 SWHEL
+B cells express paired heavy chains (HCs) and light chains
+(LCs)thatbind HEL3xantigenwith anequilibriumdissociationcon-
+stant (KD) of 100 nM,15,16 but afﬁnity mature by acquiring a Y53
+mutation that confers 100-fold improvement.5 This afﬁnity leap
+can be tracked by staining with ﬂuorescent monomeric HEL3x
+protein.
+Naı¨ve SWHEL S1pr2tdTom B cells (some with a Blimp1mVenus PC
+reporter) were transferred into congenic wild-type (WT) hosts
+prior to HEL3x-sheep red blood cell (SRBC) immunization to
+initiate GCs containing both transferred and endogenous B
+cells.6,17 Mice received tamoxifen on day 6 post-immunization,
+with SWHEL GCs and PCs analyzed 1 and 2 days later
+(Figures 1A and 1B). Two independent PC-gating approaches
+were used (Figures S1A–S1C),18 giving consistent results.
+Consistent with Cre activity being GC-restricted, tdTom-labeled
+GC B cells, but not PCs, were evident within 24 h (day 7), with
+small tdTom+ PCs populations appearing by day 8. This indicated
+a lag between commitment in the GC and the appearance of
+tdTom+ PCs; therefore, the frequencies of HEL3x+ (high BCR af-
+ﬁnity) cells among day 8 tdTom+ PCs and day 7 GCs were
+compared. This assay was possible because newly generated
+PCs retained surface immunoglobulin expression at this early
+post-GC stage (Figures S1A and S1B). tdTom+ PC populations
+were highly enriched for HEL3x+ cells (median 88%), whereas
+day 7 GCs mostly still expressed low-afﬁnity BCRs (7% HEL3x+)
+and remained far below PC antibody afﬁnity equivalence at day
+8 (45% HEL3x+) (Figures 1B, 1C, and S1D). The proportion that
+was HEL3x+ among GC B cells expressing a c-Myc-GFP reporter
+of positive selection19,20 was also lower than that in tdTom+ PCs,
+even when compared at the same time point (68% HEL3x+ for
+c-Myc-GFP+ at day 8; Figures 1D–1F and S1E). Therefore, these
+ﬁndings conﬁrm that triggering thresholds differ for positive se-
+lection and PC differentiation21 and support earlier conclusions
+that PC differentiation in SWHEL GCs favors cells expressing
+A
+D
+E
+F
+B
+C
+Figure 1. Clonally restricted GC B cells expressing high-afﬁnity BCRs preferentially generate plasma cells
+(A) Experimental scheme for (B) and (C).
+(B) FACS showing percent HEL3x-binding from tdTom+ SWHEL GC B cells and PCs on day 7 and day 8 post-immunization. Both populations are pre-gated on cells
+with sufﬁciently high BCR (Igk) levels for detecting HEL3x binding. Full gating in Figure S1.
+(C) Quantiﬁcation of data in (B). Every time point is pooled from 2 to 4 experiments, each with 2–5 mice. Each symbol represents a mouse.
+(D) Experimental scheme for (E) and (F).
+(E) Representative FACS showing percent HEL3x-binding of total and c-MycGFP+ SWHEL GC B cells (CD45.2+ IgDlow GL7+) on day 7 and day 8 post-immunization.
+Cells are pre-gated as Igk+.
+(F) Quantiﬁcation of data in (E). Every time point is pooled from 2 experiments, each with 2–5 mice. Each symbol pair represents one mouse.
+Two-tailed p values from unpaired t tests with Welch’s correction (C) and paired parametric t test (F): ****p < 0.0001.
+ll
+OPEN ACCESS
+Cell 186, 5486–5499, December 7, 2023
+5487
+Article
+
+
+--- Page 4 ---
+higher-afﬁnity BCRs.5,12 However, an inherent limitation of the
+anti-HEL3x response is that it matures extremely quickly;
+HEL3x cells that performed poorly at generating PCs on days
+7–8 were also strongly outcompeted in GCs by day 9 (Figure 1C).
+This contrasts with polyclonal GC responses to complex anti-
+gens, where B cells expressing relatively low-afﬁnity BCRs
+persist for prolonged periods.7,8,10 Consequently, the question
+of how antigen receptor afﬁnity impacts PC differentiation in
+such settings cannot be easily inferred and needs testing.
+Clonally inclusive PC differentiation during inﬂuenza A
+infection
+The GCs that form after challenges with pathogen-derived anti-
+gens involve many B cell clones that differ in their BCR afﬁnities,
+binding footprints, and epitope speciﬁcities.7,8,10 The situation is
+yet more complex during infection, where pathogens express
+multiple antigens and induce signiﬁcant inﬂammation and tissue
+damage.
+To investigate PC differentiation in this setting, S1pr2tdTom
+Blimp1mVenus mice were infected with inﬂuenza A virus (HKx31,
+H3N2) and treated with a single tamoxifen injection 3 days prior
+to mediastinal (Med) lymph node (LN) harvest on day 14
+(Figure 2A). FTY720 treatments were provided for the ﬁnal
+2 days to trap newly emerging PCs in the LNs where they
+develop.22 The kinetics of tdTom labeling again conﬁrmed the
+lineage-tracing ﬁdelity, with PC labeling delayed by approxi-
+mately 1 day (Figure 2B). As observed in SWHEL experiments,
+tdTom+ PCs retained membrane immunoglobulins at this early
+A
+D
+E
+F
+B
+C
+Figure 2. Clonality of plasma cell differentiation during inﬂuenza A infection
+(A) Experimental scheme for (B)–(F).
+(B) Frequency of tdTom+ among day 14 MedLN GC B cells and PCs at the indicated time post-tamoxifen treatment. Each time point is pooled from 2 or more
+experiments, each with 2–4 mice. Gating strategy similar to (C), except no HA gating and captures total (dim and bright) tdTom+ cells.
+(C) Representative FACS gating for identifying (and sorting) HA+ tdTom+ GC B cells and PCs from MedLNs of S1pr2tdTom Blimp1mVenus mice. Day 14 post-
+infection shown.
+(D) Pie charts showing the distribution into clonal lineages of tdTom+ GC B cells and PCs sorted as in (C), for 6 mice. Each pie slice is a distinct clone. Colored
+slices are lineages shared between the GC and PC compartments of a given mouse. Numbers: ‘‘Nb of clonal lineages detected/Nb of cells sequenced.’’ $ signs
+indicate some subdominant clone examples found in tdTom+ PCs (only included for odd number mice to aid spacing). Roman numerals link clones to subse-
+quent ﬁgures.
+(E) Proportion of successful (representing >2% of total) GC clones detected in tdTom+ PCs.
+(F) Proportion of GC B cells belonging to clonal lineages representing 2% or less of GC B cells, compared with the proportion of PCs from these clones. Each
+symbol pair represents one mouse. Two-tailed p value from paired parametric t test: n.s. p R 0.05.
+ll
+OPEN ACCESS
+5488
+Cell 186, 5486–5499, December 7, 2023
+Article
+
+
+--- Page 5 ---
+stage (Figure S2A); therefore, cells speciﬁc for haemagglutinin
+(HA) were identiﬁed using surface staining with a multimeric
+ﬂuorescent probe, with comparisons made to contemporaneous
+GC B cells (Figure 2C).
+HA-speciﬁc tdTom+ GC B cells and PCs from 6 mice were
+sorted through FACS, and their paired antibody HC and LC var-
+iable genes were sequenced. Sorts were biased to capture the
+rarer tdTom+ PCs with greater depths relative to the more abun-
+dant GC B cells, thereby ensuring good PC coverage; 460–845
+tdTom+ GC B cells and 161–695 tdTom+ PCs were analyzed
+for each mouse. The distribution of antibody isotypes expressed
+by GC B cells and tdTom+ PCs was similar, although IgM- and
+IgG3-expressing cells that were subdominant in GCs appeared
+to also generate slightly fewer PCs (Figure S2B), possibly reﬂect-
+ing a known relative defect in positive selection in the case of
+IgM-expressing GC cells.23 Unique clonal lineages were identi-
+ﬁed using HC VDJ annotation and CDR3 sequence similarity
+(Figure 2D). As expected, cells in both subsets mostly carried
+multiple somatic mutations (Figure S2C), and most PCs (median
+97%) could be traced to lineages also observed in GCs (colored
+PC slices in Figure 2D). Overall, approximately one-third of GC
+clonal lineages were detected within new PC populations (40
+compared with 120, estimated using Chao1),8,24 indicating
+an inevitable decrease in clonal diversity due to infrequent selec-
+tion (Figure S2D). Despite this, almost all successful GC lineages
+(deﬁned as representing >2% of GC B cells) were also found
+among tdTom+ PCs (colored GC slices in Figure 2D, median of
+89% across mice), arguing against the possibility that rare attri-
+butes or features are uniquely selected during PC differentiation
+(Figure 2E). Moreover, even lineages that performed poorly in
+GCs (deﬁned as <1% GC B cells) were found in tdTom+ PC pop-
+ulations (some examples indicated by ‘‘$’’ signs for odd-
+numbered mice, Figure 2D), and PC populations also contained
+subdominant lineages not detected in GCs (gray PC pie slices).
+Consequently, when the results were normalized for GC popula-
+tion size, successful and subdominant lineages (%2% total GC)
+were similarly productive in generating PCs (Figure 2F), and no
+detectable trend existed for more successful GC clones seeding
+more PCs than is expected by abundance-based chance alone
+when observed results were compared with simulated random
+sampling (Figures S2E and S2F). Therefore, the overall probabil-
+ity of HA+ lineages generating PCs approximately reﬂects their
+representation in GCs.
+PCs emerge at multiple GC maturation stages as
+expanded ‘‘nodes’’
+We interrogated PC differentiation within clonal lineages, with
+examples from Ms#1 (Figure 3A) and Ms#5 (Figure S3A) plotted
+(clones identiﬁable by Roman numerals in Figure 2D). GC matu-
+ration trajectories were followed using inferred phylogenetic
+trees that reveal where somatic variants have branched (e.g., un-
+der unmutated common ancestor [UCA], in Ms#1 clone i; Fig-
+ure 3A) or presumptively positively selected to expand and
+seed further diversiﬁcation (‘‘clonal bursts,’’8 e.g., pink variant
+in same lineage).25 Colored somatic GC variants are sequences
+also found in tdTom+ PC populations, i.e., cells that differenti-
+ated, whereas gray cells were only observed in one subset.
+Notably, PCs developed from multiple levels within GC phylog-
+eny, for example, Ms#1 clone i had PCs differentiating from 3
+sequential GC expansions, including remnants of earlier bursts
+(orange and pink). Consequently, somatic mutation loads were
+similar or lower in tdTom+ PCs compared with GCs (Figure 3B).
+The ﬁndings that PCs emerged from multiple phylogenetic levels
+distanced by substantial expansions suggests that PC differen-
+tiation may not be restricted to only the very most matured
+GC cells, while concurrent differentiation from independent
+parallel lineage branches was also evident (e.g., Ms#1 clone iii,
+purple and pink). As such, GC B cells at different stages and
+branches of maturation pathways differentiate, generating PC
+populations that reﬂect the overall maturation process.
+Differentiation gave rise to expanded populations, or nodes, of
+PCs with identical HC VDJ genes and somatic mutations, some-
+times numbering >50 cells in size (Figures 3A and S3A). Just over
+half of all PC sequences showed evidence of expansions (i.e., >1
+PC with identical sequence), with a spread of node sizes (Fig-
+ure S3B). This wide variation in node size may reﬂect the asyn-
+chronous nature of Cre activity as well as differential expansion.
+PC nodes commonly emerged from expanded maturation
+branch points in GCs (e.g., orange and pink for Ms#1 clone i);
+however, other large nodes mapped to rarer GC clonal variants
+(e.g., blue in Ms#1 clone i) and to cells not detected in the GC
+(gray PC nodes). GC clonal ‘‘bursts’’ differ in their size and rela-
+tive
+consequence
+for
+maturation
+pathways8,26;
+therefore,
+without excluding a causative association between proliferative
+GC-stage events and PC differentiation, these results do seem-
+ingly argue against an obligate link to strong ‘‘jackpot’’ selection
+events triggering extensive bursting and homogenization. This
+conclusion is also supported by PCs emerging from GC expan-
+sions that are multiple phylogenetic levels up and so are unlikely
+to have been established in the period after tamoxifen treatment
+(e.g., orange for Ms#1 clone i).
+PC nodes could in principle arise either by certain BCRs trig-
+gering multiple selection events or by a single PC-initiating selec-
+tion event being linked to clonal expansion. To distinguish be-
+tween these possibilities, similar S1pr2-CreERT2-based fate-
+mapping experiments were performed, but using LSL-Ubow
+mice instead of LSL-tdTom27 (Figure 3C). Recombination is inef-
+ﬁcient in this setting, labeling only 2% of GC B cells when as-
+sessed 4 days after tamoxifen treatment (Figure 3D). Despite
+this, sizable PC nodes of cells with identical HC VDJ sequences
+were observed, most of which were of a single color (61 of 68 no-
+des), indicating that single cells were selected for both clonal
+expansion and differentiation after Cre-mediated labeling (Fig-
+ure 3E). This inferred post-selection proliferation might occur
+immediately before or after PC commitment; however, tdTom+
+PCs (in S1pr2tdTom Blimp1mVenus mice) were highly proliferative
+(25% 5-ethynyl-20-deoxyuridine [EdU]+ in 1 h; Figure 3F), con-
+ﬁrming an important role for the latter. Therefore, GCs output no-
+des of PCs expressing identical antibodies through associated
+processes of differentiation and expansion.
+GCs support PC differentiation by low- and high-afﬁnity
+B cells
+To investigate how antibody afﬁnity impacts GC PC differentia-
+tion during infection, paired HC and LC variable region genes
+from day 14 inﬂuenza infection HA-speciﬁc tdTom+ GC B cells
+ll
+OPEN ACCESS
+Cell 186, 5486–5499, December 7, 2023
+5489
+Article
+
+
+--- Page 6 ---
+A
+B
+C
+E
+D
+F
+Figure 3. Plasma cells differentiate from multiple GC maturation stages and expand to generate nodes
+(A) Tree representation of indicated clones from Ms#1 in Figure 2D, showing the phylogenetic relationship between GC B cells, and the observed population sizes
+for tdTom+ PCs. Colored nodes indicate sequences observed in both GC and PC compartments. Numbers and node sizes indicate the number of observed cells
+with identical HC VDJ sequences. Number-less nodes are inferred but not observed, arrows indicate where PC differentiation maps to them. Roman numerals
+relate to clonal lineages in Figure 2D.
+(B) Ighv somatic mutation loads of GC B cells and PCs from clones where the PC compartment contains at least 5 unique VDJ sequences (across all 6 analyzed
+mice). Each column is a clonal lineage. Roman numerals relate to clonal lineages in Figure 2D.
+(C) Experimental scheme for (D) and (E).
+(D) Representative FACS of GC B cells (Dump/IgD B220+ CD95+ GL7+) and PCs (Dump/IgD CD138+) in S1pr2UBOW MedLNs.
+(E) PC node sizes (the number of cells with identical HC VDJs), and the relative UBOW colors they derived from (bar colors). Sequences observed just once are not
+included as bars, but their numbers are indicated (singletons).
+(F) Experimental scheme as in Figure 2A but with mice receiving an EdU injection 1 h before analysis. The percent of GC B cells and tdTom+ PCs that were EdU+ is
+shown. Two-tailed p value from paired parametric t test: ***p < 0.001.
+ll
+OPEN ACCESS
+5490
+Cell 186, 5486–5499, December 7, 2023
+Article
+
+
+--- Page 7 ---
+and PCs were cloned and expressed as fragment antigen-bind-
+ing region proteins (Fabs) for three independent mice. Monova-
+lent binding afﬁnities were determined using surface plasmon
+resonance (SPR), with recombinant HA trimer immobilized and
+Fab analytes. Initial analysis focused on Fabs derived from cells
+picked across lineages to acquire an overview of the spread of
+antibody afﬁnities present, within the conﬁnes of paired
+sequence recovery. Consistent with previous ﬁndings,8,10 indi-
+vidual GC B cells from different lineages differed substantially
+in their antibody afﬁnities (upto multiple 1,000-fold), with most
+spanning a 100- to 200-fold range (Figures 4A and 4B). Surpris-
+ingly, the afﬁnity spread observed among tdTom+ PCs was
+similar to that of GCs. Both populations contained cells with
+‘‘good’’ nanomolar-range antibody afﬁnities but also cells whose
+Fabs bound the antigen (either by SPR or by staining reconsti-
+tuted surface IgMs28) with afﬁnities that were too low to accu-
+rately measure (KD > 10 mM). Importantly, this means that GC
+B cells with weak afﬁnity BCRs differentiated even when
+competing with cells expressing much higher-afﬁnity antigen
+receptors.
+We next explored the relationship between BCR afﬁnity and
+PC differentiation within clonal lineages, studying 4–5 unique
+clones for each mouse (Figure 4C). Individual clones supported
+afﬁnity ranges that were considerable (10- to 30-fold) but less
+broad than between lineages, as expected.10 A comparison of
+somatic variants to UCAs supports that GCs read and promote
+A
+D
+E
+F
+B
+C
+Figure 4. GC B cells expressing low- and high-afﬁnity BCRs develop into plasma cells
+(A, C, E, and F) Afﬁnities (KDs) for monovalent Fab binding to recombinant HA. Each symbol represents a Fab derived from a single B cell. An accuracy threshold
+of 10 mM is indicated (shading); detectable binding occurred above this, but measurements are less accurate (see STAR Methods). N.D. = binding but no KD
+determined. Some N.D. Fabs bound antigen when reconstituted as surface IgMs but not by SPR.
+(A) Fab KDs from GC B cells and PCs picked from various clones for Ms#1, Ms#3, and Ms#5 from Figure 2. Cells were picked as to sample across a broad range of
+clonal lineages, rather than be just random, to avoid excessively biasing for abundant lineages.
+(B) Example SPR single-cycle kinetic traces from PC Fabs from Ms#1.
+(C) Fab KDs for GC B cells and PCs from the indicated expanded clonal lineages. Roman numerals relate to clonal lineages of Figure 2D. PCs were selected from
+larger PC nodes, whereas GC were picked as a sampling across ‘‘gray’’ nodes, i.e., not detected among PCs. Note that most PC sequences were also found in
+GC (but are not shown as GC KDs). Some KDs from clone v were measured using biolayer interferometry.
+(D) PC generation efﬁciency (the number of tdTom+ PCs per 1,000 tdTom+ GC B cells) in MedLNs harvested on day 14 or day 21 post-infection, following a 3 days-
+tamoxifen treatment. Each time point is a pool of at least 3 experiments, each with 2–5 mice. Each symbol is one mouse.
+(E) Fab KDs for GC B cells and PCs sorted on day 21 post-infection, following a 3 days-tamoxifen treatment. Roman numerals relate to clonal lineages of
+Figure S4. Interclonal cells are picked from across other clonal lineages.
+(F) Comparison of the median KDs of day 21 post-infection PCs from various clonal lineages to the KDs of inferred UCAs. Each pair of symbols represents a clonal
+lineage.
+Two-tailed p values from Mann Whitney test (D) and Wilcoxon matched-pairs signed rank test (F): **p < 0.01, ****p < 0.0001.
+ll
+OPEN ACCESS
+Cell 186, 5486–5499, December 7, 2023
+5491
+Article
+
+
+--- Page 8 ---
+relatively modest afﬁnity enhancements through positive selec-
+tion (e.g., Ms#1 clone i, Ms#3 clone vii, and Ms#5 clone xiii).
+Despite this, tdTom+ PC Fabs approximately mirrored GC B cells
+from the same lineages in terms of their afﬁnities, including for
+clones containing relatively broad ranges (e.g., Ms#3, clone ix
+with KDs spanning 40-fold) and lower-afﬁnity clones (e.g.,
+Ms#1 clone iii and Ms#5 clone xi). This explains why PCs
+emerged from early and late maturation stages in GC trees
+(Figures 3A and S3A). The intraclonal analysis also adds impor-
+tant granularity to the interclonal picture (Figure 4A), by showing
+that PCs simultaneously differentiate from co-maturing lineages
+even when they differ substantially in their absolute antibody af-
+ﬁnities. This explains why PC differentiation was broadly permis-
+sive across clonal lineages, including those that were subdomi-
+nant in GCs (Figure 2D). In fact, some of the most PC-productive
+GC lineages displayed moderate antibody-binding afﬁnities rela-
+tive to coexisting clones (e.g., clones i vs. v in Ms#1 and clones vii
+vs. ix in Ms#3).
+We considered whether our ﬁndings might be unique to rela-
+tively early-stage anti-viral responses, by performing a similar
+analysis on day 21. Overall PC output, normalized to GC size,
+was reduced by 4-fold (Figure 4D), which led to slightly lower
+tdTom+ PC diversity in terms both of the number of distinct line-
+ages and somatic variants (Figure S4A, average of 17 PC line-
+ages observed compared with 30 at day 14). However, similar
+selection principles were evident, with PCs again emerging as
+nodes derived from both immunodominant and subdominant
+GC clones, although one mouse showed evidence of a strong
+clonal bias (Ms#9) (Figures S4A–S4C). The overall response
+afﬁnity was much improved with the additional week of matura-
+tion (20 nM compared with 600 nM range); however, large
+interclonal afﬁnity spreads were still evident in the GC and
+conserved during PC differentiation (e.g., clones xvi and xvii in
+Ms#7, both generating PCs despite clone xvii being subdomi-
+nant; Figures 4E and S4A). Within clonal lineages, PCs that
+matched the lowest detected GC antibody afﬁnities were still
+found, and differentiation again occurred from multiple levels
+of the maturation pathway (Figure S4B). Some clones uniformly
+carried fewer mutations (e.g., Ms#7 clone xvii, which was also
+of comparatively low afﬁnity), possibly suggesting that cells inﬁl-
+trating established GCs had successfully begun making PCs
+(Figure S4D).29,30 Therefore, later stage GCs generated fewer
+PCs but with similar selection rules. Importantly, even PCs
+from relatively weak antibody afﬁnity clones were much
+improved compared with their UCAs (Figure 4F), indicating an
+evolutionary advantage to selecting PCs this way.
+Tracking PC differentiation to single GCs
+Afﬁnity maturing B cells do not typically move between GCs;
+therefore, their evolution and fate commitment occur in partially
+isolated islands that may differ in selection criteria.8,31 We
+therefore explored whether concurrent low- and high-afﬁnity
+PC generation holds true in single GCs. We adopted a two-
+photon-microscopy-mediated photoactivatable GFP (PAGFP)
+approach8,32 to mark individual GCs in situ and permit sorting
+of their B cells by FACS (Figures 5A–5C). S1pr2tdTom labeling
+facilitated GC identiﬁcation for photoactivation and again
+marked new PCs. PCs were not photoconverted; however, their
+origin in PAGFP+ GCs was assigned based on clonality and
+shared somatic mutation patterns, i.e., where identical mutated
+sequences were observed in both populations, or where multiple
+somatic mutations were shared.
+PCs were successfully traced to 2 GCs, with colored GC pie
+slices (Figure 5D) and colored GC tree variants (Figure 5E)
+marking where differentiation occurred. PCs differentiated both
+from dominant winner clones (e.g., Ms#10 clone i) and those
+competing less well in the GC (e.g., Ms#10 clone ii and Ms#11
+clones vi). Fabs were expressed for multiple GC B cells and
+PCs from Ms#10 clones i–iii, as well as Ms#11 clones iv–vi,
+and their afﬁnities were compared (Figure 5F). Clones i and ii
+from Ms#10 had median afﬁnity differences of 15-fold
+(116 nM vs. 1.8 mM); however, both generated PCs. The highest
+and lowest antibody afﬁnity PCs traced to this single GC were
+2.7 nM and 13 mM, suggesting that it concurrently generated
+PCs with antibody afﬁnity differences of 4,000-fold. Although
+the afﬁnity spread observed among the 3 clones studied for
+Ms#11 was more modest, tdTom+ PCs 35-fold lower in anti-
+body afﬁnity compared to the best GC B cells were still observed
+(equivalent to the full range measured). As such, individual GCs
+seemingly support side-by-side maturation and PC differentia-
+tion of B cells with substantially different antibody afﬁnities.
+Immunization-induced GCs are less productive but still
+support the development of PCs with disparate antibody
+afﬁnities
+We explored whether similar PC selection rules apply in
+GCs formed in response to subunit vaccination. S1pr2tdTom
+Blimp1mVenus mice were immunized subcutaneously (s.c.) with
+recombinant HA protein in an AS03-like adjuvant (AddaS03),
+and the newly emerging PCs were again characterized (Fig-
+ure 6A). PC production efﬁciency after immunization was strik-
+ingly reduced, with GCs generating far fewer PCs than during
+infection, even when results were normalized for GC size
+(17-fold fewer on day 14; Figure 6B). Similar ﬁndings were
+made using an independent genetic fate-mapping model
+(Aicda-CreERT2 Rosa26-LSL-tdTom mice; Figure S5A),33 at
+different time points (Figure 6B) and after immunization with a
+different subunit vaccine (chicken gamma globulin [CGG]/
+Alum; Figure S5B). We examined whether the lower PC output
+after immunization might reﬂect an absence of post-GC PC pro-
+liferation; however, the frequency of tdTom+ PCs incorporating
+EdU was similar to during infection (median 29%; Figure S5C).
+The possibility that PC differentiation occurs more frequently in
+infection GCs was therefore considered. Additional GC fate-
+mapping experiments but with shorter (30 h) tamoxifen treat-
+ments were performed, following the rationale that this should
+allow some differentiation but minimize secondary effects from
+proliferation and/or apoptosis (Figure 6C). The proportion of
+tdTom+ GC-phenotype cells that were IRF4high and Blimp1+
+was much higher during infection, despite similar tdTom-labeling
+kinetics (Figures 6D, 6E, and S5D), consistent with differentiation
+being initiated more frequently in that setting.
+Despite immunization-induced GCs developing fewer PCs,
+subdominant and dominant GC clonal lineages again underwent
+differentiation (Figure 6F, subdominant examples include Ms#12
+LN A, green clone, Ms#13 purple clone, Ms#14 red, yellow
+ll
+OPEN ACCESS
+5492
+Cell 186, 5486–5499, December 7, 2023
+Article
+
+
+--- Page 9 ---
+and pink clones, and gray PC clones in all mice). A small number
+of clones outputted more PC nodes than expected from abun-
+dance alone (Figure S5F), possibly reﬂecting periods of preferen-
+tial
+differentiation.
+PC
+differentiation
+again
+approximately
+mirrored the overall clonal maturation process, because tdTom+
+PC sequences mapped to multiple levels in phylogeny, and Ighv
+somatic mutation levels were similar or slightly lower for tdTom+
+PCs compared to GCs (Figures 6G, 6H, and S5G). PC nodes
+generated from immunization GCs were notably smaller than
+those from infection (Figure S5H), despite their similar EdU incor-
+poration rates (Figure S5C), likely indicating reduced post-GC
+survival, although expression of a lineage-speciﬁc anti-apoptotic
+B cell lymphoma 2 (Bcl2) transgene did not detectably increase
+output efﬁciency (Figures S5I and S5J).34 Ultimately, the reduced
+PC productivity of GCs after immunization will result in them
+contributing less serum antibody.
+Several groups have reported that GCs formed after immuni-
+zation with adjuvanted pure protein contain sizable populations
+(often 50%) of cells that do not detectably bind the immunizing
+multimeric antigen by FACS or ELISA/Bio-layer interferometry
+assays, with these thought to have antibody afﬁnities below
+detection limits and/or to target partially degraded or modiﬁed
+antigen forms (‘‘dark antigen’’).7,10 HA FACS probe negative
+(HA) cells were evident in GCs from HA/AddaS03 immunized
+mice, and they also became tdTom+ PCs (Figures 6I and 6J).
+The relative efﬁciency with which HA cells differentiated varied
+between mice; however, HA+ GC cells generated signiﬁcantly
+more PCs when all mice/experiments were pooled (median
+A
+C
+D
+F
+B
+E
+Figure 5. Tracking plasma cell differentiation to single GCs
+(A) Experimental scheme for (B)–(F).
+(B) Multi-photon microscopy image of a single tdTom+ GC pre- and post-photoconversion. Scale bars, 100 mm.
+(C) Representative FACS gates for sorting HA+ tdTom+ PCs and HA+ PAGFP+ single GC B cells.
+(D) Pie charts showing the distribution of clonal lineages from two mice where PCs could be traced to individual GCs. Colored slices indicate clones found among
+GC and PC compartments, and in which individual PCs were traced to the GC on the basis of shared SHM patterns. Hashed slices indicate lineages shared
+between the GC and PC compartments, but where no PCs could be conﬁdently traced to the converted GC. Numbers indicate: Nb of clonal lineages/Nb of cells
+sequenced.
+(E) Phylogenetic maturation trees (GC) for clones labeled in (D). Colored nodes indicate where tdTom+ PCs with identical HC VDJ sequences were observed.
+Arrows indicate the nearest cell in the tree to tdTom+ PCs sharing 3 or more HC VDJ somatic mutations with PAGFP+ GC B cells.
+(F) Monovalent afﬁnities (KDs) for HA of Fabs from indicated clones (GC and PCs). Each symbol is a single B cell Fab. An accuracy threshold of 10 mM is indicated
+by shading; binding was detected above this, but measurements were considered less accurate (see STAR Methods). N.D. = binding but no KD determined. PCs
+were picked as in (E) and GC were picked from across gray nodes.
+ll
+OPEN ACCESS
+Cell 186, 5486–5499, December 7, 2023
+5493
+Article
+
+
+--- Page 10 ---
+A
+C
+F
+H
+I
+J
+K
+L
+G
+D
+E
+B
+Figure 6. GCs output fewer plasma cells after immunization, but these still display disparate antibody afﬁnities
+(A) Experimental scheme for (B). Inguinal LNs (iLNs) and MedLNs were analyzed for immunizations and infections, respectively.
+(B) GC size-normalized PC output (the number of tdTom+ PCs per 1,000 tdTom+ GC B cells) at the indicated time points following infection or immunization. Each
+symbol is a mouse. Each condition is pooled from at least 2 experiments, each with 2–5 mice, except day 10 results that are each from 1 experiment with 5 mice.
+The gray data points are the same as in Figure 4D but are included for comparison.
+(legend continued on next page)
+ll
+OPEN ACCESS
+5494
+Cell 186, 5486–5499, December 7, 2023
+Article
+
+
+--- Page 11 ---
+39% HA+ in GC, compared with 56% in tdTom+ PCs; Figure 6J).
+The presence in GC populations of cells carrying damaging or
+dead-end mutations may contribute to this effect35,36; however,
+it probably also reﬂects preferential (but not exclusive) differenti-
+ation of cells that reach minimal afﬁnity thresholds to confer
+detectable binding of HA multimers.
+Finally, we measured the afﬁnities of HA-binding Fabs from
+GC B cells and tdTom+ PCs for 3 mice. This analysis was less
+comprehensive than the one performed after infection; however,
+it allowed us to explore the ranges of afﬁnities supported through
+PC differentiation. When Fabs from across clonal lineages were
+analyzed, the antibody afﬁnities of GC B cells and tdTom+ PCs
+both spanned multiple orders of magnitude (>1,000-fold)
+(Figures 6K and 6L). As such, PC differentiation after immuniza-
+tion is inclusive of broad afﬁnity ranges, including cells that were
+unable to bind multimeric HA probes. Collectively, our results
+from infection and immunization indicate that the selective
+criteria driving GC PC differentiation approximately track those
+driving afﬁnity maturation.
+DISCUSSION
+Our study reveals how antibody afﬁnity and GC B cell clonality
+impact GC PC differentiation during complex responses. Studies
+of the clonally restricted anti-HEL3x response had indicated a
+strong bias toward only high-afﬁnity GC B cells differentiating
+to become PCs (Phan et al.5; as well as Figure 1). In contrast,
+we report that the GCs formed after inﬂuenza infection co-
+mature B cell clones of vastly different antibody afﬁnities along-
+side each other and output PC populations that largely mirror the
+contemporaneous (or very soon to be) GC. Surprisingly, this
+means that GCs generate PCs expressing antibodies that might
+be considered of weak afﬁnity, explaining recent ﬁndings from
+West Nile virus immune mice.37 We therefore conclude that PC
+selection is not unduly restrictive and instead broadly reﬂects
+the selection environment driving the afﬁnity maturation process.
+Our experiments also revealed that, although PC differentiation
+occurs infrequently in GCs, it is commonly associated with
+extensive clonal expansions that involve PC proliferation. These
+will enhance antibody secretion and may also improve the
+chances of PCs reaching distant supportive niches for long-
+term survival. Our experimental regimens all included FTY720
+treatments; however, it is plausible that clonal expansion could
+continue after LN egress without sphingosine-1-phosphate re-
+ceptor 1 antagonism.
+The idea that only GC B cells expressing the highest-afﬁnity
+BCRs are selected for PC differentiation was appealing because
+their antibodies are expected to functionally saturate their
+targets at lower concentrations, all else being equal. However,
+antibody potency, even among neutralizers, varies greatly de-
+pending upon the epitopes bound and the molecular interactions
+involved. For these reasons, correlations between antibody af-
+ﬁnity and potency can be quite poor when considered across
+clones, as demonstrated for SARS-CoV-2.38 B cells have no
+way of measuring epitope potency, and hence, we propose
+that it makes evolutionary sense for GCs to co-mature clones
+of different afﬁnities while shuttling broad samplings into PC
+pools without excess bias. Moreover, due to their bivalent
+nature, antibodies that have reasonably good association
+rates and bind with both arms may, in practice, gain little
+advantage by improving beyond moderate afﬁnities (e.g., KDs
+100–10 nM and better) when their targets are only transiently
+exposed, such as virions moving between cells.39,40 This selec-
+tion approach would also help ensure redundancy in epitopes
+and binding modes, countering pathogen immune escape.
+Notably, even relatively weak Fabs on day 21 were much
+improved compared with their predicted UCAs, meaning that
+there was a global improvement in the response.
+Our ﬁndings from infection and subunit immunization could
+be interpreted as arguing against models where PC differentia-
+tion depends on selection signal strength; however, we instead
+believe that they probably reﬂect the biological outcome
+of ‘‘noisy’’ afﬁnity-based selection in physiological settings.
+SWHEL experiments mimic the intraclonal setting but have the
+notable feature that the stereotypical Y53 mutation confers an
+afﬁnity leap (100-fold) and is associated with near-unifying
+GC selection very early after immunization (within 10 days).
+This may amplify an effect that is somewhat muted in more
+mature GCs, where afﬁnity enhancements tend to be gradual
+and selection less accurate, which may reduce competition-
+(C) Experimental scheme for (D) and (E).
+(D) Representative FACS showing the proportion of Blimp1+ IRF4+ cells among tdTom+ GC B cells.
+(E) Quantiﬁcation of (D). Each symbol is a mouse. Data pooled from 2 experiments, each with 3–4 mice per condition.
+(F) Antibody genes from tdTom+ GC B cells and PCs were sequenced on day 14 post-HA/AddaS03 immunization following 3 days of tamoxifen treatment. Pies
+show the distribution into clonal lineages, each slice is a distinct clone. Colored lineages are shared between tdTom+ GC and PC compartments of a given mouse.
+Numbers: Nb of clonal lineages detected/Nb of cells sequenced. Similar analysis for a further 7 LNs is included in Figure S5E.
+(G) Phylogenetic maturation trees for clones labeled in (F) and observed population sizes for tdTom+ PCs. Colored nodes indicate sequences observed in both GC
+and PCs. Numbers and node sizes indicate the number of observed cells with identical HC VDJ sequences. Number-less nodes are inferred but not observed,
+arrows indicate where PC differentiation maps to them.
+(H) Ighv somatic mutation loads of GC B cells and tdTom+ PCs from the two most immunodominant clones in the GC across all 10 analyzed LNs ( pies from (F) and
+Figure S5E). Each column is a clonal lineage.
+(I) Representative FACS showing the proportion of HA-binding and non-binding cells among GC B cells and tdTom+ PCs on day 14 post-HA/AddaS03 immu-
+nization, following a 3 days-tamoxifen treatment. Gates as in Figure 2B, includes pre-gating on Igk+. Probes are tetramerized trimers.
+(J) Quantiﬁcation of (I). Each symbol pair is one mouse (means reported where iLNs analyzed individually). Data pooled from 6 experiments, each with 2–4 mice.
+Results include experiments using trimeric HA probes and tetramerized trimeric HA probes, and not all include Igk+ gating.
+(K) KDs for HA binding by Fabs from the indicated populations, reﬂecting various clones. Each symbol represents a single B cell Fab, colors indicate different mice
+and are linked to (J).
+(L) SPR single-cycle kinetic traces from high and low afﬁnity PC Fabs, from one mouse in (K). Two-tailed p values from Mann Whitney tests (B and E), and paired
+parametric t test (J): **p < 0.01, ***p < 0.001, ****p < 0.0001.
+ll
+OPEN ACCESS
+Cell 186, 5486–5499, December 7, 2023
+5495
+Article
+
+
+--- Page 12 ---
+dependent repression. Potential sources of ‘‘noise’’ include the
+unequal composition of immune complexes,41 stochastic or in-
+herited differences in B cell signaling or transcriptional states,
+the presence of different T cell speciﬁcities or activation sta-
+tuses,42 cross-talk from innate-sensing mechanisms (e.g., toll-
+like or complement receptors43,44), and variations in GC light
+zone dwell time.45 Our ﬁndings conﬁrmed that the triggering
+threshold for PC differentiation differs from that inducing expres-
+sion of the selection marker c-Myc; however, this may be neces-
+sary for achieving similar outcomes because positive selection
+occurs iteratively. This argument is supported by the ﬁnding
+that SWHEL tdTom+ PCs are strongly enriched for high-afﬁnity
+cells but that GCs almost catch up within 2 days.
+The above arguments alone probably do not explain how PCs
+develop from different clonal lineages whose KDs differ by multi-
+ple orders of magnitude. We explored the possibility that this
+reﬂects the partitioning of responses into low- and high-afﬁnity
+GC islands; however, the experimental evidence did not
+support this as the sole cause. Rather, we speculate that com-
+plexities of in vivo antigen sensing may mean that B cells simply
+do not discern these large interclonal afﬁnity differences.46 For
+example, epitope accessibility may differ due to steric hindrance
+or antibody feedback,47–49 antigen presentation efﬁciency might
+vary among clones,42 and binding kinetics could differ when im-
+mobilized antigen complexes are sensed by membrane BCRs
+under tensional forces.50–52 Ultimately, if these factors allow
+GCs to apply afﬁnity discrimination more tightly within than be-
+tween lineages, they will represent elegant evolutionary solutions
+for supporting antibody responses that afﬁnity mature while re-
+maining diverse.
+The mechanism responsible for triggering PC commitment in
+GCs remains to be worked out. The striking association with
+BCR afﬁnity in clonally restricted settings has led to suggestions
+that PC differentiation occurs as an obligate alternative fate
+choice to continued participation in GCs when LZ cells receive
+very strong selection inputs. One conceptual concern with
+models involving bifurcation at this stage is the risk of GCs
+depleting themselves of high BCR-afﬁnity cells immediately after
+their generation.3 Experimental evidence also supports that
+strong selection inputs concurrently promote both fates rather
+than one at the expense of the other.32 An alternate possibility
+therefore is that PCs (or cells sensitized for this fate) might
+develop as a secondary product of the proliferative events that
+shape afﬁnity maturation.3,41 In this scenario, daughter cells
+could branch away from GC expansions and be predisposed to-
+ward the PC fate. This could explain why Blimp1 induction in a
+fraction of GC B cells is possible following BCR engagement
+without T cell help,12 despite the presumed scarcity of antigen
+on follicular dendritic cells and the muted BCR signaling capacity
+of GC B cells.53–55 Recent evidence that interleukin (IL)-21
+‘‘re-wires’’ selection toward promoting PC differentiation13,56,
+and that this T-cell-derived cytokine acts outside of immune syn-
+apses57, might provide a bridge between stochastic and instruc-
+tive processes, because it implies that a cell’s fate may also be
+tied to its local microenvironment.
+Our ﬁndings have implications for a rational vaccine design.
+There has been renewed optimism in recent years about the pos-
+sibility of generating protective vaccines for certain challenging
+pathogens through reverse vaccinology 2.0.,58 an approach
+involving the engineering of immunogens to coax maturation
+pathways that ultimately mold antibodies similar to rare protec-
+tive versions from infected patients (e.g., HIV broadly neutralizing
+antibodies). One concern is that successfully matured cells may
+need to compete strongly against all non-protective lineages for
+them to seed serum antibodies; however, our ﬁndings are reas-
+suring, in that they suggest that most clones contributing signif-
+icantly to GCs should also generate PCs—albeit in approximate
+accord with their relative immunodominance. Our results also
+highlight that the number of PCs made in GCs can vary dramat-
+ically with the immune context. These productivity differences
+are not easily explained by our current understanding of selec-
+tion events, and therefore, additional studies are needed to deci-
+pher their underlying mechanisms. Whether different vaccine
+platforms, such as mRNA- or viral-vector-based approaches,
+will behave closer to infection or protein immunization in terms
+of PC productivity also merits further investigation.
+Limitations of the study
+Our study sampled cells (for Fab characterization) within and be-
+tween clones on a moderately large scale; however, it was not
+possible to do this for every cell. As such, the results provide
+an overview of afﬁnities present in GC and new PC populations
+but should not be read as a fully quantitative comparison of the
+average antibody afﬁnities. We conclude that the spreads of
+antibody afﬁnities encoded by HA+ GC and tdTom+ PC popula-
+tions were similar, not that they are identical. The time lag
+inherent to fate-mapping also limits the comparisons and the
+resolution with which PC differentiation can be assigned to GC
+phylogeny.
+We conclude that the antibody afﬁnity threshold for the induc-
+tion of c-Myc markers of positive selection differs from that for
+PC differentiation, based on comparative SWHEL experiments.
+We did not assess other selection-associated pathways such
+as mTorc1 activation or CylinD3 induction.59,60 Various selection
+pathways operate in concert in non-binary dose-dependent
+manners to drive afﬁnity maturation via sequential clonal
+bursts,45,61,62 and hence, although c-Myc induction is a marker
+of positive selection,19,20 its expression alone does not provide
+a measure of the selective pressure driving afﬁnity maturation.
+These clonally restricted responses afﬁnity mature very quickly,
+and hence, we also cannot exclude that selection rules differ at
+different response stages.
+STAR+METHODS
+Detailed methods are provided in the online version of this paper
+and include the following:
+d KEY RESOURCES TABLE
+d RESOURCE AVAILABILITY
+B Lead contact
+B Materials availability
+B Data and code availability
+d EXPERIMENTAL MODEL AND STUDY PARTICIPANT
+DETAILS
+B Experimental mice
+ll
+OPEN ACCESS
+5496
+Cell 186, 5486–5499, December 7, 2023
+Article
+
+
+--- Page 13 ---
+B Cell lines
+d METHOD DETAILS
+B Recombinant haemagglutinin
+B Infections, HA immunizations and fate-mapping
+B SWHEL experiments
+B Flow cytometry and cell sorting
+B Photoconversion of individual GCs
+B Single-cell antibody sequencing
+B Clonal and intraclonal analyses
+B Cloning, Fab expression and afﬁnity measurements
+d QUANTIFICATION AND STATISTICAL ANALYSES
+ACKNOWLEDGMENTS
+We thank T. Kurosaki, T. Okada, and K. Toellner for S1pr2-CreERT2 mice; E.
+Robertson and M. Saitou for Blimp1mVenus mice; J.-C. Weill, C.-A. Reynaud,
+and D. Calado for Aicda-CreERT2 mice; M. Bajenoff and R. Gentek for
+Ubow mice; and R. Brink for SWHEL mice. We are also grateful to T. Arnon,
+R. Cornall, and A. Maclean for providing colony mice. We thank G. Victora
+and M. Nussenzweig for antibody-sequencing protocols and vectors; S. Davis
+and R. Donat for helping establish SPR assays; S. Banerji for help in protein
+puriﬁcation; and J. Muppidi and A. Reboldi for critical feedback on the manu-
+script. K. Nowicki provided technical assistance. Cell sorts were performed in
+the WIMM FACS facility with expert assistance from C. Waugh; microscopy
+was performed in the Wolfson Imaging Facility. The work was funded in whole,
+or in part, by The Wellcome Trust (O.B., 220219/Z/20/Z) and by the Medical
+Research Council (MRC) through core funding to the MRC Human Immu-
+nology Unit and MRC WIMM. For the purpose of open access, the author
+has applied a CC BY public copyright license to any Author Accepted Manu-
+script version arising from this submission.
+AUTHOR CONTRIBUTIONS
+A.S. and A.R. performed all experimental work under the supervision of O.B.
+A.S. and O.B. designed all experiments and interpreted results. S.M. per-
+formed bioinformatic sequencing analysis. C.B. performed statistical simula-
+tions. A.S. and O.B. wrote the manuscript.
+DECLARATION OF INTERESTS
+The authors declare no competing interests.
+INCLUSION AND DIVERSITY
+We support inclusive, diverse, and equitable conduct of research.
+Received: March 31, 2023
+Revised: August 5, 2023
+Accepted: October 24, 2023
+Published: November 10, 2023
+REFERENCES
+1. Bannard, O., and Cyster, J.G. (2017). Germinal centers: programmed for
+afﬁnity maturation and antibody diversiﬁcation. Curr. Opin. Immunol. 45,
+21–30. https://doi.org/10.1016/j.coi.2016.12.004.
+2. Victora, G.D., and Nussenzweig, M.C. (2022). Germinal centers. Annu.
+Rev. Immunol. 40, 413–442. https://doi.org/10.1146/annurev-immunol-
+120419-022408.
+3. Radtke, D., and Bannard, O. (2018). Expression of the plasma cell tran-
+scriptional regulator Blimp-1 by dark zone germinal center B cells during
+periods of proliferation. Front. Immunol. 9, 3106. https://doi.org/10.
+3389/ﬁmmu.2018.03106.
+4. Smith, K.G., Light, A., Nossal, G.J., and Tarlinton, D.M. (1997). The extent
+of afﬁnity maturation differs between the memory and antibody-forming
+cell compartments in the primary immune response. EMBO J. 16, 2996–
+3006. https://doi.org/10.1093/emboj/16.11.2996.
+5. Phan, T.G., Paus, D., Chan, T.D., Turner, M.L., Nutt, S.L., Basten, A., and
+Brink, R. (2006). High afﬁnity germinal center B cells are actively selected
+into the plasma cell compartment. J. Exp. Med. 203, 2419–2424. https://
+doi.org/10.1084/jem.20061254.
+6. Shinnakasu, R., Inoue, T., Kometani, K., Moriyama, S., Adachi, Y., Na-
+kayama, M., Takahashi, Y., Fukuyama, H., Okada, T., and Kurosaki, T.
+(2016). Regulated selection of germinal-center cells into the memory B
+cell compartment. Nat. Immunol. 17, 861–869. https://doi.org/10.1038/
+ni.3460.
+7. Viant, C., Weymar, G.H.J., Escolano, A., Chen, S., Hartweger, H., Cipolla,
+M., Gazumyan, A., and Nussenzweig, M.C. (2020). Antibody afﬁnity
+shapes the choice between memory and germinal center B cell fates.
+Cell 183, 1298–1311.e11. https://doi.org/10.1016/j.cell.2020.09.063.
+8. Tas, J.M., Mesin, L., Pasqual, G., Targ, S., Jacobsen, J.T., Mano, Y.M.,
+Chen, C.S., Weill, J.C., Reynaud, C.A., Browne, E.P., et al. (2016). Visual-
+izing antibody afﬁnity maturation in germinal centers. Science 351, 1048–
+1054. https://doi.org/10.1126/science.aad3439.
+9. Finney, J., Yeh, C.H., Kelsoe, G., and Kuraoka, M. (2018). Germinal center
+responses to complex antigens. Immunol. Rev. 284, 42–50. https://doi.
+org/10.1111/imr.12661.
+10. Kuraoka, M., Schmidt, A.G., Nojima, T., Feng, F., Watanabe, A., Kitamura,
+D., Harrison, S.C., Kepler, T.B., and Kelsoe, G. (2016). Complex antigens
+drive permissive clonal selection in germinal centers. Immunity 44,
+542–552. https://doi.org/10.1016/j.immuni.2016.02.010.
+11. Wardemann, H., Yurasov, S., Schaefer, A., Young, J.W., Meffre, E., and
+Nussenzweig, M.C. (2003). Predominant autoantibody production by early
+human B cell precursors. Science 301, 1374–1377. https://doi.org/10.
+1126/science.1086907.
+12. Kra¨ utler, N.J., Suan, D., Butt, D., Bourne, K., Hermes, J.R., Chan, T.D.,
+Sundling, C., Kaplan, W., Schoﬁeld, P., Jackson, J., et al. (2017). Differen-
+tiation of germinal center B cells into plasma cells is initiated by high-afﬁn-
+ity antigen and completed by Tfh cells. J. Exp. Med. 214, 1259–1267.
+https://doi.org/10.1084/jem.20161533.
+13. Luo, W., Conter, L., Elsner, R.A., Smita, S., Weisel, F., Callahan, D., Wu, S.,
+Chikina, M., and Shlomchik, M. (2023). IL-21R signal reprogramming co-
+operates with CD40 and BCR signals to select and differentiate germinal
+center B cells. Sci. Immunol. 8, eadd1823. https://doi.org/10.1126/sciim-
+munol.add1823.
+14. Phan, T.G., Amesbury, M., Gardam, S., Crosbie, J., Hasbold, J., Hodgkin,
+P.D., Basten, A., and Brink, R. (2003). B cell receptor-independent stimuli
+trigger immunoglobulin (Ig) class switch recombination and production of
+IgG autoantibodies by anergic self-reactive B cells. J. Exp. Med. 197,
+845–860. https://doi.org/10.1084/jem.20022144.
+15. Paus, D., Phan, T.G., Chan, T.D., Gardam, S., Basten, A., and Brink, R.
+(2006). Antigen recognition strength regulates the choice between extra-
+follicular plasma cell and germinal center B cell differentiation. J. Exp.
+Med. 203, 1081–1091. https://doi.org/10.1084/jem.20060087.
+16. Burnett, D.L., Schoﬁeld, P., Langley, D.B., Jackson, J., Bourne, K., Wilson,
+E., Porebski, B.T., Buckle, A.M., Brink, R., Goodnow, C.C., and Christ, D.
+(2020). Conformational diversity facilitates antibody mutation trajectories
+and discrimination between foreign and self-antigens. Proc. Natl. Acad.
+Sci. USA 117, 22341–22350. https://doi.org/10.1073/pnas.2005102117.
+17. Ohinata, Y., Sano, M., Shigeta, M., Yamanaka, K., and Saitou, M. (2008). A
+comprehensive,
+non-invasive
+visualization
+of
+primordial
+germ
+cell
+develop- ment in mice by the Prdm1-mVenus and Dppa3-ECFP double
+transgenic re- porter. Reproduction 136, 503–514. https://doi.org/10.
+1530/REP-08-0053.
+18. Pracht, K., Meinzinger, J., Daum, P., Schulz, S.R., Reimer, D., Hauke, M.,
+Roth, E., Mielenz, D., Berek, C., Coˆ rte-Real, J., et al. (2017). A new staining
+protocol for detection of murine antibody-secreting plasma cell subsets by
+ll
+OPEN ACCESS
+Cell 186, 5486–5499, December 7, 2023
+5497
+Article
+
+
+--- Page 14 ---
+ﬂow cytometry. Eur. J. Immunol. 47, 1389–1392. https://doi.org/10.1002/
+eji.201747019.
+19. Calado, D.P., Sasaki, Y., Godinho, S.A., Pellerin, A., Ko¨ chert, K., Sleck-
+man, B.P., de Albora´ n, I.M., Janz, M., Rodig, S., and Rajewsky, K.
+(2012). The cell-cycle regulator c-Myc is essential for the formation and
+maintenance of germinal centers. Nat. Immunol. 13, 1092–1100. https://
+doi.org/10.1038/ni.2418.
+20. Dominguez-Sola, D., Victora, G.D., Ying, C.Y., Phan, R.T., Saito, M., Nus-
+senzweig, M.C., and Dalla-Favera, R. (2012). The proto-oncogene MYC is
+required for selection in the germinal center and cyclic reentry. Nat. Immu-
+nol. 13, 1083–1091. https://doi.org/10.1038/ni.2428.
+21. Ise, W., Fujii, K., Shiroguchi, K., Ito, A., Kometani, K., Takeda, K., Kawa-
+kami, E., Yamashita, K., Suzuki, K., Okada, T., and Kurosaki, T. (2018). T
+follicular helper cell-germinal center B cell interaction strength regulates
+entry into plasma cell or recycling germinal center cell fate. Immunity 48,
+702–715.e4. https://doi.org/10.1016/j.immuni.2018.03.027.
+22. Kabashima, K., Haynes, N.M., Xu, Y., Nutt, S.L., Allende, M.L., Proia, R.L.,
+and Cyster, J.G. (2006). Plasma cell S1P1 expression determines second-
+ary lymphoid organ retention versus bone marrow tropism. J. Exp. Med.
+203, 2683–2690. https://doi.org/10.1084/jem.20061289.
+23. Sundling, C., Lau, A.W.Y., Bourne, K., Young, C., Laurianto, C., Hermes,
+J.R., Menzies, R.J., Butt, D., Kra¨ utler, N.J., Zahra, D., et al. (2021). Positive
+selection of IgG(+) over IgM(+) B cells in the germinal center reaction. Im-
+munity 54, 988–1001.e5. https://doi.org/10.1016/j.immuni.2021.03.013.
+24. Chao, A. (1984). Nonparametric estimation of the number of classes in a
+population. Scand. J. Stat., 265–270.
+25. DeWitt, W.S., 3rd, Mesin, L., Victora, G.D., Minin, V.N., and Matsen, F.A.t.
+(2018). Using genotype abundance to improve phylogenetic inference.
+Mol. Biol. Evol. 35, 1253–1265. https://doi.org/10.1093/molbev/msy020.
+26. Nowosad, C.R., Mesin, L., Castro, T.B.R., Wichmann, C., Donaldson,
+G.P., Araki, T., Schiepers, A., Lockhart, A.A.K., Bilate, A.M., Mucida, D.,
+and Victora, G.D. (2020). Tunable dynamics of B cell selection in gut
+germinal centres. Nature 588, 321–326. https://doi.org/10.1038/s41586-
+020-2865-9.
+27. Ghigo, C., Mondor, I., Jorquera, A., Nowak, J., Wienert, S., Zahner, S.P.,
+Clausen, B.E., Luche, H., Malissen, B., Klauschen, F., and Baje´ noff, M.
+(2013). Multicolor fate mapping of Langerhans cell homeostasis. J. Exp.
+Med. 210, 1657–1664. https://doi.org/10.1084/jem.20130403.
+28. Weaver, G.C., Villar, R.F., Kanekiyo, M., Nabel, G.J., Mascola, J.R., and
+Lingwood, D. (2016). In vitro reconstitution of B cell receptor-antigen inter-
+actions to evaluate potential vaccine candidates. Nat. Protoc. 11,
+193–213. https://doi.org/10.1038/nprot.2016.009.
+29. de Carvalho, R.V.H., Ersching, J., Barbulescu, A., Hobbs, A., Castro,
+T.B.R., Mesin, L., Jacobsen, J.T., Phillips, B.K., Hoffmann, H.H., Parsa,
+R., et al. (2023). Clonal replacement sustains long-lived germinal centers
+primed by respiratory viruses. Cell 186, 131–146.e13. https://doi.org/10.
+1016/j.cell.2022.11.031.
+30. Ha¨ gglo¨ f, T., Cipolla, M., Loewe, M., Chen, S.T., Mesin, L., Hartweger, H.,
+ElTanbouly, M.A., Cho, A., Gazumyan, A., Ramos, V., et al. (2023).
+Continuous germinal center invasion contributes to the diversity of the
+immune response. Cell 186, 147–161.e15. https://doi.org/10.1016/j.cell.
+2022.11.032.
+31. Shulman, Z., Gitlin, A.D., Targ, S., Jankovic, M., Pasqual, G., Nussenz-
+weig, M.C., and Victora, G.D. (2013). T follicular helper cell dynamics in
+germinal centers. Science 341, 673–677. https://doi.org/10.1126/sci-
+ence.1241680.
+32. Victora, G.D., Schwickert, T.A., Fooksman, D.R., Kamphorst, A.O., Meyer-
+Hermann, M., Dustin, M.L., and Nussenzweig, M.C. (2010). Germinal cen-
+ter dynamics revealed by multiphoton microscopy with a photoactivatable
+ﬂuorescent reporter. Cell 143, 592–605. https://doi.org/10.1016/j.cell.
+2010.10.032.
+33. Dogan, I., Bertocci, B., Vilmont, V., Delbos, F., Me´ gret, J., Storck, S., Rey-
+naud, C.A., and Weill, J.C. (2009). Multiple layers of B cell memory with
+different effector functions. Nat. Immunol. 10, 1292–1299. https://doi.
+org/10.1038/ni.1814.
+34. Strasser, A., Whittingham, S., Vaux, D.L., Bath, M.L., Adams, J.M., Cory,
+S., and Harris, A.W. (1991). Enforced BCL2 expression in B-lymphoid cells
+prolongs antibody responses and elicits autoimmune disease. Proc. Natl.
+Acad. Sci. USA 88, 8661–8665. https://doi.org/10.1073/pnas.88.19.8661.
+35. Stewart, I., Radtke, D., Phillips, B., McGowan, S.J., and Bannard, O.
+(2018). Germinal center B cells replace their antigen receptors in dark
+zones and fail light zone entry when immunoglobulin gene mutations are
+damaging. Immunity 49, 477–489.e7. https://doi.org/10.1016/j.immuni.
+2018.08.025.
+36. Mayer, C.T., Gazumyan, A., Kara, E.E., Gitlin, A.D., Golijanin, J., Viant, C.,
+Pai, J., Oliveira, T.Y., Wang, Q., Escolano, A., et al. (2017). The microana-
+tomic segregation of selection by apoptosis in the germinal center. Sci-
+ence 358, eaao2602. https://doi.org/10.1126/science.aao2602.
+37. Wong, R., Belk, J.A., Govero, J., Uhrlaub, J.L., Reinartz, D., Zhao, H., Er-
+rico, J.M., D’Souza, L., Ripperger, T.J., Nikolich-Zugich, J., et al. (2020).
+Afﬁnity-restricted memory B cells dominate recall responses to heterolo-
+gous ﬂaviviruses. Immunity 53, 1078–1094.e7. https://doi.org/10.1016/j.
+immuni.2020.09.001.
+38. Hastie, K.M., Li, H., Bedinger, D., Schendel, S.L., Dennison, S.M., Li, K.,
+Rayaprolu, V., Yu, X., Mann, C., Zandonatti, M., et al. (2021). Deﬁning
+variant-resistant epitopes targeted by SARS-CoV-2 antibodies: A global
+consortium study. Science 374, 472–478. https://doi.org/10.1126/sci-
+ence.abh2315.
+39. Wu, H., Pfarr, D.S., Tang, Y., An, L.L., Patel, N.K., Watkins, J.D., Huse,
+W.D., Kiener, P.A., and Young, J.F. (2005). Ultra-potent antibodies against
+respiratory syncytial virus: effects of binding kinetics and binding valence
+on viral neutralization. J. Mol. Biol. 350, 126–144. https://doi.org/10.1016/
+j.jmb.2005.04.049.
+40. Galimidi, R.P., Klein, J.S., Politzer, M.S., Bai, S., Seaman, M.S., Nussenz-
+weig, M.C., West, A.P., Jr., and Bjorkman, P.J. (2015). Intra-spike cross-
+linking overcomes antibody evasion by HIV-1. Cell 160, 433–446.
+https://doi.org/10.1016/j.cell.2015.01.016.
+41. Mesin, L., Ersching, J., and Victora, G.D. (2016). Germinal center B cell
+dynamics.
+Immunity
+45,
+471–482.
+https://doi.org/10.1016/j.immuni.
+2016.09.001.
+42. Watts, C., and Lanzavecchia, A. (1993). Suppressive effect of antibody on
+processing of T cell epitopes. J. Exp. Med. 178, 1459–1463. https://doi.
+org/10.1084/jem.178.4.1459.
+43. Wigton, E.J., DeFranco, A.L., and Ansel, K.M. (2019). Antigen complexed
+with a TLR9 agonist bolsters c-Myc and mTORC1 activity in germinal cen-
+ter B lymphocytes. Immunohorizons 3, 389–401. https://doi.org/10.4049/
+immunohorizons.1900030.
+44. Cumpelik, A., Heja, D., Hu, Y., Varano, G., Ordikhani, F., Roberto, M.P.,
+He, Z., Homann, D., Lira, S.A., Dominguez-Sola, D., and Heeger, P.S.
+(2021). Dynamic regulation of B cell complement signaling is integral to
+germinal center responses. Nat. Immunol. 22, 757–768. https://doi.org/
+10.1038/s41590-021-00926-0.
+45. Long, Z., Phillips, B., Radtke, D., Meyer-Hermann, M., and Bannard, O.
+(2022). Competition for refueling rather than cyclic reentry initiation evident
+in germinal centers. Sci. Immunol. 7, eabm0775. https://doi.org/10.1126/
+sciimmunol.abm0775.
+46. Batista, F.D., Arana, E., Barral, P., Carrasco, Y.R., Depoil, D., Eckl-Dorna,
+J., Fleire, S., Howe, K., Vehlow, A., Weber, M., and Treanor, B. (2007). The
+role of integrins and coreceptors in reﬁning thresholds for B-cell re-
+sponses. Immunol. Rev. 218, 197–213. https://doi.org/10.1111/j.1600-
+065X.2007.00540.x.
+47. Zhang, Y., Meyer-Hermann, M., George, L.A., Figge, M.T., Khan, M.,
+Goodall, M., Young, S.P., Reynolds, A., Falciani, F., Waisman, A., et al.
+(2013). Germinal center B cells govern their own fate via antibody feed-
+back. J. Exp. Med. 210, 457–464. https://doi.org/10.1084/jem.20120150.
+ll
+OPEN ACCESS
+5498
+Cell 186, 5486–5499, December 7, 2023
+Article
+
+
+--- Page 15 ---
+48. Forsell, M.N.E., Kvastad, L., Sedimbi, S.K., Andersson, J., and Karlsson,
+M.C.I. (2017). Regulation of subunit-speciﬁc germinal center B cell re-
+sponses to the HIV-1 envelope glycoproteins by antibody-mediated feed-
+back. Front. Immunol. 8, 738. https://doi.org/10.3389/ﬁmmu.2017.00738.
+49. Tas, J.M.J., Koo, J.H., Lin, Y.C., Xie, Z., Steichen, J.M., Jackson, A.M.,
+Hauser, B.M., Wang, X., Cottrell, C.A., Torres, J.L., et al. (2022). Antibodies
+from primary humoral responses modulate the recruitment of naive B cells
+during secondary responses. Immunity 55, 1856–1871.e6. https://doi.org/
+10.1016/j.immuni.2022.07.020.
+50. Garcı´a-Sa´ nchez, M., Castro, M., and Faro, J. (2023). B cell receptors and
+free antibodies have different antigen-binding kinetics. Proc. Natl. Acad.
+Sci. USA 120, e2220669120. https://doi.org/10.1073/pnas.2220669120.
+51. Batista, F.D., and Neuberger, M.S. (2000). B cells extract and present im-
+mobilized antigen: implications for afﬁnity discrimination. EMBO J. 19,
+513–520. https://doi.org/10.1093/emboj/19.4.513.
+52. Liu, B., Kolawole, E.M., and Evavold, B.D. (2021). Mechanobiology of T cell
+activation: to catch a bond. Annu. Rev. Cell Dev. Biol. 37, 65–87. https://
+doi.org/10.1146/annurev-cellbio-120219-055100.
+53. Khalil, A.M., Cambier, J.C., and Shlomchik, M.J. (2012). B cell receptor
+signal transduction in the GC is short-circuited by high phosphatase activ-
+ity. Science 336, 1178–1181. https://doi.org/10.1126/science.1213368.
+54. Nowosad, C.R., Spillane, K.M., and Tolar, P. (2016). Germinal center B
+cells recognize antigen through a specialized immune synapse architec-
+ture. Nat. Immunol. 17, 870–877. https://doi.org/10.1038/ni.3458.
+55. Luo, W., Weisel, F., and Shlomchik, M.J. (2018). B cell receptor and CD40
+signaling are rewired for synergistic induction of the c-Myc transcription
+factor in germinal center B cells. Immunity 48, 313–326.e5. https://doi.
+org/10.1016/j.immuni.2018.01.008.
+56. Chen, Z., Cui, Y., Yao, Y., Liu, B., Yunis, J., Gao, X., Wang, N., Can˜ ete,
+P.F., Tuong, Z.K., Sun, H., et al. (2023). Heparan sulfate regulates IL-21
+bioavailability and signal strength that control germinal center B cell selec-
+tion and differentiation. Sci. Immunol. 8, eadd1728. https://doi.org/10.
+1126/sciimmunol.add1728.
+57. Quast, I., Dvorscek, A.R., Pattaroni, C., Steiner, T.M., McKenzie, C.I., Pitt,
+C., O’Donnell, K., Ding, Z., Hill, D.L., Brink, R., et al. (2022). Interleukin-21,
+acting beyond the immunological synapse, independently controls T follic-
+ular helper and germinal center B cells. Immunity 55, 1414–1430.e5.
+https://doi.org/10.1016/j.immuni.2022.06.020.
+58. Rappuoli, R., Bottomley, M.J., D’Oro, U., Finco, O., and De Gregorio, E.
+(2016). Reverse vaccinology 2.0: human immunology instructs vaccine
+antigen design. J. Exp. Med. 213, 469–481. https://doi.org/10.1084/jem.
+20151960.
+59. Ersching, J., Efeyan, A., Mesin, L., Jacobsen, J.T., Pasqual, G., Grabiner,
+B.C., Dominguez-Sola, D., Sabatini, D.M., and Victora, G.D. (2017).
+Germinal center selection and afﬁnity maturation require dynamic regula-
+tion of mTORC1 kinase. Immunity 46, 1045–1058.e6. https://doi.org/10.
+1016/j.immuni.2017.06.005.
+60. Pae, J., Ersching, J., Castro, T.B.R., Schips, M., Mesin, L., Allon, S.J.,
+Ordovas-Montanes, J., Mlynarczyk, C., Melnick, A., Efeyan, A., et al.
+(2021). Cyclin D3 drives inertial cell cycling in dark zone germinal center
+B cells. J. Exp. Med. 218, e20201699. https://doi.org/10.1084/jem.
+20201699.
+61. Finkin, S., Hartweger, H., Oliveira, T.Y., Kara, E.E., and Nussenzweig, M.C.
+(2019). Protein amounts of the MYC transcription factor determine
+germinal center B cell division capacity. Immunity 51, 324–336.e5.
+https://doi.org/10.1016/j.immuni.2019.06.013.
+62. Gitlin, A.D., Shulman, Z., and Nussenzweig, M.C. (2014). Clonal selection
+in the germinal centre by regulated proliferation and hypermutation. Na-
+ture 509, 637–640. https://doi.org/10.1038/nature13300.
+63. Madisen, L., Zwingman, T.A., Sunkin, S.M., Oh, S.W., Zariwala, H.A., Gu,
+H., Ng, L.L., Palmiter, R.D., Hawrylycz, M.J., Jones, A.R., et al. (2010). A
+robust and high-throughput Cre reporting and characterization system
+for the whole mouse brain. Nat. Neurosci. 13, 133–140. https://doi.org/
+10.1038/nn.2467.
+64. Huang, C.Y., Bredemeyer, A.L., Walker, L.M., Bassing, C.H., and
+Sleckman, B.P. (2008). Dynamic regulation of c-Myc proto-oncogene
+expression during lymphocyte development revealed by a GFP-c-Myc
+knock-in mouse. Eur. J. Immunol. 38, 342–349. https://doi.org/10.1002/
+eji.200737972.
+65. Mesin, L., Schiepers, A., Ersching, J., Barbulescu, A., Cavazzoni, C.B.,
+Angelini, A., Okada, T., Kurosaki, T., and Victora, G.D. (2020). Restricted
+clonality and limited germinal center reentry characterize memory B cell
+reactivation by boosting. Cell 180, 92–106.e11. https://doi.org/10.1016/j.
+cell.2019.11.032.
+66. R Core Team (2023). R: A language and environment for statistical
+computing. R Foundation for Statistical Computing, Vienna, Austria.
+URL https://www.R-project.org/.)
+67. MacLean, A.J., Richmond, N., Koneva, L., Attar, M., Medina, C.A.P.,
+Thornton, E.E., Gomes, A.C., El-Turabi, A., Bachmann, M.F., Rijal, P.,
+et al. (2022). Secondary inﬂuenza challenge triggers resident memory B
+cell migration and rapid relocation to boost antibody secretion at infected
+sites. Immunity 55, 718–733.e8. https://doi.org/10.1016/j.immuni.2022.
+03.003.
+68. Allen, C.D., Okada, T., Tang, H.L., and Cyster, J.G. (2007). Imaging of
+germinal center selection events during afﬁnity maturation. Science 315,
+528–531. https://doi.org/10.1126/science.1136736.
+69. Jacobsen, J.T., and Victora, G.D. (2017). Microanatomical labeling of
+germinal center structures for ﬂow cytometry using photoactivation.
+Methods Mol. Biol. 1623, 51–58. https://doi.org/10.1007/978-1-4939-
+7095-7_4.
+70. Masella, A.P., Bartram, A.K., Truszkowski, J.M., Brown, D.G., and
+Neufeld, J.D. (2012). PANDAseq: paired-end assembler for Illumina
+sequences. BMC Bioinformatics 13, 31. https://doi.org/10.1186/1471-
+2105-13-31.
+ll
+OPEN ACCESS
+Cell 186, 5486–5499, December 7, 2023
+5499
+Article
+
+
+--- Page 16 ---
+STAR+METHODS
+KEY RESOURCES TABLE
+REAGENT or RESOURCE
+SOURCE
+IDENTIFIER
+Antibodies
+BV785-B220, clone RA3-6B2
+Biolegend
+Cat#103246, RRID:AB_2563256
+BV605-B220, clone RA3-6B2
+Biolegend
+Cat#103244, RRID:AB_2563312
+PE-B220, clone RA3-6B2
+Biolegend
+Cat#103208, RRID:AB_312993
+Biotin - IgD, clone 11-26c.2a
+Biolegend
+Cat#405734, RRID:AB_2563344
+BV605-IgD, clone 11-26c.2a
+Biolegend
+Cat#405727, RRID:AB_2562887
+BUV395-IgD, clone 11-26c.2a
+BD Biosciences
+Cat#565988, RRID:AB_2737433
+PECy7-CD95, clone Jo2
+BD Biosciences
+Cat#557653, RRID:AB_396768
+Paciﬁc Blue-GL7, clone GL7
+Biolegend
+Cat#144614, RRID:AB_2563292
+FITC-GL7, clone GL7
+Biolegend
+Cat#144604, RRID:AB_2561697
+AF647-GL7, clone GL7
+Biolegend
+Cat#144606, RRID:AB_2562185
+Biotin-GL7, clone GL7
+eBioscience
+Cat#13-5902-82, RRID:AB_823151
+PerCPCy5.5-GL7, clone GL7
+Biolegend
+Cat#144610, RRID:AB_2562979
+BV421-CD138, clone 281-2
+Biolegend
+Cat#142507, RRID:AB_11204257
+PE-CD138, clone 281-2
+Biolegend
+Cat#142504, RRID:AB_10916119
+APCCy7-CD4, clone GK1.5
+Biolegend
+Cat#100413, RRID:AB_312698
+APCCy7-CD8a, clone 53-6.7
+Biolegend
+Cat#100713, RRID:AB_312752
+APCCy7-TER119, clone TER-119
+Biolegend
+Cat#116223, RRID:AB_2137788
+APCCy7-F4/80, clone BM8
+Biolegend
+Cat#123117, RRID:AB_893489
+Biotin-CD267, clone 8F10
+Miltenyi Biotech
+Cat#130-101-980, RRID:AB_2656779
+AF647-IRF4, clone IRF4.3E4
+Biolegend
+Cat#646408, RRID:AB_2564048
+Puriﬁed CD16/32, clone 93
+Biolegend
+Cat#101302, RRID:AB_312801
+BUV395-IgKappa, clone 187.1
+BD Biosciences
+Cat#742839,
+RRID:AB_2741090
+APCCy7-IgKappa, clone RMK-45
+Biolegend
+Cat#409504, RRID:AB_2563579
+BV785-CD45.1, clone A20
+Biolegend
+Cat#110743, RRID:AB_2563379
+BUV395-CD45.2, clone 104
+BD Biosciences
+Cat#564616, RRID:AB_2738867
+Bacterial and virus strains
+HKx31 H3N2 Inﬂuenza A virus (grown in MDCK cells)
+Cloned and propagated in house.
+N/A
+Chemicals, peptides and recombinant proteins
+AddaS03
+Invivogen
+Cat#vac-as03-10
+Alhydrogel
+Invivogen
+Cat#vac-alu-250
+Sigma Adjuvant system
+Sigma Aldrich
+Cat#S6322-1VL
+Lipopolysaccharide
+Sigma Aldrich
+Cat#L6529
+Tamoxifen
+Sigma Aldrich
+Cat#T5648-1G
+Fingolimod (FTY720) HCl
+Selleckchem
+Cat#S5002
+EdU
+Biosynth Carbosynth
+Cat#NE08701
+2-Mercaptoethanol
+Merck
+Cat#63689-25ML-F
+D-Mannitol
+Sigma Aldrich
+Cat#M4125-500G
+Fixable viability dye eﬂuor780
+Biolegend
+Cat#65-0865-14
+Stretavidin-Qdot605
+Thermo Fisher Scientiﬁc
+Cat#Q10101MP
+Streptavidin-BV605
+Biolegend
+Cat#405229
+Streptavidin-BV650
+Biolegend
+Cat#405231
+Streptavidin-APC
+Biolegend
+Cat#405207
+(Continued on next page)
+ll
+OPEN ACCESS
+e1
+Cell 186, 5486–5499.e1–e6, December 7, 2023
+Article
+
+
+--- Page 17 ---
+Continued
+REAGENT or RESOURCE
+SOURCE
+IDENTIFIER
+Chicken Gamma Globulin
+Rockland
+Cat#D602-0100
+HKx31 H3N2 Inﬂuenza A virus WT
+This paper
+N/A
+HKx31 H3N2 Inﬂuenza A virus Y98F
+This paper
+N/A
+Lysozyme from chicken egg white (Hen Egg Lysozyme, HEL)
+Sigma Aldrich
+Cat#L6876-5g
+Critical commercial assays
+AF647, Alexa Fluor 647 protein labelling kit
+Thermo Fisher Scientiﬁc
+Cat#A20186
+Biotin-X-NHS
+Clabiochem
+Cat#203188-25MG
+FoxP3/Transcription Factor Staining buffer kit
+Thermo Fisher Scientiﬁc
+Cat#00-8333-56
+BD ﬁxation/permeabilization solution kit
+BD Biosciences
+Cat#51-2090KZ
+Click-iT Plus EdU Alexa Fluor 647 Flow
+Cytometry Assay Kit
+Thermo Fisher Scientiﬁc
+Cat#C10634
+Biotin CAPture kit, Series S
+Cytiva
+Cat#28920234
+Miseq Reagent Nano Kit v2 (500 cycles)
+Illumina
+Cat#MS-103-1003
+NextSeq 500/550 Mid Output Kit v2.5 (150 cycles)
+Illumina
+Cat#20024904
+Qubit HS DNA assay
+Thermo Fisher Scientiﬁc
+Cat#Q32851
+Bioanalyzer High Sensitivity DNA Kit
+Agilent Technologies
+Cat#5067-4626
+Chromium Next GEM Single Cell 5’ Kit v2, 4 rxns
+10X Genomics
+Cat#1000265
+Chromium Next GEM Chip K Single Cell Kit, 16 rxns
+10X Genomics
+Cat#1000287
+Chromium Single Cell Mouse BCR Ampliﬁcation
+Kit, 16 rxns
+10X Genomics
+Cat#1000255
+Dual Index Kit TT Set A 96 rxns
+10X Genomics
+Cat#1000215
+5’ Feature Barcode Kit, 16 rxns
+10X Genomics
+Cat#1000256
+Dual Index Kit TN Set A, 96 rxn
+10X Genomics
+Cat#1000250
+Library Construction Kit, 16 rxns
+10X Genomics
+Cat#1000190
+ExpiFectamine 293 Transfection Kit
+Gibco
+Cat#A14524
+Experimental models: Cell lines
+Expi293 cells
+Thermo Fisher
+Cat#A14527
+293T cells
+A. Townsend (University of Oxford)
+N/A
+MDCK cells
+A. Townsend (University of Oxford)
+N/A
+CHO cells
+S. Banerji (University of Oxford)
+N/A
+Experimental models: Organisms/strains
+Mouse: C57BL/6
+Oxford University core breeding
+facility
+N/A
+Mouse: B6.SJL-Ptprca Pepcb/BoyJ
+Oxford University core breeding
+facility
+N/A
+Mouse: SWHEL
+Phan et al.14
+N/A
+Mouse: Rosa26-LSL-tdTom: B6.Cg-
+Gt(ROSA)26Sortm9(CAG-tdTomato)Hze/J
+Madisen et al.63
+Jax. 007990
+Mouse: S1pr2-CreERT2
+Shinnakasu et al.6
+N/A
+Mouse: Blimp1-mVenus
+Ohinata et al., 201817
+RIKEN accession CDB0460T
+Mouse: UBOW
+Ghigo et al.27
+N/A
+Mouse: PAGFP: B6.Cg-Ptprca Tg(UBC-PA-GFP)1Mnz/J
+Victora et al.32
+Jax. 022486
+Mouse: Aicda-CreERT2: B6.129P2-
+Aicdatm1.1(cre/ERT2)Crey/J
+Dogan et al.33
+Jax. 033897
+Mouse: cMyc-GFP: B6;129-Myctm1Slek/J
+Huang et al.64
+Jax. 021935
+Mouse: Eu22-Bcl2 Tg: C.Cg-Tg(BCL2)22Wehi/J
+Strasser et al.34
+Jax. 002318
+Oligonucleotides
+Single-cell BCR sequencing primers
+Mesin et al.65; IDT.
+N/A
+(Continued on next page)
+ll
+OPEN ACCESS
+Cell 186, 5486–5499.e1–e6, December 7, 2023
+e2
+Article
+
+
+--- Page 18 ---
+RESOURCE AVAILABILITY
+Lead contact
+Any information or request for resources and reagents should be directed to and will be fulﬁlled by the lead contact, Oliver Bannard
+(oliver.bannard@ndm.ox.ac.uk).
+Materials availability
+This study did not generate new unique reagents. Certain mouse lines described here were obtained from other laboratories and thus
+may require a Material Transfer Agreement (MTA).
+Data and code availability
+d This study did not generate any unique datasets. All data reported in this paper will be shared by the lead contact upon request.
+d This paper does not report original code.
+Continued
+REAGENT or RESOURCE
+SOURCE
+IDENTIFIER
+Recombinant DNA
+Fab expression vectors
+Tas et al.8
+N/A
+Software and algorithms
+Flowjo
+https://www.ﬂowjo.com/
+RRID:SCR_008520
+Graphpad prism
+https://www.graphpad.com/
+RRID:SCR_002798
+Adobe Illustrator
+http://www.adobe.com/
+products/illustrator.html
+RRID:SCR_010279
+GCTree
+DeWitt et al.25
+N/A
+PANDAseq
+https://github.com/neufeld/
+pandaseq
+N/A
+Cell Ranger
+https://support.10xgenomics.
+com/single-cell-vdj/software/
+downloads/latest
+RRID:SCR_017344
+Biacore Insight Evaluation Software
+https://www.cytivalifesciences.
+com/en/us/support/software/
+biacore-downloads
+N/A
+SpadeR
+https://chao.shinyapps.io/
+SpadeR/
+N/A
+R Core Team (2023)66
+https://www.r-project.org
+N/A
+Other
+Fetal Bovine Serum
+GIBCO
+Cat#10500 056
+Sheep Red Blood Cells in Alsevers
+Thermo Fisher Scientiﬁc
+Cat#SR0053B
+Corn oil
+Sigma Aldrich
+Cat#C8267-500ML
+DMEM
+Sigma Aldrich
+Cat#D5796-500ML
+HEPES
+GIBCO
+Cat#15630080
+Penicillin and Streptomycin
+Thermo Fisher Scientiﬁc
+Cat#15140122
+Normal mouse serum
+Thermo Fisher Scientiﬁc
+Cat#24-5544-94
+PBS-P+ (10X)
+Cytiva
+Cat#28995084
+RNAClean XP
+Beckman Coulter
+Cat#A63987
+AMPure XP
+Beckman Coulter
+Cat#A63881
+TCL Buffer
+Qiagen
+Cat#1031576
+Opti-MEM
+Gibco
+Cat#31985047
+Expi293 Expression Medium
+Gibco
+Cat#A14351-01
+Taq DNA polymerase
+New England Biolabs
+Cat#M0273L
+RNasin Plus Ribonuclease Inhibitor
+Promega
+Cat#N2615
+Maxima H minus Reverse Transcriptase
+Life Technologies
+Cat#EP0753
+PureCube Indigo Ni-Agarose Beads
+CubeBiotech
+Cat#75103
+ll
+OPEN ACCESS
+e3
+Cell 186, 5486–5499.e1–e6, December 7, 2023
+Article
+
+
+--- Page 19 ---
+d Any information required to reanalyse the data reported in this paper is available from the lead author upon request.
+EXPERIMENTAL MODEL AND STUDY PARTICIPANT DETAILS
+Experimental mice
+SWHEL,14 Rosa26-LSL-tdTom,63 S1pr2-CreERT2,6 Blimp1mVenus,17 UBOW,27 PAGFP,32 Aicda-CreERT2,33 cMyc-GFP64 and E mu bcl-
+2-2234 mice were described previously. C57BL/6 and B6SJL.CD45.1 mice were purchased from the University of Oxford core
+breeding facility. Mice were 6 weeks of age or older at the time of any experimentation, and at least 8 weeks-old when challenged
+with inﬂuenza. Mixes of male and female mice were used. Littermates were assigned at random to experimental and control groups,
+ensuring equal representation in every cohort. All mice were bred, maintained and immunized in speciﬁc pathogen–free facilities at the
+Biomedical Sciences Facility of the University of Oxford. All experiments were performed in accordance with a project license granted
+by the UK Home Ofﬁce and were approved by the Institutional Animal Ethics Committee Review Board of the University of Oxford.
+Cell lines
+293T and Expi293 cell lines were used for the production of recombinant HA and Fabs. 293T cells were cultured in DMEM Medium
+(Gibco) supplemented with 10% FBS, 1% HEPES, 1% Pen/Strep and 1% Glutamine, at 37C, 5% CO2. Expi293 cells were grown in
+Expi293 Expression Medium (Gibco) at 37C, 8% CO2, at a shaking speed of 120rpm (for Erlenmeyer ﬂasks) or 220rpm (for mini-bio-
+reactors). The MDCK cell line was used to produce inﬂuenza virus. MDCK cells were cultured in DMEM medium with 10% FBS, 1%
+HEPES, 1% Pen/Strep and 1% Glutamine, at 37C, 5% CO2. The CHO line was used for the production of HEL3X. CHO cells were
+cultured in DMEM medium with 10% FBS, 1% Sodium Pyruvate, 1% HEPES, 1% Pen/Strep and 1% Glutamine, at 37C, 5% CO2.
+METHOD DETAILS
+Recombinant haemagglutinin
+His-tagged trimeric HKx31 HA (matched to the sequence of the exact lab substrain) Y98F (a point mutation reducing sialic acid bind-
+ing) was produced through stable transduction of 293T cells,67 puriﬁcation from culture supernatants by Ni-NTA chromatography
+and size-exclusion using a Superdex 200 Increase 10/300 GL (Cytiva). For FACS, recombinant HA Y98F trimer was labelled with
+AF647 or biotin through free amine coupling chemistry (Thermo Fisher Scientiﬁc A20186, Calbiochem 203188-25MG). Only when
+indicated, biotin-HA Y98F was additionally tetramerized by incubation with SA-APC or SA-BV650 (Biolegend) for 30 minutes at
+RT, at a 4:1 (HA:SA) ratio, followed by dialysis into PBS. For SPR measurements, both WT (Y98) and Y98F HKx31 HA were expressed,
+puriﬁed and biotinylated as described. SPR measurements were initially performed against HA Y98F, but weakly binding infection
+Fabs (KD>106M) as well as representatives of expanded clones were then re-measured against WT HA. When the Y98F mutation
+was found to affect the measured afﬁnity within a clone, it was entirely re-tested against WT HA.
+Infections, HA immunizations and fate-mapping
+Mice were anesthetized by isoﬂurane inhalation and infected intranasally with HKx31 H3N2 Inﬂuenza A virus, or immunized subcu-
+taneously with 3mg of recombinant HKx31 HA Y98F protein in ½ volume of AddaS03 (Invivogen), on each side of the mouse. Inﬂu-
+enza-infected mice were monitored for weight loss. For GC fate-mapping, tamoxifen (Sigma Aldrich) was administered 3 days prior to
+harvest, as a single intraperitoneal dose of 2mg per mouse, in corn oil with 10% ethanol. To trap PCs in LNs, FTY720 (Selleckchem)
+was administered intraperitoneally at 3mg/g of body weight 2 days and 1 day before harvest.
+SWHEL experiments
+105 SWHEL S1pr2-CreERT2 Rosa26-LSL-tdTom (with or without Blimp1mVenus) B cells were adoptively transferred by intravenous in-
+jection into WT C57BL/6 or B6SJL.CD45.1 recipients 1-4 days prior to intraperitoneal immunization with HEL3X-conjugated SRBCs,15
+supplemented with 10mg/mL LPS (Sigma Aldrich). Negative control mice for HEL3X staining similarly received transferred SWHEL B
+cells, but also 105 OVA-speciﬁc OTII T cells, and were immunized intraperitoneally with 50mg of HEL-OVA in Sigma Adjuvant System
+(Sigma Aldrich).68 For the detection of HEL3X-binding cells by ﬂow cytometry, HEL3X was conjugated to AF647 through free amine
+coupling chemistry (Thermo Fisher Scientiﬁc, A20186). Recombinant 6xHis-tagged HEL3X protein was expressed in CHO cells and
+puriﬁed over a NiNTA column.45 WT HEL was purchased from Sigma Aldrich.
+Flow cytometry and cell sorting
+Mediastinal LNs for infections or inguinal LNs for immunizations were harvested on ice in harvest media (DMEM + 1% HEPES + 1%
+FCS + 1% Pen/Strep), mechanically dissociated into single-cell suspensions, and washed once in harvest media prior to staining.
+In general, both inguinal LNs were harvested and pooled prior to staining, unless used for sorts or otherwise stated, when LNs
+were stained individually. Cells were ﬁrst incubated with an Fc block solution (CD16/32, 10 minutes on ice) and then with ﬂuores-
+cently-labelled antibodies and HA probe (35 minutes on ice), both solutions prepared in FB (PBS + 1% FCS + 0.5mM EDTA). Cells
+were passed through 100mm cell strainers before passing on BD LSR Fortessa X20, BD LSR II, BD Aria III or BD Fusion.
+ll
+OPEN ACCESS
+Cell 186, 5486–5499.e1–e6, December 7, 2023
+e4
+Article
+
+
+--- Page 20 ---
+For intracellular staining (IRF4 or EdU), samples were ﬁxed for 30 mins on ice with BD ﬁxation reagent (BD Biosciences) and then
+permeabilized overnight at 4C in FoxP3 permeabilization buffer (Thermo Fisher Scientiﬁc). For EdU staining, the manufacturer’s
+instructions were followed (FlowPlus kit, ThermoFisher Scientiﬁc). Dump gates included Abs against CD4, CD8, TER-119 and
+F4/80. All ﬂow cytometry analysis was performed with FlowJo v10 software.
+Photoconversion of individual GCs
+Following the protocol thoroughly described by Jacobsen and Victora69: whole LNs were carefully cleaned of fat and mounted intact
+on an ice-cold block under a 20X pan-apochromat objective on a Zeiss LSR780 two-photon microscope. Using either a MaiTai or
+Insight laser, light at 920nm was used to locate tdTom+ GCs without converting them. Light at 830nm was then used for photocon-
+verting a single GC, using the lowest laser power yielding detectable conversion (the laser power required varies with sample nature
+and depth and should be optimized prior to GC photoconversion).
+Single-cell antibody sequencing
+Plate-based method (as described in Mesin et al.65): GC B cells and/or PCs were individually sorted into separate wells of 96-well
+PCR plates, containing TCL buffer + 1% 2-mercaptoethanol. Following an SPRI bead clean-up, single cell RNA was reverse-
+transcribed to cDNA using Maxima H- Reverse Transcriptase and poly(dT) oligos. The cDNA was ﬁrst subjected to PCRs to amplify
+separately HC VDJ and Kappa VJ (when needed) rearrangements. For the HC, a degenerate forward primer speciﬁc for the start of
+the VH and isotype-speciﬁc reverse primers were used; for the LC, forward primers speciﬁc for the start of the VK and a CK-speciﬁc
+reverse primer were used, followed by a nested PCR for further ampliﬁcation. Another PCR incorporated plate-, row- and column-
+speciﬁc indexes. A ﬁnal PCR incorporated adaptors for Illumina sequencing, and products were subsequently pooled by plate. After
+SPRI beads clean-up (with a beads-to-DNA ratio of 0.6), the PCR products were sequenced using an Illumina Miseq kit Nano v2, 500
+cycles.
+Droplet-based method (mice #3-6): A unique hashing antibody per mouse was included in the FACS staining procedure to later
+deconvolute samples. 2500 GC B cells and all recent PCs in each sample were two-way sorted into DMEM + 10% FCS. GC and
+PC samples from 4 mice were pooled by cell type and pelleted before being resuspended in 38uL of PBS and loaded, following
+the manufacturer’s protocol, in two separate 10X reactions on a Chromium Next GEM Chip K, using the Next GEM Single Cell 5’
+Kit. Only VDJ libraries were prepared (no gene expression RNA-seq), using the 10X Genomics Chromium Single Cell Mouse BCR
+Ampliﬁcation Kit, the 5’ Feature Barcode Kit and the Library Construction Kit. Libraries were sequenced using a NextSeq 500/550
+Mid Output Kit v2.5 (150 cycles). Analysis was performed using Cell Ranger v6.1.1.
+Clonal and intraclonal analyses
+PANDAseq,70 was used to assemble paired-end sequences before processing using a custom perl script. The script was used to:
+1) identify barcodes in the assembled sequences and thereby identify original plate/well, 2) trim and ﬁlter the assembled sequences,
+3) count unique sequences at each plate/well, 4) produce a ﬁnal report identifying the majority sequence at each plate/well. IgH and
+IgK (when available) sequences were aligned to the IMGT database in order to determine the VDJ or VJ rearrangements for every cell.
+Clonal lineages were deﬁned as groups of cells sharing HC V, J segments, CDR3 length and 75% or higher nucleotide identity in the
+CDR3.65 When feasible, LC sequences were used to conﬁrm/adjust clonal lineage assignments. Within clonal lineages, phylogenetic
+trees were established using GCTree,25 and HC VDJ sequences. Inferring UCA sequences was done by reverting somatic mutations
+in V and J segments away from V(D)J junctions.
+Cloning, Fab expression and afﬁnity measurements
+HC and LC variable region sequences were cloned commercially by Twist Bioscience into human HC Fab (His-tagged) and Kappa
+backbones.8 Fabs were expressed in Expi293 cells, using the ExpiFectamine 293 Transfection Kit (Gibco), and were subsequently
+puriﬁed using PureCube His Afﬁnity Agarose (CubeBiotech). Very infrequently, Fabs were produced from cells for which the LC was
+not recovered; in such instances, the nearest available LC from other clonal members was used. For SPR measurements, 10mL cell
+cultures were performed, typically yielding 0.5-3mg of each Fab. Puriﬁed Fabs were concentrated and dialyzed into PBS (to a dial-
+ysis factor of 6x107) using 10kDa centricons (Merck). The molecular mass and extinction coefﬁcient was theoretically estimated for
+each Fab, using the ExPASy ProtParam tool, and subsequently used to determine Fab molar concentrations from OD280nm measure-
+ments. SPR measurements were done via single-cycle kinetics on a Biacore 8K instrument, using the Biotin CAPture kit and following
+manufacturer’s instructions (Cytiva). This DNA hybridization-based immobilization approach had the advantage of allowing chip
+regeneration and was adopted because we found the trimeric antigen’s native structure to be unstable under typical regeneration
+conditions. The combination of this approach with small cultures and single cycle kinetics facilitated moderate-throughput single-
+measurement KD screening. Typically, 200-300 response units of biotinylated HA were immobilized onto the CAP sensor chip,
+and Fab was subsequently injected at increasing concentrations (in 1X PBS-P+, Cytiva), spanning roughly 9nM to 10mM.
+High-afﬁnity Fabs were re-assessed using lower analyte concentrations. Association time: 120s, dissociation time: 600s, analyte
+ﬂow rate: 30uL/min. Blank- and reference-subtracted traces were ﬁtted with a 1:1 kinetic binding model, using the Biacore Insight
+Evaluation Software (Cytiva). When the kinetics rate constants were beyond the limit of the instrument, afﬁnity measurements re-
+ported represent a steady-state analysis. KD measurements which were above the maximal analyte concentration of 10mM, but
+ll
+OPEN ACCESS
+e5
+Cell 186, 5486–5499.e1–e6, December 7, 2023
+Article
+
+
+--- Page 21 ---
+for which the RMax was still precisely inferred during steady-state analysis, are presented in ﬁgures in a shaded area to illustrate their
+lower accuracy. N.D. denotes Fabs for which RMax values could not be reasonably determined, and even approximate KDs could not
+be estimated. However, N.D. Fabs did detectably bind HA by SPR and/or multivalent surface IgM assays.28 In brief, surface IgM as-
+says involved variable region heavy genes being cloned into a membrane IgM vector and co-transfected with light chains into
+Expi293 cells. Transfected cells were stained 3–4 days later with HA(Y98F)-AF647, human IgM-PE and human Igk-FITC. HA staining
+was determined relative to negative control variable region genes.
+QUANTIFICATION AND STATISTICAL ANALYSES
+The Chao1 index for clonal richness was performed using SpadeR (see Key Resources Table). Graphs and statistical tests were done
+using Prism v8.2.1. Statistical test information, statistical signiﬁcance values, number of replicates and number of mice per group are
+indicated in the ﬁgure legends.
+In silico simulations; 10,000 simulations were run where in each the observed GC cellular distribution was randomly sampled N
+times, where N equals the observed number of PCs, or number of PC nodes, as indicated in ﬁgure legends. We report empirical
+95% conﬁdence intervals over the 10,000 simulations for the 20 largest clone types as well as the observed values. If an association
+existed between GC clonal abundance and likelihood for PC differentiation, then we would expect to see a positive correlation be-
+tween GC clonal size and observed PC number or node results as a percentile relative to the simulated results (i.e., where the
+observed data sits within expected distributions derived from simulations). This was tested by removing all clones where 0 cells
+were detected in GC or tdTom+ PC compartments, then establishing the Spearman’s Rho between abundance in GC and percentile
+of observed for tdTom+ PC numbers or node numbers within simulated distributions. p values report the probability that a positive
+correlation exists. Simulations were performed in R (R Core Team, 2023, see key resources table).
+ll
+OPEN ACCESS
+Cell 186, 5486–5499.e1–e6, December 7, 2023
+e6
+Article
+
+
+--- Page 22 ---
+Supplemental ﬁgures
+0
+100K
+200K
+0
+50K
+100K
+150K
+200K
+250K
+0
+50K
+100K
+150K
+200K
+250K
+0
+50K
+100K
+150K
+200K
+250K
+0
+100K
+200K
+10-3 0 103
+104
+105
+103 104
+105
+101
+102
+10-3
+0
+103
+104
+105
+103 104
+105
+101
+102
+103
+104
+105
+101
+102
+10-3
+0
+103
+104
+105
+0
+100K
+200K
+103 104
+105
+101
+102
+103 104
+105
+101
+102
+103
+104
+105
+101
+102
+CD138
+CD45.1
+Ssc
+Igk
+Igk
+Blimp1-mVenus
+tdTomato
+a.u.
+Fsc
+Ssc-H
+Autofluor (695-40)
+Ssc
+Ssc-W
+Ssc
+tdTom
+Blimp1-mVenus
+10-3 0 103
+104
+105
+10-3
+0
+103
+104
+105
+103 104
+105
+101
+102
+CD45.1
+103
+104
+105
+101
+102
+103 104
+105
+101
+102
+Igk
+a.u.
+Igk
+103 104
+105
+101
+102
+103
+104
+105
+101
+102
+GC
+tdTom+ PCs
+Fsc
+Ssc
+0
+100K
+200K
+0
+50K
+100K
+150K
+200K
+250K
+Ssc-A
+Ssc-W
+0
+100K
+200K
+50K
+100K
+150K
+200K
+250K
+0
+tdTom
+10-3 0 103
+104
+105
+103
+104
+105
+101
+102
+CD138
+10-3 0 103
+104
+105
+103
+104
+105
+101
+102
+TACI
+GL7
+103 104
+105
+101
+102
+Igk
+Ssc
+0
+50K
+100K
+150K
+200K
+250K
+103 104
+105
+101
+102
+103
+104
+105
+101
+102
+Igk
+103
+104
+105
+101
+102
+103
+104
+105
+101
+102
+103
+104
+105
+101
+102
+103 104
+105
+101
+102
+Igk
+103 104
+105
+101
+102
+Igk
+10-3 0 103
+104
+105
+CD45.1
+tdTom
+GL7
+50K
+100K
+150K
+200K
+250K
+0
+Ssc
+Underlayed 
+GCB cells
+GC
+tdTom+ PCs
+Blimp1-Venus gating scheme 
+TACI gating scheme
+Igk
+103 104
+105
+101
+102
+HEL3x
+103
+104
+105
+101
+102
+HELwt-OVA immunized controls
+Igk
+103 104
+105
+101
+102
+HEL3x
+103
+104
+105
+101
+102
+GCB
+PCs
+A
+B
+D
+Ctrl
+Myc-
+GFP
+0
+1
+2
+3
+4
+5
+%Myc-GFP+
+E
+****
+CD45.2
+CD45.2
+HEL3x
+HEL3x
+HEL3x
+HEL3x
+CD45.2
+62.2
+91.4
+99.5
+0.02
+97.4
+6.8
+84.0
+95.2
+0.26
+98.9
+93.4
+44.9
+0.006
+48.0
+82.6
+92.8
+60.8
+96.3
+0.8
+88.9
+92.0
+57.2
+0.19
+0.11
+10-3 0 103
+104
+105
+0
+10
+20
+30
+% SWHEL of GCB
+7
+8
+9
+C
+Time point (days)
+Day 7
+Day 8
+Figure S1. The association between afﬁnity and plasma cell differentiation in a clonally restricted setting, related to Figure 1
+(A–C) Experimental setup as in Figure 1A.
+(A) Representative FACS showing the Blimp1mVenus-based gating scheme used to identify tdTom+ PCs on day 7 or day 8 post-immunization.
+(B) Representative FACS showing the transmembrane activator and CAML activator (TACI)-based gating scheme used to identify tdTom+ PCs on day 7 or day 8
+post-immunization.
+(C) Percent of SWHEL among GC B cells (GL7+ or IgDlow, GL7+) from experiments where necessary markers to identify host GC B cells were included.
+(D) Representative FACS showing no HEL3x-binding by S1pr2tdTom+ SWHEL GC B cells and PCs on day 7 post-HELWT-ovalbumin (OVA) immunization.
+(E) Experimental setup as in Figure 1D. Proportion of c-Myc-GFP+ cells among c-Mycgfp/WT SWHEL GC B cells on day 7 or day 8 following immunization. Each
+symbol is a mouse. Every time point is pooled from 2 experiments, each with 2–5 mice. Negative controls include both GFP (WT) SWHEL GC B cells and recipient
+(WT polyclonal) GC B cells. Two-tailed p value from Mann Whitney test: ****p < 0.0001.
+ll
+OPEN ACCESS
+Article
+
+
+--- Page 23 ---
+(legend on next page)
+ll
+OPEN ACCESS
+Article
+
+
+--- Page 24 ---
+Figure S2. Plasma cell development in GCs during inﬂuenza infection, related to Figure 2
+Experimental setup as in Figure 2A.
+(A) Surface antibody light chain (Igk) expression by GC (B220+ CD95+ tdTom+) and tdTom+ PCs (Dump, Blimp1+ CD138+).
+(B) Antibody isotypes expressed by GC and tdTom+ PCs from sequencing results. Wilcoxon matched-pairs signed rank test: n.s. p R 0.05, *p < 0.05.
+(C) Ighv somatic mutation loads for tdTom+ GC B cells and PCs from mice of Figure 2D.
+(D) Estimated number of clonal lineages using the Chao1 index. Bars indicate 95% CI.
+(E) In silico simulations of expected clonal PC population sizes based on random picking from GC clonal distributions, assuming each observed PC in Figure 2D
+represents a unique selection event, repeated 10,0003 to establish 95% conﬁdence intervals (bars). Comparisons to observed results (circles) are shown for the
+20 largest GC clones.
+(F) Similar simulations as in (E) but considering each unique PC sequence (somatic variant) to represent a selection event (i.e., the sampling number).
+Spearman’s rho tests a correlation between GC abundance and the observed data percentile in relation to simulated ranges across clones. p values report the
+probability of a positive correlation.
+ll
+OPEN ACCESS
+Article
+
+
+--- Page 25 ---
+Figure S3. PC differentiation traced to GC maturation pathway and PC node generation, related to Figure 3
+(A) Phylogenetic maturation trees for the indicated GC clones of Ms#5 from Figure 2D, and observed population sizes for tdTom+ PCs. Colored nodes indicate
+sequences observed in both GC and PC compartments. Numbers and node sizes indicate number of observed cells with identical HC VDJ sequences. Number-
+less nodes are inferred but not observed, arrows indicate where PC differentiation maps to them.
+(B) Observed node sizes for tdTom+ PCs in the mice of Figure 2D (numbers of cells observed with identical HC VDJ sequences).
+ll
+OPEN ACCESS
+Article
+
+
+--- Page 26 ---
+Figure S4. Plasma cell differentiation during a late-stage antiviral response, related to Figure 4
+(A–D) S1pr2tdTom Blimp1mVenus MedLNs were harvested on day 21 post-infection, following an injection of tamoxifen on day 18 and FTY720 injections on day 19
+and day 20. HA+ tdTom+ GC B cells and PCs were sorted and sequenced similar to day 14 mice from Figure 2.
+(A) Pie charts showing the distribution into clonal lineages of tdTom+ GC B cells and PCs. Each slice is a distinct clone. Colored slices indicate lineages shared
+between the GC and PC compartments of a given mouse. Numbers indicate: Nb of clonal lineages/Nb of cells sequenced.
+(B) Phylogenetic maturation trees for the indicated clones, and observed population sizes for tdTom+ PCs. Colored nodes indicate sequences observed in both
+GC and PC compartments. Numbers and node sizes indicate number of observed cells with identical HC VDJ sequences. Number-less nodes are inferred but not
+observed, arrows indicate where PC differentiation maps to them.
+(C) Observed node sizes for tdTom+ PCs (numbers of cells observed with identical HC VDJ sequences).
+(D) Ighv somatic mutation loads of GC B cells and PCs from major clones across all 3 analyzed mice.
+ll
+OPEN ACCESS
+Article
+
+
+--- Page 27 ---
+A
+E
+D
+d14 d21
+0
+20
+40
+60
+80
+100
+**
+**
+tdTom+ PC per 
+1000 tdTom+ GCBC
+d14
+HA influenza
+0
+20
+40
+60
+80
+100
+% tdTom+ of GC B cells
+x31
+inf.
+HA
+s.c.
+B
+0
+10
+20
+30
+CGG/Alum
+s.c.
+tdTom+ PC per 
+1000 tdTom+ GCBC
+n.s.
+31/58
+12/20
+26/52
+6/11
+35/69
+9/41
+29/69
+18/53
+78/128
+31/79
+tdTom+
+GC
+tdTom+
+PCs
+Ms#12, LN B
+Ms#15
+Ms#17
+Ms#18
+Ms#19
+Ms#16
+WT Bcl2Tg
+Cell number per LN
+*
+103
+104
+105
+106
+WT Bcl2Tg
+0
+2
+4
+6
+8
+10
+12
+n.s.
+tdTom+ PC per 
+1000 tdTom+ GCBC
+PC output
+Total PCs
+I 
+J
+C
+GC
+B cells
+tdTom+
+PCs
+0
+10
+20
+30
+40
+50
+EdU+ in population (%)
+****
+n.s.
+F
+Ms#20
+47/252iii
+iv
+13/44
+iii
+iv
+UCA
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+3
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+3
+1
+3
+Clone iii GC
+Clone iv GC
+Clone iii PCs
+Clone iv PCs
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+3
+1
+1
+1
+UCA
+H
+G
+0
+2
+4
+6
+8
+Ms#16
+20 nodes
+0
+1
+2
+3
+4
+Ms#15
+14 nodes
+0
+2
+4
+6
+8
+10
+Ms#14
+59 nodes
+0
+2
+4
+6
+8
+10 Ms#17
+31 nodes
+0
+5
+10
+15
+20
+Ms#13
+24 nodes
+0
+2
+4
+6
+8
+Ms#20
+27 nodes
+0
+2
+4
+6
+8
+Ms#18
+44 nodes
+0
+1
+2
+Ms#12, LN A
+13 nodes
+0
+5
+10
+15
+Ms#19
+25 nodes
+0
+1
+2
+Ms#12, LN B
+9 nodes
+36/106
+10/52
+Unique tdTom+ PC sequences (nodes)
+Clones (top 20), ordered by rank of GC immunodominance
+0
+5
+10
+Ms#12, LN A
+Ms#13
+0
+10
+20
+30
+40
+Ms#14
+0
+5
+10
+Ms#12, LN B
+Ms#15
+0
+5
+10
+Ms#16
+Ms#17
+0
+5
+10
+Ms#18
+Ms#19
+0
+5
+10
+15
+20
+Ms#20
+Unique HC VDJ sequences
+Number of cells observed
+0
+5
+10
+15
+0
+5
+10
+15
+rho = -0.896
+p = 1
+rho = -0.273
+p = 0.723
+rho = -0.1
+p = 0.612
+rho = -1
+p = 1
+rho = -0.894
+p = 0.980
+rho = 0.632
+p = 0.183
+rho = -0.474
+p = 0.902
+rho = -0.583
+p = 0.986
+rho = -0.411
+p = 0.820
+rho = -0.543
+p = 0.947
+0
+5
+10
+0
+5
+10
+(legend on next page)
+ll
+OPEN ACCESS
+Article
+
+
+--- Page 28 ---
+Figure S5. GC plasma cell output after subunit immunization, related to Figure 6
+(A) GC size-normalized PC output (number of tdTom+ PCs per 1,000 tdTom+ GC B cells) in Aicda-CreERT2 Rosa26-LSL-tdTom mice on day 14 and day 21 post-
+inﬂuenza infection, or on day 14 post-immunization s.c. with HA/AddaS03. Each symbol is a mouse. Each condition is pooled from 2 experiments, each with
+3–4 mice. Recent PCs were gated as DumpIgDCD138+tdTom+.
+(B) Experimental setup as in Figure 6A, except using CGG/Alum s.c. immunization. GC size-normalized PC output in iLNs on day 14 post-challenge. Compare
+values with Figure 6B. Data pooled from 2 experiments, each with 3–4 mice.
+(C) The same experimental scheme as in Figure 6A, but with EdU injections 1 h before analysis on day 14. Proportion of EdU+ cells among the indicated cell type.
+Each symbol is a mouse. Data pooled from 2 to 3 experiments, each with 2–3 mice per condition. Gray symbols from infection are shown for comparison but are
+the same data as in Figure 3F.
+(D) Proportion of tdTom+ among GC B cells 30 h after tamoxifen treatment, in the mice from Figure 6E. Each symbol is a mouse.
+(E) Continuation of Figure 6F, showing observed tdTom+ GC B cell and PC clonality from additional mice. Each pie is one iLN from one mouse, except 12 LN A
+(Figure 6F) and 12 B which represent both iLNs from a single animal.
+(F) In silico simulations of expected PC node numbers per clone, based on random sampling from GC clonal distributions using the total observed node number
+for each mouse as the sampling N, repeated 10,0003 to establish 95% conﬁdence intervals (bars). Comparisons to observed results (circles) are shown for the 20
+largest GC clones.
+(G) Additional examples of phylogenetic maturation trees and tdTom+ PC nodes from day 14 post-HA/AddaS03 immunization (extension of Figure 6G). Colored
+nodes indicate sequences observed in both GC and PC compartments. Numbers and node sizes indicate number of observed cells with identical HC VDJ
+sequences. Number-less nodes are inferred but not observed, arrows indicate where PC differentiation maps to them.
+(H) Observed node sizes for tdTom+ PCs (numbers of cells observed with identical HC VDJ sequences) for each mouse. Total observed node number is indicated.
+(I and J) Draining iLNs from S1pr2tdTom Bcl2Tg and S1pr2tdTom littermate controls from day 14 or day 15 following s.c. HA/AddaS03 immunization and 3 days-
+tamoxifen treatments (with FTY720 treatments). Data pooled from 3 experiments, each with 1–3 mice per condition.
+(I) Total PC numbers per LN. Each symbol is a mean from 2 LNs per animal.
+(J) GC size-normalized PC output in S1pr2tdTom Bcl2Tg and S1pr2tdTom littermate controls.
+Unpaired t tests with Welch’s correction (A, C, D, I, and J): n.s. p R 0.05, *p < 0.05, **p < 0.01, ****p < 0.0001. Spearman’s rho tests a correlation between GC
+abundance and the observed data percentile in relation to simulated ranges across clones. p values report the probability of a positive correlation.
+ll
+OPEN ACCESS
+Article

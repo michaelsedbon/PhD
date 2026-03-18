@@ -1,0 +1,6 @@
+# Hardware Inventory — Diploid E. coli
+
+_No devices documented yet._
+
+| Device ID | Type | MCU | IP / Address | Experiment | Status |
+|-----------|------|-----|-------------|------------|--------|

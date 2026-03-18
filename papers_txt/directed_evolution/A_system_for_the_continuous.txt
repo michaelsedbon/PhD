@@ -1,0 +1,1122 @@
+--- Page 1 ---
+LETTER
+doi:10.1038/nature09929
+A system for the continuous directed evolution of
+biomolecules
+Kevin M. Esvelt1, Jacob C. Carlson2 & David R. Liu2,3
+Laboratory evolution has generated many biomolecules with
+desired properties, but a single round of mutation, gene expression,
+screening or selection, and replication typically requires days or
+longer with frequent human intervention1. Because evolutionary
+success is dependent on the total number of rounds performed2, a
+means of performing laboratory evolution continuously and
+rapidly could dramatically enhance its effectiveness3. Although
+researchers have accelerated individual steps in the evolutionary
+cycle4–9, the only previous example of continuous directed evolution
+was the landmark study of Wright and Joyce10, who continuously
+evolved RNA ligase ribozymes with an in vitro replication cycle that
+unfortunately cannot be easily adapted to other biomolecules. Here
+we describe a system that enables the continuous directed evolution
+of gene-encoded molecules that can be linked to protein production
+in Escherichia coli. During phage-assisted continuous evolution
+(PACE), evolving genes are transferred from host cell to host cell
+through a modified bacteriophage life cycle in a manner that is
+dependent on the activity of interest. Dozens of rounds of evolution
+can occur in a single day of PACE without human intervention.
+Using PACE, we evolved T7 RNA polymerase (RNAP) variants that
+recognize a distinct promoter, initiate transcripts with ATP instead
+of GTP, and initiate transcripts with CTP. In one example, PACE
+executed 200 rounds of protein evolution over the course of 8 days.
+Starting from undetectable activity levels in two of these cases,
+enzymes with each of the three target activities emerged in less than
+1 week of PACE. In all three cases, PACE-evolved polymerase
+activities exceeded or were comparable to that of the wild-type T7
+RNAP on its wild-type promoter, representing improvements of up
+to several hundred-fold. By greatly accelerating laboratory evolu-
+tion, PACE may provide solutions to otherwise intractable directed
+evolution problems and address novel questions about molecular
+evolution.
+We devised a system that exploits the continuous culture and selec-
+tion of the M13 filamentous bacteriophage11 (commonly used in phage
+display12) to enable the continuous directed evolution of proteins or
+nucleic acids. In PACE, E. coli host cells continuously flow through a
+fixed-volume vessel (the ‘lagoon’) containing a replicating population
+of phage DNA vectors (‘selection phage’) encoding the gene(s) of
+interest (Supplementary Fig. 1).
+The average residence time of host cells in the lagoon is less than the
+time required for E. coli replication. As a result, mutations accumulate
+only in the evolving selection phage population, the only DNA thatcan
+replicate faster than the rate of lagoon dilution. The mutation of host
+cells in the lagoon should therefore have minimal impact on the out-
+come of the selection over many rounds of phage replication, and
+mutagenesis conditions are not limited to those that preserve E. coli
+viability.
+PACE achieves continuous selection by linking the desired activity
+to the production of infectious progeny phage containing the evolving
+gene(s).Phageinfection requires protein III(pIII; encodedbygene III),
+which mediates F pilus binding and host cell entry13. Phage lacking pIII
+are approximately 108-fold less infectious than wild-type phage14.
+Crucially, the production of infectious phage scales with increasing
+levels of pIII over concentrations spanning two orders of magnitude15.
+To couple pIII production to the activity of interest, we deleted gene
+III from the phage vector and inserted it into an ‘accessory plasmid’
+present in the E. coli host cells (see Supplementary Fig. 2 for plasmid
+maps). The production of pIII from the accessory plasmid is depend-
+ent on the activity of the evolving gene(s) on the selection phage. Only
+phage vectors able to induce sufficient pIII production fromthe access-
+ory plasmid will propagate and persist in the lagoon (Fig. 1). Because
+pIII expression level determines the rate of infectious phage produc-
+tion15, phage encoding genes that result in a higher level of pIII pro-
+duction will infect more host cells than phage encoding less active
+genes.
+Owing to the speed of the phage life cycle (progeny phage produc-
+tion begins approximately 10 minafter infection)16, PACE can mediate
+many generations of selective phage replication in a single day. We
+observed activity-dependent phage vectors that tolerate lagoon flow
+rates up to 3.2 volumes per hour (Supplementary Fig. 3), correspond-
+ing to an average of 38 phage generations per 24 h (see the Supplemen-
+tary Information for an analysis). More conservative flow rates of
+2.0–2.5 volumes per hour allow 24–30 generations per day and reduce
+the risk of complete phage loss (washout) during selections. Multiple
+lagoons can evolve genes in parallel, with each 100 ml lagoon contain-
+ing approximately 5 3 1010 host cells selectively replicating active
+phage variants. Importantly, PACE requires no intervention during
+evolution and obviates the need to create DNA libraries, transform
+cells, extract genes or perform DNA cloning steps during each round.
+In principle, PACE is capable of evolving any gene that can be linked
+to pIII production in E. coli. Because a wide variety of functions includ-
+ing DNA binding, RNA binding, protein binding, bond-forming cata-
+lysis and a variety of enzyme activities have been linked to the expres-
+sion of a reporter protein17,18, PACE can be applied to the evolution of
+many different activities of interest. As examples, we successfully linked
+protein–protein binding, recombinase activity and RNAP activity to
+phage infectivity in discrete infection assays by creating variants of
+the accessory plasmid that associate each of these activities with pIII
+production (Fig. 2).
+PACE applies optimal evolutionary pressure when pIII levels are
+above the minimal threshold required to prevent phage washout, but
+below the amount needed to maximize infectious phage production.
+Thiswindowcanbeshiftedbyvaryingthecopynumberoftheaccessory
+plasmid, or by altering the ribosome-binding site (RBS) sequence of
+gene III to modulate the efficiency with which gene III is expressed
+(Supplementary Fig. 4).
+We constructed an arabinose-inducible mutagenesis plasmid that
+elevates the error rate during DNA replication in the lagoon by sup-
+pressing proofreading19 and enhancing error-prone lesion bypass (Sup-
+plementary Information)20. Full induction increased the observed
+mutagenesis rate by approximately 100-fold, inducing all possible
+transitions and transversions (Supplementary Fig. 5). This enhanced
+1Department of Molecular and Cellular Biology, Harvard University, Cambridge, Massachusetts 02138, USA. 2Department of Chemistry and Chemical Biology, Harvard University, Cambridge,
+Massachusetts 02138, USA. 3Howard Hughes Medical Institute, Cambridge, Massachusetts 02138, USA.
+2 8 A P R I L
+2 0 1 1
+| V O L 4 7 2 |
+N A T U R E
+| 4 9 9
+Macmillan Publishers Limited. All rights reserved
+©2011
+
+
+--- Page 2 ---
+mutation rate is sufficient to sample all possible single and double
+mutants of a given phage-encoded sequence in each generation
+(Supplementary Information), in principle enabling single-mutation
+fitness valleys to be traversed during PACE.
+Bacteriophage T7 RNAP is widely used to transcribe RNA in vitro
+and in cells. T7 RNAP is highly specific for its promoter sequence
+(TAATACGACTCACTATA), and exhibits virtually no detectable
+activity on the consensus promoter of the related bacteriophage T3
+(AATTAACCCTCACTAAA, differences underlined)21,22. Despite
+decades of study and several attempts to engineer the specificity of
+T7 RNAP towards other promoters22,23 including that of T3, a mutant
+T7 RNAP capable of recognizing the T3 promoter has not been previ-
+ously reported.
+To remove potential interference from evolutionary improvements
+to the phage vector rather than to T7 RNAP, we propagated a selection
+phageexpressingwild-typeT7RNAPfor3 daysonhostcellscontaining
+an accessory plasmid with the wild-type T7 promoter driving gIII
+expression. A single plaque presumed to represent vector-optimized
+Host cells with
+accessory plasmid and
+mutagenesis plasmid
+Constant inﬂow
+AP
+Gene III
+The ‘lagoon’
+MP
+Constant outﬂow
+Selection phage:
+encodes library
+member 
+SP
+AP
+MP
+Infection
+Infectious
+progeny
+Non-infectious
+progeny 
+* 
+* 
+* 
+* 
+* 
+Mutagenesis
+(continuous)
+SP
+*
+*
+AP
+*
+MP
+SP
+*
+*
+AP
+*
+x
+MP
+If SP induces
+pIII production 
+If SP fails to
+induce pIII 
+production 
+Functional
+library member
+Non-functional
+library member
+SP
+SP
+AP
+AP
+x
+MP
+MP
+Figure 1 | Overview of the PACE system. PACE in a single lagoon. Host cells
+continuously flow through a lagoon, where they are infected with selection
+phage (SP) encoding library members. Functional library members induce
+production of pIII from the accessory plasmid (AP) and release progeny
+capable of infecting new host cells, whereas non-functional library members do
+not. Increased mutagenesis is triggered through induction of the mutagenesis
+plasmid (MP). Host cells flow out of the lagoon on average faster than they can
+replicate, confining the accumulation of mutations to replicating phage.
+SP
+expressing 
+T7 RNAP 
+SP with no
+T7 RNAP 
+Whole M13
+phage
+Host cells
+only
+SP with
+recombinase
+SP with no
+recombinase
+Gene III
+T7 promoter
+T7 RNAP
+a  Polymerase activity
+b  Protein–peptide binding
+Recombinase-
+catalysed inversion
+Gene III
+Gene III
+Promoter
+Promoter
+ Rec
+Rec
+Rec
+Rec
+c  Recombinase activity
+LGF2
+Operator
+Zif268
+Gal11p
+Gene III
+RNAPα
+Zif268
+DNA-
+binding
+domain 
+SP with no
+Gal11p-Zif268
+SP with
+Gal11p–Zif268
+Figure 2 | Linkage of three protein activities to pIII production and phage
+infectivity using three distinct accessory plasmids. E. coli cells containing
+accessory plasmids encoding conditionally expressed gene III (left) and
+selection phage were combined with recipient cells. Phage production resulted
+in colonies with antibiotic resistances conferred by the phage and the recipient
+cells (right). See Methods for details. a, RNAP activity leads to gene III
+expression and infection comparable to wild-type phage, whereas selection
+phage lacking T7 RNAP do not infect. b, Protein–protein interaction between a
+Gal11p domain tethered to a Zif268 DNA-binding domain and an LGF2a
+domain fused to RNAP leads to gene III expression and infection.
+c, Recombinase-catalysed gene inversion induces gene III expression and
+infection.
+RESEARCH LETTER
+5 0 0
+| N A T U R E
+| V O L
+4 7 2 |
+2 8
+A P R I L 2 0 1 1
+Macmillan Publishers Limited. All rights reserved
+©2011
+
+
+--- Page 3 ---
+selection phage contained a single mutation (P314T) in T7 RNAP. We
+confirmed that the activity of the P314T mutant does not significantly
+differ from that of wild-type T7 RNAP (Supplementary Fig. 6).
+This starting selection phage failed to propagate on host cells con-
+taining the T3 promoter accessory plasmid. We therefore propagated
+the phage on cells containing a hybrid T7/T3 promoter accessory
+plasmid with the T7 promoter base at the important 211 position21
+but all other positions changed to their T3 counterparts. Two initially
+identical lagoons were evolved in parallel on the hybrid promoter
+accessoryplasmidfor60h,thenonthecompleteT3promoteraccessory
+plasmid for 48h, and finally on a high-stringency, very low-copy T3
+promoter accessory plasmid for 84h (Fig. 3a).
+Phage persisted in bothlagoons after 8 days of PACE, surviving a net
+dilution of 10167-fold, the equivalent of 555 phage population dou-
+blings and 200 rounds of evolution by the average phage. We isolated,
+sequenced and characterized phage vectors from each lagoon after 48,
+108 and 192 h, observing up to 8, 10 and 11 non-silent mutations in
+single T7 RNAP genes at each time point.
+Protein-encoding regions (without upstream promoter sequences)
+of evolved mutant T7 RNAP genes were subcloned into assay plasmids
+that quantitatively link transcriptional activity to b-galactosidase
+expression in cells24. We defined the activity of wild-type T7 RNAP
+on the T7 promoter to be 100%. The starting T7 RNAP exhibited
+undetectable (,3%) levels of activity on the T3 promoter in these
+cell-based assays. The assayed mutants exhibited more than 200%
+activity after 108h of PACE, and more than 600% activity after
+high-stringency PACE at 192 h, improvements of more than 200-fold
+(Fig. 3b, c). These results collectively establish the ability of PACE to
+evolve large changes in enzyme activity and specificity very rapidly
+with minimal intervention by the researcher.
+Several evolved T7 RNAP mutants were also purified and assayed in
+vitro using radioactive nucleotide incorporation assays. Purified T7
+RNAP mutants exhibited activity levels on the T3 promoter in vitro
+exceeding that of wild-type T7 RNAP on the T7 promoter, represent-
+ing improvements of up to 89-fold compared with the starting enzyme
+(Supplementary Fig. 7). These results indicate that PACE resulted in
+large improvements in substrate binding or catalytic rate. Evolved
+activity improvements were higher in cells than in vitro, suggesting
+that these enzymes also evolved improvements in features such as
+expression level, polymerase folding or stability that are specific to
+the context of the cytoplasm.
+Interestingly, theevolutionary dynamics of the two initiallyidentical
+lagoons differed significantly (Fig. 3d and Supplementary Results).
+Within 24 h, lagoon 1 acquired a predominant suite of mutations
+a
+T3 promoter
+high-copy AP
+T3 promoter
+very low-copy AP
+Time (h)
+0
+24
+48
+72
+96
+120
+Seed lagoon with
+starting T7 RNAP
+Induced mutagenesis 
+Lagoon flow rate: 2.0 volumes per hour throughout
+Hybrid promoter
+high-copy AP
+T3 promoter
+high-copy AP
+T3 promoter
+very low-copy AP
+Hybrid promoter
+high-copy AP
+144
+168
+192
+SP
+AP
+MP
+Hybrid promoter
+AP
+MP
+AP
+MP
+Mutagenesis
+inducer 
+Switch host cells from hybrid promoter
+to T3 promoter during evolution 
+T3 promoter
+Lagoon 2
+SP
+AP
+MP
+Lagoon 1
+T3 promoter
+very low-copy AP
+0
+500
+1,000
+1,500
+2,000
+P314T
+L1-48.1
+L1-48.2
+L1-48.3 L1-108.1 L1-108.2 L1-108.3 L1-192.1 L1-192.2
+Time (h) 
+Time (h) 
+Time (h) 
+0
+24
+48
+72
+96
+120
+144
+168
+T3 promoter
+high-copy AP
+Hybrid promoter
+high-copy AP
+T3 promoter
+very low-copy AP
+T3 promoter
+high-copy AP
+Hybrid promoter
+high-copy AP
+192
+Relative transcriptional activity in cells
+(WT T7 RNAP on T7 promoter = 100)
+ 
+Lagoon 1
+T7 promoter
+T3 promoter
+b
+0
+200
+400
+600
+800
+P314T 
+L2-48.1 
+L2-48.2 
+L2-48.3 
+L2-108.1 L2-108.2 L2-108.3 L2-192.1 
+0
+24
+48
+72
+96
+120
+144
+168
+192
+Relative transcriptional activity in cells
+(WT T7 RNAP on T7 promoter = 100)
+ 
+Lagoon 2
+T7 promoter
+T3 promoter
+c
+I4M
+I4M
+I4M
+I4M
+I4M
+I4M
+I4M
+I4M
+I4M
+I4M
+I4M
+I4M
+E63V
+E63V
+E63V
+E63V
+E63V
+E63V
+K98R
+K98R
+K98R
+K98R
+N165S
+N165S
+N165S
+G175R
+G175R
+G175R
+G175R
+G175R
+G175R
+G175R
+G175R
+G175R
+G175R
+G175R
+G175R
+G175R
+G175R
+E222K
+E222K
+E222K
+E222K
+E222K
+E222K
+E222K
+E222K
+E222K
+E222K
+E222K
+Q239R
+Q239R
+Q239R
+Q239R
+Q239R
+Q239L
+Q239L
+P248S
+P248S
+P248S
+E484A
+E484A
+E484A
+E484A
+E484A
+E484A
+E484A
+G542V
+G542V
+G542V
+G542V
+G542V
+G542V
+G542V
+G542V
+G542V
+G542V
+G542V
+G542V
+G542V
+V574A
+V574A
+V574A
+V574A
+V574A
+V574A
+G675R
+G675R
+G675R
+G675R
+G675R
+G675R
+I681L
+I681L
+I681L
+L699I
+L699I
+N748D
+N748D
+N748D
+N748D
+N748D
+N748D
+N748D
+N748D
+E775K
+E775K
+E775K
+E775K
+E775K
+E775K
+E877K
+E877K
+E877K
+0
+24
+48
+72
+96
+120
+144
+168
+192
+Lagoon 1
+Lagoon 2
+d
+Figure 3 | Continuous evolution of T7 RNAP variants that recognize the T3
+promoter. a, PACE schedule. b, Activity in cells of T7 RNAP variants isolated
+from lagoon 1 at 48, 108 and 192h on the T7 and T3 promoters.
+Transcriptional activity was measured spectrophotometrically by subcloning
+the protein-encoding regions of the T7 RNAP genes into a construct in which
+the T7 or T3 promoter drives lacZ expression. c, Activity in cells of T7 RNAP
+variants isolated from lagoon 2. Error bars in b and c, standard deviation of at
+leastthree independent assays. d, Mutations identified in T7 RNAP clones from
+lagoons 1 and 2 are shown in red and blue, respectively. Underlined mutations
+were predominant in that lagoon based on whole-pool sequencing of lagoon
+aliquots. Mutations highlighted in yellow independently evolved to
+predominance in both lagoons.
+LETTER RESEARCH
+2 8 A P R I L
+2 0 1 1 | V O L
+4 7 2 |
+N A T U R E
+| 5 0 1
+Macmillan Publishers Limited. All rights reserved
+©2011
+
+
+--- Page 4 ---
+consisting of I4M, G175R, E222K and G542V and changed little there-
+after beyond acquiring N748D, a mutation known to enable recog-
+nition of the T3 base at the 211 position21, after exposure to the full T3
+promoter. In contrast, lagoon 2 accessed these mutations more slowly
+before a different suite of mutations also including N748D became
+predominant at 108h, only to be displaced by the same suite of muta-
+tions observed in lagoon 1. The presence of several mutations unique
+to lagoon 2 throughout the experiment suggests that lagoon cross-
+contamination did not occur. The distinct evolutionary trajectories
+of the two lagoons before their ultimate convergence upon a common
+set of mutations highlight the ability of PACE to discover multiple
+viablepathwaystoatargetactivityinparallelexperiments.Thiscapability
+may enable a more in-depth experimental study of protein evolutionary
+dynamics than can be achieved with conventional directed evolution
+methods that cannot complete so many rounds of evolution on a prac-
+tical timescale.
+T7 RNAP is highly specific for initiation with GTP25,26, significantly
+limiting its usefulness for the in vitro transcription of RNAs that begin
+with other nucleotides. As initiation has been described as a mechan-
+istically challenging step in transcription27, we next used PACE to
+evolve T7 RNAP variants capable of initiating transcription with other
+nucleotides in a template-directed manner. T7 RNAP is known to
+initiate preferentially with GTP up to several bases downstream of
+the 11 position if the template is devoid of early guanines in the coding
+strand26. We therefore constructed accessory plasmids in which posi-
+tions 11 to 16 of the gene III transcript were AAAAAA (iA6) or
+CCCCCC (iC6).
+We used PACE to rapidly evolve variants of T7 RNAP capable of
+initiating with ATP. In view of previous reports indicating varying
+degrees of initiation of T7 RNAP with ATP25,26, we propagated starting
+phage in host cells with a high-copy iA6 accessory plasmid for 24 h,
+followed by a 30:70 high-copy:very-low-copy mixture of host cells for
+12 h (Fig. 4a). At a dilution rate of 2.5 volumes per hour, phage sur-
+vived a total dilution of 1039-fold and experienced an average of
+approximately 45 rounds of evolution.
+The wild-type enzyme exhibited undetectable initial activity in cells
+(,3%) on the iA6 promoter. All six clones isolated after only 36 h of
+PACEexhibitedatleast170%activityontheiA6promoterincell-based
+assays, while retaining at least 120% activity on the wild-type promoter
+(Fig. 4b). Purified variants assayed in vitro exhibited activities on the
+iA6promotermatchingthatofwild-typeT7RNAPontheT7promoter
+(Supplementary Fig. 8). RACE analysis of transcripts produced by the
+most active clone (A6-36.4) confirmed that this enzyme begins tran-
+scripts with the template-directed bases on the iA6, iC6 and wild-type
+promoters (Supplementary Fig. 9a). All six characterized clones con-
+tained K93T, S397R and S684Y mutations, whereas three of the six also
+contained S228A (Supplementary Table 2). Residue 397 directly con-
+tacts the nascent RNA strand28, suggesting a role for S397R in allowing
+efficient initiation of iA6 transcripts.
+We concurrently evolved T7 RNAP to initiate transcripts with CTP
+(Supplementary Fig. 10a). We observed that wild-type T7 RNAP
+retains significant activity on the iC6 promoter (,50%) both in cells
+and in vitro (Supplementary Fig. 10b, c), a surprising observation in
+view of reports that the enzyme initiates with G at the 12 position if
+the 11 position is C25. Although the high starting activity precluded
+large improvements, the most active PACE-evolved variants neverthe-
+less exceeded 100% activity on the iC6 promoter both in cells and in
+vitro (Supplementary Fig. 10b, c and Supplementary Results). RACE
+analysis of transcripts produced by the most active clone (C6-80.9)
+confirmed that this enzyme begins transcripts with the template-directed
+bases (Supplementary Fig. 9b).
+The three PACE experiments executed 45–200 rounds of evolution
+in 1.5–8 days and yielded T7 RNAP variants with activities on their
+target promoters or templates that exceeded or matched the activity of
+the wild-type enzyme transcribing the wild-type T7 promoter both in
+cells and in vitro. This degree of improvement is especially significant
+given that, for two of the evolved activities, the starting polymerase
+exhibited virtually no detectable activity.
+The evolved A6-36.4 variant of T7 RNAP can initiate transcription
+from iC6, iA6 and wild-type templates in a template-directed manner
+with efficiencies comparable to that of wild-type T7 RNAP initiating
+with the wild-type template (Supplementary Fig. 11) and sequence
+fidelity sufficient to mediate the production of functional pIII and
+LacZ enzyme. These findings suggest that this enzyme, and possibly
+other PACE-evolved variants, may represent improved, more general
+T7 RNAPs for routine in vitro and in vivo transcription.
+The PACE system can be assembled entirely from a modest collec-
+tion of commercially available equipment (listed in Supplementary
+Table 3) and does not require the manufacture of any specialized
+components. The ability to perform dozens of rounds of evolution
+each day with minimal researcher involvement implies that PACE is
+particularly well suited to address problems or questions in molecular
+evolution that require hundreds to thousands of generations, or the
+execution of many evolution experiments in parallel. More generally,
+PACE represents the integration and manipulation of many protein
+and nucleic acid components in a living system to enable the rapid
+generation of biomolecules with new activities, a significant example
+and goal of synthetic biology.
+METHODS SUMMARY
+Discrete infection assays. Donor culture (2ml) containing accessory plasmid and
+selectionphageweremixedwith198 mlofF1recipientcellsandincubatedfor1.5hat
+37uC. Dilutions were plated to select for recipient cells containing selection phage.
+PACE. E. coli host cells with accessory plasmid and mutagenesis plasmid (see
+Methods) maintained at 53 108 cells ml21 were pumped at 2.0, 2.5 or 3.2 volumes
+per hour into a fixed-volume lagoon seeded with selection phage. Aliquots were
+taken regularly. Evolved mutants were isolated as individual plaques and sub-
+cloned for cell-based or in vitro activity assays.
+Seed lagoon with
+starting T7 RNAP  
+Lagoon flow rate: 2.5 volumes per hour throughout 
+Time (h) 
+0
+12
+24
+36
+Induced mutagenesis  
+iA6 promoter
+high-copy AP 
+a
+iA6 promoter
+70% very low-copy AP
+30% high-copy AP 
+iA6 promoter 70%
+very low-copy AP
+30% high-copy AP 
+0
+50
+100
+150
+200
+250
+300
+350
+P314T
+A6-36.1
+A6-36.2
+A6-36.3
+A6-36.4
+A6-36.5
+iA6 promoter
+high-copy AP
+0
+12
+36
+Time (h) 
+24
+b
+T7 promoter
+iA6 promoter
+Relative transcriptional activity in cells
+(WT T7 RNAP on T7 promoter = 100)
+Figure 4 | Continuous evolution of T7 RNAP variants that initiate
+transcription with A. a, PACE schedule. b, Activity in cells of T7 RNAP
+variants on the T7 and iA6 promoters isolated after 36 h of PACE. Assays were
+performedas describedin Fig. 3b.Error bars, standarddeviationof at leastthree
+independent assays.
+RESEARCH LETTER
+5 0 2 | N A T U R E
+|
+V O L
+4 7 2 | 2 8
+A P R I L 2 0 1 1
+Macmillan Publishers Limited. All rights reserved
+©2011
+
+
+--- Page 5 ---
+Transcriptionassays.Activityincellswasmeasuredusingastandardb-galactosidase
+expression assay24. In vitro activity was assessed using a standard radioactive nucleo-
+tide incorporation assay29 with His-tag-purified enzyme variants.
+Full Methods and any associated references are available in the online version of
+the paper at www.nature.com/nature.
+Received 10 November 2010; accepted 11 February 2011.
+Published online 10 April 2011.
+1.
+Yuan, L., Kurek, I., English, J. & Keenan, R. Laboratory-directed protein evolution.
+Microbiol. Mol. Biol. Rev 69, 373–392 (2005).
+2.
+Voigt,C.A., Kauffman, S. & Wang, Z.G.Rationalevolutionary design: the theoryof in
+vitro protein evolution. Adv. Protein Chem. 55, 79–160 (2000).
+3.
+Mills, D. R., Peterson, R. L. & Spiegelman, S. An extracellular Darwinian experiment
+with a self-duplicating nucleic acid molecule. Proc. Natl Acad. Sci. USA 58,
+217–224 (1967).
+4.
+Wang,L.,Jackson,W.C.,Steinbach,P.A.& Tsien,R.Y.Evolutionofnewnonantibody
+proteins via iterative somatic hypermutation. Proc. Natl Acad. Sci. USA 101,
+16745–16749 (2004).
+5.
+Camps, M., Naukkarinen, J., Johnson, B. P. & Loeb, L. A. Targeted gene evolution in
+Escherichia coli using a highly error-prone DNA polymerase I. Proc. Natl Acad. Sci.
+USA 100, 9727–9732 (2003).
+6.
+Makeyev, E. V. & Bamford, D. H. Evolutionary potential of an RNA virus. J. Virol. 78,
+2114–2120 (2004).
+7.
+Davis, J. N. & van den Pol, A. N. Viral mutagenesis as a means for generating novel
+proteins. J. Virol. 84, 1625–1630 (2009).
+8.
+Das, A. T. et al. Viral evolution as a tool to improve the tetracycline-regulated gene
+expression system. J. Biol. Chem. 279, 18776–18782 (2004).
+9.
+Wang, H. H. et al. Programming cells by multiplex genome engineering and
+accelerated evolution. Nature 460, 894–898 (2009).
+10. Wright, M. C. & Joyce, G. F. Continuous in vitro evolution of catalytic function.
+Science 276, 614–617 (1997).
+11. Husimi, Y. Selection and evolution of bacteriophages in cellstat. Adv. Biophys. 25,
+1–43 (1989).
+12. Smith, G. P. Filamentous fusion phage: novel expression vectors that display
+cloned antigens on the virion surface. Science 228, 1315–1317 (1985).
+13. Riechmann, L. & Holliger, P. The C-terminal domain of TolA is the coreceptor for
+filamentous phage infection of E. coli. Cell 90, 351–360 (1997).
+14. Nelson, F. K., Friedman, S. M. & Smith, G. P. Filamentous phage DNA cloning
+vectors: a noninfective mutant with a nonpolar deletion in gene III. Virology 108,
+338–350 (1981).
+15. Rakonjac, J. & Model, P. Roles of pIII in filamentous phage assembly. J. Mol. Biol.
+282, 25–41 (1998).
+16. Calendar, R. The Bacteriophages (Oxford Univ. Press, 2006).
+17. Vidal, M. & Legrain, P. Yeast forward and reverse ‘n’-hybrid systems. Nucleic Acids
+Res. 27, 919–929 (1999).
+18. Baker, K. et al. Chemical complementation: a reaction-independent genetic assay
+for enzyme catalysis. Proc. Natl Acad. Sci. USA 99, 16537–16542 (2002).
+19. Fijalkowska, I. J. & Schaaper, R. M. Mutants in the Exo I motif of Escherichia coli
+dnaQ: defective proofreading and inviability due to error catastrophe. Proc. Natl
+Acad. Sci. USA 93, 2856–2861 (1996).
+20. Opperman, T., Murli, S., Smith, B. T. & Walker, G. C. A model for a umuDC-
+dependent prokaryotic DNA damage checkpoint. Proc. Natl Acad. Sci. USA 96,
+9218–9223 (1999).
+21. Raskin, C. A., Diaz, G., Joho, K. & McAllister, W. T. Substitution of a single
+bacteriophage T3 residue in bacteriophage T7 RNA polymerase at position 748
+results in a switch in promoter specificity. J. Mol. Biol. 228, 506–515 (1992).
+22. Ikeda, R. A., Chang, L. L. & Warshamana, G. S. Selection and characterization of a
+mutant T7 RNA polymerase that recognizes an expanded range of T7 promoter-
+like sequences. Biochemistry 32, 9115–9124 (1993).
+23. Raskin, C.A., Diaz, G.A.& McAllister,W.T.T7RNA polymerasemutants withaltered
+promoter specificities. Proc. Natl Acad. Sci. USA 90, 3147–3151 (1993).
+24. Vidal-Aroca, F. et al. One-step high-throughput assay for quantitative detection of
+beta-galactosidase activity in intact Gram-negative bacteria, yeast, and
+mammalian cells. Biotechniques 40, 433–438 (2006).
+25. Imburgio, D., Rong, M., Ma, K. & McAllister, W. T. Studies of promoter recognition
+andstart site selection byT7RNA polymerase using a comprehensive collectionof
+promoter variants. Biochemistry 39, 10419–10430 (2000).
+26. Brieba, L. G., Padilla, R. & Sousa, R. Role of T7 RNA polymerase His784 in start site
+selection and initial transcription. Biochemistry 41, 5144–5149 (2002).
+27. Kuzmine, I., Gottlieb, P. A. & Martin, C. T. Binding of the priming nucleotide in the
+initiation of transcription by T7 RNA polymerase. J. Biol. Chem. 278, 2819–2823
+(2003).
+28. Cheetham, G. M., Jeruzalmi, D. & Steitz, T. A. Structural basis for initiation of
+transcription from an RNA polymerase-promoter complex. Nature 399, 80–83
+(1999).
+29. Martin, C. T. & Coleman, J. E. Kinetic analysis of T7 RNA polymerase-promoter
+interactions with small synthetic promoters. Biochemistry 26, 2690–2696 (1987).
+Supplementary Information is linked to the online version of the paper at
+www.nature.com/nature.
+AcknowledgementsThis workwas supportedbyNationalInstitutes ofHealth/National
+Institute of General Medical Sciences R01 GM065400 and by HHMI. K.M.E.
+acknowledges graduate research fellowships from the Hertz Foundation and the
+National Science Foundation. J.C.C. was supported by the Harvard Chemical Biology
+Graduate Program. We thank B. Dorr for assistance with phage generation modelling,
+E. Curtis for suggestions and V. D’Souza for plasmid pT7-911Q.
+Author Contributions K.M.E., J.C.C. and D.R.L. designed the experiments. K.M.E.
+designed and built the PACE apparatus. K.M.E. and J.C.C. performed the experiments.
+All authors analysed the data and wrote the manuscript.
+Author Information Reprints and permissions information is available at
+www.nature.com/reprints. The authors declare no competing financial interests.
+Readers are welcome to comment on the online version of this article at
+www.nature.com/nature. Correspondence and requests for materials should be
+addressed to D.R.L. (drliu@fas.harvard.edu).
+LETTER RESEARCH
+2 8 A P R I L
+2 0 1 1 | V O L 4 7 2 |
+N A T U R E
+| 5 0 3
+Macmillan Publishers Limited. All rights reserved
+©2011
+
+
+--- Page 6 ---
+METHODS
+General methods.Allequipment, reagents, suppliers andrelevant catalogue num-
+bers are detailed in Supplementary Table 3. All PCR reactions were performed
+with HotStart Phusion II polymerase. Water was purified using a MilliQ water
+purification system (Millipore).
+DNA cloning. All vectors were constructed by isothermal assembly cloning.30
+Isothermal assembly buffer (53) contained 3 ml 1 M Tris-HCl pH 7.5, 300 ml
+1 M MgCl2, 600ml 10 mM deoxynucleotide triphosphates, 300ml 1 M dithiothrei-
+tol, 1.5 g PEG-8000, 20 mg NAD, and H2O to 6 ml. Individual 320ml aliquots were
+frozen at 220 uC. Isothermal assembly master mix was prepared by mixing 320 ml
+53 buffer with 1 ml T5 exonuclease, 20 ml Phusion polymerase, 160 ml Taq DNA
+ligase, and H2O to 700 ml. Individual 15 ml aliquots in PCR tubes were frozen at
+220 uC. DNA fragments to be assembled were PCR-amplified using oligonucleo-
+tide primers designed to ensure between 30 and 40 base pairs (bp) of overlap
+homology with each adjacent fragment. DpnI was added directly to the PCR
+reactions to remove template DNA, followed by PCR cleanup with MinElute
+columns according to the manufacturer’s protocol. Fragments were assembled
+by mixing equimolar amounts totalling 5 ml with 15 ml isothermal assembly master
+mix and incubating at 50 uC for 1 h. Assembly mixtures were directly transformed
+into NEB Turbo competent cells by heat shock or purified by MinElute columns as
+described before electroporation.
+Plasmids. T7 RNAP-dependent accessory plasmids contained, in order, a strong
+rrnB terminator, the promoter of interest, a desired RBS, gene III, the bla gene
+conferring carbenicillin resistance, and either the pUC or SC101 origin of replica-
+tion. For selection stringency assays, RBS A 5 59-AAGGAGGTAACTCATAG
+TG-39, RBS B 5 59-AAGGAAATAACTCATAGTG-39 and RBS C 5 59-AAG
+AAAATAACTCATAGTG-39, where underlined bases represent the start codon
+of gene III. Reporter plasmids were identical to SC101 accessory plasmids except
+for the replacement of gene III by full-length lacZ. T7 RNAP selection phage was
+constructed by replacing all but the last 180bp of gene III with the gene encoding
+T7 RNAP in VCSM13 helper phage. The mutagenesis plasmid consisted of
+dnaQ926, umuD9, umuC and recA730 under control of the araC operon.
+Expression plasmids used for quantification assays consisted of the cloD13 origin
+of replication, aadA and the wild-type gene III promoter and RBS driving expres-
+sion of the evolved T7 RNAP variant. All plasmids used in this work are described
+in Supplementary Table 1. Vector maps of representative plasmids are shown in
+Supplementary Fig. 2.
+Bacterial strains. All DNA cloning was performed with Mach1 cells or NEB Turbo
+cells. Early discrete infection assays and PACE experiments were performed with
+PirPlus DH10bF9DOT cells. Plaque assays and PACE experiments with T7 RNAP
+were performed with using E. coli S109 cells derived from DH10B by replacement of
+the proBA locus with the pir116 allele, as previously described.31 To our knowledge,
+this modification was not required for PACE experiments with T7 RNAP. Similarly,
+the lacI cassette was deleted from the F plasmid and from the chromosome to enable
+mutagenesis assays. S109 cells were rendered F1 by conjugation with ER2738. The
+complete genotype of the resulting strainis F9proA1B1D(lacIZY) zzf::Tn10(TetR)/
+endA1 recA1 galE15 galK16 nupGrpsLDlacIZYA araD139 D(ara,leu)7697 mcrA
+D(mrr-hsdRMS-mcrBC) proBA::pir116 l-.
+Discrete infection assays. Discrete (non-continuous) infectivity assays were per-
+formed by co-transforming phage bearing antibiotic resistance genes with the
+appropriate accessory plasmid into competent cells to generate phage donors.
+For two-hybrid and recombinase experiments, phage-producing cells contained
+gIII-deleted helper phage, accessory plasmid and selection phagemid. The recom-
+binase used was Hin, a member of the serine resolvase family. Colonies were
+picked and grown overnight in 23 YT media with both antibiotics. Donor cells
+(2 ml)were mixedwith 198mL F1 recipientcellsin mid-exponentialphase contain-
+ing an antibiotic resistance gene not found in the donor. Mixtures were incubated
+at 37 uC for 1.5 h and 20 ml of serial dilutions were spread on plates containing the
+donor and the recipient antibiotics. Infection was quantified by the number of
+resulting colonies after incubation at 37 uC overnight. For plaque assays, phage
+DNA was transformed into electrocompetent cells containing the appropriate
+accessory plasmid and recovered for 1 h at 37 uC, or simply isolated from a lagoon.
+Serial dilutions were mixed with 300 ml F1 recipient cells grown to exponential
+phase in 14 ml Falcon culture tubes and incubated at 37 uC for 15 min. Top agar
+(3 ml) (7 g l21 from Luria–Bertani (LB) broth base) at 50 uC was added to each
+tube, briefly vortexed and poured onto minimal agar plates incubated at 37 uC for
+8 h or overnight to generate plaques.
+Turbidostat assembly. Assembly followed the schematic shown in Sup-
+plementary Fig. 1c. Turbidostats were constructed from BioProbe flasks on mag-
+netic stir plates. Each flask was equipped with a TruCell2 cell density meter held in
+a GL32 probe holder with compression fitting. GL45 and GL32 septa pierced with
+needles transferred media to and from the turbidostat through an 8-channel
+peristaltic pump with Tygon tubing. A needle set at the desired turbidostat volume
+level pumped excess cells to the waste container. A 0.2 mm filter attached to a
+14-gauge needle piercing the septum vented the turbidostat vessel. A two-way
+valve controlled media flow to the turbidostat, connected such that a closed valve
+state returned the media to source. The valve opened and closed in response to
+TruCell2 4–20 mA output processed by a digital panel meter programmed with
+the desired set point. Panel meters were unlocked according to the instruction
+manual and programmed to the following settings: Input dc_A, Setup 30_ 10,
+Config 00000, Filtr 11009, dec.pt ddd.dd, lo in 00.400, lo rd 004.00, hi in 02.000, hi
+rd 020.00, Alset 00036, deu1h 000.01, deu2h 000.01. The digital panel meter and
+valve were connected with a solderless breadboard according to the diagram
+shown in Supplementary Fig. 12. Lagoons consisted of 100ml Pyrex bottles with
+GL45 septa pierced with needles for fluid delivery, a 0.2 mm filter-terminated vent
+line and a magnetic stir bar. Excess lagoon volume was continually pumped to
+waste through a waste needle set at the desired lagoon volume.
+Media preparation. Each 20 l media carboy received 140 g anhydrous potassium
+phosphate dibasic, 40g potassium phosphate monobasic, 20g ammonium sulphate,
+and 20ml Tween 80 in 20l H2O. Carboys were loosely capped with Polyvent filling/
+venting closures with an autoclavable 0.2mm filter fastened to the venting port.
+Mediawasautoclaveduntilvisiblyboiling(typically120 minat30poundspersquare
+inch (p.s.i.), 121uC) and allowed to cool overnight. Media supplement was prepared
+from 90 g glucose, 10g sodium citrate, 0.25g anhydrous magnesium sulphate, 10 g
+casamino acids, 0.15 g tetracycline-HCl, 0.6 g carbenicillin, 0.6 g spectinomycin and
+0.5 g (L)-leucine, dissolved in 500ml H2O, and filtered with a Nalgene 500ml filtra-
+tion unit. Media supplement (500ml) was added to each carboy under conditions
+that minimized the risk of media contamination (in the case of the reported experi-
+ments, immediately after 1h of germicidal ultraviolet irradiation).
+Sterilization and cell culture. The autoclavable components of a turbidostat
+apparatus include the BioProbe flask, TruCell2 probe, needles, vent filter and
+tubing. All such components were autoclaved fully assembled except for tubing,
+which was connected while hot. Upon equilibrating to ambient temperature, the
+peristaltic pump responsible for media addition and waste removal was started
+with the valve opened until the desired volume was reached. The TruCell2 probe
+was connected to its transmitter and zeroed. Turbidostats were seeded with 100 ml
+of an overnight culture of host cells. Turbidostats and lagoon cultures were grown
+at 37 uC.
+Cell density calibration. Serial dilution plating was used to generate a calibration
+curve to determine TruCell2 output and panel meter setting corresponding to the
+desired cell density. For these experiments, both panel meter alarms were pro-
+grammed to open the valve at 6.80 mA. Cells were pumped from the turbidostat to
+the lagoons by peristaltic pumps with silicone (platinum) two-stop tubing.
+Calibration curves relating pump speed in revolutions per minute to volumetric
+flow rate were determined experimentally with a timer and graduated cylinder for
+each tubing size.
+PACE experiments.Turbidostats andlagoons were assembledasdescribedabove.
+Upon the turbidostat reaching the desired set point of 6.80 mA (corresponding to
+53 108 cells ml21 in our hands), lagoons were connected to turbidostats, waste
+needles were set at the desired volume and lagoon pumps were set to a flow rate
+corresponding to the desired dilution rate. Each lagoon was seeded with 100 ml of
+an overnight culture producing selection phage. To induce elevated mutagenesis,
+10% filter-sterilized (L)-arabinose was delivered by a separate peristaltic pump to
+each lagoon requiring enhanced mutagenesis to a final concentration of 1%.
+Lagoon aliquots were taken by sampling lagoon waste lines at the luer lock just
+after the peristaltic pump. Individual clones were isolated by plaque assay or
+amplified by PCR, assembled into a T7 RNAP activity assay plasmid, and trans-
+formed into cells containing a lacZ reporter plasmid. Active clones were picked by
+blue/white screening.
+Selection phage optimization. T7 RNAP was subcloned into VCSM13 helper
+phage encoding kanamycin resistance, generating HP-T7RNAP A, used in the
+discrete infection assay shown in Fig.2a. To ensure thatimprovements to the phage
+genome did not interfere with the evolution of T7 RNAP, HP-T7RNAP A was
+propagatedinalagoonfedbyS109hostcellscontainingAP-T7AandDP-QURand
+supplemented with arabinose for 72h at 2.0 volumes per hour. Individual plaques
+were isolated and their T7 RNAP genes sequenced. One plaque contained only a
+single point mutation in T7 RNAP, P314T, and was chosen as the preoptimized
+selection phage for T7 RNAP evolution. Sequencing of the rest of the selection
+phage revealed numerous changes relative to the parental VCSM13. Notably, the
+entire p15a-KanR cassetteinserted into the intergenicregion tocreateVCSM13 had
+been perfectly deleted to reconstitute the wild-type M13 intergenic region. Other
+changes included N79S, F286S and I360T mutations in gIV, a K249R mutation in
+gII, three silent mutations back to the corresponding M13 base, two other silent
+mutations and the deletion of one thymine residue in the terminator before gIII,
+possiblyincreasingthe expressionof T7RNAP. Theseregionalpatternsofvariation
+parallel those observed by Husimi in more extensive filamentous phage evolution
+RESEARCH LETTER
+Macmillan Publishers Limited. All rights reserved
+©2011
+
+
+--- Page 7 ---
+experiments11. This evolved phage, designated SP-T7RNAP P314T, was used as the
+starting selection phage for all subsequent PACE experiments.
+Mutagenesis assays. The lacI gene was cloned into VCSM13 between the p15a
+origin and kanr to generate VCSM13-lacI. A turbidostat was grown to a set point
+equivalent to 53 108 cells ml21 with S109 cells containing the mutagenesis plas-
+mid. Lagoons were seeded with 10 ml VCSM13-lacI and run at 2.5 volumes per
+hour for 3 h. One lagoon was supplemented with 10% L-arabinose to a final
+concentration of 1%, whereas the other received H2O. Aliquots were removed
+after 3 h and each was used to infect a 100-fold greater volume of recipient cell
+culture of S109 cells containing a reporter plasmid conferring carbenicillin and
+spectinomycin resistance with a lacI binding site (lacO) capable of repressing
+spectinomycin resistance. Mixtures were incubated for 1.5 h at 37 uC, spread on
+23 YT plates containing spectinomycin, kanamycin and carbenicillin, and incu-
+bated at 37 uC overnight. Colonies were counted for induced and uninduced
+lagoons to estimate the fold increase in mutagenesis. Seventy-two colonies were
+sequenced to determine the frequencies of all transitions and transversions within
+mutated lacI genes. The results are shown in Supplementary Fig. 5. All sequenced
+coloniescontainedatleastonemutationcapableofinactivatingrepressorfunction.
+Cell-based T7 RNAP activity assays. Overnight cultures of S109 cells grown in
+23 YT containing reporter plasmid and expression vector were diluted fourfold in
+fresh 23 YT media. Diluted culture (20 ml) was mixed with 80 ml Z buffer (60mM
+Na2HPO4,40mMNaH2PO4,10mMKCl,1mMMgSO4,50mMb-mercaptoethanol,
+pH 7.0) in Falcon Microtest 96-well OptiLux assay plates and the absorbance at
+595nm was measured using a Spectra M5 plate reader. Methylumbelliferyl-b-(D)-
+galactopyranoside (25ml of 1 mg ml21) was added to each well and the time
+recorded. Plates were incubated at 30 uC and fluorescence was measured at 360/
+460nm on a Spectra M5 plate reader. Plates were measured at multiple time points
+to avoid saturation of the spectrophotometer or consumption of the substrate,
+depending on the activity level of the T7 RNAP enzyme being assayed. MUG
+fluorescence units were calculated as previously described24. The activity level of
+wild-type T7 RNAP on the T7 promoter was defined as 100%; activities greater
+than 3% were considered significantly above the background level of this assay.
+T7 RNAP protein purification. T7 RNAP variants were cloned into pT7-911Q, a
+His-tagged T7 RNAP expression vector.32 Overnight cultures grown at 30 uC were
+diluted 1:500 in LB broth containing 50 mg ml21 carbenicillin and 2% glucose.
+Upon reaching absorbance A600 < 0.5, cultures were centrifuged at 4,000g for
+5 min and re-suspended in LB broth with 0.4 mM IPTG and 50 mg ml21 carbeni-
+cillin. Cultures were grown for 4 h at 30 uC, spun at 8,000g for 6 min, and the pellet
+was frozen overnight. Binding buffer consisted of 50 mM Tris, 300mM NaCl, 5%
+glycerol, 5 mM b-mercaptoethanol and 10 mM imidazole at pH 8.0. Wash buffer
+consisted of 50 mM Tris, 800mM NaCl, 5% glycerol, 5 mM b-mercaptoethanol
+and 20 mM imidazole at pH 8.0. Elution buffer was equivalent to wash buffer with
+500mM imidazole. Pellets from 25 ml culture were resuspended in 1 ml wash
+buffer and cells were lysed by sonication while kept on ice using a Misonix CL4
+sonicator at maximal microtip power for 45 s in 1 s bursts. Cell debris was spun
+down at 20,000g for 15 min at 4 uC. Ni-NTA spin columns were equilibrated with
+500ml binding buffer and spun at 800g for 2 min. Lysate supernatant was loaded
+onto each column and spun at 300g for 5 min. Columns were washed twice with
+500ml wash buffer, spinning at 800g for each, then eluted twice with 250ml elution
+buffer. Proteins were dialysed into 20 mM Tris, 100mM NaCl, 5% glycerol, 1 mM
+EDTA, 1 mM DTT, pH 8.0, and concentrated using Amicon Ultra-0.5 30K con-
+centration columns.
+In vitro T7 RNAP activity assays. Purified T7 RNAP variant concentrations were
+determined by Bradford assay and then by Coomassie stain on a 4–12% NuPage
+gel. Templates were prepared by PCR amplification of 150-bp fragments of the
+reporter plasmids used for in vivo assays including the promoter and the start of
+the lacZ gene. Templates were purified by MinElute spin column. Transcription
+reactions were performed in 13 RNAP buffer consisting of 40 mM Tris-HCl,
+6 mM MgCl2, 10 mM dithiothreitol, 2 mM spermidine pH 7.9 with 1 mM ribo-
+nucleotide tri-phosphates, 1 ng template DNA, purified polymerase variant and
+2 mCi [a-32P]ATP. Reactions were incubated at 37 uC for 20 min, mixed with an
+equivalent volume of loadingdyeconsisting of 7 M urea, 178mM Tris-Cl, 178mM
+H3BO3, 4 mM EDTA and 0.002% bromophenol blue, then electrophoresed on
+Criterion 5% or 10% TBE-urea denaturing gels. RNAs were transcribed from
+double-stranded templates of sequence 59-TAATACGACTCACTATAGGGAGA
+GCCACCACCACCACCACCACCA-39, 59-TAATACGACTCACTATACCCCC
+CGCCACCACCACCACCACCACCA-39,
+and
+59-TAATACGACTCACTAT
+AAAAAAAGCCACCACCACCACCACCACCA-39 (the 11 base is underlined).
+To remove differences in specific radioactivity from [a-32P]ATP incorporation in
+iA6, wild-type and iC6 transcripts arising from the differing number of A nucleo-
+tides in their first six bases, transcripts were digested with T1 RNase to remove the
+first seven nucleotides. This digestion step also enabled all iA6 transcription pro-
+ducts to enter the gel completely, which did not always occur for iA6 products of
+either wild-type or evolved polymerases. Transcripts were electrophoresed on
+Criterion 15% TBE-urea gels, exposed to phosphor screens, and imaged on a
+Typhoon Trio phosphorimager. Bands corresponding to transcription products
+were quantified with ImageJ software.
+RACE analysis. In vitro transcription reactions with purified T7 RNAP variants
+were performed as described above but without the addition of any radioactive
+nucleotide using polymerase variant C6-80.9 on the iC6 and wild-type templates,
+and using polymerase variant A4-36.4 on the iA6, iC6 and wild-type templates.
+DNA oligonucleotides of sequence 59-TAATACGACTCACTATACCC-39 and
+59-CCCACCCAAAAAAAAAAAAAAAGGGGGGTATAGTGAGTCGTATTA-39
+formed the iC6 template, 59-TAATACGACTCACTATAAAA-39 and 59-CCCAC
+CCAAAAAAAAAAAAAAATTTTTTTATAGTGAGTCGTATTA-39 formed the
+iA6 template and 59-TAATACGACTCACTATAGGG-39 and 59-CCCACCCAA
+AAAAAAAAAAAAATCTCCCTATAGTGAGTCGTATTA-39 formed the wild-
+type template. Each200 ml transcriptionreaction wastreatedwith2 mlcalfintestinal
+phosphatase for 1 h at 37uC, extracted with phenol-chloroform twice to remove
+enzymes and precipitated with ethanol. Pellets were resuspended in 13 DNase
+Turbo buffer with 5 ml DNase in a total volume of 100 ml, incubated for 2 h at
+37uC, extracted with phenol-chloroform twice and precipitated with ethanol.
+Purified transcript (5ml) was mixed with 1 ml T4 polynucleotide kinase (in
+13 polynucleotide kinase buffer) and incubated at 37uC for 1 h. Treated RNA
+(1ml) was ligated to 30ng RNA adaptor of sequence 59-GCUGAUGGC
+GAUGAAUGAACACUGCGUUUGCUGGCUUUGAUGAAA-39 with T4 RNA
+ligase in 13 RNA ligase buffer at 37uC for 1 h. Ligated RNA (1ml) was reverse
+transcribed by mixing with 1 mM deoxynucleotide triphosphates, and a comple-
+mentary DNA primer of sequence 59-CCCCCAAACCCCCAAAAAAAAAAC
+CCACCCAAAAAAAAAAAA-39 at a final concentration of 5 mM at 65uC for
+15min followed by 10U ml21 SuperScript III reverse transcriptase in 13 reverse
+transcriptase buffer, 5 mM MgCl2 and 10mM dithiothreitol at 50uC for 1 h.
+Enzymes were denatured at 85uC for 5 min followed by DNA amplification with
+sequential PCR reactions using primers 59-CGATCCGAACGCAGCATTTAC
+GCTGATGGCGATGAATGAACACTG-39 and 59-CCCCCAAACCCCCAAAA
+AAAAAACCCACCCAAAAAAAAAAAA-39, digestion with MlyI and HinfI in
+NEBuffer 4 to cleave sequences containing the promoter, and PCR amplification
+with 59-GCTAGTTATTGCTCAGCGGAATAACGATCCGAACGCAGCATTT
+AC-39 and 59-GCTAGTTATTGCTCAGCGGAAAAAAAAAAAAACCCCCAA
+ACCCCC-39. PCR products were cloned into the backbone of plasmid AP-T7 P
+amplified with primers 59-CGGATCGTTATTCCGCTGAGCAATAACTAGC
+AGAGCAAAAGGCCAGC-39 and 59-GGGGGTTTGGGGGTTTTTTTTTTTTT
+CCGGCCTTGTCGGCCTTAC-39 by isothermal assembly cloning.Individual col-
+onies were picked and sequenced using a primer of sequence 59-CAGGAA
+GGCAAAATGCCG-39.
+30. Gibson, D. G. et al. Enzymatic assembly of DNA molecules up to several hundred
+kilobases. Nature Methods 6, 343–345 (2009).
+31. Datsenko, K. A. & Wanner, B. L. One-step inactivation of chromosomal genes in
+Escherichia coli K-12 using PCR products. Proc Natl Acad Sci USA 97, 6640–6645
+(2000).
+32. Ichetovkin, I. E., Abramochkin, G. & Shrader, T. E. Substrate recognition by the
+leucyl/phenylalanyl-tRNA-protein transferase. Conservation within the enzyme
+family and localization to the trypsin-resistant domain. J Biol Chem 272,
+33009–33014 (1997).
+LETTER RESEARCH
+Macmillan Publishers Limited. All rights reserved
+©2011
