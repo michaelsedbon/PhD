@@ -23,6 +23,7 @@ class BacterialStateGPU(NamedTuple):
     """Fixed-size GPU state. All arrays are [N_MAX] or [N_MAX, L]."""
     sequences: jnp.ndarray      # int32[N_MAX, L]
     affinities: jnp.ndarray     # float32[N_MAX]
+    hamming: jnp.ndarray        # float32[N_MAX] — Hamming distance to antigen
     clone_id: jnp.ndarray       # int32[N_MAX]
     generation: jnp.ndarray     # int32[N_MAX]
     cell_id: jnp.ndarray        # int32[N_MAX]
@@ -47,8 +48,9 @@ def empty_state(L: int = L_DEFAULT, n_max: int = N_MAX) -> BacterialStateGPU:
         return jax.device_put(arr, cpu)
 
     return BacterialStateGPU(
-        sequences=_cpu(jnp.zeros((n_max, L), dtype=jnp.int32)),
+        sequences=_cpu(jnp.zeros((n_max, L), dtype=jnp.int8)),
         affinities=_cpu(jnp.zeros(n_max, dtype=jnp.float32)),
+        hamming=_cpu(jnp.zeros(n_max, dtype=jnp.float32)),
         clone_id=_cpu(jnp.zeros(n_max, dtype=jnp.int32)),
         generation=_cpu(jnp.zeros(n_max, dtype=jnp.int32)),
         cell_id=_cpu(jnp.zeros(n_max, dtype=jnp.int32)),

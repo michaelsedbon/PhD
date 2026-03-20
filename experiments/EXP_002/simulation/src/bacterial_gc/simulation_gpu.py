@@ -33,7 +33,13 @@ def initialize_gpu(config: BacterialConfig, rng_key: jnp.ndarray) -> BacterialSt
     # Population never exceeds 2*target_n (divide then immediately dilute).
     # Need headroom for the division step before dilution.
     n_max = config.turbidostat_target_n * 2
-    n_max = min(n_max, 2_000_000)  # cap at 2M to fit GPU (11 GB VRAM)
+
+    # Estimate memory usage and warn (but don't cap — CPU has enough RAM)
+    est_bytes = n_max * (config.shape_space_dim * 4 + 17)  # seq(int32) + scalars
+    est_gb = est_bytes / 1e9
+    print(f"  Estimated memory: {est_gb:.2f} GB", flush=True)
+    if est_gb > 10:
+        print(f"  ⚠ WARNING: {est_gb:.1f} GB may exceed GPU VRAM. Use CPU for large N.", flush=True)
 
     state = empty_state(L=L, n_max=n_max)
 

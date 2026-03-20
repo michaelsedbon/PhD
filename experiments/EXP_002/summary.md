@@ -47,11 +47,14 @@ Build a GPU-ready simulation of the synthetic germinal center described in the M
 - [x] L-scaling analysis (L=400→L=40 with scaled parameters)
 - [x] L=40 GPU validation sweep — completed, scaling validated
 - [x] L=400 vs L=40 comparison — [SWEEP_COMPARISON.md](simulation/results/SWEEP_COMPARISON.md)
-- [/] Directed evolution baseline comparison (code ready)
+- [x] Directed evolution baseline comparison — [OVERNIGHT_RESULTS.md](simulation/results/OVERNIGHT_RESULTS.md)
 - [x] Corrected sweep with actual T7 variant rates — [T7_RATES_ANALYSIS.md](simulation/results/sweep_T7_rates/T7_RATES_ANALYSIS.md)
 - [x] Lab meeting presentation (20 slides) — [GC_Simulation_Lab_Meeting.pptx](presentation/GC_Simulation_Lab_Meeting.pptx)
-- [ ] DZ/LZ cycling speed sweep (dz_divisions)
-- [ ] Phase 2 GPU scaling to N=10⁷ at L=40
+- [x] JIT GPU optimization (380× speedup) — [JIT_VALIDATION_REPORT.md](simulation/results/JIT_VALIDATION_REPORT.md)
+- [x] Q4: N-scaling to 10⁷ (81 runs) — [Q4_ANALYSIS.md](simulation/results/q4_n_scaling/Q4_ANALYSIS.md)
+- [x] Q3: DZ/LZ cycling speed sweep (48 runs) — [Q3_ANALYSIS.md](simulation/results/q3_cycling/Q3_ANALYSIS.md)
+- [ ] Q6: Multi-epitope breadth
+- [ ] Phase 3: 96-well parallel simulation
 
 ## Results
 

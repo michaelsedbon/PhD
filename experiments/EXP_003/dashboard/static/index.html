@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXP_003 — Simulation Dashboard</title>
+    <meta name="description" content="Real-time GPU server monitoring and simulation results dashboard for the bacterial synthetic GC experiment.">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/static/style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <!-- Plotly.js (parallel coords + heatmaps) -->
+    <script src="https://cdn.plot.ly/plotly-2.35.0.min.js"></script>
+
+    <!-- Marked.js (Markdown) -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@14.0.0/marked.min.js"></script>
+
+    <!-- Highlight.js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/core.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/languages/python.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/languages/bash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/languages/json.min.js"></script>
+
+    <!-- Mermaid.js -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+    <div class="app-layout">
+        <!-- ════════ SIDEBAR ════════ -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <div class="logo-icon">GC</div>
+                    <h1>EXP_003<span>Simulation Dashboard</span></h1>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="nav-tabs" id="nav-tabs">
+                <button class="nav-tab active" data-tab="health" id="nav-tab-health">
+                    <span class="tab-icon"><i data-lucide="monitor" class="lucide-icon"></i></span>
+                    Server Health
+                </button>
+                <button class="nav-tab" data-tab="results" id="nav-tab-results">
+                    <span class="tab-icon"><i data-lucide="bar-chart-3" class="lucide-icon"></i></span>
+                    Simulation Results
+                    <span class="tab-badge" id="runs-count-badge">0</span>
+                </button>
+                <button class="nav-tab" data-tab="docs" id="nav-tab-docs">
+                    <span class="tab-icon"><i data-lucide="drafting-compass" class="lucide-icon"></i></span>
+                    Architecture & Design
+                </button>
+                <button class="nav-tab" data-tab="sweep" id="nav-tab-sweep">
+                    <span class="tab-icon"><i data-lucide="flask-conical" class="lucide-icon"></i></span>
+                    Sweep Explorer
+                    <span class="tab-badge" id="sweep-count-badge">0</span>
+                </button>
+            </nav>
+
+            <!-- Server mini-status -->
+            <div class="sidebar-status" id="sidebar-status">
+                <div class="status-header">
+                    <div class="status-dot offline" id="sidebar-status-dot"></div>
+                    Server Status
+                </div>
+                <div class="status-row">
+                    <span class="label">GPU Temp</span>
+                    <span class="value" id="sidebar-gpu-temp">—</span>
+                </div>
+                <div class="status-row">
+                    <span class="label">VRAM</span>
+                    <span class="value" id="sidebar-gpu-vram">—</span>
+                </div>
+                <div class="status-row">
+                    <span class="label">CPU</span>
+                    <span class="value" id="sidebar-cpu">—</span>
+                </div>
+                <div class="status-row">
+                    <span class="label">RAM</span>
+                    <span class="value" id="sidebar-ram">—</span>
+                </div>
+            </div>
+
+            <!-- Simulation indicator -->
+            <div class="sidebar-footer">
+                <div class="sim-indicator idle" id="sim-indicator">
+                    <div class="pulse-ring"></div>
+                    <span id="sim-indicator-text">No active simulation</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ════════ MAIN ════════ -->
+        <main class="main-content">
+            <!-- Toolbar -->
+            <div class="toolbar" id="toolbar">
+                <h2 id="toolbar-title"><i data-lucide="monitor" class="lucide-icon toolbar-icon"></i> Server Health<span>Real-time monitoring</span></h2>
+                <div class="toolbar-right">
+                    <div class="connection-badge" id="connection-badge">
+                        <div class="status-dot offline" id="connection-dot"></div>
+                        <span id="connection-text">Connecting…</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab content -->
+            <div class="tab-content" id="tab-content">
+
+                <!-- ═══════ TAB 1: SERVER HEALTH ═══════ -->
+                <div class="tab-panel active" id="panel-health">
+
+                    <!-- ═══ Sweep Progress Card ═══ -->
+                    <div class="card fade-in sweep-progress-card" id="sweep-progress-card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <span class="icon"><i data-lucide="activity" class="lucide-icon"></i></span>
+                                Sweep Progress
+                            </div>
+                            <span class="card-badge" id="sweep-status-badge">Idle</span>
+                        </div>
+
+                        <!-- Idle state -->
+                        <div id="sweep-idle-state" style="text-align:center;padding:12px 0;">
+                            <p style="color:var(--text-dim);font-size:13px;">No active sweep</p>
+                        </div>
+
+                        <!-- Active / completed state (hidden by default) -->
+                        <div id="sweep-active-state" style="display:none;">
+                            <!-- Sweep ID & start time -->
+                            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                                <span style="font-size:13px;font-weight:600;color:var(--text);" id="sweep-progress-id">—</span>
+                                <span style="font-size:11px;color:var(--text-dim);" id="sweep-progress-started">—</span>
+                            </div>
+
+                            <!-- Animated progress bar -->
+                            <div class="sweep-bar-container">
+                                <div class="sweep-bar-fill" id="sweep-bar-fill" style="width:0%"></div>
+                            </div>
+                            <div style="display:flex;justify-content:space-between;margin-top:6px;font-size:12px;">
+                                <span style="font-weight:600;color:var(--text);font-variant-numeric:tabular-nums;" id="sweep-bar-text">0/0 runs (0%)</span>
+                                <span style="color:var(--text-dim);" id="sweep-eta-text">—</span>
+                            </div>
+
+                            <!-- Current run -->
+                            <div style="margin-top:12px;padding:8px 12px;background:var(--surface2);border-radius:var(--radius-sm);border:1px solid var(--border);" id="sweep-current-run-box">
+                                <span style="font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">Current Run</span>
+                                <div style="font-size:13px;font-family:'JetBrains Mono',monospace;color:var(--accent);margin-top:4px;" id="sweep-current-run-id">—</div>
+                            </div>
+
+                            <!-- Timing stats -->
+                            <div style="margin-top:10px;font-size:12px;color:var(--text-muted);font-variant-numeric:tabular-nums;" id="sweep-timing-stats">—</div>
+
+                            <!-- Failed count (hidden unless > 0) -->
+                            <div style="margin-top:6px;font-size:12px;color:var(--red);display:none;" id="sweep-failed-text">—</div>
+
+                            <!-- Mini table: last 5 completed runs -->
+                            <div style="margin-top:16px;">
+                                <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-dim);margin-bottom:8px;">Recent Runs</div>
+                                <table class="sweep-mini-table" id="sweep-mini-table">
+                                    <thead>
+                                        <tr><th>Run ID</th><th>Duration</th><th>Affinity</th><th>Shannon</th></tr>
+                                    </thead>
+                                    <tbody id="sweep-mini-table-body">
+                                        <tr><td colspan="4" style="text-align:center;color:var(--text-dim);">—</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Mini Plotly scatter: affinity vs run index -->
+                            <div style="margin-top:16px;">
+                                <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-dim);margin-bottom:8px;">Affinity Progress</div>
+                                <div id="sweep-mini-scatter" style="width:100%;height:180px;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Alert banner (hidden by default) -->
+                    <div class="alert-banner warning" id="health-alert" style="display:none;">
+                        <span class="alert-icon"><i data-lucide="alert-triangle" class="lucide-icon"></i></span>
+                        <span id="health-alert-text"></span>
+                    </div>
+
+                    <!-- GPU Card -->
+                    <div class="card fade-in" id="gpu-card">
+                        <div class="card-header">
+                            <div>
+                                <div class="card-title"><span class="icon"><i data-lucide="cpu" class="lucide-icon"></i></span> <span id="gpu-card-name">GPU</span></div>
+                                <div class="card-subtitle">Graphics Processing Unit</div>
+                            </div>
+                            <span class="card-badge green" id="gpu-status-badge">Healthy</span>
+                        </div>
+                        <div class="grid-3" id="gpu-stats-grid">
+                            <div>
+                                <div class="temp-gauge">
+                                    <div class="temp-circle" id="gpu-temp-circle">
+                                        <span class="temp-value" id="gpu-temp-value">—</span>
+                                        <span class="temp-unit">°C</span>
+                                    </div>
+                                    <div>
+                                        <div style="font-size:12px;color:var(--text-dim);margin-bottom:4px;">Temperature</div>
+                                        <div style="font-size:11px;color:var(--text-dim);" id="gpu-temp-status">No data</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="stat-label" style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-dim);margin-bottom:8px;">VRAM Usage</div>
+                                <div style="font-size:22px;font-weight:700;color:#fff;margin-bottom:4px;" id="gpu-vram-text">— / — MB</div>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar green" id="gpu-vram-bar" style="width:0%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="stat-label" style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-dim);margin-bottom:8px;">GPU Utilization</div>
+                                <div style="font-size:22px;font-weight:700;color:#fff;margin-bottom:4px;" id="gpu-util-text">— %</div>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar accent" id="gpu-util-bar" style="width:0%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- System stats grid -->
+                    <div class="grid-3 fade-in" style="animation-delay:0.1s;">
+                        <div class="stat-card" id="cpu-card">
+                            <div class="stat-label">CPU Usage</div>
+                            <div class="stat-value" id="cpu-value">—<span class="unit">%</span></div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar green" id="cpu-bar" style="width:0%"></div>
+                            </div>
+                        </div>
+                        <div class="stat-card" id="ram-card">
+                            <div class="stat-label">RAM Usage</div>
+                            <div class="stat-value" id="ram-value">—<span class="unit">GB</span></div>
+                            <div class="stat-sub" id="ram-sub">— / — GB</div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar blue" id="ram-bar" style="width:0%"></div>
+                            </div>
+                        </div>
+                        <div class="stat-card" id="disk-card">
+                            <div class="stat-label">Disk Usage</div>
+                            <div class="stat-value" id="disk-value">—<span class="unit">GB</span></div>
+                            <div class="stat-sub" id="disk-sub">— / — GB</div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar green" id="disk-bar" style="width:0%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Uptime card -->
+                    <div class="stat-card fade-in" style="animation-delay:0.15s;margin-bottom:16px;">
+                        <div class="stat-label">System Uptime</div>
+                        <div class="stat-value" style="font-size:20px;" id="uptime-value">—</div>
+                    </div>
+
+                    <!-- Time-series charts -->
+                    <div class="section-head">
+                        <h3><i data-lucide="trending-up" class="lucide-icon section-icon"></i> Time Series (last 10 min)</h3>
+                        <div class="section-line"></div>
+                    </div>
+
+                    <div class="grid-3 fade-in" style="animation-delay:0.2s;">
+                        <div class="card">
+                            <div class="card-title" style="margin-bottom:12px;">GPU Temperature</div>
+                            <div class="chart-container">
+                                <canvas id="chart-gpu-temp"></canvas>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-title" style="margin-bottom:12px;">GPU Utilization</div>
+                            <div class="chart-container">
+                                <canvas id="chart-gpu-util"></canvas>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-title" style="margin-bottom:12px;">RAM Usage</div>
+                            <div class="chart-container">
+                                <canvas id="chart-ram"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- nvidia-smi raw output -->
+                    <div class="card fade-in" style="animation-delay:0.25s;">
+                        <div class="card-header">
+                            <div class="card-title"><span class="icon"><i data-lucide="terminal" class="lucide-icon"></i></span> nvidia-smi Output</div>
+                            <button class="btn" onclick="App.health.refreshNvidiaSmi()" id="btn-refresh-smi"><i data-lucide="refresh-cw" class="lucide-icon btn-icon"></i> Refresh</button>
+                        </div>
+                        <div class="nvidia-smi-output" id="nvidia-smi-output">Loading...</div>
+                    </div>
+                </div>
+
+                <!-- ═══════ TAB 2: SIMULATION RESULTS ═══════ -->
+                <div class="tab-panel" id="panel-results">
+
+                    <div class="comparison-bar" id="comparison-bar">
+                        <span>Compare runs:</span>
+                        <select id="compare-select-a">
+                            <option value="">Select run A…</option>
+                        </select>
+                        <span>vs</span>
+                        <select id="compare-select-b">
+                            <option value="">Select run B…</option>
+                        </select>
+                        <button class="btn primary" onclick="App.runs.compare()" id="btn-compare">Compare</button>
+                        <button class="btn" onclick="App.runs.clearComparison()" id="btn-clear-compare">Clear</button>
+                    </div>
+
+                    <!-- Run list -->
+                    <div id="runs-list-container">
+                        <div class="empty-state" id="runs-empty-state">
+                            <div class="empty-icon"><i data-lucide="bar-chart-3" class="lucide-icon empty-lucide"></i></div>
+                            <h3>No simulation data yet</h3>
+                            <p>Simulation results will appear here once runs complete. Results are read from <code>~/gc_simulation/EXP_003/results/</code> on the server.</p>
+                        </div>
+                    </div>
+
+                    <!-- Run detail (hidden by default) -->
+                    <div id="run-detail" style="display:none;">
+                        <div class="section-head">
+                            <h3 id="run-detail-title">Run Details</h3>
+                            <div class="section-line"></div>
+                            <button class="btn" onclick="App.runs.closeDetail()" id="btn-close-detail">← Back to list</button>
+                        </div>
+
+                        <!-- Config -->
+                        <div class="card">
+                            <div class="card-title" style="margin-bottom:12px;"><span class="icon"><i data-lucide="settings" class="lucide-icon"></i></span> Configuration</div>
+                            <div class="config-grid" id="run-config-grid"></div>
+                        </div>
+
+                        <!-- Affinity Maturation -->
+                        <div class="card">
+                            <div class="card-title" style="margin-bottom:12px;"><span class="icon"><i data-lucide="dna" class="lucide-icon"></i></span> Affinity Maturation</div>
+                            <div class="chart-container tall">
+                                <canvas id="chart-affinity"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Population Dynamics -->
+                        <div class="card">
+                            <div class="card-title" style="margin-bottom:12px;"><span class="icon"><i data-lucide="users" class="lucide-icon"></i></span> Population Dynamics</div>
+                            <div class="chart-container tall">
+                                <canvas id="chart-population"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Diversity -->
+                        <div class="grid-2">
+                            <div class="card">
+                                <div class="card-title" style="margin-bottom:12px;"><span class="icon"><i data-lucide="sparkles" class="lucide-icon"></i></span> Shannon Entropy & Simpson Index</div>
+                                <div class="chart-container">
+                                    <canvas id="chart-diversity"></canvas>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-title" style="margin-bottom:12px;"><span class="icon"><i data-lucide="flask-conical" class="lucide-icon"></i></span> Unique Clones</div>
+                                <div class="chart-container">
+                                    <canvas id="chart-clones"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Clone Frequency -->
+                        <div class="card">
+                            <div class="card-title" style="margin-bottom:12px;"><span class="icon"><i data-lucide="bar-chart-3" class="lucide-icon"></i></span> Top 20 Clone Frequencies (Final Timepoint)</div>
+                            <div class="chart-container tall">
+                                <canvas id="chart-clone-freq"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Hamming Distribution with slider -->
+                        <div class="card">
+                            <div class="card-title" style="margin-bottom:8px;"><span class="icon"><i data-lucide="ruler" class="lucide-icon"></i></span> Hamming Distance Distribution</div>
+                            <div class="time-slider-container">
+                                <label for="hamming-slider">Timepoint</label>
+                                <input type="range" id="hamming-slider" min="0" max="100" value="0">
+                                <span class="slider-value" id="hamming-slider-value">Cycle 0</span>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="chart-hamming"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ═══════ TAB 3: ARCHITECTURE & DESIGN ═══════ -->
+                <div class="tab-panel" id="panel-docs">
+                    <div class="docs-layout" id="docs-layout">
+                        <nav class="docs-toc" id="docs-toc">
+                            <h4>Table of Contents</h4>
+                            <div id="toc-links"></div>
+                        </nav>
+                        <div class="docs-body">
+                            <div class="markdown-body" id="docs-content">
+                                <div class="empty-state">
+                                    <div class="empty-icon"><i data-lucide="drafting-compass" class="lucide-icon empty-lucide"></i></div>
+                                    <h3>Loading architecture docs…</h3>
+                                    <p>Fetching the flow diagram from the server.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ═══════ TAB 4: SWEEP EXPLORER ═══════ -->
+                <div class="tab-panel" id="panel-sweep">
+
+                    <!-- Sweep selector -->
+                    <div class="sweep-selector" id="sweep-selector">
+                        <span>Sweep:</span>
+                        <select id="sweep-select"><option value="">Loading…</option></select>
+                    </div>
+
+                    <!-- ═══ Experiment Intent (populated dynamically from manifest) ═══ -->
+                    <div class="card fade-in" style="margin-top:16px;padding:16px 20px;border-left:3px solid #6366f1;">
+                        <div id="sweep-intent" style="font-size:13px;line-height:1.6;color:var(--text-muted);">
+                            <em>Select a sweep to see its intent.</em>
+                        </div>
+                    </div>
+
+                    <!-- ═══ Parameter Reference ═══ -->
+                    <div class="section-head" style="margin-top:8px;">
+                        <h3><i data-lucide="book-open" class="lucide-icon section-icon"></i> Parameter Reference</h3>
+                        <div class="section-line"></div>
+                    </div>
+                    <div class="card fade-in">
+                        <table class="param-table">
+                            <thead><tr><th>Parameter</th><th>Description</th><th>Units</th></tr></thead>
+                            <tbody>
+                                <tr><td><code>n_founders</code></td><td>Initial B-cell clones seeded into the GC</td><td>count</td></tr>
+                                <tr><td><code>gene_length</code></td><td>Length of the antibody heavy-chain gene</td><td>bp</td></tr>
+                                <tr><td><code>paper_mutation_rate</code></td><td>Per-base-per-division mutation rate (e.g. 3.31 × 10⁻⁸)</td><td>mut/bp/div</td></tr>
+                                <tr><td><code>keep_fraction</code></td><td>Fraction of DZ cells surviving quality check (selection stringency)</td><td>fraction</td></tr>
+                                <tr><td><code>sample_fraction</code></td><td>Fraction of DZ cells sampled and sent to the LZ buffer for selection each mini-cycle</td><td>fraction</td></tr>
+                                <tr><td><code>leak_fraction</code></td><td>Fraction of unselected cells in the LZ allowed to return to the DZ instead of being discarded</td><td>fraction</td></tr>
+                                <tr><td><code>incubation_time</code></td><td>Time cells spend dividing in DZ before selection</td><td>min</td></tr>
+                                <tr><td><code>target_n</code></td><td>Target total population size maintained by simulation</td><td>count</td></tr>
+                                <tr><td><code>gamma</code></td><td>Shape parameter for target–antibody affinity landscape</td><td>—</td></tr>
+                                <tr><td><code>eta</code></td><td>Steepness parameter for selection probability sigmoid</td><td>—</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- ═══ Sweep Configuration ═══ -->
+                    <div class="section-head" style="margin-top:24px;">
+                        <h3><i data-lucide="settings" class="lucide-icon section-icon"></i> Sweep Configuration</h3>
+                        <div class="section-line"></div>
+                    </div>
+                    <div class="card fade-in">
+                        <div id="sweep-context-content" style="font-size:12px;color:var(--text-muted);">Loading manifest…</div>
+                    </div>
+
+                    <!-- Filter bar -->
+                    <div class="sweep-filters" id="sweep-filters" style="margin-top:24px;">
+                        <div class="filter-group"><label>Mutation</label><select id="filter-mutation"><option value="all">All</option></select></div>
+                        <div class="filter-group"><label>Keep fraction</label><select id="filter-keep"><option value="all">All</option></select></div>
+                        <div class="filter-group"><label>Sample fraction</label><select id="filter-sample"><option value="all">All</option></select></div>
+                        <div class="filter-group"><label>Leak</label><select id="filter-leak"><option value="all">All</option></select></div>
+                        <div class="filter-group"><label>Incubation</label><select id="filter-incubation"><option value="all">All</option></select></div>
+                        <div class="filter-group"><label>Target N</label><select id="filter-target-n"><option value="all">All</option></select></div>
+                        <span class="filter-count" id="filter-count">0 runs</span>
+                    </div>
+
+
+
+                    <!-- ═══ Parallel Coordinates (only for multi-param sweeps) ═══ -->
+                    <div id="section-parcoords">
+                    <div class="section-head" style="margin-top:32px;">
+                        <h3><i data-lucide="git-branch" class="lucide-icon section-icon"></i> Parallel Coordinates — Coloured by Affinity</h3>
+                        <div class="section-line"></div>
+                    </div>
+                    <div class="card fade-in">
+                        <div id="parcoords-affinity" style="width:100%;height:480px;"></div>
+                    </div>
+
+                    <div class="section-head" style="margin-top:32px;">
+                        <h3><i data-lucide="git-branch" class="lucide-icon section-icon"></i> Parallel Coordinates — Coloured by Diversity</h3>
+                        <div class="section-line"></div>
+                    </div>
+                    <div class="card fade-in">
+                        <div id="parcoords-diversity" style="width:100%;height:480px;"></div>
+                    </div>
+                    </div>
+
+                    <!-- ═══ Faceted Heatmaps (only for 2-N sweeps) ═══ -->
+                    <div id="section-heatmaps">
+                    <div class="section-head" style="margin-top:32px;">
+                        <h3><i data-lucide="layout-grid" class="lucide-icon section-icon"></i> Mutation × Keep Interaction (split by Population Size)</h3>
+                        <div class="section-line"></div>
+                    </div>
+                    <div class="grid-2 fade-in">
+                        <div class="card"><div class="card-title" style="margin-bottom:12px;">Mean Affinity — N = 100K</div><div id="heatmap-aff-100k" style="width:100%;height:360px;"></div></div>
+                        <div class="card"><div class="card-title" style="margin-bottom:12px;">Mean Affinity — N = 1M</div><div id="heatmap-aff-1m" style="width:100%;height:360px;"></div></div>
+                    </div>
+                    <div class="grid-2 fade-in" style="margin-top:16px;">
+                        <div class="card"><div class="card-title" style="margin-bottom:12px;">Mean Shannon H — N = 100K</div><div id="heatmap-div-100k" style="width:100%;height:360px;"></div></div>
+                        <div class="card"><div class="card-title" style="margin-bottom:12px;">Mean Shannon H — N = 1M</div><div id="heatmap-div-1m" style="width:100%;height:360px;"></div></div>
+                    </div>
+                    </div>
+
+                    <!-- ═══ 3D Parameter Landscape (only for 2-N sweeps) ═══ -->
+                    <div id="section-3d">
+                    <div class="section-head" style="margin-top:32px;">
+                        <h3><i data-lucide="box" class="lucide-icon section-icon"></i> 3D Parameter Landscape</h3>
+                        <div class="section-line"></div>
+                        <p style="font-size:12px;color:var(--text-muted);margin:4px 0 8px;">
+                            X = Keep Fraction, Y = Mutation Rate, Z = metric. Scatter = individual runs, Surface = grouped means. Colored by Target N (blue = 100K, orange = 1M).
+                        </p>
+                        <div style="display:flex;gap:16px;align-items:center;margin-bottom:8px;">
+                            <label style="display:flex;align-items:center;gap:4px;font-size:12px;color:var(--text-muted);cursor:pointer;">
+                                <input type="checkbox" id="toggle-3d-scatter" checked onchange="App.sweep.update3DVisibility()"> Scatter (runs)
+                            </label>
+                            <label style="display:flex;align-items:center;gap:4px;font-size:12px;color:var(--text-muted);cursor:pointer;">
+                                <input type="checkbox" id="toggle-3d-surface" checked onchange="App.sweep.update3DVisibility()"> Surface (means)
+                            </label>
+                        </div>
+                    </div>
+                    <div class="grid-2 fade-in" style="margin-top:16px;">
+                        <div class="card"><div class="card-title" style="margin-bottom:12px;">Final Affinity — 3D Landscape</div><div id="plot3d-affinity" style="width:100%;height:520px;"></div></div>
+                        <div class="card"><div class="card-title" style="margin-bottom:12px;">Final Shannon H — 3D Landscape</div><div id="plot3d-shannon" style="width:100%;height:520px;"></div></div>
+                    </div>
+                    </div>
+
+                    <!-- ═══ Population Impact (only for 2-N sweeps) ═══ -->
+                    <div id="section-paired">
+                    <div class="section-head" style="margin-top:32px;">
+                        <h3><i data-lucide="git-compare" class="lucide-icon section-icon"></i> Population Impact — N=100K vs N=1M</h3>
+                        <div class="section-line"></div>
+                        <p style="font-size:12px;color:var(--text-muted);margin:4px 0 8px;">
+                            Each point = one matched condition (same mutation, keep, sample, leak, incubation). Diagonal = no N effect. Points above = N=1M better.
+                        </p>
+                    </div>
+                    <div class="grid-2 fade-in" style="margin-top:16px;">
+                        <div class="card"><div class="card-title" style="margin-bottom:12px;">Paired — Final Affinity</div><div id="paired-affinity" style="width:100%;height:420px;"></div></div>
+                        <div class="card"><div class="card-title" style="margin-bottom:12px;">Paired — Shannon H</div><div id="paired-shannon" style="width:100%;height:420px;"></div></div>
+                    </div>
+                    </div>
+
+                    <!-- ═══ N-Scaling (for multi-N sweeps) ═══ -->
+                    <div id="section-n-scaling" style="display:none;">
+                    <div class="section-head" style="margin-top:32px;">
+                        <h3><i data-lucide="trending-up" class="lucide-icon section-icon"></i> Population Size Scaling</h3>
+                        <div class="section-line"></div>
+                        <p style="font-size:12px;color:var(--text-muted);margin:4px 0 8px;">
+                            Mean metric vs. target_n for each (mutation rate × keep_fraction) condition. Error bars = SEM across replicates. Log scale on x-axis.
+                        </p>
+                    </div>
+                    <div class="grid-2 fade-in" style="margin-top:16px;">
+                        <div class="card"><div class="card-title" style="margin-bottom:12px;">Affinity vs Population Size</div><div id="nscale-affinity" style="width:100%;height:480px;"></div></div>
+                        <div class="card"><div class="card-title" style="margin-bottom:12px;">Shannon H vs Population Size</div><div id="nscale-shannon" style="width:100%;height:480px;"></div></div>
+                    </div>
+                    </div>
+
+                    <!-- ═══ Relative Change from Baseline (multi-N) ═══ -->
+                    <div id="section-n-relchange" style="display:none;">
+                    <div class="section-head" style="margin-top:32px;">
+                        <h3><i data-lucide="percent" class="lucide-icon section-icon"></i> Relative Change from Baseline (N=10K)</h3>
+                        <div class="section-line"></div>
+                        <p style="font-size:12px;color:var(--text-muted);margin:4px 0 8px;">
+                            Percentage change in each metric compared to the smallest population (N=10K). If all lines hover near 0%, population size has no effect. Positive values = larger N is better.
+                        </p>
+                    </div>
+                    <div class="grid-2 fade-in" style="margin-top:16px;">
+                        <div class="card"><div class="card-title" style="margin-bottom:12px;">Affinity — % Change from N=10K</div><div id="relchange-affinity" style="width:100%;height:420px;"></div></div>
+                        <div class="card"><div class="card-title" style="margin-bottom:12px;">Shannon H — % Change from N=10K</div><div id="relchange-shannon" style="width:100%;height:420px;"></div></div>
+                    </div>
+                    </div>
+
+                    <!-- ═══ Shannon H Change by Selection Pressure (multi-N) ═══ -->
+                    <div id="section-n-selection-diversity" style="display:none;">
+                    <div class="section-head" style="margin-top:32px;">
+                        <h3><i data-lucide="filter" class="lucide-icon section-icon"></i> Diversity Change by Selection Pressure</h3>
+                        <div class="section-line"></div>
+                        <p style="font-size:12px;color:var(--text-muted);margin:4px 0 8px;">
+                            Shannon H percentage change from N=10K, grouped by selection pressure (keep_fraction). Each box contains all mutation rates at that N × keep combination. Tests whether stringent selection reduces the diversity benefit of larger populations.
+                        </p>
+                    </div>
+                    <div class="card fade-in" style="margin-top:16px;">
+                        <div id="boxplot-selection-shannon" style="width:100%;height:480px;"></div>
+                    </div>
+                    </div>
+
+                    <!-- ═══ Box Plots by N (multi-N) ═══ -->
+                    <div id="section-n-boxplots" style="display:none;">
+                    <div class="section-head" style="margin-top:32px;">
+                        <h3><i data-lucide="bar-chart-2" class="lucide-icon section-icon"></i> Distribution by Population Size</h3>
+                        <div class="section-line"></div>
+                        <p style="font-size:12px;color:var(--text-muted);margin:4px 0 8px;">
+                            All conditions collapsed into distributions at each N. If the boxes shift vertically with N, population size affects the outcome. If they stay level, N is irrelevant.
+                        </p>
+                    </div>
+                    <div class="grid-2 fade-in" style="margin-top:16px;">
+                        <div class="card"><div class="card-title" style="margin-bottom:12px;">Affinity Distribution by N</div><div id="boxplot-affinity" style="width:100%;height:420px;"></div></div>
+                        <div class="card"><div class="card-title" style="margin-bottom:12px;">Shannon H Distribution by N</div><div id="boxplot-shannon" style="width:100%;height:420px;"></div></div>
+                    </div>
+                    </div>
+
+                    <!-- ═══ Paired R² Heatmap (multi-N) ═══ -->
+                    <div id="section-n-r2" style="display:none;">
+                    <div class="section-head" style="margin-top:32px;">
+                        <h3><i data-lucide="grid" class="lucide-icon section-icon"></i> Paired R² — Cross-Population Consistency</h3>
+                        <div class="section-line"></div>
+                        <p style="font-size:12px;color:var(--text-muted);margin:4px 0 12px;">
+                            <strong>What R² measures here:</strong> For each pair of population sizes (e.g. N=10K vs N=1M), we take all 12 parameter conditions,
+                            plot the metric at N<sub>A</sub> vs N<sub>B</sub>, and compute R². <strong>R² ≈ 1.0</strong> means changing N doesn't change which
+                            parameter combinations are best — the <em>ranking</em> of conditions is preserved. <strong>R² ≪ 1.0</strong> means the best
+                            conditions at one N are different at another N, which would mean N must be considered in experiment design.
+                            If the entire heatmap is green (R² > 0.95), population size is truly irrelevant to the conclusions.
+                        </p>
+                    </div>
+                    <div class="grid-2 fade-in" style="margin-top:16px;">
+                        <div class="card"><div class="card-title" style="margin-bottom:12px;">R² Matrix — Affinity</div><div id="r2-affinity" style="width:100%;height:420px;"></div></div>
+                        <div class="card"><div class="card-title" style="margin-bottom:12px;">R² Matrix — Shannon H</div><div id="r2-shannon" style="width:100%;height:420px;"></div></div>
+                    </div>
+                    </div>
+
+                    <!-- ═══ Verdict Card (multi-N) ═══ -->
+                    <div id="section-n-verdict" style="display:none;">
+                    <div class="section-head" style="margin-top:32px;">
+                        <h3><i data-lucide="check-circle" class="lucide-icon section-icon"></i> Population Size — Verdict</h3>
+                        <div class="section-line"></div>
+                    </div>
+                    <div class="card fade-in" id="verdict-card" style="padding:20px 24px;border-left:3px solid var(--green);">
+                        <div id="verdict-content" style="font-size:13px;line-height:1.7;color:var(--text-muted);">Computing...</div>
+                    </div>
+                    </div>
+                    <!-- ═══ Dual-Axis Time Courses (multi-param sweeps only) ═══ -->
+                    <div id="section-timecourses">
+                    <div class="section-head" style="margin-top:32px;">
+                        <h3><i data-lucide="activity" class="lucide-icon section-icon"></i> Time Courses — Affinity vs Diversity</h3>
+                        <div class="section-line"></div>
+                        <p style="font-size:12px;color:var(--text-muted);margin:4px 0 8px;">Uses current filters. Groups by mutation variant, shows mean ± SEM. Blue = affinity (left Y), Red = diversity (right Y).</p>
+                        <button class="btn" onclick="App.sweep.loadTimeCourses()" id="btn-load-timecourses"><i data-lucide="play" class="lucide-icon btn-icon"></i> Load time courses</button>
+                    </div>
+                    <div class="card fade-in" style="margin-top:16px;">
+                        <div id="timecourse-plot" style="width:100%;height:500px;"></div>
+                    </div>
+                    </div>
+
+                    <!-- ═══ Conclusions & Notes ═══ -->
+                    <div class="section-head" style="margin-top:32px;"><h3><i data-lucide="pencil" class="lucide-icon section-icon"></i> Conclusions & Notes</h3><div class="section-line"></div></div>
+                    <div class="card fade-in" id="sweep-notes-card">
+                        <div id="sweep-notes-rendered" class="markdown-body" style="min-height:60px;padding:12px;font-size:13px;"></div>
+                        <textarea id="sweep-notes-editor" rows="10" style="width:100%;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:12px;font-family:'JetBrains Mono',monospace;font-size:12px;resize:vertical;display:none;" placeholder="# Sweep Notes&#10;&#10;Write observations, conclusions, and plans for the next sweep..."></textarea>
+                        <div style="display:flex;gap:8px;margin-top:8px;">
+                            <button class="btn" onclick="App.sweep.toggleNotesEditor()" id="btn-edit-notes"><i data-lucide="edit" class="lucide-icon btn-icon"></i> Edit</button>
+                            <button class="btn" onclick="App.sweep.saveNotes()" id="btn-save-notes" style="display:none;"><i data-lucide="save" class="lucide-icon btn-icon"></i> Save</button>
+                        </div>
+                    </div>
+
+                    <!-- Empty state -->
+                    <div class="empty-state" id="sweep-empty-state" style="display:none;">
+                        <div class="empty-icon"><i data-lucide="flask-conical" class="lucide-icon empty-lucide"></i></div>
+                        <h3>No sweep data found</h3>
+                        <p>Run a parameter sweep and place the results in <code>results/sweep_*/</code> subdirectories.</p>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

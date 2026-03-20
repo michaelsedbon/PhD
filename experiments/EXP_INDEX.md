@@ -76,3 +76,36 @@ This file is auto-maintained by the sync scripts and AI assistant.
 | [LOG.md](EXP_002/LOG.md) | Experiment log |
 
 ---
+
+## EXP_003 — Bacterial Synthetic GC: Pipeline Model & Parameter Sweeps
+
+| Field | Value |
+|-------|-------|
+| **Objective** | Rewrite the GC simulation with a biologically accurate pipeline model (continuous DZ→LZ cycling), run large-scale parameter sweeps, and build a real-time monitoring dashboard |
+| **Status** | 🔄 In progress (simulation running, dashboard live) |
+| **Started** | 2026-03-19 |
+| **GPU** | RTX 2080 Ti (11 GB VRAM) on `172.16.1.80` |
+| **Dashboard** | http://172.16.1.80:8050 |
+| **Project** | [The Synthetic Germinal Center](../projects/synthetic_germinal_center/summary.md) |
+
+### Key Results
+
+| Metric | Value |
+|--------|-------|
+| Simulation modules | 14 (config, state, init, grow, sample, select, affinity, balance, buffer, return_dz, pipeline, run, metrics, progress) |
+| Sweep 1 (overnight) | 432 runs — 6-axis parameter grid |
+| Sweep 2 (pop. size) | 72 runs — 10K to 5M target N |
+| Dashboard tabs | 4 (Server Health, Results, Docs, Sweep Explorer) |
+
+### Key Documents
+
+| Document | Description |
+|----------|-------------|
+| [summary.md](EXP_003/summary.md) | Full experiment overview, architecture, progress |
+| [LOG.md](EXP_003/LOG.md) | Chronological work log |
+| [DOC_INDEX.md](EXP_003/DOC_INDEX.md) | Complete document index |
+| [flow_diagram_v2_pipeline.md](EXP_003/docs/flow_diagram_v2_pipeline.md) | Pipeline model flow diagram |
+| [PARAMETER_BIOLOGY_REFERENCE.md](EXP_003/docs/PARAMETER_BIOLOGY_REFERENCE.md) | Parameter-to-biology mapping |
+| [open_questions.md](EXP_003/docs/open_questions.md) | Scientific questions (Q1–Q12) |
+
+---

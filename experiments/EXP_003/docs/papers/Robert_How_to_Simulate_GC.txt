@@ -1,0 +1,1013 @@
+--- Page 1 ---
+Chapter 22
+How to Simulate a Germinal Center
+Philippe A. Robert, Ananya Rastogi, Sebastian C. Binder,
+and Michael Meyer-Hermann
+Abstract
+Germinal centers host a mini-evolutionary environment where B cells can mutate their receptor and be
+selected depending on its afﬁnity to target antigens in a process called afﬁnity maturation. Starting from
+founder cells with a weak B cell receptor afﬁnity, germinal centers release output cells as antibody-secreting
+cells or memory cells with a very high afﬁnity, a property which is essential for pathogen clearance and
+immune memory. Therapeutic interventions on the germinal centers are tantalizing approaches to improve
+vaccines or to support rejection of chronic pathogens such as HIV. However, the complexity of the
+selection processes makes it very hard to make reliable predictions. Here, we present in detail how to
+build an agent-based model (hyphasma), accounting for the dynamics of the germinal center. It encom-
+passes the core quantitative traits of afﬁnity maturation, and allowed to make reliable predictions in previous
+studies.
+Key words Germinal center, Afﬁnity maturation, Agent-based modeling, Somatic hypermutation
+1 Introduction: Spatial and Functional Structure of Germinal Centers
+During the formation of a Germinal Center (GC), two zones
+emerge, the dark zone and the light zone (Fig. 1). While the steps
+leading to this characteristic structure are still poorly understood, the
+events happening in both of them have been extensively character-
+ized and are critical for a proper afﬁnity maturation of antibodies.
+The dark zone contains stromal cells producing CXCL12 and
+proliferating B cells named centroblasts. The clonal expansion of
+centroblasts is accompanied by somatic hypermutation (SHM)
+speciﬁcally targeting the receptor (BCR), and consequently the
+generation of further lineages with diverse afﬁnities towards the
+antigen. Cutting-edge single-cell sequencing methods now allow
+to characterize lineages generated from the same founder clone as
+harboring the same VDJ recombination pattern, together with
+their mutation history, shedding light on the diversity of mutations
+happening in one GC in vivo [ 1].
+Dinis Pedro Calado (ed.), Germinal Centers: Methods and Protocols , Methods in Molecular Biology, vol. 1623,
+DOI 10.1007/978-1-4939-7095-7_22, ©Springer Science+Business Media LLC 2017
+303
+--- Page 2 ---
+The light zone, however, is composed of nondividing B cells
+enduring high apoptosis rates and looking for survival and prolifer-
+ation signals, hereby named centrocytes. It further contains a stro-
+mal network of Follicular Dendritic Cells (FDCs) producing
+CXCL13 and carrying antigens in their native structure on immune
+complexes bound via complement Fc receptors. Centrocytes with
+high afﬁnity to an antigen can bind to it, receive BCR signaling
+necessary for their survival, and capture this antigen. Finally, cen-
+trocytes that successfully captured an antigen can process and fur-
+ther present it on their MHC class II, thereby acting as an Antigen
+Presenting Cell (APC) for the T helper cells present in the GC,
+called T Follicular Helper (Tfh) cells. The interaction between Tfhs
+and centrocytes further gives bidirectional signals, leading to the
+proliferation of the B cell together with the maintenance of the
+phenotype of the Tfh [ 2]. Interestingly, it has been shown that the
+antigen carried by B cells is not always equally distributed among
+daughter cells upon division [ 3], raising the possibility of B cell fate
+decision being based on the amount of carried antigen [ 4].
+The GC is a very dynamic structure. B cells and T cells con-
+stantly migrate on the static network of stromal cells and FDCs.
+Centroblasts express CXCR4, allowing them to preferentially
+Follicular Dendritic Cells
+FDCStromal cells
+T follicular helperGerminal Center
+Dark Zone
+CXCL12CXCL13
+CXCR5
+CXCL12 CXCL13Light Zone
+CXCR4 CXCR5BCR signaling
+Antigen Uptake
+(Survival Signal)
+Cross-presentation 
+on MHC : T cell help
+(Proliferation Signal)
+Proliferation
+and MutationCentroblastsCentrocytes
+CentrocytesAntigen
+Fig. 1 Structure of a Germinal Center. B cells as centroblasts proliferate and mutate in the dark Zone , while
+centrocytes are screening the light zone for antigen and interactions with Tfhs. The network of FDCs and
+stromal cells generates CXCL12/CXCL13 gradients, allowing the cells to preferentially migrate on the dark/
+light zone depending on their expression of CXCR4/CXCR5, respectively304 Philippe A. Robert et al.
+--- Page 3 ---
+migrate and stay in the dark zone by following CXCL12 gradients
+[5]. They undergo a ﬁnite number of divisions, in a range of 2–6
+[6,7] divisions within 6–10 h per division, before they lose the
+expression of CXCR4 and become centrocytes. Centrocytes and
+Tfhs are targeted to the light zone in virtue of their expression of
+CXCR5. Once centrocytes complete the selection steps of ﬁnding
+antigen and T cell help, they further express CXCR4 and initiate
+proliferation and SHM again. The subsequent recycling process
+between the light zone and the dark zone allows for multiple
+rounds of mutation/selection in the GC (Fig. 2).
+The stage at which cells leave the GC is still not fully under-
+stood. Here, we allow two hypotheses: either 1/centrocytes with
+high afﬁnity after being selected by Tfhs or 2/centroblasts that
+could keep enough antigen after recycling and dividing, are author-
+ized to become output cells and leave the GC. The latter assump-
+tion is named here “LEDA” (Leave through the Dark zone) and
+was predicted to be more advantageous than alternative hypotheses
+regarding cell output [ 4,8].
+FDCGerminal Center
+Dark Zone
+CXCL12CXCL13
+CXCL12 CXCL13Light Zone
+CXCR4 CXCR5AntigenFDC
+Founder cells 
+    / Influx
+Division arrest
+Binding antigensRefractory time
+ for interaction
+Capture antigen 
+       (or not)Recycling as
+CentroblastOutput Cell
+Output CellApoptosis
+CXCR5 CXCR4CXCR5
+CXCR4
+Asymmetric Division
+Differentiation into Centrocyte
+Fig. 2 The recycling processes and steps of selection incorporated in the simulation. Founder cells, initiated by
+long lasting T–B interactions, enter the GC as CXCR4+ centroblast and proliferate and mutate in the dark zone .
+When they stop dividing, they differentiate to centrocytes, become CXCR4 /C0, and migrate to the light zone
+where they capture antigen at the surface of FDCs, cross-present it on Tfh cells upon encounter to get
+selected, and recycle as CXCR4+ centroblast. The recycled centroblasts potentially still carry antigens and can
+undergo asymmetric division. The centroblasts that still own a signiﬁcant amount of antigen after dividing are
+suitable to become output cells (LEDA), or alternately a fraction of Tfh-selected B-cellsHow to Simulate a Germinal Center 305
+--- Page 4 ---
+Here, we give a detailed description of our program
+(hyphasma), introduced in [ 9] to simulate the evolution of a GC.
+An algorithmic description is proposed, separately for each process,
+in order to be syntax independent while giving enough precisions
+to be reproduced. The main loop together with the parameter
+values are given at the end.
+The selection pressure on B cells emerges from a combination
+of processes, among which are the abundance or frequency of
+antigens, the capacity to take an antigen depending on the BCR
+afﬁnity, and the chance to ﬁnd a Tfh. It is therefore not straightfor-
+ward to disentangle the effect of the mechanisms underlying an
+efﬁcient afﬁnity maturation, and even harder to make predictions
+on how to improve it as a therapeutical purpose. Hyphasma incor-
+porates all these effects, and allowed to investigate their relative
+contribution and to predict or support new ﬁndings.
+2 Building the Agent-Based Model Step-by-Step
+2.1 Representation
+of the System: Cells,
+Signals, Antigens,
+BCRs, and AfﬁnitiesA cell is represented as an agent, with its own properties. For
+instance, position, direction of movement, receptor (in case of B
+cell or T cell), or phase of cell cycle (in case of a centroblast). The list
+of properties will be detailed in the following parts. The different
+types of cells simulated are: stromal cells and FDCs, centroblasts,
+centrocytes, and output cells. Different states are distinguished and
+listed in Fig. 3.
+States Multi-gridpoint Motile ? Receptor / Ag
+Stromal cell NN -
+FDC Y N Antigen
+Tcnormal Y
+TC-CCcontact N
+cb_G1, cb_G0,cb_S, 
+cb_G2Y
+cb_M N
+stop_dividing
+cb_divide
+unselected Y
+FDCcontact N
+FDCselected Y
+Tccontact N
+selected Y
+apoptosis N
+Out cells N Y BCRCentrocytes, N BCRT cell N -
+Centroblasts, N BCR
+Y
+Fig. 3 The different types of cells considered and their states. FDCs occupy multiple sites while one B or T cell
+ﬁlls one position of the grid. B and T cells at an interacting state are not motile, together with stromal cells and
+FDCs. B cells carry their own BCR306 Philippe A. Robert et al.
+--- Page 5 ---
+The space is represented as a grid where a gridpoint has the
+critical size of a cell (5 μm), and the GC area is deﬁned as a sphere of
+allowed positions in the grid. At each point of the GC is stored
+which cell is present and the concentration of each chemokine. Two
+cells cannot overlap, meaning that one gridpoint can only be taken
+by one cell, and a cell cannot move to an already occupied position.
+The information needed to represent the state of a GC at any
+time can be stored and used in the following way.
+First, as spatial data storages:
+Grid[x][y][z] storing a cell type and an ID to access the
+cell at this position
+CXCL12[x][y][z] storing the amounts of CXCL12 and CXCL13 at
+this position boundary
+CXCL13[x][y][z] storing the amounts of CXCL12 and CXCL13 at
+the GC borders
+The agents are stored in separate lists: (and carry their own
+properties)
+CBlist[], CClist[], TClist[], OUTlist[], FDClist[], STROMAlist[].
+2.2 Representation
+of Antigens and
+ReceptorsThe distribution of antigens in the GC is still poorly understood.
+Following infection, antibodies are produced with high afﬁnity
+towards speciﬁc epitopes of the pathogen’s antigens, but it is still
+not clear whether each GC carries mainly one antigen and supports
+preferentially directed afﬁnity maturation towards this antigen, or if
+each GC carries a large diversity of antigens. In our model, we take
+the assumption that only one antigen per GC, as a ﬁrst approach.
+Regarding the receptor speciﬁcity, another interesting property
+of the GC is the cross-checking of B cells by T cells, which is likely
+to avoid nonspeciﬁc activation of B cells that could lead to autoim-
+munity [ 10]. If a B cell response is initiated without the activation
+of T cells, no proper GC is formed, and only few antibodies are
+produced [ 11]. Further, if T cells are depleted during the course of
+a GC, the GC is shown to shrink and terminate [ 12], most likely
+because centrocytes do not receive a rescue signal then.
+From a mechanistic point of view of this cross-checking, B cells
+need to internalize antigen, process it and present it to the Tfh,
+implying that the epitopes seen by the Tfh are different than the real
+3D epitopes of the native antigen as it can be bound by the B cells.
+Therefore, even if a B cell is speciﬁc to a particular antigen epitope,
+it can most probably be rescued by several Tfh that can recognize
+different parts of the antigen, as presented on the MHC. Here, we
+assume that all the Tfh cells that could enter the GC recognize a
+sub-peptide of the antigen and therefore can support the selection
+of all B cells, provided the B cells present enough antigen. Another
+way to put it is that we only simulate Tfhs that can support B cells,How to Simulate a Germinal Center 307
+--- Page 6 ---
+and that bystander Tfhs with a different speciﬁcity could be present
+but are ignored. This hypothesis allows to exclude the complexity
+of the TCR sequences from the model.
+The representation of BCRs and antigens in the model can be
+incorporated with different degrees of detail. An optimal represen-
+tation would be to give a real nucleotidic sequence to BCRs and an
+amino-acid sequence to the antigen. However, it is not yet possible
+to reliably simulate the binding afﬁnity of any two proteins.
+Therefore, a simpliﬁed representation of antigen and BCRs has
+to be taken. Here, a BCR and the target antigen are represented as a
+series of L¼4 numbers: ex 3594, and a mutation is represented as
+a+//C01 in one of the numbers ( seeAlgorithm 1). This representa-
+tion was ﬁrst introduced in [ 13] and can be seen as a position in an
+L-dimensional grid called the “Shape Space”. The (Hamming)
+distance between a TCR and the antigen is deﬁned as the number
+of mutations remaining to be the exact same sequence, and the
+afﬁnity is derived from a Gaussian of the distance, with a maximum
+afﬁnity of 1 if the BCR matches the antigen (an example is given
+with a size of L¼2 in Fig. 4). The afﬁnity between two positions
+relies on two parameters: η¼2 and Γ(the width of the Gaussian).
+Affinity ðTCR, BCR Þ¼exp/C0Hamming ðTCR ,BCRÞη
+Γη/C18/C19
+The choice of the size Lis critical, as by increasing L, the ratio of
+beneﬁcial versus detrimental mutations reduces. For instance, from
+a position in the shape space, the number of neighbors with
+increased/decreased afﬁnity is 1/1 for L¼1, 2/2 or 1/3 forxColor = Affinity
+Antigen 
+(target BCR 
+ sequence)
+a BCR sequencex
+1234561234567
+......
+Fig. 4 Example of BCRs (53) and an Antigen (35) represented in a shape space
+with dimension L¼2. A mutation is similar to a movement in the shape space,
+and the afﬁnity depends on the Hamming distance between the target antigen
+and the BCR. The afﬁnity is highest if the BCR matches the antigen ( red) and
+decreases with the number of mutations away308 Philippe A. Robert et al.
+--- Page 7 ---
+L¼2, etc. To recapitulate the dynamics of mutations/afﬁnity
+maturation, it was shown that the optimal value of LisL¼4
+(discussed in [ 14]).
+Algorithm 1 Mutation
+2.3 CXCRs
+Expression/Sensitivity
+to ChemokinesThe characteristic structure of the GC relies on chemotaxis, and
+therefore the dynamic expression of chemokine receptors by T cells
+and B cells. Chemotaxis to CXCL12 and CXCL13 applies to cells
+expressing CXCR4 and CXCR5, respectively. While all cells in the
+GC express CXCR5 with a limited difference between centroblasts
+and centrocytes [ 15], the expression of CXCR4 is dynamic and
+restricted to centroblasts. We assume here that CXCR4 induced
+chemotaxis is dominant over CXCR5, and that, in dependence of
+CXCR4 expression, the cells will be sensitive to CXCL12 or
+CXCL13.
+In the model, the chemotactic capacity of cells is represented as
+a Boolean property:
+isResponsive2signals[CXCL12], meaning that it expresses CXCR4 (dominates over CXCR5
+expression)
+isResponsive2Signals[CXCL13], meaning it is CXCR4- and follows CXCL13 due to CXCR5
+expression
+Additionally, we include a dynamic modulation of the signal-
+ing: a high local dose of chemokine allows for the desensitization of
+the receptors, while resensitization can occur when the dose
+becomes low enough again. The decision of sensitivity to signals
+falls into two procedures: one which initiates the proper receptors
+when a cell is changing phenotype, and another function, called at
+each time-step, that updates the level of the receptor depending on
+the current level of chemokine ( seeAlgorithm 2).How to Simulate a Germinal Center 309
+--- Page 8 ---
+Algorithm 2 Dynamic updating of chemotaxis
+2.4 Movement
+of CellsThe movement of cells is performed by updating their position at
+each time-step (Algorithm 3). To avoid biases due to the discretiza-
+tion of space into a grid, each cell carries a polarity, deﬁning a
+direction of movement, that can be kept during multiple steps.
+The choice of the next position in the grid is made in order to
+accurately follow the polarity direction after multiple steps. The
+polarity is not changed at each time-step but rather after a persistent
+time is completed, allowing to be independent of the chosen time-
+step of simulation. The properties required for movement in the
+GC (T cells, centroblasts, and centrocytes) are:
+polarity (3D vector) current intended direction of
+movement
+isResponsive2Signals[CXCL12, CXCL13] sensitivity to chemotaxis310 Philippe A. Robert et al.
+--- Page 9 ---
+Following a Polarity
+First, each type of cell has a speciﬁc velocity (see parameter values in
+Subheading 22.2.12 ), which is translated into a probability of
+moving of a gridpoint size per time-step. Cells do not move at
+each time-step, but rather fast cells move more often, to recapitu-
+late a correct observed speed.
+To perform a move in the grid according to the (ﬂoating point)
+polarity, the new (ﬂoating point) wanted position is computed, and
+the list of free neighboring positions is sorted based on their
+distance with the target. One of the equally best positions is chosen
+randomly, provided it does not go against the direction of the
+polarity. It allows cells to follow a direction during multiple time-
+steps and to walk around obstacles if the best position is not
+available. If no suitable position is found, the cell stays where it was.
+In the speciﬁc case that two neighboring cells intend to go in
+the opposite direction (towards each other), and therefore could
+not move, the movement procedure is extended by allowing
+swapping of two such cells. It is described in the main loop in
+Algorithm 10and is performed by storing the list of cells that
+could not move. Each such cell is allowing to swap with a neighbor
+with a probability 50%. This 50% is used because the neighbor cell
+might also be in the list (and will also be considered), or alternately,
+if not in the list, then only the ﬁrst cell should have moved. Swap-
+ping would move the other cell for free, increasing the total dis-
+placement of cells of 2. dx.
+Deﬁning a New Polarity
+When a new polarity needs to be computed, at the end of the persis-
+tence time, it is computed based on a random movement deﬁned by a
+turning angle from the previous polarity and is further inﬂuenced by
+chemotaxis. The turning angle distribution is directly taken from
+experimental measurements [ 16] while the chemotactic attraction
+to CXCL12 and CXCL13 is performed by adding a small contribu-
+tion in the direction to the gradient of both signals. The weight
+between chemotaxis and random move is supposed to be dependent
+on the strength of the gradient. Details on how chemotaxis was
+included in the model can be found in [ 17]. Additionally, the prefer-
+ential localization of Tfhs into the light zone is done by a preference to
+follow a direction called ‘north’ here, and pointing to it.How to Simulate a Germinal Center 311
+--- Page 10 ---
+Algorithm 3 Updating the position and polarity of cells at each time-point
+2.5 Proliferation
+and Mutation of
+CentroblastsAt the stage of centroblasts, several substates are distinguished in
+order to account for the cell cycle phase. Each phase of the cell cycle
+has an average duration which is sampled from a Gaussian distribu-
+tion (see parameters in Subheading 22.2.12 ).
+states : cb_G1 ,cb_S,cb_G2,cb_M, cb_divide, and cb_stop_dividing
+It is assumed here that the number of divisions a centroblast
+will perform is known in advance. Centroblasts arising from newly312 Philippe A. Robert et al.
+--- Page 11 ---
+arrived founder cells will get a ﬁxed number of divisions of ( nDiv
+FounderCells ). In the case of a recycled centrocyte, the number of
+divisions is supposed to be dependent on the strength of the T cell
+help received ( seeSubheading 22.2.8 ).
+Finally, asymmetric division of the retained antigen is per-
+formed by using 72% of divisions being asymmetric [ 3], in which
+case a polarity index of the antigens in daughter cells is sampled by a
+Gaussian distribution around a mean value of 88% [ 3].
+To implement the hypothesis that cells retaining the highest
+amount of antigen preferentially leave the GC as output cell, a
+property IAmHighAg is given to centroblasts. When a cell recycles
+from centrocyte to centroblast, it is marked positive for this prop-
+erty (and it has retained antigen). However, at each division, only
+one cell, with the highest amount of retained antigen, keeps this
+property. In case of symmetric division, none of the cells keeps it.
+The decision to become an output cell is then restricted to cells that
+are still IAmHighAg positive (LEDA), or alternately done on a
+probabilistic basis (LEDAX model in [ 8]).
+It was proposed with our model [ 8] and later conﬁrmed [ 7]
+that centroblasts that are recycling with a high amount of antigens
+harbor a lower mutation rate. We implement this Dynamic Somaticcb_G1
+cb_Scb_G1
+cb_M cb_G2cb_stop_dividing
+cb_divideFounder Cells
+n_divisions2do = nDivFounderCellsRecycling Centrocytes
+n_divisions2do = f(TCR help)
+Yes No
+DivideAndMutate()
+n_divisions2do --p_dif
+Differentiate to
+CentrocyteDifferentiate to
+Output Celln_divisions2do > 0 ?IAmHighAh = true
+IAmHighAg = false
+IAmHighAg ?
+Yes No
+Fig. 5 Steps of updates at the centroblast stage. New centroblasts start in the G1 phase of the cell cycle. After
+completion of all phases, depending on the remaining number of divisions to do, the cells will divide or enter in
+the state cb/C0stop/C0dividing and wait for differentiating into centrocyte or output cell provided it has enough
+retained antigenHow to Simulate a Germinal Center 313
+--- Page 12 ---
+Hypermutation (DSH) by giving a mutation rate to each cell, and
+by computing this probability at recycling ( seeSubheading 22.2.8 ).
+The rules for updating the state of a cell are shown in Fig. 5and
+can be separated into two procedures: one to initiate a cycle, and
+another one to update the state (Algorithm 4).
+Properties of a centroblast:
+state cb_G1 / cb_S / cb_G2 / cb_M / cb_divide
+/ cb_stop_dividing
+endOfThisPhase duration of the current cell-cycle phase
+cycleStateTime time since the beginning of the cur-
+rent phase
+retainAg remaining amount of retained antigen
+pMutation pro bability of mutation per division
+for this cell
+nDivisions2do remaining number of divisions to perform
+as centroblast
+IAmHighAg I am the cell with the highest amount of
+retained antigen
+(compared with the progeny of the same
+recycled centrocyte)314 Philippe A. Robert et al.
+--- Page 13 ---
+Algorithm 4 Updating events at the centroblast Stage
+How to Simulate a Germinal Center 315
+--- Page 14 ---
+2.6 Selection Steps
+at the Centrocyte
+StageAntigen Collection
+Centrocytes start at the state of unselected and are looking for
+interactions with FDCs and the antigens they carry, while they
+have a high probability to die by apoptosis. We assume here that
+the antigen collection phase has a predeﬁned time-window, and
+that, at each interaction with an FDC position, the antigen is taken
+with a probability directly depending on the BCR afﬁnity. In this
+way, centrocytes with a high-afﬁne BCR can internalize a huge
+amount of antigen compared to low afﬁnity ones. As a ﬁrst step of
+selection, B cells that could not capture any antigen during the
+collection period are killed. Additionally, we assume that cells leav-
+ing an interaction with an FDC (successful or not) are not able to
+interact again and look for antigen for a small refractory time
+testDelay [18]. This avoids repeatedly testing on the same FDC
+and limits the maximum amount of antigen that can be collected.
+Properties needed by a centrocyte during FDC selection (unse-
+lected FDCcontact stage) (Fig. 6)
+state unselected / FDCcontact / FDCselected / TCcontact /
+selected / apoptosis
+selectedClock the time since a cell became an unsele cted
+centrocyte.
+FDC selection finishes when selected_clock >
+collectFDCperiod
+selectable Boolean to say if the cell can make interactions with
+FDCs
+clock time since last interaction.
+the cell becomes selectable again when clock >
+testDelay
+nFDCcontacts number of antigens captured up to now (successful
+contacts)316 Philippe A. Robert et al.
+--- Page 15 ---
+unselected contactIs there a FDC fragment in a neighboring position (with an Antigen) ?
+with probability depending on affinity (BCR, Antigen)
+selectable = 0
+delay (testDelay)
+where cells can not interactpSel
+At this point,
+with probability p_FDCsignaling,
+captures the antigen :
+nFDCcontacts++1 - pSel
+(time to get signal)Antigen screening phase
+selectedClock < collectFDCperiod
+FDCselectedTCcontactT cell in the neighboring positions ?T cell help phase
+selectedClock >= collectFDCperiodApoptosis
+if I am the best interacting B cell,
+tcSignalDuration += dttcClock+= dtselected
+apoptosisnFDCcontacts> 0 ?
+Yes No
+tcClock < tcTime ?
+Yes
+NotcSignalDuration > tcRescueTime ?
+ Yes
+No
+Fig. 6 Selection steps at the centrocyte stage. The ﬁrst phase of antigen collection depends on the BCR afﬁnity
+and is time-limited with the same duration for all B cells, while the T cell selection phase relies on receiving
+prolonged signal from a T cell which is only helping the best interacting B cell around. After a certain time
+without T cell rescue, the B cell dies, generating an additional selection bottleneckHow to Simulate a Germinal Center 317
+--- Page 16 ---
+Algorithm 5 Antigen collection from FDCs
+T-cell Help
+When the antigen collection period is ﬁnished, centrocytes carry a
+number of internalized antigens (nFDCcontacts) and need to ﬁnd a
+Tfh to receive a proliferation signal. When a B cell ﬁnds a neighbor
+Tfh, we assume that it requires sustained signaling for a long time in
+order to get selected. This is performed by counting for how long
+the B cell interacts with T cells and by integrating the received
+signal. However, since a Tfh cell might have different centrocyte
+neighbors, we assume that only the neighbor with the highest
+amount of antigen will receive the signal. Finally, if the T cell is
+not rescued by Tfh help in a deﬁned time-window, it dies by
+apoptosis. The differentiation decision (to recycle as centroblast
+or to become an output) is delayed by a differentiation time called
+individualDiffDelay here. It is important to maintain a proper light
+zone to dark zone ratio of cells in simulations.318 Philippe A. Robert et al.
+--- Page 17 ---
+The following properties are needed in the T cell selection
+stages (FDCselected, TCcontact, and selected):
+tcClock time since the start of interaction with
+a T cell
+tcSignalDuration accumulated signal from the current
+interacting T cell
+selectedClock time since the cell has been selected
+individualDifDelay time staying as selected, before
+recycling to centroblast
+Algorithm 6 Screening for T cell help at the centrocyte stage
+How to Simulate a Germinal Center 319
+--- Page 18 ---
+2.7 Update of T Cells In this model, the T cells do not bear any antigen speciﬁcity and
+provide help to interacting B cells. However, when a T cell is close
+to multiple B cells, it tends to repolarize its synapse towards the cell
+providing the highest signaling [ 19]. Here, each T cell maintains a
+list of interacting B cells in the vicinity, thanks to the functions
+UpdateTCells, when a B cell enters in contact with a T cell and
+LiberateTCell when it dies or when it leaves the TCcontact state.
+Finally, at each time-step, a T cell will only provide help to the
+interacting B cell with the highest amount of retained antigen
+(Algorithm 7).
+The properties required for a T cell are, on top of the motile
+cells ﬁelds (polarity and isResponsive2signals),
+state TCnormal (default) / TC-CCcontact
+ListInteractingB[] The list of IDs of B cells currently in
+interaction
+Algorithm 7 Updating the T cells according to B cells interactions
+2.8 Differentiation,
+Recycling, Output,
+and InﬂowThe transitions between cell stages require a few adjustments
+(Algorithm 8).
+First, when a cell becomes an output cell, we suppose it
+becomes insensitive to chemokines. Optionally, the “move” proce-
+dure can be extended to give a “south polarity” (as opposite to
+Tfh), to target them preferentially to the dark zone before leaving
+the GC.
+When a centrocyte recycles to centroblasts, we took the
+hypothesis of a dynamic mutation rate according to the afﬁnity of
+a B cell (quantiﬁed as the amount of antigen it could internalize in
+the light zone), which was also observed in [ 7]. Since the mechan-
+isms involved are not fully quantiﬁed, this dependency is simulated
+by a Hill function.
+Additionally, it is believed that the strength of the T cell–B cell
+interactions impacts on the number of divisions that a B cell will
+later perform in the dark zone after recycling. The mechanisms
+responsible for this tuning of proliferation are still poorly320 Philippe A. Robert et al.
+--- Page 19 ---
+understood, and therefore we took a Hill function as a general
+function to convert the afﬁnity of the BCR into a number of
+divisions to perform.
+Finally, in case a cell kept antigen in the dark zone, even after
+cycles of divisions, we let the possibility to keep it for the next phase
+of antigen collection in the light zone (Option DeleteAgInFreshCC
+¼false). In this case, the cell memorizes previous successful FDC
+contacts even before starting antigen collection.
+Algorithm 8 Transition between centroblasts, centrocytes, and output cells
+How to Simulate a Germinal Center 321
+--- Page 20 ---
+2.9 Model
+InitializationTo start a simulation, the location of the cells and the initial
+distribution of signals have to be deﬁned. The 3D grid is initialized
+to be of size N/C2N/C2N. The points which are not in a central
+sphere of radius N/2 representing the GC are considered as
+unavailable for cells (outside). All positions within this sphere are
+initially marked with type¼empty andID¼/C01.
+The initial cells are put randomly in free positions. The dark
+zone is deﬁned as positions with Grid[x¼1. .N,y¼1. .N,z>
+N/2], and a predeﬁned number of stromal cells are distributed in
+the dark zone. Similarly, FDCs are randomly distributed in the light
+zone.
+The FDCs are multi-fragment cells, meaning that they possess
+branches that can cover multiple positions in the grid. Here, they
+are designed as straight branches in each direction, of length Den-
+driteLength , and each position occupied by an FDC is called a
+fragment. The molecules of the antigen are dispatched from the
+beginning and equally distributed inside the FDCs fragments. The
+branches are transparent in the sense that other cells may occupy a
+position of the branch. This is performed by storing an additional
+information in the grid, namely FDClisti , meaning the index of the
+FDC that has a branch at that point.
+Recently, the number of GC founder cells was determined and
+was found in the range of 100 clones [ 1]. Therefore, two variants of
+initialization are implemented in hyphasma: Either 3 founder
+clones are predeﬁned in the beginning and divide and mutate 12
+times in the expansion phase of the GC. In an alternative model, the
+GC simulation starts from 0 founder clones and founder cells
+continuously enter the GC reaction for a few days (Following
+Algorithm 9, lines 36–47 [ 1]), each of them dividing six times. In
+both variants, the quality, i.e., the initial afﬁnity, of the founder cells
+can be restricted and adapted to the described experiment. For
+example, in some transgenic experiments, the quality of the
+founder cells is substantially higher than in experiments based on
+wildtype germline B cell stimulations. In the latter case, a realistic
+starting quality is in the range of a Hamming distance of 4–8.
+Antibody Feedback
+Additionally, the possibility of antibody feedback, a process by
+which antibodies can diffuse back to a GC and cover the antigens
+at the surface of the FDCs, can be incorporated [ 20]. It consists
+into allowing antibodies to bind antigens on fragments of FDCs,322 Philippe A. Robert et al.
+--- Page 21 ---
+which then become immune complexes, not accessible from B cells
+(the binding probably depending only on the “free antigens”).
+Additional arrays can be used to keep track of the cells secreting
+antibody (still in the GC or already out).
+NbOutCells[n]
+NbOutCellsProduce[n]
+AntibodyPerSeq[n]
+It does not require to keep the cells as agents, but just to
+remember how many cells are producing antibodies for each anti-
+body sequence n. Similarly, the concentration of each antibody type
+can be stored. Note that this concentration needs to take into
+account the effect of dilution of antibodies in the blood and in
+the peripheral organ ( abProdFactor ).
+We suppose that the amount of antibodies is much higher than
+antigens, and therefore the consumption of antibodies by making
+immune complexes is neglected. The binding of antibodies to
+antigens on FDCs depends on their afﬁnity. The konandkoffvalues
+of antibodies are derived from the afﬁnity (see parameters Subhead-
+ing22.2.12 ). Optionally, to save computational time, antibodies
+can further be classiﬁed into bins of afﬁnity, and the formation of
+immune complexes then only depends on the amount of antibodies
+for each bin (not shown).
+The properties of an FDC are summarized as follows:
+volume number of fragments
+fragments[].x,y,z position of each fragment
+antigenAmount[] amount of antigens available at each fragment
+icAmount[] amount of antigens covered (hidden) by
+feedback antibodiesHow to Simulate a Germinal Center 323
+--- Page 22 ---
+Algorithm 9 Initialization
+324 Philippe A. Robert et al.
+--- Page 23 ---
+2.10 Main Simulation Now that each process and event has been described separately,
+together with the data structure suitable for describing a GC state,
+we depict the time-evolution of our GC in silico in Algorithm 10.
+At each time-point, each kind of cell is updated according to its
+properties.
+Stromal cells and FDCs do not move but secrete chemokines.
+Antibodies produced by output producers can bind antigens on the
+FDCs and create immune complexes, allowing for a negative anti-
+body feedback. Output cells move. The chemokines are ﬁnally
+diffused according to the time-step and the diffusion constants
+(algorithm not shown, see parameter values in Subhead-
+ing22.2.12 ). Since the chemokine producing cells are not moving,
+it is possible to simulate beforehand the steady-state amount of
+chemokines in space and perform simulations with this ﬁxed spatial
+distribution of chemokines.
+The state of centroblasts and centrocytes is updated and can
+lead to the decision of division, death, differentiation, or recycling.
+The function Move is called only for cells in a motile state, and
+at the end of the time-step, swapping cells that intended to go to
+reverse directions (exchange their position) are allowed, to reduce
+the effect of the discretization of the space into a grid.How to Simulate a Germinal Center 325
+--- Page 24 ---
+Algorithm 10 Hyphasma: Simulation of a germinal center
+326 Philippe A. Robert et al.
+--- Page 25 ---
+2.11 Example
+of SimulationA typical simulation is shown in Fig. 7. The number of B cells over
+time often follows two peaks, followed by a slow phase of shrinking.
+The afﬁnity of B cells increases to reach high afﬁnity values, whereas
+the mutation rate is signiﬁcantly inhibited due to DSH.
+2.12 List of
+ParametersAll the parameters needed to run a simulation, and mentioned in
+the algorithms, are shown in Tables 1and2.
+The transformation between abstract afﬁnity ( ∈[0. . 1]) in the
+model and real afﬁnity is given by the following formula (with
+ExpMin ¼5. 5 and ExpMax ¼9. 5). Binding/unbinding rates
+follow:
+Fig. 7 A representative simulation in the LEDA model. The evolution over time of the number of B cells, the
+average afﬁnity, the mutation rate (DSH), and the distribution of mutations in output cells is depicted for one
+simulationHow to Simulate a Germinal Center 327
+--- Page 26 ---
+Table 1
+List of parameters and their values, part 1
+Parameter name Value Unit Description
+Space discretization
+dt 0.002 h Time-steps
+tmin 0.0 h Beginning time
+tmax 504.0 h End time
+dx 5 μM Lattice constant of space grid
+– 160 μM Radius of GC
+N 64 Nb of gridpoints in each dimension:
+2*Radius/dx
+Initialization
+NStromalCells 300 Number of initial stromal cells
+FDCnumber 200 Total number of FDCs
+–4 0 μM Length of FDC arms (microm)
+DendriteLength 8 points (Length of arms/dx)
+AntigenAmountPerFDC 3000 Presented Ag per FDC in units of threshold
+seederNumber 3 Total Number of initial B Cells
+Tcnumber 250 Number of initial TC
+Afﬁnity
+Gamma 2.8 Width of Gaussian afﬁnity weight function
+Eta 2 Exponent of the hamming distance
+Dynamic update of chemokine receptors
+CXCL13crit 0.8e /C010 mol Critical CXCL13 concentration for
+desensitization [mol]
+CXCL13recrit 0.6e /C010 mol Critical CXCL13 concentration for
+resensitization [mol, /C01 for none]
+CXCL12crit 60.0e /C010 mol Critical CXCL12 concentration for
+desensitization [mol]
+CXCL12recrit 40.0e /C010 mol Critical CXCL12 concentration for
+resensitization [mol, /C01 for none]
+Chemotaxis
+Turning angles Thetas rad Distribution directly taken from Allen 2004
+chemoMax 10 Maximum weight of chemokine to random
+polarity
+chemoSteep 1.00E+10 Steepness of weight reduction with
+chemokine gradient l/mol
+chemoHalf 2.00E /C011 mol/l Chemokine gradient of half weight mol/l
+northweight 0.1 Tendency for TC to stay in the LZ (weight in
+0..1)
+persistentLengthTime(Cell Type)
+persistentLengthTime
+(Centrocyte)1.5 min Persistence of CC polarity
+persistentLengthTime
+(Centroblast)1.5 min Persistence of CB polarity
+persistentLengthTime(T
+cell)1.7 min Persistence of polarity of TC
+persistentLengthTime
+(Out Cell)0.75 min Persistence of OUT polarity
+(continued)328 Philippe A. Robert et al.
+--- Page 27 ---
+R e a l A ffi n i t y ðBCR ,Antigen Þ¼10expMin þAf f inity ðBCR ,Antigen Þ:ðexpMax /C0expMin Þð1=molÞ
+konðBCRÞ¼Constant ¼1e6ð1=molsÞ¼3:6e9ð1=molhÞ
+koffðBCR ,Antigen Þ¼konðBCRÞ
+RealAf f inity ðBCR ,Antigen Þð1=hÞ
+3 Conclusions
+Simulations of complex biological systems are a powerful tool for
+the testing of hypotheses. The presented code hyphasma was
+employed in GC research in three different ways, for which a few
+examples of applications of the code are provided:Table 1
+(continued)
+Parameter name Value Unit Description
+Speed(Cell Type)
+Speed(Centrocyte) 7.5 μM/min Mean CC velocity
+Speed(Centroblast) 7.5 μM/min Mean cell velocity
+Speed(T cell) 10 μM/min Velocity of TC
+Speed(Out Cell) 3.0 μM/min Mean OUT velocity
+Duration of cell cycle phases (according to Gaussian distribution with parameters)
+getDuration(c_G1) 2.0 h Duration of CB cell cycle phase G1
+getDuration(c_S) 1.0 h Duration of CB cell cycle phase S
+getDuration(c_G2) 2.5 h Duration of CB cell cycle phase G2
+getDuration(c_M) 0.5 h Duration of CB cell cycle phase M
+All with a standard
+deviation of1.0 h Width of Gaussian variation of phases
+Differentiation rates
+StartDifferentiation 72.0 h Start Differentiation
+pDif (CB to CC) dt * 0.1 proba per dt Rate for differentiation of centroblasts to
+centrocytes (h)
+p_dif2out_target (from
+CC)0.0 [ ¼0 in the
+LEDA case]Output probability towards Antibody
+production
+width 12.0 Width of smooth onset of differentiation to
+output (hours)
+weight(time) time dep ¼1.0 + exp((start_differentiate - time)/
+smooth_differentiation_time)
+pDif2out(time) time dep [ ¼0 in the
+LEDA case]¼p_dif2out_target/weight(time)
+pDif(CC to CB) dt * 0.1 dt * Rate of selected CC-differentiation (h)
+dif_delay 6.0 h Delay of selected CC-differentiation
+getNewDiffDelay() proba. law ¼dif_delay * (1 + 0.1 * log((1. /C0x)/x) where
+xis random in [0..1]
+agDeletedInFreshCC true Retained antigen is deleted in fresh CCHow to Simulate a Germinal Center 329
+--- Page 28 ---
+Table 2
+List of parameters and their values, part 2
+Parameter name Value Unit Description
+Dynamic number of divisions
+nDivFounderCells 12 (StartDifferentiation - tmin)/
+total_cell_cycle_duration
+6 Note: in case inﬂux of cells is allowed, this value is
+more physiological
+pMHCdepHill 1 pMHC-dependent division number Hill: Hill-
+coefﬁcient (n_P)
+pMHCdepMin 1 pMHC-dependent division number Hill:
+minimum (P_min)
+pMHCdepMax 6 pMHC-dependent division number Hill:
+maximum (P_max)
+pMHCdepK 6 pMHC-dependent division number Hill: half
+(K_P)
+Mutation and division
+– 24 h Start Mutation
+pmut(time
+<StartMutation)0 proba/BCR/
+divMutation probability
+pmut(time
+>StartMutation)0.5 proba/BCR/
+divMutation probability
+pmutafterselection 0.0 proba/BCR/
+divMutation probability after TC selection [0..1]
+(target value of DSH)
+pmutafﬁnityexponent 1 Afﬁnity-dependent mutation upon TC contact
+(afﬁnity-exponent)
+pNow (proba divide) dt * 9.0 proba in dt dt * Proliferation rate (h) [speed of processing to
+division]
+divideAgSymmetric 0.72 proba per div Divide antigen asymmetrically on daughter BC
+(1: 100%; 0: no)
+polarityIndex 0.88 Distribute antigen asymmetric (0.5 <polarity
+index <1.0)
+width 0.04 Coefﬁcient of variation around the polarity index
+Selection steps
+testDelay 0.02 h Time gap between afﬁnity tests ( /C01¼move, in h)
+collectionFDCperiod 0.7 h Duration of CC collection of antigen by serial
+FDC encounters (h)
+antigenSaturation 20 Ag saturation per FDC-fragment in units of
+threshold (1: constant binding probability):
+pSel dt * 0.05 proba in dt dt * Rate of positive selection at FDCs (h)
+tcTime 0.6 h Duration of TC-CC-interaction
+tcRescueTime 0.5 h Minimum duration of TC-CC-polarization for
+CC-rescue in hours
+(continued)330 Philippe A. Robert et al.
+--- Page 29 ---
+Data interpretation Using quantitative data in order to determine
+how a particular mechanism works.
+Example: In 2007, three groups measured B
+cell migration in GCs [ 16,21,22]. The data
+were consistent with each other but the inter-
+pretation was controversial. The surprise in the
+data was that B cells basically were measured to
+do random walk, which was in conﬂict with the
+belief that cells would do chemotaxis in order to
+switch between both zones. In addition, trans-
+migration of B cells between the zones was rare.
+Further, more cells moved from the dark to the
+light zone than vice versa, setting in question
+the recycling hypothesis that B cells do afﬁnity
+maturation in repeated rounds of mutation and
+selection. GC simulations with hyphasma were
+proving that the random walk measurement was
+not in contradiction with chemotaxis of a fewTable 2
+(continued)
+Parameter name Value Unit Description
+Production/Diffusion rates
+1000 μM2/h Diffusion constant of chemotaxis signal
+[CXCL13]
+1000 μM2/h Diffusion constant of CXCL12
+1.00E /C008 mol/(h FDC) Rate of CXCL13 production
+pMKCXCL13 /C24dt *
+0.75molecules/dt/
+pointrate * dt * dxˆ3 * Navogadro
+4.00E /C007 mol/(h cell) Rate of CXCL12 production
+pMKCXCL12 /C24dt * 30 molecules/dt/
+pointrate * dt * dxˆ3 * Navogadro
+boundary[CXCL13] 0 mol Boundary for CXCL13
+Antibody
+pmDifferentiationRate 24 h Half time of plasma cell differentiation to
+antibody producing cell
+antibodies_production 1.00E /C017 mol/(h cell) Production rate of systemic antibodies by output
+population
+V_blood 1.00E /C002L Blood volume (order of magnitude, mice)
+N_GC 1000 Number of GC generating antibody producing
+plasma cells
+abProdFactor ¼antibodies_production * dt * N_GC *
+V_blood * 1e15
+antibodyDegradation 30 Antibody degradation half time (days):
+kon(seq n) 1E+6 1/(mol s) konfor building immune complex
+koff(seq n) seq. dep. 1/s koff¼f(BCR afﬁnity)How to Simulate a Germinal Center 331
+--- Page 30 ---
+cells, that the amount of transzone migration
+was exactly what has to be expected in the
+recycling model, and that the asymmetry of
+transzone migration was expected due to selec-
+tion in the light zone. A quantitative analysis of
+the two-photon data predicted a transient che-
+motaxis model according to which B cells would
+sensitize and desensitize of the chemokine in a
+concentration-dependent way [ 17].
+Theory prediction Using the current knowledge in order to
+develop a consistent theory of GC reactions.
+Example: It was generally believed that B cells
+compete for antigen. The code presented here
+was used in order to distinguish eight different
+selection mechanisms [ 18]. It was shown that
+competition for antigen is not robust and less
+efﬁcient for afﬁnity maturation than other
+mechanisms. In hyphasma, the most efﬁcient
+mechanism was competition for T cell help.
+This prediction was supported 4 years later by
+the ﬁnding that B cells got signals for recycling
+to the dark zone phenotype and division [ 15]. A
+quantitative analysis of the B cell expansion
+found in this experiment induced the prediction
+that the number of divisions is regulated by Tfh
+in an afﬁnity-dependent manner between 1 and
+6 divisions [ 8]. This prediction was proven true
+2 years later [ 7] and further implications could
+be drawn from this mechanism [ 6].
+Theory distinction Testing of various hypotheses for consistency
+with a particular data set.
+Example: Experiments that suppress or know-
+out a particular part of the GC reaction may lead
+to a complex phenotype involving several read-
+outs and may also include subtle differences.
+Such a complex phenotype does not allow to
+determine the impact point of the suppressed
+molecule because the interdependency of the
+different modulated read-outs is unclear. For
+example, the suppression of the microRNA-
+155 generated such a complex phenotype with
+changed B cell population dynamics, afﬁnity
+maturation, fraction of apoptotic cells, and
+amount of generated output cells. Hyphasma
+was used to test six different models of how
+microRNA-155 would impact on the GC332 Philippe A. Robert et al.
+--- Page 31 ---
+reaction assuming that the whole phenotype
+stems from a single impact point. In this way,
+two of the six tested hypotheses were found
+compatible with the phenotype, namely a defect
+in BCR signaling as well as increased apoptosis
+of positively selected B cells [ 23]. This result
+focused further experimentation onto these
+two mechanisms. Similar applications were
+done with hyphasma in the context of the
+impact of TLR-4 on GCs [ 24] and of sequential
+switching to the IgE isotype [ 25].
+While the development of a code for a particular biological
+system can take several years, once it is setup, it has a great potential
+of interpreting experiments and generating novel theories. We
+believe that the fundamental reason that it worked out in the case
+of hyphasma and the GC reaction is a strict mechanistic implemen-
+tation on the cellular scale. Subcellular processes were implemented
+in a phenomenological way and nothing but the boundary condi-
+tions were implemented on the GC scale. Only then, the appear-
+ance of the GC in silico can be tracked back to the mechanisms that
+made this appearance emerge. It is this principle of scale integrity
+that makes the difference between a reproductive simulation and a
+predictive theory.
+References
+1. Tas JM et al (2016) Visualizing antibody afﬁn-
+ity maturation in germinal centers. Science.
+doi:10.1126/science.aad3439
+2. Vinuesa CG, Linterman MA, Goodnow CC,
+Randall KL (2010) T cells and follicular den-
+dritic cells in germinal center B-cell formation
+and selection. Immunol Rev 237:72–89
+3. Thaunat O et al (2012) Asymmetric segregation
+of polarized antigen on B cell division shapes
+presentation capacity. Science 335:475–479
+4. Dustin ML, Meyer-Hermann M (2012) Anti-
+gen feast or famine. Science 335:408–409
+5. Allen CD et al (2004) Germinal center dark and
+light zone organization is mediated by CXCR4
+and CXCR5. Nat Immunol 5:943–952
+6. Meyer-Hermann M (2014) Overcoming the
+dichotomy of quantity and quality in antibody
+responses. J Immunol 193:5414–5419
+7. Gitlin AD, Shulman Z, Nussenzweig MC
+(2014) Clonal selection in the germinal centre
+by regulated proliferation and hypermutation.
+Nature 509:637–640
+8. Meyer-Hermann M et al (2012) A theory of
+germinal center B cell selection, division, and
+exit. Cell Rep 2:162–1749. Meyer-Hermann ME, Maini PK (2005) Inter-
+preting two-photon imaging data of lympho-
+cyte motility. Phys Rev E 71:061912
+10. Linterman MA et al (2009) Follicular helper T
+cells are required for systemic autoimmunity. J
+Exp Med 206:561–576
+11. De Vinuesa CG et al (2000) Germinal centers
+without T cells. J Exp Med 191:485–494
+12. Baumjohann D et al (2013) Persistent antigen
+and germinal center B cells sustain T follicular
+helper cell responses and phenotype. Immunity
+38:596–605
+13. Perelson AS, Oster GF (1979) Theoretical
+studies of clonal selection: minimal
+antibody repertoire size and reliability of self-
+non-self discrimination. J Theor Biol
+81:645–670
+14. Meyer-Hermann M, Deutsch A, Or-Guil M
+(2001) Recycling probability and dynamical
+properties of germinal center reactions. J
+Theor Biol 210:265–285
+15. Victora GD et al (2010) Germinal center
+dynamics revealed by multiphoton microscopy
+with a photoactivatable ﬂuorescent reporter.
+Cell 143:592–605How to Simulate a Germinal Center 333
+--- Page 32 ---
+16. Allen CD, Okada T, Tang HL, Cyster JG
+(2007) Imaging of germinal center selection
+events during afﬁnity maturation. Science
+315:528–531
+17. Figge MT et al (2008) Deriving a germinal
+center lymphocyte migration model from
+two-photon data. J Exp Med 205:3019–3029
+18. Meyer-Hermann ME, Maini PK, Iber D
+(2006) An analysis of B cell selection mechan-
+isms in germinal centers. Math Med Biol
+23:255–277
+19. Duchez S, Rodrigues M, Bertrand F, Valitutti S
+(2011) Reciprocal polarization of T and B cells
+at the immunological synapse. J Immunol
+187:4571–4580
+20. Zhang Y et al (2013) Germinal center B cells
+govern their own fate via antibody feedback. J
+Exp Med 210:457–46421. Schwickert TA et al (2007) In vivo imaging of
+germinal centres reveals a dynamic open struc-
+ture. Nature 446:83–87
+22. Hauser AE et al (2007) Deﬁnition of germinal-
+center B cell migration in vivo reveals predom-
+inant intrazonal circulation patterns. Immunity
+26:655–667
+23. Nakagawa R et al (2015) MicroRNA-155
+controls afﬁnity-based selection by protecting
+c-MYC+ B cells from apoptosis. J Clin Invest 126
+24. Garin A et al (2010) Toll-like receptor 4
+signaling by follicular dendritic cells is pivotal
+for germinal center onset and afﬁnity matura-
+tion. Immunity 33:84–95
+25. He J-S et al (2013) The distinctive germinal
+center phase of IgE+ B lymphocytes limits their
+contribution to the classical memory response.
+J Exp Med 210:2755–2771334 Philippe A. Robert et al.

@@ -43,4 +43,9 @@ Index of all markdown and documentation files in this experiment.
 | `simulation/results/OVERNIGHT_RESULTS.md` | 3 overnight experiments: multi-seed, GC vs DE, N=10⁷ |
 | `simulation/results/multiseed_V4/` | Multi-seed V4 boundary: 40 runs, per-cycle history |
 | `simulation/results/gc_vs_de/` | GC vs Directed Evolution: 36 runs, per-cycle history |
-| `simulation/results/scaling_10M/` | N=10⁷ scaling: 8 runs (pop cap issue) |
+| `simulation/results/scaling_10M/` | N=10⁷ scaling: 8 runs (pop cap issue — superseded by Q4) |
+| `simulation/results/JIT_VALIDATION_REPORT.md` | JIT GPU optimization: validation, 380× speedup |
+| `simulation/results/q4_n_scaling/Q4_ANALYSIS.md` | **Q4: N-scaling (81 runs)** — diversity doubles, affinity flat |
+| `simulation/results/q4_n_scaling/results.json` | Q4 raw data: 81 runs, 3 N × 3 rates × 3 K × 3 seeds |
+| `simulation/results/q3_cycling/Q3_ANALYSIS.md` | **Q3: DZ/LZ cycling (48 runs)** — cycling speed doesn't matter |
+| `simulation/results/q3_cycling/results.json` | Q3 raw data: 48 runs, 4 dz_div × 2 rates × 2 N × 3 seeds |

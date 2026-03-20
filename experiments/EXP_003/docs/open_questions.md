@@ -57,6 +57,8 @@ Directly maps to the grant's **Specific Aim 1**: *"Determine how mutation rate, 
 
 **Update (2026-03-19)**: ✅ **ANSWERED**. 81 runs across N={10K,1M,10M} × {V3,V4,V5} × K={0.1,0.2,0.3}. **Larger N doubles diversity** (3.4-3.9 vs 1.6-2.2) but does NOT improve affinity — maturation is identical across all N. The bacterial GC advantage is **repertoire breadth, not depth**. Population size does not shift the maturation boundary. See `results/q4_n_scaling/Q4_ANALYSIS.md`.
 
+**Update (2026-03-20, sweep_2026-03-19)**: Pipeline model sweep (432 runs, N={100K,1M}). Need to confirm if N=100K vs N=1M difference persists in pipeline model — previous result was with cycle-based model. The 3D landscape and heatmaps suggest N effect is very small (affinities nearly identical, Shannon H marginally higher at 1M). Adding a **paired comparison plot** to the dashboard to quantify the N effect across all matched conditions.
+
 ---
 
 ## Q5. Does the DZ/LZ Architecture Outperform Simple Directed Evolution?
@@ -135,6 +137,10 @@ Directly maps to the grant's **Specific Aim 1**: *"Determine how mutation rate, 
 
 **Prediction**: Too far (low affinity) → selection can't distinguish clones, drift dominates. Too close (high affinity) → most mutations are deleterious, Muller's ratchet kicks in faster. There should be an optimal initial distance.
 
+**Update (2026-03-20, sweep_2026-03-19)**: Pipeline model results show **extremely low final affinities** (max ~0.24 mean affinity across all conditions) and time courses show **no plateau** at 20 cycles — evolution appears incomplete. This raises 2 critical questions:
+1. **How are founder clones initialised?** If they start very far from the target in sequence space, 20 cycles may not be enough for the mutation rate to bridge the gap. **Founder initial affinity is a high-priority parameter** to sweep in next runs.
+2. **Should we extend to more cycles?** Running 40-60 cycles would reveal whether affinity eventually plateaus or keeps climbing linearly (suggesting the landscape isn't saturated).
+
 ---
 
 ## Q12. Does Population Size Relax the Diversification Requirement Before Selection?
@@ -146,3 +152,72 @@ Directly maps to the grant's **Specific Aim 1**: *"Determine how mutation rate, 
 **Sweep**: `dz_divisions` ∈ {2, 4, 6} × `N` ∈ {10K, 1M, 10M} × `rate` ∈ {V3, V4} × competitive selection (top 10%)
 
 **Prediction**: At N=10K, dz_div=2 may not generate enough diversity for competitive selection to act effectively (too many ties). At N=10M, even dz_div=2 should work because the sheer number of cells guarantees diversity. The interaction term (N × dz_div) should be significant.
+
+---
+
+## Q13. Replacement-Driven Diversity: Does Stringent Selection Increase Diversity?
+
+**Added**: 2026-03-20 (from sweep_2026-03-19 pipeline model observations)
+
+**Background**: In the pipeline model with constant target_n, selection kills cells that must then be replaced through DZ division. Stringent selection (keep_fraction=0.05) kills 95% → forces massive compensatory replication → each division generates mutations. The result: **Shannon H increases with selection stringency** (H=2.43 at keep=0.05 vs H=0.55 at keep=0.3 for Δ28 mutation rate, N=100K).
+
+**Question**: Is this diversity driven purely by the replacement mechanism, or does the selection itself shape the distribution? Can we decouple replacement rate from selection stringency by varying target_n independently?
+
+**Hypothesis**: The diversity gain from stringent selection is a byproduct of the constant-N constraint forcing compensatory divisions. At very low mutation rates, this effect should disappear because even many divisions produce few new variants.
+
+**Next steps**:
+- Sweep `keep_fraction` × `mutation_rate` at longer durations (40-60 cycles) to see if this pattern holds at equilibrium
+- Test whether the diversity gain from stringent selection plateaus or continues linearly
+- Consider a control where population is NOT restored after selection (let N drop) to isolate the replacement effect
+
+---
+
+## Q14. Per-Run Dashboard Visualization Architecture
+
+**Added**: 2026-03-20
+
+**Problem**: The current dashboard has hard-coded visualizations (parallel coordinates, heatmaps, 3D scatter, paired comparison, time courses). Future sweeps may need different plots depending on what parameters were swept and what questions are being asked.
+
+**Proposed solution — modular visualization system**:
+
+Each sweep directory can include a `viz_config.json` that declares which visualization modules to load:
+
+```json
+{
+  "modules": [
+    { "type": "parallel_coords", "color_by": ["final_mean_affinity", "final_shannon"] },
+    { "type": "heatmap_faceted", "x": "keep_fraction", "y": "paper_mutation_rate", "facet": "target_n", "metrics": ["final_mean_affinity", "final_shannon"] },
+    { "type": "scatter_3d", "x": "keep_fraction", "y": "paper_mutation_rate", "z_metrics": ["final_mean_affinity", "final_shannon"], "group_by": "target_n" },
+    { "type": "paired_comparison", "split_by": "target_n", "metrics": ["final_mean_affinity", "final_shannon"] },
+    { "type": "time_courses", "group_by": "paper_mutation_rate", "metrics": ["mean_affinity", "shannon_entropy"] }
+  ]
+}
+```
+
+**Architecture changes needed**:
+1. Move each visualization into its own JS module (`viz_parallel_coords.js`, `viz_heatmap.js`, etc.)
+2. The dashboard reads `viz_config.json` on sweep load and dynamically inserts the requested modules
+3. Each module receives the run data + its config and renders autonomously
+4. Default behaviour (no `viz_config.json`): load all modules as currently implemented
+5. New sweeps can add custom modules or reorder existing ones
+
+**Benefit**: Each sweep is self-describing — it declares its intent AND its preferred visualization.
+
+---
+
+## Q15. Configuration Best Practices
+
+**Added**: 2026-03-20
+
+Every sweep `manifest.json` should include an `intent` field:
+
+```json
+{
+  "intent": "Map mutation rate × selection stringency interaction on affinity and diversity",
+  "hypothesis": "Higher mutation rate increases affinity monotonically up to error catastrophe",
+  "decision_criteria": "If keep=0.1 is optimal, fix it for next sweep and focus on mutation rate × duration"
+}
+```
+
+This makes each sweep self-documenting and ensures the dashboard always has context, even months after the run. The dashboard's intro paragraph should load and display this field automatically.
+

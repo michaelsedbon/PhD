@@ -1,0 +1,234 @@
+RESEARCH ARTICLES
+Science  7 August 2025 618SYNTHETIC BIOLOGY
+An orthogonal T7 replisome  
+for continuous hypermutation  
+and accelerated evolution in E. coli
+Christian S. Diercks1*, Philipp Sondermann1,  
+Cynthia Rong1, Thomas G. Gillis1, Yahui Ban1, Celine Wang1,  
+David A. Dik1,2, Peter G. Schultz1,2* 
+systems that perform continuous hypermutation of 
+designated genes without compromising the integrity of the 
+host genome can substantially accelerate the evolution of 
+new or enhanced protein functions. We describe an orthogonal 
+DNA replication system in Escherichia coli based on the 
+controlled expression of the replisome of bacteriophage t7 
+(t7-ORACLE). the system replicates circular plasmids that 
+enable high transformation efficiencies and seamless 
+integration into standard molecular biology workflows. 
+Engineering of t7 DNA polymerase yielded variant proteins 
+with mutation rates of 1.7 ×  10−5 substitutions per base 
+in vivo—100,000- fold above the genomic mutation rate. We 
+demonstrated continuous evolution using the t7 replisome by 
+expanding the substrate scope of tEM-  1 β- lactamase and 
+increasing activity 5000- fold against clinically relevant 
+monobactam and cephalosporin antibiotics in less than 1 week.
+Low organismal mutation rates [~ 10−10 substitutions per base pair (spb)] 
+render mere passaging of cells under selective pressure an inefficient 
+strategy for the diversification of genes on laboratory timescales (1 , 2). 
+Historically, directed evolution addressed this limitation by mutagenesis 
+in vitro [e.g., error- prone polymerase chain reaction (PCR)] followed by 
+transformation of a microbial host with such diversified libraries for 
+selection of phenotypic fitness (3 –5). However, in vitro mutagenesis is 
+time consuming and laborious and limits both the depth (rounds of 
+mutagenesis) and scale (number of parallel experiments) of these experi -
+ments. Although alternative randomization strategies (e.g., DNA shuf -
+fling) have improved the efficiency of this process, the removal of ex vivo 
+diversification by increasing in vivo mutagenicity enables continuous 
+evolution at an accelerated pace (6 ).
+Early efforts to increase in vivo mutation rates relied on chemical 
+mutagens, engineered host DNA polymerases, and interference with 
+host DNA repair machinery. The mutation rates that can be achieved 
+according to these strategies are fundamentally limited by the large 
+number of essential host genes that must be maintained faithfully to 
+ensure survival (7–10). These limitations can be mitigated by using an 
+orthogonal replication system where an error- prone DNA polymerase 
+exclusively maintains a dedicated episome (11, 12).
+The first orthogonal replication system, OrthoRep, was developed by 
+minimizing extranuclear plasmids of yeast that are replicated by an 
+orthogonal cytosolic protein- primed DNA polymerase (11,  12). Engineering 
+of this DNA polymerase yielded clones with mutation rates of 10−5 spb 
+that enable accelerated continuous evolution in vivo (13– 16). Developing a mutagenic replication system in Escherichia coli will benefit from faster 
+generation times and higher cell densities compared with yeast and en-
+able markedly accelerated evolution experiments at the same mutation 
+rate. Recently, a bacterial replication system, EcORep, based on the 
+protein- primed DNA polymerase of the lytic bacteriophage PDR1, was 
+developed for E. coli ( 17). However, the mutation rates that can stably be 
+maintained in the disclosed system (~ 2.0 × 10−7 spb) are only modestly 
+enhanced over genomic levels (18). As such, the development of a highly 
+mutagenic orthogonal replication system in E. coli remains an important 
+challenge. In this work, we describe the development of T7-ORACLE (T7 
+orthogonal replisome-assisted continuous laboratory evolution), a new 
+orthogonal replication system for continuous hypermutation and acceler -
+ated evolution in E. coli.
+Establishing an orthogonal replication system based on the 
+bacteriophage T7 replisome
+The replication of the linear double-  stranded genome of T7 phage is initi -
+ated by the priming of its replisome by T7 RNA polymerase (gp1) at a T7 
+origin of replication (Fig. 1A) (19– 23). T7 origins of replication rely on 
+the orthogonality of the T7 RNA polymerase–promoter pair to E. coli  
+RNA polymerase–promoter pairs for specificity in recruiting the repli-
+some (Fig. 1B) ( 24). The orthogonal T7 transcript primes the T7 DNA 
+polymerase (gp5), which further recruits the T7 helicase (gp4B) and 
+helicase- primase (gp4A) fusion protein to the transcription bubble. The 
+host factor thioredoxin (trxA) binds to the T7 DNA polymerase and serves 
+as a β- sliding clamp. Replisome assembly initiates concerted leading and 
+lagging strand synthesis, which further requires the presence of the T7 
+single-  stranded DNA binding protein (gp2.5) for stabilizing the lagging 
+strand replication loop (Fig. 1C) (23).
+To create an orthogonal T7 replication system in E. coli, we gener-
+ated a strain based on E. coli BW25113 in which all four essential T7 
+replisome genes (gp1, gp2.5, gp4, and gp5) are supplied in trans using 
+plasmid- based expression systems (table S1) (25). We only expressed 
+one of the two reading frames of gp4 (gp4A, helicase- primase fusion), 
+given the reported toxicity and nonessentiality of gp4B (helicase) 
+(26, 27). Initial attempts at transforming this replisome strain with a 
+circular plasmid carrying only a T7 origin of replication proved unsuc -
+cessful, in agreement with literature precedent (28).
+We reasoned that additional T7 genes are required to establish an or-
+thogonal replication system. Although not strictly essential to T7 phage 
+replication, T7 lysozyme (gp3.5) knockout phages, in which the gene is 
+deleted, are severely replication deficient (29). T7 lysozyme has two func-
+tions: cysteine hydrolase activity and inhibition of transcription by binding 
+to T7 RNA polymerase (30,  31). The concerted expression of T7 lysozyme 
+with the other replication proteins (gp1, gp2.5, gp4, gp5; fig. S1) suggests 
+a regulatory mechanism in which lysozyme accumulation leads to a switch 
+from transcription to replication in the phage life cycle (32). Inhibition by 
+T7 lysozyme causes abortive cycling instead of the transcription of full 
+genes. This produces short RNA “primers” for the T7 DNA polymerase to 
+stimulate the assembly of the T7 replisome at the T7 origin (33– 36).
+To stimulate replication, we fused hydrolase- deficient T7 lysozyme 
+[C131S (Cys131→Ser)] to T7 RNA polymerase (37). To maximize this effect, 
+we used the T7 origin of replication φ OR (Fig. 1A), for which replication 
+stimulation by T7 lysozyme was reported to be the highest (32). Finally, 
+we chose a reported exonuclease- deficient clone of T7 DNA polymerase 
+(Δ28, T7 Sequenase 2) that had previously been used for T7 replisome-  
+based in vitro replication assays (38– 41). These changes enabled trans-
+formation of a plasmid carrying a T7 origin of replication (pOR-  1; 
+table S1), as well as stable replication for more than 2 weeks (Fig. 1, D and 
+E). The strain showed robust growth [doubling time (T double ) of 29 min] 
+and reached high cell densities [optical density at 600 nm (OD 600) of 
+7.2] in liquid culture (Fig. 1F). Mutation rates determined by fluctua-
+tion analysis showed increased mutagenesis of the T7 origin plasmid 
+(2.81 × 10−7 spb per generation) without affecting the host genomic muta -
+tion rate (3.66 × 10−10 spb; table S4). The copy number of the T7 origin 1Department of Chemistry and Skaggs Institute for Chemical Biology, The Scripps Research 
+Institute, La Jolla, CA, USA. 2Department of Biology, California Institute for Biomedical 
+Research (Calibr), La Jolla, CA, USA. *Corresponding author. Email: cdiercks@ scripps.  edu 
+(C.S.D.); schultz@ scripps.  edu (P .G.S.)
+Downloaded from https://www.science.org at Universita Degli Studi Di Pavia on August 11, 2025
+RESEARCH ARTICLES
+Science  7 August 2025 619
+plasmid of 8.5 was determined by quantitative PCR, yielding an adjusted 
+mutation rate of 3.31 ×  10−8 spb (Fig. 2G, fig. S13, and table S3). Notably, 
+the transformation efficiency of the circular plasmid was determined to 
+be 2.4 ×  1010 colony- forming units per μ g (cfu μ g−1), which is orders of 
+magnitude higher than the transformation efficiency for the linear plas-
+mids of OrthoRep or EcORep (13, 17 ).
+Engineering T7 DNA polymerase mutants with increased 
+mutation rate
+Three distinct mechanisms account for the high fidelity (10−9 to 10−10 spb) 
+of DNA replication. Base selection in the T7 DNA polymerase active site 
+accounts for a fidelity of ~ 10−5 spb, 3′ - 5′ exonucleolytic proofreading 
+further increases fidelity by ~ 10−2 spb, and host mismatch repair is re -
+sponsible for the remaining ~10−3 spb. Initially, we had used a 3′ - 5′ proof -
+reading exonuclease- deficient version of T7 DNA polymerase (Δ 28; 
+Fig. 2A) (40– 42). Comparison of this Δ28 mutant (3.31 × 10−8 spb) to wild-  
+ type (WT) T7 DNA polymerase (1.4 ×  10−9 spb) showed a 25- fold differ-
+ence in mutation rate (Fig. 2C).
+Because DNA mismatch repair cannot be altered without compromis -
+ing host fitness, we next targeted the fidelity of base selection in the 
+polymerase active site to further increase mutagenicity. We selected 11 
+sites of T7 DNA polymerase based on studies of homologous polymerases 
+(10, 43) and generated single-  site–saturation libraries at each position 
+(i.e., R429X, V443X, R444X, L479X, E480X, N520X, A521X, K522X, T523X, 
+F524X, Y530X, P560X, and N611X; R, Arg; V, Val; L, Leu; E, Glu; N, Asn; 
+A, Ala; K, Lys; T, Thr; F, Phe; Y, Tyr; P, Pro; X, any residue). A replisome 
+strain deficient in T7 DNA polymerase (T7 Rep- Δgp5; table S2) was trans-
+formed with these site-  saturation libraries and then challenged to revert a premature ochre stop codon in the TEM-  1 β- lactamase gene (E26* ochre) 
+on the T7 origin plasmid (pOR-  3; table S1) to restore resistance to the an-
+tibiotic carbenicillin. We sequenced surviving clones using Illumina am-
+plicon sequencing and subjected enriched DNA polymerase mutants to 
+fluctuation analysis. This identified three mutations (N520M, P560V, and 
+V443K; M, Met; Fig. 2B) that were mapped onto the Δ 28 mutant. N520M 
+likely decreases geometric constraints that contribute to base- pairing se -
+lectivity given its position in the O- helix, which is in contact with incoming 
+nucleotides in the active site. P560V is located in a flexible loop of the 
+fingers domain that contacts this O-  helix. This loop serves as a “hinge” that 
+opens and closes the active site for incoming nucleotides. Mutations in this 
+domain likely affect base pairing by altering the kinetics of binding of the 
+correct or incorrect nucleotides. V443K interacts with the DNA double helix 
+at the replication fork and might decrease base- pairing constraints by in-
+creasing the flexibility at the replication fork. The identified mutations 
+increased the mutation rate of exonuclease- deficient T7 DNA polymerase 
+to 6.75 ×  10−7 spb for the best single mutant, 4.26 ×  10−6 spb for the best 
+double mutant, and 1.04 ×  10−5 spb for the best triple mutant (Fig. 2C).
+Next, we constructed a random mutagenesis library on top of the 
+triple mutant and subjected it to the same reversion assay. This identi -
+fied an additional seven sites for which single-  site–saturation libraries 
+were constructed and screened (Y24X, P84X, M146X, N171X, A433X, 
+L437X, Q585X, and R678X; Q, Gln; figs. S2 to S4). The most beneficial 
+mutations identified were Y24F and Q585R (Fig. 2B). Notably, the Y24F 
+mutation is in the exonuclease domain and was found to reverse 
+growth deficiencies observed for the single, double, and triple mutants 
+(figs. S5 to S10 and table S5) but did not show a change in mutation 
+rate (1.1 × 10−5 spb). The last mutation was found in the Palm domain 
+B
+5’5’
+3’3’pppGpppG
+φORφOR PrimasePrimase
+SiteSiteT7 RNA  Pol. Transcript T7 RNA  Pol. Transcript
+AT-rich RegionAT-rich RegionT7 DNA  Polymerase T7 DNA  PolymeraseT7 HelicaseT7 Helicase
+RBDRBDdTTPdTTP dTDP  + Pi dTDP  + Pi
+3’3’
+5’5’ZBDZBDPrimasePrimase
+T7 DNA  Polymerase T7 DNA  Polymerase
+T7 ssDNAT7 ssDNA
+BP BP RNARNA
+PrimerPrimerLagging StrandLagging Strand
+Leading StrandLeading StrandC
+3’3’5’5’
+3’3’
+5’5’
+3’3’5’5’T7 Helicase/PrimaseT7 Helicase/PrimasePrevious OFPrevious OF Nascent OFNascent OFE. coli E. coli  Thioredoxin ThioredoxinA
+5’5’
+3’3’pppGpppG3’3’
+5’5’ T7 RNA  Pol. Transcript T7 RNA  Pol. TranscriptAbortive CyclingAbortive Cycling
+T7 RNA  Polymerase T7 RNA  Polymerase
+T7 LysozymeT7 LysozymeGenomeGenomeT7 ReplisomeT7 Replisome
+Escherichia coli Escherichia coli BW251 13 BW251 13Orthogonal Orthogonal 
+RepliconRepliconOR-1OR-1
+CamCamRRT7 origin of T7 origin of 
+replication replication 
+φORφORD
+Initiation of ReplicationInitiation of Replication
+Replisome CoordinationReplisome CoordinationOrigin of ReplicationOrigin of Replication Plasmid Transformation Plasmid Transformation
+EReplication of OR PlasmidReplication of OR Plasmid
+GMutation Rate [sbp]Mutation Rate [sbp]
+T7 PrimaseT7 PrimaseφORφOR
+FGrowth CurveGrowth Curve– T7 Replisome– T7 Replisome + T7 Replisome+ T7 ReplisomeTransformation of OR plasmid:Transformation of OR plasmid:
+AA
+BB
+CCOR OR Mutations/GenerationMutations/Generation
+OR OR Mutations [spb]Mutations [spb]
+Genome Mutations [spb]Genome Mutations [spb]blablaTEM1TEM1TAA
+T7 Replisome Mutation RateT7 Replisome Mutation Rate
+rpoBrpoB
+Genomic Mutation RateGenomic Mutation RateE. coliE. coli  Replisome Replisome
+RP1RP1 RP2RP2 RP3RP3
+TTdoubledouble  = 28.2 min  = 28.2 min
+ODODmax max = 7.12= 7.12
+Time0:00:00 10:00:00 20:00:0002468 Optical DensityOR-1OR-1
+AB1×10-101×10-91×10-81×10-71×10-6Frequency +/- 95% CI Median  
+BCFrequency +/- 95% CI Median  
+1×10-101×10-91×10-81×10-71×10-6gp 4Agp 4A
+T7 helicase-primaseT7 helicase-primasegp 2.5gp 2.5
+T7 ssDNA-bpT7 ssDNA-bpRP1 (pCD0280)RP1 (pCD0280)
+T7 DNA  polymerase T7 DNA  polymeraseRP2 (pCD026X)RP2 (pCD026X)
+gp 5gp 5
+X = 1-7X = 1-7gp 3.5gp 3.5
+T7 lysozyme-RNAP  trans. fusion T7 lysozyme-RNAP  trans. fusionRP3 (pCD0275)RP3 (pCD0275)
+gp 1gp 1spacerspacer
+Fig. 1. Establishing an orthogonal replication system in E. coli based on the bacteriophage T7 replisome. ( A) T7 RNA polymerase initiates replication by priming the  
+replisome at the T7 origin of replication. T7 lysozyme stimulates initiation of replication. (B ) T7 DNA polymerase is primed by the orthogonal transcript and T7 helicase and  
+primase are recruited to the origin, leading to (C ) concerted leading-  and lagging- strand synthesis. T7 single- stranded DNA (ssDNA)–binding protein (BP) stabilizes the replication 
+loop, and E. coli thioredoxin serves as a sliding clamp to increase T7 DNA polymerase processivity. AT , adenine and thymine base pair; dTDP , thymidine diphosphate; dTTP ,  
+thymidine triphosphate; Pi, inorganic phosphate. (D ) T ransformation of a plasmid with a selection marker and a T7 origin

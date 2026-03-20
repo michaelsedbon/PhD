@@ -312,3 +312,33 @@ See `results/controls/CONTROLS.md`.
 - Likely N_MAX allocation or turbidostat cap issue — needs debugging
 
 Full analysis: `results/OVERNIGHT_RESULTS.md`
+
+## 2026-03-18 — JIT GPU Optimization COMPLETE
+
+- **Problem**: N=10⁷ overnight run was stuck at 2M cap and running on CPU (no JIT = no GPU)
+- **Solution**: Rewrote growth/selection/simulation as JIT-compiled GPU kernels
+- Key techniques:
+  1. **Incremental Hamming** — track distance as scalar, mutations update ±1 (saves 10.4 GB intermediates)
+  2. **int8 sequences** — 4× smaller arrays (0.8 GB vs 3.2 GB)
+  3. **argsort slot assignment** — find actual dead slots for daughters (fixed critical bug)
+- **Validation**: 4 head-to-head controls (same seed, old CPU vs JIT GPU) — all within Δ0.03
+- **Performance**: N=10M at **4.9s/cycle** (was ~1,870s on CPU = **380× speedup**)
+- N=10⁷ experiment now feasible: ~90 min for 8 runs (was 47h)
+- Report: `results/JIT_VALIDATION_REPORT.md`
+
+## 2026-03-19 — Q4 N-Scaling COMPLETE (81 runs, 11.1h GPU)
+
+- **3 N values** (10K, 1M, 10M) × 3 T7 rates (V3, V4, V5) × 3 K × 3 seeds
+- **Headline result**: Larger N maintains **2× diversity** (3.4-3.9 vs 1.6-2.2) while achieving the **same affinity**
+- Δaffinity is nearly identical across all N: V4 K=0.3 gives +0.19 (10K), +0.20 (1M), +0.20 (10M)
+- V5 K=0.1 degrades at ALL N values — **population size does not shift the maturation boundary**
+- The bacterial GC advantage is **repertoire breadth**, not affinity depth
+- Full analysis: `results/q4_n_scaling/Q4_ANALYSIS.md`
+
+## 2026-03-19 — Q3 DZ/LZ Cycling COMPLETE (48 runs, 6.5h GPU)
+
+- 4 cycling speeds (dz_div=2,4,6,12) × 2 rates (V4,V5) × 2 N (10K,10M) × 3 seeds
+- **Cycling speed has minimal effect** — Δaff varies by only ±0.02 across all dz_divisions
+- Muller's ratchet is NOT rescued by faster cycling — controlled by K alone
+- **Experimental implication**: transfer timing is not critical, use whatever is convenient
+- Full analysis: `results/q3_cycling/Q3_ANALYSIS.md`
