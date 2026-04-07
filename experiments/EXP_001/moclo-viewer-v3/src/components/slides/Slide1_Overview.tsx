@@ -54,6 +54,52 @@ export default function Slide1Overview({ data }: Props) {
                 </div>
             </div>
 
+            {/* Lvl1 assembly groups */}
+            <div className="slide-section">
+                <h2>{stats.total_tiles} Tiles → {stats.total_lvl1_groups} Lvl1 Assemblies (~{Math.round(genome.length / stats.total_lvl1_groups / 1000)} kb each)</h2>
+                <div style={{ display: 'flex', gap: '2px', flexWrap: 'wrap', marginTop: '12px' }}>
+                    {data.bundle.lvl1_groups.map((g) => {
+                        const groupTiles = data.bundle.tiles.filter(t => t.lvl1_group === g.id);
+                        const readyCount = groupTiles.filter(t => t.gg_ready).length;
+                        const allReady = readyCount === groupTiles.length;
+                        const widthPct = Math.max(1.2, (g.length / genome.length) * 100);
+                        const readyFrac = readyCount / groupTiles.length;
+                        // Color: green if all ready, gradient to red if many blocked
+                        const bg = allReady
+                            ? 'rgba(63, 185, 80, 0.7)'
+                            : readyFrac > 0.7
+                                ? 'rgba(210, 153, 34, 0.7)'
+                                : 'rgba(248, 81, 73, 0.7)';
+                        return (
+                            <div
+                                key={g.id}
+                                title={`Lvl1-${g.id}: ${groupTiles.length} tiles, ${readyCount} ready, ${(g.length/1000).toFixed(0)} kb`}
+                                style={{
+                                    width: `${widthPct}%`,
+                                    height: '38px',
+                                    background: bg,
+                                    borderRadius: '3px',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    fontSize: '9px',
+                                    color: '#e6edf3',
+                                    fontWeight: 600,
+                                    border: '1px solid rgba(255,255,255,0.1)',
+                                    flexShrink: 0,
+                                }}
+                            >
+                                {g.id}
+                            </div>
+                        );
+                    })}
+                </div>
+                <div className="tile-minimap-legend" style={{ marginTop: '8px' }}>
+                    <span className="legend-item"><span className="legend-dot ready" /> All tiles GG-ready</span>
+                    <span className="legend-item"><span className="legend-dot" style={{ backgroundColor: '#d29922' }} /> Some tiles need domestication</span>
+                    <span className="legend-item"><span className="legend-dot blocked" /> Many tiles need domestication</span>
+                </div>
+            </div>
 
         </div>
     );
