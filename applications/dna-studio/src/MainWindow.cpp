@@ -1,5 +1,6 @@
 #include "MainWindow.h"
 #include "CircularMapView.h"
+#include "SequenceIO.h"
 
 #include <QMenuBar>
 #include <QToolBar>
@@ -20,13 +21,15 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
-#include <QWidgetAction>
+#include <QFileDialog>
+#include <QMessageBox>
 
 namespace {
 
+constexpr int kFolderRole = Qt::UserRole + 1;     // stores a library folder key on tree items
+
 QIcon ic(const QString &name) { return QIcon(QStringLiteral(":/icons/%1.svg").arg(name)); }
 
-// A toolbar button with icon above text, optional dropdown caret — Geneious style.
 QToolButton *toolButton(const QString &icon, const QString &text, bool menu = false) {
     auto *b = new QToolButton;
     b->setIcon(ic(icon));
@@ -42,8 +45,22 @@ QTreeWidgetItem *node(const QString &text, const QString &icon, int count = -1) 
     auto *it = new QTreeWidgetItem;
     it->setText(0, text);
     if (!icon.isEmpty()) it->setIcon(0, ic(icon));
-    if (count >= 0) { it->setText(1, QString::number(count)); }
+    if (count >= 0) it->setText(1, QString::number(count));
     return it;
+}
+
+// Deterministic pseudo-random ACGT sequence (so each sample looks distinct & stable).
+QString genSeq(int len, quint32 seed) {
+    QString s; s.reserve(len);
+    quint32 x = seed * 2654435761u + 1u;
+    const char b[] = "ACGT";
+    for (int i = 0; i < len; ++i) { x = x * 1664525u + 1013904223u; s += QChar(b[(x >> 24) & 3]); }
+    return s;
+}
+
+Feature feat(const QString &n, int s, int e, int strand, const char *hex, double off) {
+    Feature f; f.name = n; f.start = s; f.end = e; f.strand = strand;
+    f.color = QColor(hex); f.offsetPx = off; f.thickness = 12; return f;
 }
 
 } // namespace
@@ -56,13 +73,11 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     buildMenuBar();
     buildMainToolBar();
 
-    // Left dock — source tree
     auto *leftDock = new QDockWidget("Sources", this);
     leftDock->setWidget(buildSourceTree());
     leftDock->setFeatures(QDockWidget::DockWidgetMovable | QDockWidget::DockWidgetClosable);
     addDockWidget(Qt::LeftDockWidgetArea, leftDock);
 
-    // Center — document table over viewer (resizable split)
     auto *split = new QSplitter(Qt::Vertical, this);
     split->addWidget(buildDocumentTable());
     split->addWidget(buildViewer());
@@ -71,7 +86,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     split->setSizes({220, 680});
     setCentralWidget(split);
 
-    // Right dock — options inspector
     auto *rightDock = new QDockWidget("Inspector", this);
     rightDock->setWidget(buildOptionsPanel());
     rightDock->setFeatures(QDockWidget::DockWidgetMovable | QDockWidget::DockWidgetClosable);
@@ -79,18 +93,26 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     addDockWidget(Qt::RightDockWidgetArea, rightDock);
 
     buildStatusBar();
-    loadMockPlasmid();
+
+    loadSampleLibrary();
+    // Open on "Plasmids from NEB" with pACYC177 selected.
+    m_tree->setCurrentItem(m_tree->topLevelItem(0)->child(5));
 }
 
 // --------------------------------------------------------------- menu bar ----
 
 void MainWindow::buildMenuBar() {
-    const char *menus[] = {"File", "Edit", "View", "Tools",
-                           "Sequence", "Annotate && Predict", "Help"};
-    for (const char *m : menus) {
-        QMenu *menu = menuBar()->addMenu(m);
-        menu->addAction("(placeholder)")->setEnabled(false);
-    }
+    QMenu *file = menuBar()->addMenu("File");
+    QAction *open = file->addAction("Open…");
+    open->setShortcut(QKeySequence::Open);
+    connect(open, &QAction::triggered, this, &MainWindow::openFiles);
+    file->addSeparator();
+    QAction *quit = file->addAction("Quit");
+    quit->setShortcut(QKeySequence::Quit);
+    connect(quit, &QAction::triggered, this, &QWidget::close);
+
+    for (const char *m : {"Edit", "View", "Tools", "Sequence", "Annotate && Predict", "Help"})
+        menuBar()->addMenu(m)->addAction("(placeholder)")->setEnabled(false);
 }
 
 // ----------------------------------------------------------- main toolbar ----
@@ -103,7 +125,9 @@ void MainWindow::buildMainToolBar() {
     tb->addWidget(toolButton("arrow-left",  "Back"));
     tb->addWidget(toolButton("arrow-right", "Forward"));
     tb->addSeparator();
-    tb->addWidget(toolButton("plus",       "Add",            true));
+    auto *addBtn = toolButton("plus", "Add", true);
+    connect(addBtn, &QToolButton::clicked, this, &MainWindow::openFiles);
+    tb->addWidget(addBtn);
     tb->addWidget(toolButton("upload",     "Export",         true));
     tb->addWidget(toolButton("search",     "BLAST"));
     tb->addWidget(toolButton("workflow",   "Workflows",      true));
@@ -124,22 +148,25 @@ void MainWindow::buildMainToolBar() {
 // ----------------------------------------------------------- source tree -----
 
 QWidget *MainWindow::buildSourceTree() {
-    auto *tree = new QTreeWidget;
-    tree->setColumnCount(2);
-    tree->setHeaderHidden(true);
-    tree->header()->setSectionResizeMode(0, QHeaderView::Stretch);
-    tree->header()->setSectionResizeMode(1, QHeaderView::ResizeToContents);
-    tree->setIndentation(14);
-    tree->setMinimumWidth(220);
+    m_tree = new QTreeWidget;
+    m_tree->setColumnCount(2);
+    m_tree->setHeaderHidden(true);
+    m_tree->header()->setSectionResizeMode(0, QHeaderView::Stretch);
+    m_tree->header()->setSectionResizeMode(1, QHeaderView::ResizeToContents);
+    m_tree->setIndentation(14);
+    m_tree->setMinimumWidth(220);
 
     auto *local = node("Local", "folder");
     struct Grp { const char *name; int count; };
     const Grp groups[] = {
-        {"Sample Documents", 0}, {"Alignments", 8}, {"Cloning", 12},
-        {"Contig Assembly", 7}, {"Genomes", 234}, {"Plasmids from NEB", 27},
-        {"Primers", 12}, {"Protein Documents", 6}, {"Tree Documents", 4}};
-    for (const auto &gp : groups)
-        local->addChild(node(gp.name, "folder", gp.count));
+        {"Sample Documents", 2}, {"Alignments", 8}, {"Cloning", 12},
+        {"Contig Assembly", 7}, {"Genomes", 234}, {"Plasmids from NEB", 4},
+        {"Primers", 2}, {"Protein Documents", 6}, {"Tree Documents", 4}};
+    for (const auto &gp : groups) {
+        auto *child = node(gp.name, "folder", gp.count);
+        child->setData(0, kFolderRole, gp.name);     // mark as a navigable folder
+        local->addChild(child);
+    }
 
     auto *refs = node("Reference Features", "database", 0);
     refs->addChild(node("Geneious Plasmid Features", "database", 841));
@@ -148,19 +175,18 @@ QWidget *MainWindow::buildSourceTree() {
     for (auto *n : {"Gene", "Genome", "Nucleotide", "Protein", "PubMed", "Structure", "Taxonomy"})
         ncbi->addChild(node(n, "database"));
 
-    tree->addTopLevelItem(local);
-    tree->addTopLevelItem(refs);
-    tree->addTopLevelItem(node("Deleted Items", "folder", 0));
-    tree->addTopLevelItem(node("Cloud", "database"));
-    tree->addTopLevelItem(node("Operations", "workflow"));
-    tree->addTopLevelItem(ncbi);
-    tree->addTopLevelItem(node("UniProt", "database"));
+    m_tree->addTopLevelItem(local);
+    m_tree->addTopLevelItem(refs);
+    m_tree->addTopLevelItem(node("Deleted Items", "folder", 0));
+    m_tree->addTopLevelItem(node("Cloud", "database"));
+    m_tree->addTopLevelItem(node("Operations", "workflow"));
+    m_tree->addTopLevelItem(ncbi);
+    m_tree->addTopLevelItem(node("UniProt", "database"));
     local->setExpanded(true);
     ncbi->setExpanded(true);
 
-    // Select "Plasmids from NEB" to mirror the reference screenshot
-    tree->setCurrentItem(local->child(5));
-    return tree;
+    connect(m_tree, &QTreeWidget::currentItemChanged, this, &MainWindow::onFolderChanged);
+    return m_tree;
 }
 
 // -------------------------------------------------------- document table -----
@@ -169,55 +195,28 @@ QWidget *MainWindow::buildDocumentTable() {
     auto *wrap = new QWidget;
     auto *v = new QVBoxLayout(wrap); v->setContentsMargins(0, 0, 0, 0); v->setSpacing(0);
 
-    // Filter / header strip
     auto *bar = new QWidget; bar->setStyleSheet("background:#252526;border-bottom:1px solid #3c3c3c;");
     auto *h = new QHBoxLayout(bar); h->setContentsMargins(8, 5, 8, 5);
-    auto *filterBtn = new QPushButton(ic("filter"), "Filter");
-    h->addWidget(filterBtn); h->addStretch();
-    auto *sel = new QLabel("1 of 27 selected"); sel->setStyleSheet("color:#9d9d9d;");
-    h->addWidget(sel);
+    h->addWidget(new QPushButton(ic("filter"), "Filter"));
+    h->addStretch();
+    m_selLabel = new QLabel("—"); m_selLabel->setStyleSheet("color:#9d9d9d;");
+    h->addWidget(m_selLabel);
     h->addWidget(new QPushButton(ic("columns"), "Columns"));
     v->addWidget(bar);
 
-    const QStringList cols = {"", "Name", "Description", "Modified", "Organism",
-                              "Sequence Length", "Topology", "Molecule Type", "Taxonomy"};
-    struct Row { const char *name, *desc; int len; };
-    const QVector<Row> rows = {
-        {"LITMUS 28i",  "Cloning vector LITMUS28i, complete sequence", 2823},
-        {"LITMUS 38i",  "Cloning vector LITMUS38i, complete sequence", 2814},
-        {"pACYC177",    "Cloning vector pACYC177, complete sequence",  3941},
-        {"pACYC184",    "Cloning vector pACYC184, complete sequence",  4245},
-        {"pBeloBAC11",  "Cloning vector pBeloBAC11, complete sequence",7507},
-        {"pBR322",      "Cloning vector pBR322, complete sequence",    4361},
-        {"pET11c",      "Cloning vector pET11c, complete sequence",    5672},
-        {"pGPS1.1",     "Transposon donor vector pGPS1.1, complete sequence", 4814},
-        {"pGPS2.1",     "Transposon donor vector pGPS2.1, complete sequence", 4490},
-    };
-    auto *t = new QTableWidget(rows.size(), cols.size());
-    t->setHorizontalHeaderLabels(cols);
-    t->verticalHeader()->setVisible(false);
-    t->setSelectionBehavior(QAbstractItemView::SelectRows);
-    t->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    t->setShowGrid(false);
-    t->setAlternatingRowColors(true);
-    t->horizontalHeader()->setSectionResizeMode(2, QHeaderView::Stretch);
-    t->setColumnWidth(0, 28);
-
-    for (int r = 0; r < rows.size(); ++r) {
-        auto *chk = new QTableWidgetItem();
-        chk->setCheckState(rows[r].name == QString("pACYC177") ? Qt::Checked : Qt::Unchecked);
-        t->setItem(r, 0, chk);
-        t->setItem(r, 1, new QTableWidgetItem(rows[r].name));
-        t->setItem(r, 2, new QTableWidgetItem(rows[r].desc));
-        t->setItem(r, 3, new QTableWidgetItem("06 Dec 2012 12:12 AM"));
-        t->setItem(r, 4, new QTableWidgetItem("Cloning vector"));
-        t->setItem(r, 5, new QTableWidgetItem(QString::number(rows[r].len)));
-        t->setItem(r, 6, new QTableWidgetItem("circular"));
-        t->setItem(r, 7, new QTableWidgetItem("DNA"));
-        t->setItem(r, 8, new QTableWidgetItem("other sequences"));
-    }
-    t->selectRow(2);
-    v->addWidget(t);
+    const QStringList cols = {"Name", "Description", "Modified", "Organism",
+                              "Sequence Length", "Topology", "Molecule Type"};
+    m_table = new QTableWidget(0, cols.size());
+    m_table->setHorizontalHeaderLabels(cols);
+    m_table->verticalHeader()->setVisible(false);
+    m_table->setSelectionBehavior(QAbstractItemView::SelectRows);
+    m_table->setSelectionMode(QAbstractItemView::SingleSelection);
+    m_table->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_table->setShowGrid(false);
+    m_table->setAlternatingRowColors(true);
+    m_table->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
+    connect(m_table, &QTableWidget::itemSelectionChanged, this, &MainWindow::onDocRowChanged);
+    v->addWidget(m_table);
     return wrap;
 }
 
@@ -230,12 +229,10 @@ QWidget *MainWindow::buildViewer() {
     auto *seqTab = new QWidget;
     auto *v = new QVBoxLayout(seqTab); v->setContentsMargins(0, 0, 0, 0); v->setSpacing(0);
 
-    // Viewer sub-toolbar
     auto *sub = new QToolBar;
     sub->setIconSize(QSize(15, 15));
     sub->setStyleSheet("QToolBar{background:#252526;border-bottom:1px solid #3c3c3c;}");
-    auto add = [&](const QString &i, const QString &t) {
-        auto *a = sub->addAction(ic(i), t); return a; };
+    auto add = [&](const QString &i, const QString &t) { return sub->addAction(ic(i), t); };
     add("upload", "Extract");
     add("rotate-cw", "R.C.");
     add("type", "Translate");
@@ -256,7 +253,6 @@ QWidget *MainWindow::buildViewer() {
     m_map = new CircularMapView;
     v->addWidget(m_map, 1);
 
-    // wire zoom controls
     connect(m_zoomBox, qOverload<int>(&QSpinBox::valueChanged), m_map, &CircularMapView::setZoomPercent);
     connect(m_map, &CircularMapView::zoomChanged, this, &MainWindow::onZoomChanged);
     connect(m_map, &CircularMapView::hovered, this, &MainWindow::onHover);
@@ -294,18 +290,17 @@ QWidget *MainWindow::buildOptionsPanel() {
     auto *transl  = addToggle("Translation", false);
     addToggle("Restriction Sites", false);
     addToggle("Circular Overview", false);
-    auto *linear  = addToggle("Linear View", false);
+    m_linearCheck = addToggle("Linear View", false);
     addToggle("Wrap", false);
     auto *names   = addToggle("Show Name", true);
     addToggle("Show Description", false);
 
     connect(annot,  &QCheckBox::toggled, this, [this](bool on){ m_map->setShowAnnotations(on); });
     connect(transl, &QCheckBox::toggled, this, [this](bool on){ m_map->setShowTranslation(on); });
-    connect(linear, &QCheckBox::toggled, this, [this](bool on){ m_map->setLinearView(on); });
+    connect(m_linearCheck, &QCheckBox::toggled, this, [this](bool on){ m_map->setLinearView(on); });
     connect(names,  &QCheckBox::toggled, this, [this](bool on){ m_map->setShowNames(on); });
 
     v->addWidget(grp);
-
     auto *hint = new QLabel(
         "Scroll: rotate plasmid\nOption + Scroll: zoom\nHover: base / residue readout");
     hint->setStyleSheet("color:#6e6e6e;font-size:11px;");
@@ -317,41 +312,139 @@ QWidget *MainWindow::buildOptionsPanel() {
 // -------------------------------------------------------------- status bar ---
 
 void MainWindow::buildStatusBar() {
-    m_memLabel = new QLabel("3,941 / 47,152 MB Memory");
-    m_hoverLabel = new QLabel("Mouse over the plasmid to inspect bases");
+    m_memLabel = new QLabel("Ready");
+    m_hoverLabel = new QLabel("Hover the plasmid to inspect bases");
     statusBar()->addWidget(m_memLabel);
     statusBar()->addPermanentWidget(m_hoverLabel);
 }
 
-// ------------------------------------------------------------- mock data -----
+// ------------------------------------------------------------- library -------
 
-void MainWindow::loadMockPlasmid() {
-    const int N = 3941;
-    QString seq; seq.reserve(N);
-    quint32 s = 0x9e3779b9;                    // deterministic pseudo-random sequence
-    const char bases[] = "ACGT";
-    for (int i = 0; i < N; ++i) {
-        s = s * 1664525u + 1013904223u;
-        seq += QChar(bases[(s >> 24) & 3]);
-    }
-    m_map->setSequence(seq);
-    m_map->setTitle("pACYC177");
-
-    QVector<Feature> feats = {
-        {"bla signal peptide", 3760, 3840,  1, QColor("#d16ad1"),  16, 12},
-        {"bla CDS",            3840,  560,  1, QColor("#f2e23a"), -14, 12},
-        {"bla gene",           3800,  600,  1, QColor("#3fa54a"), -28, 12},
-        {"rep origin",          800, 1300,  1, QColor("#4f9fe0"), -14, 12},
-        {"aph(3')-Ia CDS",     2000, 2750, -1, QColor("#f2e23a"), -14, 12},
-        {"aph(3')-Ia gene",    1980, 2780, -1, QColor("#3fa54a"), -28, 12},
+void MainWindow::loadSampleLibrary() {
+    auto mk = [](const QString &name, const QString &desc, int len, bool circ,
+                 quint32 seed, QVector<Feature> feats) {
+        SequenceDocument d;
+        d.name = name; d.description = desc; d.sequence = genSeq(len, seed);
+        d.circular = circ; d.organism = "synthetic construct";
+        d.modified = "06 Dec 2012 12:12 AM"; d.features = feats;
+        return d;
     };
-    m_map->setFeatures(feats);
-    m_map->fitToView();
-    QSignalBlocker block(m_zoomBox);
-    m_zoomBox->setValue(m_map->zoomPercent());
+
+    m_library["Plasmids from NEB"] = {
+        mk("pACYC177", "Cloning vector pACYC177, complete sequence", 3941, true, 11, {
+            feat("bla signal peptide", 3760, 3840,  1, "#d16ad1",  16),
+            feat("bla CDS",            3840,  560,  1, "#f2e23a", -14),
+            feat("bla gene",           3800,  600,  1, "#3fa54a", -28),
+            feat("rep origin",          800, 1300,  1, "#4f9fe0", -14),
+            feat("aph(3')-Ia CDS",     2000, 2750, -1, "#f2e23a", -14),
+            feat("aph(3')-Ia gene",    1980, 2780, -1, "#3fa54a", -28)}),
+        mk("pBR322", "Cloning vector pBR322, complete sequence", 4361, true, 22, {
+            feat("bla (AmpR)",  86,  946, -1, "#f2e23a", -14),
+            feat("tetA (TetR)", 1525, 2715, 1, "#3fa54a", -14),
+            feat("ori",         2935, 3535, 1, "#4f9fe0", -14)}),
+        mk("pUC19", "Cloning vector pUC19, complete sequence", 2686, true, 33, {
+            feat("lacZα",  146,  469, 1, "#f2e23a", -14),
+            feat("MCS",    396,  455, 1, "#c586c0",  16),
+            feat("AmpR",  1000, 1860, -1, "#3fa54a", -14),
+            feat("ori",   2100, 2700, 1, "#4f9fe0", -14)}),
+        mk("pET11c", "Expression vector pET11c, complete sequence", 5672, true, 44, {
+            feat("T7 promoter", 200,  260, 1, "#ce9178",  16),
+            feat("bla (AmpR)", 1000, 1860, -1, "#f2e23a", -14),
+            feat("lacI",       3000, 4080, -1, "#3fa54a", -14),
+            feat("ori",        4500, 5100, 1, "#4f9fe0", -14)}),
+    };
+    m_library["Sample Documents"] = {
+        mk("EGFP", "Enhanced green fluorescent protein CDS", 720, false, 55, {
+            feat("EGFP CDS", 1, 720, 1, "#f2e23a", -14)}),
+        mk("Insert fragment", "Synthetic insert with ORF and promoter", 1500, false, 66, {
+            feat("promoter",   1,   90, 1, "#ce9178", -14),
+            feat("ORF",      100,  900, 1, "#f2e23a", -14)}),
+    };
+    m_library["Primers"] = {
+        mk("M13 fwd", "M13 forward sequencing primer", 17, false, 77, {}),
+        mk("T7 promoter primer", "T7 promoter primer", 20, false, 88, {}),
+    };
+}
+
+void MainWindow::populateTable(const QString &folder) {
+    const auto &docs = m_library.value(folder);
+    QSignalBlocker block(m_table);
+    m_table->setRowCount(docs.size());
+    for (int r = 0; r < docs.size(); ++r) {
+        const SequenceDocument &d = docs[r];
+        m_table->setItem(r, 0, new QTableWidgetItem(d.name));
+        m_table->setItem(r, 1, new QTableWidgetItem(d.description));
+        m_table->setItem(r, 2, new QTableWidgetItem(d.modified));
+        m_table->setItem(r, 3, new QTableWidgetItem(d.organism));
+        m_table->setItem(r, 4, new QTableWidgetItem(QString::number(d.length())));
+        m_table->setItem(r, 5, new QTableWidgetItem(d.topology()));
+        m_table->setItem(r, 6, new QTableWidgetItem(d.moleculeType));
+    }
+    m_selLabel->setText(QString("%1 document%2").arg(docs.size()).arg(docs.size() == 1 ? "" : "s"));
+}
+
+void MainWindow::showDocument(const SequenceDocument &doc) {
+    m_map->setDocument(doc);
+    if (m_linearCheck) { QSignalBlocker b(m_linearCheck); m_linearCheck->setChecked(!doc.circular); }
+    m_memLabel->setText(QString("%1 — %L2 bp (%3)")
+                            .arg(doc.name).arg(doc.length()).arg(doc.topology()));
+    QSignalBlocker zb(m_zoomBox); m_zoomBox->setValue(m_map->zoomPercent());
 }
 
 // ----------------------------------------------------------------- slots -----
+
+void MainWindow::onFolderChanged() {
+    QTreeWidgetItem *it = m_tree->currentItem();
+    if (!it) return;
+    const QString folder = it->data(0, kFolderRole).toString();
+    if (folder.isEmpty() || !m_library.contains(folder)) {
+        // Not a navigable folder — leave the table as-is.
+        return;
+    }
+    m_currentFolder = folder;
+    populateTable(folder);
+    if (m_table->rowCount() > 0) m_table->selectRow(0);   // triggers onDocRowChanged
+    else { m_table->clearSelection(); }
+}
+
+void MainWindow::onDocRowChanged() {
+    int row = m_table->currentRow();
+    const auto &docs = m_library.value(m_currentFolder);
+    if (row < 0 || row >= docs.size()) return;
+    m_selLabel->setText(QString("1 of %1 selected").arg(docs.size()));
+    showDocument(docs[row]);
+}
+
+void MainWindow::openFiles() {
+    const QStringList paths = QFileDialog::getOpenFileNames(
+        this, "Open sequence files", QString(), SequenceIO::fileFilter());
+    importPaths(paths);
+}
+
+void MainWindow::importPaths(const QStringList &paths, const QString &folderArg) {
+    if (paths.isEmpty()) return;
+    const QString folder = !folderArg.isEmpty() ? folderArg
+                         : !m_currentFolder.isEmpty() ? m_currentFolder
+                         : QStringLiteral("Sample Documents");
+
+    int loaded = 0; QStringList failed;
+    for (const QString &p : paths) {
+        bool ok = false;
+        SequenceDocument doc = SequenceIO::load(p, &ok);
+        if (ok) { m_library[folder].append(doc); ++loaded; }
+        else failed << QFileInfo(p).fileName();
+    }
+
+    if (loaded) {
+        m_currentFolder = folder;
+        populateTable(folder);
+        m_table->selectRow(m_library[folder].size() - 1);   // show the last import
+    }
+    if (!failed.isEmpty())
+        QMessageBox::warning(this, "Import",
+            "Could not read:\n" + failed.join('\n') +
+            "\n\nSupported: FASTA (.fa/.fasta) and GenBank (.gb/.gbk).");
+}
 
 void MainWindow::onHover(int base, QChar nt, int residue, const QString &aa) {
     QString s = QString("Mouse over base %L1 (%2)").arg(base).arg(nt);

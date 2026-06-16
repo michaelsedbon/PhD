@@ -22,5 +22,10 @@ int main(int argc, char *argv[]) {
 
     MainWindow w;
     w.show();
+
+    // Allow opening files passed on the command line (also enables "Open With").
+    QStringList files = app.arguments().mid(1);
+    if (!files.isEmpty()) w.importPaths(files);
+
     return app.exec();
 }

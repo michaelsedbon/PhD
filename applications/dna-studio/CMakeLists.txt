@@ -16,6 +16,9 @@ qt_add_executable(dna-studio
     src/MainWindow.h
     src/CircularMapView.cpp
     src/CircularMapView.h
+    src/SequenceIO.cpp
+    src/SequenceIO.h
+    src/SequenceDocument.h
     resources/resources.qrc
 )
 

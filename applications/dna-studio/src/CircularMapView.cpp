@@ -47,6 +47,15 @@ void CircularMapView::setFeatures(const QVector<Feature> &features) {
     update();
 }
 
+void CircularMapView::setDocument(const SequenceDocument &doc) {
+    m_seq = doc.sequence.toUpper();
+    m_features = doc.features;
+    m_title = doc.name;
+    m_linear = !doc.circular;
+    m_focus = 0.0;
+    fitToView();          // also emits zoomChanged + repaints
+}
+
 // ---------------------------------------------------------------- geometry ---
 
 double CircularMapView::minPpb() const {

@@ -5,7 +5,7 @@ with the SYNTHETICA Lab design system (VS Code dark, Lucide-style icons).
 
 See [REQUIREMENTS.md](REQUIREMENTS.md) for the full spec.
 
-## Status — v0.1
+## Status — v0.2
 
 - ✅ Full 4-pane IDE shell: menu bar, main toolbar, dockable source tree, document
   table, tabbed viewer, options inspector, status bar. All panes resizable.
@@ -17,11 +17,18 @@ See [REQUIREMENTS.md](REQUIREMENTS.md) for the full spec.
     colored base ticks → readable A/C/G/T letters.
   - Live hover readout in the status bar (base, nucleotide, residue, amino acid).
   - Inspector toggles: Annotations, Show Name, Linear View, Translation.
-- 🔜 Real file I/O (FASTA / GenBank), editing, restriction/BLAST — see open questions
-  in REQUIREMENTS.md.
+- ✅ **Working navigation** — a document library wired tree → table → viewer.
+  Selecting a folder lists its documents; selecting a document loads its sequence,
+  features and topology into the map. Ships a sample library (NEB plasmids, sample
+  sequences, primers).
+- ✅ **File import** — FASTA + GenBank readers (`SequenceIO`). File → Open, the **Add**
+  button, or a path on the command line (`dna-studio file.gb`). GenBank features
+  (CDS/gene/origin/promoter/…) are parsed, colored by type, and auto-laid out on
+  radial tracks.
+- 🔜 In-place editing, restriction sites, BLAST, persistence — see REQUIREMENTS.md.
 
-> Currently driven by a single hard-coded mock plasmid (pACYC177, 3941 bp) with mock
-> features. No file loading yet.
+> Sample library is generated in-memory; import real `.gb`/`.fasta` files to work with
+> actual sequences. Editing is not implemented yet (read-only viewer).
 
 ## Build
 

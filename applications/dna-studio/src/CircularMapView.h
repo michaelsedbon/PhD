@@ -5,17 +5,7 @@
 #include <QString>
 #include <QColor>
 
-// A single annotated feature on the sequence (gene, CDS, origin, …).
-// Coordinates are 1-based inclusive. If end < start the feature wraps the origin.
-struct Feature {
-    QString name;
-    int start = 1;
-    int end = 1;
-    int strand = 1;        // +1 forward, -1 reverse
-    QColor color = Qt::yellow;
-    double offsetPx = -14; // radial offset from the DNA ring centerline (+ outward, - inward)
-    double thickness = 12; // band thickness in px
-};
+#include "SequenceDocument.h"
 
 // The plasmid / sequence view — the heart of the app.
 //
@@ -33,6 +23,7 @@ public:
     void setSequence(const QString &seq);
     void setFeatures(const QVector<Feature> &features);
     void setTitle(const QString &name) { m_title = name; update(); }
+    void setDocument(const SequenceDocument &doc);   // load a whole record + fit
 
     int    zoomPercent() const;
     void   setZoomPercent(int percent);
