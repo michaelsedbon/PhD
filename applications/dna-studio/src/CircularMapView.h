@@ -60,7 +60,9 @@ public slots:
     void clearSelection();
     void copySelection();
     void pasteClipboard();
-    void deleteSelection();
+    void deleteSelection();          // delete selected bases (protected)
+    void deleteActive();             // delete the selected annotation, else selected bases
+    void editSelectedFeature();      // open the editor for the selected annotation
     void addAnnotation();
     void undo();
 
@@ -77,6 +79,7 @@ protected:
     void mousePressEvent(QMouseEvent *) override;
     void mouseMoveEvent(QMouseEvent *) override;
     void mouseReleaseEvent(QMouseEvent *) override;
+    void mouseDoubleClickEvent(QMouseEvent *) override;
     void contextMenuEvent(QContextMenuEvent *) override;
     void resizeEvent(QResizeEvent *) override;
 
@@ -100,6 +103,8 @@ private:
     QString selectionText() const;
     void pushUndo();
     void emitSelection();
+    void centerOnSelection();   // anchor m_focus on the selection center (keeps it centered on zoom)
+    int  featureAt(const QPointF &pt) const;   // index of the feature under a point, or -1
     void gotoCurrentHit();
     static QString reverseComplement(const QString &s);
     static QChar translateCodon(const QString &codon, QString *threeLetter, QString *fullName);
@@ -120,7 +125,10 @@ private:
     // selection (1-based inclusive; m_selLo <= 0 means none)
     int  m_selLo = -1, m_selHi = -1;
     bool m_selecting = false;
+    bool m_dragged = false;
     double m_pressBase = 0;
+    int  m_pressFeature = -1;       // feature under the press point (for click-to-select)
+    int  m_selectedFeature = -1;    // currently selected annotation, or -1
     bool m_editable = false;
 
     struct Snapshot { QString seq; QVector<Feature> feats; int lo, hi; };

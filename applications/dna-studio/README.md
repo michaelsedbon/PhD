@@ -36,6 +36,13 @@ See [REQUIREMENTS.md](REQUIREMENTS.md) for the full spec.
   primer_bind, …) draw as real **block arrows**; non-directional ones (rep_origin,
   terminator, misc_feature, protein_bind, …) draw as plain capsules. (FASTA carries no
   annotations of its own — types come from the GenBank/EMBL feature vocabulary.)
+- ✅ **Interactive annotations** — click an annotation to select it (white outline),
+  **double-click to edit** it (name/type/direction/color), and Delete to remove it
+  (annotations delete freely with undo — no sequence lock needed). Labels are
+  **horizontal**, zoom-adaptive, centered on the feature's visible portion, with a
+  readability halo, and hidden when they wouldn't fit (no clutter).
+- ✅ **Selection-centered zoom** — when a base range is selected (drag or Find), zooming
+  keeps that stretch centered.
 - ✅ **Find (Cmd+F)** — a find bar searches for a subsequence and highlights **all
   hits** around the plasmid (green bands). Supports **approximate matching** up to a
   configurable **Hamming distance** (max mismatches) and searches **both strands**;
@@ -79,9 +86,10 @@ On Linux: `sudo apt install qt6-base-dev qt6-svg-dev cmake build-essential`.
 |-------|--------|
 | Scroll | Rotate plasmid / scroll along sequence |
 | Option (Alt) + Scroll | Zoom in / out |
-| Left-drag | Select a base range |
-| Click (no drag) | Clear selection |
-| Right-click | Context menu (Copy, Add Annotation, Paste, Delete, …) |
+| Left-drag | Select a base range (zoom keeps it centered) |
+| Click an annotation | Select it; click empty space to clear |
+| Double-click an annotation | Edit it (name/type/direction/color) |
+| Right-click | Context menu (annotation- or base-aware) |
 | Ctrl+Z / Ctrl+C / Ctrl+V / Ctrl+A | Undo / Copy / Paste / Select All |
 | Cmd/Ctrl+F | Open Find bar (search subsequence, with mismatch tolerance) |
 | Cmd/Ctrl+G / Cmd/Ctrl+Shift+G | Find next / previous hit |

@@ -138,9 +138,9 @@ void MainWindow::buildEditMenu() {
     paste->setShortcut(QKeySequence::Paste);
     connect(paste, &QAction::triggered, m_map, &CircularMapView::pasteClipboard);
 
-    auto *del = m_editMenu->addAction("Delete Selection");
-    del->setShortcut(QKeySequence::Delete);
-    connect(del, &QAction::triggered, m_map, &CircularMapView::deleteSelection);
+    auto *del = m_editMenu->addAction("Delete");
+    del->setShortcuts({QKeySequence::Delete, QKeySequence(Qt::Key_Backspace)});
+    connect(del, &QAction::triggered, m_map, &CircularMapView::deleteActive);
     m_editMenu->addSeparator();
 
     auto *selAll = m_editMenu->addAction("Select All");

@@ -13,6 +13,7 @@
 #include <QMessageBox>
 #include <QGuiApplication>
 #include <QClipboard>
+#include <QFontMetricsF>
 #include <QHash>
 #include <QPair>
 #include <cmath>
@@ -65,6 +66,7 @@ void CircularMapView::setDocument(const SequenceDocument &doc) {
     m_linear = !doc.circular;
     m_focus = 0.0;
     m_selLo = m_selHi = -1;
+    m_selectedFeature = -1;
     m_undo.clear();
     m_hits.clear(); m_currentHit = -1;
     emitSelection();
@@ -121,15 +123,24 @@ double CircularMapView::baseAtPoint(const QPointF &p, const Geom &g) const {
 
 int  CircularMapView::zoomPercent() const { return int(std::lround(m_ppb / kPpbAt100 * 100.0)); }
 
+void CircularMapView::centerOnSelection() {
+    if (!hasSelection()) return;
+    const int N = qMax(1, m_seq.size());
+    m_focus = std::fmod((m_selLo + m_selHi) / 2.0 - 1.0, double(N));   // center of [lo,hi]
+    if (m_focus < 0) m_focus += N;
+}
+
 void CircularMapView::setZoomPercent(int percent) {
     double p = qBound(minPpb() * 0.6, percent / 100.0 * kPpbAt100, kMaxPpb);
     if (qFuzzyCompare(p, m_ppb)) return;
+    centerOnSelection();   // keep the selected stretch centered while zooming
     m_ppb = p; m_userZoomed = true; emit zoomChanged(zoomPercent()); update();
 }
 
 void CircularMapView::applyZoom(double factor) {
     double p = qBound(minPpb() * 0.6, m_ppb * factor, kMaxPpb);
     if (qFuzzyCompare(p, m_ppb)) return;
+    centerOnSelection();   // keep the selected stretch centered while zooming
     m_ppb = p; m_userZoomed = true; emit zoomChanged(zoomPercent()); update();
 }
 
@@ -169,7 +180,9 @@ void CircularMapView::mousePressEvent(QMouseEvent *e) {
     setFocus();
     Geom g = geometry();
     m_pressBase = baseAtPoint(e->position(), g);
+    m_pressFeature = featureAt(e->position());
     m_selecting = true;
+    m_dragged = false;
     int b = qBound(1, int(std::lround(m_pressBase)) + 1, m_seq.size());   // nearest base
     m_selLo = m_selHi = b;
     update();
@@ -182,6 +195,7 @@ void CircularMapView::mouseMoveEvent(QMouseEvent *e) {
 
     const int N = m_seq.size();
     if (m_selecting) {
+        if (std::abs(bd - m_pressBase) >= 0.5) { m_dragged = true; m_selectedFeature = -1; }
         int a = qBound(1, int(std::lround(m_pressBase)) + 1, N);
         int b = qBound(1, int(std::lround(bd)) + 1, N);
         m_selLo = qMin(a, b); m_selHi = qMax(a, b);
@@ -214,14 +228,58 @@ void CircularMapView::mouseMoveEvent(QMouseEvent *e) {
 void CircularMapView::mouseReleaseEvent(QMouseEvent *e) {
     if (!m_selecting) { QWidget::mouseReleaseEvent(e); return; }
     m_selecting = false;
-    Geom g = geometry();
-    double rel = baseAtPoint(e->position(), g);
-    if (std::abs(rel - m_pressBase) < 0.5) clearSelection();   // a plain click clears
-    else emitSelection();
+    if (!m_dragged) {
+        // a plain click: select the annotation under the cursor (if any), else deselect
+        m_selLo = m_selHi = -1;
+        m_selectedFeature = m_pressFeature;
+        emitSelection();
+    } else {
+        m_selectedFeature = -1;
+        emitSelection();
+    }
     update();
 }
 
+void CircularMapView::mouseDoubleClickEvent(QMouseEvent *e) {
+    if (e->button() != Qt::LeftButton || m_seq.isEmpty()) { QWidget::mouseDoubleClickEvent(e); return; }
+    int fi = featureAt(e->position());
+    if (fi >= 0) { m_selectedFeature = fi; update(); editSelectedFeature(); }
+}
+
+int CircularMapView::featureAt(const QPointF &pt) const {
+    if (m_seq.isEmpty()) return -1;
+    Geom g = geometry();
+    int pos = qBound(1, int(std::lround(baseAtPoint(pt, g))) + 1, m_seq.size());
+    double off;
+    if (m_linear) off = height() * 0.45 - pt.y();
+    else { double r = std::hypot(pt.x() - g.Cx, pt.y() - g.Cy); off = r - g.R; }
+    int found = -1;
+    for (int i = 0; i < m_features.size(); ++i) {
+        const Feature &f = m_features[i];
+        bool inRange = (f.end >= f.start) ? (pos >= f.start && pos <= f.end)
+                                          : (pos >= f.start || pos <= f.end);
+        if (inRange && std::abs(off - f.offsetPx) <= f.thickness / 2.0 + 4.0) found = i; // topmost
+    }
+    return found;
+}
+
 void CircularMapView::contextMenuEvent(QContextMenuEvent *e) {
+    // Right-click on an annotation → annotation menu.
+    int fi = featureAt(QPointF(e->pos()));
+    if (fi >= 0) {
+        m_selectedFeature = fi; m_selLo = m_selHi = -1; emitSelection(); update();
+        QMenu fmenu(this);
+        fmenu.addAction(QString("Annotation: %1 (%2)")
+                            .arg(m_features[fi].name, m_features[fi].type))->setEnabled(false);
+        fmenu.addSeparator();
+        QAction *ed  = fmenu.addAction("Edit Annotation…");
+        QAction *del = fmenu.addAction("Delete Annotation");
+        QAction *r = fmenu.exec(e->globalPos());
+        if (r == ed)       editSelectedFeature();
+        else if (r == del) deleteActive();
+        return;
+    }
+
     QMenu menu(this);
     const bool sel = hasSelection();
     const QString clip = QGuiApplication::clipboard()->text();
@@ -366,10 +424,36 @@ void CircularMapView::addAnnotation() {
     update();
 }
 
+void CircularMapView::editSelectedFeature() {
+    if (m_selectedFeature < 0 || m_selectedFeature >= m_features.size()) return;
+    Feature f = m_features[m_selectedFeature];
+    QString name = f.name, type = f.type; int strand = f.strand; QColor color = f.color;
+    if (!AnnotationDialog::edit(this, f.start, f.end, name, type, strand, color)) return;
+    pushUndo();
+    Feature &g = m_features[m_selectedFeature];
+    g.name = name; g.type = type; g.strand = strand; g.color = color;
+    g.directional = (strand != 0);
+    emit documentEdited();
+    update();
+}
+
+void CircularMapView::deleteActive() {
+    if (m_selectedFeature >= 0 && m_selectedFeature < m_features.size()) {
+        pushUndo();                                  // deleting an annotation is cheap & undoable
+        m_features.removeAt(m_selectedFeature);
+        m_selectedFeature = -1;
+        emit documentEdited();
+        update();
+    } else {
+        deleteSelection();                           // base deletion (protected + confirmed)
+    }
+}
+
 void CircularMapView::undo() {
     if (m_undo.isEmpty()) return;
     Snapshot s = m_undo.takeLast();
     m_seq = s.seq; m_features = s.feats; m_selLo = s.lo; m_selHi = s.hi;
+    m_selectedFeature = -1;
     emitSelection();
     emit documentEdited();
     update();
@@ -523,53 +607,71 @@ void CircularMapView::drawRuler(QPainter &p, const Geom &g) {
 
 void CircularMapView::drawFeatures(QPainter &p, const Geom &g) {
     const int N = m_seq.size();
-    for (const Feature &f : m_features) {
+    // Zoom-adaptive but always-readable label font.
+    QFont lf = font();
+    lf.setPointSizeF(qBound(8.0, 8.0 + m_ppb * 0.25, 12.0));
+    lf.setBold(true);
+    const QFontMetricsF fm(lf);
+
+    for (int i = 0; i < m_features.size(); ++i) {
+        const Feature &f = m_features[i];
         double startB = f.start - 1;
         double lenB = (f.end >= f.start) ? (f.end - f.start + 1)
                                          : (N - f.start + 1 + f.end);
         if (lenB <= 0) continue;
         double half = f.thickness / 2.0;
+        bool selected = (i == m_selectedFeature);
 
-        // Directional features are drawn as a single block-arrow that tapers to a
-        // point at the strand tip; non-directional ones as a plain band.
+        // Directional features → single block-arrow tapering to the strand tip;
+        // non-directional → plain band.
         bool dir = f.directional && f.strand != 0;
         double head = dir ? qBound(2.0, 14.0 / m_ppb, lenB * 0.5) : 0.0;
         auto edge = [&](double b) -> double {
             if (!dir) return half;
-            double d = (f.strand >= 0) ? (startB + lenB - b) : (b - startB);  // dist from tip
+            double d = (f.strand >= 0) ? (startB + lenB - b) : (b - startB);
             return (d < head) ? half * (d / head) : half;
         };
 
         int segs = qBound(8, int(lenB * m_ppb / 5.0), 700);
         QPainterPath path;
-        for (int i = 0; i <= segs; ++i) {
-            double b = startB + lenB * i / segs;
-            QPointF pt = mapBase(b, f.offsetPx + edge(b), g);
-            (i == 0) ? path.moveTo(pt) : path.lineTo(pt);
-        }
-        for (int i = segs; i >= 0; --i) {
-            double b = startB + lenB * i / segs;
-            path.lineTo(mapBase(b, f.offsetPx - edge(b), g));
-        }
+        for (int j = 0; j <= segs; ++j)
+            (j == 0) ? path.moveTo(mapBase(startB + lenB * j / segs, f.offsetPx + edge(startB + lenB * j / segs), g))
+                     : path.lineTo(mapBase(startB + lenB * j / segs, f.offsetPx + edge(startB + lenB * j / segs), g));
+        for (int j = segs; j >= 0; --j)
+            path.lineTo(mapBase(startB + lenB * j / segs, f.offsetPx - edge(startB + lenB * j / segs), g));
         path.closeSubpath();
+
         p.setPen(QPen(f.color.darker(150), 1.0));
         p.setBrush(f.color);
         p.drawPath(path);
+        if (selected) {                         // highlight the selected annotation
+            p.setPen(QPen(QColor("#ffffff"), 2.0));
+            p.setBrush(Qt::NoBrush);
+            p.drawPath(path);
+        }
 
-        if (m_showNames && lenB * m_ppb > 40) {
-            double midB = startB + lenB / 2.0;
-            QPointF mp = mapBase(midB, f.offsetPx, g);
-            p.save();
-            p.translate(mp);
-            if (!m_linear) {
-                double deg = 2.0 * M_PI * (midB - m_focus) / N * 180.0 / M_PI + 90.0;
-                if (deg > 90 && deg < 270) deg += 180;
-                p.rotate(deg);
+        // Horizontal label, centered on the *visible* portion of the feature so a
+        // feature you've zoomed into still shows its name. Only when it fits.
+        if (m_showNames && !f.name.isEmpty()) {
+            double mid = startB + lenB / 2.0;
+            double rep = mid;                            // representative center nearest focus (handles wrap)
+            for (double cand : {mid - N, mid + N})
+                if (std::abs(cand - m_focus) < std::abs(rep - m_focus)) rep = cand;
+            double fStart = startB + (rep - mid), fEnd = fStart + lenB;
+            double W = width() / (2.0 * m_ppb);          // half the on-screen base span
+            double visLo = qMax(fStart, m_focus - W), visHi = qMin(fEnd, m_focus + W);
+            double tw = fm.horizontalAdvance(f.name);
+            if (visHi > visLo && ((visHi - visLo) * m_ppb > tw + 10 || selected)) {
+                QPointF mp = mapBase((visLo + visHi) / 2.0, f.offsetPx, g);
+                QRectF tr(mp.x() - tw / 2 - 3, mp.y() - fm.height() / 2, tw + 6, fm.height());
+                p.setFont(lf);
+                p.setPen(QColor(0, 0, 0, 170));          // dark halo for readability over any color
+                for (int dx = -1; dx <= 1; ++dx)
+                    for (int dy = -1; dy <= 1; ++dy)
+                        if (dx || dy) p.drawText(tr.translated(dx, dy), Qt::AlignCenter, f.name);
+                p.setPen(Qt::white);
+                p.drawText(tr, Qt::AlignCenter, f.name);
             }
-            QFont lf = font(); lf.setPointSizeF(8.5); lf.setBold(true); p.setFont(lf);
-            p.setPen(Qt::white);
-            p.drawText(QRectF(-80, -8, 160, 16), Qt::AlignCenter, f.name);
-            p.restore();
         }
     }
 }

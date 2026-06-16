@@ -19,8 +19,11 @@ QIcon swatch(const QColor &c) {
 }
 }
 
-AnnotationDialog::AnnotationDialog(int lo, int hi, QWidget *parent) : QDialog(parent) {
-    setWindowTitle("Add Annotation");
+AnnotationDialog::AnnotationDialog(int lo, int hi, QWidget *parent,
+                                   const QString &name, const QString &type,
+                                   int strand, const QColor &color, const QString &title)
+    : QDialog(parent) {
+    setWindowTitle(title);
     setModal(true);
 
     auto *form = new QFormLayout;
@@ -28,14 +31,13 @@ AnnotationDialog::AnnotationDialog(int lo, int hi, QWidget *parent) : QDialog(pa
     form->addRow("Region:", new QLabel(QString("%L1 – %L2  (%L3 bp)")
                                            .arg(lo).arg(hi).arg(hi - lo + 1)));
 
-    m_name = new QLineEdit("new feature");
+    m_name = new QLineEdit(name);
     m_name->selectAll();
     form->addRow("Name:", m_name);
 
     m_type = new QComboBox;
     for (const auto &t : FeatureTypes::all())
         m_type->addItem(swatch(t.color), t.key);
-    m_type->setCurrentText("CDS");
     form->addRow("Type:", m_type);
 
     m_dir = new QComboBox;
@@ -56,7 +58,11 @@ AnnotationDialog::AnnotationDialog(int lo, int hi, QWidget *parent) : QDialog(pa
     connect(m_type, &QComboBox::currentTextChanged, this, &AnnotationDialog::onTypeChanged);
     connect(m_colorBtn, &QPushButton::clicked, this, &AnnotationDialog::pickColor);
 
-    onTypeChanged();   // initialise color + direction from the default type
+    if (m_type->currentText() != type) m_type->setCurrentText(type);
+    onTypeChanged();                          // color + direction defaults for `type`
+    if (color.isValid()) { m_color = color; refreshSwatch(); }   // keep existing color when editing
+    m_dir->setCurrentIndex(strand > 0 ? 0 : strand < 0 ? 1 : 2);
+    m_dir->setEnabled(FeatureTypes::directionalFor(type));
 }
 
 void AnnotationDialog::onTypeChanged() {
@@ -96,6 +102,14 @@ int AnnotationDialog::strand() const {
 bool AnnotationDialog::get(QWidget *parent, int lo, int hi,
                           QString &name, QString &type, int &strand, QColor &color) {
     AnnotationDialog d(lo, hi, parent);
+    if (d.exec() != QDialog::Accepted || d.name().isEmpty()) return false;
+    name = d.name(); type = d.type(); strand = d.strand(); color = d.color();
+    return true;
+}
+
+bool AnnotationDialog::edit(QWidget *parent, int lo, int hi,
+                           QString &name, QString &type, int &strand, QColor &color) {
+    AnnotationDialog d(lo, hi, parent, name, type, strand, color, "Edit Annotation");
     if (d.exec() != QDialog::Accepted || d.name().isEmpty()) return false;
     name = d.name(); type = d.type(); strand = d.strand(); color = d.color();
     return true;
