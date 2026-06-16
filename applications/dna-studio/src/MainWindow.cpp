@@ -64,7 +64,7 @@ Feature feat(const QString &n, const QString &type, int s, int e, int strand, do
     Feature f; f.name = n; f.type = type; f.start = s; f.end = e; f.strand = strand;
     f.color = FeatureTypes::colorFor(type);
     f.directional = FeatureTypes::directionalFor(type) && strand != 0;
-    f.offsetPx = off; f.thickness = 12; return f;
+    f.offsetPx = off; f.thickness = 17; return f;   // thick enough for in-band text
 }
 
 } // namespace
@@ -441,33 +441,33 @@ void MainWindow::loadSampleLibrary() {
 
     m_library["Plasmids from NEB"] = {
         mk("pACYC177", "Cloning vector pACYC177, complete sequence", 3941, true, 11, {
-            feat("bla signal peptide", "sig_peptide", 3760, 3840,  1,  16),
-            feat("bla CDS",            "CDS",         3840,  560,  1, -14),
-            feat("bla gene",           "gene",        3800,  600,  1, -28),
-            feat("rep origin",         "rep_origin",   800, 1300,  1, -14),
-            feat("aph(3')-Ia CDS",     "CDS",         2000, 2750, -1, -14),
-            feat("aph(3')-Ia gene",    "gene",        1980, 2780, -1, -28)}),
+            feat("bla signal peptide", "sig_peptide", 3760, 3840,  1,  20),
+            feat("bla CDS",            "CDS",         3840,  560,  1, -18),
+            feat("bla gene",           "gene",        3800,  600,  1, -40),
+            feat("rep origin",         "rep_origin",   800, 1300,  1, -18),
+            feat("aph(3')-Ia CDS",     "CDS",         2000, 2750, -1, -18),
+            feat("aph(3')-Ia gene",    "gene",        1980, 2780, -1, -40)}),
         mk("pBR322", "Cloning vector pBR322, complete sequence", 4361, true, 22, {
-            feat("bla (AmpR)",  "CDS",        86,  946, -1, -14),
-            feat("tetA (TetR)", "CDS",       1525, 2715, 1, -14),
-            feat("ori",         "rep_origin", 2935, 3535, 1, -14)}),
+            feat("bla (AmpR)",  "CDS",        86,  946, -1, -18),
+            feat("tetA (TetR)", "CDS",       1525, 2715, 1, -18),
+            feat("ori",         "rep_origin", 2935, 3535, 1, -18)}),
         mk("pUC19", "Cloning vector pUC19, complete sequence", 2686, true, 33, {
-            feat("lacZα", "CDS",          146,  469, 1, -14),
-            feat("MCS",   "misc_feature", 396,  455, 1,  16),
-            feat("AmpR",  "CDS",         1000, 1860, -1, -14),
-            feat("ori",   "rep_origin",  2100, 2700, 1, -14)}),
+            feat("lacZα", "CDS",          146,  469, 1, -18),
+            feat("MCS",   "misc_feature", 396,  455, 1,  20),
+            feat("AmpR",  "CDS",         1000, 1860, -1, -18),
+            feat("ori",   "rep_origin",  2100, 2700, 1, -18)}),
         mk("pET11c", "Expression vector pET11c, complete sequence", 5672, true, 44, {
-            feat("T7 promoter", "promoter",   200,  260, 1,  16),
-            feat("bla (AmpR)",  "CDS",       1000, 1860, -1, -14),
-            feat("lacI",        "CDS",       3000, 4080, -1, -14),
-            feat("ori",         "rep_origin", 4500, 5100, 1, -14)}),
+            feat("T7 promoter", "promoter",   200,  260, 1,  20),
+            feat("bla (AmpR)",  "CDS",       1000, 1860, -1, -18),
+            feat("lacI",        "CDS",       3000, 4080, -1, -18),
+            feat("ori",         "rep_origin", 4500, 5100, 1, -18)}),
     };
     m_library["Sample Documents"] = {
         mk("EGFP", "Enhanced green fluorescent protein CDS", 720, false, 55, {
-            feat("EGFP CDS", "CDS", 1, 720, 1, -14)}),
+            feat("EGFP CDS", "CDS", 1, 720, 1, -18)}),
         mk("Insert fragment", "Synthetic insert with ORF and promoter", 1500, false, 66, {
-            feat("promoter", "promoter", 1,   90, 1, -14),
-            feat("ORF",      "CDS",      100, 900, 1, -14)}),
+            feat("promoter", "promoter", 1,   90, 1, -18),
+            feat("ORF",      "CDS",      100, 900, 1, -18)}),
     };
     m_library["Primers"] = {
         mk("M13 fwd", "M13 forward sequencing primer", 17, false, 77, {}),

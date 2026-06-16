@@ -95,6 +95,8 @@ private:
                           double thickness, const Geom &g) const;
     void drawRuler(class QPainter &p, const Geom &g);
     void drawFeatures(class QPainter &p, const Geom &g);
+    void drawArcLabel(class QPainter &p, const QString &text, double centerBase,
+                      double offsetPx, const QFont &font, const Geom &g);
     void drawFindHits(class QPainter &p, const Geom &g);
     void drawSelection(class QPainter &p, const Geom &g);
     void drawBases(class QPainter &p, const Geom &g);

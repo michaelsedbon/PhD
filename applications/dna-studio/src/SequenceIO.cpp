@@ -32,8 +32,8 @@ void layoutFeatures(QVector<Feature> &features) {
             if (f.start > rowEnd[row]) break;
         if (row == rowEnd.size()) rowEnd.append(0);
         rowEnd[row] = f.end;
-        f.offsetPx  = -14.0 - row * 15.0;
-        f.thickness = 12.0;
+        f.offsetPx  = -18.0 - row * 22.0;
+        f.thickness = 17.0;
     }
 }
 

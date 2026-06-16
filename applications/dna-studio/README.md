@@ -38,9 +38,11 @@ See [REQUIREMENTS.md](REQUIREMENTS.md) for the full spec.
   annotations of its own — types come from the GenBank/EMBL feature vocabulary.)
 - ✅ **Interactive annotations** — click an annotation to select it (white outline),
   **double-click to edit** it (name/type/direction/color), and Delete to remove it
-  (annotations delete freely with undo — no sequence lock needed). Labels are
-  **horizontal**, zoom-adaptive, centered on the feature's visible portion, with a
-  readability halo, and hidden when they wouldn't fit (no clutter).
+  (annotations delete freely with undo — no sequence lock needed). Labels **follow
+  the arc** (each glyph tangent to the curve, flipped upright on the bottom half;
+  plain horizontal in linear view), are zoom-adaptive, centered on the feature's
+  visible portion, with a readability halo, and hidden when they wouldn't fit. Bands
+  are thick enough to carry the text.
 - ✅ **Selection-centered zoom** — when a base range is selected (drag or Find), zooming
   keeps that stretch centered.
 - ✅ **Find (Cmd+F)** — a find bar searches for a subsequence and highlights **all

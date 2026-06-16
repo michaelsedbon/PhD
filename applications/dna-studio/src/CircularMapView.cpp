@@ -417,8 +417,8 @@ void CircularMapView::addAnnotation() {
     f.color = color;
     double minOff = 0;
     for (const Feature &e : m_features) minOff = qMin(minOff, e.offsetPx);
-    f.offsetPx = minOff - 15.0;
-    f.thickness = 12;
+    f.offsetPx = minOff - 22.0;
+    f.thickness = 17;
     m_features.append(f);
     emit documentEdited();
     update();
@@ -598,7 +598,7 @@ void CircularMapView::drawRuler(QPainter &p, const Geom &g) {
         if (!view.contains(a)) continue;
         p.setPen(QPen(QColor("#7a7a7a"), 1.0));
         p.drawLine(a, mapBase(b, 7, g));
-        QPointF t = mapBase(b, 20, g);
+        QPointF t = mapBase(b, 34, g);   // labels sit beyond any outside feature band
         p.setPen(QColor("#9d9d9d"));
         QString lab = (b == 0) ? QString::number(N) : QString("%L1").arg((int)b);
         p.drawText(QRectF(t.x() - 24, t.y() - 8, 48, 16), Qt::AlignCenter, lab);
@@ -650,8 +650,9 @@ void CircularMapView::drawFeatures(QPainter &p, const Geom &g) {
             p.drawPath(path);
         }
 
-        // Horizontal label, centered on the *visible* portion of the feature so a
-        // feature you've zoomed into still shows its name. Only when it fits.
+        // Label centered on the *visible* portion of the feature so a feature you've
+        // zoomed into still shows its name. On the circle the text follows the arc
+        // (each glyph tangent to the curve); in linear view it's plain horizontal.
         if (m_showNames && !f.name.isEmpty()) {
             double mid = startB + lenB / 2.0;
             double rep = mid;                            // representative center nearest focus (handles wrap)
@@ -662,17 +663,56 @@ void CircularMapView::drawFeatures(QPainter &p, const Geom &g) {
             double visLo = qMax(fStart, m_focus - W), visHi = qMin(fEnd, m_focus + W);
             double tw = fm.horizontalAdvance(f.name);
             if (visHi > visLo && ((visHi - visLo) * m_ppb > tw + 10 || selected)) {
-                QPointF mp = mapBase((visLo + visHi) / 2.0, f.offsetPx, g);
-                QRectF tr(mp.x() - tw / 2 - 3, mp.y() - fm.height() / 2, tw + 6, fm.height());
-                p.setFont(lf);
-                p.setPen(QColor(0, 0, 0, 170));          // dark halo for readability over any color
-                for (int dx = -1; dx <= 1; ++dx)
-                    for (int dy = -1; dy <= 1; ++dy)
-                        if (dx || dy) p.drawText(tr.translated(dx, dy), Qt::AlignCenter, f.name);
-                p.setPen(Qt::white);
-                p.drawText(tr, Qt::AlignCenter, f.name);
+                double labelB = (visLo + visHi) / 2.0;
+                if (m_linear) {
+                    QPointF mp = mapBase(labelB, f.offsetPx, g);
+                    QRectF tr(mp.x() - tw / 2 - 3, mp.y() - fm.height() / 2, tw + 6, fm.height());
+                    p.setFont(lf);
+                    p.setPen(QColor(0, 0, 0, 170));
+                    for (int dx = -1; dx <= 1; ++dx)
+                        for (int dy = -1; dy <= 1; ++dy)
+                            if (dx || dy) p.drawText(tr.translated(dx, dy), Qt::AlignCenter, f.name);
+                    p.setPen(Qt::white);
+                    p.drawText(tr, Qt::AlignCenter, f.name);
+                } else {
+                    drawArcLabel(p, f.name, labelB, f.offsetPx, lf, g);
+                }
             }
         }
+    }
+}
+
+void CircularMapView::drawArcLabel(QPainter &p, const QString &text, double centerBase,
+                                   double off, const QFont &f, const Geom &g) {
+    const int N = qMax(1, m_seq.size());
+    QFontMetricsF fm(f);
+    p.setFont(f);
+    const double tw = fm.horizontalAdvance(text);
+
+    // Flip on the bottom half of the circle so glyphs stay upright.
+    double midPhi = std::fmod(2.0 * M_PI * (centerBase - m_focus) / N, 2.0 * M_PI);
+    bool flip = std::cos(midPhi) < 0.0;
+
+    double cum = 0;
+    for (int i = 0; i < text.size(); ++i) {
+        const QString ch = text.mid(i, 1);
+        double cw = fm.horizontalAdvance(ch);
+        double relPx = cum + cw / 2.0 - tw / 2.0;          // px from the text center
+        double base = centerBase + (flip ? -relPx : relPx) / m_ppb;
+        double phi = 2.0 * M_PI * (base - m_focus) / N;
+        QPointF pt = mapBase(base, off, g);
+        p.save();
+        p.translate(pt);
+        p.rotate(phi * 180.0 / M_PI + (flip ? 180.0 : 0.0));   // tangent to the arc
+        QRectF r(-cw / 2.0 - 1, -fm.height() / 2.0, cw + 2, fm.height());
+        p.setPen(QColor(0, 0, 0, 170));
+        for (int dx = -1; dx <= 1; ++dx)
+            for (int dy = -1; dy <= 1; ++dy)
+                if (dx || dy) p.drawText(r.translated(dx, dy), Qt::AlignCenter, ch);
+        p.setPen(Qt::white);
+        p.drawText(r, Qt::AlignCenter, ch);
+        p.restore();
+        cum += cw;
     }
 }
 
