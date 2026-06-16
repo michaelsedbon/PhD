@@ -19,6 +19,10 @@ qt_add_executable(dna-studio
     src/SequenceIO.cpp
     src/SequenceIO.h
     src/SequenceDocument.h
+    src/FeatureTypes.cpp
+    src/FeatureTypes.h
+    src/AnnotationDialog.cpp
+    src/AnnotationDialog.h
     resources/resources.qrc
 )
 

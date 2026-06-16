@@ -1,4 +1,5 @@
 #include "SequenceIO.h"
+#include "FeatureTypes.h"
 
 #include <QFile>
 #include <QFileInfo>
@@ -10,19 +11,6 @@
 namespace SequenceIO {
 
 namespace {
-
-QColor colorForType(const QString &type) {
-    const QString t = type.toLower();
-    if (t == "cds")                              return QColor("#f2e23a");
-    if (t == "gene")                             return QColor("#3fa54a");
-    if (t == "rep_origin" || t == "origin")      return QColor("#4f9fe0");
-    if (t == "promoter")                         return QColor("#ce9178");
-    if (t == "terminator")                       return QColor("#e06666");
-    if (t == "sig_peptide" || t == "mat_peptide")return QColor("#d16ad1");
-    if (t == "primer_bind")                      return QColor("#9cdcfe");
-    if (t.contains("rna"))                       return QColor("#4ec9b0");
-    return QColor("#c586c0");                     // misc / regulatory / default
-}
 
 QString trimQual(QString s) {
     s = s.trimmed();
@@ -124,7 +112,9 @@ SequenceDocument loadGenBank(const QString &path, bool *ok) {
                 if (key.compare("source", Qt::CaseInsensitive) == 0) { haveCur = false; continue; }
                 cur = Feature{};
                 cur.name = key;
-                cur.color = colorForType(key);
+                cur.type = key;
+                cur.color = FeatureTypes::colorFor(key);
+                cur.directional = FeatureTypes::directionalFor(key);
                 cur.strand = loc.contains("complement") ? -1 : 1;
                 static const QRegularExpression num("(\\d+)");
                 auto it = num.globalMatch(loc);

@@ -24,11 +24,18 @@ See [REQUIREMENTS.md](REQUIREMENTS.md) for the full spec.
   button, or a path on the command line (`dna-studio file.gb`). GenBank features
   (CDS/gene/origin/promoter/…) are parsed, colored by type, and auto-laid out on
   radial tracks.
-- ✅ **Selection + editing** — left-drag selects a base range (highlighted, with a
+- ✅ **Selection + editing** — left-drag selects a base range (nearest-base snapping,
+  highlighted with a half-base pad so the first/last bases are clearly included, with a
   status-bar readout). Right-click or the **Edit** menu: Copy, Paste, Add Annotation,
   Delete, Select All. **Deletion is protected**: sequences are locked by default
   (the **Allow Editing** toolbar toggle unlocks), and deleting asks for confirmation.
   Every edit is **undoable (Ctrl+Z)**.
+- ✅ **Annotation types** — a Geneious-style Add Annotation dialog with the INSDC/GenBank
+  feature-key vocabulary (`FeatureTypes`), each with its own color; pick a type,
+  direction, and (optional) custom color. Directional types (CDS, gene, promoter, RBS,
+  primer_bind, …) draw as real **block arrows**; non-directional ones (rep_origin,
+  terminator, misc_feature, protein_bind, …) draw as plain capsules. (FASTA carries no
+  annotations of its own — types come from the GenBank/EMBL feature vocabulary.)
 - 🔜 Restriction sites, BLAST, save/export, multi-record files — see REQUIREMENTS.md.
 
 > Sample library is generated in-memory; import real `.gb`/`.fasta` files for actual

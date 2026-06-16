@@ -1,5 +1,6 @@
 #include "CircularMapView.h"
 #include "SequenceIO.h"
+#include "AnnotationDialog.h"
 
 #include <QPainter>
 #include <QPainterPath>
@@ -167,7 +168,7 @@ void CircularMapView::mousePressEvent(QMouseEvent *e) {
     Geom g = geometry();
     m_pressBase = baseAtPoint(e->position(), g);
     m_selecting = true;
-    int b = int(std::floor(m_pressBase)) + 1;
+    int b = qBound(1, int(std::lround(m_pressBase)) + 1, m_seq.size());   // nearest base
     m_selLo = m_selHi = b;
     update();
 }
@@ -177,17 +178,17 @@ void CircularMapView::mouseMoveEvent(QMouseEvent *e) {
     Geom g = geometry();
     double bd = baseAtPoint(e->position(), g);
 
+    const int N = m_seq.size();
     if (m_selecting) {
-        int a = int(std::floor(m_pressBase)) + 1;
-        int b = int(std::floor(bd)) + 1;
+        int a = qBound(1, int(std::lround(m_pressBase)) + 1, N);
+        int b = qBound(1, int(std::lround(bd)) + 1, N);
         m_selLo = qMin(a, b); m_selHi = qMax(a, b);
         emitSelection();
         update();
         return;
     }
 
-    const int N = m_seq.size();
-    int b0 = int(std::floor(bd)) % N; if (b0 < 0) b0 += N;
+    int b0 = int(std::lround(bd)) % N; if (b0 < 0) b0 += N;
     int pos1 = b0 + 1;
     QChar nt = m_seq.at(b0);
     int residue = -1; QString aa;
@@ -342,17 +343,18 @@ void CircularMapView::pasteClipboard() {
 
 void CircularMapView::addAnnotation() {
     if (!hasSelection()) return;
-    bool ok = false;
-    QString name = QInputDialog::getText(this, "Add Annotation",
-        QString("Name for annotation over %L1–%L2:").arg(m_selLo).arg(m_selHi),
-        QLineEdit::Normal, "new feature", &ok);
-    if (!ok || name.trimmed().isEmpty()) return;
+    QString name, type; int strand; QColor color;
+    if (!AnnotationDialog::get(this, m_selLo, m_selHi, name, type, strand, color))
+        return;
 
     pushUndo();
     Feature f;
-    f.name = name.trimmed();
-    f.start = m_selLo; f.end = m_selHi; f.strand = 1;
-    f.color = QColor("#c586c0");
+    f.name = name;
+    f.type = type;
+    f.start = m_selLo; f.end = m_selHi;
+    f.strand = strand;
+    f.directional = (strand != 0);
+    f.color = color;
     double minOff = 0;
     for (const Feature &e : m_features) minOff = qMin(minOff, e.offsetPx);
     f.offsetPx = minOff - 15.0;
@@ -450,18 +452,31 @@ void CircularMapView::drawFeatures(QPainter &p, const Geom &g) {
         if (lenB <= 0) continue;
         double half = f.thickness / 2.0;
 
-        p.setPen(QPen(f.color.darker(140), 1.0));
-        p.setBrush(f.color);
-        p.drawPath(bandPath(startB, lenB, f.offsetPx, f.thickness, g));
+        // Directional features are drawn as a single block-arrow that tapers to a
+        // point at the strand tip; non-directional ones as a plain band.
+        bool dir = f.directional && f.strand != 0;
+        double head = dir ? qBound(2.0, 14.0 / m_ppb, lenB * 0.5) : 0.0;
+        auto edge = [&](double b) -> double {
+            if (!dir) return half;
+            double d = (f.strand >= 0) ? (startB + lenB - b) : (b - startB);  // dist from tip
+            return (d < head) ? half * (d / head) : half;
+        };
 
-        double tipB = (f.strand >= 0) ? startB + lenB : startB;
-        double backB = tipB - f.strand * qMin(lenB, 18.0 / m_ppb);
-        QPainterPath arrow;
-        arrow.moveTo(mapBase(tipB, f.offsetPx, g));
-        arrow.lineTo(mapBase(backB, f.offsetPx + half * 1.6, g));
-        arrow.lineTo(mapBase(backB, f.offsetPx - half * 1.6, g));
-        arrow.closeSubpath();
-        p.drawPath(arrow);
+        int segs = qBound(8, int(lenB * m_ppb / 5.0), 700);
+        QPainterPath path;
+        for (int i = 0; i <= segs; ++i) {
+            double b = startB + lenB * i / segs;
+            QPointF pt = mapBase(b, f.offsetPx + edge(b), g);
+            (i == 0) ? path.moveTo(pt) : path.lineTo(pt);
+        }
+        for (int i = segs; i >= 0; --i) {
+            double b = startB + lenB * i / segs;
+            path.lineTo(mapBase(b, f.offsetPx - edge(b), g));
+        }
+        path.closeSubpath();
+        p.setPen(QPen(f.color.darker(150), 1.0));
+        p.setBrush(f.color);
+        p.drawPath(path);
 
         if (m_showNames && lenB * m_ppb > 40) {
             double midB = startB + lenB / 2.0;
@@ -483,9 +498,12 @@ void CircularMapView::drawFeatures(QPainter &p, const Geom &g) {
 
 void CircularMapView::drawSelection(QPainter &p, const Geom &g) {
     if (!hasSelection()) return;
-    double startB = m_selLo - 1;
-    double lenB = m_selHi - m_selLo + 1;
-    p.setPen(QPen(QColor(86, 156, 214), 1.2));
+    // Extend half a base (plus a touch) beyond each end so it's clear the
+    // selection includes the first AND last nucleotide.
+    const double pad = 0.6;
+    double startB = (m_selLo - 1) - pad;            // left edge of first base
+    double lenB   = (m_selHi - m_selLo) + 2 * pad;  // out to right edge of last base
+    p.setPen(QPen(QColor(86, 156, 214), 1.3));
     p.setBrush(QColor(86, 156, 214, 70));           // translucent accent overlay
     p.drawPath(bandPath(startB, lenB, -12, 52, g));
 }
