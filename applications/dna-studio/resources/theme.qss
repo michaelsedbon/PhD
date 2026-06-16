@@ -1,0 +1,264 @@
+/* ============================================================
+   DNA Studio — SYNTHETICA Lab theme (VS Code dark)
+   Tokens mirror .agent/DESIGN_GUIDELINES.md
+   ============================================================ */
+
+QWidget {
+    background-color: #1e1e1e;          /* bg-primary  */
+    color: #cccccc;                      /* text-primary */
+    font-family: "Inter", -apple-system, "Segoe UI", sans-serif;
+    font-size: 12px;
+}
+
+QMainWindow, QMainWindow::separator {
+    background-color: #1e1e1e;
+}
+QMainWindow::separator {
+    width: 1px;
+    height: 1px;
+    background: #3c3c3c;
+}
+
+/* ---------- Menu bar ---------- */
+QMenuBar {
+    background-color: #252526;           /* bg-secondary */
+    border-bottom: 1px solid #3c3c3c;
+    padding: 2px 4px;
+}
+QMenuBar::item {
+    background: transparent;
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+QMenuBar::item:selected { background: #2a2d2e; }
+QMenuBar::item:pressed  { background: #37373d; }
+
+QMenu {
+    background-color: #252526;
+    border: 1px solid #3c3c3c;
+    padding: 4px;
+}
+QMenu::item {
+    padding: 5px 24px 5px 12px;
+    border-radius: 4px;
+}
+QMenu::item:selected { background: #094771; color: #ffffff; }
+QMenu::separator { height: 1px; background: #3c3c3c; margin: 4px 6px; }
+
+/* ---------- Toolbars ---------- */
+QToolBar {
+    background-color: #252526;
+    border: none;
+    border-bottom: 1px solid #3c3c3c;
+    spacing: 2px;
+    padding: 4px 6px;
+}
+QToolBar::separator {
+    width: 1px;
+    background: #3c3c3c;
+    margin: 4px 6px;
+}
+QToolButton {
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 5px 8px;
+    color: #cccccc;
+}
+QToolButton:hover {
+    background: #2a2d2e;
+    border-color: #4a4a4a;
+}
+QToolButton:pressed, QToolButton:checked {
+    background: #37373d;
+}
+QToolButton::menu-indicator {
+    subcontrol-position: right center;
+    subcontrol-origin: padding;
+    right: 2px;
+}
+
+/* ---------- Dock widgets ---------- */
+QDockWidget {
+    titlebar-close-icon: url(:/icons/x.svg);
+    color: #9d9d9d;
+    font-size: 11px;
+    font-weight: 600;
+}
+QDockWidget::title {
+    background: #2d2d2d;                  /* bg-tertiary */
+    padding: 6px 10px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #3c3c3c;
+}
+
+/* ---------- Tree (source navigator) ---------- */
+QTreeWidget, QTreeView {
+    background-color: #252526;
+    border: none;
+    outline: 0;
+    show-decoration-selected: 1;
+}
+QTreeView::item {
+    padding: 3px 2px;
+    border: none;
+}
+QTreeView::item:hover { background: #2a2d2e; }
+QTreeView::item:selected { background: #37373d; color: #ffffff; }
+QTreeView::branch:has-children:!has-siblings:closed,
+QTreeView::branch:closed:has-children:has-siblings {
+    image: url(:/icons/chevron-right.svg);
+}
+QTreeView::branch:open:has-children:!has-siblings,
+QTreeView::branch:open:has-children:has-siblings {
+    image: url(:/icons/chevron-down.svg);
+}
+
+/* ---------- Table (document list) ---------- */
+QTableView, QTableWidget {
+    background-color: #1e1e1e;
+    alternate-background-color: #232323;
+    gridline-color: #2d2d2d;
+    border: none;
+    outline: 0;
+    selection-background-color: #094771;
+    selection-color: #ffffff;
+}
+QTableView::item { padding: 4px 8px; }
+QHeaderView::section {
+    background-color: #2d2d2d;
+    color: #9d9d9d;
+    padding: 6px 8px;
+    border: none;
+    border-right: 1px solid #3c3c3c;
+    border-bottom: 1px solid #3c3c3c;
+    font-size: 11px;
+    font-weight: 600;
+}
+QTableCornerButton::section { background: #2d2d2d; border: none; }
+
+/* ---------- Tabs (viewer) ---------- */
+QTabWidget::pane {
+    border: none;
+    border-top: 1px solid #3c3c3c;
+    background: #1e1e1e;
+}
+QTabBar {
+    background: #252526;
+}
+QTabBar::tab {
+    background: #252526;
+    color: #9d9d9d;
+    padding: 8px 16px;
+    border: none;
+    border-bottom: 2px solid transparent;
+}
+QTabBar::tab:hover { color: #cccccc; }
+QTabBar::tab:selected {
+    color: #ffffff;
+    border-bottom-color: #569cd6;        /* accent-blue */
+}
+
+/* ---------- Buttons ---------- */
+QPushButton {
+    background-color: #2d2d2d;
+    color: #cccccc;
+    border: 1px solid #3c3c3c;
+    border-radius: 4px;
+    padding: 5px 12px;
+    font-weight: 500;
+}
+QPushButton:hover { background: #37373d; border-color: #4a4a4a; }
+QPushButton:pressed { background: #094771; }
+QPushButton:disabled { color: #6e6e6e; }
+
+/* ---------- Inputs ---------- */
+QLineEdit, QComboBox, QSpinBox {
+    background-color: #3c3c3c;
+    border: 1px solid #3c3c3c;
+    border-radius: 4px;
+    padding: 5px 8px;
+    color: #cccccc;
+}
+QLineEdit:focus, QComboBox:focus, QSpinBox:focus { border-color: #569cd6; }
+QComboBox::drop-down { border: none; width: 18px; }
+QComboBox::down-arrow { image: url(:/icons/chevron-down.svg); width: 12px; height: 12px; }
+QComboBox QAbstractItemView {
+    background: #252526;
+    border: 1px solid #3c3c3c;
+    selection-background-color: #094771;
+}
+
+/* ---------- Checkboxes ---------- */
+QCheckBox { spacing: 8px; padding: 3px 0; color: #cccccc; }
+QCheckBox::indicator {
+    width: 14px; height: 14px;
+    border: 1px solid #4a4a4a;
+    border-radius: 3px;
+    background: #3c3c3c;
+}
+QCheckBox::indicator:checked {
+    background: #569cd6;
+    border-color: #569cd6;
+    image: url(:/icons/check.svg);
+}
+
+/* ---------- Group boxes (inspector) ---------- */
+QGroupBox {
+    border: 1px solid #3c3c3c;
+    border-radius: 6px;
+    margin-top: 18px;
+    padding: 10px 8px 8px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #9d9d9d;
+}
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    left: 8px;
+    padding: 0 4px;
+    text-transform: uppercase;
+}
+
+/* ---------- Status bar ---------- */
+QStatusBar {
+    background: #569cd6;                  /* accent-blue, VS Code style */
+    color: #ffffff;
+    font-size: 11px;
+}
+QStatusBar QLabel { color: #ffffff; background: transparent; }
+QStatusBar::item { border: none; }
+
+/* ---------- Labels used as chips/badges ---------- */
+QLabel#badge {
+    background: rgba(86,156,214,0.12);
+    color: #569cd6;
+    border-radius: 9px;
+    padding: 2px 8px;
+    font-size: 11px;
+    font-weight: 500;
+}
+QLabel#sectionLabel {
+    color: #9d9d9d;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* ---------- Scrollbars (VS Code style) ---------- */
+QScrollBar:vertical { background: transparent; width: 12px; margin: 0; }
+QScrollBar::handle:vertical {
+    background: rgba(121,121,121,0.4);
+    border-radius: 5px;
+    min-height: 24px;
+}
+QScrollBar::handle:vertical:hover { background: rgba(121,121,121,0.7); }
+QScrollBar:horizontal { background: transparent; height: 12px; margin: 0; }
+QScrollBar::handle:horizontal {
+    background: rgba(121,121,121,0.4);
+    border-radius: 5px;
+    min-width: 24px;
+}
+QScrollBar::handle:horizontal:hover { background: rgba(121,121,121,0.7); }
+QScrollBar::add-line, QScrollBar::sub-line { width: 0; height: 0; }
+QScrollBar::add-page, QScrollBar::sub-page { background: transparent; }
