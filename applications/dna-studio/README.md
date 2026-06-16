@@ -17,18 +17,22 @@ See [REQUIREMENTS.md](REQUIREMENTS.md) for the full spec.
     colored base ticks → readable A/C/G/T letters.
   - Live hover readout in the status bar (base, nucleotide, residue, amino acid).
   - Inspector toggles: Annotations, Show Name, Linear View, Translation.
-- ✅ **Working navigation** — a document library wired tree → table → viewer.
-  Selecting a folder lists its documents; selecting a document loads its sequence,
-  features and topology into the map. Ships a sample library (NEB plasmids, sample
-  sequences, primers).
+- ✅ **Working navigation** — a document library wired tree → table → viewer. Every
+  Local folder is selectable (counts are real); selecting a folder lists its
+  documents and selecting a document loads its sequence, features and topology.
 - ✅ **File import** — FASTA + GenBank readers (`SequenceIO`). File → Open, the **Add**
   button, or a path on the command line (`dna-studio file.gb`). GenBank features
   (CDS/gene/origin/promoter/…) are parsed, colored by type, and auto-laid out on
   radial tracks.
-- 🔜 In-place editing, restriction sites, BLAST, persistence — see REQUIREMENTS.md.
+- ✅ **Selection + editing** — left-drag selects a base range (highlighted, with a
+  status-bar readout). Right-click or the **Edit** menu: Copy, Paste, Add Annotation,
+  Delete, Select All. **Deletion is protected**: sequences are locked by default
+  (the **Allow Editing** toolbar toggle unlocks), and deleting asks for confirmation.
+  Every edit is **undoable (Ctrl+Z)**.
+- 🔜 Restriction sites, BLAST, save/export, multi-record files — see REQUIREMENTS.md.
 
-> Sample library is generated in-memory; import real `.gb`/`.fasta` files to work with
-> actual sequences. Editing is not implemented yet (read-only viewer).
+> Sample library is generated in-memory; import real `.gb`/`.fasta` files for actual
+> sequences. Edits live in memory (no save/export yet) but persist while the app runs.
 
 ## Build
 
@@ -63,7 +67,12 @@ On Linux: `sudo apt install qt6-base-dev qt6-svg-dev cmake build-essential`.
 |-------|--------|
 | Scroll | Rotate plasmid / scroll along sequence |
 | Option (Alt) + Scroll | Zoom in / out |
+| Left-drag | Select a base range |
+| Click (no drag) | Clear selection |
+| Right-click | Context menu (Copy, Add Annotation, Paste, Delete, …) |
+| Ctrl+Z / Ctrl+C / Ctrl+V / Ctrl+A | Undo / Copy / Paste / Select All |
 | Toolbar `+` / `−` / Fit | Zoom in / out / fit whole plasmid |
+| Toolbar **Allow Editing** | Unlock the sequence for deletion/paste |
 | Zoom % box | Set zoom directly |
 | Hover | Base / residue readout in status bar |
 | Inspector › Linear View | Toggle circular ↔ linear rendering |

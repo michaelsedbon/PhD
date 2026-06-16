@@ -11,6 +11,8 @@ class QSpinBox;
 class QCheckBox;
 class QTreeWidget;
 class QTableWidget;
+class QMenu;
+class QAction;
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
@@ -25,10 +27,13 @@ private slots:
     void onZoomChanged(int percent);
     void onFolderChanged();
     void onDocRowChanged();
+    void onSelectionChanged(int lo, int hi, int length);
+    void onDocumentEdited();
     void openFiles();
 
 private:
     void buildMenuBar();
+    void buildEditMenu();          // populated after the map exists
     void buildMainToolBar();
     QWidget *buildSourceTree();
     QWidget *buildDocumentTable();
@@ -44,10 +49,13 @@ private:
     QSpinBox    *m_zoomBox = nullptr;
     QLabel      *m_memLabel = nullptr;
     QLabel      *m_hoverLabel = nullptr;
+    QLabel      *m_selStatus = nullptr;
     QLabel      *m_selLabel = nullptr;
     QCheckBox   *m_linearCheck = nullptr;
     QTreeWidget *m_tree = nullptr;
     QTableWidget *m_table = nullptr;
+    QMenu       *m_editMenu = nullptr;
+    QAction     *m_editAction = nullptr;   // "Allow Editing" toggle
 
     QHash<QString, QVector<SequenceDocument>> m_library;   // folder name → documents
     QString m_currentFolder;

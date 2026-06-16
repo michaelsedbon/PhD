@@ -70,6 +70,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     setWindowIcon(ic("dna"));
     resize(1480, 940);
 
+    loadSampleLibrary();           // build the library first so tree counts are accurate
     buildMenuBar();
     buildMainToolBar();
 
@@ -93,8 +94,11 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     addDockWidget(Qt::RightDockWidgetArea, rightDock);
 
     buildStatusBar();
+    buildEditMenu();               // needs m_map (built in buildViewer)
 
-    loadSampleLibrary();
+    connect(m_map, &CircularMapView::selectionChanged, this, &MainWindow::onSelectionChanged);
+    connect(m_map, &CircularMapView::documentEdited,   this, &MainWindow::onDocumentEdited);
+
     // Open on "Plasmids from NEB" with pACYC177 selected.
     m_tree->setCurrentItem(m_tree->topLevelItem(0)->child(5));
 }
@@ -111,8 +115,36 @@ void MainWindow::buildMenuBar() {
     quit->setShortcut(QKeySequence::Quit);
     connect(quit, &QAction::triggered, this, &QWidget::close);
 
-    for (const char *m : {"Edit", "View", "Tools", "Sequence", "Annotate && Predict", "Help"})
+    m_editMenu = menuBar()->addMenu("Edit");   // filled by buildEditMenu() once the map exists
+    for (const char *m : {"View", "Tools", "Sequence", "Annotate && Predict", "Help"})
         menuBar()->addMenu(m)->addAction("(placeholder)")->setEnabled(false);
+}
+
+void MainWindow::buildEditMenu() {
+    auto *undo = m_editMenu->addAction("Undo");
+    undo->setShortcut(QKeySequence::Undo);
+    connect(undo, &QAction::triggered, m_map, &CircularMapView::undo);
+    m_editMenu->addSeparator();
+
+    auto *copy = m_editMenu->addAction("Copy");
+    copy->setShortcut(QKeySequence::Copy);
+    connect(copy, &QAction::triggered, m_map, &CircularMapView::copySelection);
+
+    auto *paste = m_editMenu->addAction("Paste");
+    paste->setShortcut(QKeySequence::Paste);
+    connect(paste, &QAction::triggered, m_map, &CircularMapView::pasteClipboard);
+
+    auto *del = m_editMenu->addAction("Delete Selection");
+    del->setShortcut(QKeySequence::Delete);
+    connect(del, &QAction::triggered, m_map, &CircularMapView::deleteSelection);
+    m_editMenu->addSeparator();
+
+    auto *selAll = m_editMenu->addAction("Select All");
+    selAll->setShortcut(QKeySequence::SelectAll);
+    connect(selAll, &QAction::triggered, m_map, &CircularMapView::selectAll);
+
+    auto *ann = m_editMenu->addAction("Add Annotation…");
+    connect(ann, &QAction::triggered, m_map, &CircularMapView::addAnnotation);
 }
 
 // ----------------------------------------------------------- main toolbar ----
@@ -158,13 +190,12 @@ QWidget *MainWindow::buildSourceTree() {
 
     auto *local = node("Local", "folder");
     struct Grp { const char *name; int count; };
-    const Grp groups[] = {
-        {"Sample Documents", 2}, {"Alignments", 8}, {"Cloning", 12},
-        {"Contig Assembly", 7}, {"Genomes", 234}, {"Plasmids from NEB", 4},
-        {"Primers", 2}, {"Protein Documents", 6}, {"Tree Documents", 4}};
-    for (const auto &gp : groups) {
-        auto *child = node(gp.name, "folder", gp.count);
-        child->setData(0, kFolderRole, gp.name);     // mark as a navigable folder
+    const char *names[] = {"Sample Documents", "Alignments", "Cloning", "Contig Assembly",
+                           "Genomes", "Plasmids from NEB", "Primers", "Protein Documents",
+                           "Tree Documents"};
+    for (const char *nm : names) {
+        auto *child = node(nm, "folder", m_library.value(nm).size());   // honest count
+        child->setData(0, kFolderRole, nm);          // every Local folder is navigable
         local->addChild(child);
     }
 
@@ -236,8 +267,12 @@ QWidget *MainWindow::buildViewer() {
     add("upload", "Extract");
     add("rotate-cw", "R.C.");
     add("type", "Translate");
-    add("edit", "Add/Edit Annotation");
-    add("lock", "Allow Editing");
+    auto *annAct = add("edit", "Add/Edit Annotation");
+    connect(annAct, &QAction::triggered, [this]{ m_map->addAnnotation(); });
+    m_editAction = add("lock", "Allow Editing");
+    m_editAction->setCheckable(true);
+    m_editAction->setToolTip("Unlock the sequence so it can be edited (protects against accidental deletion)");
+    connect(m_editAction, &QAction::toggled, [this](bool on){ m_map->setEditable(on); });
     add("sparkles", "Annotate & Predict");
     add("save", "Save");
     auto *sp = new QWidget; sp->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
@@ -313,8 +348,10 @@ QWidget *MainWindow::buildOptionsPanel() {
 
 void MainWindow::buildStatusBar() {
     m_memLabel = new QLabel("Ready");
+    m_selStatus = new QLabel("");
     m_hoverLabel = new QLabel("Hover the plasmid to inspect bases");
     statusBar()->addWidget(m_memLabel);
+    statusBar()->addPermanentWidget(m_selStatus);
     statusBar()->addPermanentWidget(m_hoverLabel);
 }
 
@@ -386,8 +423,11 @@ void MainWindow::populateTable(const QString &folder) {
 void MainWindow::showDocument(const SequenceDocument &doc) {
     m_map->setDocument(doc);
     if (m_linearCheck) { QSignalBlocker b(m_linearCheck); m_linearCheck->setChecked(!doc.circular); }
+    if (m_editAction)  { QSignalBlocker b(m_editAction); m_editAction->setChecked(false); }
+    m_map->setEditable(false);     // every document re-locks on open
     m_memLabel->setText(QString("%1 — %L2 bp (%3)")
                             .arg(doc.name).arg(doc.length()).arg(doc.topology()));
+    m_selStatus->clear();
     QSignalBlocker zb(m_zoomBox); m_zoomBox->setValue(m_map->zoomPercent());
 }
 
@@ -397,14 +437,18 @@ void MainWindow::onFolderChanged() {
     QTreeWidgetItem *it = m_tree->currentItem();
     if (!it) return;
     const QString folder = it->data(0, kFolderRole).toString();
-    if (folder.isEmpty() || !m_library.contains(folder)) {
-        // Not a navigable folder — leave the table as-is.
-        return;
-    }
+    if (folder.isEmpty()) return;          // non-folder node (NCBI, UniProt, …) — ignore
     m_currentFolder = folder;
-    populateTable(folder);
-    if (m_table->rowCount() > 0) m_table->selectRow(0);   // triggers onDocRowChanged
-    else { m_table->clearSelection(); }
+    populateTable(folder);                 // updates table even for empty folders
+    if (m_table->rowCount() > 0) {
+        m_table->selectRow(0);             // triggers onDocRowChanged → loads the document
+    } else {
+        m_table->clearSelection();
+        m_map->setSequence(QString());     // empty viewer
+        m_memLabel->setText(QString("%1 — empty").arg(folder));
+        m_selStatus->clear();
+        m_hoverLabel->setText("");
+    }
 }
 
 void MainWindow::onDocRowChanged() {
@@ -413,6 +457,22 @@ void MainWindow::onDocRowChanged() {
     if (row < 0 || row >= docs.size()) return;
     m_selLabel->setText(QString("1 of %1 selected").arg(docs.size()));
     showDocument(docs[row]);
+}
+
+void MainWindow::onSelectionChanged(int lo, int hi, int length) {
+    if (length <= 0) { m_selStatus->clear(); return; }
+    m_selStatus->setText(QString("Selection: %L1–%L2  (%L3 bp)").arg(lo).arg(hi).arg(length));
+}
+
+void MainWindow::onDocumentEdited() {
+    int row = m_table->currentRow();
+    auto &docs = m_library[m_currentFolder];
+    if (row < 0 || row >= docs.size()) return;
+    docs[row].sequence = m_map->sequence();      // persist edits back into the library
+    docs[row].features = m_map->features();
+    if (auto *cell = m_table->item(row, 4)) cell->setText(QString::number(docs[row].length()));
+    m_memLabel->setText(QString("%1 — %L2 bp (%3)")
+                            .arg(docs[row].name).arg(docs[row].length()).arg(docs[row].topology()));
 }
 
 void MainWindow::openFiles() {

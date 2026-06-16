@@ -11,10 +11,15 @@
 //
 //  * Scroll wheel            → rotate the plasmid (spin the focus base).
 //  * Option/Alt + scroll     → zoom in / out (radius grows, arc flattens).
+//  * Left-drag               → select a base range (highlighted on the map).
+//  * Right-click             → context menu (Copy, Add Annotation, Delete, …).
 //  * The focus base stays anchored near the top-center; as you zoom in the
 //    circle's center slides down off-screen so the sequence is always centered.
 //  * Progressive level-of-detail: arcs → bp ruler → annotation bands → colored
-//    base ticks → readable A/C/G/T letters → amino-acid translation.
+//    base ticks → readable A/C/G/T letters.
+//
+// Editing is locked by default; destructive ops require setEditable(true) AND a
+// confirmation. Every mutation is undoable (Ctrl+Z).
 class CircularMapView : public QWidget {
     Q_OBJECT
 public:
@@ -28,50 +33,85 @@ public:
     int    zoomPercent() const;
     void   setZoomPercent(int percent);
 
+    QString sequence() const { return m_seq; }
+    const QVector<Feature> &features() const { return m_features; }
+    bool isEditable() const { return m_editable; }
+    bool hasSelection() const { return m_selLo > 0 && m_selHi >= m_selLo; }
+    bool canUndo() const { return !m_undo.isEmpty(); }
+
 public slots:
     void setShowAnnotations(bool on) { m_showAnnotations = on; update(); }
     void setShowNames(bool on)       { m_showNames = on; update(); }
     void setShowTranslation(bool on) { m_translate = on; update(); }
     void setLinearView(bool on)      { m_linear = on; update(); }
+    void setEditable(bool on)        { m_editable = on; }
     void zoomIn()                    { applyZoom(1.25); }
     void zoomOut()                   { applyZoom(1.0 / 1.25); }
     void fitToView();                // zoom out so the whole plasmid is visible
 
+    void selectAll();
+    void clearSelection();
+    void copySelection();
+    void pasteClipboard();
+    void deleteSelection();
+    void addAnnotation();
+    void undo();
+
 signals:
     void hovered(int base, QChar nucleotide, int residue, const QString &aa);
     void zoomChanged(int percent);
+    void selectionChanged(int lo, int hi, int length);   // length 0 == no selection
+    void documentEdited();
 
 protected:
     void paintEvent(QPaintEvent *) override;
     void wheelEvent(QWheelEvent *) override;
+    void mousePressEvent(QMouseEvent *) override;
     void mouseMoveEvent(QMouseEvent *) override;
+    void mouseReleaseEvent(QMouseEvent *) override;
+    void contextMenuEvent(QContextMenuEvent *) override;
     void resizeEvent(QResizeEvent *) override;
 
 private:
     struct Geom { double Cx, Cy, R; bool fits; };
-    Geom geometry() const;                     // current circle center + radius
+    Geom geometry() const;
     QPointF mapBase(double base, double offsetPx, const Geom &g) const;
     double  baseAtPoint(const QPointF &p, const Geom &g) const;
     void    applyZoom(double factor);
-    double  minPpb() const;                     // ppb at which whole plasmid just fits
+    double  minPpb() const;
 
-    void drawRuler(QPainter &p, const Geom &g);
-    void drawFeatures(QPainter &p, const Geom &g);
-    void drawBases(QPainter &p, const Geom &g);
+    QPainterPath bandPath(double startB, double lenB, double offset,
+                          double thickness, const Geom &g) const;
+    void drawRuler(class QPainter &p, const Geom &g);
+    void drawFeatures(class QPainter &p, const Geom &g);
+    void drawSelection(class QPainter &p, const Geom &g);
+    void drawBases(class QPainter &p, const Geom &g);
 
     QColor baseColor(QChar c) const;
+    QString selectionText() const;
+    void pushUndo();
+    void emitSelection();
     static QChar translateCodon(const QString &codon, QString *threeLetter, QString *fullName);
 
     QString m_seq;
     QString m_title = "untitled";
     QVector<Feature> m_features;
 
-    double m_ppb   = 0.05;   // pixels per base (the zoom level)
-    double m_focus = 0.0;    // base index anchored at the top / focus point
+    double m_ppb   = 0.05;
+    double m_focus = 0.0;
 
     bool m_showAnnotations = true;
     bool m_showNames       = true;
     bool m_translate       = false;
     bool m_linear          = false;
-    bool m_userZoomed      = false;   // once true, stop auto-fitting on resize
+    bool m_userZoomed      = false;
+
+    // selection (1-based inclusive; m_selLo <= 0 means none)
+    int  m_selLo = -1, m_selHi = -1;
+    bool m_selecting = false;
+    double m_pressBase = 0;
+    bool m_editable = false;
+
+    struct Snapshot { QString seq; QVector<Feature> feats; int lo, hi; };
+    QVector<Snapshot> m_undo;
 };
