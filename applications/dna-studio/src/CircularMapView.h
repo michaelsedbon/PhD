@@ -39,6 +39,13 @@ public:
     bool hasSelection() const { return m_selLo > 0 && m_selHi >= m_selLo; }
     bool canUndo() const { return !m_undo.isEmpty(); }
 
+    // Approximate search: find all windows matching `query` within `maxMismatch`
+    // Hamming distance, optionally on both strands. Mismatched bases are flagged.
+    void findMatches(const QString &query, int maxMismatch, bool bothStrands);
+    void nextHit();
+    void prevHit();
+    void clearFind();
+
 public slots:
     void setShowAnnotations(bool on) { m_showAnnotations = on; update(); }
     void setShowNames(bool on)       { m_showNames = on; update(); }
@@ -62,6 +69,7 @@ signals:
     void zoomChanged(int percent);
     void selectionChanged(int lo, int hi, int length);   // length 0 == no selection
     void documentEdited();
+    void findResults(int count, int current);            // current is 1-based, 0 == none
 
 protected:
     void paintEvent(QPaintEvent *) override;
@@ -84,6 +92,7 @@ private:
                           double thickness, const Geom &g) const;
     void drawRuler(class QPainter &p, const Geom &g);
     void drawFeatures(class QPainter &p, const Geom &g);
+    void drawFindHits(class QPainter &p, const Geom &g);
     void drawSelection(class QPainter &p, const Geom &g);
     void drawBases(class QPainter &p, const Geom &g);
 
@@ -91,6 +100,8 @@ private:
     QString selectionText() const;
     void pushUndo();
     void emitSelection();
+    void gotoCurrentHit();
+    static QString reverseComplement(const QString &s);
     static QChar translateCodon(const QString &codon, QString *threeLetter, QString *fullName);
 
     QString m_seq;
@@ -114,4 +125,9 @@ private:
 
     struct Snapshot { QString seq; QVector<Feature> feats; int lo, hi; };
     QVector<Snapshot> m_undo;
+
+    // find / approximate search
+    struct FindHit { int start; int len; int strand; QVector<int> mm; }; // mm: 1-based mismatch positions
+    QVector<FindHit> m_hits;
+    int m_currentHit = -1;
 };

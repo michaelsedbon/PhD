@@ -66,7 +66,9 @@ void CircularMapView::setDocument(const SequenceDocument &doc) {
     m_focus = 0.0;
     m_selLo = m_selHi = -1;
     m_undo.clear();
+    m_hits.clear(); m_currentHit = -1;
     emitSelection();
+    emit findResults(0, 0);
     fitToView();
 }
 
@@ -373,6 +375,81 @@ void CircularMapView::undo() {
     update();
 }
 
+// -------------------------------------------------------------- find ---------
+
+QString CircularMapView::reverseComplement(const QString &s) {
+    QString r; r.reserve(s.size());
+    for (int i = s.size() - 1; i >= 0; --i) {
+        switch (s.at(i).toLatin1()) {
+            case 'A': r += 'T'; break; case 'T': r += 'A'; break;
+            case 'G': r += 'C'; break; case 'C': r += 'G'; break;
+            default:  r += 'N'; break;
+        }
+    }
+    return r;
+}
+
+void CircularMapView::findMatches(const QString &query, int maxMismatch, bool bothStrands) {
+    m_hits.clear();
+    m_currentHit = -1;
+
+    QString q;
+    for (QChar c : query) if (QString("ACGTNacgtn").contains(c)) q += c.toUpper();
+    const int N = m_seq.size();
+    const int ql = q.size();
+    if (ql == 0 || ql > N) { update(); emit findResults(0, 0); return; }
+
+    auto scan = [&](const QString &pat, int strand) {
+        const int last = m_linear ? (N - ql) : (N - 1);   // circular windows wrap the origin
+        for (int s = 0; s <= last; ++s) {
+            int mm = 0; QVector<int> pos;
+            for (int k = 0; k < ql; ++k) {
+                int idx = (s + k) % N;
+                if (m_seq.at(idx) != pat.at(k)) {
+                    if (++mm > maxMismatch) break;
+                    pos.append(idx + 1);
+                }
+            }
+            if (mm <= maxMismatch) m_hits.append({s + 1, ql, strand, pos});
+        }
+    };
+    scan(q, +1);
+    if (bothStrands) scan(reverseComplement(q), -1);
+
+    update();
+    if (!m_hits.isEmpty()) { m_currentHit = 0; gotoCurrentHit(); }
+    else emit findResults(0, 0);
+}
+
+void CircularMapView::gotoCurrentHit() {
+    if (m_currentHit < 0 || m_currentHit >= m_hits.size()) return;
+    const FindHit &h = m_hits[m_currentHit];
+    const int N = qMax(1, m_seq.size());
+    m_focus = std::fmod((h.start - 1) + h.len / 2.0, double(N));   // rotate hit to the top
+    if (h.start + h.len - 1 <= N) { m_selLo = h.start; m_selHi = h.start + h.len - 1; emitSelection(); }
+    emit findResults(m_hits.size(), m_currentHit + 1);
+    update();
+}
+
+void CircularMapView::nextHit() {
+    if (m_hits.isEmpty()) return;
+    m_currentHit = (m_currentHit + 1) % m_hits.size();
+    gotoCurrentHit();
+}
+
+void CircularMapView::prevHit() {
+    if (m_hits.isEmpty()) return;
+    m_currentHit = (m_currentHit - 1 + m_hits.size()) % m_hits.size();
+    gotoCurrentHit();
+}
+
+void CircularMapView::clearFind() {
+    m_hits.clear();
+    m_currentHit = -1;
+    emit findResults(0, 0);
+    update();
+}
+
 // ------------------------------------------------------------------- paint ---
 
 void CircularMapView::paintEvent(QPaintEvent *) {
@@ -399,6 +476,7 @@ void CircularMapView::paintEvent(QPaintEvent *) {
 
     drawRuler(p, g);
     if (m_showAnnotations) drawFeatures(p, g);
+    drawFindHits(p, g);
     drawSelection(p, g);
     if (m_ppb >= 3.0) drawBases(p, g);
 
@@ -493,6 +571,24 @@ void CircularMapView::drawFeatures(QPainter &p, const Geom &g) {
             p.drawText(QRectF(-80, -8, 160, 16), Qt::AlignCenter, f.name);
             p.restore();
         }
+    }
+}
+
+void CircularMapView::drawFindHits(QPainter &p, const Geom &g) {
+    if (m_hits.isEmpty()) return;
+    const double off = 9.0, thick = 8.0;
+    for (int i = 0; i < m_hits.size(); ++i) {
+        const FindHit &h = m_hits[i];
+        bool cur = (i == m_currentHit);
+        // hit band (green = matched), just outside the ring
+        p.setPen(cur ? QPen(QColor("#dcdcaa"), 1.8) : QPen(QColor(78, 201, 176), 1.0));
+        p.setBrush(QColor(78, 201, 176, cur ? 130 : 70));
+        p.drawPath(bandPath(h.start - 1, h.len, off, thick, g));
+        // flag mismatched bases in red
+        p.setPen(Qt::NoPen);
+        p.setBrush(QColor("#f44747"));
+        for (int pos : h.mm)
+            p.drawPath(bandPath((pos - 1) - 0.45, 0.9, off, thick, g));
     }
 }
 

@@ -36,6 +36,11 @@ See [REQUIREMENTS.md](REQUIREMENTS.md) for the full spec.
   primer_bind, …) draw as real **block arrows**; non-directional ones (rep_origin,
   terminator, misc_feature, protein_bind, …) draw as plain capsules. (FASTA carries no
   annotations of its own — types come from the GenBank/EMBL feature vocabulary.)
+- ✅ **Find (Cmd+F)** — a find bar searches for a subsequence and highlights **all
+  hits** around the plasmid (green bands). Supports **approximate matching** up to a
+  configurable **Hamming distance** (max mismatches) and searches **both strands**;
+  each **mismatched base is flagged in red** inside the hit. **Cmd+G / Cmd+Shift+G**
+  (or Next/Prev) cycle hits, rotating each to the top and selecting it; **Esc** closes.
 - 🔜 Restriction sites, BLAST, save/export, multi-record files — see REQUIREMENTS.md.
 
 > Sample library is generated in-memory; import real `.gb`/`.fasta` files for actual
@@ -78,6 +83,10 @@ On Linux: `sudo apt install qt6-base-dev qt6-svg-dev cmake build-essential`.
 | Click (no drag) | Clear selection |
 | Right-click | Context menu (Copy, Add Annotation, Paste, Delete, …) |
 | Ctrl+Z / Ctrl+C / Ctrl+V / Ctrl+A | Undo / Copy / Paste / Select All |
+| Cmd/Ctrl+F | Open Find bar (search subsequence, with mismatch tolerance) |
+| Cmd/Ctrl+G / Cmd/Ctrl+Shift+G | Find next / previous hit |
+| Cmd/Ctrl + / − / 0 | Zoom in / out / fit |
+| Esc | Close Find bar |
 | Toolbar `+` / `−` / Fit | Zoom in / out / fit whole plasmid |
 | Toolbar **Allow Editing** | Unlock the sequence for deletion/paste |
 | Zoom % box | Set zoom directly |

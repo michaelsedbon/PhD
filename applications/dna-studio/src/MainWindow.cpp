@@ -24,6 +24,7 @@
 #include <QHBoxLayout>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QShortcut>
 
 namespace {
 
@@ -148,6 +149,30 @@ void MainWindow::buildEditMenu() {
 
     auto *ann = m_editMenu->addAction("Add Annotation…");
     connect(ann, &QAction::triggered, m_map, &CircularMapView::addAnnotation);
+    m_editMenu->addSeparator();
+
+    auto *find = m_editMenu->addAction("Find…");
+    find->setShortcut(QKeySequence::Find);                 // Cmd/Ctrl+F
+    connect(find, &QAction::triggered, this, &MainWindow::showFindBar);
+
+    auto *findNext = m_editMenu->addAction("Find Next");
+    findNext->setShortcut(QKeySequence::FindNext);          // Cmd/Ctrl+G
+    connect(findNext, &QAction::triggered, m_map, &CircularMapView::nextHit);
+
+    auto *findPrev = m_editMenu->addAction("Find Previous");
+    findPrev->setShortcut(QKeySequence::FindPrevious);      // Cmd/Ctrl+Shift+G
+    connect(findPrev, &QAction::triggered, m_map, &CircularMapView::prevHit);
+}
+
+void MainWindow::showFindBar() {
+    m_findBar->show();
+    m_findEdit->setFocus();
+    m_findEdit->selectAll();
+    if (!m_findEdit->text().isEmpty()) doFind();
+}
+
+void MainWindow::doFind() {
+    m_map->findMatches(m_findEdit->text(), m_findMm->value(), m_findBoth->isChecked());
 }
 
 // ----------------------------------------------------------- main toolbar ----
@@ -281,12 +306,40 @@ QWidget *MainWindow::buildViewer() {
     auto *sp = new QWidget; sp->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
     sub->addWidget(sp);
     auto *zoomOutAct = sub->addAction(ic("zoom-out"), "Zoom out");
+    zoomOutAct->setShortcut(QKeySequence::ZoomOut);
     m_zoomBox = new QSpinBox; m_zoomBox->setRange(1, 500); m_zoomBox->setSuffix(" %");
     m_zoomBox->setMaximumWidth(80);
     sub->addWidget(m_zoomBox);
     auto *zoomInAct = sub->addAction(ic("zoom-in"), "Zoom in");
+    zoomInAct->setShortcut(QKeySequence::ZoomIn);
     auto *fitAct    = sub->addAction(ic("maximize"), "Fit");
+    fitAct->setShortcut(QKeySequence("Ctrl+0"));
     v->addWidget(sub);
+
+    // Find bar (hidden until Cmd+F)
+    m_findBar = new QWidget;
+    m_findBar->setStyleSheet("background:#2d2d2d;border-bottom:1px solid #3c3c3c;");
+    auto *fl = new QHBoxLayout(m_findBar); fl->setContentsMargins(8, 4, 8, 4); fl->setSpacing(8);
+    fl->addWidget(new QLabel("Find:"));
+    m_findEdit = new QLineEdit; m_findEdit->setPlaceholderText("sequence e.g. GAATTC");
+    m_findEdit->setMaximumWidth(260);
+    m_findEdit->setStyleSheet("font-family:'SF Mono','Consolas',monospace;");
+    fl->addWidget(m_findEdit);
+    fl->addWidget(new QLabel("Max mismatches:"));
+    m_findMm = new QSpinBox; m_findMm->setRange(0, 10); m_findMm->setMaximumWidth(56);
+    fl->addWidget(m_findMm);
+    m_findBoth = new QCheckBox("Both strands"); m_findBoth->setChecked(true);
+    fl->addWidget(m_findBoth);
+    auto *prevBtn = new QPushButton("‹ Prev");
+    auto *nextBtn = new QPushButton("Next ›");
+    fl->addWidget(prevBtn); fl->addWidget(nextBtn);
+    m_findCount = new QLabel("—"); m_findCount->setStyleSheet("color:#9d9d9d;");
+    fl->addWidget(m_findCount);
+    fl->addStretch();
+    auto *closeBtn = new QPushButton("✕"); closeBtn->setMaximumWidth(28);
+    fl->addWidget(closeBtn);
+    m_findBar->hide();
+    v->addWidget(m_findBar);
 
     m_map = new CircularMapView;
     v->addWidget(m_map, 1);
@@ -297,6 +350,22 @@ QWidget *MainWindow::buildViewer() {
     connect(zoomOutAct, &QAction::triggered, m_map, &CircularMapView::zoomOut);
     connect(zoomInAct,  &QAction::triggered, m_map, &CircularMapView::zoomIn);
     connect(fitAct,     &QAction::triggered, m_map, &CircularMapView::fitToView);
+
+    // Find wiring
+    connect(m_findEdit, &QLineEdit::textChanged, this, &MainWindow::doFind);
+    connect(m_findMm,   qOverload<int>(&QSpinBox::valueChanged), this, &MainWindow::doFind);
+    connect(m_findBoth, &QCheckBox::toggled, this, &MainWindow::doFind);
+    connect(m_findEdit, &QLineEdit::returnPressed, m_map, &CircularMapView::nextHit);
+    connect(nextBtn, &QPushButton::clicked, m_map, &CircularMapView::nextHit);
+    connect(prevBtn, &QPushButton::clicked, m_map, &CircularMapView::prevHit);
+    connect(closeBtn, &QPushButton::clicked, this, [this]{ m_findBar->hide(); m_map->clearFind(); m_map->setFocus(); });
+    auto *escFind = new QShortcut(QKeySequence(Qt::Key_Escape), m_findBar);
+    connect(escFind, &QShortcut::activated, this, [this]{ m_findBar->hide(); m_map->clearFind(); m_map->setFocus(); });
+    connect(m_map, &CircularMapView::findResults, this, [this](int count, int current){
+        if (m_findEdit->text().isEmpty()) m_findCount->setText("—");
+        else if (count == 0) m_findCount->setText("no matches");
+        else m_findCount->setText(QString("%1 of %2").arg(current).arg(count));
+    });
 
     tabs->addTab(seqTab, "Sequence View");
     tabs->addTab(new QWidget, "Annotations");

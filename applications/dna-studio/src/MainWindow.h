@@ -13,6 +13,8 @@ class QTreeWidget;
 class QTableWidget;
 class QMenu;
 class QAction;
+class QLineEdit;
+class QWidget;
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
@@ -30,6 +32,8 @@ private slots:
     void onSelectionChanged(int lo, int hi, int length);
     void onDocumentEdited();
     void openFiles();
+    void showFindBar();
+    void doFind();
 
 private:
     void buildMenuBar();
@@ -56,6 +60,13 @@ private:
     QTableWidget *m_table = nullptr;
     QMenu       *m_editMenu = nullptr;
     QAction     *m_editAction = nullptr;   // "Allow Editing" toggle
+
+    // find bar
+    QWidget   *m_findBar = nullptr;
+    QLineEdit *m_findEdit = nullptr;
+    QSpinBox  *m_findMm = nullptr;
+    QCheckBox *m_findBoth = nullptr;
+    QLabel    *m_findCount = nullptr;
 
     QHash<QString, QVector<SequenceDocument>> m_library;   // folder name → documents
     QString m_currentFolder;
