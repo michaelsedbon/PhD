@@ -1,9 +1,17 @@
-# DNA Studio
+# DNA Studio — Lab Suite
 
-A C++ / Qt 6 desktop DNA-editing app, layout inspired by **Geneious Prime**, themed
-with the SYNTHETICA Lab design system (VS Code dark, Lucide-style icons).
+A C++ / Qt 6 desktop app, themed with the SYNTHETICA Lab design system (VS Code dark,
+Lucide-style icons). It is a **multi-workspace shell** hosting three tools that switch
+from a left activity bar / the View menu / ⌘1 ⌘2 ⌘3:
 
-See [REQUIREMENTS.md](REQUIREMENTS.md) for the full spec.
+1. **DNA Studio** — sequence/construct editing (Geneious-inspired). This README.
+2. **Lab Notebook** — an Obsidian-style markdown editor over the PhD repo.
+3. **Projects** — the repo's Mermaid subsystem maps, viewed & edited live (embeds
+   the existing `render.html` in a `QWebEngineView`).
+
+See **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** for the shell/workspace design,
+the shared `LabStore` + cross-linking plan, and phasing. See
+[REQUIREMENTS.md](REQUIREMENTS.md) for the original DNA-tool spec.
 
 ## Status — v0.2
 
